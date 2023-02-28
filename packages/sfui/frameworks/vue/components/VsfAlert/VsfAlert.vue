@@ -13,7 +13,7 @@ const props = defineProps({
   },
   variant: {
     type: String as PropType<`${VsfAlertVariant}`>,
-    default: VsfAlertVariant.gray,
+    default: VsfAlertVariant.neutral,
   },
   type: {
     type: String as PropType<`${VsfAlertType}`>,

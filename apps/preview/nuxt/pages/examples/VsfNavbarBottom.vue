@@ -25,7 +25,11 @@
         </VsfNavbarBottomItem>
         <VsfNavbarBottomItem label="Cart" :active="active === 'Cart'" @click="onClickHandler('Cart')">
           <template #icon>
-            <VsfBadge bordered value="10" :class="[filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']">
+            <VsfBadge
+              bordered
+              value="10"
+              :class="[filled ? 'bg-white text-neutral-900' : 'bg-secondary-600 text-white']"
+            >
               <VsfIconShoppingCart />
             </VsfBadge>
           </template>
@@ -36,7 +40,7 @@
               dot
               bordered
               value="10"
-              :class="[filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white']"
+              :class="[filled ? 'bg-white text-neutral-900' : 'bg-secondary-600 text-white']"
             >
               <VsfIconFavorite />
             </VsfBadge>

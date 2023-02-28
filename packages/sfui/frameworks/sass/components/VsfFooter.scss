@@ -1,5 +1,5 @@
 .vsf-footer {
-  @apply pt-10 bg-gray-100;
+  @apply pt-10 bg-neutral-100;
 
   &__section {
     &--top {
@@ -11,7 +11,7 @@
     }
 
     &--bottom {
-      @apply bg-gray-900;
+      @apply bg-neutral-900;
 
       &__wrapper {
         @apply justify-end px-4 py-10 large:flex large:py-6 max-w-[1536px] mx-auto;
@@ -25,7 +25,7 @@
 
       a, button {
         &:hover{
-          @apply text-gray-900 underline;
+          @apply text-neutral-900 underline;
         }
       }
     }
@@ -51,7 +51,7 @@
   &__label {
     &--category,
     &--contact {
-      @apply font-medium leading-7 font-body text-gray-900 text-lg;
+      @apply font-medium leading-7 font-body text-neutral-900 text-lg;
     }
 
     &--category {
@@ -59,7 +59,7 @@
     }
 
     &--subcategory {
-      @apply py-2 text-gray-600 font-body;
+      @apply py-2 text-neutral-600 font-body;
     }
 
     &--contact {
@@ -70,7 +70,7 @@
       @apply mr-4 text-white;
 
       .vsf-icon {
-        @apply hover:bg-gray-500 hover:shadow-[0_0_0_8px] hover:shadow-gray-500 rounded-full;
+        @apply hover:bg-neutral-500 hover:shadow-[0_0_0_8px] hover:shadow-neutral-500 rounded-full;
       }
     }
 
@@ -99,7 +99,7 @@
     }
 
     &--contact-description {
-      @apply text-gray-600 font-body;
+      @apply text-neutral-600 font-body;
     }
   }
 }

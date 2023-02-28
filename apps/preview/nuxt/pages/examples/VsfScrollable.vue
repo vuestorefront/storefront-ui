@@ -2,12 +2,12 @@
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfScrollable v-bind="state" :draggable="draggable ? { sensitivity: 3 } : undefined">
       <div v-for="item in 4" :key="item" class="p-1">
-        <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item }}</div>
+        <div class="bg-neutral-300 w-[150px] h-[150px] flex justify-center items-center">{{ item }}</div>
       </div>
       <div v-for="item in 4" :key="item" data-group class="p-1">
         <div
           :class="[
-            'bg-gray-300',
+            'bg-neutral-300',
             direction === VsfScrollableDirection.horizontal ? 'w-[200px]' : 'w-[150px]',
             direction === VsfScrollableDirection.horizontal ? 'h-[150px]' : 'h-[200px]',
             'flex justify-center',
@@ -24,7 +24,7 @@
         </div>
       </div>
       <div v-for="item in 4" :key="item" class="p-1">
-        <div class="bg-gray-300 w-[150px] h-[150px] flex justify-center items-center">{{ item + 8 }}</div>
+        <div class="bg-neutral-300 w-[150px] h-[150px] flex justify-center items-center">{{ item + 8 }}</div>
       </div>
       <template v-if="ExampleCustomNav" #prev-button="{ onClick, hasPrev }">
         <button

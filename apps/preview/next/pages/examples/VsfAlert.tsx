@@ -33,7 +33,7 @@ function Example() {
       {
         type: 'select',
         modelName: 'variant',
-        propDefaultValue: VsfAlertVariant.gray,
+        propDefaultValue: VsfAlertVariant.neutral,
         options: Object.keys(VsfAlertVariant),
         propType: 'VsfAlertVariant',
         description: 'Alert color variant, affect rendered icon.',

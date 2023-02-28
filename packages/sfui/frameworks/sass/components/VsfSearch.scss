@@ -19,14 +19,14 @@
   }
 
   &__input {
-    @apply ml-2 outline-none bg-transparent text-gray-900 appearance-none placeholder:text-gray-500 font-body text-base block w-full;
+    @apply ml-2 outline-none bg-transparent text-neutral-900 appearance-none placeholder:text-neutral-500 font-body text-base block w-full;
     @apply disabled:placeholder:text-opacity-50 disabled:text-opacity-50 disabled:cursor-not-allowed;
 
     &-wrapper {
-      @apply relative flex-1 flex items-center p-2 ring-1 ring-gray-200 ring-inset rounded-l-md only:rounded-r-md text-gray-500;
+      @apply relative flex-1 flex items-center p-2 ring-1 ring-neutral-200 ring-inset rounded-l-md only:rounded-r-md text-neutral-500;
       @apply bg-white hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2;
       #{$self}--disabled & {
-        @apply bg-gray-100/50 ring-opacity-50 text-opacity-20;
+        @apply bg-disabled-100 ring-opacity-50 text-opacity-20;
       }
     }
 

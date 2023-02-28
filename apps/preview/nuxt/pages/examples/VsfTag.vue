@@ -63,7 +63,7 @@ export default defineComponent({
         ],
         {
           label: ref('Label'),
-          variant: ref<VsfTagVariant>(VsfTagVariant.gray),
+          variant: ref<VsfTagVariant>(VsfTagVariant.neutral),
           size: ref<VsfTagSize>(VsfTagSize.base),
           strong: ref(false),
           showIcon: ref(false),

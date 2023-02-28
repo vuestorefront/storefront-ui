@@ -1,6 +1,6 @@
 .vsf-card {
   $self: &;
-  @apply overflow-hidden border border-gray-200 rounded-md hover:shadow-lg;
+  @apply overflow-hidden border border-neutral-200 rounded-md hover:shadow-lg;
 
   &__content-wrapper {
     @apply p-4 flex flex-col;
@@ -19,7 +19,7 @@
   }
 
   &__description {
-    @apply text-gray-700 font-normal font-body min-w-0 break-words;
+    @apply text-neutral-700 font-normal font-body min-w-0 break-words;
   }
 
   &__button {

@@ -2,7 +2,7 @@
   @apply h-full w-full;
 
   &__aside {
-    @apply absolute bg-white h-full  border border-gray-200;
+    @apply absolute bg-white h-full  border border-neutral-200;
 
     width: min(calc(100vw - 56px), 376px);
 
@@ -11,7 +11,7 @@
     }
 
     &__close-button {
-      @apply bg-transparent absolute top-2 right-2 text-gray-500;
+      @apply bg-transparent absolute top-2 right-2 text-neutral-500;
     }
 
     &--left-side {

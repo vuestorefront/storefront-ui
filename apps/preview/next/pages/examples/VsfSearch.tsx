@@ -9,7 +9,7 @@ import { ExamplePageLayout } from '../examples';
 
 function ResultsPanel() {
   return (
-    <div className="bg-white top-1 relative rounded-md font-body text-base text-center p-3 shadow-md border border-gray-100">
+    <div className="relative p-3 text-base text-center bg-white border rounded-md shadow-md top-1 font-body border-neutral-100">
       <p>
         This panel is not a part of&nbsp;
         <code className="text-xs rounded bg-yellow-100 border border-yellow-300 py-0.5 px-1">VsfSearch</code>

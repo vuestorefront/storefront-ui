@@ -8,7 +8,7 @@
   }
 
   &__peer-wrapper {
-    @apply ring-1 ring-gray-200 ring-inset rounded-full flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-gray-100/50 peer-disabled:ring-1 peer-disabled:ring-gray-200/50 peer-disabled:hover:ring-gray-200/50 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline;
+    @apply ring-1 ring-neutral-200 ring-inset rounded-full flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline;
 
     #{$self}__prefix {
       @apply flex transition duration-300 peer-disabled:opacity-50;
@@ -19,12 +19,12 @@
     }
 
     #{$self}__close-icon {
-      @apply text-gray-500 peer-hover:text-primary-800 peer-active:text-primary-900 peer-disabled:opacity-20;
+      @apply text-neutral-500 peer-hover:text-primary-800 peer-active:text-primary-900 peer-disabled:opacity-20;
     }
   }
 
   &__label {
-    @apply relative font-normal text-gray-900;
+    @apply relative font-normal text-neutral-900;
   }
 
   &--hidden {

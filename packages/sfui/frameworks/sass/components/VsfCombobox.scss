@@ -22,7 +22,7 @@
   }
 
   &__help-text {
-    @apply text-xs text-gray-500 mt-0.5;
+    @apply text-xs text-neutral-500 mt-0.5;
   }
 
   &__error-text {
@@ -30,6 +30,6 @@
   }
 
   &__required-text {
-    @apply mt-1 text-sm font-normal text-gray-500 before:content-['*'];
+    @apply mt-1 text-sm font-normal text-neutral-500 before:content-['*'];
   }
 }

@@ -1,7 +1,13 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfTabs v-model="modelValue" :size="size">
-      <VsfTabsItem v-for="tab of tabs" :key="tab.label" :uid="tab.label" :disabled="tab.label === disabled">
+      <VsfTabsItem
+        v-for="tab of tabs"
+        :key="tab.label"
+        :uid="tab.label"
+        :disabled="tab.label === disabled"
+        :class="{ 'opacity-50': tab.label === disabled }"
+      >
         <template #prefix>
           <span v-if="slotPrefix">{{ slotPrefix }}</span> <VsfIconCircle v-else />
         </template>

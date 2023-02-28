@@ -1,6 +1,6 @@
 .vsf-radio-group {
   &__legend {
-    @apply mb-2 text-sm font-normal text-gray-500;
+    @apply mb-2 text-sm font-normal text-neutral-500;
   }
 
   &__list {
@@ -20,10 +20,10 @@
   }
 
   &__help-text {
-    @apply mt-1 text-xs font-normal text-gray-500;
+    @apply mt-1 text-xs font-normal text-neutral-500;
   }
 
   &__required-text {
-    @apply mt-1 text-sm font-normal text-gray-500;
+    @apply mt-1 text-sm font-normal text-neutral-500;
   }
 }

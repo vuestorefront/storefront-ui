@@ -1,8 +1,8 @@
 .vsf-accordion-item {
-  @apply w-full text-gray-900 normal-case border-none rounded-none shadow-none font-body;
+  @apply w-full text-neutral-900 normal-case border-none rounded-none shadow-none font-body;
 
   &__header {
-    @apply w-full inline-flex justify-between items-center pl-4 pr-3 hover:shadow-none hover:text-gray-900 hover:bg-gray-100 active:text-gray-900 cursor-pointer;
+    @apply w-full inline-flex justify-between items-center pl-4 pr-3 hover:shadow-none hover:text-neutral-900 hover:bg-neutral-100 active:text-neutral-900 cursor-pointer;
 
     &--right {
       @apply flex-row-reverse justify-end;
@@ -34,7 +34,7 @@
   }
 
   &__icon {
-    @apply w-6 h-6 transition-transform text-gray-500 ;
+    @apply w-6 h-6 transition-transform text-neutral-500;
   }
 
   &[open] &__icon {
@@ -42,6 +42,6 @@
   }
 
   &__content {
-    @apply px-4 py-2 text-gray-500;
+    @apply px-4 py-2 text-neutral-500;
   }
 }

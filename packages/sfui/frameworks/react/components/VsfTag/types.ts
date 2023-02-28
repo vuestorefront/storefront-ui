@@ -6,7 +6,7 @@ export enum VsfTagVariant {
   secondary = 'secondary',
   negative = 'negative',
   warning = 'warning',
-  gray = 'gray',
+  neutral = 'neutral',
 }
 
 export enum VsfTagSize {

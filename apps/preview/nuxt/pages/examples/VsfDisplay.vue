@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfDisplay :direction="direction" class="bg-gray-100 max-w-2xl">
+    <VsfDisplay :direction="direction" class="max-w-2xl bg-neutral-100">
       <template #media>
         <img :src="banner_placeholder" alt="" />
       </template>

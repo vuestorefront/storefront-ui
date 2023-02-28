@@ -12,7 +12,7 @@
       </template>
       <template #results>
         <div
-          class="bg-white top-1 relative rounded-md font-body text-base text-center p-3 shadow-md border border-gray-100"
+          class="relative p-3 text-base text-center bg-white border rounded-md shadow-md top-1 font-body border-neutral-100"
         >
           <p>
             This panel is not a part of&nbsp;<code

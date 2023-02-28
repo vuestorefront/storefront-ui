@@ -20,11 +20,11 @@
   }
 
   &__label {
-    @apply text-gray-900 font-body text-base ml-3 cursor-pointer;
+    @apply text-neutral-900 font-body text-base ml-3 cursor-pointer;
   }
 
   &__input {
-    @apply flex self-center h-[18px] min-w-[18px] border-2 rounded-sm appearance-none cursor-pointer text-gray-500 hover:border-primary-800 active:border-primary-900 hover:checked:text-primary-800 hover:indeterminate:text-primary-800 active:checked:text-primary-900 checked:text-primary-700 checked:bg-checked-checkbox-current border-current indeterminate:bg-indeterminate-checkbox-current indeterminate:text-primary-700;
+    @apply flex self-center h-[18px] min-w-[18px] border-2 rounded-sm appearance-none cursor-pointer text-neutral-500 hover:border-primary-800 active:border-primary-900 hover:checked:text-primary-800 hover:indeterminate:text-primary-800 active:checked:text-primary-900 checked:text-primary-700 checked:bg-checked-checkbox-current border-current indeterminate:bg-indeterminate-checkbox-current indeterminate:text-primary-700;
 
     &--invalid, &:invalid {
       @apply border-negative-700 hover:border-negative-800 active:border-negative-900;
@@ -52,24 +52,24 @@
   }
 
   &__help-text {
-    @apply text-xs mt-0.5 text-gray-500;
+    @apply text-xs mt-0.5 text-neutral-500;
   }
 
   &__required-text {
-    @apply text-gray-500 mt-2 before:content-['*'] block;
+    @apply text-neutral-500 mt-2 before:content-['*'] block;
   }
 
   &--disabled {
     #{$self}__input {
-      @apply text-gray-300 hover:text-gray-300 hover:border-current cursor-not-allowed;
+      @apply text-disabled-500 hover:text-disabled-500 hover:border-current cursor-not-allowed;
     }
 
     #{$self}__text-wrapper, #{$self}__help-text {
-      @apply opacity-50;
+      @apply text-disabled-500;
     }
 
     #{$self}__label, #{$self}__required-text  {
-      @apply text-opacity-40;
+      @apply text-disabled-900;
     }
   }
 

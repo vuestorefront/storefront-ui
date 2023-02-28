@@ -68,7 +68,7 @@ function Example() {
         <VsfBadge
           bordered
           value={10}
-          className={state.get.filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
+          className={state.get.filled ? 'bg-white text-neutral-900' : 'bg-secondary-600 text-white'}
         >
           <VsfIconShoppingCart />
         </VsfBadge>
@@ -81,7 +81,7 @@ function Example() {
           bordered
           value={10}
           dot
-          className={state.get.filled ? 'bg-white text-gray-900' : 'bg-secondary-600 text-white'}
+          className={state.get.filled ? 'bg-white text-neutral-900' : 'bg-secondary-600 text-white'}
         >
           <VsfIconFavorite />
         </VsfBadge>

@@ -32,7 +32,7 @@
   }
 
   &__star-empty {
-    @apply text-gray-500/50;
+    @apply text-disabled-500;
   }
 
   &__count,

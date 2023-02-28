@@ -2,7 +2,7 @@
   $self: &;
 
   &__label {
-    @apply stroke-0 fill-gray-900 font-medium stroke-black;
+    @apply stroke-0 fill-neutral-900 font-medium stroke-black;
 
     &--xs {
       @apply text-[4px] leading-[4px];

@@ -1,6 +1,6 @@
 .vsf-navbar-top {
   $self: &;
-  @apply w-full h-14 md:h-20 bg-white border-b border-gray-200 flex justify-center;
+  @apply w-full h-14 md:h-20 bg-white border-b border-neutral-200 flex justify-center;
 
   &--branded#{&} {
     @apply bg-primary-700 text-white border-0;

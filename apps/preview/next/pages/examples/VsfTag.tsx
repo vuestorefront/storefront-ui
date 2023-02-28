@@ -45,7 +45,7 @@ function Example() {
     ],
     {
       label: 'Label',
-      variant: VsfTagVariant.gray,
+      variant: VsfTagVariant.neutral,
       size: VsfTagSize.base,
       strong: false,
       showIcon: false,
