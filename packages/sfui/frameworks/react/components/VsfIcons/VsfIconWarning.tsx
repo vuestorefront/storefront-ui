@@ -2,21 +2,12 @@ import type { VsfIconProps } from './types';
 import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
 
 export default function VsfIconWarning({
-  className = '',
   size = VsfIconSize.base,
-  ariaLabel,
-  viewBox,
+  viewBox = '0 0 24 24',
   ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase
-      {...attributes}
-      className={className}
-      size={size}
-      ariaLabel={ariaLabel}
-      data-testid="warning"
-      viewBox={viewBox ?? '0 0 24 24'}
-    >
+    <VsfIconBase {...attributes} size={size} viewBox={viewBox} data-testid="warning">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

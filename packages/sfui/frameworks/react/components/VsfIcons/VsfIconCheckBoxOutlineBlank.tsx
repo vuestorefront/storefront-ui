@@ -2,21 +2,12 @@ import type { VsfIconProps } from './types';
 import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
 
 export default function VsfIconCheckBoxOutlineBlank({
-  className = '',
   size = VsfIconSize.base,
-  ariaLabel,
-  viewBox,
+  viewBox = '0 0 24 24',
   ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase
-      {...attributes}
-      className={className}
-      size={size}
-      ariaLabel={ariaLabel}
-      data-testid="check-box-outline-blank"
-      viewBox={viewBox ?? '0 0 24 24'}
-    >
+    <VsfIconBase {...attributes} size={size} viewBox={viewBox} data-testid="check-box-outline-blank">
       <path
         fillRule="evenodd"
         clipRule="evenodd"

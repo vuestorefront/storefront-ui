@@ -2,21 +2,12 @@ import type { VsfIconProps } from './types';
 import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
 
 export default function VsfIconLocationOn({
-  className = '',
   size = VsfIconSize.base,
-  ariaLabel,
-  viewBox,
+  viewBox = '0 0 24 24',
   ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase
-      {...attributes}
-      className={className}
-      size={size}
-      ariaLabel={ariaLabel}
-      data-testid="location-on"
-      viewBox={viewBox ?? '0 0 24 24'}
-    >
+    <VsfIconBase {...attributes} size={size} viewBox={viewBox} data-testid="location-on">
       <>
         <path d="M10 10c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2Z" />
         <path

@@ -9,7 +9,7 @@ function addRepoPathToFrontmatter(content, fileName) {
 }
 
 function removePart(content, framework) {
-    const removeRegex = new RegExp(`<!-- ${framework} -->.*?<!-- end ${framework} -->(?:\n|$)`, 'gs');
+    const removeRegex = new RegExp(`<!-- ${framework} -->.*?<!-- end ${framework} -->(?:\n|$)?`, 'gs');
     const docsWithout = content.replace(removeRegex, '');
     const removeIfsRegex = /<!--(.*?)-->\n?/g;
     const docsWithoutIfs = docsWithout.replace(removeIfsRegex, '');

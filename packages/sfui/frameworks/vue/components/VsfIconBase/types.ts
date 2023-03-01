@@ -1,15 +1,8 @@
+import { VsfIconSize } from '@storefront-ui/shared';
+
 export interface VsfIconBaseProps {
+  size?: `${VsfIconSize}`;
   content: string;
-  size?: VsfIconSize;
 }
 
-export enum VsfIconSize {
-  xs = 'xs',
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-  xl = 'xl',
-  '2xl' = '2xl',
-  '3xl' = '3xl',
-  '4xl' = '4xl',
-}
+export { VsfIconSize };

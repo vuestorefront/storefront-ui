@@ -2,21 +2,12 @@ import type { VsfIconProps } from './types';
 import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
 
 export default function VsfIconRadioButtonUnchecked({
-  className = '',
   size = VsfIconSize.base,
-  ariaLabel,
-  viewBox,
+  viewBox = '0 0 24 24',
   ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase
-      {...attributes}
-      className={className}
-      size={size}
-      ariaLabel={ariaLabel}
-      data-testid="radio-button-unchecked"
-      viewBox={viewBox ?? '0 0 24 24'}
-    >
+    <VsfIconBase {...attributes} size={size} viewBox={viewBox} data-testid="radio-button-unchecked">
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2Zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8Z" />
     </VsfIconBase>
   );
