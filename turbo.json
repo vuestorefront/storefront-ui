@@ -5,6 +5,7 @@
       "cache": false,
       "dependsOn": [
         "^build:shared",
+        "^build:typography",
         "^build"
       ],
       "outputs": [
@@ -58,6 +59,9 @@
     "build:shared": {
       "cache": false
     },
+    "build:typography": {
+      "cache": false
+    },
     "build:test-utils": {
       "cache": false
     },
@@ -90,6 +94,7 @@
     "test:ci:react": {
       "dependsOn": [
         "^build:shared",
+        "^build:typography",
         "build:test-utils"
       ],
       "cache": false

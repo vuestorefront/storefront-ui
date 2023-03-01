@@ -4,7 +4,7 @@
 
     <VsfDialog v-bind="state" v-model="modelValue">
       <section class="max-w-xs">
-        <h3 class="font-bold text-lg">Title</h3>
+        <h3 class="typography-headline-2">Title</h3>
         <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
         <footer class="mt-4 flex justify-end gap-4">

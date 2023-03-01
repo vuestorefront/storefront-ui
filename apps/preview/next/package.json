@@ -41,6 +41,7 @@
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
     "@storefront-ui/tests-shared": "workspace:*",
+    "@storefront-ui/typography": "workspace:*",
     "@types/node": "^18.13.0",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",

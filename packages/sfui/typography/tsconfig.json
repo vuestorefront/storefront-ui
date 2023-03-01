@@ -1,0 +1,16 @@
+{
+  "extends": "@storefront-ui/typescript-config/base.json",
+  "compilerOptions": {
+    "sourceMap": true,
+    "noEmit": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "baseUrl": ".",
+    "types": [
+      "vite/client"
+    ]
+  },
+  "include": [
+    "**/*.ts"
+  ]
+}
