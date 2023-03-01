@@ -55,7 +55,7 @@ function Example() {
         }}
       >
         <section className="max-w-xs">
-          <h3 className="font-bold text-lg">Title</h3>
+          <h3 className="typography-headline-2">Title</h3>
           <p className="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
           <footer className="mt-4 flex justify-end gap-4">

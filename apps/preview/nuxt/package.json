@@ -18,6 +18,7 @@
     "@storefront-ui/sass": "workspace:*",
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
+    "@storefront-ui/typography": "workspace:*",
     "@storefront-ui/vue": "workspace:*",
     "@vueuse/core": "^9.12.0",
     "autoprefixer": "^10.4.13",
