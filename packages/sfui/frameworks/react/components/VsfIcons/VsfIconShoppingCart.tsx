@@ -2,21 +2,12 @@ import type { VsfIconProps } from './types';
 import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
 
 export default function VsfIconShoppingCart({
-  className = '',
   size = VsfIconSize.base,
-  ariaLabel,
-  viewBox,
+  viewBox = '0 0 24 24',
   ...attributes
 }: VsfIconProps) {
   return (
-    <VsfIconBase
-      {...attributes}
-      className={className}
-      size={size}
-      ariaLabel={ariaLabel}
-      data-testid="shopping-cart"
-      viewBox={viewBox ?? '0 0 24 24'}
-    >
+    <VsfIconBase {...attributes} size={size} viewBox={viewBox} data-testid="shopping-cart">
       <>
         <path d="M17.7 22a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-8 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z" />
         <path

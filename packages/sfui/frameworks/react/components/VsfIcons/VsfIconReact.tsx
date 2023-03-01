@@ -1,22 +1,9 @@
 import type { VsfIconProps } from './types';
 import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
 
-export default function VsfIconReact({
-  className = '',
-  size = VsfIconSize.base,
-  ariaLabel,
-  viewBox,
-  ...attributes
-}: VsfIconProps) {
+export default function VsfIconReact({ size = VsfIconSize.base, viewBox = '0 0 24 24', ...attributes }: VsfIconProps) {
   return (
-    <VsfIconBase
-      {...attributes}
-      className={className}
-      size={size}
-      ariaLabel={ariaLabel}
-      data-testid="react"
-      viewBox={viewBox ?? '0 0 24 24'}
-    >
+    <VsfIconBase {...attributes} size={size} viewBox={viewBox} data-testid="react">
       <>
         <path d="M13.96 11.952c0 1.099-.877 1.99-1.96 1.99s-1.96-.891-1.96-1.99c0-1.098.877-1.989 1.96-1.989s1.96.89 1.96 1.99Z" />
         <path

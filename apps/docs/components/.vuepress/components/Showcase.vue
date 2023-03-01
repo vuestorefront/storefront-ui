@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="flex flex-col">
     <div class="flex justify-end">
       <button @click="tab = 1" class="px-3 py-2 mr-2" :class="[tab === 1 ? 'text-green border-b border-green' : 'text-white']">Preview</button>
       <button @click="tab = 2" class="px-3 py-2" :class="[tab === 2 ? 'text-green border-b border-green' : 'text-white']">Source</button>
     </div>
-    <div ref="wrapperRef" class="relative">
-      <div ref="previewElementRef" class="pt-4" :class="[tab === 1 ? 'flex' : 'hidden']" @mousedown="mouseDownListener">
+    <div ref="wrapperRef" class="relative flex-1 flex flex-col">
+      <div ref="previewElementRef" class="pt-4 flex-grow" :class="[tab === 1 ? 'flex' : 'hidden']" @mousedown="mouseDownListener">
         <div class="absolute inset-0" v-show="isHandlerDragging"></div>
-        <Generate :showcase-path="showcaseName" class="flex-grow" style="margin-top: 0;"/>
+        <Generate :showcase-path="showcaseName" :allow="allow" class="flex-grow" style="margin-top: 0;"/>
         <div ref="handlerRef" class="w-2 bg-green select-none" style="cursor: ew-resize"></div>
       </div>
       <div v-show="tab === 2" class="relative">
@@ -26,6 +26,10 @@ export default {
     showcaseName: {
       type: String,
       default: undefined
+    },
+    allow: {
+      type: String,
+      default: undefined,
     }
   },
   data: () => ({

@@ -1,6 +1,6 @@
 <template>
   <div class="custom-block border rounded bg-white mt-4" :class="{'generate': !showcasePath}">
-    <iframe :src="exampleUrl" class="w-full h-full" />
+    <iframe :src="exampleUrl" :allow="allow" class="w-full h-full" />
   </div>
 </template>
 
@@ -12,6 +12,10 @@ export default {
     showcasePath: {
       type: String,
       default: undefined
+    },
+    allow: {
+      type: String,
+      default: undefined,
     }
   },
   computed: {

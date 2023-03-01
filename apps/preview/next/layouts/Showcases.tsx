@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { createElement, ReactElement, useState } from 'react';
+import { Fragment, createElement, ReactElement, useState } from 'react';
 import useSWR from 'swr';
 import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
 import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';
@@ -65,7 +65,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
           />
           <ul className="sidebar-list">
             {Object.keys(groups).map((group) => (
-              <>
+              <Fragment key={group}>
                 {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */}
                 <li
                   className="bg-gray-200 px-2 py-1 cursor-pointer flex justify-between select-none"
@@ -103,7 +103,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
                     </ul>
                   </li>
                 ) : undefined}
-              </>
+              </Fragment>
             ))}
           </ul>
         </div>

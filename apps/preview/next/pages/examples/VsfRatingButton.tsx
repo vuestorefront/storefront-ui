@@ -55,7 +55,7 @@ function Example() {
         propDefaultValue: '',
         propType: 'Function',
         description:
-          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStar size={size} ariaLabel={''} />",
+          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStar size={size} aria-label={''} />",
       },
       {
         type: 'select',
@@ -64,7 +64,7 @@ function Example() {
         propDefaultValue: '',
         propType: 'Function',
         description:
-          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStar size={size} ariaLabel={''} />",
+          "Pass the function returning icon component, e.g.: (size?: VsfIconSize) => <VsfIconStar size={size} aria-label={''} />",
       },
     ],
     {
@@ -98,9 +98,13 @@ function Example() {
         max={state.get.max}
         disabled={state.get.disabled}
         name={state.get.name}
-        ariaLabel={state.get.ariaLabel}
-        renderIconFilled={(size?: VsfIconSize) => <RenderIconFilledComponent size={size} ariaLabel={''} />}
-        renderIconEmpty={(size?: VsfIconSize) => <RenderIconEmptyComponent size={size} ariaLabel={''} />}
+        aria-label={state.get.ariaLabel}
+        renderIconFilled={(size?: VsfIconSize) => (
+          <RenderIconFilledComponent size={size} aria-label="Rating icon filled" />
+        )}
+        renderIconEmpty={(size?: VsfIconSize) => (
+          <RenderIconEmptyComponent size={size} aria-label="Rating icon not filled" />
+        )}
       />
     </ComponentExample>
   );

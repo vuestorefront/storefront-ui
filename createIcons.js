@@ -91,7 +91,7 @@ const attributesMap = {
 
 const vueIcon = (name, content, attributes) => `
 <template>
-    <VsfIconBase :size="size" viewBox="${attributes.viewBox}" ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`} content="${content}"/>
+    <VsfIconBase :size="size" viewBox="${attributes.viewBox}" ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</VsfIconBase>
 </template>
 <script lang="ts" setup>
 import { PropType } from 'vue';
@@ -110,13 +110,11 @@ import type { VsfIconProps } from '${relativePathToIconBasePath}VsfIcons/types';
 import { VsfIconBase, VsfIconSize } from '${relativePathToIconBasePath}VsfIconBase';
 
 export default function VsfIcon${camelCaseName}({
-    className = '',
     size = VsfIconSize.base,
-    ariaLabel,
-    viewBox,
+    viewBox = '${attributes.viewBox}',
     ...attributes
 }: VsfIconProps) {
-    return <VsfIconBase {...attributes} className={className} size={size} ariaLabel={ariaLabel} ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`} viewBox={viewBox ?? '${attributes.viewBox}'}>${content}</VsfIconBase>;
+    return <VsfIconBase {...attributes} size={size} viewBox={viewBox} ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</VsfIconBase>;
 }`;
 
 const vueExports = [];
