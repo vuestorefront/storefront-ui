@@ -29,13 +29,15 @@
     "build:next": {
       "cache": false,
       "dependsOn": [
-        "^build:react"
+        "^build:react",
+        "^build:typography"
       ]
     },
     "build:nuxt": {
       "cache": false,
       "dependsOn": [
-        "^build:vue"
+        "^build:vue",
+        "^build:typography"
       ]
     },
     "build:react": {
