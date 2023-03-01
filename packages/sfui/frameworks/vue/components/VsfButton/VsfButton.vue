@@ -1,6 +1,5 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue';
-import { computed, toRefs } from 'vue';
+import { type PropType, ConcreteComponent, computed, toRefs, useSlots } from 'vue';
 import { VsfButtonSize, VsfButtonVariant } from './types';
 
 const props = defineProps({
@@ -12,74 +11,62 @@ const props = defineProps({
     type: String as PropType<`${VsfButtonVariant}`>,
     default: VsfButtonVariant.primary,
   },
-  rounded: {
-    type: Boolean,
-    default: false,
-  },
   disabled: {
     type: Boolean,
     default: false,
   },
-  greyscale: {
+  square: {
     type: Boolean,
     default: false,
   },
-  tile: {
-    type: Boolean,
-    default: false,
-  },
-  block: {
-    type: Boolean,
-    default: false,
-  },
-  link: {
-    type: String,
-    default: undefined,
-  },
-  type: {
-    type: String as PropType<'button' | 'submit' | 'reset'>,
+  tag: {
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: 'button',
   },
-  truncate: {
-    type: Boolean,
-    default: false,
-  },
 });
-const { link } = toRefs(props);
-// TODO: add VsfLink when done, then we can add link object and linkTag prop
-const componentTag = computed(() => (link?.value ? 'a' : 'button'));
-</script>
 
+const { size, variant, square } = toRefs(props);
+const slots = useSlots();
+
+const sizeClasses = computed(() => {
+  switch (size.value) {
+    case VsfButtonSize.sm:
+      return [
+        square.value ? 'p-1.5' : 'leading-5 text-sm py-0.75 px-3',
+        slots.prefix || slots.suffix ? 'gap-1.5' : null,
+      ].join(' ');
+    case VsfButtonSize.lg:
+      return [square.value ? 'p-4' : 'py-3 leading-6 px-6', slots.prefix || slots.suffix ? 'gap-3' : null].join(' ');
+    default:
+      return [square.value ? 'p-2' : 'py-2 leading-6 px-4', slots.prefix || slots.suffix ? 'gap-2' : null].join(' ');
+  }
+});
+
+const variantClasses = computed(() => {
+  switch (variant.value) {
+    case VsfButtonVariant.secondary:
+      return 'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ring-1 ring-primary-700 hover:shadow-medium active:shadow shadow hover:ring-primary-800 active:ring-primary-900 disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50';
+    case VsfButtonVariant.tertiary:
+      return 'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 disabled:bg-transparent';
+    default:
+      return 'text-white hover:shadow-medium shadow-base bg-primary-700 hover:bg-primary-800 active:bg-primary-900 disabled:bg-disabled-300';
+  }
+});
+</script>
 <template>
   <component
-    :is="componentTag"
-    :href="link ? link : undefined"
-    :disabled="link ? undefined : disabled ?? undefined"
-    :type="componentTag === 'button' ? type : undefined"
+    :is="tag"
+    :disabled="disabled"
     :class="[
-      'vsf-button',
-      `vsf-button--${size}`,
-      `vsf-button--${variant}`,
-      {
-        'vsf-button--disabled': disabled,
-        'vsf-button--rounded': rounded,
-        'vsf-button--tile': tile,
-        'vsf-button--block': block,
-        'vsf-button--greyscale': greyscale,
-        'vsf-button--has-prefix': $slots.prefix,
-        'vsf-button--has-suffix': $slots.suffix,
-        'vsf-button--no-content': !$slots.default,
-      },
+      'inline-flex items-center justify-center font-medium text-base focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
+
+      sizeClasses,
+      variantClasses,
     ]"
     data-testid="button"
   >
-    <span v-if="$slots.prefix" class="vsf-button__prefix">
-      <slot name="prefix"></slot>
-    </span>
-    <span v-if="truncate" :class="{ 'vsf-button--truncate': truncate }"><slot /></span>
-    <slot v-else />
-    <span v-if="$slots.suffix" class="vsf-button__suffix">
-      <slot name="suffix"></slot>
-    </span>
+    <slot v-if="$slots.prefix" name="prefix"></slot>
+    <slot />
+    <slot v-if="$slots.suffix" name="suffix"></slot>
   </component>
 </template>

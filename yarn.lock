@@ -3721,6 +3721,7 @@ __metadata:
     classnames: ^2.3.2
     eslint: ^8.34.0
     jw-paginate: ^1.0.4
+    react-polymorphed: ^2.1.0
     react-transition-group: ^4.4.5
     react-use: ^17.4.0
     tabbable: ^6.1.1
@@ -20451,6 +20452,15 @@ __metadata:
   version: 16.13.1
   resolution: "react-is@npm:16.13.1"
   checksum: f7a19ac3496de32ca9ae12aa030f00f14a3d45374f1ceca0af707c831b2a6098ef0d6bdae51bd437b0a306d7f01d4677fcc8de7c0d331eb47ad0f46130e53c5f
+  languageName: node
+  linkType: hard
+
+"react-polymorphed@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "react-polymorphed@npm:2.1.0"
+  peerDependencies:
+    "@types/react": ">=16.8"
+  checksum: adf51602112774e632a4d91be23dd28a4909bb1180ba8802b97e328c66704f58a8fb65a1b25eafcb78d2c177b9e16dc281a8529e006bdab25c6989c3ce5f0f33
   languageName: node
   linkType: hard
 

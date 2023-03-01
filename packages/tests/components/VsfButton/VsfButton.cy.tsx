@@ -11,43 +11,26 @@ const { vue: VsfIconIndeterminateCheckBoxVue, react: VsfIconIndeterminateCheckBo
 
 describe('VsfButton', () => {
   const slotDefaultContent = 'button content';
-  enum ButtonTypes {
-    button = 'button',
-    submit = 'submit',
-    reset = 'reset',
-  }
 
   const page = () => new VsfButtonBaseObject('button');
 
   type InitializeComponentParams = {
     size?: VsfButtonSize;
     variant?: VsfButtonVariant;
-    rounded?: boolean;
     disabled?: boolean;
-    tile?: boolean;
-    block?: boolean;
-    greyscale?: boolean;
-    truncate?: boolean;
-    link?: string;
+    square?: boolean;
     slotPrefix?: boolean;
     slotSuffix?: boolean;
     slotDefault?: boolean;
-    type?: ButtonTypes;
   };
   const initializeComponent = ({
     size = VsfButtonSize.base,
     variant = VsfButtonVariant.primary,
-    rounded,
     disabled,
-    tile,
-    block,
-    greyscale,
-    truncate,
-    link = '',
+    square,
     slotPrefix,
     slotSuffix,
     slotDefault = true,
-    type = undefined,
   }: InitializeComponentParams = {}) => {
     return mount({
       vue: {
@@ -61,17 +44,8 @@ describe('VsfButton', () => {
         props: {
           size,
           variant,
-          rounded,
           disabled,
-          greyscale,
-          truncate,
-          tile,
-          block,
-          link,
-          type,
-        },
-        attrs: {
-          ...(truncate && { style: 'max-width: 100px;' }),
+          square,
         },
         slots: {
           ...(slotPrefix && { prefix: '<VsfIconCheckCircleVue/>' }),
@@ -83,15 +57,8 @@ describe('VsfButton', () => {
         <VsfButtonReact
           size={size}
           variant={variant}
-          rounded={rounded}
           disabled={disabled}
-          tile={tile}
-          block={block}
-          link={link}
-          greyscale={greyscale}
-          truncate={truncate}
-          style={{ ...(truncate && { maxWidth: '100px' }) }}
-          type={type}
+          square={square}
           slotPrefix={slotPrefix && <VsfIconCheckCircleReact />}
           slotSuffix={slotSuffix && <VsfIconIndeterminateCheckBoxReact />}
         >
@@ -108,7 +75,7 @@ describe('VsfButton', () => {
   it('initial state', () => {
     initializeComponent();
 
-    page().doesNotHaveHref().hasTypeOnButton(ButtonTypes.button).makeSnapshot();
+    page().makeSnapshot();
   });
 
   describe('when prop size is set to ', () => {
@@ -132,131 +99,70 @@ describe('VsfButton', () => {
           page().makeSnapshot();
         });
       });
+    });
 
-      describe(`${componentVariant} and greyscale=true`, () => {
-        it(`should render correct ${componentVariant} variant`, () => {
-          initializeComponent({ variant: componentVariant, greyscale: true });
+    describe('when prop disabled=true', () => {
+      it(`should render as disabled`, () => {
+        initializeComponent({ disabled: true });
 
-          page().makeSnapshot();
-        });
+        page().isDisabled().makeSnapshot();
       });
     });
-  });
 
-  describe('when prop type is set to ', () => {
-    Object.values(ButtonTypes).forEach((buttonType) => {
-      describe(`${buttonType}`, () => {
-        it(`should render correct ${buttonType} button type attr`, () => {
-          initializeComponent({ type: buttonType });
+    describe('when prop square=true', () => {
+      it(`should render as square button`, () => {
+        initializeComponent({ square: true, size: VsfButtonSize.base });
 
-          page().hasTypeOnButton(buttonType);
-        });
+        page().isSquare('p-2').makeSnapshot();
       });
     });
-  });
 
-  describe('when prop rounded=true', () => {
-    it(`should render with rounded borders`, () => {
-      initializeComponent({ rounded: true });
+    describe('when only prefix', () => {
+      it(`should render square button`, () => {
+        initializeComponent({ slotPrefix: true, slotDefault: false });
 
-      page().makeSnapshot();
+        page().makeSnapshot();
+      });
     });
-  });
 
-  describe('when prop disabled=true', () => {
-    it(`should render as disabled`, () => {
-      initializeComponent({ disabled: true });
+    describe('when only suffix', () => {
+      it(`should render square button`, () => {
+        initializeComponent({ slotSuffix: true, slotDefault: false });
 
-      page().isDisabled().makeSnapshot();
+        page().makeSnapshot();
+      });
     });
-  });
 
-  describe('when prop tile=true', () => {
-    it(`should render as tile`, () => {
-      initializeComponent({ tile: true });
+    describe('when suffix and prefix', () => {
+      it(`should render button with same gaps`, () => {
+        initializeComponent({ slotPrefix: true, slotSuffix: true, slotDefault: false });
 
-      page().makeSnapshot();
+        page().makeSnapshot();
+      });
     });
-  });
 
-  describe('when prop type=true', () => {
-    it(`should render as tile`, () => {
-      initializeComponent({ tile: true });
+    describe('when suffix, content and prefix', () => {
+      it(`should render button with same gaps`, () => {
+        initializeComponent({ slotPrefix: true, slotSuffix: true, slotDefault: true });
 
-      page().makeSnapshot();
+        page().makeSnapshot();
+      });
     });
-  });
 
-  describe('when prop block=true', () => {
-    it(`should render full with`, () => {
-      initializeComponent({ block: true });
+    describe('when prefix and content', () => {
+      it(`should render button with prefix and content with correct gaps`, () => {
+        initializeComponent({ slotPrefix: true, slotDefault: true });
 
-      page().makeSnapshot();
+        page().makeSnapshot();
+      });
     });
-  });
 
-  describe('when prop link is set', () => {
-    const link = 'http://somelink.com';
-    it(`should render as <a> element`, () => {
-      initializeComponent({ link });
+    describe('when content and suffix', () => {
+      it(`should render button with content and suffix with correct gaps`, () => {
+        initializeComponent({ slotSuffix: true, slotDefault: true });
 
-      page().hasTag('A').hasHref(link).makeSnapshot();
-    });
-  });
-
-  describe('when only prefix', () => {
-    it(`should render square button`, () => {
-      initializeComponent({ slotPrefix: true, slotDefault: false });
-
-      page().makeSnapshot();
-    });
-  });
-
-  describe('when only suffix', () => {
-    it(`should render square button`, () => {
-      initializeComponent({ slotSuffix: true, slotDefault: false });
-
-      page().makeSnapshot();
-    });
-  });
-
-  describe('when suffix and prefix', () => {
-    it(`should render button with same gaps`, () => {
-      initializeComponent({ slotPrefix: true, slotSuffix: true, slotDefault: false });
-
-      page().makeSnapshot();
-    });
-  });
-
-  describe('when suffix, content and prefix', () => {
-    it(`should render button with same gaps`, () => {
-      initializeComponent({ slotPrefix: true, slotSuffix: true, slotDefault: true });
-
-      page().makeSnapshot();
-    });
-  });
-
-  describe('when prefix and content', () => {
-    it(`should render button with prefix and content with correct gaps`, () => {
-      initializeComponent({ slotPrefix: true, slotDefault: true });
-
-      page().makeSnapshot();
-    });
-  });
-
-  describe('when content and suffix', () => {
-    it(`should render button with content and suffix with correct gaps`, () => {
-      initializeComponent({ slotSuffix: true, slotDefault: true });
-
-      page().makeSnapshot();
-    });
-  });
-
-  describe('when truncate=true', () => {
-    it(`should truncate text inside button`, () => {
-      initializeComponent({ truncate: true });
-
-      page().makeSnapshot();
+        page().makeSnapshot();
+      });
     });
   });
 });

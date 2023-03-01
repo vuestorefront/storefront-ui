@@ -1,4 +1,5 @@
-import type { ReactNode, MouseEventHandler } from 'react';
+import type { ReactNode, PropsWithChildren } from 'react';
+import type { PropsWithStyle } from '../../shared/types';
 
 export enum VsfButtonSize {
   sm = 'sm',
@@ -12,20 +13,13 @@ export enum VsfButtonVariant {
   tertiary = 'tertiary',
 }
 
-export type VsfButtonProps<E extends HTMLAnchorElement | HTMLButtonElement> = {
-  children?: ReactNode;
+export interface VsfButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    PropsWithStyle,
+    PropsWithChildren {
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
   size?: `${VsfButtonSize}`;
   variant?: `${VsfButtonVariant}`;
-  rounded?: boolean;
-  disabled?: boolean;
-  greyscale?: boolean;
-  truncate?: boolean;
-  tile?: boolean;
-  block?: boolean;
-  className?: string;
-  onClick?: MouseEventHandler<E>;
-} & (E extends HTMLAnchorElement
-  ? { link: string; type?: never }
-  : { link?: never; type?: 'button' | 'submit' | 'reset' });
+  square?: boolean;
+}

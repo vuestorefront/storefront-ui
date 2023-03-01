@@ -55,11 +55,3 @@ description: The QuantitySelector allows the selection of a digital value and th
 - Use the `aria-label` attribute on the input element to defines the accessible name of the quantity selector.
 - The input field element have an attribute `id`
 
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfQuantitySelector/VsfQuantitySelector.vue
-<!-- end vue -->
-<!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfQuantitySelector/VsfQuantitySelector.tsx
-<!-- end react -->
