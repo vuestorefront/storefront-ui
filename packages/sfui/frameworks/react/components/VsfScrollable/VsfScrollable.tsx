@@ -62,26 +62,24 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
       <VsfButton
         variant={VsfButtonVariant.secondary}
         size={VsfButtonSize.lg}
-        rounded
         className="vsf-scrollable__nav-arrow"
         onClick={onClickPrev}
         disabled={!hasPrev}
         slotPrefix={isHorizontal ? <VsfIconChevronLeft /> : <VsfIconExpandLess />}
         aria-label={ariaLabelPrev}
-        tabIndex="-1"
+        tabIndex={-1}
       />
     );
     const nextButtonDefault = (
       <VsfButton
         variant={VsfButtonVariant.secondary}
         size={VsfButtonSize.lg}
-        rounded
         className="vsf-scrollable__nav-arrow"
         onClick={onClickNext}
         disabled={!hasNext}
         slotPrefix={isHorizontal ? <VsfIconChevronRight /> : <VsfIconExpandMore />}
         aria-label={ariaLabelNext}
-        tabIndex="-1"
+        tabIndex={-1}
       />
     );
     const prevNavigation =

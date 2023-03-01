@@ -110,7 +110,7 @@ useEventListener(containerRef, 'keydown', (event: KeyboardEvent) => {
           class="vsf-scrollable__nav-arrow"
           :disabled="!hasPrev"
           :aria-label="ariaLabelPrev"
-          tabindex="-1"
+          :tabindex="-1"
           @click="onClickPrev"
         >
           <template #prefix>
@@ -141,7 +141,7 @@ useEventListener(containerRef, 'keydown', (event: KeyboardEvent) => {
           rounded
           :class="['vsf-scrollable__nav-arrow', { 'vsf-scrollable__nav-arrow--hidden': !hasNext }]"
           :disabled="!hasNext"
-          tabindex="-1"
+          :tabindex="-1"
           :aria-label="ariaLabelNext"
           @click="onClickNext"
         >

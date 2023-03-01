@@ -14,7 +14,7 @@ const suffixSlotOptions = createControlsOptions({
   'Lock icon': <VsfIconLock />,
 });
 
-interface ButtonControls extends Omit<VsfButtonProps<HTMLButtonElement>, 'slotPrefix' | 'slotSuffix'> {
+interface ButtonControls extends Omit<VsfButtonProps, 'slotPrefix' | 'slotSuffix'> {
   slotPrefix: typeof prefixSlotOptions.defaultOption;
   slotSuffix: typeof suffixSlotOptions.defaultOption;
 }
@@ -43,8 +43,8 @@ function Example() {
       },
       {
         type: 'text',
-        modelName: 'link',
-        description: 'Change <button> to <a> tag with `href` attribute',
+        modelName: 'as',
+        description: 'Change button tag to a tag or any other tag',
       },
       {
         type: 'select',
@@ -59,64 +59,33 @@ function Example() {
       {
         type: 'boolean',
         modelName: 'disabled',
+        description: 'Disabled state',
       },
       {
         type: 'boolean',
-        modelName: 'greyscale',
-        description: 'Modifier for each variants',
-      },
-      {
-        type: 'boolean',
-        modelName: 'truncate',
-        description: 'Truncate text instead of wrap(default)',
-      },
-      {
-        type: 'boolean',
-        modelName: 'tile',
+        modelName: 'square',
         description: 'Remove border radius',
-      },
-      {
-        type: 'boolean',
-        modelName: 'rounded',
-        description: 'Full rounded borders',
-      },
-      {
-        type: 'boolean',
-        modelName: 'block',
-        description: 'Full container width',
       },
     ],
     {
       children: 'Hello',
       slotPrefix: prefixSlotOptions.defaultOption,
       slotSuffix: suffixSlotOptions.defaultOption,
-      type: undefined,
       disabled: undefined,
-      greyscale: undefined,
-      truncate: undefined,
-      link: undefined,
       variant: VsfButtonVariant.primary,
       size: VsfButtonSize.base,
-      tile: undefined,
-      rounded: undefined,
-      block: undefined,
+      square: undefined,
     },
   );
 
   return (
-    <ComponentExample controls={{ state, controls }}>
+    <ComponentExample controls={{ state, controls }} componentContainerClassName="space-x-2">
       <VsfButton
         size={state.get.size}
         variant={state.get.variant}
         disabled={state.get.disabled}
-        greyscale={state.get.greyscale}
-        truncate={state.get.truncate}
         slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
         slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
-        tile={state.get.tile}
-        rounded={state.get.rounded}
-        block={state.get.block}
-        link={state.get.link}
         className="max-w-[200px]"
       >
         {state.get.children}

@@ -32,12 +32,3 @@ description: The Card component contains content and actions that inform about a
 | ------------- | :--------------------------------------------------------: |
 | `image`       | replaces product image                                     |
 <!-- end vue -->
-
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfCard/VsfCard.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfCard/VsfCard.tsx
-<!-- end react -->

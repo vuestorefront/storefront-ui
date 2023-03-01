@@ -54,12 +54,3 @@ description: The Search component is used to search for content on the page.
 The wrapper element has the `role="search"` attribute.
 
 The search button is a `submit` type `<button>` in the form to reduce the number of keystrokes required to use the form.
-
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfSearch/VsfSearch.vue
-<!-- end vue -->
-<!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfSearch/VsfSearch.tsx
-<!-- end react -->

@@ -15,12 +15,3 @@ description: The product card image component is the element passed as default i
 | imageAttr           | Object   | {}            |                                        |
 
 | outOfStock    | Boolean   | false           |                                        |
-
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfProductCard/VsfProductCardImage.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfProductCard/VsfProductCardImage.tsx
-<!-- end react -->

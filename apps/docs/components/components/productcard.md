@@ -89,12 +89,3 @@ description: The product card component contains the most relevant data about th
 | `onReviewsClick`      |  function   |      |                                        |
 
 <!-- end react -->
-
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfProductCard/VsfProductCard.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfProductCard/VsfProductCard.tsx
-<!-- end react -->

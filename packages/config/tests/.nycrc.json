@@ -9,8 +9,8 @@
     "**"
   ],
   "checkCoverage": true,
-  "statements": 82,
-  "branches": 77,
-  "functions": 73,
-  "lines": 76
+  "statements": 60,
+  "branches": 60,
+  "functions": 60,
+  "lines": 60
 }

@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfButton v-bind="state" class="max-w-[200px]">
+    <VsfButton v-bind="state">
       <template v-if="prefixSlotOptions.getValue(prefix)" #prefix>
         <component :is="prefixSlotOptions.getValue(prefix)" />
       </template>
@@ -43,6 +43,8 @@ export default defineComponent({
     return {
       prefixSlotOptions,
       suffixSlotOptions,
+      VsfButtonSize,
+      VsfButtonVariant,
       ...prepareControls(
         [
           {
@@ -63,11 +65,6 @@ export default defineComponent({
             options: suffixSlotOptions.controlsOptions,
           },
           {
-            type: 'text',
-            modelName: 'link',
-            description: 'Change <button> to <a> tag with `href` attribute',
-          },
-          {
             type: 'select',
             modelName: 'variant',
             options: Object.keys(VsfButtonVariant),
@@ -83,43 +80,18 @@ export default defineComponent({
           },
           {
             type: 'boolean',
-            modelName: 'greyscale',
-            description: 'Modifier for each variants',
-          },
-          {
-            type: 'boolean',
-            modelName: 'truncate',
-            description: 'Truncate text instead of wrap(default)',
-          },
-          {
-            type: 'boolean',
-            modelName: 'tile',
-            description: 'Remove border radius',
-          },
-          {
-            type: 'boolean',
-            modelName: 'rounded',
-            description: 'Full rounded borders',
-          },
-          {
-            type: 'boolean',
-            modelName: 'block',
-            description: 'Full container width',
+            modelName: 'square',
+            description: 'Add even paddings for icon-only usage',
           },
         ],
         {
           SlotDefault: ref('Hello'),
           prefix: ref(prefixSlotOptions.defaultOption),
           suffix: ref(suffixSlotOptions.defaultOption),
-          link: ref(),
           disabled: ref(),
-          greyscale: ref(),
-          truncate: ref(),
           variant: ref<VsfButtonVariant>(VsfButtonVariant.primary),
           size: ref<VsfButtonSize>(VsfButtonSize.base),
-          tile: ref(),
-          rounded: ref(),
-          block: ref(),
+          square: ref(),
         },
       ),
     };

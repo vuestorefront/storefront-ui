@@ -38,12 +38,3 @@ description: NavigationTop is placeholder for navigation menu, image blocks etc.
 <!-- end vue -->
 
 ## Accessibility notes
-
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfNavigationTop/VsfNavigationTop.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfNavigationTop/VsfNavigationTop.tsx
-<!-- end react -->

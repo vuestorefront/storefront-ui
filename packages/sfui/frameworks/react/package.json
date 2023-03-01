@@ -28,6 +28,7 @@
     "@storefront-ui/shared": "workspace:*",
     "classnames": "^2.3.2",
     "jw-paginate": "^1.0.4",
+    "react-polymorphed": "^2.1.0",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.4.0",
     "tabbable": "^6.1.1"
