@@ -21,4 +21,5 @@ Closes #
 - [ ] Caching friendly
 - [ ] a11y for WCAG 2.0 AA
 - [ ] examples created
-- [ ] created cypress tests
+- [ ] showcases created
+- [ ] cypress tests created
