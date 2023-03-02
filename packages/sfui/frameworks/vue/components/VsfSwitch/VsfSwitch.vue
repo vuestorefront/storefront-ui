@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import type { InputHTMLAttributes, PropType } from 'vue';
 import { VsfSwitchAlignment } from './types';
-import { VsfCheckbox, VsfCheckboxAlignment } from '../VsfCheckbox';
+import { VsfCheckbox } from '../VsfCheckbox';
 import { extractProps } from '../../shared/props';
 
 defineProps({
@@ -29,7 +29,6 @@ defineEmits<{
     :value="value"
     :disabled="disabled"
     :help-text="helpText"
-    :alignment="alignment === VsfSwitchAlignment.prefix ? VsfCheckboxAlignment.leading : VsfCheckboxAlignment.trailing"
     role="switch"
     :name="name"
     :label-tag="labelTag"

@@ -15,7 +15,7 @@ type PickFromListItemMenu = 'label' | 'counter' | 'size' | 'secondaryText' | 'di
 export interface VsfListItemFilterSwitchProps
   extends PropsWithChildren,
     Pick<VsfListItemMenuProps, PickFromListItemMenu>,
-    Partial<Pick<VsfSwitchProps, 'value' | 'name' | 'onChange'>> {
+    Partial<Pick<VsfSwitchProps, 'value' | 'onChange'>> {
   variant?: `${VsfListItemFilterSwitchVariant}`;
   defaultValue?: boolean;
 }

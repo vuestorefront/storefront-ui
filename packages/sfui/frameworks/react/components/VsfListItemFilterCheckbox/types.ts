@@ -15,6 +15,6 @@ type PickFromListItemMenu = 'label' | 'counter' | 'size' | 'secondaryText' | 'di
 export interface VsfListItemFilterCheckboxProps
   extends PropsWithChildren,
     Pick<VsfListItemMenuProps, PickFromListItemMenu>,
-    Partial<Pick<VsfCheckboxProps, 'value' | 'name' | 'onChange' | 'checked'>> {
+    Partial<Pick<VsfCheckboxProps, 'value' | 'onChange' | 'checked'>> {
   variant?: `${VsfListItemFilterCheckboxVariant}`;
 }

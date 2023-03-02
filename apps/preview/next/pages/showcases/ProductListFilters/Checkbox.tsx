@@ -14,7 +14,6 @@ export function Showcase() {
       selected={checkedState}
       slotPrefix={
         <VsfCheckbox
-          labelTag="div"
           value="some-value"
           onChange={(event) => {
             setCheckedState(event.target.checked);

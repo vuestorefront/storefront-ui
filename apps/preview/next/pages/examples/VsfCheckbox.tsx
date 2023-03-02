@@ -1,11 +1,15 @@
-import { VsfCheckbox, VsfCheckboxAlignment } from '@storefront-ui/react/components/VsfCheckbox';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { VsfCheckbox } from '@storefront-ui/react/components/VsfCheckbox';
 import type { VsfCheckboxProps } from '@storefront-ui/react/components/VsfCheckbox/types';
+import { useRef, useEffect } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
-  const { state, controls } = prepareControls<Omit<VsfCheckboxProps, 'onChange'> & { checkedValue: string[] }>(
+  const { state, controls } = prepareControls<
+    Omit<VsfCheckboxProps, 'onChange'> & { checkedValue: string[]; indeterminate: boolean }
+  >(
     [
       {
         type: 'text',
@@ -20,15 +24,8 @@ function Example() {
         propType: 'string',
       },
       {
-        type: 'select',
-        options: Object.keys(VsfCheckboxAlignment),
-        modelName: 'alignment',
-        propType: 'VsfCheckboxAlignment',
-        propDefaultValue: VsfCheckboxAlignment.leading,
-      },
-      {
         type: 'boolean',
-        modelName: 'required',
+        modelName: 'indeterminate',
         propType: 'boolean',
       },
       {
@@ -36,102 +33,48 @@ function Example() {
         modelName: 'disabled',
         propType: 'boolean',
       },
-      {
-        type: 'boolean',
-        modelName: 'indeterminate',
-        propType: 'boolean',
-      },
-      {
-        type: 'boolean',
-        modelName: 'invalid',
-        propType: 'boolean',
-      },
-      {
-        type: 'text',
-        modelName: 'label',
-        propType: 'string',
-      },
-      {
-        type: 'text',
-        modelName: 'helpText',
-        propType: 'string',
-      },
-      {
-        type: 'text',
-        modelName: 'errorText',
-        propType: 'string',
-      },
-      {
-        type: 'text',
-        modelName: 'requiredText',
-        propType: 'string',
-      },
     ],
     {
-      value: 'value',
-      required: false,
+      value: 'label',
       disabled: false,
       indeterminate: false,
       invalid: false,
-      alignment: VsfCheckboxAlignment.leading,
-      label: 'Label',
-      helpText: 'Help Text',
-      errorText: 'Error Message',
-      requiredText: 'Required',
       checkedValue: [],
     },
   );
 
   function onChange(event: Parameters<NonNullable<VsfCheckboxProps['onChange']>>[0]) {
     const { value } = event.target;
-    if (state.get.checkedValue.indexOf(value) > -1) {
-      state.set({ ...state.get, checkedValue: state.get.checkedValue.filter((val) => val !== value) });
-    } else {
-      state.set({ ...state.get, checkedValue: [...state.get.checkedValue, value] });
-    }
+    state.set({ ...state.get, checkedValue: [value] });
   }
 
+  const checkboxRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (checkboxRef.current !== null) {
+      checkboxRef.current.indeterminate = state.get.indeterminate;
+    }
+  }, [checkboxRef, state.get.indeterminate]);
+
   return (
-    <ComponentExample controls={{ state, controls }}>
-      <VsfCheckbox
-        value={state.get.value}
-        label={state.get.label}
-        indeterminate={state.get.indeterminate}
-        required={state.get.required}
-        disabled={state.get.disabled}
-        alignment={state.get.alignment}
-        invalid={state.get.invalid}
-        errorText={state.get.errorText}
-        helpText={state.get.helpText}
-        requiredText={state.get.requiredText}
-        onChange={onChange}
-      />
-      <VsfCheckbox
-        value="value-2"
-        label={state.get.label}
-        indeterminate={state.get.indeterminate}
-        required={state.get.required}
-        disabled={state.get.disabled}
-        alignment={state.get.alignment}
-        invalid={state.get.invalid}
-        errorText={state.get.errorText}
-        helpText={state.get.helpText}
-        requiredText={state.get.requiredText}
-        onChange={onChange}
-      />
-      <VsfCheckbox
-        value="value-3"
-        label={state.get.label}
-        indeterminate={state.get.indeterminate}
-        required={state.get.required}
-        disabled={state.get.disabled}
-        alignment={state.get.alignment}
-        invalid={state.get.invalid}
-        errorText={state.get.errorText}
-        helpText={state.get.helpText}
-        requiredText={state.get.requiredText}
-        onChange={onChange}
-      />
+    <ComponentExample controls={{ state, controls }} className="min-h-96">
+      <div className="flex items-center">
+        <VsfCheckbox
+          value={state.get.value}
+          disabled={state.get.disabled}
+          invalid={state.get.invalid}
+          ref={checkboxRef}
+          onChange={onChange}
+          className="peer"
+          id="checkbox"
+        />
+        <label
+          htmlFor="checkbox"
+          className="ml-3 text-base text-gray-900 cursor-pointer font-body peer-disabled:text-disabled-900"
+        >
+          Label
+        </label>
+      </div>
     </ComponentExample>
   );
 }

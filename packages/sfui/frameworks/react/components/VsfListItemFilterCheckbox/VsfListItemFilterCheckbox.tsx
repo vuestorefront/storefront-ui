@@ -14,7 +14,6 @@ export default function VsfListItemFilterCheckbox({
   className,
   truncate,
   value,
-  name,
   children,
   checked,
   onChange = () => '',
@@ -37,9 +36,7 @@ export default function VsfListItemFilterCheckbox({
         slotPrefix={
           variant === VsfListItemFilterCheckboxVariant.left ? (
             <VsfCheckbox
-              labelTag="div"
               value={value}
-              name={name}
               disabled={disabled}
               onChange={(event) => {
                 setCheckedState(event.target.checked);
@@ -51,9 +48,7 @@ export default function VsfListItemFilterCheckbox({
         slotSuffix={
           variant === VsfListItemFilterCheckboxVariant.right ? (
             <VsfCheckbox
-              labelTag="div"
               value={value}
-              name={name}
               disabled={disabled}
               onChange={(event) => {
                 setCheckedState(event.target.checked);

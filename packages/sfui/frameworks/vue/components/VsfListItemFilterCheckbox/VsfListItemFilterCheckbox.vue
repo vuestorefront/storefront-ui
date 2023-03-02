@@ -39,7 +39,6 @@ const isChecked = computed(() => {
     >
       <template v-if="variant === VsfListItemFilterCheckboxVariant.left" #prefix>
         <VsfCheckbox
-          label-tag="div"
           :value="value"
           :model-value="modelValue"
           :disabled="disabled"
@@ -48,7 +47,6 @@ const isChecked = computed(() => {
       </template>
       <template v-if="variant === VsfListItemFilterCheckboxVariant.right" #suffix>
         <VsfCheckbox
-          label-tag="div"
           :value="value"
           :model-value="modelValue"
           :disabled="disabled"

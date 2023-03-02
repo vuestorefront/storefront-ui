@@ -1,19 +1,12 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfSwitch
-      v-model="modelCheck"
-      :label="label"
-      :value="value"
-      :disabled="disabled"
-      :help-text="helpText"
-      :alignment="alignment"
-    />
+    <VsfSwitch v-model="modelCheck" :label="label" :value="value" :disabled="disabled" :help-text="helpText" />
   </ComponentExample>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfSwitch, VsfSwitchAlignment } from '@storefront-ui/vue/components/VsfSwitch/index';
+import { VsfSwitch } from '@storefront-ui/vue/components/VsfSwitch/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -40,13 +33,6 @@ export default {
             propType: 'string',
           },
           {
-            type: 'select',
-            options: Object.keys(VsfSwitchAlignment),
-            modelName: 'alignment',
-            propType: 'VsfSwitchAlignment',
-            propDefaultValue: VsfSwitchAlignment.prefix,
-          },
-          {
             type: 'boolean',
             modelName: 'disabled',
             propType: 'boolean',
@@ -65,7 +51,6 @@ export default {
         {
           value: ref('value'),
           disabled: ref(false),
-          alignment: ref(VsfSwitchAlignment.prefix),
           label: ref('Label'),
           helpText: ref('Help Text'),
           modelCheck: ref([]),

@@ -4,8 +4,8 @@ import type { VsfListItemFilterSwitchProps, ItemSwitchProps } from './types';
 import { VsfListItemFilterSwitchVariant } from './types';
 import { VsfSwitch } from '../VsfSwitch';
 
-function ItemSwitch({ value, disabled, name, onChange }: ItemSwitchProps) {
-  return <VsfSwitch value={value} labelTag="span" disabled={disabled} name={name} onChange={onChange} />;
+function ItemSwitch({ value, disabled, onChange }: ItemSwitchProps) {
+  return <VsfSwitch value={value} disabled={disabled} onChange={onChange} />;
 }
 
 export default function VsfListItemFilterSwitch({
@@ -18,7 +18,6 @@ export default function VsfListItemFilterSwitch({
   className,
   truncate,
   value,
-  name,
   children,
   defaultValue = false,
   onChange = () => '',
@@ -45,12 +44,12 @@ export default function VsfListItemFilterSwitch({
         truncate={truncate}
         slotPrefix={
           variant === VsfListItemFilterSwitchVariant.left && (
-            <ItemSwitch value={value} disabled={disabled} name={name} onChange={handleOnChange} />
+            <ItemSwitch value={value} disabled={disabled} onChange={handleOnChange} />
           )
         }
         slotSuffix={
           variant === VsfListItemFilterSwitchVariant.right && (
-            <ItemSwitch value={value} disabled={disabled} name={name} onChange={handleOnChange} />
+            <ItemSwitch value={value} disabled={disabled} onChange={handleOnChange} />
           )
         }
         {...attributes}

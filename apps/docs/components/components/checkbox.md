@@ -5,40 +5,81 @@ description: A checkbox is an input that has three possible values - true, false
 ---
 # Checkbox
 
-{{ $frontmatter.description }}
+::: slot usage
 
-<Generate />
+{{ $frontmatter.description }}
 
 ## Notes
 
-Used especially for forms or expressing consents.
+It is used especially for forms or expressing consents.
+Note that using indeterminate state requires additional code to manage it. See this case in the playground below.
 
-For filtering use [ListItemFilterCheckbox](listitemfiltercheckbox.md) component instead of Checkbox.
+## Accessibility notes
+
+Pressing the Space key triggers checkbox.
+
+## Checkbox without label
+
+The simple checkbox input without additional elements. 
+
+<Showcase showcase-name="Checkbox/CheckboxNoLabel">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Checkbox/CheckboxNoLabel.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Checkbox/CheckboxNoLabel.tsx
+<!-- end react -->
+</Showcase>
+
+## Checkbox aligned to the left
+
+The component with label element and the input aligned to the left edge of the screen. 
+
+<Showcase showcase-name="Checkbox/CheckboxLeading">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Checkbox/CheckboxLeading.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Checkbox/CheckboxLeading.tsx
+<!-- end react -->
+</Showcase>
+
+## Checkbox aligned to the right
+
+The component with label element and the input aligned to the right edge of the screen. 
+
+<Showcase showcase-name="Checkbox/CheckboxTrailing">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Checkbox/CheckboxTrailing.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Checkbox/CheckboxTrailing.tsx
+<!-- end react -->
+</Showcase>
+
+## Playground
+
+<Generate style="height: 250px" />
+
+:::
+
+::: slot api
+
 
 ## Props
 
 | Prop name    | Type                     | Default value | Possible values                        |
 | ------------ | ------------------------ | ------------- | -------------------------------------- |
-
 <!-- vue -->
 | modelValue   | Boolean | string[]       | undefined     |                                        |
 <!-- end vue -->
 <!-- react -->
-| checked      | Boolean                  | false         |                                        |
 | className    | String                   |               |                                        |
-| onChange     | Function                 |               |                                        |
 <!-- end react -->
-| value        | String                   | ''            |                                        |
-| label        | String                   | ''            |                                        |
-| helpText     | String                   | ''            |                                        |
-| errorText    | String                   | ''            |                                        |
-| requiredText | String                   | ''            |                                        |
-| alignment    | VsfCheckboxAlignment    | leading       |   leading,  trailing                   |
-| indeterminate| Boolean                  | false         |                                        |
 | invalid      | Boolean                  | false         |                                        |
-| disabled     | Boolean                  | false         |                                        |
-| role         | String                   | ''            |                                        |
-| required     | Boolean                  | false         |                                        |
 
 <!-- vue -->
 ## Events
@@ -48,11 +89,9 @@ For filtering use [ListItemFilterCheckbox](listitemfiltercheckbox.md) component 
 | update:modelValue | triggers v-model update event  |
 <!-- end vue -->
 
-## Accessibility notes
+:::
 
-Pressing the Space key triggers checkbox
-
-## Source code
+::: slot source
 
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfCheckbox/VsfCheckbox.vue
@@ -60,3 +99,4 @@ Pressing the Space key triggers checkbox
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfCheckbox/VsfCheckbox.tsx
 <!-- end react -->
+:::
