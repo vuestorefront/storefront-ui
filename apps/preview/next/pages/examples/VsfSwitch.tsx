@@ -1,5 +1,4 @@
 import VsfSwitch from '@storefront-ui/react/components/VsfSwitch/VsfSwitch';
-import { VsfSwitchAlignment } from '@storefront-ui/react/components/VsfSwitch/types';
 import type { VsfSwitchProps } from '@storefront-ui/react/components/VsfSwitch/types';
 import { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
@@ -22,13 +21,6 @@ function Example() {
         propType: 'string',
       },
       {
-        type: 'select',
-        options: Object.keys(VsfSwitchAlignment),
-        modelName: 'alignment',
-        propType: 'VsfSwitchAlignment',
-        propDefaultValue: VsfSwitchAlignment.prefix,
-      },
-      {
         type: 'boolean',
         modelName: 'disabled',
         propType: 'boolean',
@@ -47,9 +39,6 @@ function Example() {
     {
       value: 'value',
       disabled: false,
-      alignment: VsfSwitchAlignment.prefix,
-      label: 'Label',
-      helpText: 'Help Text',
       checkedValue: [],
     },
   );
@@ -65,14 +54,7 @@ function Example() {
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfSwitch
-        value={state.get.value}
-        label={state.get.label}
-        disabled={state.get.disabled}
-        alignment={state.get.alignment}
-        helpText={state.get.helpText}
-        onChange={onChange}
-      />
+      <VsfSwitch value={state.get.value} disabled={state.get.disabled} onChange={onChange} />
     </ComponentExample>
   );
 }

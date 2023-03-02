@@ -1,91 +1,23 @@
 import classNames from 'classnames';
-import { useEffect, useRef } from 'react';
-import { VsfCheckboxAlignment, VsfCheckboxProps } from './types';
+import { forwardRef } from 'react';
+import { VsfCheckboxProps } from './types';
 
-export default function VsfCheckbox({
-  value,
-  name,
-  checked,
-  label,
-  disabled,
-  alignment = VsfCheckboxAlignment.leading,
-  required,
-  invalid,
-  errorText,
-  helpText,
-  requiredText,
-  indeterminate = false,
-  className,
-  role,
-  labelTag,
-  onChange,
-  ...attributes
-}: VsfCheckboxProps) {
-  const LabelTag = labelTag || 'label';
-  const checkboxRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    if (checkboxRef.current !== null) {
-      checkboxRef.current.indeterminate = indeterminate;
-    }
-  }, [checkboxRef, indeterminate]);
-  return (
-    <LabelTag
+const VsfCheckbox = forwardRef<HTMLInputElement, VsfCheckboxProps>(
+  ({ invalid, className, ...attributes }, ref): JSX.Element => (
+    <input
       className={classNames(
-        'vsf-checkbox',
+        'flex self-center h-[18px] min-w-[18px] border-2 rounded-sm appearance-none cursor-pointer text-gray-500 enabled:hover:border-primary-800 enabled:active:border-primary-900 enabled:hover:checked:text-primary-800 enabled:hover:indeterminate:text-primary-800 enabled:active:checked:text-primary-900 enabled:checked:text-primary-700 enabled:checked:bg-checked-checkbox-current border-current enabled:indeterminate:bg-indeterminate-checkbox-current enabled:indeterminate:text-primary-700 disabled:text-gray-300 hover:text-gray-300 disabled:cursor-not-allowed',
         {
-          'vsf-checkbox--disabled': disabled,
-          'vsf-checkbox--required': !indeterminate && required,
-          'vas-checkbox--invalid': invalid && !checked,
+          'border-negative-700 hover:border-negative-800 active:border-negative-900': invalid,
         },
         className,
       )}
-      {...attributes}
+      type="checkbox"
+      ref={ref}
       data-testid="checkbox"
-    >
-      <span
-        className={classNames('vsf-checkbox__wrapper', alignment && `vsf-checkbox__wrapper--alignment-${alignment}`)}
-      >
-        <input
-          className={classNames('vsf-checkbox__input', {
-            'vsf-checkbox__input--invalid': invalid && !indeterminate && !disabled && !checked,
-          })}
-          type="checkbox"
-          disabled={disabled}
-          required={!indeterminate && required}
-          checked={checked}
-          ref={checkboxRef}
-          value={value}
-          name={name}
-          role={role || undefined}
-          onChange={onChange}
-          data-testid="checkbox-input"
-        />
-        {label ? (
-          <span className="vsf-checkbox__label" data-testid="checkbox-label">
-            {label}
-          </span>
-        ) : null}
-      </span>
-      {errorText || helpText ? (
-        <div className={classNames('vsf-checkbox__text-wrapper', `vsf-checkbox__text-wrapper-${alignment}`)}>
-          {invalid && !checked && !disabled && !indeterminate && !!errorText && !required && (
-            <span className="vsf-checkbox__error-text" data-testid="checkbox-error-text">
-              {errorText}
-            </span>
-          )}
-          {helpText && (
-            <span className="vsf-checkbox__help-text" data-testid="checkbox-help-text">
-              {helpText}
-            </span>
-          )}
-        </div>
-      ) : null}
-      {!indeterminate && required && requiredText && (
-        <span className="vsf-checkbox__required-text" data-testid="checkbox-required-text">
-          {requiredText}
-        </span>
-      )}
-    </LabelTag>
-  );
-}
+      {...attributes}
+    />
+  ),
+);
+
+export default VsfCheckbox;

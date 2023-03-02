@@ -80,7 +80,6 @@ function Example() {
       disabled: false,
       truncate: false,
       value: 'value',
-      name: 'name',
       checkedValue: [],
     },
   );

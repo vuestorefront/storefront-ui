@@ -102,16 +102,6 @@ describe('VsfListItemFilterSwitch', () => {
     });
   });
 
-  describe('when prop disabled=true', () => {
-    before(() => (disabled = true));
-    after(() => (disabled = false));
-    it(`should render as disabled`, () => {
-      initializeComponent();
-
-      page().isDisabled().makeSnapshot();
-    });
-  });
-
   describe('when prop label is not filled in', () => {
     it(`should render without label`, () => {
       label = '';
@@ -165,18 +155,6 @@ describe('VsfListItemFilterSwitch', () => {
       initializeComponent();
 
       page().hasTruncateOn().makeSnapshot();
-    });
-  });
-
-  describe('when it is checked', () => {
-    it('should change value/modelValue', () => {
-      initializeComponent();
-
-      page().isChecked();
-      cy.then(() => {
-        expect(onChangeSpy).calledOnceWith();
-        page().makeSnapshot();
-      });
     });
   });
 });

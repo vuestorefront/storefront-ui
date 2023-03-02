@@ -67,48 +67,4 @@ describe('VsfSwitch', () => {
       });
     });
   });
-
-  describe('when prop disabled=true', () => {
-    before(() => (disabled = true));
-    after(() => (disabled = false));
-    it(`should render as disabled`, () => {
-      initializeComponent();
-
-      page().isDisabled().makeSnapshot();
-    });
-  });
-
-  describe('when prop label is filled in', () => {
-    it(`should render with label`, () => {
-      initializeComponent();
-
-      page().hasLabel('Label').makeSnapshot();
-    });
-  });
-
-  describe('when prop helpText is visible', () => {
-    before(() => {
-      helpText = 'Help';
-    });
-    after(() => {
-      helpText = '';
-    });
-    it('should render with help text', () => {
-      initializeComponent();
-
-      page().hasHelpText('Help').makeSnapshot();
-    });
-  });
-
-  describe('when it is checked', () => {
-    it('should change value/modelValue', () => {
-      initializeComponent();
-
-      page().isNotDisabled().isChecked();
-      cy.then(() => {
-        expect(onChangeSpy).calledOnceWith();
-        page().makeSnapshot();
-      });
-    });
-  });
 });

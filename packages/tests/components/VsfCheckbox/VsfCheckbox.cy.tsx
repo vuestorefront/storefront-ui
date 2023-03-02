@@ -1,19 +1,12 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfCheckboxAlignment } from '@storefront-ui/vue/components/VsfCheckbox/types';
 import { mount, useComponent } from '../../utils/mount';
 import VsfCheckboxBaseObject from './VsfCheckbox.PageObject';
 
 const { vue: VsfCheckboxVue, react: VsfCheckboxReact } = useComponent('VsfCheckbox');
 
 describe('VsfCheckbox', () => {
-  let alignment: VsfCheckboxAlignment;
   let disabled: boolean;
-  let label: string;
-  let required: boolean;
-  let errorText: string;
-  let helpText: string;
-  let requiredText: string;
   let invalid: boolean;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
   let value = 'value';
@@ -26,58 +19,25 @@ describe('VsfCheckbox', () => {
         component: VsfCheckboxVue,
         props: {
           disabled,
-          alignment,
-          label,
-          required,
-          errorText,
-          helpText,
-          requiredText,
           invalid,
           value,
           modelValue: false,
           'onUpdate:modelValue': onChangeSpy,
         },
       },
-      react: (
-        <VsfCheckboxReact
-          disabled={disabled}
-          alignment={alignment}
-          errorText={errorText}
-          helpText={helpText}
-          requiredText={requiredText}
-          required={required}
-          invalid={invalid}
-          label={label}
-          onChange={onChangeSpy}
-        />
-      ),
+      react: <VsfCheckboxReact disabled={disabled} invalid={invalid} onChange={onChangeSpy} />,
     });
   };
 
   beforeEach(() => {
-    label = 'Label';
     value = 'value';
     onChangeSpy = cy.spy();
-    alignment = VsfCheckboxAlignment.leading;
   });
 
   it('initial state', () => {
     initializeComponent({ invalid: true });
 
     page().makeSnapshot();
-  });
-
-  describe('when prop alignment is set to ', () => {
-    Object.values(VsfCheckboxAlignment).forEach((componentAlignment) => {
-      describe(`${componentAlignment}`, () => {
-        it(`should render correct ${componentAlignment} alignment`, () => {
-          alignment = componentAlignment;
-          initializeComponent();
-
-          page().makeSnapshot();
-        });
-      });
-    });
   });
 
   describe('when prop disabled=true', () => {
@@ -87,52 +47,6 @@ describe('VsfCheckbox', () => {
       initializeComponent();
 
       page().isDisabled().makeSnapshot();
-    });
-  });
-
-  describe('when prop required=true', () => {
-    before(() => (required = true));
-    after(() => (required = false));
-    it(`should render as required`, () => {
-      initializeComponent();
-
-      page().isRequired().makeSnapshot();
-    });
-  });
-
-  describe('when prop label is filled in', () => {
-    it(`should render with label`, () => {
-      initializeComponent();
-
-      page().hasLabel('Label').makeSnapshot();
-    });
-  });
-
-  describe('when prop requiredText is filled out', () => {
-    before(() => {
-      (required = true), (requiredText = '*Required');
-    });
-    after(() => {
-      (required = false), (requiredText = '');
-    });
-    it('should render with required text', () => {
-      initializeComponent();
-
-      page().hasRequiredText('*Required').makeSnapshot();
-    });
-  });
-
-  describe('when prop helpText is visible', () => {
-    before(() => {
-      helpText = 'Help';
-    });
-    after(() => {
-      helpText = '';
-    });
-    it('should render with help text', () => {
-      initializeComponent();
-
-      page().hasHelpText('Help').makeSnapshot();
     });
   });
 
@@ -148,17 +62,13 @@ describe('VsfCheckbox', () => {
     });
   });
 
-  describe('when prop errorText is filled out and invalid=true', () => {
-    before(() => {
-      (invalid = true), (errorText = 'Error');
-    });
-    after(() => {
-      (invalid = false), (errorText = '');
-    });
-    it('should render with invalid text', () => {
+  describe('when invalid=true', () => {
+    before(() => (invalid = true));
+    after(() => (invalid = false));
+    it('should render with "invalid" style', () => {
       initializeComponent();
 
-      page().hasInvalidText('Error').makeSnapshot();
+      page().hasInvalidStyle().makeSnapshot();
     });
   });
 });

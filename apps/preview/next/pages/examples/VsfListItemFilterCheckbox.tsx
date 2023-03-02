@@ -79,7 +79,6 @@ function Example() {
       disabled: false,
       truncate: false,
       value: 'value',
-      name: 'name',
       checkedValue: [],
     },
   );
@@ -105,7 +104,6 @@ function Example() {
           disabled={state.get.disabled}
           truncate={state.get.truncate}
           value={state.get.value}
-          name={state.get.name}
           onChange={onChange}
         />
         <VsfListItemFilterCheckbox
@@ -117,7 +115,6 @@ function Example() {
           disabled={state.get.disabled}
           truncate={state.get.truncate}
           value={`${state.get.value}-2`}
-          name={state.get.name}
           onChange={onChange}
         />
       </ul>

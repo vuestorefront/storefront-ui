@@ -1,7 +1,7 @@
 <template>
   <VsfListItemMenu tag="label" :selected="selected">
     <template #prefix>
-      <VsfCheckbox v-model="selected" label-tag="div" value="some-value" />
+      <VsfCheckbox v-model="selected" value="some-value" />
     </template>
     <span>{{ label }}</span>
     <p class="text-xs text-gray-500 break-words">{{ secondaryText }}</p>
