@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center space-x-4">
+  <div class="flex flex-col items-center space-y-4 extra-small:flex-row extra-small:space-y-0 extra-small:space-x-4">
     <VsfButton>
       <template #prefix>
         <VsfIconHome />

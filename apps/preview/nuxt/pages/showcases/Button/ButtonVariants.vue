@@ -1,5 +1,5 @@
 <template>
-  <div class="space-x-4">
+  <div class="flex flex-col items-center space-y-4 extra-small:block extra-small:space-x-4">
     <VsfButton type="button" :variant="VsfButtonVariant.primary"> Hello </VsfButton>
 
     <VsfButton type="button" :variant="VsfButtonVariant.secondary"> Hello </VsfButton>

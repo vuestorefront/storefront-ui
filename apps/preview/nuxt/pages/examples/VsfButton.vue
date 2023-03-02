@@ -53,6 +53,11 @@ export default defineComponent({
             description: 'Only for demonstration purposes. Default slot',
           },
           {
+            type: 'text',
+            modelName: 'tag',
+            description: 'Change <button> tag to any other tag',
+          },
+          {
             type: 'select',
             modelName: 'prefix',
             description: 'slotPrefix',
@@ -91,6 +96,7 @@ export default defineComponent({
           disabled: ref(),
           variant: ref<VsfButtonVariant>(VsfButtonVariant.primary),
           size: ref<VsfButtonSize>(VsfButtonSize.base),
+          tag: ref(),
           square: ref(),
         },
       ),
