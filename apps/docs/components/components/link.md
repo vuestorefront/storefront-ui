@@ -5,54 +5,95 @@ description: A link is interactive reference to an internal or external resource
 ---
 # Link
 
+::: slot usage
+
 {{ $frontmatter.description }}
 
 ## Notes
 
-For external link there is `<a>` tag, and for internal <!-- vue -->
-component tags `<NuxtLink>` for Nuxt.js and `<router-link>` for pure Vue.<!-- end vue --><!-- react -->`<Link>` component tag.<!-- end react --> When there is a need to have more link with the same tag then [config](config.html) component can be used to achieve this.
+By default link component renders `anchor` HTML element.
 
-Used to navigate the page and link to external resources (websites and files).
+## Link variants
 
-Avoid using links as a ghost buttons. Use a variant of the [Button](button.html) component for this purpose.
+Link supports 2 variants that can be set via `variant` prop: `primary`, `secondary`.
+
+<Showcase showcase-name="Link/LinkVariants">
 
 <!-- vue -->
-> NOTE: By default, if `VsfLink` component detects that it's running in `Nuxt` environment it will render as `NuxtLink`. In pure `Vue` environment though it will render as `RouterLink`. This behaviour can be overridden by using `tag` prop or [`linkTag` config option](./config).
+<<<../../preview/nuxt/pages/showcases/Link/LinkVariants.vue
 <!-- end vue -->
 <!-- react -->
-> NOTE: By default, if `VsfLink` component detects that it's running in `Next` environment it will render as `Next/Link`. In pure `React` environment though it will render as  regular `a` element. This behaviour can be overridden by using `tag` prop or [`linkTag` config option](./config).
+<<<../../preview/next/pages/showcases/Link/LinkVariants.tsx
 <!-- end react -->
+</Showcase>
+
+## Text sizes
+
+<Showcase showcase-name="Link/TextSizes">
+
+Customize typography settings like for eg. `fontSize` by passing additional CSS classes via `class`/`className` prop.
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Link/TextSizes.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Link/TextSizes.tsx
+<!-- end react -->
+</Showcase>
+
+
+<!-- react -->
+## Usage with NextJS Link
+
+Link component can be composed together with `NextJS` link component.
+
+<Showcase showcase-name="Link/NextLink">
+<<<../../preview/next/pages/showcases/Link/NextLink.tsx
+</Showcase>
+<!-- end react -->
+
+<!-- vue -->
+## Usage with Nuxt Link
+
+Use `tag` prop to render component as `NuxtLink`.
+
+<Showcase showcase-name="Link/NuxtLink">
+<<<../../preview/nuxt/pages/showcases/Link/NuxtLink.vue
+</Showcase>
+<!-- end vue -->
+
+
+## Playground
 
 <Generate />
+:::
 
-## Props
+::: slot api
 
-| Prop name             | Type                       | Default value | Possible values                        |
-|-----------------------|----------------------------|---------------|----------------------------------------|
+| Prop name | Type             | Default value | Possible values    |
+| --------- | ---------------- | ------------- | ------------------ |
+| variant   | VsfLinkVariant   | primary       | primary, secondary |
 <!-- vue -->
-|  tag                 |  `string | NuxtLink | RouterLink`            |   `NuxtLink | RouterLink | a`          |  `a, RouterLink, NuxtLink`                |
-|  link                 |  `string | RouteLocationRaw`           |   `undefined`   |                                        |
+| tag | String | a | |
 <!-- end vue -->
 <!-- react -->
-|  tag                 |  `string | Link`            |   `Link | a`          |  `a, Link`                |
-|  link                 |  `string`           |   `undefined`   |                                        |
-|  className            |  `string`                    |   `''`          |                                        |
+| children | ReactNode | | Default slotted content |
+| as | ReactElement | a | any tag name |
 <!-- end react -->
-|  variant              |  `string`                    |   `primary`     |  `primary, secondary, none`                    |
 
 <!-- vue -->
-## Slots
-
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-|  default  | replaces the default content      |
+| Slot name |         Description          |
+| --------- | :--------------------------: |
+| default   | replaces the default content |
 <!-- end vue -->
 
-## Source code
+:::
 
+::: slot source
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfLink/VsfLink.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfLink/VsfLink.tsx
 <!-- end react -->
+:::
