@@ -1,8 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfCounter v-bind="state" :class="fill">
-      {{ value }}
-    </VsfCounter>
+    <VsfCounter v-bind="state" :class="fill">{{ value }}</VsfCounter>
   </ComponentExample>
 </template>
 

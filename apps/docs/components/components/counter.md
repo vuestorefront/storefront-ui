@@ -5,10 +5,46 @@ description: Counter is a part of other complex components. Informs in numerical
 ---
 # Counter
 
+::: slot usage
+
 {{ $frontmatter.description }}
+
+## Counter
+
+The basic component with value inside the parentheses in all sizes accessible by prop. 
+
+<Showcase showcase-name="Counter/Counter">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Counter/Counter.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Counter/Counter.tsx
+<!-- end react -->
+</Showcase>
+
+
+## Counter pill
+
+The pill version of the component with size set to `xl` and colored background. 
+
+<Showcase showcase-name="Counter/CounterPill">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Counter/CounterPill.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Counter/CounterPill.tsx
+<!-- end react -->
+</Showcase>
+
+## Playground
 
 <Generate />
 
+:::
+
+::: slot api
 ## Props
 
 | Prop name | Type              | Default value | Possible values                       |
@@ -25,9 +61,12 @@ description: Counter is a part of other complex components. Informs in numerical
 
 | Slot name |            Description            |
 | --------- | :-------------------------------: |
-| default   | Counter value                     |
+| default   | To be filled with counter value   |
 <!-- end vue -->
 
+:::
+
+::: slot source
 ## Source code
 
 <!-- vue -->
@@ -36,3 +75,5 @@ description: Counter is a part of other complex components. Informs in numerical
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfCounter/VsfCounter.tsx
 <!-- end react -->
+
+:::

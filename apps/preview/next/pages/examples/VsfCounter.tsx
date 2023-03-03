@@ -37,7 +37,7 @@ function Example() {
       value: '123',
       size: VsfCounterSize.base,
       pill: false,
-      fill: 'bg-white',
+      fill: '',
     },
   );
 
