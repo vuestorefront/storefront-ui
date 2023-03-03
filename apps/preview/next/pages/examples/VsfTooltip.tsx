@@ -1,5 +1,5 @@
-import { VsfTooltip, VsfTooltipPlacement, VsfTooltipProps } from '@storefront-ui/react/components/VsfTooltip/index';
-import { VsfButton } from '@storefront-ui/react/components/VsfButton/index';
+import { VsfTooltip, VsfTooltipProps } from '@storefront-ui/react/components/VsfTooltip/index';
+import { VsfPopoverPlacement } from '@storefront-ui/react/hooks/usePopover';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -14,45 +14,32 @@ function Example() {
         description: 'Set label value',
       },
       {
-        type: 'boolean',
-        modelName: 'open',
-        propDefaultValue: 'false',
-        propType: 'boolean',
-        description: 'State of tooltip',
-      },
-      {
         type: 'select',
-        options: Object.keys(VsfTooltipPlacement),
+        options: Object.keys(VsfPopoverPlacement),
         modelName: 'placement',
-        propType: 'VsfTooltipPlacement',
-        propDefaultValue: VsfTooltipPlacement.bottom,
+        propType: 'VsfPopoverPlacement',
+        propDefaultValue: VsfPopoverPlacement.top,
         description: 'Initial position of tooltip in reference to trigger',
       },
       {
         type: 'boolean',
-        modelName: 'hidePointer',
-        propDefaultValue: 'false',
+        modelName: 'showArrow',
         propType: 'boolean',
-        description: 'Set if pointer should be visible or hidden',
+        description: 'Show pointer arrow',
+        propDefaultValue: false,
       },
     ],
     {
       label: 'Tooltip text',
-      open: undefined,
-      placement: VsfTooltipPlacement.bottom,
-      hidePointer: undefined,
+      placement: VsfPopoverPlacement.top,
+      showArrow: false,
     },
   );
 
   return (
     <ComponentExample controls={{ state, controls }} componentContainerClassName="flex justify-center items-center">
-      <VsfTooltip
-        {...state.get}
-        onOpenUpdate={(open) => {
-          state.set({ ...state.get, open });
-        }}
-      >
-        <VsfButton>Button</VsfButton>
+      <VsfTooltip {...state.get}>
+        <span>Hover me!</span>
       </VsfTooltip>
     </ComponentExample>
   );

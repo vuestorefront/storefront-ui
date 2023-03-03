@@ -240,7 +240,7 @@ function Example() {
               <VsfFooterLabel type={VsfFooterLabelType.category}>{category.label}</VsfFooterLabel>
               {category.subcategories?.map((subcategory) => (
                 <VsfFooterLabel key={subcategory.label}>
-                  <Link href={subcategory.link}>
+                  <Link href={subcategory.link} legacyBehavior passHref>
                     <a>{subcategory.label}</a>
                   </Link>
                 </VsfFooterLabel>
@@ -256,7 +256,7 @@ function Example() {
               <VsfFooterColumn type={VsfFooterColumnType.middle} key={contactOption.label}>
                 <Icon size={VsfIconSize.lg} />
                 <VsfFooterLabel type={VsfFooterLabelType.contact}>
-                  <Link href={contactOption.link}>
+                  <Link href={contactOption.link} legacyBehavior passHref>
                     <a>{contactOption.label}</a>
                   </Link>
                 </VsfFooterLabel>
@@ -275,7 +275,7 @@ function Example() {
               const Icon = iconsMap[social.icon];
               return (
                 <VsfFooterLabel type={VsfFooterLabelType.socialMedia} key={social.label}>
-                  <Link href={social.link}>
+                  <Link href={social.link} legacyBehavior passHref>
                     <a aria-label={`Go to ${social.label} page`}>
                       <Icon />
                     </a>
@@ -287,7 +287,7 @@ function Example() {
           <VsfFooterBottomLinks>
             {state.get.bottomLinksModel.map((bottomLink) => (
               <VsfFooterLabel type={VsfFooterLabelType.bottomLinks} key={bottomLink.label}>
-                <Link href={bottomLink.link}>
+                <Link href={bottomLink.link} legacyBehavior passHref>
                   <a>{bottomLink.label}</a>
                 </Link>
               </VsfFooterLabel>

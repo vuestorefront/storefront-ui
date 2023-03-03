@@ -1,40 +1,24 @@
-import classNames from 'classnames';
-import { VsfTooltipPlacement, VsfTooltipProps } from './types';
-import { VsfDropdownInternal, VsfDropdownInternalTriggerEvent } from '../VsfDropdownInternal/index';
+import { useTooltip } from '../../hooks/useTooltip';
+import { VsfTooltipProps } from './types';
 
-export default function VsfTooltip({
-  label,
-  hidePointer,
-  placement = VsfTooltipPlacement.bottom,
-  open,
-  children,
-  className,
-  onOpenUpdate,
-  ...attributes
-}: VsfTooltipProps): JSX.Element {
+export default function VsfTooltip(props: VsfTooltipProps) {
+  const { children, label, className, style, showArrow, ...tooltipOptions } = props;
+  const { isOpen, getTriggerProps, getTooltipProps, getArrowProps } = useTooltip(tooltipOptions);
+
   return (
-    <VsfDropdownInternal
-      className={classNames('vsf-tooltip', className)}
-      open={open}
-      placement={placement}
-      slotTrigger={<div className="vsf-tooltip__trigger">{children}</div>}
-      triggerEvent={VsfDropdownInternalTriggerEvent.hover}
-      onOpenUpdate={onOpenUpdate}
-      data-testid="tooltip"
-      {...attributes}
-    >
-      {label && (
+    <span {...getTriggerProps({ className, style })}>
+      {children}
+      {label && isOpen && (
         <div
-          role="tooltip"
-          className={classNames([
-            `vsf-tooltip__label vsf-tooltip__label--${placement}`,
-            { 'vsf-tooltip__label--without-pointer': hidePointer },
-          ])}
-          data-testid="tooltip-label"
+          {...getTooltipProps({
+            role: 'tooltip',
+            className: 'bg-black px-2 py-1.5 rounded-md text-white text-xs w-max max-w-[360px] drop-shadow',
+          })}
         >
           {label}
+          {showArrow && <span {...getArrowProps({ className: 'bg-black rotate-45' })} />}
         </div>
       )}
-    </VsfDropdownInternal>
+    </span>
   );
 }

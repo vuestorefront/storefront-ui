@@ -1,18 +1,14 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: VsfTooltips provide contextual information about an element when that owning element receives focus or is hovered over, but is otherwise not visible on the page.
+description: VsfDropdown
 ---
 
-# Tooltip
+# Dropdown
 
 ::: slot usage
 
 {{ $frontmatter.description }}
-
-## Accessibility notes
-
-Tooltip element has role="tooltip".
 
 ## Playground
 
@@ -24,16 +20,18 @@ Tooltip element has role="tooltip".
 
 ## Notes
 
-Tooltip component is built on to of the `useTooltip` hook and accepts all its params.
+Dropdown component is built on to of the `useDropdown` hook and accepts all its params.
 
 ## Props
 
 | Prop name | Type                                                     | Default value | Possible values |
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
-| label\*   | `string`                                                 |               |                 |
-| showArrow | `boolean`                                                | `false`       |                 |
+| trigger\* | `ReactNode`                                              |               |                 |
+| isOpen\*  | `boolean`                                                |               |                 |
+| onClose\* | `() => void`                                             |               |                 |
 | placement | `VsfPopoverPlacement`                                    |               |                 |
 | offset    | `number`                                                 |               |                 |
+| arrowRef  | `ReactRef<HTMLElement>`                                  |               |                 |
 | arrowSize | `${number}px` &#124; `${number}em` &#124; `${number}rem` |               |                 |
 <!-- react -->
 | children  | `ReactNode`                                              |               |                 |
@@ -46,7 +44,7 @@ Tooltip component is built on to of the `useTooltip` hook and accepts all its pa
 ## Source code
 
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfTooltip/VsfTooltip.tsx
+<<< ../../../packages/sfui/frameworks/react/components/VsfDropdown/VsfDropdown.tsx
 <!-- end react -->
 
 :::

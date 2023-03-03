@@ -24,6 +24,7 @@
     "README.md"
   ],
   "dependencies": {
+    "@floating-ui/vue": "^0.2.1",
     "@storefront-ui/css": "workspace:*",
     "@storefront-ui/shared": "workspace:*",
     "@vueuse/core": "^9.12.0",
