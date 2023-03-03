@@ -1,5 +1,5 @@
 <template>
-  <Layout :hideBreadcrumbs="true" :key="`${$route.path}-toggle`">
+  <Layout :hideBreadcrumbs="true" :key="`${$route.path}-toggle`" :custom-toc="tocHeaders">
     <template #before-content>
       <span v-if="framework === 'vue'" class="px-2 py-1 text-sm font-medium rounded bg-green bg-opacity-20 text-green">
         Vue
@@ -64,7 +64,9 @@
         </button>
       </div>
       <KeepAlive>
-        <Content v-for="{ value } in tabOptions" :key="value" :slot-key="value" v-if="selectedTab === value" />
+        <div ref="tabs">
+          <Content v-for="{ value } in tabOptions" :key="value" :slot-key="value" v-if="selectedTab === value" />
+        </div>
       </KeepAlive>
     </template>
   </Layout>
@@ -93,6 +95,7 @@ export default {
         { label: 'Source', value: 'source' },
       ],
       selectedTab: 'usage',
+      tocHeaders: [],
     };
   },
   computed: {
@@ -122,10 +125,31 @@ export default {
         this.menuOpen = false;
       }
     },
+    async loadHeadings() {
+      // wait for the DOM to update
+      await this.$nextTick();
+      return this.$root.$el
+        ? (this.tocHeaders = Array.from(this.$root.$el.querySelectorAll('main h1,main h2,main h3')).map((heading) => {
+            return {
+              slug: heading.id,
+              title: heading.innerText,
+              level: parseInt(heading.tagName.substring(1)),
+            };
+          }))
+        : [];
+    },
   },
   watch: {
     $route() {
       this.menuOpen = false;
+      this.loadHeadings();
+    },
+    selectedTab: {
+      handler() {
+        this.loadHeadings();
+      },
+      // force eager callback execution
+      immediate: true,
     },
   },
 };
