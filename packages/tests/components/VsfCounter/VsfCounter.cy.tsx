@@ -46,6 +46,7 @@ describe('VsfCounter', () => {
     Object.values(VsfCounterSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
+          size = componentSize;
           initializeComponent();
 
           page().makeSnapshot();

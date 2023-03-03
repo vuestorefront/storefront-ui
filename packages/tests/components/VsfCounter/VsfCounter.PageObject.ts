@@ -2,7 +2,7 @@ import { BasePage } from '../../utils/BasePage';
 
 export default class VsfCounterBaseObject extends BasePage<HTMLDivElement> {
   isPill() {
-    this.container.should('have.class', 'vsf-counter--pill');
+    this.container.should('have.class', 'ring-inset');
     return this;
   }
 
