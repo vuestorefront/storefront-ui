@@ -21,6 +21,7 @@ export interface VsfInputProps extends PropsWithStyle, PropsWithChildren {
   value: string;
   size?: `${VsfInputSize}`;
   label?: string;
+  type?: string;
   disabled?: boolean;
   required?: boolean;
   invalid?: boolean;

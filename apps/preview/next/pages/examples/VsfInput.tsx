@@ -40,6 +40,11 @@ function Example() {
       {
         type: 'text',
         propType: 'string',
+        modelName: 'type',
+      },
+      {
+        type: 'text',
+        propType: 'string',
         modelName: 'placeholder',
       },
       {
@@ -101,6 +106,7 @@ function Example() {
       required: false,
       invalid: false,
       readonly: undefined,
+      type: 'text',
       placeholder: 'Placeholder text',
       helpText: 'Help text',
       requiredText: 'Required text',
@@ -119,6 +125,7 @@ function Example() {
     <ComponentExample controls={{ state, controls }}>
       <VsfInput
         size={state.get.size}
+        type={state.get.type}
         value={state.get.value}
         label={state.get.label}
         placeholder={state.get.placeholder}

@@ -10,6 +10,7 @@ export default function VsfInput({
   disabled,
   required,
   value,
+  type,
   size = VsfInputSize.base,
   slotPrefix,
   slotSuffix,
@@ -54,7 +55,7 @@ export default function VsfInput({
         <input
           id={inputId}
           className="vsf-input__field"
-          type="text"
+          type={type}
           value={value}
           placeholder={placeholder}
           disabled={disabled}

@@ -21,7 +21,9 @@ For search feature use Search component instead of Input.
 | ------------ | --------        | ------------- | -------------------------------------- |
 | value        | String          | ''            |                                        |
 | label        | String          | ''            |                                        |
-| size         | VsfInputSize  | base          | sm, base, lg                           |
+| type         | String          | ''            |                                        |
+| role         | VsfInputRole    | ''            |                                        |
+| size         | VsfInputSize    | base          | sm, base, lg                           |
 | disabled     | Boolean         | false         |                                        |
 | invalid      | Boolean         | false         |                                        |
 | required     | Boolean         | false         |                                        |

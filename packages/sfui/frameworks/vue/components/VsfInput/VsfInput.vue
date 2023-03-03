@@ -14,6 +14,10 @@ const props = defineProps({
     type: String as PropType<`${VsfInputSize}`>,
     default: VsfInputSize.base,
   },
+  type: {
+    type: String,
+    default: 'text',
+  },
   role: {
     type: String as PropType<VsfInputRole>,
     default: undefined,
@@ -102,7 +106,7 @@ const inputId = useId();
         :id="inputId"
         v-model="inputValue"
         class="vsf-input__field"
-        type="text"
+        :type="type"
         :role="role"
         :placeholder="placeholder"
         :disabled="disabled"

@@ -18,7 +18,8 @@ export enum VsfInputAriaAutocomplete {
 export interface VsfInputProps {
   value: string;
   size?: VsfInputSize;
-  type?: VsfInputRole;
+  type?: string;
+  role?: VsfInputRole;
   label?: string;
   disabled?: boolean;
   required?: boolean;
