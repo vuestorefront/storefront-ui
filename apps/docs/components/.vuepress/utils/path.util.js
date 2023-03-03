@@ -1,5 +1,12 @@
-const generateComponentPath = (framework, componentName, isShowcase = false) => {
-  return `/${framework}/${isShowcase ? 'showcases' : 'components'}/${isShowcase ? componentName : componentName.replace('Vsf', '').toLowerCase()}.html`;
-}
+const generateComponentPath = (framework, componentName, type = 'components') => {
+  switch (type) {
+    case 'components':
+      return `/${framework}/components/${componentName.replace('Vsf', '').toLowerCase()}.html`;
+    case 'showcases':
+      return `/${framework}/showcases/${componentName}.html`;
+    case 'hooks':
+      return `/${framework}/hooks/${componentName}.html`;
+  }
+};
 
 module.exports = { generateComponentPath };

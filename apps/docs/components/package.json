@@ -13,7 +13,7 @@
     "watch-showcases": "chokidar --initial \"./showcases/**/*.md\" -c \"yarn update-showcases --event {event} --path {path};\"",
     "serve": "vuepress serve",
     "clear": "yarn concurrently \"rimraf ./vue/components\" \"rimraf ./vue/showcases\" \"rimraf ./react/components\" \"rimraf ./react/showcases\"",
-    "update-docs": "yarn node ./utils/createComponentList && yarn node ./utils/createFrameworksDocs",
+    "update-docs": "yarn node ./utils/createComponentList && yarn node ./utils/createFrameworksDocs && yarn node ./utils/createHooksList && yarn node ./utils/createHooksDocs",
     "update-showcases": "yarn node ./utils/createShowcaseList && yarn node ./utils/createShowcaseDocs",
     "update-files": "yarn clear && yarn concurrently \"yarn update-docs\" \"yarn update-showcases\""
   },

@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import type { VsfDialogProps } from './types';
 import { VsfButton, VsfButtonVariant } from '../VsfButton';
 import VsfIconClose from '../VsfIcons/VsfIconClose';
-import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
+import { useTrapFocus } from '../../hooks/useTrapFocus';
 
 export default function VsfDialog({
   open,

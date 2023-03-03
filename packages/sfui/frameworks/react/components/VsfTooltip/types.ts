@@ -1,19 +1,9 @@
 import type { PropsWithChildren } from 'react';
+
+import type { UseTooltipOptions } from '../../hooks/useTooltip';
 import type { PropsWithStyle } from '../../shared/types/index';
-import type { VsfDropdownInternalProps } from '../VsfDropdownInternal';
 
-export enum VsfTooltipPlacement {
-  top = 'top',
-  bottom = 'bottom',
-  left = 'left',
-  right = 'right',
-}
-
-export interface VsfTooltipProps
-  extends PropsWithChildren,
-    PropsWithStyle,
-    Pick<VsfDropdownInternalProps, 'open' | 'onOpenUpdate'> {
+export interface VsfTooltipProps extends UseTooltipOptions, PropsWithChildren, PropsWithStyle {
   label: string;
-  hidePointer?: boolean;
-  placement: `${VsfTooltipPlacement}`;
+  showArrow?: boolean;
 }

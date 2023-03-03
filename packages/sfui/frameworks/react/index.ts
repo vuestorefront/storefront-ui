@@ -1,15 +1,15 @@
+// Components
 export * from './components/VsfAccordionItem';
 export * from './components/VsfAlert';
 export * from './components/VsfBadge';
 export * from './components/VsfButton';
 export * from './components/VsfCheckbox';
-export * from './components/VsfCombobox';
 export * from './components/VsfChip';
 export * from './components/VsfConfig';
 export * from './components/VsfCounter';
 export * from './components/VsfDialog';
 export * from './components/VsfDivider';
-export * from './components/VsfDropdownInternal';
+export * from './components/VsfDropdown';
 export * from './components/VsfDropdownMenu';
 export * from './components/VsfFooter';
 export * from './components/VsfIconBase';
@@ -38,9 +38,14 @@ export * from './components/VsfSwitch';
 export * from './components/VsfTabs';
 export * from './components/VsfTag';
 export * from './components/VsfTooltip';
-export * from './components/VsfSelectDropdown';
 export * from './components/VsfHero';
 export * from './components/VsfDisplay';
 export * from './components/VsfChipThumbnail';
 export * from './components/VsfListItemFilterSwitch';
 export * from './components/VsfListItemFilterChip';
+// Hooks
+export * from './hooks/useDisclosure';
+export * from './hooks/useDropdown';
+export * from './hooks/usePopover';
+export * from './hooks/useTooltip';
+export * from './hooks/useTrapFocus';

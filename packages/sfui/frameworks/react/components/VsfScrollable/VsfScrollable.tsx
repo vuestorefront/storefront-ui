@@ -7,7 +7,7 @@ import type { VsfScrollableProps } from './types';
 import { VsfScrollableNavigation, VsfScrollableScrollbar, VsfScrollableDirection } from './types';
 import { useScrollable } from './useScrollable';
 import { VsfButtonVariant, VsfButtonSize } from '../VsfButton';
-import { useTrapFocus, InitialFocusType } from '../../shared/useTrapFocus/useTrapFocus';
+import { useTrapFocus, InitialFocusType } from '../../hooks/useTrapFocus';
 
 const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
   (
