@@ -1,6 +1,6 @@
-import { VsfRadioAlignment } from '@storefront-ui/react/components/VsfRadio/types';
-import { VsfRadio, VsfRadioGroup } from '@storefront-ui/react/components/VsfRadio';
-import type { ChangeEvent } from 'react';
+/* eslint-disable jsx-a11y/label-has-associated-control */
+import { VsfRadio } from '@storefront-ui/react/components/VsfRadio';
+import classNames from 'classnames';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -10,28 +10,14 @@ function Example() {
     [
       {
         type: 'text',
-        modelName: 'name',
+        modelName: 'checked',
         propType: 'string',
         propDefaultValue: '',
       },
       {
-        type: 'text',
-        modelName: 'label',
-        propType: 'string',
-        propDefaultValue: '',
-      },
-      {
-        type: 'text',
-        modelName: 'value',
-        propType: 'string',
-        propDefaultValue: '',
-      },
-      {
-        type: 'select',
-        options: Object.keys(VsfRadioAlignment),
-        modelName: 'alignment',
-        propType: 'VsfRadioAlignment',
-        propDefaultValue: VsfRadioAlignment.leading,
+        type: 'json',
+        propType: 'array',
+        modelName: 'radioOptions',
       },
       {
         type: 'boolean',
@@ -40,49 +26,59 @@ function Example() {
       },
       {
         type: 'boolean',
-        modelName: 'required',
+        modelName: 'invalid',
         propType: 'boolean',
-      },
-      {
-        type: 'text',
-        modelName: 'helpText',
-        propType: 'string',
-        propDefaultValue: '',
       },
     ],
     {
       id: 'radio-1',
       name: 'radio',
-      label: 'Radio 1',
       value: 'radio 1',
-      alignment: VsfRadioAlignment.leading,
       disabled: false,
-      required: false,
-      helpText: 'Help text',
-      selectedValue: '',
-      radioGroupModelValue: '',
+      invalid: false,
+      checked: '',
+      radioOptions: [
+        {
+          label: 'Label',
+          value: 'value-1',
+          name: 'radio',
+        },
+        {
+          label: 'Label 2',
+          value: 'value-2',
+          name: 'radio',
+        },
+      ],
     },
   );
-  function onChangeHandler(event: ChangeEvent<HTMLInputElement>) {
+  function onChangeHandler(value: string) {
     state.set({
       ...state.get,
-      selectedValue: event.target.value,
+      checked: value,
     });
   }
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfRadioGroup>
-        <VsfRadio
-          name={state.get.name}
-          label={state.get.label}
-          value={state.get.selectedValue}
-          alignment={state.get.alignment}
-          helpText={state.get.helpText}
-          disabled={state.get.disabled}
-          required={state.get.required}
-          onChange={onChangeHandler}
-        />
-      </VsfRadioGroup>
+      {state.get.radioOptions.map(({ label, value, name }) => (
+        <label
+          key={value}
+          className={classNames('flex items-center mb-4 cursor-pointer', {
+            'text-disabled-900 cursor-not-allowed': state.get.disabled,
+          })}
+        >
+          <VsfRadio
+            name={name}
+            value={value}
+            checked={state.get.checked === value}
+            disabled={state.get.disabled}
+            invalid={state.get.invalid}
+            onChange={(event) => {
+              onChangeHandler(event.target.value);
+            }}
+          />
+          <span className="ml-2 text-base font-normal leading-6 font-body">{label}</span>
+        </label>
+      ))}
     </ComponentExample>
   );
 }

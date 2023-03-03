@@ -1,45 +1,20 @@
 import classNames from 'classnames';
-import { VsfRadioAlignment, VsfRadioProps } from './types';
+import { forwardRef } from 'react';
+import { VsfRadioProps } from './types';
 
-export default function VsfRadio({
-  name,
-  label,
-  value,
-  checked,
-  disabled,
-  alignment = VsfRadioAlignment.leading,
-  required,
-  helpText,
-  className,
-  onChange,
-  ...attributes
-}: VsfRadioProps) {
-  return (
-    <label
+export default forwardRef<HTMLInputElement, VsfRadioProps>(
+  ({ invalid, className, ...attributes }: VsfRadioProps, ref) => (
+    <input
+      ref={ref}
+      type="radio"
       className={classNames(
-        'vsf-radio',
-        `vsf-radio--alignment-${alignment}`,
-        { 'vsf-radio--disabled': disabled },
+        'min-w-[20px] h-5 border-2 border-neutral-500 rounded-full appearance-none cursor-pointer focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 active:border-primary-900 hover:border-primary-700 checked:bg-primary-700 checked:border-primary-700 checked:shadow-inset hover:checked:bg-primary-800 hover:checked:border-primary-800 active:checked:bg-primary-900 active:checked:border-primary-900 disabled:border-disabled-500 disabled:opacity-40 disabled:cursor-not-allowed disabled:checked:bg-disabled-500 disabled:checked:border-disabled-500',
+        {
+          '!border-negative-700 hover:!border-negative-800 active:!border-negative-900': invalid,
+        },
         className,
       )}
       {...attributes}
-    >
-      <input
-        name={name}
-        type="radio"
-        value={value}
-        checked={checked}
-        className="vsf-radio__input"
-        disabled={disabled}
-        required={required}
-        onChange={onChange}
-      />
-      {label || helpText ? (
-        <div className="vsf-radio__content-wrapper">
-          <p>{label}</p>
-          {helpText ? <p className="vsf-radio__help-text">{helpText}</p> : null}
-        </div>
-      ) : null}
-    </label>
-  );
-}
+    />
+  ),
+);

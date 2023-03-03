@@ -33,7 +33,7 @@ export default function VsfListItemFilterRadio({
       secondaryText={secondaryText}
       disabled={disabled}
       truncate={truncate}
-      onClick={() => toggle(value, selected)}
+      onClick={() => toggle(selected)}
       slotPrefix={
         variant === VsfListItemFilterRadioVariant.left ? (
           <VsfRadio
