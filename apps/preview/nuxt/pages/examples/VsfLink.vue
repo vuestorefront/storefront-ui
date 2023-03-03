@@ -1,6 +1,10 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfLink v-bind="state" :tag="tag === 'NuxtLink' ? NuxtLink : tag"> Link </VsfLink>
+    <VsfLink v-bind="state">
+      <template v-if="SlotDefault" #default>
+        {{ SlotDefault }}
+      </template>
+    </VsfLink>
   </ComponentExample>
 </template>
 
@@ -18,28 +22,24 @@ export default defineComponent({
   },
   setup() {
     return {
-      NuxtLink: resolveComponent('NuxtLink'),
       ...prepareControls(
         [
           {
             type: 'text',
-            modelName: 'link',
-            propType: 'string',
+            modelName: 'SlotDefault',
+            description: 'Only for demonstration purposes. Default slot',
           },
           {
-            type: 'select',
+            type: 'text',
+            modelName: 'href',
+            propType: 'string',
+            description: 'Only for demonstration purposes. Component href attribute',
+          },
+          {
+            type: 'text',
             modelName: 'tag',
-            propType: '"a" | NuxtLink | RouterLink',
-            propDefaultValue: 'NuxtLink | RouterLink | a',
-            description:
-              'At first component detect if Nuxt env available and use NuxtLink, then priority takes if component has prop on itself, then VsfConfig "linkTag" setting. When tag = "a" page is reloading otherwise route change is within app',
-            options: [
-              {
-                label: 'default(NuxtLink)',
-                value: 'NuxtLink',
-              },
-              'a',
-            ],
+            propType: 'string | ConcreteComponent',
+            propDefaultValue: 'a',
           },
           {
             type: 'select',
@@ -49,9 +49,10 @@ export default defineComponent({
           },
         ],
         {
-          link: ref('/examples/VsfButton'),
+          SlotDefault: ref('Link'),
+          href: ref('/examples/VsfLink'),
           variant: ref(VsfLinkVariant.primary),
-          tag: ref('NuxtLink'),
+          tag: ref('a'),
         },
       ),
     };

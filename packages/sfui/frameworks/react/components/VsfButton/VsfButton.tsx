@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { VsfButtonSize, VsfButtonVariant } from './types';
 import type { VsfButtonProps } from './types';
-import { polymorficForwardRef } from '../../shared/utils';
+import { polymorphicForwardRef } from '../../shared/utils';
 
 const defaultButtonTag = 'button';
 
@@ -34,7 +34,7 @@ const getVariantClasses = (variant: VsfButtonProps['variant']) => {
   }
 };
 
-const VsfButton = polymorficForwardRef<typeof defaultButtonTag, VsfButtonProps>((props, ref) => {
+const VsfButton = polymorphicForwardRef<typeof defaultButtonTag, VsfButtonProps>((props, ref) => {
   const {
     as,
     className,

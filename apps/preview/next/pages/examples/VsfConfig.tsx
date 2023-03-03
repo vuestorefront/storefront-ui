@@ -38,7 +38,7 @@ function Example() {
   return (
     <ComponentExample controls={{ state, controls }}>
       <VsfConfig linkTag={state.get.linkTag === 'Link' ? Link : state.get.linkTag}>
-        <VsfLink link={state.get.link} variant={VsfLinkVariant.primary}>
+        <VsfLink href={state.get.link} variant={VsfLinkVariant.primary}>
           Link
         </VsfLink>
       </VsfConfig>

@@ -1,64 +1,30 @@
-import { Fragment, lazy, Suspense } from 'react';
 import classNames from 'classnames';
+import type { VsfLinkProps } from './types';
 import { VsfLinkVariant } from './types';
-import type { LinkComponent, VsfLinkProps } from './types';
-import { VsfConfigContext } from '../VsfConfig';
 
-let DynamicLink: VsfLinkProps['tag'];
-// eslint-disable-next-line consistent-return
-const loadDynamic = async () => {
-  try {
-    const dynamic = await import('next/link');
-    return dynamic.default;
-  } catch (e) {
-    // eslint-disable-next-line no-console
-    console.log('Next env is not available');
+import { polymorphicForwardRef } from '../../shared/utils';
+
+const defaultLinkTag = 'a';
+
+const getVariantClasses = (variant: Required<VsfLinkProps>['variant']) => {
+  switch (variant) {
+    case VsfLinkVariant.secondary:
+      return 'text-neutral-900 underline hover:text-primary-700 active:text-primary-800 visited:text-primary-800';
+    case VsfLinkVariant.primary:
+    default:
+      return 'text-primary-700 hover:underline active:text-primary-800 active:underline visited:text-primary-800 visited:underline';
   }
 };
 
-loadDynamic().then((dynamic) => {
-  if (!dynamic) DynamicLink = Fragment;
-  else DynamicLink = lazy(() => import('next/link'));
-});
-
-export default function VsfLink({
-  tag,
-  link = '',
-  children,
-  variant = VsfLinkVariant.primary,
-  className = '',
-  ...attributes
-}: VsfLinkProps) {
-  function isString(element?: string | LinkComponent) {
-    if (!element) return true;
-    return typeof element === 'string';
-  }
-
-  const AnchorElement = (
-    <a
-      href={link}
-      className={classNames('vsf-link', `vsf-link--${variant}`, className)}
-      data-testid="link"
-      {...attributes}
-    >
-      {children}
-    </a>
-  );
+const VsfLink = polymorphicForwardRef<typeof defaultLinkTag, VsfLinkProps>((props, ref) => {
+  const { as, className, children, variant = VsfLinkVariant.primary, ...attributes } = props;
+  const Tag = as || defaultLinkTag;
 
   return (
-    <VsfConfigContext.Consumer>
-      {({ linkTag }) => {
-        const LinkElement = tag || linkTag || DynamicLink || 'a';
-
-        if (isString(LinkElement)) return AnchorElement;
-        return (
-          <Suspense>
-            <LinkElement legacyBehavior href={link}>
-              {AnchorElement}
-            </LinkElement>
-          </Suspense>
-        );
-      }}
-    </VsfConfigContext.Consumer>
+    <Tag ref={ref} className={classNames(getVariantClasses(variant), className)} data-testid="link" {...attributes}>
+      {children}
+    </Tag>
   );
-}
+});
+
+export default VsfLink;

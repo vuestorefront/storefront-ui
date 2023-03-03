@@ -1,7 +1,6 @@
 export * from './components/VsfAccordionItem';
 export * from './components/VsfAlert';
 export * from './components/VsfBadge';
-export * from './components/VsfBreadcrumbs';
 export * from './components/VsfButton';
 export * from './components/VsfCheckbox';
 export * from './components/VsfCombobox';
@@ -22,7 +21,6 @@ export * from './components/VsfListItemFilterRadio';
 export * from './components/VsfListItemMenu';
 export * from './components/VsfLoaderCircular';
 export * from './components/VsfLoaderLinear';
-export * from './components/VsfNavbarBottom';
 export * from './components/VsfNavbarTop';
 export * from './components/VsfNavigationSide';
 export * from './components/VsfOverlay';

@@ -1,5 +1,6 @@
+import type { ElementType } from 'react';
+
 import { VsfLink, VsfLinkVariant } from '@storefront-ui/react/components/VsfLink';
-import Link from 'next/link';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -9,42 +10,40 @@ function Example() {
     [
       {
         type: 'text',
-        modelName: 'link',
+        modelName: 'href',
         propType: 'string',
+        description: 'Only for demonstration purposes. Component href attribute',
       },
       {
-        type: 'select',
-        modelName: 'tag',
-        propType: '"a" | typeof Link',
-        propDefaultValue: 'Link | a',
-        description:
-          'At first component detect if Next env available and use NuxtLink, then priority takes if component has prop on itself, then VsfConfig "linkTag" setting. When tag = "a" page is reloading otherwise route change is within app',
-        options: [
-          {
-            label: 'default(Link)',
-            value: 'Link',
-          },
-          'a',
-        ],
+        type: 'text',
+        modelName: 'as',
+        propType: 'React.ElementType',
+        description: 'Change element tag',
       },
       {
         type: 'select',
         modelName: 'variant',
+        propType: 'VsfLinkVariant',
         options: Object.keys(VsfLinkVariant),
+      },
+      {
+        type: 'text',
+        modelName: 'children',
+        propType: 'ReactNode',
+        description: 'Only for demonstration purposes. Children nodes.',
       },
     ],
     {
-      link: '/examples/VsfButton',
+      href: '/examples/VsfLink',
       variant: VsfLinkVariant.primary,
-      tag: 'Link',
+      children: 'link',
+      as: 'a' as ElementType<any>,
     },
   );
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfLink tag={state.get.tag === 'Link' ? Link : state.get.tag} link={state.get.link} variant={state.get.variant}>
-        Link
-      </VsfLink>
+      <VsfLink {...state.get} />
     </ComponentExample>
   );
 }

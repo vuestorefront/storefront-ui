@@ -1,173 +1,106 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { ref } from 'vue';
 import { VsfLinkVariant } from '@storefront-ui/vue/components/VsfLink/types';
-import { mount, useComponent, Wrapper } from '../../utils/mount';
+import { mount, useComponent } from '../../utils/mount';
 import VsfLinkBaseObject from './VsfLink.PageObject';
-import { isReact, isVue } from '../../utils/utils';
-import { wrappedPromise } from '../../utils/wrappedPromise';
 
 const { vue: VsfLinkVue, react: VsfLinkReact } = useComponent('VsfLink');
 
-['a', 'RouterLink', 'Link'].forEach((type) => {
-  // Do not test `RouterLink' in react, and `Link` in vue
-  if ((isReact && type === 'RouterLink') || (isVue && type === 'Link')) return;
+describe('VsfLink', () => {
+  const slotDefaultContent = 'link content';
+  const page = () => new VsfLinkBaseObject('link');
 
-  describe(`VsfLink with tag ${type}`, async () => {
-    const isRouterLink = type === 'RouterLink';
-    const slotContent = 'Link';
-    const page = () => new VsfLinkBaseObject('link');
+  type InitializeComponentParams = {
+    variant?: VsfLinkVariant;
+    href?: string;
+    className?: string;
+    tag?: string;
+    slotDefault?: boolean;
+  };
 
-    const initializeComponent = ({
-      variant,
-      link = '',
-      tag,
-      slotDefault = slotContent,
-      router,
-    }: {
-      variant?: VsfLinkVariant;
-      link?: string | Record<string, unknown>;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      tag?: 'a' | any;
-      slotDefault?: string;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      router?: any;
-    }) => {
-      return mount({
-        vue: {
-          component: VsfLinkVue,
-          global: {
-            plugins: [router],
-          },
-          props: {
-            variant,
-            tag,
-            link,
-          },
-          slots: {
-            default: () => slotDefault,
-          },
+  const initializeComponent = ({
+    variant = VsfLinkVariant.primary,
+    href = '',
+    className,
+    tag,
+    slotDefault = true,
+  }: InitializeComponentParams = {}) => {
+    return mount({
+      vue: {
+        component: VsfLinkVue,
+        props: {
+          href,
+          tag,
+          class: className,
+          variant,
         },
-        react: (
-          <Wrapper variant={variant} tag={tag} link={link as string} component={VsfLinkReact}>
-            {slotDefault}
-          </Wrapper>
-        ),
-      });
-    };
-
-    it('initial state', () => {
-      initializeComponent({});
-
-      page().contains(slotContent).makeSnapshot();
+        slots: {
+          ...(slotDefault && { default: () => slotDefaultContent }),
+        },
+      },
+      react: (
+        <VsfLinkReact as={tag} href={href} className={className} variant={variant}>
+          {slotDefault ? slotDefaultContent : undefined}
+        </VsfLinkReact>
+      ),
     });
+  };
 
-    describe('when prop variant is set to ', () => {
-      Object.values(VsfLinkVariant).forEach((componentVariant) => {
-        describe(`${componentVariant}`, () => {
-          it(`should render correct ${componentVariant} variant`, () => {
-            initializeComponent({ variant: componentVariant });
+  it('initial state', () => {
+    initializeComponent({});
 
-            page().makeSnapshot();
-          });
+    page().contains(slotDefaultContent).makeSnapshot();
+  });
+
+  describe('when prop variant is set to ', () => {
+    Object.values(VsfLinkVariant).forEach((componentVariant) => {
+      describe(`${componentVariant}`, () => {
+        it(`should render correct ${componentVariant} variant`, () => {
+          initializeComponent({ variant: componentVariant });
+
+          page().makeSnapshot();
         });
       });
     });
+  });
 
-    describe('when link prop has a value', () => {
-      it('should has href with link prop value', () => {
-        const link = '/home';
-        initializeComponent({ link });
+  describe('when href prop has a value', () => {
+    it('should has href with prop value', () => {
+      const href = '/home';
+      initializeComponent({ href });
 
-        page().hasHref(link);
-      });
+      page().hasHref(href);
+    });
+  });
+
+  describe('when no default slot', () => {
+    it('should be without content', () => {
+      initializeComponent({ slotDefault: false });
+
+      page().haveNoContent();
+    });
+  });
+
+  describe('when prop tag', () => {
+    it('should render as <a> by default', () => {
+      initializeComponent();
+
+      page().hasTag('A');
     });
 
-    describe('when no default slot', () => {
-      it('should be without content', () => {
-        initializeComponent({ slotDefault: '' });
+    it('should render as <div> tag', () => {
+      initializeComponent({ tag: 'div' });
 
-        page().haveNoContent();
-      });
+      page().hasTag('DIV');
     });
+  });
 
-    describe('when prop tag', () => {
-      describe('"a"', () => {
-        it('should render as <a>', () => {
-          const tag = 'a';
-          initializeComponent({ tag });
+  describe('when class prop has a value', () => {
+    it('should attach class to component root element', () => {
+      const className = 'custom-class';
+      initializeComponent({ className });
 
-          page().hasTag('A');
-        });
-      });
+      page().hasClass(className);
     });
-
-    // TODO: check contextApi and provide/inject resolution inside VsfLink component
-
-    // vue
-    if (isRouterLink) {
-      const loadRouterConfig = () =>
-        wrappedPromise('dynamic import router', () => import('../../../../../router/index'));
-      const loadVueRouter = () => wrappedPromise('dynamic import vue-router', () => import('vue-router'));
-
-      describe('when router available globally and link=Object', () => {
-        it('should render "RouterLink"', () => {
-          const link = '/home';
-          const tag = ref();
-
-          loadRouterConfig()
-            .then((router) => {
-              return loadVueRouter().then(({ RouterLink }) => ({ RouterLink, router }));
-            })
-            .then(({ RouterLink, router }) => {
-              initializeComponent({ tag, link: { path: link }, router: router.default });
-
-              page().hasTag('A').hasHref(`/__cypress/src${link}`);
-              cy.then(() => {
-                tag.value = 'a';
-              })
-                .then(() => {
-                  page().hasTag('A').hasHref(`[object Object]`);
-                })
-                .then(() => {
-                  tag.value = RouterLink;
-                })
-                .then(() => {
-                  page().hasTag('A').hasHref(`/__cypress/src${link}`);
-                });
-            });
-        });
-      });
-    }
-    // end vue
-
-    // react
-    describe('when next available globally', () => {
-      const loadNextLink = () => wrappedPromise('dynamic import next/link', () => import('next/link'));
-
-      it('should render "Link" as default', () => {
-        const link = '/home';
-        const tag = ref();
-
-        loadNextLink().then((Link) => {
-          initializeComponent({ tag, link });
-
-          page().hasTag('A').hasHref(link);
-          cy.then(() => {
-            tag.value = 'a';
-          })
-            .then(() => {
-              page().hasTag('A').hasHref(link);
-            })
-            .then(() => {
-              tag.value = Link.default;
-            })
-            .then(() => {
-              page().hasTag('A').hasHref(link);
-            });
-        });
-      });
-    });
-    // end react
   });
 });
