@@ -8,33 +8,75 @@ that you can wait to build or run one app before another.
 
 ## Setup
 
-Install dependencies.
+#### Required system dependencies
 
-```bash
-yarn
+-   [NodeJS](https://nodejs.org/en/) -  JavaScript runtime environment.
+-   [yarn](https://yarnpkg.com/) - package manager used to maintain project dependencies
+
+### a. NodeJS
+
+Install `NodeJS` JavaScript runtime based on your environment of choice:
+
+For Homebrew on OS X and macOS
+
+```sh
+brew install node
 ```
 
-Run pipeline on root directory
+You can also download and install NodeJS directly from the [official website](https://nodejs.org/en/).
+
+If you need to use different versions of NodeJS for other projects we recommend to install [NVM](https://github.com/nvm-sh/nvm#installing-and-updating) or any other NodeJS version manager.
+
+Ensure that `NodeJS` environment is at least v16.
+
+### b. Yarn
+
+Install `yarn` [package manager](https://yarnpkg.com/getting-started/install).
+
+You can use `corepack` to install and manage `yarn` version.
+
+```sh
+corepack prepare yarn@3.4.1 --activate
+```
+
+To enforce the consistency of `yarn` version, the binary will be executed based on `.yarnrc.yml` file configuration. This repository codebase contains yarn `3.4.1` binary version.
+
+### c. Install dependencies
+
+Execute `yarn` command in terminal to install all required dependencies.
+
+### d. Configure GIT hooks
+
+Execute `yarn prepare` or `npx husky install` command in terminal to setup GIT hooks integration.
+
+### e. Run the project
+
+Run pipeline on the root directory
 
 ```bash
 yarn dev # run dev apps
 yarn dev:docs # run documentation website
-yarn build # run build
-yarn test # run tests
 ```
-
-Ports:
+Access the applications on the `localhost` and specific port:
 
 - Docs: `8080`
 - Nuxt: `3001`
 - Next.js: `3002`
 
-Clean the repository.
+## npm scripts
 
-```bash
-yarn clean
-yarn clean:total # with cachas
-```
+List of useful commands that could be used by developers. Execution in the command-line interface should be prefixed with `yarn` package manager.
+
+| Command          | Description                                          |
+| ---------------- | ---------------------------------------------------- |
+| `dev`            | run applictions in development mode                  |
+| `dev:docs`       | run documentation website                            |
+| `generate-icons` | automatically generates components for icons         |
+| `build`          | build applictions distribution                       |
+| `lint`           | run linter against codebase                          |
+| `test`           | run tests                                            |
+| `clean`          | clean up `node_modules` and removes `yarn.lock` file |
+| `clean:total`    | clean up project dependencies and `turborepo` cache  |
 
 ## Repository Structure
 
