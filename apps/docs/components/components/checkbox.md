@@ -62,7 +62,7 @@ The component with label element and the input aligned to the right edge of the 
 
 ## Playground
 
-<Generate style="height: 250px" />
+<Generate style="height: 450px" />
 
 :::
 

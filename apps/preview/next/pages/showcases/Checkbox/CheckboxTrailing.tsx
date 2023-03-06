@@ -3,7 +3,7 @@ import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {
   return (
-    <div className="flex flex-row-reverse justify-between">
+    <div className="flex justify-between">
       <label
         className="ml-3 text-base text-gray-900 cursor-pointer font-body peer-disabled:text-disabled-900"
         htmlFor="checkbox"
