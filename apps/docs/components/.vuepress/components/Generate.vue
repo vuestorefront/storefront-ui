@@ -1,5 +1,5 @@
 <template>
-  <div class="custom-block border rounded bg-white mt-4" :class="{'generate': !showcasePath}">
+  <div class="custom-block border bg-white mt-4" :class="{ generate: !showcasePath }">
     <iframe :src="exampleUrl" :allow="allow" class="w-full h-full" />
   </div>
 </template>
@@ -11,12 +11,12 @@ export default {
   props: {
     showcasePath: {
       type: String,
-      default: undefined
+      default: undefined,
     },
     allow: {
       type: String,
       default: undefined,
-    }
+    },
   },
   computed: {
     frameworkName() {
@@ -30,7 +30,11 @@ export default {
         component.toLowerCase().includes('vsf' + this.componentName),
       );
 
-      return `${this.frameworkName === 'react' ? this.$themeConfig.DOCS_EXAMPLES_REACT_PATH : this.$themeConfig.DOCS_EXAMPLES_VUE_PATH}/${this.showcasePath ? `showcases/${this.showcasePath}` : `examples/${componentNameFull}`}?docs=true`;
+      return `${
+        this.frameworkName === 'react'
+          ? this.$themeConfig.DOCS_EXAMPLES_REACT_PATH
+          : this.$themeConfig.DOCS_EXAMPLES_VUE_PATH
+      }/${this.showcasePath ? `showcases/${this.showcasePath}` : `examples/${componentNameFull}`}?docs=true`;
     },
   },
 };

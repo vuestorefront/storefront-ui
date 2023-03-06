@@ -6,26 +6,17 @@ description: A button is an input that allows for user-triggered actions when cl
 
 # Button
 
-::: slot usage
+:::::: slot usage
 
 {{ $frontmatter.description }}
 
-## Accessibility notes
+## Examples
 
-Button component should use `role='button'`. When this role is added to an element, the browser will send out an accessible alert event to assistive technology products which can then notify the user.
-
-<!-- TODO: add separately vue and react tags -->
-
-This component can be render as `<button>` or `<a>` or any other tag that is is provided by prop `tag` (for Vue) or `as` (for React)
-## Notes
-
-Avoid using buttons to navigate the page. Use links or tabs.
-
-## Button sizes
-
-<Showcase showcase-name="Button/ButtonSizes">
+### Button sizes
 
 Button supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
+
+<Showcase showcase-name="Button/ButtonSizes">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Button/ButtonSizes.vue
@@ -35,7 +26,7 @@ Button supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
 <!-- end react -->
 </Showcase>
 
-## Button variants
+### Button variants
 
 Button supports 3 variants of colors that can be set via `variant` prop: `primary`, `secondary`, `tertiary`.
 
@@ -49,7 +40,7 @@ Button supports 3 variants of colors that can be set via `variant` prop: `primar
 <!-- end react -->
 </Showcase>
 
-## Button as a link
+### Button as a link
 
 <!-- TODO: only one name per framework -->
 This component can be used as a link (or any other tag) that can be set via `tag`/`as` prop.
@@ -64,7 +55,7 @@ This component can be used as a link (or any other tag) that can be set via `tag
 <!-- end react -->
 </Showcase>
 
-## Button block
+### Button block
 
 Button can have full-width by adding `w-full` class.
 
@@ -78,7 +69,7 @@ Button can have full-width by adding `w-full` class.
 <!-- end react -->
 </Showcase>
 
-## Button truncation
+### Button truncation
 
 Button can truncate its content depending on it's width by adding `truncate` class.
 
@@ -92,7 +83,7 @@ Button can truncate its content depending on it's width by adding `truncate` cla
 <!-- end react -->
 </Showcase>
 
-## Button content
+### Button content
 
 Button can have additional content. You can use slot `prefix`/`slotPrefix` to add custom content before the main one or use `suffix`/`slotSuffix` slot to add custom content after the main one
 
@@ -106,12 +97,26 @@ Button can have additional content. You can use slot `prefix`/`slotPrefix` to ad
 <!-- end react -->
 </Showcase>
 
+## Accessibility notes
+
+Button component should use `role='button'`. When this role is added to an element, the browser will send out an accessible alert event to assistive technology products which can then notify the user.
+
+<!-- TODO: add separately vue and react tags -->
+
+This component can be render as `<button>` or `<a>` or any other tag that is is provided by prop `tag` (for Vue) or `as` (for React)
+
+:::warning
+Avoid using buttons to navigate the page. Use links or tabs.
+:::
+
 ## Playground
 
 <Generate />
-:::
+::::::
 
 ::: slot api
+
+## Props
 
 | Prop name | Type                | Default value | Possible values                    |
 | --------- | ------------------- | ------------- | ---------------------------------- |
@@ -143,10 +148,12 @@ Button can have additional content. You can use slot `prefix`/`slotPrefix` to ad
 :::
 
 ::: slot source
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfButton/VsfButton.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfButton/VsfButton.tsx
 <!-- end react -->
+</SourceCode>
 :::
