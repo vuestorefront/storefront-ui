@@ -30,7 +30,7 @@ module.exports = {
       { text: 'Getting Started', link: '/getting-started/' },
       {
         text: 'Components',
-        match: '(react|vue|components)',
+        match: '(react|vue)/components',
         children: [
           { text: 'React', link: '/react/components.html' },
           { text: 'Vue', link: '/vue/components.html' },
@@ -38,7 +38,7 @@ module.exports = {
       },
       {
         text: 'Hooks',
-        match: '(react|vue|hooks)',
+        match: '(react|vue)/hooks',
         children: [
           { text: 'React', link: '/react/hooks.html' },
           { text: 'Vue', link: '/vue/hooks.html' },
@@ -46,7 +46,7 @@ module.exports = {
       },
       {
         text: 'Showcases',
-        match: '(react|vue|showcases)',
+        match: '(react|vue|)/showcases',
         children: [
           { text: 'React', link: '/react/showcases.html' },
           { text: 'Vue', link: '/vue/showcases.html' },
