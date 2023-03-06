@@ -4,8 +4,8 @@ import type { VsfListItemFilterSwitchProps, ItemSwitchProps } from './types';
 import { VsfListItemFilterSwitchVariant } from './types';
 import { VsfSwitch } from '../VsfSwitch';
 
-function ItemSwitch({ value, disabled, onChange }: ItemSwitchProps) {
-  return <VsfSwitch value={value} disabled={disabled} onChange={onChange} />;
+function ItemSwitch({ value, disabled, name, onChange }: ItemSwitchProps) {
+  return <VsfSwitch value={value} disabled={disabled} name={name} onChange={onChange} />;
 }
 
 export default function VsfListItemFilterSwitch({

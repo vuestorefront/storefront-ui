@@ -47,7 +47,7 @@ export default class VsfListItemFilterSwitchBaseObject extends BasePage {
   }
 
   get inputElement() {
-    return this.findTestElement('checkbox-input');
+    return this.findTestElement('switch');
   }
 
   get labelElement() {

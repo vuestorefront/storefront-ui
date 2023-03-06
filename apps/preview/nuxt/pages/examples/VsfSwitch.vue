@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfSwitch v-model="modelCheck" :label="label" :value="value" :disabled="disabled" :help-text="helpText" />
+    <VsfSwitch v-model="modelCheck" :value="value" :disabled="disabled" :invalid="invalid" />
   </ComponentExample>
 </template>
 
@@ -38,21 +38,15 @@ export default {
             propType: 'boolean',
           },
           {
-            type: 'text',
-            modelName: 'label',
-            propType: 'string',
-          },
-          {
-            type: 'text',
-            modelName: 'helpText',
-            propType: 'string',
+            type: 'boolean',
+            modelName: 'invalid',
+            propType: 'boolean',
           },
         ],
         {
           value: ref('value'),
           disabled: ref(false),
-          label: ref('Label'),
-          helpText: ref('Help Text'),
+          invalid: ref(false),
           modelCheck: ref([]),
         },
       ),
