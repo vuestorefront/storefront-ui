@@ -22,22 +22,30 @@ function Example() {
         modelName: 'value',
         propDefaultValue: '',
         propType: 'string',
+        description: '(not prop) example allows to add value attribute to input',
       },
       {
         type: 'boolean',
         modelName: 'indeterminate',
+        propType: 'boolean',
+        description: '(not prop) example change state to indeterminate',
+      },
+      {
+        type: 'boolean',
+        modelName: 'invalid',
         propType: 'boolean',
       },
       {
         type: 'boolean',
         modelName: 'disabled',
         propType: 'boolean',
+        description: '(not prop) example showing disabled state',
       },
     ],
     {
       value: 'label',
-      disabled: false,
       indeterminate: false,
+      disabled: false,
       invalid: false,
       checkedValue: [],
     },
@@ -45,16 +53,23 @@ function Example() {
 
   function onChange(event: Parameters<NonNullable<VsfCheckboxProps['onChange']>>[0]) {
     const { value } = event.target;
-    state.set({ ...state.get, checkedValue: [value] });
+    if (state.get.checkedValue.indexOf(value) > -1) {
+      state.set({ ...state.get, checkedValue: state.get.checkedValue.filter((val) => val !== value) });
+    } else {
+      state.set({ ...state.get, checkedValue: [...state.get.checkedValue, value] });
+    }
   }
 
   const checkboxRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (checkboxRef.current !== null) {
+    if (checkboxRef.current === null) return;
+    if (state.get.invalid || state.get.disabled) {
+      checkboxRef.current.indeterminate = false;
+    } else {
       checkboxRef.current.indeterminate = state.get.indeterminate;
     }
-  }, [checkboxRef, state.get.indeterminate]);
+  }, [checkboxRef, state.get.indeterminate, state.get.invalid, state.get.disabled]);
 
   return (
     <ComponentExample controls={{ state, controls }} className="min-h-96">
@@ -62,7 +77,7 @@ function Example() {
         <VsfCheckbox
           value={state.get.value}
           disabled={state.get.disabled}
-          invalid={state.get.invalid}
+          invalid={!state.get.disabled && state.get.invalid}
           ref={checkboxRef}
           onChange={onChange}
           className="peer"
