@@ -5,24 +5,45 @@ description: A switch is an input similar to a checkbox component, except for ha
 ---
 #  Switch
 
+::: slot usage
 {{ $frontmatter.description }}
 
-<Generate />
+## Accessibility notes
 
+Switch component is build using `input` tag with `type='checkbox'`.
 ## Notes
 
-In forms, a better choice may be to use a Checkbox component.
+In forms, it might be a better choice to use a Checkbox component.
 
+## Alignment
+
+Switch component can have a leading or trailing alignment.
+
+<Showcase showcase-name="Switch/SwitchAlignment">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Switch/SwitchAlignment.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Switch/SwitchAlignment.tsx
+<!-- end react -->
+
+</Showcase>
+
+## Playground
+
+<Generate style="height: 380px" />
+:::
+
+::: slot api
 ## Props
 
 | Prop name    | Type                     | Default value | Possible values                        |
 | ------------ | ------------------------ | ------------- | -------------------------------------- |
 | value        | String                   | ''            |                                        |
-| label        | String                   | ''            |                                        |
-| helpText     | String                   | ''            |                                        |
+<!-- vue -->
 | modelValue   | Boolean | string[]       | undefined     |                                        |
-| alignment    | VsfCheckboxAlignment    | prefix        |   prefix,  suffix                      |
-| disabled     | Boolean                  | false         |                                        |
+<!-- end vue -->
 <!-- react -->
 | className    | String                   |               |                                        |
 | onChange     | Function                 |               |                                        |
@@ -37,8 +58,9 @@ In forms, a better choice may be to use a Checkbox component.
 | ----------------- | :----------------------------: |
 | update:modelValue | triggers v-model update event  |
 <!-- end vue -->
+:::
 
-
+::: slot source
 ## Source code
 
 <!-- vue -->
@@ -47,3 +69,4 @@ In forms, a better choice may be to use a Checkbox component.
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfSwitch/VsfSwitch.tsx
 <!-- end react -->
+:::

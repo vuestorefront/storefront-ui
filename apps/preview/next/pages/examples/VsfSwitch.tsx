@@ -1,6 +1,4 @@
-import VsfSwitch from '@storefront-ui/react/components/VsfSwitch/VsfSwitch';
-import type { VsfSwitchProps } from '@storefront-ui/react/components/VsfSwitch/types';
-import { ChangeEvent } from 'react';
+import { VsfSwitch, VsfSwitchProps } from '@storefront-ui/react/components/VsfSwitch';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -26,35 +24,32 @@ function Example() {
         propType: 'boolean',
       },
       {
-        type: 'text',
-        modelName: 'label',
-        propType: 'string',
-      },
-      {
-        type: 'text',
-        modelName: 'helpText',
-        propType: 'string',
+        type: 'boolean',
+        modelName: 'invalid',
+        propType: 'boolean',
       },
     ],
     {
       value: 'value',
       disabled: false,
+      invalid: false,
       checkedValue: [],
     },
   );
 
-  function onChange(event: ChangeEvent) {
-    const { value } = event.target as HTMLInputElement;
-    if (state.get.checkedValue.indexOf(value) > -1) {
-      state.set({ ...state.get, checkedValue: state.get.checkedValue.filter((val) => val !== value) });
-    } else {
-      state.set({ ...state.get, checkedValue: [...state.get.checkedValue, value] });
-    }
+  function onChange(event: React.ChangeEvent<HTMLInputElement>) {
+    const { value } = event.target;
+    state.set({ ...state.get, checkedValue: [value] });
   }
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfSwitch value={state.get.value} disabled={state.get.disabled} onChange={onChange} />
+      <VsfSwitch
+        value={state.get.value}
+        disabled={state.get.disabled}
+        invalid={state.get.invalid}
+        onChange={onChange}
+      />
     </ComponentExample>
   );
 }
