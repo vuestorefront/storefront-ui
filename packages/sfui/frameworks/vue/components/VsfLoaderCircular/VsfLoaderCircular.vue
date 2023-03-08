@@ -1,5 +1,18 @@
+<script lang="ts">
+const sizeClasses = {
+  [VsfLoaderSize.xs]: 'h-4 w-4 ring-2',
+  [VsfLoaderSize.sm]: 'h-5 w-5 ring-2',
+  [VsfLoaderSize.base]: 'h-6 w-6 ring-2',
+  [VsfLoaderSize.lg]: 'h-8 w-8 ring-2',
+  [VsfLoaderSize.xl]: 'h-10 w-10 ring-2',
+  [VsfLoaderSize['2xl']]: 'h-14 w-14 ring-[3px]',
+  [VsfLoaderSize['3xl']]: 'h-24 w-24 ring-4',
+  [VsfLoaderSize['4xl']]: 'h-48 w-48 ring-8',
+};
+</script>
+
 <script lang="ts" setup>
-import type { PropType } from 'vue';
+import { type PropType } from 'vue';
 import { VsfLoaderSize } from './types';
 
 defineProps({
@@ -7,7 +20,7 @@ defineProps({
     type: String as PropType<`${VsfLoaderSize}`>,
     default: VsfLoaderSize.lg,
   },
-  screenReaderText: {
+  ariaLabel: {
     type: String,
     default: 'loading',
   },
@@ -15,15 +28,14 @@ defineProps({
 </script>
 
 <template>
-  <span class="vsf-loader-circular" aria-live="polite" data-testid="loader-circular">
-    <span class="vsf-loader-circular__sr-only" data-testid="loader-sr">{{ screenReaderText }}</span>
-    <span :class="['vsf-loader-circular__main', `vsf-loader-circular--${size}`]" aria-hidden="true" />
-    <svg
-      :class="['vsf-loader-circular__circle', `vsf-loader-circular--${size}`]"
-      viewBox="25 25 50 50"
-      data-testid="loader-circular-circle"
-    >
-      <circle class="vsf-loader-circular__circle-path" cx="50" cy="50" r="24"></circle>
-    </svg>
-  </span>
+  <svg
+    class="inline-block ring-inset ring-neutral-200 text-primary-700 rounded-full animate-spin-slow"
+    :class="sizeClasses[size]"
+    viewBox="25 25 50 50"
+    aria-live="polite"
+    :aria-label="ariaLabel"
+    data-testid="loader-circular"
+  >
+    <circle class="fill-none stroke-2 stroke-current animate-stroke-loader-circular" cx="50" cy="50" r="24" />
+  </svg>
 </template>

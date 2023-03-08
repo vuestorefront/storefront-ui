@@ -16,21 +16,21 @@ function Example() {
       },
       {
         type: 'text',
-        modelName: 'screenReaderText',
+        modelName: 'ariaLabel',
         propType: 'string',
         propDefaultValue: 'loading',
-        description: 'sets hidden text available for screen readers',
+        description: 'sets text available for screen readers',
       },
     ],
     {
       size: VsfLoaderSize.lg,
-      screenReaderText: 'loading',
+      ariaLabel: 'loading',
     },
   );
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfLoaderCircular className="w-10" size={state.get.size} screenReaderText={state.get.screenReaderText} />
+      <VsfLoaderCircular className="w-10" {...state.get} />
     </ComponentExample>
   );
 }

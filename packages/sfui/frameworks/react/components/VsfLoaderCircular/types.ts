@@ -4,5 +4,5 @@ import type { PropsWithStyle } from '../../shared/types';
 export { VsfLoaderSize };
 export interface VsfLoaderCircularProps extends PropsWithStyle {
   size?: `${VsfLoaderSize}`;
-  screenReaderText?: string;
+  ariaLabel?: string;
 }

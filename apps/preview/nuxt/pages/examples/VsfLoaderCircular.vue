@@ -30,15 +30,15 @@ export default {
           },
           {
             type: 'text',
-            modelName: 'screenReaderText',
+            modelName: 'ariaLabel',
             propType: 'string',
             propDefaultValue: 'loading',
-            description: 'sets hidden text available for screen readers',
+            description: 'sets text available for screen readers',
           },
         ],
         {
           size: ref(VsfLoaderSize.lg),
-          screenReaderText: ref('loading'),
+          ariaLabel: ref('loading'),
         },
       ),
     };
