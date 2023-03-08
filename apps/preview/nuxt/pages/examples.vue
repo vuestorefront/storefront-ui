@@ -17,15 +17,9 @@
           <VsfIconChevronRight v-else />
         </template>
       </VsfButton>
-      <ul class="sidebar-list">
-        <li>
-          <NuxtLink
-            v-for="component in components"
-            :key="component"
-            v-slot="{ navigate }"
-            :to="`/examples/${component}`"
-            custom
-          >
+      <ul class="sidebar-list flex flex-col">
+        <li v-for="component in components" :key="component">
+          <NuxtLink v-slot="{ navigate }" :to="`/examples/${component}`" custom>
             <VsfListItemMenu
               tag="span"
               :active="currentRoute.path === `/examples/${component}`"

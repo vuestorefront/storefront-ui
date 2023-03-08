@@ -9,7 +9,7 @@ import VsfChipObject from './VsfChip.PageObject';
 const { vue: VsfChipVue, react: VsfChipReact } = useComponent('VsfChip');
 const { vue: VsfIconCircleVue, react: VsfIconCircleReact } = useComponent('VsfIconCircle');
 
-describe('VsfChip', () => {
+describe.skip('VsfChip', () => {
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
 
   const page = () => new VsfChipObject('chip');

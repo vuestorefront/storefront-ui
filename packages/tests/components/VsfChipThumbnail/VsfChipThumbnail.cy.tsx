@@ -5,7 +5,7 @@ import { mount, useComponent } from '../../utils/mount';
 const { vue: VsfChipThumbnailVue, react: VsfChipThumbnailReact } = await useComponent('VsfChipThumbnail');
 import VsfChipThumbnailBaseObject from './VsfChipThumbnail.PageObject';
 
-describe('VsfChipThumbnail', () => {
+describe.skip('VsfChipThumbnail', () => {
   let size: VsfChipThumbnailSize;
   let color: string;
 

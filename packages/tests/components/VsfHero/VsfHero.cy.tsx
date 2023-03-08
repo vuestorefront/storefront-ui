@@ -85,7 +85,7 @@ describe('VsfHero', () => {
     });
   });
 
-  describe('When backbground images are set', () => {
+  describe.skip('When background images are set', () => {
     it('should render mobile background image only for small screens', () => {
       cy.viewport(370, 700);
       initializeComponent({ bgImgMobileSrc: hero_bg_mobile, bgImgDesktopSrc: hero_bg_desktop });

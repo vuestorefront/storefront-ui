@@ -3,19 +3,11 @@
   "pipeline": {
     "build": {
       "cache": false,
-      "dependsOn": [
-        "^build:shared",
-        "^build:typography",
-        "^build"
-      ],
-      "outputs": [
-        "dist/**"
-      ]
+      "dependsOn": ["^build:shared", "^build:typography", "^build:tailwind-config", "^build"],
+      "outputs": ["dist/**"]
     },
     "lint": {
-      "dependsOn": [
-        "^build:shared"
-      ],
+      "dependsOn": ["^build:shared"],
       "outputs": []
     },
     "lint:fix": {
@@ -28,40 +20,31 @@
     },
     "build:next": {
       "cache": false,
-      "dependsOn": [
-        "^build:react",
-        "^build:typography"
-      ]
+      "dependsOn": ["^build:react", "^build:typography", "^build:tailwind-config"]
     },
     "build:nuxt": {
       "cache": false,
-      "dependsOn": [
-        "^build:vue",
-        "^build:typography"
-      ]
+      "dependsOn": ["^build:vue", "^build:typography", "^build:tailwind-config"]
     },
     "build:react": {
-      "dependsOn": [
-        "^build:shared"
-      ],
+      "dependsOn": ["^build:shared"],
       "cache": false
     },
     "build:vue": {
-      "dependsOn": [
-        "^build:shared"
-      ],
+      "dependsOn": ["^build:shared"],
       "cache": false
     },
     "build:release": {
-      "dependsOn": [
-        "build:react", "build:vue", "build:css"
-      ],
+      "dependsOn": ["build:react", "build:vue", "build:css"],
       "cache": false
     },
     "build:shared": {
       "cache": false
     },
     "build:typography": {
+      "cache": false
+    },
+    "build:tailwind-config": {
       "cache": false
     },
     "build:test-utils": {
@@ -80,25 +63,15 @@
       "cache": false
     },
     "test": {
-      "dependsOn": [
-        "build:test-utils",
-        "dev:shared"
-      ],
+      "dependsOn": ["build:test-utils", "dev:shared", "^build:tailwind-config"],
       "cache": false
     },
     "test:ci:vue": {
-      "dependsOn": [
-        "^build:shared",
-        "build:test-utils"
-      ],
+      "dependsOn": ["^build:shared", "^build:tailwind-config", "build:test-utils"],
       "cache": false
     },
     "test:ci:react": {
-      "dependsOn": [
-        "^build:shared",
-        "^build:typography",
-        "build:test-utils"
-      ],
+      "dependsOn": ["^build:shared", "^build:typography", "build:test-utils", "^build:tailwind-config"],
       "cache": false
     }
   }

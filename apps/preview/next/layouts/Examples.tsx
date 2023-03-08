@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { createElement, ReactElement, useState } from 'react';
+import { ReactElement, useState, createElement } from 'react';
 import useSWR from 'swr';
 import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
 import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';

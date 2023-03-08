@@ -1,10 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 
-const config = require("@storefront-ui/tailwind-config/index.json");
+const { tailwindConfig } = require("@storefront-ui/tailwind-config");
 module.exports = {
-  ...config,
+  presets: [tailwindConfig],
   content: [
-    ...config.content,
     "../../../node_modules/@storefront-ui/vue/shared/**/*.ts",
     "../../../node_modules/@storefront-ui/vue/components/**/*.{ts,vue}",
   ],

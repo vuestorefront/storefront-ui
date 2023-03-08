@@ -1,7 +1,7 @@
 import { AppProps } from 'next/app';
 import { ReactElement, ReactNode } from 'react';
 import { NextPage } from 'next';
-import '~/styles/global.scss';
+import '~/styles/global.css';
 import '@storefront-ui/example-style';
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
