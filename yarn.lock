@@ -2689,6 +2689,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mertasan/tailwindcss-variables@npm:^2.5.2":
+  version: 2.5.2
+  resolution: "@mertasan/tailwindcss-variables@npm:2.5.2"
+  dependencies:
+    lodash: ^4.17.21
+  peerDependencies:
+    autoprefixer: ^10.0.2
+    postcss: ^8.0.9
+  checksum: 52ae8fb7ed85c41933401748914f91e282d8c5d3addae3f99ac89039702c2b78313533d8729d1d8950d04bc385529dddba895f0f1566aa6a7e3b442ae86fb840
+  languageName: node
+  linkType: hard
+
 "@microsoft/api-documenter@npm:^7.21.5":
   version: 7.21.5
   resolution: "@microsoft/api-documenter@npm:7.21.5"
@@ -3846,7 +3858,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/tailwind-config@workspace:packages/config/tailwind"
   dependencies:
-    "@storefront-ui/sass": "workspace:*"
+    "@mertasan/tailwindcss-variables": ^2.5.2
+    tailwind: ^4.0.0
+    typescript: ^4.9.5
+    vite: ^4.1.2
+    vite-plugin-dts: ^2.0.0-beta.1
   languageName: unknown
   linkType: soft
 

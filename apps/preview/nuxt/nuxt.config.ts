@@ -1,5 +1,4 @@
 import { defineNuxtConfig } from 'nuxt/config';
-import tailwindConfig from './tailwind.config';
 
 export default defineNuxtConfig({
   app: {
@@ -11,12 +10,8 @@ export default defineNuxtConfig({
       title: 'Vue Storefront UI v2',
     },
   },
-  tailwindcss: {
-    config: tailwindConfig,
-    cssPath: '~/assets/global.scss',
-  },
   modules: ['@nuxtjs/tailwindcss'],
-  css: ['@storefront-ui/example-style/index.scss'],
+  css: ['@storefront-ui/example-style/index.scss', '@storefront-ui/example-style/controls.scss'],
   imports: {
     transform: {
       // you could also add the path of your built library to prevent this happening

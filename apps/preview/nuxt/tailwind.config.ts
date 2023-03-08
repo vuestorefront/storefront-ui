@@ -1,13 +1,16 @@
 import type { Config } from 'tailwindcss';
 import vsfTypography from '@storefront-ui/typography';
-import config from '@storefront-ui/tailwind-config/index.json';
+import { tailwindConfig } from '@storefront-ui/tailwind-config';
 
 export default <Config>{
-  ...(config as unknown as Config),
-  content: [
-    ...config.content,
-    '../../../node_modules/@storefront-ui/vue/shared/**/*.ts',
-    '../../../node_modules/@storefront-ui/vue/components/**/*.{ts,vue}',
-  ],
+  presets: [tailwindConfig],
+  content: ['./**/*.vue', './**/*.ts', './**/*.tsx', '../../../node_modules/@storefront-ui/vue/**/*.vue'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: 'Red Hat Text, sans-serif',
+      },
+    },
+  },
   plugins: [vsfTypography],
 };

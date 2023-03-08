@@ -1,11 +1,16 @@
 const vsfTypography = require('@storefront-ui/typography');
 /** @type {import('tailwindcss').Config} */
-const config = require('@storefront-ui/tailwind-config/index.json');
+const { tailwindConfig } = require('@storefront-ui/tailwind-config');
+
 module.exports = {
-  ...config,
-  content: [
-    ...config.content,
-    '../../../node_modules/@storefront-ui/react/**/*.{ts,tsx}',
-  ],
-  plugins: [vsfTypography]
+  presets: [tailwindConfig],
+  content: ['./**/*.ts', './**/*.tsx', '../../../node_modules/@storefront-ui/react/**/*.tsx'],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: 'Red Hat Text, sans-serif',
+      },
+    },
+  },
+  plugins: [vsfTypography],
 };
