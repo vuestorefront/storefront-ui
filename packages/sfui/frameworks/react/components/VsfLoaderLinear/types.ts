@@ -6,6 +6,6 @@ export enum VsfLoaderLinearSize {
 }
 export { VsfLoaderSize };
 export interface VsfLoaderLinearProps extends PropsWithStyle {
-  size?: `${VsfLoaderSize}` | `${VsfLoaderLinearSize}`;
-  screenReaderText?: string;
+  size?: `${VsfLoaderSize | VsfLoaderLinearSize}`;
+  ariaLabel?: string;
 }

@@ -4,7 +4,7 @@
   </ComponentExample>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import { ref } from 'vue';
 import VsfLoaderLinear from '@storefront-ui/vue/components/VsfLoaderLinear/VsfLoaderLinear.vue';
 import { VsfLoaderSize } from '@storefront-ui/shared';
@@ -12,38 +12,27 @@ import { VsfLoaderLinearSize } from '@storefront-ui/vue/components/VsfLoaderLine
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
-export default {
-  name: 'VsfLoaderLinearExample',
-  components: {
-    ComponentExample,
-    VsfLoaderLinear,
+const { state, controlsAttrs } = prepareControls(
+  [
+    {
+      type: 'select',
+      modelName: 'size',
+      propType: 'VsfLoaderLinearSize',
+      options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSize)],
+      propDefaultValue: VsfLoaderLinearSize.minimal,
+      description: 'sets sizes of components',
+    },
+    {
+      type: 'text',
+      modelName: 'ariaLabel',
+      propType: 'string',
+      propDefaultValue: 'loading',
+      description: 'sets description text available for screen readers',
+    },
+  ],
+  {
+    size: ref(VsfLoaderLinearSize.minimal),
+    ariaLabel: ref('loading'),
   },
-  setup() {
-    return {
-      ...prepareControls(
-        [
-          {
-            type: 'select',
-            modelName: 'size',
-            propType: 'VsfLoaderLinearSize',
-            options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSize)],
-            propDefaultValue: VsfLoaderLinearSize.minimal,
-            description: 'sets sizes of components',
-          },
-          {
-            type: 'text',
-            modelName: 'screenReaderText',
-            propType: 'string',
-            propDefaultValue: 'loading',
-            description: 'sets hidden text available for screen readers',
-          },
-        ],
-        {
-          size: ref(VsfLoaderLinearSize.minimal),
-          screenReaderText: ref('loading'),
-        },
-      ),
-    };
-  },
-};
+);
 </script>
