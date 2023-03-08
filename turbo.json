@@ -57,7 +57,8 @@
       "cache": false
     },
     "dev:docs": {
-      "cache": false
+      "cache": false,
+      "dependsOn": ["^build:typography", "build:tailwind-config"]
     },
     "dev:shared": {
       "cache": false
