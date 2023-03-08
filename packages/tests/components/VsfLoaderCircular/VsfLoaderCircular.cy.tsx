@@ -9,7 +9,7 @@ const { vue: VsfLoaderCircularVue, react: VsfLoaderCircularReact } = useComponen
 describe('VsfLoaderCircular', () => {
   const page = () => new VsfLoaderCircularBaseObject('loader-circular');
   let size: VsfLoaderSize;
-  let screenReaderText: string;
+  let ariaLabel: string;
 
   const initializeComponent = () => {
     return mount({
@@ -17,16 +17,16 @@ describe('VsfLoaderCircular', () => {
         component: VsfLoaderCircularVue,
         props: {
           size,
-          screenReaderText,
+          ariaLabel,
         },
       },
-      react: <VsfLoaderCircularReact size={size} screenReaderText={screenReaderText} />,
+      react: <VsfLoaderCircularReact size={size} ariaLabel={ariaLabel} />,
     });
   };
 
   afterEach(() => {
     size = VsfLoaderSize.lg;
-    screenReaderText = 'loading';
+    ariaLabel = 'loading';
   });
 
   it('initial state', () => {
@@ -42,18 +42,18 @@ describe('VsfLoaderCircular', () => {
 
           initializeComponent();
 
-          page().hasSizeClass(componentSize).makeSnapshot();
+          page().makeSnapshot();
         });
       });
     });
   });
 
-  describe('when screenReaderText is changed', () => {
+  describe('when ariaLabel is changed', () => {
     it('should render proper content', () => {
-      screenReaderText = 'is loading';
+      ariaLabel = 'is loading';
       initializeComponent();
 
-      page().containScreenReaderText(screenReaderText).makeSnapshot();
+      page().hasAriaLabel(ariaLabel).makeSnapshot();
     });
   });
 });

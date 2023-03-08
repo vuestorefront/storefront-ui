@@ -1,22 +1,8 @@
-import { VsfLoaderSize } from '@storefront-ui/react/components/VsfLoaderCircular/types';
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfLoaderBaseObject extends BasePage {
-  hasSizeClass(size: VsfLoaderSize) {
-    this.circularLoaderCircleElement.should('have.class', `vsf-loader-circular--${size}`);
+  hasAriaLabel(ariaLabel: string) {
+    this.container.should('have.attr', 'aria-label', ariaLabel);
     return this;
-  }
-
-  containScreenReaderText(screenReaderText: string) {
-    this.screenReaderElement.contains(screenReaderText);
-    return this;
-  }
-
-  get circularLoaderCircleElement() {
-    return this.findTestElement('loader-circular-circle');
-  }
-
-  get screenReaderElement() {
-    return this.findTestElement('loader-sr');
   }
 }
