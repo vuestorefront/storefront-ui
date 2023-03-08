@@ -1,103 +1,63 @@
 <script setup lang="ts">
-import type { PropType } from 'vue';
-import { computed, toRefs } from 'vue';
+import { computed, toRefs, type PropType } from 'vue';
 import { VsfListItemMenuSize } from './types';
-import { VsfCounter, VsfCounterSize } from '../VsfCounter';
-
 const props = defineProps({
-  label: {
-    type: String,
-    default: '',
-  },
-  link: {
-    type: String,
-    default: undefined,
-  },
   size: {
     type: String as PropType<`${VsfListItemMenuSize}`>,
     default: VsfListItemMenuSize.base,
-  },
-  secondaryText: {
-    type: String,
-    default: '',
-  },
-  counter: {
-    type: Number,
-    default: null,
   },
   disabled: {
     type: Boolean,
     default: undefined,
   },
-  selected: {
-    type: Boolean,
-    default: false,
-  },
-  selectedBackground: {
-    type: Boolean,
-    default: false,
-  },
-  truncate: {
+  active: {
     type: Boolean,
     default: false,
   },
   tag: {
     type: String,
-    default: undefined,
+    default: 'li',
   },
 });
-const { tag, link, disabled } = toRefs(props);
-// TODO: replace with link component when ready
-const componentTag = computed(() => tag?.value ?? (link?.value ? 'a' : 'button'));
-const componentType = computed(() => (tag?.value ? undefined : link?.value && 'button'));
-const componentDisabled = computed(() => (!link?.value ? disabled?.value : undefined));
+const { tag, disabled, size } = toRefs(props);
+const sizeClasses = computed(() => {
+  switch (size.value) {
+    case VsfListItemMenuSize.sm:
+      return 'text-sm px-4 py-1';
+    case VsfListItemMenuSize.lg:
+      return 'px-4 py-4';
+    default:
+      return 'px-4 py-2';
+  }
+});
 </script>
 
 <template>
   <component
-    :is="componentTag"
-    :href="link"
+    :is="tag"
     :class="[
-      'vsf-list-item-menu peer',
-      `vsf-list-item-menu--size-${size}`,
+      'relative inline-flex items-center w-full hover:bg-neutral-100 cursor-pointer',
+      sizeClasses,
       {
-        'vsf-list-item-menu--selected': selected,
-        'vsf-list-item-menu--selected-bg': selected && selectedBackground,
-        'vsf-list-item-menu--disabled': disabled,
+        'opacity-40 bg-white cursor-not-allowed pointer-events-none': disabled,
+        'bg-neutral-200': active && !disabled,
       },
     ]"
-    :type="componentType"
-    :disabled="componentDisabled"
+    :disabled="disabled"
     data-testid="list-item-menu"
   >
-    <div v-if="$slots.prefix" class="vsf-list-item-menu__icon vsf-list-item-menu__icon--prefix">
+    <span
+      v-if="$slots.prefix"
+      class="flex-grow-0 text-neutral-500 mr-2.5"
+      :class="{ 'text-primary-700': active && !disabled, 'text-neutral-500': disabled }"
+    >
       <slot name="prefix" />
-    </div>
-    <div class="vsf-list-item-menu__content">
-      <slot>
-        <span class="vsf-list-item-menu__title">
-          <span v-if="label" class="vsf-list-item-menu__label" data-testid="list-item-menu-label">{{ label }}</span>
-          <VsfCounter
-            v-if="counter"
-            :size="VsfCounterSize.xl"
-            class="vsf-list-item-menu__counter"
-            data-testid="list-item-menu-counter"
-            >{{ counter }}</VsfCounter
-          >
-        </span>
-      </slot>
-      <slot name="secondaryText">
-        <p
-          v-if="secondaryText"
-          :class="['vsf-list-item-menu__secondary-text', { 'vsf-list-item-menu__secondary-text--truncated': truncate }]"
-          data-testid="list-item-menu-secondary-text"
-        >
-          {{ secondaryText }}
-        </p>
-      </slot>
-    </div>
-    <div v-if="$slots.suffix" class="vsf-list-item-menu__icon">
+    </span>
+    <span class="flex flex-col w-full min-w-0">
+      <slot />
+    </span>
+    <span v-if="$slots.suffix" class="flex-grow-0 text-neutral-500">
       <slot name="suffix" />
-    </div>
+    </span>
   </component>
 </template>

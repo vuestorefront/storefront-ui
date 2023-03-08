@@ -10,8 +10,8 @@ export function Showcase() {
   const secondaryText = 'Secondary text';
   return (
     <VsfListItemMenu
-      tag="label"
-      selected={checkedState}
+      as="label"
+      active={checkedState}
       slotPrefix={
         <VsfCheckbox
           value="some-value"

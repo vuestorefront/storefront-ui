@@ -20,7 +20,7 @@
       <ul class="sidebar-list">
         <template v-for="(groupValue, groupKey) in groups" :key="groupKey">
           <li
-            class="bg-gray-200 px-2 py-1 cursor-pointer flex justify-between select-none"
+            class="flex justify-between px-2 py-1 bg-gray-200 cursor-pointer select-none"
             @click="groupValue.open = !groupValue.open"
           >
             {{ groupKey }}<VsfIconExpandMore :class="{ 'rotate-180': groupValue.open }" />
@@ -30,11 +30,13 @@
               <li v-for="showcaseName in groupValue.showcases" :key="groupKey + showcaseName">
                 <NuxtLink :key="showcaseName" v-slot="{ navigate }" :to="groupItemHref(groupKey, showcaseName)" custom>
                   <VsfListItemMenu
-                    :label="showcaseName"
-                    :link="groupItemHref(groupKey, showcaseName)"
-                    :selected="currentRoute.path === groupItemHref(groupKey, showcaseName)"
+                    tag="span"
+                    :active="currentRoute.path === groupItemHref(groupKey, showcaseName)"
+                    :class="{ 'font-medium': currentRoute.path === groupItemHref(groupKey, showcaseName) }"
                     @click="navigate"
-                  />
+                  >
+                    {{ showcaseName }}
+                  </VsfListItemMenu>
                 </NuxtLink>
               </li>
             </ul>

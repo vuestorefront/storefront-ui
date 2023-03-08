@@ -1,84 +1,55 @@
 import classNames from 'classnames';
-import { VsfCounterSize } from '../VsfCounter/types';
 import { VsfListItemMenuProps, VsfListItemMenuSize } from './types';
-import VsfCounter from '../VsfCounter/VsfCounter';
+import { polymorphicForwardRef } from '../../shared/utils';
 
-export default function VsfListItemMenu({
-  label,
-  counter,
-  secondaryText,
-  link,
-  size = VsfListItemMenuSize.base,
-  disabled,
-  selected,
-  selectedBackground,
-  className,
-  slotPrefix,
-  slotSuffix,
-  slotSecondaryText,
-  truncate,
-  tag,
-  children,
-  onClick = () => ({}),
-  ...attributes
-}: VsfListItemMenuProps): JSX.Element {
-  //  TODO: Replace with Link component when its done
-  const TagComponent = tag || (link ? 'a' : 'button');
-  const componentType = TagComponent === 'button' ? 'button' : undefined;
-  const componentDisabled = !link ? disabled : undefined;
-  const attrs = componentType ? { type: componentType!, ...attributes } : ({ ...attributes } as {});
+const defaultListItemMenuTag = 'li';
+
+const sizeClasses = (size: VsfListItemMenuProps['size']) => {
+  switch (size) {
+    case VsfListItemMenuSize.sm:
+      return 'text-sm px-4 py-1';
+    case VsfListItemMenuSize.lg:
+      return 'px-4 py-4';
+    default:
+      return 'px-4 py-2';
+  }
+};
+const VsfListItemMenu = polymorphicForwardRef<typeof defaultListItemMenuTag, VsfListItemMenuProps>((props, ref) => {
+  const {
+    size = VsfListItemMenuSize.base,
+    disabled,
+    active,
+    className,
+    slotPrefix,
+    slotSuffix,
+    as,
+    children,
+    ...attributes
+  } = props;
+
+  const Tag = as || defaultListItemMenuTag;
 
   return (
-    <TagComponent
+    <Tag
+      ref={ref}
       className={classNames(
-        'vsf-list-item-menu peer',
-        `vsf-list-item-menu--size-${size}`,
+        'relative inline-flex items-center w-full hover:bg-neutral-100 cursor-pointer',
         {
-          'vsf-list-item-menu--selected': selected,
-          'vsf-list-item-menu--selected-bg': selected && selectedBackground,
-          'vsf-list-item-menu--disabled': disabled,
+          'opacity-40 bg-white cursor-not-allowed pointer-events-none': disabled,
+          'bg-neutral-200': active && !disabled,
         },
+        sizeClasses(size),
         className,
       )}
-      href={link}
-      disabled={componentDisabled}
-      onClick={() => onClick(!selected)}
+      disabled={disabled}
       data-testid="list-item-menu"
-      {...attrs}
+      {...attributes}
     >
-      {slotPrefix && <div className="vsf-list-item-menu__icon vsf-list-item-menu__icon--prefix">{slotPrefix}</div>}
-      <div className="vsf-list-item-menu__content">
-        {children || (
-          <span className="vsf-list-item-menu__title">
-            {label ? (
-              <span className="vsf-list-item-menu__label" data-testid="list-item-menu-label">
-                {label}
-              </span>
-            ) : null}
-            {counter ? (
-              <VsfCounter
-                size={VsfCounterSize.xl}
-                className="vsf-list-item-menu__counter"
-                data-testid="list-item-menu-counter"
-              >
-                {counter}
-              </VsfCounter>
-            ) : null}
-          </span>
-        )}
-        {slotSecondaryText ||
-          (secondaryText && (
-            <p
-              className={classNames('vsf-list-item-menu__secondary-text', {
-                'vsf-list-item-menu__secondary-text--truncated': truncate,
-              })}
-              data-testid="list-item-menu-secondary-text"
-            >
-              {secondaryText}
-            </p>
-          ))}
-      </div>
-      {slotSuffix && <div className="vsf-list-item-menu__icon">{slotSuffix}</div>}
-    </TagComponent>
+      {slotPrefix && <span className="flex-grow-0 text-neutral-500 mr-2.5">{slotPrefix}</span>}
+      <span className="flex flex-col w-full min-w-0">{children}</span>
+      {slotSuffix && <span className="flex-grow-0 text-neutral-500">{slotSuffix}</span>}
+    </Tag>
   );
-}
+});
+
+export default VsfListItemMenu;

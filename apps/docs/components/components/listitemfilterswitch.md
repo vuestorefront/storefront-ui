@@ -47,12 +47,3 @@ description: Input components adapted to appear in lists.
 | update:modelValue | triggers v-model update event  |
 
 <!-- end vue -->
-
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfListItemFilterSwitch/VsfListItemFilterSwitch.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfListItemFilterSwitch/VsfListItemFilterSwitch.tsx
-<!-- end react -->

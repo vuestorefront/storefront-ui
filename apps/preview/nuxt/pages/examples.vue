@@ -27,11 +27,13 @@
             custom
           >
             <VsfListItemMenu
-              :label="component"
-              :link="`/examples/${component}`"
-              :selected="currentRoute.path === `/examples/${component}`"
+              tag="span"
+              :active="currentRoute.path === `/examples/${component}`"
+              :class="{ 'font-medium': currentRoute.path === `/examples/${component}` }"
               @click="navigate"
-            />
+            >
+              {{ component }}
+            </VsfListItemMenu>
           </NuxtLink>
         </li>
       </ul>

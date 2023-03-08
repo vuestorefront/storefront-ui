@@ -16,8 +16,6 @@ export * from './components/VsfIconBase';
 export * from './components/VsfIcons';
 export * from './components/VsfInput';
 export * from './components/VsfLink';
-export * from './components/VsfListItemFilterCheckbox';
-export * from './components/VsfListItemFilterRadio';
 export * from './components/VsfListItemMenu';
 export * from './components/VsfLoaderCircular';
 export * from './components/VsfLoaderLinear';
@@ -41,8 +39,6 @@ export * from './components/VsfTooltip';
 export * from './components/VsfHero';
 export * from './components/VsfDisplay';
 export * from './components/VsfChipThumbnail';
-export * from './components/VsfListItemFilterSwitch';
-export * from './components/VsfListItemFilterChip';
 // Hooks
 export * from './hooks/useDisclosure';
 export * from './hooks/useDropdown';

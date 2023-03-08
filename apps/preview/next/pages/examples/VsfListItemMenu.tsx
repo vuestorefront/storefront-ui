@@ -6,6 +6,8 @@ import {
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { VsfIconSize } from '@storefront-ui/react/components/VsfIcons/types';
 import { VsfIconCheck } from '~/../../../packages/sfui/frameworks/react/components/VsfIcons';
+import classNames from 'classnames';
+import { VsfCounter } from '@storefront-ui/react/components/VsfCounter';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -25,8 +27,15 @@ interface ListItemMenuControls extends Omit<VsfListItemMenuProps, 'slotPrefix' |
 }
 
 function Example() {
-  const { state, controls } = prepareControls<ListItemMenuControls>(
+  const { state, controls } = prepareControls<
+    ListItemMenuControls & { label: string; counter: number; secondaryText: string; as: React.ElementType }
+  >(
     [
+      {
+        type: 'text',
+        modelName: 'as',
+        description: 'Change a tag to any other tag',
+      },
       {
         type: 'text',
         modelName: 'label',
@@ -78,32 +87,20 @@ function Example() {
       },
       {
         type: 'boolean',
-        modelName: 'selected',
-        description: 'Show selected state of component',
-      },
-      {
-        type: 'boolean',
-        modelName: 'selectedBackground',
-        description: 'Show selected background state of component',
-      },
-      {
-        type: 'boolean',
-        modelName: 'truncate',
-        description: 'Show truncated version of secondary text',
+        modelName: 'active',
+        description: 'Show active state of component',
       },
     ],
     {
+      as: 'li',
       label: 'Label',
       size: VsfListItemMenuSize.base,
-      link: '',
       counter: 123,
       slotPrefix: prefixSlotOptions.defaultOption,
       slotSuffix: suffixSlotOptions.defaultOption,
       secondaryText: 'Secondary text',
       disabled: false,
-      selected: false,
-      selectedBackground: false,
-      truncate: false,
+      active: false,
     },
   );
 
@@ -111,19 +108,33 @@ function Example() {
     <ComponentExample controls={{ state, controls }}>
       <VsfListItemMenu
         className="max-w-sm"
+        as={state.get.as}
         size={state.get.size}
-        link={state.get.link}
-        label={state.get.label}
-        counter={Number(state.get.counter)}
-        secondaryText={state.get.secondaryText}
-        selected={state.get.selected}
-        selectedBackground={state.get.selectedBackground}
+        active={state.get.active}
         disabled={state.get.disabled}
-        slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
+        slotPrefix={
+          <span className={classNames({ 'text-primary-700': state.get.active && !state.get.disabled })}>
+            {prefixSlotOptions.getValue(state.get.slotPrefix)}
+          </span>
+        }
         slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
-        truncate={state.get.truncate}
-        onClick={(selected: boolean) => state.set({ ...state.get, selected })}
-      />
+        onClick={() => state.set({ ...state.get, active: !state.get.active })}
+      >
+        <span className="inline-block break-words font-body">
+          <span
+            className={classNames({
+              'font-normal text-disabled-500': state.get.disabled,
+              'font-medium': state.get.active,
+            })}
+          >
+            {state.get.label}
+          </span>
+          <VsfCounter v-if="counter" className="ml-2" size="xl">
+            {state.get.counter}
+          </VsfCounter>
+        </span>
+        <span className={classNames('text-xs text-gray-500 break-words')}>{state.get.secondaryText}</span>
+      </VsfListItemMenu>
     </ComponentExample>
   );
 }

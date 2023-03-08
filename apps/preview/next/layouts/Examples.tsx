@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
 import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';
 import { VsfIconChevronLeft, VsfIconChevronRight } from '@storefront-ui/react/components/VsfIcons/index';
+import classNames from 'classnames';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function ExampleLayout({ children }: { children: ReactElement }) {
@@ -45,10 +46,12 @@ export default function ExampleLayout({ children }: { children: ReactElement }) 
                         });
                         onClick(event);
                       }}
-                      label={component}
-                      selected={router.pathname === `/examples/${component}`}
-                      tag="a"
-                    />
+                      className={classNames({ 'font-medium': router.pathname === `/examples/${component}` })}
+                      active={router.pathname === `/examples/${component}`}
+                      as="a"
+                    >
+                      {component}
+                    </VsfListItemMenu>
                   ))}
                 </Link>
               </li>
