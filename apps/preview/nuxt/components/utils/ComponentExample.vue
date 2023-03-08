@@ -1,5 +1,5 @@
 <template>
-  <div class="flex-1">
+  <div class="e-page">
     <div class="e-page-component" :class="componentContainerClassName">
       <slot />
     </div>
