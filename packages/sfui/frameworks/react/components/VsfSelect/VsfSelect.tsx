@@ -50,16 +50,19 @@ export default function VsfSelect({
             data-testid="select-input"
             onChange={changedValue}
           >
-            <option
-              value=""
-              className={classNames('vsf-select__placeholder', {
-                'vsf-select__placeholder--small': size === VsfSelectSize.sm,
-                'vsf-select__placeholder--large': size === VsfSelectSize.lg,
-              })}
-              data-testid="select-placeholder"
-            >
-              {placeholder || slotPlaceholder}
-            </option>
+            {slotPlaceholder ||
+              (placeholder && (
+                <option
+                  value=""
+                  className={classNames('vsf-select__placeholder', {
+                    'vsf-select__placeholder--small': size === VsfSelectSize.sm,
+                    'vsf-select__placeholder--large': size === VsfSelectSize.lg,
+                  })}
+                  data-testid="select-placeholder"
+                >
+                  {placeholder}
+                </option>
+              ))}
             {children ||
               options.map((option: string) => (
                 <VsfSelectOption key={option} value={option}>
