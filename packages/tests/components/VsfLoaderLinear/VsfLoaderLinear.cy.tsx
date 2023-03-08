@@ -8,7 +8,7 @@ const { vue: VsfLoaderLinearVue, react: VsfLoaderLinearReact } = useComponent('V
 
 describe('VsfLoaderLinear', () => {
   let size: VsfLoaderLinearSize | VsfLoaderSize;
-  let screenReaderText: string;
+  let ariaLabel: string;
 
   const page = () => new VsfLoaderLinearBaseObject('loader-linear');
 
@@ -18,19 +18,19 @@ describe('VsfLoaderLinear', () => {
         component: VsfLoaderLinearVue,
         props: {
           size,
-          screenReaderText,
+          ariaLabel,
         },
         attrs: {
           style: 'width: 100px;',
         },
       },
-      react: <VsfLoaderLinearReact style={{ width: '100px' }} size={size} screenReaderText={screenReaderText} />,
+      react: <VsfLoaderLinearReact style={{ width: '100px' }} size={size} ariaLabel={ariaLabel} />,
     });
   };
 
   afterEach(() => {
     size = VsfLoaderSize.lg;
-    screenReaderText = 'loading';
+    ariaLabel = 'loading';
   });
 
   it('initial state', () => {
@@ -45,18 +45,18 @@ describe('VsfLoaderLinear', () => {
           size = componentSize;
           initializeComponent();
 
-          page().hasSizeClass(componentSize).makeSnapshot();
+          page().makeSnapshot();
         });
       });
     });
   });
 
-  describe('when screenReaderText is changed', () => {
+  describe('when ariaLabel is changed', () => {
     it('should render proper content', () => {
-      screenReaderText = 'is loading';
+      ariaLabel = 'is loading';
       initializeComponent();
 
-      page().containScreenReaderText(screenReaderText).makeSnapshot();
+      page().hasAriaLabel(ariaLabel).makeSnapshot();
     });
   });
 });
