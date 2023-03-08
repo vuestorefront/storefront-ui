@@ -61,23 +61,15 @@ function Example() {
           aria-label="Items choice"
         >
           {items.map((item) => (
-            <VsfListItemMenu
-              key={item.label}
-              label={item.label}
-              secondaryText={item.secondaryText}
-              slotPrefix={<VsfIconCircle />}
-              role="option"
-            />
+            <VsfListItemMenu key={item.label} slotPrefix={<VsfIconCircle />} role="option">
+              {item.label}
+            </VsfListItemMenu>
           ))}
           <VsfDivider />
           {items.map((item) => (
-            <VsfListItemMenu
-              key={item.label}
-              label={item.label}
-              secondaryText={item.secondaryText}
-              slotPrefix={<VsfIconCircle />}
-              role="option"
-            />
+            <VsfListItemMenu key={item.label} slotPrefix={<VsfIconCircle />} role="option">
+              {item.label}
+            </VsfListItemMenu>
           ))}
         </VsfDropdownMenu>
       </div>

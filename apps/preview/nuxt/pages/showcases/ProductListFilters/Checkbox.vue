@@ -1,5 +1,5 @@
 <template>
-  <VsfListItemMenu tag="label" :selected="selected">
+  <VsfListItemMenu tag="label" :active="selected">
     <template #prefix>
       <VsfCheckbox v-model="selected" value="some-value" />
     </template>

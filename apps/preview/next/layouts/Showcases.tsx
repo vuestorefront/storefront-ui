@@ -9,6 +9,7 @@ import {
   VsfIconChevronRight,
   VsfIconExpandMore,
 } from '@storefront-ui/react/components/VsfIcons/index';
+import classNames from 'classnames';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function ShowcaseLayout({ children }: { children: ReactElement }) {
@@ -68,7 +69,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
               <Fragment key={group}>
                 {/* eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions, jsx-a11y/click-events-have-key-events */}
                 <li
-                  className="bg-gray-200 px-2 py-1 cursor-pointer flex justify-between select-none"
+                  className="flex justify-between px-2 py-1 bg-gray-200 cursor-pointer select-none"
                   onClick={() => onGroupClick(group)}
                 >
                   {group}
@@ -92,10 +93,14 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
                                   });
                                   onClick(event);
                                 }}
-                                label={showcaseName}
-                                selected={router.pathname === groupItemHref(group, showcaseName)}
-                                tag="a"
-                              />
+                                active={router.pathname === groupItemHref(group, showcaseName)}
+                                className={classNames({
+                                  'font-medium': router.pathname === groupItemHref(group, showcaseName),
+                                })}
+                                as="a"
+                              >
+                                {showcaseName}
+                              </VsfListItemMenu>
                             ))}
                           </Link>
                         </li>

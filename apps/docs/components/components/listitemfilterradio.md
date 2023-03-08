@@ -29,13 +29,3 @@ description: A ListItemFilterRadio component is specific ecommerce solution for 
 |            |                                |
 
 ## Accessibility notes
-
-
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfListItemFilterRadio/VsfListItemFilterRadio.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfListItemFilterRadio/VsfListItemFilterRadio.tsx
-<!-- end react -->

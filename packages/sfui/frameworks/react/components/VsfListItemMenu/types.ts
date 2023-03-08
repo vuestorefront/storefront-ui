@@ -1,5 +1,5 @@
 import type { ReactNode, PropsWithChildren } from 'react';
-import type { PropsWithTag, PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle } from '../../shared/types';
 
 export enum VsfListItemMenuSize {
   sm = 'sm',
@@ -7,19 +7,11 @@ export enum VsfListItemMenuSize {
   lg = 'lg',
 }
 
-export interface VsfListItemMenuProps extends PropsWithChildren, PropsWithTag, PropsWithStyle {
-  label?: string;
+export interface VsfListItemMenuProps extends PropsWithChildren, PropsWithStyle {
   size?: `${VsfListItemMenuSize}`;
-  counter?: number;
-  link?: string;
-  secondaryText?: string;
   disabled?: boolean;
-  selected?: boolean;
-  selectedBackground?: boolean;
+  active?: boolean;
   slotSuffix?: ReactNode;
   slotPrefix?: ReactNode;
-  slotSecondaryText?: ReactNode;
-  truncate?: boolean;
   role?: string;
-  onClick?: (selected: boolean) => void;
 }

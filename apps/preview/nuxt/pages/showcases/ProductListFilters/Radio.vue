@@ -1,5 +1,5 @@
 <template>
-  <VsfListItemMenu tag="label" :selected="selected">
+  <VsfListItemMenu tag="label" :active="!!selected">
     <template #prefix>
       <VsfRadio v-model="selected" label-tag="div" value="some-value" />
     </template>
@@ -15,5 +15,5 @@ import { VsfListItemMenu } from '@storefront-ui/vue/components/VsfListItemMenu/i
 
 const label = 'Lorem ipsum dolor amet';
 const secondaryText = 'Secondary text';
-const selected = ref(true);
+const selected = ref('');
 </script>

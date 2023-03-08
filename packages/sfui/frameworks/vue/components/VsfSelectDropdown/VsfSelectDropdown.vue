@@ -97,12 +97,13 @@ const isDropdownOpened = ref(false);
           <template v-if="options">
             <li v-for="option in options" :key="option" class="vsf-select-dropdown__list-item">
               <VsfListItemMenu
-                :label="option"
                 @click="
                   emit('update:modelValue', option);
                   isDropdownOpened = false;
                 "
-              />
+              >
+                {{ option }}
+              </VsfListItemMenu>
             </li>
           </template>
         </slot>

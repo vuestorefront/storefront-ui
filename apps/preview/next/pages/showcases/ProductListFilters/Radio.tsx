@@ -5,7 +5,7 @@ export function Showcase() {
   const label = 'Lorem ipsum dolor amet';
   const secondaryText = 'Secondary text';
   return (
-    <VsfListItemMenu tag="label" selected slotPrefix="Radio">
+    <VsfListItemMenu as="label" active slotPrefix="Radio">
       <span>{label}</span>
       <p className="text-xs text-gray-500 break-words">{secondaryText}</p>
     </VsfListItemMenu>

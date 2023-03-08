@@ -47,12 +47,3 @@ description: ListItemFilterCheckbox component is a Checkbox component adapted to
 | update:modelValue | triggers v-model update event  |
 
 <!-- end vue -->
-
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfListItemFilterCheckbox/VsfListItemFilterCheckbox.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfListItemFilterCheckbox/VsfListItemFilterCheckbox.tsx
-<!-- end react -->

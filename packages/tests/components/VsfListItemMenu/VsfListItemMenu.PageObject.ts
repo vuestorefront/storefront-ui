@@ -8,37 +8,23 @@ export default class VsfListItemMenuObject extends BasePage {
     return this;
   }
 
-  hasLabel(label: string) {
-    this.labelElement.contains(label);
+  hasContent(content: string) {
+    this.container.contains(content);
     return this;
   }
 
-  hasCounter(val: string) {
-    this.counterElement.contains(val);
+  hasPrefix() {
+    this.container.children().first().should('have.class', 'flex-grow-0 text-neutral-500 mr-2.5');
     return this;
   }
 
-  hasSecondaryText(secondaryText: string) {
-    this.secondaryElement.contains(secondaryText);
+  hasSuffix() {
+    this.container.children().last().should('have.class', 'flex-grow-0 text-neutral-500');
     return this;
   }
 
   isDisabled() {
-    this.container.should('be.disabled');
+    this.container.should('have.class', 'opacity-40 bg-white cursor-not-allowed pointer-events-none');
     return this;
-  }
-
-  isSelected() {
-    this.container.should('have.class', 'vsf-list-item-menu--selected');
-  }
-
-  get labelElement() {
-    return this.findTestElement('list-item-menu-label');
-  }
-  get counterElement() {
-    return this.findTestElement('list-item-menu-counter');
-  }
-  get secondaryElement() {
-    return this.findTestElement('list-item-menu-secondary-text');
   }
 }

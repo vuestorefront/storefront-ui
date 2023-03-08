@@ -5,16 +5,18 @@ import { mount, useComponent } from '../../utils/mount';
 import VsfListItemMenuBaseObject from './VsfListItemMenu.PageObject';
 
 const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = useComponent('VsfListItemMenu');
+const { vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
+const { vue: VsfIconCircleVue, react: VsfIconCircleReact } = useComponent('VsfIconCircle');
+
+const defaultSlotContent = 'Label';
 
 describe('VsfListItemMenu', () => {
   let disabled: boolean;
-  let counter: string;
-  let label: string;
   let size: VsfListItemMenuSize;
-  let link: string;
-  let truncate: boolean;
-  let secondaryText: string;
   let selected: boolean;
+  let slotPrefix: boolean;
+  let slotSuffix: boolean;
+  let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
 
   const page = () => new VsfListItemMenuBaseObject('list-item-menu');
 
@@ -22,28 +24,35 @@ describe('VsfListItemMenu', () => {
     return mount({
       vue: {
         component: VsfListItemMenuVue,
+        global: {
+          components: {
+            VsfIconCheckCircleVue,
+            VsfIconCircleVue,
+          },
+        },
         props: {
           disabled,
-          label,
           size,
-          secondaryText,
-          link,
-          truncate,
           selected,
-          counter,
+          onClick: onChangeSpy,
+        },
+        slots: {
+          default: defaultSlotContent,
+          ...(slotPrefix && { prefix: '<VsfIconCheckCircleVue/>' }),
+          ...(slotSuffix && { suffix: '<VsfIconCircleVue/>' }),
         },
       },
       react: (
         <VsfListItemMenuReact
           disabled={disabled}
-          secondaryText={secondaryText}
-          link={link}
-          is-truncated={truncate}
           selected={selected}
-          label={label}
           size={size}
-          counter={counter}
-        />
+          slotPrefix={slotPrefix && <VsfIconCheckCircleReact />}
+          slotSuffix={slotSuffix && <VsfIconCircleReact />}
+          onClick={onChangeSpy}
+        >
+          {defaultSlotContent}
+        </VsfListItemMenuReact>
       ),
     });
   };
@@ -54,8 +63,6 @@ describe('VsfListItemMenu', () => {
 
   afterEach(() => {
     size = VsfListItemMenuSize.base;
-    label = 'Label';
-    secondaryText = 'Secondary text';
   });
 
   it('initial state', () => {
@@ -75,17 +82,6 @@ describe('VsfListItemMenu', () => {
     });
   });
 
-  describe('when prop selected=true', () => {
-    before(() => (selected = true));
-    after(() => (selected = false));
-    it(`should render as selected`, () => {
-      initializeComponent();
-
-      page().isSelected();
-      page().makeSnapshot();
-    });
-  });
-
   describe('when prop size is set to ', () => {
     Object.values(VsfListItemMenuSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
@@ -99,43 +95,45 @@ describe('VsfListItemMenu', () => {
     });
   });
 
-  describe('when prop label is filled in', () => {
-    before(() => (label = 'Label'));
-    after(() => (label = ''));
+  describe('when default slot/children is filled in', () => {
     it(`should render with label`, () => {
       initializeComponent();
 
-      page().hasLabel('Label').makeSnapshot();
+      page().hasContent('Label').makeSnapshot();
     });
   });
 
-  describe('when prop counter is filled in', () => {
-    before(() => (counter = '2'));
-    after(() => (counter = ''));
-    it(`should render a correct counter value`, () => {
+  describe('when only prefix', () => {
+    before(() => (slotPrefix = true));
+    after(() => (slotPrefix = false));
+    it(`should render icon in prefix slot`, () => {
       initializeComponent();
 
-      page().hasCounter('2').makeSnapshot();
+      page().hasPrefix().makeSnapshot();
     });
   });
 
-  describe('when prop secondaryText is filled in', () => {
-    before(() => (secondaryText = 'Secondary text'));
-    after(() => (secondaryText = ''));
-    it(`should render with secondary text`, () => {
+  describe('when only suffix', () => {
+    before(() => (slotSuffix = true));
+    after(() => (slotSuffix = false));
+    it(`should render icon in suffix slot`, () => {
       initializeComponent();
 
-      page().hasSecondaryText('Secondary text').makeSnapshot();
+      page().hasSuffix().makeSnapshot();
     });
   });
-  // TODO: adjust when Link component done
-  describe('when prop link is set', () => {
-    before(() => (link = 'http://somelink.com'));
-    after(() => (link = ''));
-    it(`should render as <a> element`, () => {
+
+  describe('when component is clicked', () => {
+    before(() => (onChangeSpy = cy.spy()));
+
+    it('should invoke onChangeSpy', () => {
       initializeComponent();
 
-      page().hasTag('A').makeSnapshot();
+      page().click();
+      cy.then(() => {
+        expect(onChangeSpy);
+        page().makeSnapshot();
+      });
     });
   });
 });

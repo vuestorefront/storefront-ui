@@ -48,12 +48,3 @@ description: ListItemFilterChip component is a Chip component adapted to appear 
 | update:modelValue | triggers v-model update event  |
 
 <!-- end vue -->
-
-## Source code
-
-<!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfListItemFilterChip/VsfListItemFilterChip.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfListItemFilterChip/VsfListItemFilterChip.tsx
-<!-- end react -->
