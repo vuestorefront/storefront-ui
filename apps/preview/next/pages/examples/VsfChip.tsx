@@ -63,6 +63,7 @@ function Example() {
       ...state.get,
       selected: !state.get.selected,
     });
+    // eslint-disable-next-line no-console
     console.log('changed!');
   };
   return (

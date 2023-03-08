@@ -49,6 +49,7 @@ function Example() {
     setTimeout(() => {
       setLoadingState(state.get.loading);
     }, 3000);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

@@ -15,7 +15,7 @@
     "prepare-coverage-report": "frs-replace \"/apps/preview/next/sfui/react/\" \"/packages/sfui/frameworks/react/\" -i ./.nyc_output/out.json -o ../../../packages/sfui/frameworks/react/.nyc_output/out.json",
     "sync-test": "cpy . ../../apps/preview/next/sfui/tests --cwd=../../../packages/tests/",
     "sync-components": "cpy . !dist ../../../../apps/preview/next/sfui/react --cwd=../../../packages/sfui/frameworks/react/",
-    "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,ts,png,jpg,jpeg,json}\" -c \"yarn sync-test\"",
+    "sync:watch-test": "chokidar --silent \"../../../packages/tests/**/*.{cy.tsx,tsx,ts,png,jpg,jpeg,json}\" -c \"yarn sync-test\"",
     "test": "TEST=true && yarn clean && yarn sync-test && concurrently \"yarn sync:watch-test\" \"yarn cypress open --component\"",
     "test:ci": "TEST=true && yarn clean && yarn clean-coverage && yarn sync-test && yarn sync-components && CYPRESS_COVERAGE=true yarn percy exec -- cypress run --component && yarn prepare-coverage-report && yarn display-coverage",
     "test:ci:react": "yarn test:ci"
