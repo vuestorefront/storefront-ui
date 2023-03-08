@@ -5,7 +5,6 @@ export * from './components/VsfBadge';
 export * from './components/VsfButton';
 export * from './components/VsfCheckbox';
 export * from './components/VsfChip';
-export * from './components/VsfConfig';
 export * from './components/VsfCounter';
 export * from './components/VsfDialog';
 export * from './components/VsfDivider';
