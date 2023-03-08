@@ -51,6 +51,7 @@ function Example() {
   );
 
   const onToggle = () => {
+    // eslint-disable-next-line no-console
     console.log('toggle handler');
   };
 

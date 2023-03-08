@@ -1,7 +1,7 @@
-import { useEventListener } from '@vueuse/core';
+import { unrefElement } from '@vueuse/core';
 import type { CheckOptions, FocusableElement, TabbableOptions } from 'tabbable';
 import { tabbable } from 'tabbable';
-import { Ref, ref, watch } from 'vue';
+import { type Ref, ref, watch } from 'vue';
 import { focusFirstElement, focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
 import { waitForNextRender } from '../render';
 
@@ -34,34 +34,13 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
   };
   const currentlyFocused = ref<HTMLElement | undefined>();
   const focusableElements = ref<FocusableElement[]>([]);
-  let containeHTMLElement: HTMLElement | null;
+  let containeHTMLElement: HTMLElement | undefined;
 
-  useEventListener(
-    containerElementRef,
-    'focus',
-    () => {
-      currentlyFocused.value = document.activeElement as HTMLElement;
-    },
-    true,
-  );
+  const onFocusListener = () => {
+    currentlyFocused.value = document.activeElement as HTMLElement;
+  };
 
-  watch(
-    [containerElementRef, activeState],
-    async ([containerElement, activeState]) => {
-      if (containerElement && activeState) {
-        containeHTMLElement = containerElement;
-        await waitForNextRender();
-        focusableElements.value = tabbable(containeHTMLElement, { includeContainer });
-        if (initialFocus === InitialFocusType.first) focusFirstElement({ focusables: focusableElements.value });
-      } else {
-        focusableElements.value = [];
-        currentlyFocused.value = undefined;
-      }
-    },
-    { immediate: true },
-  );
-
-  useEventListener(containerElementRef, 'keydown', (event: KeyboardEvent) => {
+  const onKeyDownListener = (event: KeyboardEvent) => {
     const isAnyGroupElement = arrowFocusGroupSelector && containeHTMLElement?.querySelector(arrowFocusGroupSelector);
     if (event.key === 'ArrowRight') {
       focusNext({
@@ -84,7 +63,38 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
     if (trapTabs && isTabAndShift(event)) {
       focusPrev({ current: currentlyFocused.value, event, focusables: focusableElements.value });
     }
-  });
+  };
+
+  const removeEventListeners = () => {
+    containeHTMLElement?.removeEventListener('keydown', onKeyDownListener);
+    containeHTMLElement?.removeEventListener('keydown', onFocusListener);
+  };
+
+  watch(
+    [containerElementRef, activeState],
+    async ([containerElement, activeState]) => {
+      if (containerElement) {
+        await waitForNextRender();
+        containeHTMLElement = unrefElement(containerElement);
+
+        containeHTMLElement?.addEventListener('focus', onFocusListener, true);
+        containeHTMLElement?.addEventListener('keydown', onKeyDownListener);
+      } else {
+        removeEventListeners();
+      }
+
+      if (containerElement && activeState) {
+        await waitForNextRender();
+        focusableElements.value = tabbable(containeHTMLElement as HTMLElement, { includeContainer });
+
+        if (initialFocus === InitialFocusType.first) focusFirstElement({ focusables: focusableElements.value });
+      } else {
+        focusableElements.value = [];
+        currentlyFocused.value = undefined;
+      }
+    },
+    { immediate: true },
+  );
 
   return {
     current: currentlyFocused,
