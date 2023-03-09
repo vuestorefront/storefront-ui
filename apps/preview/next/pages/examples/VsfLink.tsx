@@ -36,7 +36,7 @@ function Example() {
     {
       href: '/examples/VsfLink',
       variant: VsfLinkVariant.primary,
-      children: 'link',
+      children: 'Link',
       as: 'a' as ElementType<any>,
     },
   );

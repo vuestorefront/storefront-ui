@@ -1,6 +1,6 @@
 <template>
   <div class="space-x-4">
-    <VsfLink :tag="NuxtLink" to="/"> NuxtLink </VsfLink>
+    <VsfLink :tag="NuxtLink" to=""> NuxtLink </VsfLink>
   </div>
 </template>
 
