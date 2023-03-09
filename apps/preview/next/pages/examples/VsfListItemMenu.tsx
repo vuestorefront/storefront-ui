@@ -28,7 +28,13 @@ interface ListItemMenuControls extends Omit<VsfListItemMenuProps, 'slotPrefix' |
 
 function Example() {
   const { state, controls } = prepareControls<
-    ListItemMenuControls & { label: string; counter: number; secondaryText: string; as: React.ElementType }
+    ListItemMenuControls & {
+      label: string;
+      counter: number;
+      secondaryText: string;
+      as: React.ElementType;
+      truncate: boolean;
+    }
   >(
     [
       {
@@ -41,12 +47,6 @@ function Example() {
         modelName: 'label',
         propType: 'string',
         description: 'Set label value',
-      },
-      {
-        type: 'text',
-        modelName: 'link',
-        propType: 'string',
-        description: 'Set link to render as link',
       },
       {
         type: 'text',
@@ -90,6 +90,11 @@ function Example() {
         modelName: 'active',
         description: 'Show active state of component',
       },
+      {
+        type: 'boolean',
+        modelName: 'truncate',
+        description: 'Show truncated version of secondary text',
+      },
     ],
     {
       as: 'li',
@@ -101,6 +106,7 @@ function Example() {
       secondaryText: 'Secondary text',
       disabled: false,
       active: false,
+      truncate: false,
     },
   );
 
@@ -129,11 +135,15 @@ function Example() {
           >
             {state.get.label}
           </span>
-          <VsfCounter v-if="counter" className="ml-2" size="xl">
-            {state.get.counter}
-          </VsfCounter>
+          {state.get.counter && (
+            <VsfCounter v-if="counter" className="ml-2" size="xl">
+              {state.get.counter}
+            </VsfCounter>
+          )}
         </span>
-        <span className={classNames('text-xs text-gray-500 break-words')}>{state.get.secondaryText}</span>
+        <span className={classNames('text-xs text-gray-500 break-words', { truncate: state.get.truncate })}>
+          {state.get.secondaryText}
+        </span>
       </VsfListItemMenu>
     </ComponentExample>
   );
