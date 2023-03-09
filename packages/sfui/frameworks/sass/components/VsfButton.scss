@@ -92,10 +92,14 @@
   }
 
   &__prefix {
+    @apply flex inline-flex;
+
     padding-right: calc(var(--vsf-button-size-padding) / 2);
   }
 
   &__suffix {
+    @apply flex inline-flex;
+    
     padding-left: calc(var(--vsf-button-size-padding) / 2);
   }
 
