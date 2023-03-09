@@ -1,10 +1,8 @@
-export enum VsfProgressCircularSize {
-  xs = 'xs',
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-  xl = 'xl',
-  '2xl' = '2xl',
-  '3xl' = '3xl',
-  '4xl' = '4xl',
-}
+import { VsfProgressSize } from '@storefront-ui/shared';
+
+export { VsfProgressSize };
+export type VsfProgressCircularProps = {
+  value?: number;
+  size?: VsfProgressSize;
+  ariaLabel?: string;
+};

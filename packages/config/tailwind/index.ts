@@ -152,25 +152,26 @@ export const tailwindConfig: Config = {
         '4-extra-large': '1920px',
       },
       keyframes: {
-        spinning: {
-          '100%': {
-            transform: 'rotate(360deg)',
-          },
+        'stroke-loader-circular': {
+          '0%': { 'stroke-dasharray': '1, 200', 'stroke-dashoffset': '0' },
+          '50%': { 'stroke-dasharray': '140, 200', 'stroke-dashoffset': '-35' },
+          '100%': { 'stroke-dasharray': '89, 200', 'stroke-dashoffset': '-150' }
         },
         line: {
           from: {
             left: '-100%',
-            width: '100%',
+            width: '100%'
           },
           to: {
             left: '100%',
-            width: '10%',
-          },
-        },
+            width: '10%'
+          }
+        }
       },
       animation: {
-        spinning: 'spinning 1s linear infinite',
+        'spin-slow': 'spin 1.5s linear infinite',
         line: 'line 1.5s ease-in infinite',
+        'stroke-loader-circular': 'stroke-loader-circular 2s ease-in-out infinite'
       },
       fontSize: {
         '2xs': ['10px', '11px'],

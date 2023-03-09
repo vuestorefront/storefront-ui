@@ -1,15 +1,15 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfProgressCircularSize } from '@storefront-ui/vue/components/VsfProgressCircular/types';
+import { VsfProgressSize } from '@storefront-ui/vue/components/VsfProgressCircular/types';
 import { mount, useComponent } from '../../utils/mount';
 import VsfProgressCircularBaseObject from './VsfProgressCircular.PageObject';
 
 const { vue: VsfProgressCircularVue, react: VsfProgressCircularReact } = useComponent('VsfProgressCircular');
 
 describe('VsfProgressCircular', () => {
-  let size: VsfProgressCircularSize;
+  let size: VsfProgressSize;
   let value: number;
-  let withValue: boolean;
+  let ariaLabel: string;
 
   const page = () => new VsfProgressCircularBaseObject('progress');
 
@@ -20,22 +20,30 @@ describe('VsfProgressCircular', () => {
         props: {
           size,
           value,
-          withValue,
+          ariaLabel,
         },
       },
-      react: <VsfProgressCircularReact size={size} value={value} withValue={withValue} />,
+      react: <VsfProgressCircularReact size={size} value={value} ariaLabel={ariaLabel} />,
     });
   };
 
+  afterEach(() => {
+    size = VsfProgressSize.base;
+    value = 0;
+    ariaLabel = '';
+  });
+
   it('initial state', () => {
     initializeComponent();
+    page().hasAriaLabel('Progress element').makeSnapshot();
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfProgressCircularSize).forEach((componentSize) => {
+    Object.values(VsfProgressSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
+          value = 50;
           initializeComponent();
 
           page().makeSnapshot();
@@ -55,14 +63,12 @@ describe('VsfProgressCircular', () => {
     });
   });
 
-  describe('when prop withValue is false', () => {
-    before(() => {
-      withValue = false;
-    });
-    it('should render without percentage value', () => {
+  describe('when ariaLabel provided', () => {
+    it('should render with 90%', () => {
+      ariaLabel = 'some value';
       initializeComponent();
 
-      page().doesNotHaveValue().makeSnapshot();
+      page().hasAriaLabel('some value').makeSnapshot();
     });
   });
 });

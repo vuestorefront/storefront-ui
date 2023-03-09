@@ -1,17 +1,13 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfProgressCircularBaseObject extends BasePage {
-  hasValue(label: number) {
-    this.container.contains(label);
+  hasValue(value: number) {
+    this.container.should('have.attr', 'aria-valuenow', value);
     return this;
   }
 
-  doesNotHaveValue() {
-    this.valueElement.should('be.empty');
+  hasAriaLabel(label: string) {
+    this.container.should('have.attr', 'aria-label', label);
     return this;
-  }
-
-  get valueElement() {
-    return this.findTestElement('progress-value');
   }
 }
