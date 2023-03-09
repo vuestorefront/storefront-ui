@@ -6,15 +6,10 @@ export enum VsfRatingSize {
   xl = 'xl',
 }
 
-export enum VsfRatingVariant {
-  base = 'base',
-  withValue = 'withValue',
-}
-
 export interface VsfRatingProps {
   value?: number;
   max?: number;
   size?: VsfRatingSize;
-  variant?: VsfRatingVariant;
   halfIncrement?: boolean;
+  ariaLabel?: string;
 }

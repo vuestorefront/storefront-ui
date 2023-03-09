@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfRating, VsfRatingVariant, VsfRatingSize } from '@storefront-ui/vue/components/VsfRating/index';
+import { VsfRating, VsfRatingSize } from '@storefront-ui/vue/components/VsfRating/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -61,19 +61,11 @@ export default defineComponent({
           propDefaultValue: VsfRatingSize.base,
           propType: 'VsfRatingSize',
         },
-        {
-          type: 'select',
-          modelName: 'variant',
-          options: Object.keys(VsfRatingVariant),
-          propDefaultValue: VsfRatingVariant.base,
-          propType: 'VsfRatingVariant',
-        },
       ],
       {
         value: ref(3),
         maxModel: ref(5),
         size: ref(VsfRatingSize.base),
-        variant: ref(VsfRatingVariant.base),
         halfIncrement: ref(false),
       },
     );
