@@ -26,11 +26,6 @@ export default defineComponent({
         [
           {
             type: 'text',
-            modelName: 'SlotDefault',
-            description: 'Only for demonstration purposes. Default slot',
-          },
-          {
-            type: 'text',
             modelName: 'href',
             propType: 'string',
             description: 'Only for demonstration purposes. Component href attribute',
@@ -46,6 +41,11 @@ export default defineComponent({
             modelName: 'variant',
             propDefaultValue: 'primary',
             options: Object.keys(VsfLinkVariant),
+          },
+          {
+            type: 'text',
+            modelName: 'SlotDefault',
+            description: 'Only for demonstration purposes. Default slot',
           },
         ],
         {
