@@ -3,63 +3,39 @@ import { ChangeEvent, useState } from 'react';
 import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
 import { VsfIconExpandLess, VsfIconExpandMore } from '@storefront-ui/react/components/VsfIcons/index';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
-
-type ControlOptionBind = {
-  bind?: {};
-  label?: string;
-  value?: string | number;
-};
-export type ControlsType = {
-  type?: 'range' | 'radio' | 'checkbox' | 'text' | 'select' | 'boolean' | 'json';
-  modelName: string;
-  description?: string;
-  propDefaultValue?: string | number | boolean;
-  propType?: string;
-  isRequired?: boolean;
-  options?: (ControlOptionBind | string)[] | readonly (ControlOptionBind | string)[];
-}[];
-
-export type Models<T> = { [key: string]: T };
-export type ControlsProps<T extends Models<T>> = {
-  controls: ControlsType;
-  state: {
-    get: T;
-    set: React.Dispatch<React.SetStateAction<T>>;
-  };
-  className?: string;
-};
+import { ControlOptionBind, ControlsProps, ControlsType } from './types';
 
 export const prepareControls = <T extends {}>(controls: ControlsType, models: T): ControlsProps<T> => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [formData, setFormData] = useState(models);
+  const [formData, setFormData] = useState<T>(models);
   controls.forEach((control) => {
     // eslint-disable-next-line no-param-reassign
     if (!('isRequired' in control)) control.isRequired = false;
   });
 
+  const setState: ControlsProps<T>['state']['set'] = (nextState) => {
+    if (typeof nextState === 'function') {
+      setFormData(nextState);
+    }
+    setFormData((currentState) => ({ ...currentState, ...nextState }));
+  };
+
   return {
     controls,
     state: {
-      set: setFormData,
+      set: setState,
       get: formData,
     },
   };
 };
 
 export default function Controls<T extends { [k: string]: any }>({ controls, state, className }: ControlsProps<T>) {
-  function setState(newState = {}) {
-    state.set({
-      ...state.get,
-      ...newState,
-    });
-  }
-
   function handleOnChangeValue<E extends HTMLElement>(e: ChangeEvent<E & { value: unknown }>, name: string) {
-    setState({ [name]: e.target.value });
+    state.set({ [name]: e.target.value } as T);
   }
 
   function handleJsonOnChangeValue<E extends HTMLElement>(e: ChangeEvent<E & { value: string }>, name: string) {
-    setState({ [name]: JSON.parse(e.target.value) });
+    state.set({ [name]: JSON.parse(e.target.value) } as T);
   }
 
   function handleCheckbox(e: ChangeEvent<HTMLInputElement>, name: string, currentValue: string | boolean | []) {
@@ -72,11 +48,11 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
       } else {
         newValue.splice(valueItemIndex, 1);
       }
-      setState({ [name]: newValue });
+      state.set({ [name]: newValue } as T);
     } else {
-      setState({
+      state.set({
         [name]: typeof currentValue === 'string' ? currentValue === value : !currentValue,
-      });
+      } as T);
     }
   }
 
@@ -160,10 +136,10 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                                 value={state.get[control.modelName]}
                                 aria-labelledby={control.modelName}
                                 onChange={() =>
-                                  state.set({
-                                    ...state.get,
-                                    [control.modelName]: !state.get[control.modelName],
-                                  })
+                                  state.set((currentState) => ({
+                                    ...currentState,
+                                    [control.modelName]: !currentState[control.modelName],
+                                  }))
                                 }
                                 type="checkbox"
                               />

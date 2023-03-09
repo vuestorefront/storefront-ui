@@ -39,7 +39,7 @@ function Example() {
 
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
-    state.set({ ...state.get, checkedValue: [value] });
+    state.set({ checkedValue: [value] });
   }
 
   return (

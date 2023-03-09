@@ -77,7 +77,7 @@ function Example() {
     },
   );
   function onChange(value: string) {
-    state.set({ ...state.get, value });
+    state.set({ value });
   }
   return (
     <ComponentExample controls={{ state, controls }}>

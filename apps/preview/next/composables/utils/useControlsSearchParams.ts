@@ -1,12 +1,10 @@
-import { Dispatch, SetStateAction, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useMount, useMountedState, useUpdateEffect } from 'react-use';
 import { useSearchParams } from '@storefront-ui/preview-shared/utils/useSearchParams';
 import { objectsDiff } from '@storefront-ui/preview-shared/utils/object.utils';
+import { ControlsState, Models } from '../../components/utils/types';
 
-export const useControlsSearchParams = <T extends Record<string, unknown>>(controlsState: {
-  get: T;
-  set: Dispatch<SetStateAction<T>>;
-}) => {
+export const useControlsSearchParams = <T extends Models<T>>(controlsState: ControlsState<T>) => {
   const isMounted = useMountedState();
   const searchParams = useMemo(
     () =>
@@ -26,7 +24,7 @@ export const useControlsSearchParams = <T extends Record<string, unknown>>(contr
 
   useMount(() => {
     const diffObj = objectsDiff(searchParams, controlsState.get);
-    if (Object.keys(diffObj).length) controlsState.set({ ...controlsState.get, ...diffObj });
+    if (Object.keys(diffObj).length) controlsState.set(diffObj as T);
   });
 
   useUpdateEffect(() => {

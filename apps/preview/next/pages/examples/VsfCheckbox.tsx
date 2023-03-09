@@ -53,11 +53,11 @@ function Example() {
 
   function onChange(event: Parameters<NonNullable<VsfCheckboxProps['onChange']>>[0]) {
     const { value } = event.target;
-    if (state.get.checkedValue.indexOf(value) > -1) {
-      state.set({ ...state.get, checkedValue: state.get.checkedValue.filter((val) => val !== value) });
-    } else {
-      state.set({ ...state.get, checkedValue: [...state.get.checkedValue, value] });
-    }
+    state.set((currentState) =>
+      currentState.checkedValue.indexOf(value) > -1
+        ? { ...currentState, checkedValue: currentState.checkedValue.filter((val) => val !== value) }
+        : { ...currentState, checkedValue: [...currentState.checkedValue, value] },
+    );
   }
 
   const checkboxRef = useRef<HTMLInputElement>(null);

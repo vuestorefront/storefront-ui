@@ -86,7 +86,7 @@ function Example() {
   function onChange(item: number) {
     // eslint-disable-next-line no-console
     console.log('Value changed: ', item);
-    state.set({ ...state.get, value: item });
+    state.set({ value: item });
   }
 
   return (

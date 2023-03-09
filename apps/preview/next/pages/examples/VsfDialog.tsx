@@ -37,7 +37,7 @@ function Example() {
   );
 
   const onClose = (buttonName: string) => {
-    state.set({ ...state.get, open: false });
+    state.set({ open: false });
     setTimeout(() => {
       // eslint-disable-next-line no-alert
       alert(`Closed via "${buttonName}" button`);
@@ -46,12 +46,12 @@ function Example() {
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfButton onClick={() => state.set({ ...state.get, open: true })}>Open dialog example</VsfButton>
+      <VsfButton onClick={() => state.set({ open: true })}>Open dialog example</VsfButton>
 
       <VsfDialog
         {...state.get}
         onClose={(isClosed) => {
-          state.set({ ...state.get, open: isClosed });
+          state.set({ open: isClosed });
         }}
       >
         <section className="max-w-xs">

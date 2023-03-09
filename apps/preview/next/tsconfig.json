@@ -33,11 +33,13 @@
     }
   },
   "include": [
+    "components/**/*.ts",
+    "components/**/*.tsx",
     "next-env.d.ts",
     "pages/**/*.ts",
+    "pages/**/*.tsx",
     "pages/_document.tsx",
     "hooks/**/*.tsx",
-    "pages/**/*.tsx",
     "layouts/**/*.tsx",
     "node_modules/@storefont-ui/react",
     "node_modules/@storefont-ui/shared"

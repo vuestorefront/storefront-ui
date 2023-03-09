@@ -1,15 +1,10 @@
 import classNames from 'classnames';
 import { ReactNode } from 'react';
-import Controls, { ControlsType, Models } from './Controls';
+import Controls from './Controls';
+import { ControlsProps, Models } from './types';
 
 export type ComponentExampleProps<T extends Models<T>> = {
-  controls: {
-    controls: ControlsType;
-    state: {
-      get: T;
-      set: React.Dispatch<React.SetStateAction<T>>;
-    };
-  };
+  controls: ControlsProps<T>;
   children?: ReactNode;
   className?: string;
   componentContainerClassName?: string;

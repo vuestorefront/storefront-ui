@@ -113,7 +113,7 @@ function Example() {
     },
   );
   function onChange(event: ChangeEvent<HTMLInputElement>) {
-    state.set({ ...state.get, value: event?.target.value });
+    state.set({ value: event.target.value });
   }
   return (
     <ComponentExample controls={{ state, controls }}>

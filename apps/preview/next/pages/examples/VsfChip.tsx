@@ -59,10 +59,10 @@ function Example() {
   );
 
   const selectHandler = () => {
-    state.set({
-      ...state.get,
-      selected: !state.get.selected,
-    });
+    state.set((currentState) => ({
+      ...currentState,
+      selected: !currentState.selected,
+    }));
     // eslint-disable-next-line no-console
     console.log('changed!');
   };
