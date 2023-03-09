@@ -1,6 +1,5 @@
 import { VsfDialog } from '@storefront-ui/react/components/VsfDialog';
 import { VsfButton, VsfButtonVariant } from '@storefront-ui/react/components/VsfButton';
-import { VsfInput } from '@storefront-ui/react/components/VsfInput';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -29,11 +28,19 @@ function Example() {
         propDefaultValue: false,
         description: 'Controls whether click on outside overlay should close the dialog or not',
       },
+      {
+        type: 'text',
+        propType: 'string',
+        modelName: 'ariaLabelCloseButton',
+        propDefaultValue: '',
+        description: 'Sets aria-label attribute for close button',
+      },
     ],
     {
       open: false,
       hideCloseButton: false,
       outsideClickClose: false,
+      ariaLabelCloseButton: '',
     },
   );
 
@@ -60,7 +67,6 @@ function Example() {
           <p className="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
           <footer className="flex justify-end gap-4 mt-4">
-            <VsfInput value="value" />
             <VsfButton variant={VsfButtonVariant.secondary} onClick={() => onClose('Close')}>
               Close
             </VsfButton>

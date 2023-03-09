@@ -4,10 +4,10 @@
 
     <VsfDialog v-bind="state" v-model="modelValue">
       <section class="max-w-xs">
-        <h3 class="font-bold text-lg">Title</h3>
+        <h3 class="text-lg font-bold">Title</h3>
         <p class="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
-        <footer class="mt-4 flex justify-end gap-4">
+        <footer class="flex justify-end gap-4 mt-4">
           <VsfButton :variant="VsfButtonVariant.secondary" @click="onClose('Close')">Close</VsfButton>
           <VsfButton @click="onClose('Accept')">Accept</VsfButton>
         </footer>
@@ -64,11 +64,19 @@ export default {
             propDefaultValue: false,
             description: 'Controls whether click on outside overlay should close the dialog or not',
           },
+          {
+            type: 'text',
+            propType: 'string',
+            modelName: 'ariaLabelCloseButton',
+            propDefaultValue: '',
+            description: 'Sets aria-label attribute for close button',
+          },
         ],
         {
           modelValue,
           hideCloseButton: ref(),
           outsideClickClose: ref(false),
+          ariaLabelCloseButton: ref(''),
         },
       ),
     };

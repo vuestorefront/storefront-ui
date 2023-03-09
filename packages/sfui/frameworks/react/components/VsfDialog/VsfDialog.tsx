@@ -12,6 +12,7 @@ export default function VsfDialog({
   className,
   children,
   outsideClickClose,
+  ariaLabelCloseButton,
   ...attributes
 }: VsfDialogProps): JSX.Element {
   const dialogRef = useRef<HTMLDialogElement>(null);
@@ -57,6 +58,7 @@ export default function VsfDialog({
             className="vsf-dialog__btn-close"
             onClick={handleCloseDialog}
             variant={VsfButtonVariant.tertiary}
+            aria-label={ariaLabelCloseButton}
             slotPrefix={<VsfIconClose />}
           />
         )}

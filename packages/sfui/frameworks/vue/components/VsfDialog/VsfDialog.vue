@@ -23,6 +23,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  ariaLabelCloseButton: {
+    type: String,
+    default: '',
+  },
 });
 
 const emit = defineEmits<{
@@ -65,7 +69,12 @@ useTrapFocus(dialogRef, { activeState: modelValue, initialFocus: 'none' });
   <dialog ref="dialogRef" class="vsf-dialog" data-testid="dialog" @click="outsideClickClose && onClick($event)">
     <div class="vsf-dialog__inner" v-bind="$attrs">
       <template v-if="!hideCloseButton">
-        <VsfButton class="vsf-dialog__btn-close" :variant="VsfButtonVariant.tertiary" @click="handleCloseDialog()">
+        <VsfButton
+          class="vsf-dialog__btn-close"
+          :variant="VsfButtonVariant.tertiary"
+          :aria-label="ariaLabelCloseButton"
+          @click="handleCloseDialog()"
+        >
           <template #prefix><VsfIconClose /></template>
         </VsfButton>
       </template>
