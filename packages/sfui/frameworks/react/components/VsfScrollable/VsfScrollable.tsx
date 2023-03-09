@@ -56,6 +56,7 @@ const VsfScrollable = forwardRef<HTMLDivElement, VsfScrollableProps>(
       arrowFocusGroupSelector: '[data-group]',
       trapTabs: false,
       initialFocus: InitialFocusType.none,
+      arrowKeysOn: true,
     });
 
     const prevButtonDefault = (

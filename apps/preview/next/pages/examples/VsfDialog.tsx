@@ -1,5 +1,6 @@
 import { VsfDialog } from '@storefront-ui/react/components/VsfDialog';
 import { VsfButton, VsfButtonVariant } from '@storefront-ui/react/components/VsfButton';
+import { VsfInput } from '@storefront-ui/react/components/VsfInput';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -55,10 +56,11 @@ function Example() {
         }}
       >
         <section className="max-w-xs">
-          <h3 className="font-bold text-lg">Title</h3>
+          <h3 className="text-lg font-bold">Title</h3>
           <p className="mt-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
 
-          <footer className="mt-4 flex justify-end gap-4">
+          <footer className="flex justify-end gap-4 mt-4">
+            <VsfInput value="value" />
             <VsfButton variant={VsfButtonVariant.secondary} onClick={() => onClose('Close')}>
               Close
             </VsfButton>

@@ -17,6 +17,7 @@ type UseTrapFocusOptions = TabbableOptions &
     arrowFocusGroupSelector?: string;
     activeState?: Ref<boolean>;
     initialFocus?: `${InitialFocusType}`;
+    arrowKeysOn?: boolean;
   };
 /**
  * arrowFocusGroupSelector - when arrow left/right press will focus first element of given selector requirement: all children needs to be same structure, options dedicated for slider with many items that has focusable elements inside
@@ -28,7 +29,7 @@ const defaultOptions = {
   initialFocus: InitialFocusType.first,
 };
 export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, options?: UseTrapFocusOptions) => {
-  const { trapTabs, arrowFocusGroupSelector, includeContainer, activeState, initialFocus } = {
+  const { trapTabs, arrowFocusGroupSelector, includeContainer, activeState, initialFocus, arrowKeysOn } = {
     ...defaultOptions,
     ...options,
   };
@@ -63,18 +64,20 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
 
   useEventListener(containerElementRef, 'keydown', (event: KeyboardEvent) => {
     const isAnyGroupElement = arrowFocusGroupSelector && containeHTMLElement?.querySelector(arrowFocusGroupSelector);
-    if (event.key === 'ArrowRight') {
-      focusNext({
-        current: currentlyFocused.value,
-        focusables: focusableElements.value,
-        ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-      });
-    } else if (event.key === 'ArrowLeft') {
-      focusPrev({
-        current: currentlyFocused.value,
-        focusables: focusableElements.value,
-        ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-      });
+    if (arrowKeysOn) {
+      if (event.key === 'ArrowRight') {
+        focusNext({
+          current: currentlyFocused.value,
+          focusables: focusableElements.value,
+          ...(isAnyGroupElement && { arrowFocusGroupSelector }),
+        });
+      } else if (event.key === 'ArrowLeft') {
+        focusPrev({
+          current: currentlyFocused.value,
+          focusables: focusableElements.value,
+          ...(isAnyGroupElement && { arrowFocusGroupSelector }),
+        });
+      }
     }
 
     if (trapTabs && isTab(event)) {

@@ -35,7 +35,7 @@ const dropdownRef = ref<HTMLElement>();
 const dropdownDropdownRef = ref();
 
 const onClose = () => emit('update:modelValue', false);
-useTrapFocus(dropdownDropdownRef);
+useTrapFocus(dropdownDropdownRef, { arrowKeysOn: true });
 onClickOutside(dropdownRef, onClose);
 </script>
 

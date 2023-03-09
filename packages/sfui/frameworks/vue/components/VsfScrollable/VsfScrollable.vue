@@ -79,6 +79,7 @@ useTrapFocus(containerRef, {
   arrowFocusGroupSelector: '[data-group]',
   trapTabs: false,
   initialFocus: InitialFocusType.none,
+  arrowKeysOn: true,
 });
 useEventListener(containerRef, 'keydown', (event: KeyboardEvent) => {
   if (event.key === 'ArrowRight' || event.key === 'ArrowLeft') {

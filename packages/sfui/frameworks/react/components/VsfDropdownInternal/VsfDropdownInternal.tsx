@@ -27,7 +27,7 @@ export default function VsfDropdownInternal({
   const isClickEvent = () => triggerEvent === VsfDropdownInternalTriggerEvent.click;
   const onClose = () => onOpenUpdate?.(false);
   useClickAway(dropdownRef, onClose);
-  useTrapFocus(dropdownDropdownRef);
+  useTrapFocus(dropdownDropdownRef, { arrowKeysOn: true });
   const onEscClick = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Escape') onClose();
   };
