@@ -1,82 +1,45 @@
 import classNames from 'classnames';
-import { progressSvgSizes } from '@storefront-ui/shared';
-import type { VsfProgressCircularProps } from './types';
-import { VsfProgressCircularSize } from './types';
+import { VsfProgressSize, type VsfProgressCircularProps } from './types';
+
+const sizeClasses = {
+  [VsfProgressSize.xs]: 'h-4 w-4 ring-2',
+  [VsfProgressSize.sm]: 'h-5 w-5 ring-2',
+  [VsfProgressSize.base]: 'h-6 w-6 ring-2',
+  [VsfProgressSize.lg]: 'h-8 w-8 ring-2',
+  [VsfProgressSize.xl]: 'h-10 w-10 ring-2',
+  [VsfProgressSize['2xl']]: 'h-14 w-14 ring-[3px]',
+  [VsfProgressSize['3xl']]: 'h-24 w-24 ring-4',
+  [VsfProgressSize['4xl']]: 'h-48 w-48 ring-8',
+};
 
 export default function VsfProgressCircular({
   value = 0,
-  size = VsfProgressCircularSize.base,
-  withValue = true,
-  svgAriaLabel = 'progress',
+  size = VsfProgressSize.base,
+  ariaLabel = 'Progress element',
+  children,
   className,
   ...attributes
 }: VsfProgressCircularProps): JSX.Element {
-  const strokeWidth = () => {
-    switch (size) {
-      case VsfProgressCircularSize['2xl']:
-        return 3;
-
-      case VsfProgressCircularSize['3xl']:
-        return 4;
-
-      case VsfProgressCircularSize['4xl']:
-        return 8;
-
-      default:
-        return 2;
-    }
-  };
-
+  const strokeDasharray = `${(value / 100) * 151}, 150`;
   return (
-    <div
-      className={classNames('vsf-progress-circular', className)}
+    <svg
       role="progressbar"
       aria-valuemin={0}
       aria-valuemax={100}
       aria-valuenow={value}
-      {...attributes}
+      aria-label={ariaLabel}
+      className={classNames(
+        'inline-block ring-inset ring-neutral-200 text-primary-700 rounded-full transition-[stroke-dasharray] ease-in-out duration-500 text-sm',
+        sizeClasses[size],
+        className,
+      )}
+      viewBox="25 25 50 50"
+      strokeDasharray={strokeDasharray}
       data-testid="progress"
+      {...attributes}
     >
-      <svg
-        role="img"
-        width={progressSvgSizes[size].icon}
-        height={progressSvgSizes[size].icon}
-        strokeWidth={strokeWidth()}
-        className={classNames(!withValue && 'vsf-progress-circular__icon')}
-        viewBox={`0 0 ${progressSvgSizes[size].icon} ${progressSvgSizes[size].icon}`}
-        aria-label={svgAriaLabel}
-      >
-        <circle
-          stroke="#e6e6e6"
-          fill="none"
-          r={progressSvgSizes[size].r}
-          cx={progressSvgSizes[size].icon / 2}
-          cy={progressSvgSizes[size].icon / 2}
-          strokeDasharray={`${progressSvgSizes[size].dash} ${progressSvgSizes[size].dash}`}
-          className="vsf-progress-circular__circle"
-        />
-
-        <circle
-          stroke="#16A34A"
-          fill="none"
-          r={progressSvgSizes[size].r}
-          cx={progressSvgSizes[size].icon / 2}
-          cy={progressSvgSizes[size].icon / 2}
-          strokeDasharray={`${progressSvgSizes[size].dash * (value / 100)}, ${progressSvgSizes[size].dash}`}
-          className="vsf-progress-circular__circle"
-        />
-
-        <text
-          textAnchor="middle"
-          alignmentBaseline="central"
-          x="50%"
-          y="50%"
-          className={classNames('vsf-progress-circular__label', `vsf-progress-circular__label--${size}`)}
-          data-testid="progress-value"
-        >
-          {withValue ? `${value}%` : ''}
-        </text>
-      </svg>
-    </div>
+      <circle className="fill-none stroke-2 stroke-current -rotate-90 origin-bottom-right" cx="50" cy="50" r="24" />
+      {children}
+    </svg>
   );
 }
