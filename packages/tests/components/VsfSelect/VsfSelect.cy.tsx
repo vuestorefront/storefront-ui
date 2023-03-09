@@ -133,7 +133,7 @@ describe('VsfSelect', () => {
 
   describe('when prop label is empty', () => {
     before(() => (label = ''));
-    it(`should render with label`, () => {
+    it(`should render without label`, () => {
       initializeComponent();
 
       page().doesNotHaveLabel().makeSnapshot();

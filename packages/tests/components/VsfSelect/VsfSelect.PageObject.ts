@@ -7,7 +7,7 @@ export default class VsfSelectObject extends BasePage {
   }
 
   doesNotHaveLabel() {
-    this.labelElement.should('be.empty');
+    this.labelElement.should('not.exist');
     return this;
   }
 

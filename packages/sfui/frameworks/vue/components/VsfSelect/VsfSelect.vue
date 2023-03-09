@@ -100,7 +100,7 @@ const changedValue = (event: Event) => {
           </slot>
         </select>
         <slot name="label">
-          <label :for="label" class="vsf-select__label" data-testid="select-label">{{ label }}</label>
+          <label v-if="label" :for="label" class="vsf-select__label" data-testid="select-label">{{ label }}</label>
         </slot>
       </div>
     </div>

@@ -70,9 +70,11 @@ export default function VsfSelect({
                 </VsfSelectOption>
               ))}
           </select>
-          <label htmlFor={label} className="vsf-select__label" data-testid="select-label">
-            {label}
-          </label>
+          {label && (
+            <label htmlFor={label} className="vsf-select__label" data-testid="select-label">
+              {label}
+            </label>
+          )}
         </div>
       </div>
       <div>
