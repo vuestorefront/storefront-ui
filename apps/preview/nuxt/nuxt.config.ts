@@ -1,4 +1,5 @@
 import { defineNuxtConfig } from 'nuxt/config';
+import { resolve } from 'path';
 
 export default defineNuxtConfig({
   app: {
@@ -9,6 +10,9 @@ export default defineNuxtConfig({
       },
       title: 'Vue Storefront UI v2',
     },
+  },
+  alias: {
+    '@assets': resolve(__dirname, './assets/fixture'),
   },
   modules: ['@nuxtjs/tailwindcss'],
   css: ['@storefront-ui/example-style/index.scss', '@storefront-ui/example-style/controls.scss'],

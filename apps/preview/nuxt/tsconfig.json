@@ -10,6 +10,12 @@
       "vite/client",
     ],
     "baseUrl": "./",
+    "paths": {
+      "~/*": [
+        "./*"
+      ],
+      "@assets/*": ["./assets/fixture"]
+    }
   },
   "exclude": [
     "node_modules",

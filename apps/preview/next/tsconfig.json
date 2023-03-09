@@ -29,7 +29,8 @@
     "paths": {
       "~/*": [
         "./*"
-      ]
+      ],
+      "@assets/*": ["./assets/fixture/*"]
     }
   },
   "include": [

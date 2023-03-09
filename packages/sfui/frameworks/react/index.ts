@@ -36,7 +36,7 @@ export * from './components/VsfTag';
 export * from './components/VsfTooltip';
 export * from './components/VsfHero';
 export * from './components/VsfDisplay';
-export * from './components/VsfChipThumbnail';
+export * from './components/VsfThumbnail';
 // Hooks
 export * from './hooks/useDisclosure';
 export * from './hooks/useDropdown';
