@@ -53,7 +53,6 @@ function Example() {
   );
   function onChangeHandler(value: string) {
     state.set({
-      ...state.get,
       checked: value,
     });
   }

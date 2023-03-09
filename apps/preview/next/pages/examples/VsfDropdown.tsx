@@ -20,8 +20,8 @@ function Example() {
     },
   );
 
-  const close = () => state.set({ ...state.get, isOpen: false });
-  const toggle = () => state.set({ ...state.get, isOpen: !state.get.isOpen });
+  const close = () => state.set({ isOpen: false });
+  const toggle = () => state.set((currentState) => ({ ...currentState, isOpen: !currentState.isOpen }));
 
   return (
     <ComponentExample controls={{ state, controls }}>

@@ -72,7 +72,7 @@ function Example() {
   );
 
   const changeHandle = (uid: number | string | symbol): void => {
-    state.set({ ...state.get, active: uid });
+    state.set({ active: uid });
   };
   return (
     <ComponentExample controls={{ state, controls }}>

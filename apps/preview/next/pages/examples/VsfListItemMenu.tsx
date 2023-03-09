@@ -124,7 +124,7 @@ function Example() {
           </span>
         }
         slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
-        onClick={() => state.set({ ...state.get, active: !state.get.active })}
+        onClick={() => state.set((currentState) => ({ ...currentState, active: !currentState.active }))}
       >
         <span className="inline-block break-words font-body">
           <span

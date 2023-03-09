@@ -122,7 +122,7 @@ function Example() {
     <ComponentExample controls={{ state, controls }}>
       <VsfAlert
         {...state.get}
-        onOpenChange={(open) => state.set({ ...state.get, open })}
+        onOpenChange={(open) => state.set({ open })}
         slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
         slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
       />
