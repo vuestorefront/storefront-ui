@@ -17,7 +17,7 @@ describe('VsfListItemFilterChip', () => {
   let color: string;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
   let value = 'value';
-  let counter: string;
+  let counter: number | undefined;
   let secondaryText: string;
   let truncate: boolean;
 
@@ -47,7 +47,7 @@ describe('VsfListItemFilterChip', () => {
           variant={variant}
           label={label}
           color={color}
-          counter={Number(counter)}
+          counter={counter}
           secondaryText={secondaryText}
           disabled={disabled}
           truncate={truncate}
@@ -155,8 +155,8 @@ describe('VsfListItemFilterChip', () => {
   });
 
   describe('when prop counter set to', () => {
-    before(() => (counter = '123'));
-    after(() => (counter = ''));
+    before(() => (counter = 123));
+    after(() => (counter = undefined));
     it(`should render with counter`, () => {
       initializeComponent();
       page().hasCounter('123').makeSnapshot();

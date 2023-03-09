@@ -55,7 +55,7 @@ export default function VsfListItemMenu({
                 {label}
               </span>
             ) : null}
-            {counter ? (
+            {typeof counter !== 'undefined' ? (
               <VsfCounter
                 size={VsfCounterSize.xl}
                 className="vsf-list-item-menu__counter"
