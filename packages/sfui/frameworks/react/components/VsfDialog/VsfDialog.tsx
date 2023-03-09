@@ -36,7 +36,7 @@ export default function VsfDialog({
     }
   }, [open, dialogRef]);
 
-  useTrapFocus(dialogRef, { activeState: open, arrowKeysOn: false });
+  useTrapFocus(dialogRef, { activeState: open, initialFocus: 'none', arrowKeysOn: false });
 
   useEffect(() => {
     // There is no onClick event on dialogElement in JSX

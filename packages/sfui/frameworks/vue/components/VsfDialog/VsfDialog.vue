@@ -58,7 +58,7 @@ watch(
   { immediate: true },
 );
 
-useTrapFocus(dialogRef, { activeState: modelValue });
+useTrapFocus(dialogRef, { activeState: modelValue, initialFocus: 'none' });
 </script>
 
 <template>

@@ -53,7 +53,11 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
         containeHTMLElement = containerElement;
         await waitForNextRender();
         focusableElements.value = tabbable(containeHTMLElement, { includeContainer });
-        if (initialFocus === InitialFocusType.first) focusFirstElement({ focusables: focusableElements.value });
+        if (initialFocus === InitialFocusType.first) {
+          focusFirstElement({ focusables: focusableElements.value });
+        } else {
+          currentlyFocused.value?.blur();
+        }
       } else {
         focusableElements.value = [];
         currentlyFocused.value = undefined;

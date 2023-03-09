@@ -80,7 +80,11 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     }
     if (containerElementRef.current && activeState) {
       focusableElements.current = tabbable(containerElementRef.current, { includeContainer });
-      if (initialFocus === InitialFocusType.first) focusFirstElement({ focusables: focusableElements.current });
+      if (initialFocus === InitialFocusType.first) {
+        focusFirstElement({ focusables: focusableElements.current });
+      } else {
+        currentlyFocused.current?.blur();
+      }
     } else {
       focusableElements.current = [];
       currentlyFocused.current = undefined;
