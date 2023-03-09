@@ -1,5 +1,5 @@
 import { VsfChip, VsfChipSize } from '@storefront-ui/react/components/VsfChip';
-import { VsfChipThumbnail, VsfChipThumbnailSize } from '@storefront-ui/react/components/VsfChipThumbnail/index';
+import { VsfThumbnail, VsfThumbnailSize } from '@storefront-ui/react/components/VsfThumbnail/index';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -80,9 +80,9 @@ function Example() {
         className="mr-2"
         slotPrefix={
           state.get.slotPrefix ? (
-            <VsfChipThumbnail
-              color="rgb(113 113 122)"
-              size={state.get.size === VsfChipSize.sm ? VsfChipThumbnailSize.sm : VsfChipThumbnailSize.base}
+            <VsfThumbnail
+              className="bg-gray-500"
+              size={state.get.size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base}
             />
           ) : null
         }

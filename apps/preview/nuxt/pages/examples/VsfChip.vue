@@ -2,9 +2,9 @@
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfChip v-bind="state" v-model="modelValue" :deletable="deletable" :value="value">
       <template v-if="slotPrefix" #prefix>
-        <VsfChipThumbnail
+        <VsfThumbnail
           color="rgb(113 113 122)"
-          :size="size === VsfChipSize.sm ? VsfChipThumbnailSize.sm : VsfChipThumbnailSize.base"
+          :size="size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base"
         />
       </template>
     </VsfChip>
@@ -14,7 +14,7 @@
 <script>
 import { defineComponent, ref } from 'vue';
 import { VsfChip, VsfChipSize } from '@storefront-ui/vue/components/VsfChip/index';
-import { VsfChipThumbnail, VsfChipThumbnailSize } from '@storefront-ui/vue/components/VsfChipThumbnail/index';
+import { VsfThumbnail, VsfThumbnailSize } from '@storefront-ui/vue/components/VsfThumbnail/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
@@ -23,7 +23,7 @@ export default defineComponent({
   components: {
     VsfChip,
     ComponentExample,
-    VsfChipThumbnail,
+    VsfThumbnail,
   },
   setup() {
     return {
@@ -79,7 +79,7 @@ export default defineComponent({
           deletable: ref(),
         },
       ),
-      VsfChipThumbnailSize,
+      VsfThumbnailSize,
       VsfChipSize,
     };
   },
