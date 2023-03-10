@@ -1,12 +1,12 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfChip v-bind="state" v-model="modelValue" :deletable="deletable" :value="value">
-      <template v-if="slotPrefix" #prefix>
-        <VsfThumbnail
-          color="rgb(113 113 122)"
-          :size="size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base"
-        />
-      </template>
+    <VsfChip v-model="modelValue" :size="size" :square="square" :input-props="{ disabled, value }">
+      <!-- TODO: Replace with Thumbnail component when ready -->
+      <VsfThumbnail
+        :size="size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base"
+        class="bg-gray-500 mr-2"
+      />
+      <span class="ml-2">{{ label }}</span>
     </VsfChip>
   </ComponentExample>
 </template>
@@ -30,11 +30,6 @@ export default defineComponent({
       ...prepareControls(
         [
           {
-            type: 'text',
-            modelName: 'label',
-            propType: 'string',
-          },
-          {
             type: 'boolean',
             modelName: 'modelValue',
             propType: 'boolean',
@@ -54,29 +49,22 @@ export default defineComponent({
           },
           {
             type: 'boolean',
-            modelName: 'deletable',
-            propType: 'boolean',
-          },
-          {
-            type: 'boolean',
             modelName: 'disabled',
             propType: 'boolean',
           },
           {
             type: 'boolean',
-            modelName: 'slotPrefix',
+            modelName: 'square',
             propType: 'boolean',
-            description: 'Shows example of prefix slot content. Only for demonstration purposes',
           },
         ],
         {
+          label: ref('Label'),
           size: ref(VsfChipSize.base),
           disabled: ref(),
-          label: ref('Label'),
-          slotPrefix: ref(),
           modelValue: ref(false),
           value: ref(''),
-          deletable: ref(),
+          square: ref(false),
         },
       ),
       VsfThumbnailSize,

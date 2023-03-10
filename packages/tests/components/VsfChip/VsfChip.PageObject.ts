@@ -1,43 +1,37 @@
-import { VsfChipSize } from '@storefront-ui/vue/components/VsfChip/types';
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfChipObject extends BasePage {
-  hasSizeClass(size: VsfChipSize) {
-    this.container.should('have.class', `vsf-chip--size-${size}`);
-    return this;
-  }
-
   isDisabled() {
-    this.inputElement.should('be.disabled');
+    this.input.should('be.disabled');
     return this;
   }
 
   isNotDisabled() {
-    this.inputElement.should('not.be.disabled');
-    return this;
-  }
-
-  hasLabel(label: string) {
-    this.container.contains(label);
+    this.input.should('not.be.disabled');
     return this;
   }
 
   isSelected() {
-    this.inputElement.should('not.be.visible').check({ force: true }).should('be.checked');
+    this.input.check({ force: true });
     return this;
   }
 
   isValueSet(value: string) {
-    this.inputElement.should('have.attr', 'value').and('contain', value);
+    this.input.should('have.attr', 'value').and('contain', value);
+    return this;
+  }
+
+  isSquare(value) {
+    this.container.should('have.class', value);
     return this;
   }
 
   isNotVisible() {
-    this.container.should('not.be.visible');
+    this.input.should('not.be.visible');
     return this;
   }
 
-  get inputElement() {
-    return this.findTestElement('chip-input');
+  get input() {
+    return this.container.prev();
   }
 }

@@ -8,11 +8,6 @@ function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        type: 'text',
-        modelName: 'label',
-        propType: 'string',
-      },
-      {
         type: 'select',
         modelName: 'size',
         options: Object.keys(VsfChipSize),
@@ -32,28 +27,21 @@ function Example() {
       },
       {
         type: 'boolean',
-        modelName: 'deletable',
-        propType: 'boolean',
-      },
-      {
-        type: 'boolean',
         modelName: 'disabled',
         propType: 'boolean',
       },
       {
         type: 'boolean',
-        modelName: 'slotPrefix',
+        modelName: 'square',
         propType: 'boolean',
-        description: 'Shows example of prefix slot content. Only for demonstration purposes',
       },
     ],
     {
       size: VsfChipSize.base,
       disabled: false,
       selected: false,
-      deletable: false,
+      square: false,
       label: 'Label',
-      slotPrefix: false,
       value: '',
     },
   );
@@ -69,24 +57,22 @@ function Example() {
   return (
     <ComponentExample controls={{ state, controls }}>
       <VsfChip
-        disabled={state.get.disabled}
-        deletable={state.get.deletable}
         size={state.get.size}
-        label={state.get.label}
-        value={state.get.value}
-        selected={state.get.selected}
+        square={state.get.square}
+        inputProps={{
+          checked: state.get.selected,
+          disabled: state.get.disabled,
+          value: state.get.value,
+          onChange: selectHandler,
+        }}
         // eslint-disable-next-line no-console
-        onSelected={selectHandler}
-        className="mr-2"
-        slotPrefix={
-          state.get.slotPrefix ? (
-            <VsfThumbnail
-              className="bg-gray-500"
-              size={state.get.size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base}
-            />
-          ) : null
-        }
-      />
+      >
+        <VsfThumbnail
+          size={state.get.size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base}
+          className="bg-gray-500 mr-2"
+        />
+        <span>{state.get.label}</span>
+      </VsfChip>
     </ComponentExample>
   );
 }
