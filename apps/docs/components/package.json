@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev:docs": "yarn update-docs && VITE_DOCS_EXAMPLES_REACT_PATH=http://localhost:3002 VITE_DOCS_EXAMPLES_VUE_PATH=http://localhost:3001 && concurrently \"vuepress dev\" \"yarn watch-docs\"",
-    "build": "yarn update-docs && VITE_DOCS_BASEPATH=/v2/ VITE_DOCS_EXAMPLES_REACT_PATH=https://docs.storefrontui.io/v2-react VITE_DOCS_EXAMPLES_VUE_PATH=https://docs.storefrontui.io/v2-vue && vuepress build",
+    "build": "yarn update-docs && VITE_DOCS_BASEPATH=/v2-rc-3/ VITE_DOCS_EXAMPLES_REACT_PATH=https://docs.storefrontui.io/v2-rc-3-react VITE_DOCS_EXAMPLES_VUE_PATH=https://docs.storefrontui.io/v2-rc-3-vue && vuepress build",
     "watch-docs": "chokidar --initial \"./components/**/*.md\" -c \"yarn update-docs --event {event} --path {path};\"",
     "serve": "vuepress serve",
     "update-docs": "yarn node ./utils/createComponentList && yarn node ./utils/createFrameworksDocs"

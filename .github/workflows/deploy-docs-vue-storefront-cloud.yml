@@ -2,7 +2,7 @@ name: Deploy Documentation
 on:
   push:
     branches:
-      - main
+      - release/legacy
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
       - name: Build and publish docker image
         uses: elgohr/Publish-Docker-Github-Action@v5
         with:
-          name: sfui-storefrontcloud-io/sfui2-docs:${{ steps.get_version.outputs.VERSION }}
+          name: sfui-storefrontcloud-io/sfui2-rc-3-docs:${{ steps.get_version.outputs.VERSION }}
           registry: registry.storefrontcloud.io
           username: ${{ secrets.CLOUD_USERNAME }}
           password: ${{ secrets.CLOUD_PASSWORD }}
@@ -52,10 +52,10 @@ jobs:
         id: deployment
         with:
           token: "${{ github.token }}"
-          target_url: https://docs.storefrontui.io/v2
+          target_url: https://docs.storefrontui.io/v2-rc-3
           environment: docs
           initial_status: in_progress
-      - name: Deploy on https://docs.storefrontui.io/v2
+      - name: Deploy on https://docs.storefrontui.io/v2-rc-3
         id: publish
         # Not using the vuestorefront/* package because of:
         # https://github.com/sethidden/publish-docs-action/commit/5fb4bf1df975567879f99d3e975447a2ff824bb2
@@ -63,10 +63,10 @@ jobs:
         with:
           user-id: ${{ secrets.CLOUD_USERNAME }}
           api-key: ${{ secrets.CLOUD_PASSWORD }}
-          name: "sfui2-docs"
+          name: "sfui2-rc-3-docs"
           tag: "${{ steps.get_version.outputs.VERSION }}"
-          image: "registry.storefrontcloud.io/sfui-storefrontcloud-io/sfui2-docs"
-          path: "/v2"
+          image: "registry.storefrontcloud.io/sfui-storefrontcloud-io/sfui2-rc-3-docs"
+          path: "/v2-rc-3"
           port: "80"
           has-base-path: true
       - name: Update deployment status (success)
@@ -74,7 +74,7 @@ jobs:
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: "${{ github.token }}"
-          target_url: https://docs.storefrontui.io/v2
+          target_url: https://docs.storefrontui.io/v2-rc-3
           state: "success"
           description: Congratulations! The deploy is done.
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
@@ -83,7 +83,7 @@ jobs:
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: "${{ github.token }}"
-          target_url: https://docs.storefrontui.io/v2
+          target_url: https://docs.storefrontui.io/v2-rc-3
           description: Unfortunately, the instance hasn't been updated.
           state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}

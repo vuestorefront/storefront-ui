@@ -12,4 +12,4 @@ RUN yarn
 RUN cd apps/docs/components && yarn build
 
 FROM nginx
-COPY --from=build /var/www/apps/docs/components/.vuepress/dist /usr/share/nginx/html/v2
+COPY --from=build /var/www/apps/docs/components/.vuepress/dist /usr/share/nginx/html/v2-rc-3
