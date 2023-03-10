@@ -1,33 +1,29 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
+import type { InputHTMLAttributes } from 'react';
 import type { Ref } from 'vue';
-import { ref, h } from 'vue';
+import { ref } from 'vue';
 import { VsfChipSize } from '@storefront-ui/vue/components/VsfChip/types';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
 import VsfChipObject from './VsfChip.PageObject';
 
 const { vue: VsfChipVue, react: VsfChipReact } = useComponent('VsfChip');
-const { vue: VsfIconCircleVue, react: VsfIconCircleReact } = useComponent('VsfIconCircle');
 
 describe.skip('VsfChip', () => {
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
-
+  const slotContent = 'Label';
   const page = () => new VsfChipObject('chip');
 
   const initializeComponent = ({
     modelValue = ref(false),
     size = VsfChipSize.base,
-    value = '',
-    label = '',
-    disabled = false,
-    deletable = false,
+    square = false,
+    inputProps,
   }: {
     modelValue?: Ref<boolean>;
     size?: VsfChipSize;
-    value?: string;
-    label?: string;
-    disabled?: boolean;
-    deletable?: boolean;
+    square?: boolean;
+    inputProps?: InputHTMLAttributes<HTMLInputElement>;
   }) => {
     return mount({
       vue: {
@@ -35,28 +31,23 @@ describe.skip('VsfChip', () => {
         props: {
           modelValue,
           size,
-          value,
-          label,
-          disabled,
-          deletable,
+          inputProps,
+          square,
           'onUpdate:modelValue': onChangeSpy,
         },
         slots: {
-          prefix: () => h(VsfIconCircleVue),
+          default: () => slotContent,
         },
       },
       react: (
         <Wrapper
-          selected={modelValue}
           size={size}
-          value={value}
+          inputProps={{ ...inputProps, onChange: onChangeSpy }}
+          square={square}
           component={VsfChipReact}
-          onSelected={onChangeSpy}
-          label={label}
-          disabled={disabled}
-          deletable={deletable}
-          slotPrefix={<VsfIconCircleReact />}
-        />
+        >
+          {slotContent}
+        </Wrapper>
       ),
     });
   };
@@ -71,52 +62,47 @@ describe.skip('VsfChip', () => {
     page().makeSnapshot();
   });
 
-  describe('when size is changed to ', () => {
-    Object.values(VsfChipSize).forEach((componentSize) => {
-      describe(`${componentSize}`, () => {
-        it(`should render correct ${componentSize} size`, () => {
-          const size = componentSize;
-          initializeComponent({ size });
-
-          page().hasSizeClass(componentSize).makeSnapshot();
-        });
-      });
-    });
-  });
-
-  describe('when value is set', () => {
-    it(`should have correct attribute value `, () => {
-      initializeComponent({ value: 'yellow' });
-
-      page().isValueSet('yellow').makeSnapshot();
-    });
-  });
-
-  describe('when prop disabled=true', () => {
-    it(`should render as disabled`, () => {
-      initializeComponent({ disabled: true });
-
-      page().isDisabled().makeSnapshot();
-    });
-  });
-
-  describe('when prop label is filled in', () => {
-    it(`should render with label`, () => {
-      initializeComponent({ label: 'Label' });
-
-      page().hasLabel('Label').makeSnapshot();
-    });
-  });
-
-  describe('when it is selected', () => {
-    it('should change selected/modelValue', () => {
-      initializeComponent({ label: 'Label' });
+  describe('when it is checked', () => {
+    it(`should change value/modelValue`, () => {
+      initializeComponent({ inputProps: { value: 'yellow' } });
 
       page().isNotDisabled().isSelected();
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
         page().makeSnapshot();
       });
+    });
+  });
+  describe('when  is set', () => {
+    it(`should have correct attribute value `, () => {
+      initializeComponent({ inputProps: { value: 'yellow' } });
+
+      page().isValueSet('yellow').makeSnapshot();
+    });
+  });
+  describe('when prop disabled=true', () => {
+    it(`should have correct attribute disabled `, () => {
+      initializeComponent({ inputProps: { disabled: true } });
+
+      page().isDisabled().makeSnapshot();
+    });
+  });
+  describe('when prop size is set to ', () => {
+    Object.values(VsfChipSize).forEach((componentSize) => {
+      describe(`${componentSize}`, () => {
+        it(`should render correct ${componentSize} size`, () => {
+          initializeComponent({ size: componentSize });
+
+          page().makeSnapshot();
+        });
+      });
+    });
+  });
+  describe('when prop square=true', () => {
+    it(`should render square chip`, () => {
+      initializeComponent({ square: true });
+
+      page().isSquare('p-2').makeSnapshot();
     });
   });
 });

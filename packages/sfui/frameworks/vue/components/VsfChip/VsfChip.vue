@@ -1,82 +1,65 @@
 <script lang="ts" setup>
-import type { PropType, InputHTMLAttributes } from 'vue';
-import { toRefs, computed } from 'vue';
+import { PropType, InputHTMLAttributes, toRefs, computed } from 'vue';
+import { useId } from '../../shared/useId';
 import { VsfChipSize } from './types';
-import VsfIconClose from '../VsfIcons/VsfIconClose.vue';
-import { VsfIconSize } from '../VsfIconBase/types';
 
 const props = defineProps({
-  deletable: {
-    type: Boolean,
-    default: false,
-  },
   size: {
     type: String as PropType<`${VsfChipSize}`>,
     default: VsfChipSize.base,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
   },
   modelValue: {
     type: [String, Array, Boolean] as PropType<InputHTMLAttributes['checked']>,
     default: false,
   },
-  value: {
-    type: String,
-    default: '',
+  inputProps: {
+    type: Object as PropType<InputHTMLAttributes>,
+    default: null,
   },
-  label: {
-    type: String,
-    default: '',
-  },
-  labelTag: {
-    type: String,
-    default: undefined,
+  square: {
+    type: Boolean,
+    default: false,
   },
 });
-const { size, modelValue } = toRefs(props);
-
+const { size, square, modelValue } = toRefs(props);
 const emit = defineEmits<{
   (event: 'update:modelValue', param: InputHTMLAttributes['checked']): void;
 }>();
+
+const inputId = useId();
 
 const onSelected = computed({
   get: () => modelValue?.value,
   set: (value) => emit('update:modelValue', value),
 });
 
-const getIconSize = computed((): VsfIconSize => {
+const sizeClasses = computed(() => {
   switch (size.value) {
     case VsfChipSize.sm:
-      return VsfIconSize.sm;
+      return square.value ? 'p-1.5' : 'text-sm py-1.5 px-3';
     default:
-      return VsfIconSize.base;
+      return square.value ? 'p-2' : 'text-base h-10 py-2 px-4 min-w-[2.5rem]';
   }
 });
 </script>
 
 <template>
-  <component
-    :is="labelTag || 'label'"
-    v-if="!deletable || modelValue"
-    :class="['vsf-chip', `vsf-chip--size-${size}`]"
+  <!-- TODO: [last-check: 09-03-2023] reimplement when has() has support https://caniuse.com/css-has -->
+  <input
+    v-bind="inputProps"
+    :id="inputId"
+    v-model="onSelected"
+    class="peer appearance-none outline-none absolute w-0"
+    type="checkbox"
+  />
+  <label
+    v-bind="$attrs"
+    :for="inputId"
+    :class="[
+      'cursor-pointer ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline',
+      sizeClasses,
+    ]"
     data-testid="chip"
-  >
-    <input
-      v-model="onSelected"
-      class="peer vsf-chip__input"
-      type="checkbox"
-      :disabled="disabled"
-      :value="value"
-      data-testid="chip-input"
-    />
-    <div class="vsf-chip__peer-wrapper">
-      <div v-if="$slots.prefix" class="vsf-chip__prefix">
-        <slot name="prefix" />
-      </div>
-      <span v-if="label" class="vsf-chip__label">{{ label }}</span>
-      <VsfIconClose v-if="deletable && !disabled" :size="getIconSize" class="vsf-chip__close-icon" />
-    </div>
-  </component>
+    ><slot />
+  </label>
 </template>

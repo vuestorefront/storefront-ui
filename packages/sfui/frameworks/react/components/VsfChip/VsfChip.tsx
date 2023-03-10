@@ -1,56 +1,44 @@
 import classNames from 'classnames';
+import { forwardRef, useId } from 'react';
 import { VsfChipProps, VsfChipSize } from './types';
-import VsfIconClose from '../VsfIcons/VsfIconClose';
-import { VsfIconSize } from '../VsfIconBase/types';
 
-export default function VsfChip({
-  onSelected,
-  value,
-  label,
-  selected = false,
-  disabled = false,
-  deletable = false,
-  size = VsfChipSize.base,
-  slotPrefix,
-  className = '',
-  labelTag,
-  ...attributes
-}: VsfChipProps): JSX.Element {
-  const LabelTag = labelTag || 'label';
-  const getIconSize = (): VsfIconSize => {
-    switch (size) {
-      case VsfChipSize.sm:
-        return VsfIconSize.sm;
-      default:
-        return VsfIconSize.base;
-    }
-  };
+const getSizeClasses = (size: VsfChipProps['size'], square: VsfChipProps['square']) => {
+  switch (size) {
+    case VsfChipSize.sm:
+      return square ? 'p-1.5' : 'text-sm py-1.5 px-3';
+    default:
+      return square ? 'p-2' : 'text-base h-10 py-2 px-4 min-w-[2.5rem]';
+  }
+};
 
-  return (
-    <LabelTag
-      className={classNames(
-        'vsf-chip',
-        `vsf-chip--size-${size}`,
-        { 'vsf-chip--hidden': deletable && !selected },
-        className,
-      )}
-      {...attributes}
-      data-testid="chip"
-    >
-      <input
-        className="peer vsf-chip__input"
-        type="checkbox"
-        disabled={disabled}
-        onChange={onSelected}
-        value={value}
-        checked={!disabled && (deletable || selected)}
-        data-testid="chip-input"
-      />
-      <span className="vsf-chip__peer-wrapper">
-        {slotPrefix && <span className="vsf-chip__prefix">{slotPrefix}</span>}
-        {label && <span className="vsf-chip__label">{label}</span>}
-        {deletable && !disabled && <VsfIconClose size={getIconSize()} className="vsf-chip__close-icon" />}
-      </span>
-    </LabelTag>
-  );
-}
+const VsfChip = forwardRef<HTMLInputElement, VsfChipProps>(
+  ({ children, size = VsfChipSize.base, className, inputProps, square = false, ...attributes }: VsfChipProps, ref) => {
+    const chipId = useId();
+    // TODO: [last-check: 09-03-2023] reimplement when has() has support https://caniuse.com/css-has
+    return (
+      <>
+        <input
+          id={chipId}
+          ref={ref}
+          className="peer appearance-none outline-none absolute w-0 hidden"
+          type="checkbox"
+          {...inputProps}
+        />
+        <label
+          htmlFor={chipId}
+          className={classNames(
+            'cursor-pointer ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline',
+            getSizeClasses(size, square),
+            className,
+          )}
+          data-testid="chip"
+          {...attributes}
+        >
+          {children}
+        </label>
+      </>
+    );
+  },
+);
+
+export default VsfChip;
