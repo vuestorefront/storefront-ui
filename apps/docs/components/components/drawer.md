@@ -14,19 +14,24 @@ description: VsfDrawer is surface containing supplementary content that is ancho
 ### Drawer placement
 
 Drawer supports 4 different placements that can be set via `placement` prop: `top`, `right`, `bottom`, `left`.
-<Showcase showcase-name="Drawer/Placement" style="min-height: 400px;">
+
+<Showcase showcase-name="Drawer/Placement" style="min-height:400px">
+
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Drawer/Placement.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Drawer/Placement.tsx
 <!-- end react -->
+
 </Showcase>
 
 ### Drawer transition and trap focus
 
 Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide/built-ins/transition.html#the-transition-component)<!-- end vue --><!-- react -->[`<CSSTransition>`](https://reactcommunity.org/react-transition-group/css-transition)<!-- end react --> component for animated showing and hiding. Drawer as well can use `useTrapFocus`  <!-- vue -->`composable`<!-- end vue --><!-- react -->`hook`<!-- end react --> for better control of focusable elements inside.
+
 <Showcase showcase-name="Drawer/TransitionAndCloseButton" style="min-height: 400px;">
+
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Drawer/TransitionAndCloseButton.vue
 <!-- end vue -->
