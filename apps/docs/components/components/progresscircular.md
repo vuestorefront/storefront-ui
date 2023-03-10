@@ -29,7 +29,7 @@ ProgressCircular supports various sizes that can be set via `size` prop: `xs`, `
 
 ## Customizing color
 
-ProgressCircular by default uses a `primary-700` as animated-shape color (customizable by setting text color) and `neutral-200` as a ring behind. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+ProgressCircular by default uses a `primary-700` as animated-shape color (customizable by setting text color) and `neutral-300` as a ring behind. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
 
 <Showcase showcase-name="ProgressCircular/ProgressCircularColors">
 

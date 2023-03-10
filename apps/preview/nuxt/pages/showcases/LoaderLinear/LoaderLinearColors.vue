@@ -2,7 +2,7 @@
   <div class="flex gap-4 flex-wrap">
     <VsfLoaderLinear class="w-12 !text-cyan-700" size="lg" />
     <VsfLoaderLinear class="w-12" size="lg" />
-    <VsfLoaderLinear class="w-12 !bg-gray-400" size="lg" />
+    <VsfLoaderLinear class="w-12 !bg-yellow-200" size="lg" />
   </div>
 </template>
 

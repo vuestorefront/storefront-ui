@@ -6,7 +6,7 @@ export function Showcase() {
     <div className="flex gap-4 flex-wrap">
       <VsfLoaderLinear className="w-12 !text-cyan-700" size="lg" />
       <VsfLoaderLinear className="w-12" size="lg" />
-      <VsfLoaderLinear className="w-12 !bg-gray-400" size="lg" />
+      <VsfLoaderLinear className="w-12 !bg-yellow-200" size="lg" />
     </div>
   );
 }

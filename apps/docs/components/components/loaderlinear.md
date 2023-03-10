@@ -34,7 +34,7 @@ LoaderLinear supports various sizes that can be set via `size` prop: `minimal`, 
 
 ## Customizing color
 
-LoaderLinear by default uses a `primary-700` as bar color (customizable by setting text color) and `neutral-200` as its background. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+LoaderLinear by default uses a `primary-700` as bar color (customizable by setting text color) and `neutral-300` as its background. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
 
 <Showcase showcase-name="LoaderLinear/LoaderLinearColors">
 
@@ -55,7 +55,7 @@ LoaderLinear by default uses a `primary-700` as bar color (customizable by setti
 ::: slot api
 | Prop name             | Type                       | Default value                 | Possible values                      |
 |-----------------------|----------------------------|-------------------------------|--------------------------------------|
-| size                |      `VsfLoaderLinearSize | VsfLoaderSize`        | `VsfLoaderLinearSize.minimal`           |  `minimal`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
+| size                |      `VsfLoaderLinearSize | VsfLoaderSize`        | `VsfLoaderLinearSize.base`           |  `minimal`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
 | ariaLabel    |      `string`                | `loading`                     |                                      |
 <!-- react -->
 | className             |  String                    |               |                                  |            |

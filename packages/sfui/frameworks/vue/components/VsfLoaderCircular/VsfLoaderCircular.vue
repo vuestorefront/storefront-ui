@@ -18,7 +18,7 @@ import { VsfLoaderSize } from './types';
 defineProps({
   size: {
     type: String as PropType<`${VsfLoaderSize}`>,
-    default: VsfLoaderSize.lg,
+    default: VsfLoaderSize.base,
   },
   ariaLabel: {
     type: String,
@@ -29,7 +29,7 @@ defineProps({
 
 <template>
   <svg
-    class="inline-block ring-inset ring-neutral-200 text-primary-700 rounded-full animate-spin-slow"
+    class="inline-block ring-inset ring-neutral-300 text-primary-700 rounded-full animate-spin-slow"
     :class="sizeClasses[size]"
     viewBox="25 25 50 50"
     aria-live="polite"
