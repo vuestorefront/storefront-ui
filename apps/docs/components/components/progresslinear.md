@@ -12,6 +12,10 @@ description: VsfProgressLinear is used to provides feedback about the duration a
 
 ProgressLinear uses [native `<progress>` HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) to [allow screen readers treat it as an indicator of progress status](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role).
 
+## Notes
+
+LoaderLinear does not set it's own width by default - have a look at [`Sizes` section for example of usage](#sizes).
+
 ## Sizes
 
 ProgressLinear supports various sizes that can be set via `size` prop: `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`, `4xl`.
