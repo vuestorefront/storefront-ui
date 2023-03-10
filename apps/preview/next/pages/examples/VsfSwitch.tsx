@@ -39,7 +39,11 @@ function Example() {
 
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
     const { value } = event.target;
-    state.set({ checkedValue: [value] });
+    state.set((currentState) =>
+      currentState.checkedValue.indexOf(value) > -1
+        ? { ...currentState, checkedValue: currentState.checkedValue.filter((val) => val !== value) }
+        : { ...currentState, checkedValue: [...currentState.checkedValue, value] },
+    );
   }
 
   return (
