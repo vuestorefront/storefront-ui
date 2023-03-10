@@ -31,7 +31,7 @@ export function Showcase() {
 
       <VsfDrawer
         open={open}
-        onClose={setOpen}
+        onClose={() => setOpen(false)}
         placement={placementState}
         className={classNames('bg-neutral-50 p-3 border border-gray-300', {
           'max-w-[370px]': placementState === VsfDrawerPlacement.left || placementState === VsfDrawerPlacement.right,

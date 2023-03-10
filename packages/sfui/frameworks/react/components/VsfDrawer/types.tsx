@@ -7,6 +7,6 @@ export interface VsfDrawerProps extends PropsWithStyle, PropsWithChildren {
   placement?: `${VsfDrawerPlacement}`;
   disableClickAway?: boolean;
   disableEsc?: boolean;
-  onClose?: (value: boolean) => void;
+  onClose?: () => void;
 }
 export { VsfDrawerPlacement };

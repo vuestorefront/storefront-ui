@@ -67,7 +67,7 @@ function Example() {
 
       <VsfDrawer
         {...state.get}
-        onClose={(isOpen: boolean) => state.set({ ...state.get, open: isOpen })}
+        onClose={() => state.set({ open: false })}
         className="bg-neutral-50 p-3"
         style={{
           ...(state.get.placement === VsfDrawerPlacement.left || state.get.placement === VsfDrawerPlacement.right

@@ -34,7 +34,7 @@ export function Showcase() {
         <VsfDrawer
           ref={drawerRef}
           open
-          onClose={setOpen}
+          onClose={() => setOpen(false)}
           className="bg-neutral-50 border border-gray-300 max-w-[370px]"
         >
           <header className="bg-primary-700 flex justify-between py-6 px-10 items-center">
