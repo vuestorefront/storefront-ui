@@ -8,7 +8,7 @@ export function Showcase() {
     <div className="flex gap-4 flex-wrap">
       <VsfProgressCircular size="2xl" value={value}>
         <text className="font-medium" textAnchor="middle" alignmentBaseline="central" x="100%" y="100%">
-          {value} %
+          {value}%
         </text>
       </VsfProgressCircular>
       <VsfProgressCircular size="3xl" value={value}>
@@ -19,12 +19,12 @@ export function Showcase() {
           x="100%"
           y="100%"
         >
-          {value} %
+          {value}%
         </text>
       </VsfProgressCircular>
       <VsfProgressCircular size="3xl" value={value}>
         <text className="font-medium text-2xs" textAnchor="middle" alignmentBaseline="central" x="100%" y="100%">
-          {value} %
+          {value}%
         </text>
       </VsfProgressCircular>
     </div>

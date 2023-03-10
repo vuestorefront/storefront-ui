@@ -10,9 +10,9 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        propType: 'VsfLoaderSize',
+        propType: 'VsfLoaderLinearSize | VsfLoaderSize',
         options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSize)],
-        propDefaultValue: VsfLoaderLinearSize.minimal,
+        propDefaultValue: VsfLoaderSize.base,
         description: 'sets sizes of components',
       },
       {
@@ -24,7 +24,7 @@ function Example() {
       },
     ],
     {
-      size: VsfLoaderLinearSize.minimal,
+      size: VsfLoaderSize.base,
       ariaLabel: 'loading',
     },
   );

@@ -17,9 +17,9 @@ const { state, controlsAttrs } = prepareControls(
     {
       type: 'select',
       modelName: 'size',
-      propType: 'VsfLoaderLinearSize',
+      propType: 'VsfLoaderLinearSize | VsfLoaderSize',
       options: [...Object.keys(VsfLoaderLinearSize), ...Object.keys(VsfLoaderSize)],
-      propDefaultValue: VsfLoaderLinearSize.minimal,
+      propDefaultValue: VsfLoaderSize.base,
       description: 'sets sizes of components',
     },
     {
@@ -31,7 +31,7 @@ const { state, controlsAttrs } = prepareControls(
     },
   ],
   {
-    size: ref(VsfLoaderLinearSize.minimal),
+    size: ref(VsfLoaderSize.base),
     ariaLabel: ref('loading'),
   },
 );

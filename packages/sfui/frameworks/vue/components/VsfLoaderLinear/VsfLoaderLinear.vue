@@ -19,7 +19,7 @@ import { VsfLoaderLinearSize, VsfLoaderSize } from './types';
 defineProps({
   size: {
     type: String as PropType<`${VsfLoaderLinearSize | VsfLoaderSize}`>,
-    default: VsfLoaderLinearSize.minimal,
+    default: VsfLoaderSize.base,
   },
   ariaLabel: {
     type: String,
@@ -30,12 +30,10 @@ defineProps({
 
 <template>
   <span
-    class="relative inline-block overflow-hidden bg-neutral-200 text-primary-700"
+    class="relative inline-block overflow-hidden bg-neutral-300 text-primary-700 after:absolute after:w-2.5 after:h-full after:animate-line after:bg-current after:block"
     :class="sizeClasses[size]"
     aria-live="polite"
     :aria-label="ariaLabel"
     data-testid="loader-linear"
-  >
-    <span class="absolute w-2.5 h-full animate-line bg-current" aria-hidden="true" />
-  </span>
+  />
 </template>

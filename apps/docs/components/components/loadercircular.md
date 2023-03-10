@@ -30,7 +30,7 @@ LoaderCircular supports various sizes that can be set via `size` prop: `xs`, `sm
 
 ## Customizing color
 
-LoaderCircular by default uses a `primary-700` as animated-shape color (customizable by setting text color) and `neutral-200` as a ring behind. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+LoaderCircular by default uses a `primary-700` as animated-shape color (customizable by setting text color) and `neutral-300` as a ring behind. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
 
 <Showcase showcase-name="LoaderCircular/LoaderCircularColors">
 
@@ -51,7 +51,7 @@ LoaderCircular by default uses a `primary-700` as animated-shape color (customiz
 ::: slot api
 | Prop name             | Type                       | Default value                 | Possible values                      |
 |-----------------------|----------------------------|-------------------------------|--------------------------------------|
-| size                |      `VsfLoaderSize`        | `VsfLoaderSize.lg`           | `xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
+| size                |      `VsfLoaderSize`        | `VsfLoaderSize.base`           | `xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
 | ariaLabel    |      string                | `loading`                     |                                      |
 <!-- react -->
 | className             |  String                    |               |                                  |            |

@@ -29,7 +29,7 @@ export default function VsfProgressCircular({
       aria-valuenow={value}
       aria-label={ariaLabel}
       className={classNames(
-        'inline-block ring-inset ring-neutral-200 text-primary-700 rounded-full transition-[stroke-dasharray] ease-in-out duration-500 text-sm',
+        'inline-block ring-inset ring-neutral-300 text-primary-700 rounded-full transition-[stroke-dasharray] ease-in-out duration-500 text-sm',
         sizeClasses[size],
         className,
       )}

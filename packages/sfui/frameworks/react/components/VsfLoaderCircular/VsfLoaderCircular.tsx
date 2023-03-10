@@ -14,7 +14,7 @@ const sizeClasses = {
 };
 
 export default function VsfLoaderCircular({
-  size = VsfLoaderSize.lg,
+  size = VsfLoaderSize.base,
   ariaLabel = 'loading',
   className,
   ...attributes
@@ -22,7 +22,7 @@ export default function VsfLoaderCircular({
   return (
     <svg
       className={classNames(
-        'inline-block ring-inset ring-neutral-200 text-primary-700 rounded-full animate-spin-slow',
+        'inline-block ring-inset ring-neutral-300 text-primary-700 rounded-full animate-spin-slow',
         sizeClasses[size],
         className,
       )}

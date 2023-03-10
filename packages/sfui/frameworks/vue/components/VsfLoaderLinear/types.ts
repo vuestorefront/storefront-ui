@@ -5,6 +5,6 @@ export enum VsfLoaderLinearSize {
 }
 export { VsfLoaderSize };
 export type VsfLoaderLinearProps = {
-  size?: VsfLoaderLinearSize | VsfLoaderSize;
+  size?: `${VsfLoaderLinearSize | VsfLoaderSize}`;
   screenReaderText?: string;
 };

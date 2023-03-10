@@ -41,7 +41,7 @@ const strokeDasharray = computed(() => `${(value.value / 100) * 151}, 150`);
     aria-valuemax="100"
     :aria-valuenow="value"
     :aria-label="ariaLabel"
-    class="inline-block ring-inset ring-neutral-200 text-primary-700 rounded-full transition-[stroke-dasharray] ease-in-out duration-500 text-sm"
+    class="inline-block ring-inset ring-neutral-300 text-primary-700 rounded-full transition-[stroke-dasharray] ease-in-out duration-500 text-sm"
     :class="sizeClasses[size]"
     viewBox="25 25 50 50"
     :stroke-dasharray="strokeDasharray"

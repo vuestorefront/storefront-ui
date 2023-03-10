@@ -14,7 +14,7 @@ const sizeClasses = {
 };
 
 export default function VsfLoaderLinear({
-  size = VsfLoaderLinearSize.minimal,
+  size = VsfLoaderSize.base,
   ariaLabel = 'loading',
   className,
   ...attributes
@@ -22,7 +22,7 @@ export default function VsfLoaderLinear({
   return (
     <span
       className={classNames(
-        'relative inline-block overflow-hidden bg-neutral-200 text-primary-700',
+        'relative inline-block overflow-hidden bg-neutral-300 text-primary-700 after:absolute after:w-2.5 after:h-full after:animate-line after:bg-current after:block',
         sizeClasses[size],
         className,
       )}
@@ -30,8 +30,6 @@ export default function VsfLoaderLinear({
       aria-label={ariaLabel}
       data-testid="loader-linear"
       {...attributes}
-    >
-      <span className="absolute w-2.5 h-full animate-line bg-current" aria-hidden="true" />
-    </span>
+    />
   );
 }
