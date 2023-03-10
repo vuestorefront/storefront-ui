@@ -1,10 +1,12 @@
 import { VsfRating, VsfRatingSize } from '@storefront-ui/react/components/VsfRating';
 import type { VsfRatingProps } from '@storefront-ui/react/components/VsfRating/types';
+import { useEffect, useState } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
+  const [max, setMax] = useState(5);
   const { state, controls } = prepareControls<VsfRatingProps>(
     [
       {
@@ -16,7 +18,7 @@ function Example() {
           {
             bind: {
               min: 0,
-              max: 10,
+              max,
               step: 0.1,
             },
           },
@@ -52,11 +54,15 @@ function Example() {
     ],
     {
       value: 3,
-      max: 5,
+      max,
       size: VsfRatingSize.base,
       halfIncrement: false,
     },
   );
+
+  useEffect(() => {
+    setMax(state.get.max || 5);
+  }, [state.get]);
   return (
     <ComponentExample controls={{ state, controls }}>
       <VsfRating

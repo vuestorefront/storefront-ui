@@ -1,14 +1,23 @@
+import { throttle } from 'lodash';
+
 export type UrlParams = Record<string, string[] | string>
+
+const constructQuery = (params: URLSearchParams) => {
+  const stringified = params.toString()
+  return `${stringified ? `?${stringified}` : ''}${window.location.hash || ''}`
+};
+
+const replaceUrlParams = throttle((searchParams: URLSearchParams) =>
+  window.history.replaceState(
+    window.history.state,
+    window.document.title,
+    window.location.pathname + constructQuery(searchParams),
+  ), 300);
 
 export function useSearchParams<T extends Record<string, any> = UrlParams>(
   { initialValue, onStateChange }: { initialValue: T; onStateChange?: () => void },
 ) {
   const state = { ...initialValue } as T & Record<string, unknown>;
-
-  const constructQuery = (params: URLSearchParams) => {
-    const stringified = params.toString()
-    return `${stringified ? `?${stringified}` : ''}${window.location.hash || ''}`
-  };
 
   const readSearchParams = () => {
     const readState = {} as typeof state;
@@ -34,11 +43,7 @@ export function useSearchParams<T extends Record<string, any> = UrlParams>(
       if (state[key] === undefined || state[key] === initialValue[key]) searchParams.delete(key);
       else searchParams.set(key, JSON.stringify(state[key]));
     }
-    window.history.replaceState(
-      window.history.state,
-      window.document.title,
-      window.location.pathname + constructQuery(searchParams),
-    );
+    replaceUrlParams(searchParams);
   };
 
   if (typeof window !== 'undefined') {
