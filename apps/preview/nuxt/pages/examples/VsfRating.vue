@@ -1,74 +1,66 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfRating v-bind="state" :value="Number(value)" :max="Number(maxModel)" />
+    <VsfRating v-bind="state" :value="Number(state.value)" :max="Number(state.max)" />
   </ComponentExample>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script lang="ts" setup>
+import { ref, reactive } from 'vue';
 import { VsfRating, VsfRatingSize } from '@storefront-ui/vue/components/VsfRating/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 
-export default defineComponent({
-  name: 'VsfRatingExample',
-  components: {
-    VsfRating,
-    ComponentExample,
-  },
-  setup() {
-    return prepareControls(
-      [
+const max = ref(5);
+const { controlsAttrs, state } = prepareControls(
+  [
+    {
+      type: 'range',
+      modelName: 'value',
+      propDefaultValue: 0,
+      propType: 'number',
+      options: [
         {
-          type: 'range',
-          modelName: 'value',
-          propDefaultValue: 0,
-          propType: 'number',
-          options: [
-            {
-              bind: {
-                min: 0,
-                max: 10,
-                step: 0.1,
-              },
-            },
-          ],
-        },
-        {
-          type: 'range',
-          modelName: 'maxModel',
-          propDefaultValue: 5,
-          propType: 'number',
-          options: [
-            {
-              bind: {
-                min: 1,
-                step: 1,
-                max: 10,
-              },
-            },
-          ],
-        },
-        {
-          type: 'boolean',
-          modelName: 'halfIncrement',
-          propType: 'boolean',
-        },
-        {
-          type: 'select',
-          modelName: 'size',
-          options: Object.keys(VsfRatingSize),
-          propDefaultValue: VsfRatingSize.base,
-          propType: 'VsfRatingSize',
+          bind: reactive({
+            min: 0,
+            max,
+            step: 0.1,
+          }),
         },
       ],
-      {
-        value: ref(3),
-        maxModel: ref(5),
-        size: ref(VsfRatingSize.base),
-        halfIncrement: ref(false),
-      },
-    );
+    },
+    {
+      type: 'range',
+      modelName: 'max',
+      propDefaultValue: 5,
+      propType: 'number',
+      options: [
+        {
+          bind: {
+            min: 1,
+            step: 1,
+            max: 10,
+          },
+        },
+      ],
+    },
+    {
+      type: 'boolean',
+      modelName: 'halfIncrement',
+      propType: 'boolean',
+    },
+    {
+      type: 'select',
+      modelName: 'size',
+      options: Object.keys(VsfRatingSize),
+      propDefaultValue: VsfRatingSize.base,
+      propType: 'VsfRatingSize',
+    },
+  ],
+  {
+    value: ref(3),
+    max,
+    size: ref(VsfRatingSize.base),
+    halfIncrement: ref(false),
   },
-});
+);
 </script>
