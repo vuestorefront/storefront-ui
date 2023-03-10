@@ -1,6 +1,20 @@
+<script lang="ts">
+const sizeClasses = {
+  [VsfProgressLinearSize.minimal]: 'h-1',
+  [VsfProgressSize.xs]: 'h-4',
+  [VsfProgressSize.sm]: 'h-5',
+  [VsfProgressSize.base]: 'h-6',
+  [VsfProgressSize.lg]: 'h-7',
+  [VsfProgressSize.xl]: 'h-10',
+  [VsfProgressSize['2xl']]: 'h-14',
+  [VsfProgressSize['3xl']]: 'h-24',
+  [VsfProgressSize['4xl']]: 'h-48',
+};
+</script>
+
 <script lang="ts" setup>
-import type { PropType } from 'vue';
-import { VsfProgressLinearSize } from './types';
+import { type PropType } from 'vue';
+import { VsfProgressSize, VsfProgressLinearSize } from './types';
 
 defineProps({
   value: {
@@ -8,31 +22,23 @@ defineProps({
     default: 0,
   },
   size: {
-    type: String as PropType<`${VsfProgressLinearSize}`>,
-    default: VsfProgressLinearSize.base,
+    type: String as PropType<`${VsfProgressSize | VsfProgressLinearSize}`>,
+    default: VsfProgressSize.base,
   },
-  withValue: {
-    type: Boolean,
-    default: true,
+  ariaLabel: {
+    type: String,
+    default: 'Progress element',
   },
 });
 </script>
 
 <template>
-  <label
-    :class="[
-      'vsf-progress-linear',
-      { 'vsf-progress-linear--no-value': !withValue },
-      `vsf-progress-linear--size--${size}`,
-    ]"
-    data-testid="progress"
-  >
-    <progress id="progressbar" max="100" class="vsf-progress-linear__progress" :value="value"></progress>
-    <span
-      v-if="withValue && size !== VsfProgressLinearSize.minimal"
-      class="vsf-progress-linear__label"
-      data-testid="progress-value"
-      >{{ value }}%</span
-    >
-  </label>
+  <progress
+    data-testid="progress-linear"
+    max="100"
+    class="bg-neutral-300 text-primary-700 [&::-webkit-progress-bar]:bg-inherit [&::-webkit-progress-value]:bg-current [&::-webkit-progress-value]:transition-[width] [&::-webkit-progress-value]:ease-in-out [&::-webkit-progress-value]:duration-200 [&::-moz-progress-bar]:bg-current"
+    :class="sizeClasses[size]"
+    :aria-label="ariaLabel"
+    :value="value"
+  />
 </template>
