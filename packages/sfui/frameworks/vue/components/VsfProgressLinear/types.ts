@@ -1,11 +1,11 @@
+import { VsfProgressSize } from '@storefront-ui/shared';
+
 export enum VsfProgressLinearSize {
   'minimal' = 'minimal',
-  xs = 'xs',
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-  xl = 'xl',
-  '2xl' = '2xl',
-  '3xl' = '3xl',
-  '4xl' = '4xl',
 }
+export { VsfProgressSize };
+export type VsfProgressLinearProps = {
+  value?: number;
+  size?: `${VsfProgressLinearSize | VsfProgressSize}`;
+  ariaLabel?: string;
+};

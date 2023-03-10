@@ -1,17 +1,13 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfProgressLinearBaseObject extends BasePage {
-  hasValue(label: number) {
-    this.container.contains(label);
+  hasValue(value: number) {
+    this.container.should('have.value', value);
     return this;
   }
 
-  doesNotHaveValue() {
-    this.valueElement.should('not.exist');
+  hasAriaLabel(label: string) {
+    this.container.should('have.attr', 'aria-label', label);
     return this;
-  }
-
-  get valueElement() {
-    return this.findTestElement('progress-value');
   }
 }

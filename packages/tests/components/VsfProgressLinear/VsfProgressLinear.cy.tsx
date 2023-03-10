@@ -1,17 +1,17 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfProgressLinearSize } from '@storefront-ui/vue/components/VsfProgressLinear/types';
+import { VsfProgressLinearSize, VsfProgressSize } from '@storefront-ui/vue/components/VsfProgressLinear/types';
 import { mount, useComponent } from '../../utils/mount';
 import VsfProgressLinearBaseObject from './VsfProgressLinear.PageObject';
 
 const { vue: VsfProgressLinearVue, react: VsfProgressLinearReact } = useComponent('VsfProgressLinear');
 
 describe('VsfProgressLinear', () => {
-  let size: VsfProgressLinearSize;
+  let size: VsfProgressSize | VsfProgressLinearSize;
   let value: number;
-  let withValue: boolean;
+  let ariaLabel: string | undefined;
 
-  const page = () => new VsfProgressLinearBaseObject('progress');
+  const page = () => new VsfProgressLinearBaseObject('progress-linear');
 
   const initializeComponent = () => {
     return mount({
@@ -20,19 +20,26 @@ describe('VsfProgressLinear', () => {
         props: {
           size,
           value,
-          withValue,
+          ariaLabel,
         },
       },
-      react: <VsfProgressLinearReact size={size} value={value} withValue={withValue} />,
+      react: <VsfProgressLinearReact size={size} value={value} ariaLabel={ariaLabel} />,
     });
   };
 
+  afterEach(() => {
+    size = VsfProgressSize.base;
+    value = 0;
+    ariaLabel = undefined;
+  });
+
   it('initial state', () => {
     initializeComponent();
+    page().hasAriaLabel('Progress element').makeSnapshot();
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfProgressLinearSize).forEach((componentSize) => {
+    [...Object.values(VsfProgressLinearSize), ...Object.values(VsfProgressSize)].forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
@@ -55,14 +62,12 @@ describe('VsfProgressLinear', () => {
     });
   });
 
-  describe('when prop withValue is false', () => {
-    before(() => {
-      withValue = false;
-    });
-    it('should render without percentage value', () => {
+  describe('when ariaLabel provided', () => {
+    it('should render with 90%', () => {
+      ariaLabel = 'some value';
       initializeComponent();
 
-      page().doesNotHaveValue().makeSnapshot();
+      page().hasAriaLabel('some value').makeSnapshot();
     });
   });
 });

@@ -1,4 +1,8 @@
-import { VsfProgressLinear, VsfProgressLinearSize } from '@storefront-ui/react/components/VsfProgressLinear';
+import {
+  VsfProgressLinear,
+  VsfProgressLinearSize,
+  VsfProgressSize,
+} from '@storefront-ui/react/components/VsfProgressLinear';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import ComponentExample from '../../components/utils/ComponentExample';
@@ -9,9 +13,9 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfProgressLinearSize),
-        propDefaultValue: VsfProgressLinearSize.base,
-        propType: 'string',
+        options: [...Object.keys(VsfProgressLinearSize), ...Object.keys(VsfProgressSize)],
+        propDefaultValue: VsfProgressSize.base,
+        propType: 'VsfProgressLinearSize | VsfProgressSize',
         description:
           'This prop is responsible for progress size. There are 9 sizes: minimal, xs, sm, base, lg, xl, 2xl, 3xl, 4xl',
       },
@@ -23,24 +27,23 @@ function Example() {
         description: 'Progress value',
       },
       {
-        type: 'boolean',
-        propType: 'boolean',
-        propDefaultValue: true,
-        modelName: 'withValue',
-        description:
-          "This prop is responsible for hiding/showing percentage value of progress. Size minimal doesn't have percentage value so changing this prop won't affect the component",
+        type: 'text',
+        propType: 'string',
+        propDefaultValue: 'Progress element',
+        modelName: 'ariaLabel',
+        description: 'Aria label value',
       },
     ],
     {
       value: 0,
-      size: VsfProgressLinearSize.base,
-      withValue: true,
+      size: VsfProgressSize.base,
+      ariaLabel: 'Progress element',
     },
   );
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfProgressLinear value={Number(state.get.value)} size={state.get.size} withValue={state.get.withValue} />
+      <VsfProgressLinear value={Number(state.get.value)} size={state.get.size} ariaLabel={state.get.ariaLabel} />
     </ComponentExample>
   );
 }
