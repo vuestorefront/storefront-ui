@@ -15,7 +15,7 @@
     "unpkg": "dist/index.umd.js",
     "types": "dist/index.d.ts",
     "scripts": {
-        "dev": "vite build --watch",
+        "dev-only": "vite build --watch",
         "build:typography": "vite build"
     },
     "homepage": "https://docs.storefrontui.io/v2/",
