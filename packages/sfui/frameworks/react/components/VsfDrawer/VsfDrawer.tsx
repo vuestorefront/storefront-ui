@@ -32,13 +32,13 @@ const VsfDrawer = polymorphicForwardRef<typeof defaultDrawerTag, VsfDrawerProps>
     const drawerRef = useRef(null);
     useClickAway(drawerRef, () => {
       if (disableClickAway) return;
-      onClose?.(!open);
+      onClose?.();
     });
 
     const onKeyDown = (event: KeyboardEvent) => {
       if (disableEsc) return;
       if (event.key === 'Escape') {
-        onClose?.(!open);
+        onClose?.();
       }
     };
 
