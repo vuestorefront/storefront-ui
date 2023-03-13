@@ -16,6 +16,7 @@ export interface VsfSelectOptionProps extends VsfSelectDefaultProps {
 
 export interface VsfSelectProps extends VsfSelectDefaultProps {
   options: string[];
+  value: string;
   disabled?: boolean;
   selected?: string;
   label?: string;

@@ -18,9 +18,7 @@ For a few options use [Radio](radio.html) component instead of Select. For very 
 | ------------ | --------        | ------------- | -------------------------------------- |
 | name         | String          | ''            |                                        |
 | options      | String[]        | []            |                                        |
-<!-- vue -->
 | value        | String          | ''            |                                        |
-<!-- end vue -->
 | label        | String          | ''            |                                        |
 | size         | VsfSelectSize  | base          | sm, base, lg                           |
 | disabled     | Boolean         | false         |                                        |
@@ -57,7 +55,7 @@ For a few options use [Radio](radio.html) component instead of Select. For very 
 ## Accessibility notes
 
 Keyboard users can use `tab`, open select with `space` and select options using `arrows`.
-Selected option is marked with `aria-selected`.
+Selected option for screen readers is marked with `aria-selected`.
 
 ## Source code
 

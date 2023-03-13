@@ -83,6 +83,7 @@ function Example() {
     <ComponentExample controls={{ state, controls }}>
       <VsfSelect
         options={state.get.options}
+        value={state.get.value}
         disabled={state.get.disabled}
         placeholder={state.get.placeholder}
         errorText={state.get.errorText}

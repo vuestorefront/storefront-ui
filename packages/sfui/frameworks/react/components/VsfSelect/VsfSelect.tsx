@@ -7,6 +7,7 @@ import type { VsfSelectProps } from './types';
 
 export default function VsfSelect({
   className,
+  value,
   options,
   label,
   disabled,
@@ -41,6 +42,7 @@ export default function VsfSelect({
           <select
             id={label}
             required={required}
+            value={value}
             disabled={disabled}
             className={classNames('vsf-select__input peer', {
               'vsf-select__input--small': size === VsfSelectSize.sm,
