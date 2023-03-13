@@ -111,7 +111,7 @@ jobs:
       - name: Install dependencies
         run: yarn --immutable
       - name: Cypress run
-        uses: cypress-io/github-action@v5.1.0
+        uses: cypress-io/github-action@v5.3.0
         with:
           command: yarn test:ci:vue
       - name: SonarCloud Scan
@@ -138,7 +138,7 @@ jobs:
       - name: Install dependencies
         run: yarn --immutable
       - name: Cypress run
-        uses: cypress-io/github-action@v5.1.0
+        uses: cypress-io/github-action@v5.3.0
         with:
           command: yarn test:ci:react
       - name: SonarCloud Scan
