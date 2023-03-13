@@ -68,7 +68,7 @@
       "cache": false
     },
     "test:ci:vue": {
-      "dependsOn": ["^build:shared", "^build:tailwind-config", "build:test-utils"],
+      "dependsOn": ["^build:shared", "^build:typography", "^build:tailwind-config", "build:test-utils"],
       "cache": false
     },
     "test:ci:react": {

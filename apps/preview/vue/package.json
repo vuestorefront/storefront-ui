@@ -35,6 +35,7 @@
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
     "@storefront-ui/tests-shared": "workspace:*",
+    "@storefront-ui/typography": "workspace:*",
     "@storefront-ui/vue": "workspace:*",
     "@types/node": "^18.13.0",
     "@vitejs/plugin-vue": "^4.0.0",
