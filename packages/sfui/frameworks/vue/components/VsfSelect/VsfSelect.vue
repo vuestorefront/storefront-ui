@@ -1,14 +1,14 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
+</script>
 <script lang="ts" setup>
-import type { PropType } from 'vue';
-import { ref } from 'vue';
+import { ref, type PropType } from 'vue';
 import { VsfSelectSize } from './types';
-import VsfSelectOption from './VsfSelectOption.vue';
+import { VsfIconExpandMore } from '../VsfIcons';
 
 const props = defineProps({
-  options: {
-    type: Array as PropType<string[]>,
-    default: () => [],
-  },
   size: {
     type: String as PropType<`${VsfSelectSize}`>,
     default: VsfSelectSize.base,
@@ -33,23 +33,12 @@ const props = defineProps({
     type: String,
     default: '',
   },
-  label: {
+  wrapperClassName: {
     type: String,
     default: '',
-  },
-  helpText: {
-    type: String,
-    default: '',
-  },
-  errorText: {
-    type: String,
-    default: '',
-  },
-  requiredText: {
-    type: String,
-    default: '*Required',
   },
 });
+
 const selected = ref(props.value);
 const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
@@ -62,63 +51,46 @@ const changedValue = (event: Event) => {
 </script>
 
 <template>
-  <div class="vsf-select" :class="{ 'vsf-select--disabled': disabled }" data-testid="select">
-    <div class="vsf-select__wrapper">
-      <div class="vsf-select__wrapper-input" :class="{ 'vsf-select__wrapper-input--with-label': label }">
-        <select
-          :id="label"
-          :required="required"
-          :disabled="disabled"
-          class="vsf-select__input peer"
-          :class="{
-            'vsf-select__input--small': size === VsfSelectSize.sm,
-            'vsf-select__input--large': size === VsfSelectSize.lg,
-            'vsf-select__input--invalid': invalid,
-          }"
-          data-testid="select-input"
-          @change="changedValue"
-        >
-          <slot name="placeholder">
-            <option
-              v-if="placeholder"
-              :selected="!!placeholder"
-              class="vsf-select__placeholder"
-              value=""
-              :class="{
-                'vsf-select__placeholder--small': size === VsfSelectSize.sm,
-                'vsf-select__placeholder--large': size === VsfSelectSize.lg,
-              }"
-              data-testid="select-placeholder"
-            >
-              {{ placeholder }}
-            </option>
-          </slot>
-          <slot name="options">
-            <VsfSelectOption v-for="(option, index) in options" :key="`${option}-${index}`" :value="option">
-              {{ option }}
-            </VsfSelectOption>
-          </slot>
-        </select>
-        <slot name="label">
-          <label :for="label" class="vsf-select__label" data-testid="select-label">{{ label }}</label>
-        </slot>
-      </div>
-    </div>
-    <slot name="errorText">
-      <span
-        v-if="invalid"
-        class="vsf-select__error-text"
-        data-testid="select-invalid-text"
-        :aria-live="invalid ? 'assertive' : 'off'"
+  <div :class="['relative flex flex-col', wrapperClassName]" data-testid="select">
+    <select
+      v-bind="$attrs"
+      :required="required"
+      :disabled="disabled"
+      :class="[
+        'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 bg-transparent shadow-inner-border shadow-neutral-300 rounded-md hover:shadow-primary-700 active:shadow-inner-border-bolded active:shadow-primary-700 disabled:bg-disabled-100 disabled:opacity-50 disabled:text-disabled-900 disabled:shadow-disabled-200 peer',
+        {
+          'py-1.5': size === VsfSelectSize.sm,
+          'py-2': size === VsfSelectSize.base,
+          'py-3 text-base': size === VsfSelectSize.lg,
+          '!shadow-negative-600 shadow-inner-border-bolded': invalid,
+        },
+      ]"
+      data-testid="select-input"
+      @change="changedValue"
+    >
+      <option
+        v-if="placeholder"
+        class="text-sm bg-neutral-300"
+        value=""
+        :class="[
+          'bg-neutral-300 text-sm',
+          {
+            'text-base': size === VsfSelectSize.lg,
+          },
+        ]"
+        data-testid="select-placeholder"
       >
-        {{ errorText }}
-      </span>
-    </slot>
-    <slot name="helpText">
-      <span v-if="helpText" data-testid="select-help-text" class="vsf-select__help-text">{{ helpText }}</span>
-    </slot>
-    <slot name="requiredText">
-      <span v-if="required" data-testid="select-required-text" class="vsf-select__required">{{ requiredText }}</span>
+        {{ placeholder }}
+      </option>
+      <slot />
+    </select>
+    <slot name="chevron">
+      <VsfIconExpandMore
+        :class="[
+          'absolute -translate-y-1 pointer-events-none top-1/3 right-4 text-neutral-500 peer-focus:rotate-180 transition easy-in-out duration-0.5',
+          { 'text-disabled-500': disabled },
+        ]"
+      />
     </slot>
   </div>
 </template>
