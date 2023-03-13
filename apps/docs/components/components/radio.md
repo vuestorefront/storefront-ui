@@ -15,10 +15,6 @@ description: A radio is a checkable input always appears in a group of elements 
 - [ARIA - radio role:](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radio_role) The radio role is one of a group of checkable buttons, in a radiogroup, where no more than one of the buttons can be checked at a time.
 - A radio element is a checkable input in a group of role elements, of which only one of which can be checked at a time. The radio elements must be grouped together in a [`radiogroup`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radiogroup_role) to indicate which ones affect the same value.
 
-## Notes
-
-For filtering use [ListItemFilterRadio](listitemfilterradio.md) component instead of Radio. For long set of options use Select component.
-
 ## Radio with label
 
 It's a good practice to have label for inputs elements.

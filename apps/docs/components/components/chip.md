@@ -12,9 +12,6 @@ description: Chip allow selection of a single possibility from a set of options.
 
 When using thumbnail without any additional label and/or description, you should specify an `aria-label` on the component.
 
-## Notes
-
-If you need non-interactive version → have a look at the [`tag` component docs](./tag)!
 
 ## Sizes
 
