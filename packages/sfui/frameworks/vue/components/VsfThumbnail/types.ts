@@ -1,6 +1,3 @@
-export enum VsfThumbnailSize {
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-  xl = 'xl',
-}
+import { VsfThumbnailSize } from '@storefront-ui/shared';
+
+export { VsfThumbnailSize };
