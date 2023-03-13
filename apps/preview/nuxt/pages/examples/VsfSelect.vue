@@ -1,8 +1,24 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <div class="relative">
-      <VsfSelect v-bind="state" v-model="value" />
-    </div>
+    {{ value }}
+    <label>
+      <span
+        :class="[
+          'pb-1 text-sm font-body font-medium',
+          {
+            'after:content-[\'*\'] after:text-sm': required,
+            'text-disabled-500 cursor-not-allowed': disabled,
+          },
+        ]"
+      >
+        {{ label }}
+      </span>
+      <VsfSelect v-bind="state" v-model="value">
+        <option v-for="{ value, label } in options" :key="value" :value="value">
+          {{ label }}
+        </option>
+      </VsfSelect>
+    </label>
   </ComponentExample>
 </template>
 
@@ -26,68 +42,66 @@ export default defineComponent({
             type: 'json',
             propType: 'array',
             modelName: 'options',
+            description: 'Elements displayed in select options',
           },
           {
             type: 'text',
             propType: 'string',
             modelName: 'value',
+            description: 'Selected value',
           },
           {
             type: 'text',
             propType: 'string',
             modelName: 'placeholder',
+            description: 'Placeholder for select',
           },
           {
             type: 'boolean',
             propType: 'boolean',
             modelName: 'disabled',
+            description: 'Disabled state',
           },
           {
             type: 'boolean',
             propType: 'boolean',
             modelName: 'required',
+            description: 'Required state',
           },
           {
             type: 'boolean',
             propType: 'boolean',
             modelName: 'invalid',
-          },
-          {
-            type: 'text',
-            propType: 'string',
-            modelName: 'helpText',
-          },
-          {
-            type: 'text',
-            propType: 'string',
-            modelName: 'errorText',
+            description: 'Invalid state',
           },
           {
             type: 'text',
             propType: 'string',
             modelName: 'label',
-          },
-          {
-            type: 'text',
-            propType: 'string',
-            modelName: 'requiredText',
+            description: 'Label for select',
           },
           {
             type: 'select',
             modelName: 'size',
             options: Object.keys(VsfSelectSize),
+            description: 'Select can have 3 sizes: `sm`, `base` or `lg`',
           },
         ],
         {
-          options: ref(['red', 'blue', 'yellow', 'green', 'gray', 'black', 'brown']),
+          options: ref([
+            { label: 'red', value: 'red' },
+            { label: 'blue', value: 'blue' },
+            { label: 'yellow', value: 'yellow' },
+            { label: 'green', value: 'green' },
+            { label: 'gray', value: 'gray' },
+            { label: 'black', value: 'black' },
+            { label: 'brown', value: 'brown' },
+          ]),
           value: ref(''),
           placeholder: ref('-- Select --'),
           disabled: ref(false),
           required: ref(false),
           invalid: ref(false),
-          helpText: ref('Help text'),
-          errorText: ref('Error text'),
-          requiredText: ref('*Required'),
           label: ref('Label'),
           size: ref(VsfSelectSize.base),
         },

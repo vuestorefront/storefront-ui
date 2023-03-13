@@ -1,98 +1,62 @@
 import classNames from 'classnames';
-import type { ChangeEvent } from 'react';
 import { VsfSelectSize } from './types';
-import VsfSelectOption from './VsfSelectOption';
+import { VsfIconExpandMore } from '../VsfIcons';
 
 import type { VsfSelectProps } from './types';
 
-export default function VsfSelect({
-  className,
-  options,
-  label,
-  disabled,
-  required,
-  size = VsfSelectSize.base,
-  children,
-  slotPlaceholder,
-  placeholder,
-  errorText,
-  helpText,
-  requiredText,
-  invalid,
-  onChange,
-  ...attributes
-}: VsfSelectProps) {
-  function changedValue(event: ChangeEvent<HTMLSelectElement>) {
-    const selectedValue = (event.target as HTMLSelectElement).value;
-    onChange(selectedValue);
-  }
+export default function VsfSelect(props: VsfSelectProps) {
+  const {
+    size = VsfSelectSize.base,
+    children,
+    invalid,
+    wrapperClassName,
+    slotChevron,
+    required,
+    disabled,
+    className,
+    placeholder,
+    ...attributes
+  } = props;
+
   return (
-    <div
-      className={classNames('vsf-select', { 'vsf-select--disabled': disabled }, className)}
-      {...attributes}
-      data-testid="select"
-    >
-      <div className="vsf-select__wrapper">
-        <div
-          className={classNames('vsf-select__wrapper-input', {
-            'vsf-select__wrapper-input--with-label': label,
-          })}
-        >
-          <select
-            id={label}
-            required={required}
-            disabled={disabled}
-            className={classNames('vsf-select__input peer', {
-              'vsf-select__input--small': size === VsfSelectSize.sm,
-              'vsf-select__input--large': size === VsfSelectSize.lg,
-              'vsf-select__input--invalid': invalid,
+    <div className={classNames('relative flex flex-col', wrapperClassName)} data-testid="select">
+      <select
+        required={required}
+        disabled={disabled}
+        className={classNames(
+          'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 bg-transparent shadow-inner-border shadow-neutral-300 rounded-md hover:shadow-primary-700 active:shadow-inner-border-bolded active:shadow-primary-700 disabled:bg-disabled-100 disabled:opacity-50 disabled:text-disabled-900 disabled:shadow-disabled-200 peer',
+          {
+            'py-1.5': size === VsfSelectSize.sm,
+            'py-2': size === VsfSelectSize.base,
+            'py-3 text-base': size === VsfSelectSize.lg,
+            '!shadow-negative-600 shadow-inner-border-bolded': invalid,
+          },
+          className,
+        )}
+        data-testid="select-input"
+        {...attributes}
+      >
+        {placeholder && (
+          <option
+            value=""
+            className={classNames('bg-neutral-300 text-sm', {
+              'text-base': size === VsfSelectSize.lg,
             })}
-            data-testid="select-input"
-            onChange={changedValue}
+            data-testid="select-placeholder"
           >
-            <option
-              value=""
-              className={classNames('vsf-select__placeholder', {
-                'vsf-select__placeholder--small': size === VsfSelectSize.sm,
-                'vsf-select__placeholder--large': size === VsfSelectSize.lg,
-              })}
-              data-testid="select-placeholder"
-            >
-              {placeholder || slotPlaceholder}
-            </option>
-            {children ||
-              options.map((option: string) => (
-                <VsfSelectOption key={option} value={option}>
-                  {option}
-                </VsfSelectOption>
-              ))}
-          </select>
-          <label htmlFor={label} className="vsf-select__label" data-testid="select-label">
-            {label}
-          </label>
-        </div>
-      </div>
-      <div>
-        {invalid ? (
-          <span
-            className="vsf-select__error-text"
-            aria-live={invalid ? 'assertive' : 'off'}
-            data-testid="select-invalid-text"
-          >
-            {errorText}
-          </span>
-        ) : null}
-        {helpText ? (
-          <span className="vsf-select__help-text" data-testid="select-help-text">
-            {helpText}
-          </span>
-        ) : null}
-        {required ? (
-          <span className="vsf-select__required" data-testid="select-required-text">
-            {requiredText}
-          </span>
-        ) : null}
-      </div>
+            {placeholder}
+          </option>
+        )}
+        {children}
+      </select>
+      {slotChevron || (
+        <VsfIconExpandMore
+          className={classNames(
+            'box-border absolute -translate-y-1 pointer-events-none top-1/3 right-4 text-neutral-500 peer-focus:rotate-180 transition easy-in-out duration-0.5',
+            { 'text-disabled-500': disabled },
+          )}
+        />
+      )}
     </div>
   );
 }

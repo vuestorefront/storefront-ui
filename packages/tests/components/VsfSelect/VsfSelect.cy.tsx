@@ -1,29 +1,26 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { VsfSelectSize } from '@storefront-ui/vue/components/VsfSelect/types';
+import { h } from 'vue';
 import { mount, useComponent } from '../../utils/mount';
 import VsfSelectBaseObject from './VsfSelect.PageObject';
 
 const { vue: VsfSelectVue, react: VsfSelectReact } = useComponent('VsfSelect');
 
 describe('VsfSelect', () => {
-  enum options {
-    red = 'red',
-    blue = 'blue',
-    yellow = 'yellow',
-    green = 'green',
-    gray = 'gray',
-    black = 'black',
-    brown = 'brown',
-  }
+  const options = [
+    { label: 'red', value: 'red' },
+    { label: 'blue', value: 'blue' },
+    { label: 'yellow', value: 'yellow' },
+    { label: 'green', value: 'green' },
+    { label: 'gray', value: 'gray' },
+    { label: 'black', value: 'black' },
+    { label: 'brown', value: 'brown' },
+  ];
   let disabled: boolean;
-  let label: string;
   let size: VsfSelectSize;
   let required: boolean;
   let placeholder: string;
-  let errorText: string;
-  let helpText: string;
-  let requiredText: string;
   let invalid: boolean;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
   let value = '';
@@ -37,16 +34,15 @@ describe('VsfSelect', () => {
         props: {
           options: Object.values(options),
           disabled,
-          label,
           size,
           required,
           placeholder,
-          errorText,
-          helpText,
-          requiredText,
           invalid,
           modelValue: value,
           'onUpdate:modelValue': onChangeSpy,
+        },
+        slots: {
+          default: () => options.map((option) => h('option', { value: option.value }, option.label)),
         },
       },
       react: (
@@ -54,15 +50,17 @@ describe('VsfSelect', () => {
           options={Object.values(options)}
           disabled={disabled}
           placeholder={placeholder}
-          errorText={errorText}
-          helpText={helpText}
-          requiredText={requiredText}
           required={required}
           invalid={invalid}
-          label={label}
           size={size}
           onChange={onChangeSpy}
-        />
+        >
+          {options.map((option) => (
+            <option value={option.value} key={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </VsfSelectReact>
       ),
     });
   };
@@ -102,9 +100,9 @@ describe('VsfSelect', () => {
     it('should change value/modelValue', () => {
       initializeComponent();
 
-      page().isNotDisabled().hasSelectedOption(options.red);
+      page().isNotDisabled().hasSelectedOption('red');
       cy.then(() => {
-        expect(onChangeSpy).calledOnceWith(options.red);
+        expect(onChangeSpy).calledOnceWith();
         page().makeSnapshot();
       });
     });
@@ -116,27 +114,7 @@ describe('VsfSelect', () => {
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      page().isDisabled();
-      page().makeSnapshot();
-    });
-  });
-
-  describe('when prop label is filled in', () => {
-    before(() => (label = 'Label'));
-    after(() => (label = ''));
-    it(`should render with label`, () => {
-      initializeComponent();
-
-      page().hasLabel('Label').makeSnapshot();
-    });
-  });
-
-  describe('when prop label is empty', () => {
-    before(() => (label = ''));
-    it(`should render with label`, () => {
-      initializeComponent();
-
-      page().doesNotHaveLabel().makeSnapshot();
+      page().isDisabled().makeSnapshot();
     });
   });
 
@@ -146,50 +124,7 @@ describe('VsfSelect', () => {
     it(`should render as required`, () => {
       initializeComponent();
 
-      page().isRequired();
-      page().makeSnapshot();
-    });
-  });
-
-  describe('when prop requiredText is filled out', () => {
-    before(() => {
-      (required = true), (requiredText = '*Required');
-    });
-    after(() => {
-      (required = false), (requiredText = '');
-    });
-    it('should render with required text', () => {
-      initializeComponent();
-
-      page().hasRequiredText('*Required').makeSnapshot();
-    });
-  });
-
-  describe('when prop helpText is visible', () => {
-    before(() => {
-      helpText = 'Help';
-    });
-    after(() => {
-      helpText = '';
-    });
-    it('should render with help text', () => {
-      initializeComponent();
-
-      page().hasHelpText('Help').makeSnapshot();
-    });
-  });
-
-  describe('when prop errorText is filled out and invalid=true', () => {
-    before(() => {
-      (invalid = true), (errorText = 'Error');
-    });
-    after(() => {
-      (invalid = false), (errorText = '');
-    });
-    it('should render with invalid text', () => {
-      initializeComponent();
-
-      page().hasInvalidText('Error').makeSnapshot();
+      page().isRequired().makeSnapshot();
     });
   });
 
