@@ -1,7 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfChip v-model="modelValue" :size="size" :square="square" :input-props="{ disabled, value }">
-      <!-- TODO: Replace with Thumbnail component when ready -->
       <VsfThumbnail
         :size="size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base"
         class="bg-gray-500 mr-2"

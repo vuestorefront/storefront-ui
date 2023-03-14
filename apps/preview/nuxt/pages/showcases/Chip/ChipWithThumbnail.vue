@@ -1,11 +1,9 @@
 <template>
   <VsfChip v-model="chipRedActive" size="sm" class="mr-2">
-    <!-- TODO: Replace with Thumbnail component when ready -->
     <VsfThumbnail class="bg-red-500" size="sm" />
     <span class="ml-2">Red</span>
   </VsfChip>
   <VsfChip v-model="chipBlueActive">
-    <!-- TODO: Replace with Thumbnail component when ready -->
     <VsfThumbnail class="bg-blue-500" size="base" />
     <span class="ml-2">Blue</span>
   </VsfChip>
