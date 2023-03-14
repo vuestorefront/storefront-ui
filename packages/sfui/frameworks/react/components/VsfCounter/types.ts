@@ -1,5 +1,5 @@
 import type { PropsWithChildren } from 'react';
-import type { PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle } from '@storefront-ui/react';
 
 export enum VsfCounterSize {
   xs = 'xs',

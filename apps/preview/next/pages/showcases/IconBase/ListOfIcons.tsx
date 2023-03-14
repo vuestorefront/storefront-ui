@@ -1,5 +1,5 @@
 import { useState, createElement } from 'react';
-import * as AllVsfIcons from '@storefront-ui/react/components/VsfIcons';
+import * as AllVsfComponents from '@storefront-ui/react';
 import useSWR from 'swr';
 import { ShowcasePageLayout } from '../../showcases';
 
@@ -31,7 +31,7 @@ function Showcase() {
             copyToClipboard(componentName);
           }}
         >
-          {createElement((AllVsfIcons as Record<string, any>)[componentName])}
+          {createElement((AllVsfComponents as Record<string, any>)[componentName])}
         </button>
       ))}
 

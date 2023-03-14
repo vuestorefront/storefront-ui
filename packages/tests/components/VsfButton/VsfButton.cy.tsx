@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfButtonSize, VsfButtonVariant } from '@storefront-ui/vue/components/VsfButton/types';
+import { VsfButtonSize, VsfButtonVariant } from '@storefront-ui/vue/index';
 import { mount, useComponent } from '../../utils/mount';
 import VsfButtonBaseObject from './VsfButton.PageObject';
 

@@ -1,4 +1,4 @@
-import { VsfButton, VsfButtonVariant } from '@storefront-ui/react/components/VsfButton';
+import { VsfButton, VsfButtonVariant } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

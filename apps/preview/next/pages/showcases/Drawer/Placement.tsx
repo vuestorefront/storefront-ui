@@ -1,5 +1,4 @@
-import { VsfDrawer, VsfDrawerPlacement, type VsfDrawerProps } from '@storefront-ui/react/components/VsfDrawer';
-import { VsfButton } from '@storefront-ui/react/components/VsfButton';
+import { VsfDrawer, VsfDrawerPlacement, type VsfDrawerProps, VsfButton } from '@storefront-ui/react';
 import { ChangeEventHandler, useState } from 'react';
 import classNames from 'classnames';
 import { ShowcasePageLayout } from '../../showcases';
@@ -16,13 +15,15 @@ export function Showcase() {
     <>
       <label>
         Placement
-        <select onChange={changePlacement} className="border border-2 border-primary-700 mx-2 p-2 rounded">
+        <select
+          onChange={changePlacement}
+          className="border border-2 border-primary-700 mx-2 p-2 rounded"
+          defaultValue="left"
+        >
           <option value="top">top</option>
           <option value="right">right</option>
           <option value="bottom">bottom</option>
-          <option value="left" selected>
-            left
-          </option>
+          <option value="left">left</option>
         </select>
       </label>
       <VsfButton onClick={() => setOpen(true)} type="button">

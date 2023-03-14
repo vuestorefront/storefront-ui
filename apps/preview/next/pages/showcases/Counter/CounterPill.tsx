@@ -1,4 +1,4 @@
-import { VsfCounter } from '@storefront-ui/react/components/VsfCounter';
+import { VsfCounter } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

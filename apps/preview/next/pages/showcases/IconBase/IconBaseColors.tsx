@@ -1,4 +1,4 @@
-import { VsfIconThumbUp } from '@storefront-ui/react/components/VsfIcons/index';
+import { VsfIconThumbUp } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

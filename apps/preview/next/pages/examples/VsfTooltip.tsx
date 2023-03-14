@@ -1,5 +1,4 @@
-import { VsfTooltip, VsfTooltipProps } from '@storefront-ui/react/components/VsfTooltip/index';
-import { VsfPopoverPlacement } from '@storefront-ui/react/hooks/usePopover';
+import { VsfTooltip, VsfTooltipProps, VsfPopoverPlacement } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';

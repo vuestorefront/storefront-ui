@@ -1,5 +1,11 @@
-import { VsfButton, VsfButtonProps, VsfButtonSize, VsfButtonVariant } from '@storefront-ui/react/components/VsfButton';
-import { VsfIconSearch, VsfIconLock } from '@storefront-ui/react/components/VsfIcons';
+import {
+  VsfButton,
+  VsfButtonProps,
+  VsfButtonSize,
+  VsfButtonVariant,
+  VsfIconSearch,
+  VsfIconLock,
+} from '@storefront-ui/react';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { ExamplePageLayout } from '../examples';
 import { prepareControls } from '../../components/utils/Controls';

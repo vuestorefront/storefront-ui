@@ -1,7 +1,4 @@
-import { VsfDrawer } from '@storefront-ui/react/components/VsfDrawer';
-import { VsfButton } from '@storefront-ui/react/components/VsfButton';
-import { VsfIconFavorite, VsfIconClose } from '@storefront-ui/react/components/VsfIcons';
-import { useTrapFocus } from '@storefront-ui/react/hooks/useTrapFocus/useTrapFocus';
+import { VsfDrawer, VsfButton, VsfIconFavorite, VsfIconClose, useTrapFocus } from '@storefront-ui/react';
 import { useState, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { ShowcasePageLayout } from '../../showcases';

@@ -1,5 +1,5 @@
 import { VsfProgressSize } from '@storefront-ui/shared';
-import type { PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle } from '@storefront-ui/react';
 
 export enum VsfProgressLinearSize {
   'minimal' = 'minimal',

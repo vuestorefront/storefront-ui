@@ -1,6 +1,6 @@
 import { autoUpdate, useFloating } from '@floating-ui/react-dom';
 
-import type { UsePopoverOptions } from './types';
+import type { UsePopoverOptions } from '@storefront-ui/react';
 
 export function usePopover(options: UsePopoverOptions) {
   const { isOpen, middleware, placement = 'bottom' } = options;

@@ -1,9 +1,7 @@
 import { useRef, useEffect } from 'react';
 import classNames from 'classnames';
-import type { VsfDialogProps } from './types';
-import { VsfButton, VsfButtonVariant } from '../VsfButton';
-import VsfIconClose from '../VsfIcons/VsfIconClose';
-import { useTrapFocus } from '../../hooks/useTrapFocus';
+import { VsfButton, VsfButtonVariant, useTrapFocus, VsfIconClose } from '@storefront-ui/react';
+import type { VsfDialogProps } from '@storefront-ui/react';
 
 export default function VsfDialog({
   open,

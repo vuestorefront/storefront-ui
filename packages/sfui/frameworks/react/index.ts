@@ -1,3 +1,13 @@
+// Hooks
+export * from './hooks/useDisclosure';
+export * from './hooks/useDropdown';
+export * from './hooks/usePopover';
+export * from './hooks/useTooltip';
+export * from './hooks/useTrapFocus';
+
+// Shared
+export * from './shared';
+
 // Components
 export * from './components/VsfAccordionItem';
 export * from './components/VsfButton';
@@ -14,7 +24,6 @@ export * from './components/VsfLink';
 export * from './components/VsfListItemMenu';
 export * from './components/VsfLoaderCircular';
 export * from './components/VsfLoaderLinear';
-export * from './components/VsfOverlay';
 export * from './components/VsfProgressCircular';
 export * from './components/VsfProgressLinear';
 export * from './components/VsfRadio';
@@ -23,9 +32,3 @@ export * from './components/VsfSelect';
 export * from './components/VsfSwitch';
 export * from './components/VsfTooltip';
 export * from './components/VsfThumbnail';
-// Hooks
-export * from './hooks/useDisclosure';
-export * from './hooks/useDropdown';
-export * from './hooks/usePopover';
-export * from './hooks/useTooltip';
-export * from './hooks/useTrapFocus';

@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfLoaderSize } from '@storefront-ui/shared';
+import { VsfLoaderSize } from '@storefront-ui/vue/index';
 import { mount, useComponent } from '../../utils/mount';
 import VsfLoaderCircularBaseObject from './VsfLoaderCircular.PageObject';
 

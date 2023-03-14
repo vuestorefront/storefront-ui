@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import classNames from 'classnames';
-import type { VsfSwitchProps } from './types';
+import type { VsfSwitchProps } from '@storefront-ui/react';
 
 const VsfSwitch = forwardRef<HTMLInputElement, VsfSwitchProps>(
   ({ invalid, className, ...attributes }, ref): JSX.Element => (

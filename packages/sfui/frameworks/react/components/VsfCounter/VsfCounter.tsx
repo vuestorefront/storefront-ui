@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import type { VsfCounterProps } from './types';
-import { VsfCounterSize } from './types';
+import type { VsfCounterProps } from '@storefront-ui/react';
+import { VsfCounterSize } from '@storefront-ui/react';
 
 export default function VsfCounter({
   size = VsfCounterSize.base,

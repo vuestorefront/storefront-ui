@@ -1,8 +1,9 @@
 import classNames from 'classnames';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
-import { polymorphicForwardRef, mergeRefs } from '../../shared/utils';
-import { type VsfDrawerProps, VsfDrawerPlacement } from './types';
+import mergeRefs from 'merge-refs';
+import { VsfDrawerPlacement, polymorphicForwardRef } from '@storefront-ui/react';
+import type { VsfDrawerProps } from '@storefront-ui/react';
 
 const defaultDrawerTag = 'aside';
 

@@ -1,7 +1,6 @@
 import classNames from 'classnames';
-import { VsfButtonSize, VsfButtonVariant } from './types';
-import type { VsfButtonProps } from './types';
-import { polymorphicForwardRef } from '../../shared/utils';
+import { VsfButtonSize, VsfButtonVariant, polymorphicForwardRef } from '@storefront-ui/react';
+import type { VsfButtonProps } from '@storefront-ui/react';
 
 const defaultButtonTag = 'button';
 

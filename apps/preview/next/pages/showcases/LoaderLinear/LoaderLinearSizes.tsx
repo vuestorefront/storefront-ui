@@ -1,4 +1,4 @@
-import { VsfLoaderLinear } from '@storefront-ui/react/components/VsfLoaderLinear/index';
+import { VsfLoaderLinear } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

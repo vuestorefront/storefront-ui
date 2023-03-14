@@ -1,5 +1,4 @@
-import { VsfButton } from '@storefront-ui/react/components/VsfButton';
-import { VsfDropdown } from '@storefront-ui/react/components/VsfDropdown';
+import { VsfDropdown, VsfButton } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';

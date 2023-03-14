@@ -1,5 +1,4 @@
-import { VsfChip, VsfChipSize } from '@storefront-ui/react/components/VsfChip';
-import { VsfThumbnail, VsfThumbnailSize } from '@storefront-ui/react/components/VsfThumbnail/index';
+import { VsfChip, VsfChipSize, VsfThumbnail, VsfThumbnailSize } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';

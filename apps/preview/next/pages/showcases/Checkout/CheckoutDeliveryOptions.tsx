@@ -1,5 +1,4 @@
-import { VsfRadio } from '@storefront-ui/react/components/VsfRadio';
-import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';
+import { VsfRadio, VsfListItemMenu } from '@storefront-ui/react';
 import { useState } from 'react';
 import { ShowcasePageLayout } from '../../showcases';
 

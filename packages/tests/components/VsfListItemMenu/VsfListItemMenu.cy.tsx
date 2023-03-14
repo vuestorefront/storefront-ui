@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfListItemMenuSize } from '@storefront-ui/vue/components/VsfListItemMenu/types';
+import { VsfListItemMenuSize } from '@storefront-ui/vue/index';
 import { mount, useComponent } from '../../utils/mount';
 import VsfListItemMenuBaseObject from './VsfListItemMenu.PageObject';
 

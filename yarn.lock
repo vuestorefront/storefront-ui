@@ -3763,6 +3763,7 @@ __metadata:
     swr: ^2.0.3
     tailwindcss: ^3.2.7
     ts-loader: ^9.4.2
+    vite-tsconfig-paths: ^4.0.5
   languageName: unknown
   linkType: soft
 
@@ -3816,12 +3817,14 @@ __metadata:
     classnames: ^2.3.2
     eslint: ^8.34.0
     jw-paginate: ^1.0.4
+    merge-refs: ^1.1.2
     react-polymorphed: ^2.1.0
     react-transition-group: ^4.4.5
     react-use: ^17.4.0
     tabbable: ^6.1.1
     vite: ^4.1.2
     vite-plugin-dts: ^2.0.0-beta.1
+    vite-tsconfig-paths: ^4.0.5
   peerDependencies:
     react: ^18.2.0
   languageName: unknown
@@ -17328,6 +17331,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"merge-refs@npm:^1.1.2":
+  version: 1.1.2
+  resolution: "merge-refs@npm:1.1.2"
+  dependencies:
+    "@types/react": "*"
+  checksum: 94d2cf78500d5b50992f202e5181c1ed4b4e0d4dbb4dc4b226f4560dbeeef721220d53bbfc640bfc8fde3d26b37d5a9b9e24c38f62456183d979fe08f8a86c38
+  languageName: node
+  linkType: hard
+
 "merge-source-map@npm:^1.1.0":
   version: 1.1.0
   resolution: "merge-source-map@npm:1.1.0"
@@ -24493,6 +24505,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tsconfck@npm:^2.0.1":
+  version: 2.0.3
+  resolution: "tsconfck@npm:2.0.3"
+  peerDependencies:
+    typescript: ^4.3.5
+  peerDependenciesMeta:
+    typescript:
+      optional: true
+  bin:
+    tsconfck: bin/tsconfck.js
+  checksum: 557060017e35cb45281134568ad64f15fe1702c318c3cfba18d49f7c66f964981f19d5c493ca1848edab31f71aeaade305ae485eb6b11c8fb40fda593f3f4998
+  languageName: node
+  linkType: hard
+
 "tsconfig-paths@npm:^3.14.1":
   version: 3.14.1
   resolution: "tsconfig-paths@npm:3.14.1"
@@ -25537,6 +25563,17 @@ __metadata:
   peerDependencies:
     vite: ">=2.9.1 <= 5"
   checksum: d523523784ec77efcc39f6850b9fbdf1744f7441ffa5a33feff1e3a783ffa7a6a4df26863282937a85d3d7f6d4bfea578b08d80644e4c601d7d599671b9cd302
+  languageName: node
+  linkType: hard
+
+"vite-tsconfig-paths@npm:^4.0.5":
+  version: 4.0.5
+  resolution: "vite-tsconfig-paths@npm:4.0.5"
+  dependencies:
+    debug: ^4.1.1
+    globrex: ^0.1.2
+    tsconfck: ^2.0.1
+  checksum: 49b4064881343ef0b75e52eeb1d5cdfe1f26b32ded68e71efc84022e8e96bdb3d3f37f79f3678b43e935dca279cc24c5936942b5fdbaf1489b497e48572314d9
   languageName: node
   linkType: hard
 

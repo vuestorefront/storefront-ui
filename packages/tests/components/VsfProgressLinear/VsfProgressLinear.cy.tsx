@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfProgressLinearSize, VsfProgressSize } from '@storefront-ui/vue/components/VsfProgressLinear/types';
+import { VsfProgressLinearSize, VsfProgressSize } from '@storefront-ui/vue/index';
 import { mount, useComponent } from '../../utils/mount';
 import VsfProgressLinearBaseObject from './VsfProgressLinear.PageObject';
 

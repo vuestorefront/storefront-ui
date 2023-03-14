@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { clamp, roundToNearest } from '@storefront-ui/shared';
-import { VsfIconStarFilled, VsfIconStar, VsfIconStarHalf } from '../VsfIcons';
-import { VsfRatingSize, type VsfRatingProps } from './types';
+import { VsfIconStarFilled, VsfIconStar, VsfIconStarHalf, VsfRatingSize } from '@storefront-ui/react';
+import type { VsfRatingProps } from '@storefront-ui/react';
 
 const sizeClasses = {
   [VsfRatingSize.xs]: 'text-xs',

@@ -1,5 +1,5 @@
-import { VsfRating, VsfRatingSize } from '@storefront-ui/react/components/VsfRating';
-import type { VsfRatingProps } from '@storefront-ui/react/components/VsfRating/types';
+import { VsfRating, VsfRatingSize } from '@storefront-ui/react';
+import type { VsfRatingProps } from '@storefront-ui/react';
 import { useEffect, useState } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';

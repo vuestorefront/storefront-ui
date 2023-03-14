@@ -1,4 +1,4 @@
-import { VsfButton } from '@storefront-ui/react/components/VsfButton';
+import { VsfButton } from '@storefront-ui/react';
 import Link from 'next/link';
 import { ShowcasePageLayout } from '../../showcases';
 

@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfCounterSize } from '@storefront-ui/vue/components/VsfCounter/types';
+import { VsfCounterSize } from '@storefront-ui/vue/index';
 import { mount, useComponent } from '../../utils/mount';
 import VsfCounterBaseObject from './VsfCounter.PageObject';
 

@@ -1,6 +1,5 @@
-import { VsfCounter } from '@storefront-ui/react/components/VsfCounter';
-import { VsfCounterSize } from '@storefront-ui/react/components/VsfCounter/types';
-import type { VsfCounterProps } from '@storefront-ui/react/components/VsfCounter/types';
+import { VsfCounter, VsfCounterSize } from '@storefront-ui/react';
+import type { VsfCounterProps } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';

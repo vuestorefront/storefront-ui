@@ -1,7 +1,5 @@
 import type { PropsWithChildren, ReactNode } from 'react';
-
-import type { UseDropdownOptions } from '../../hooks/useDropdown';
-import type { PropsWithStyle } from '../../shared/types';
+import type { UseDropdownOptions, PropsWithStyle } from '@storefront-ui/react';
 
 export interface VsfDropdownProps extends UseDropdownOptions, PropsWithStyle, PropsWithChildren {
   trigger: ReactNode;

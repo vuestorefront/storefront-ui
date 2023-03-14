@@ -1,7 +1,6 @@
 import classNames from 'classnames';
-import type { VsfAccordionItemProps } from './types';
-import VsfIconExpandLess from '../VsfIcons/VsfIconExpandLess';
-import { VsfAccordionItemSize } from './types';
+import type { VsfAccordionItemProps } from '@storefront-ui/react';
+import { VsfAccordionItemSize, VsfIconExpandLess } from '@storefront-ui/react';
 
 export default function VsfAccordionItem({
   open,

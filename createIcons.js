@@ -8,6 +8,7 @@ const { optimize } = require('svgo');
  * input: string; (directory with svg icons)
  * output: string; (directory where icon components will be placed)
  * relativePathToIconBase: string; (path from place of icon output to base icon e.g output `/specialDir/icons/`, component placement `/components/`, then relativePathToIconBase would be `../../components/`)
+ * absolutePathToIconBase: string; (absolute path to file with BaseIcon component `@storefront-ui/react`)
  * optimize: boolean; (optimize svgs wth svgo)
  * */
 
@@ -20,6 +21,7 @@ const getArgValue = (argName) => {
 const inputDirectoryPath = path.join(__dirname, getArgValue('input') ?? './assets');
 const outputDirectoryPath = path.join(__dirname, getArgValue('output') ?? './');
 const relativePathToIconBasePath = getArgValue('relativePathToIconBase') ?? '../';
+const absolutePathToIconBase = getArgValue('absolutePathToIconBase');
 const framework = getArgValue('framework') ?? 'vue'; //vue, react
 
 // https://github.com/preactjs/preact-compat/issues/222
@@ -106,8 +108,8 @@ defineProps({
 </script>`;
 
 const reactIcon = (name, camelCaseName, content, attributes) => `
-import type { VsfIconProps } from '${relativePathToIconBasePath}VsfIcons/types';
-import { VsfIconBase, VsfIconSize } from '${relativePathToIconBasePath}VsfIconBase';
+import type { VsfIconProps } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}VsfIcons/types`)}';
+import { VsfIconBase, VsfIconSize } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}VsfIconBase`)}';
 
 export default function VsfIcon${camelCaseName}({
     size = VsfIconSize.base,

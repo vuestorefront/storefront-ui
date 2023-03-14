@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { VsfThumbnailProps, VsfThumbnailSize } from './types';
+import { VsfThumbnailProps, VsfThumbnailSize } from '@storefront-ui/react';
 
 const sizeClasses = {
   [VsfThumbnailSize.sm]: 'w-4 h-4',

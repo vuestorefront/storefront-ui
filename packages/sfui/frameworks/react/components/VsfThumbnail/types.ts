@@ -1,6 +1,6 @@
 import type { PropsWithChildren } from 'react';
 import { VsfThumbnailSize } from '@storefront-ui/shared';
-import type { PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle } from '@storefront-ui/react';
 
 export { VsfThumbnailSize };
 

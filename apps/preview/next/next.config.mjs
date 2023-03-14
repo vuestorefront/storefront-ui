@@ -5,6 +5,8 @@ import {
   changeFrameworkPathInImports,
   dynamicImports,
 } from "@storefront-ui/tests-shared/index.js";
+import { join } from 'path';
+import { existsSync } from 'fs';
 
 const isCoverageEnabled = process.env.CYPRESS_COVERAGE === "true";
 const isTest = process.env.TEST === 'true';
@@ -64,6 +66,35 @@ export default {
         }
       });
     }
+    config.module.rules.push({
+      test: /\/sfui\/frameworks\/react\/index\.ts/,
+      loader: 'string-replace-loader',
+      options: {
+        // Search all imports and add typing files before them, webpack has problem with re-exporting from packages
+        // import { VsfThumbnailSize } from '@storefront-ui/shared';
+        // import type { PropsWithStyle } from '@storefront-ui/react';
+
+        // export { VsfThumbnailSize };
+        search: /^export \* from '\.\/components\/([^']+?)';/gm,
+        replace: (_match, componentName) => {
+          const path = join(
+            process.cwd(),
+            '..',
+            '..',
+            '..',
+            'packages',
+            'sfui',
+            'frameworks',
+            'react',
+            'components',
+            componentName,
+            'types.ts',
+          );
+          if (!existsSync(path)) return _match;
+          return `export * from './components/${componentName}/types';\nexport * from './components/${componentName}';`;
+        },
+      },
+    });
 
     return config;
   }

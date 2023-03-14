@@ -1,8 +1,8 @@
 import { VsfLoaderSize } from '@storefront-ui/shared';
-import type { PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle } from '@storefront-ui/react';
 
 export enum VsfLoaderLinearSize {
-  'minimal' = 'minimal',
+  minimal = 'minimal',
 }
 export { VsfLoaderSize };
 export interface VsfLoaderLinearProps extends PropsWithStyle {

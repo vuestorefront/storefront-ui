@@ -2,13 +2,15 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { Fragment, createElement, ReactElement, useState } from 'react';
 import useSWR from 'swr';
-import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
-import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';
 import {
+  VsfButton,
+  VsfButtonVariant,
+  VsfButtonSize,
+  VsfListItemMenu,
   VsfIconChevronLeft,
   VsfIconChevronRight,
   VsfIconExpandMore,
-} from '@storefront-ui/react/components/VsfIcons/index';
+} from '@storefront-ui/react';
 import classNames from 'classnames';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -80,28 +82,16 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
                     <ul>
                       {groups[group].showcases.map((showcaseName) => (
                         <li key={showcaseName} data-sidebar-component={showcaseName}>
-                          {/* TODO: Redo after VsfListItemMenu uses VsfLink internall */}
-                          {/* currently there is no way to use Next/Link & VsfListItemMenu together due to their onClick prop incompatibility */}
                           <Link href={groupItemHref(group, showcaseName)} legacyBehavior>
-                            {createElement(({ onClick }: { onClick: (e: Event) => void }) => (
-                              <VsfListItemMenu
-                                onClick={() => {
-                                  const event = new Event('click');
-                                  Object.defineProperty(event, 'currentTarget', {
-                                    writable: false,
-                                    value: document.querySelector(`li[data-sidebar-component="${showcaseName}"] a`),
-                                  });
-                                  onClick(event);
-                                }}
-                                active={router.pathname === groupItemHref(group, showcaseName)}
-                                className={classNames({
-                                  'font-medium': router.pathname === groupItemHref(group, showcaseName),
-                                })}
-                                as="a"
-                              >
-                                {showcaseName}
-                              </VsfListItemMenu>
-                            ))}
+                            <VsfListItemMenu
+                              active={router.pathname === groupItemHref(group, showcaseName)}
+                              className={classNames({
+                                'font-medium': router.pathname === groupItemHref(group, showcaseName),
+                              })}
+                              as="a"
+                            >
+                              {showcaseName}
+                            </VsfListItemMenu>
                           </Link>
                         </li>
                       ))}

@@ -1,8 +1,7 @@
 import classNames from 'classnames';
 import { forwardRef } from 'react';
-import { VsfInputSize } from './types';
-
-import type { VsfInputProps } from './types';
+import { VsfInputSize } from '@storefront-ui/react';
+import type { VsfInputProps } from '@storefront-ui/react';
 
 const sizeClasses = {
   [VsfInputSize.sm]: 'py-1.5 px-4',

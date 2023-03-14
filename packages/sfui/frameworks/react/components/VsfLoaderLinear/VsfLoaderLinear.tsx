@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import { VsfLoaderLinearSize, VsfLoaderSize, type VsfLoaderLinearProps } from './types';
+import { VsfLoaderLinearSize, VsfLoaderSize } from '@storefront-ui/react';
+import type { VsfLoaderLinearProps } from '@storefront-ui/react';
 
 const sizeClasses = {
   [VsfLoaderLinearSize.minimal]: 'h-1',

@@ -1,5 +1,5 @@
 import { ReactElement } from 'react';
-import ExampleLayout from '~/layouts/Examples';
+import ExampleLayout from '../layouts/Examples';
 
 function ExamplePage() {
   return <div>This is page with examples of all available components</div>;

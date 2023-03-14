@@ -1,4 +1,4 @@
-import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';
+import { VsfListItemMenu } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

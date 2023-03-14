@@ -1,5 +1,4 @@
-import { VsfDrawer, VsfDrawerPlacement } from '@storefront-ui/react/components/VsfDrawer';
-import { VsfButton } from '@storefront-ui/react/components/VsfButton';
+import { VsfDrawer, VsfDrawerPlacement, VsfButton } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';

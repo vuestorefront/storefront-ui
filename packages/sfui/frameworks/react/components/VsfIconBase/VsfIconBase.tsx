@@ -1,5 +1,5 @@
-import type { VsfIconBaseProps } from './types';
-import { VsfIconSize } from './types';
+import type { VsfIconBaseProps } from '@storefront-ui/react';
+import { VsfIconSize } from '@storefront-ui/react';
 
 const getSizeClasses = (size: VsfIconBaseProps['size']) => {
   switch (size) {

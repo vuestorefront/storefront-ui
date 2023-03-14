@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { forwardRef, useId } from 'react';
-import { VsfChipProps, VsfChipSize } from './types';
+import { VsfChipProps, VsfChipSize } from '@storefront-ui/react';
 
 const getSizeClasses = (size: VsfChipProps['size'], square: VsfChipProps['square']) => {
   switch (size) {

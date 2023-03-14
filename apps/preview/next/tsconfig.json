@@ -30,7 +30,8 @@
       "~/*": [
         "./*"
       ],
-      "@assets/*": ["./assets/fixture/*"]
+      "@assets/*": ["./assets/fixture/*"],
+      "@storefront-ui/react": ["../../../packages/sfui/frameworks/react/index.ts"]
     }
   },
   "include": [
