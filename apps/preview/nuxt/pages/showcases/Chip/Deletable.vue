@@ -1,8 +1,11 @@
 <template>
   <ul class="flex flex-wrap gap-4 sm:flex-row">
     <li v-for="(item, index) in chipValues" :key="item.value">
-      <VsfChip :input-props="{ checked: true, value: item.value }" @update:model-value="handleChipRemove(index)">
-        <!-- TODO: Replace with Thumbnail component when ready -->
+      <VsfChip
+        v-model="selectedValues"
+        :input-props="{ value: item.value }"
+        @update:model-value="handleChipRemove(index)"
+      >
         <VsfThumbnail :class="`mr-2 bg-${item.value}-500`" />
         {{ item.label }}
         <VsfIconClose
@@ -24,6 +27,7 @@ const chipValues = ref([
   { label: 'Blue', value: 'blue' },
   { label: 'Gray', value: 'gray' },
 ]);
+const selectedValues = chipValues.value.map((item) => item.value);
 const handleChipRemove = (index: number) => {
   chipValues.value.splice(index, 1);
 };

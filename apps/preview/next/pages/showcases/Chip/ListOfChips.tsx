@@ -14,7 +14,7 @@ export function Showcase() {
       {chipValues.map(({ label, value }) => (
         <li>
           <VsfChip key={value} className="mr-2">
-            <VsfThumbnail className={`ml-2 bg-${value}-500`} />
+            <VsfThumbnail className={`bg-${value}-500`} />
             <span className="ml-2">{label}</span>
           </VsfChip>
         </li>

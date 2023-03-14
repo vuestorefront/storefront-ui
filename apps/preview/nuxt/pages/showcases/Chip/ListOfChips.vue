@@ -2,7 +2,6 @@
   <ul class="flex flex-col flex-wrap gap-4 sm:flex-row">
     <li v-for="({ label, value }, index) in chipValues" :key="index">
       <VsfChip :input-props="{ value: value }">
-        <!-- TODO: Replace with Thumbnail component when ready -->
         <VsfThumbnail :class="`mr-2 bg-${value}-500`" />
         {{ label }}
       </VsfChip>

@@ -8,13 +8,6 @@ function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        type: 'select',
-        modelName: 'size',
-        options: Object.keys(VsfChipSize),
-        propDefaultValue: VsfChipSize.base,
-        propType: 'VsfChipSize',
-      },
-      {
         type: 'boolean',
         modelName: 'selected',
         propType: 'boolean',
@@ -24,6 +17,13 @@ function Example() {
         modelName: 'value',
         propType: 'string',
         description: 'Sets value of the input checkbox element',
+      },
+      {
+        type: 'select',
+        modelName: 'size',
+        options: Object.keys(VsfChipSize),
+        propDefaultValue: VsfChipSize.base,
+        propType: 'VsfChipSize',
       },
       {
         type: 'boolean',
