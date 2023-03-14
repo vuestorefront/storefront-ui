@@ -1,4 +1,4 @@
-import type { PropsWithChildren, ReactNode, ChangeEvent, MouseEventHandler } from 'react';
+import type { InputHTMLAttributes, ReactNode } from 'react';
 import type { PropsWithStyle } from '../../shared/types';
 
 export enum VsfInputSize {
@@ -6,35 +6,10 @@ export enum VsfInputSize {
   base = 'base',
   lg = 'lg',
 }
-
-export enum VsfInputRole {
-  widget = 'widget',
-  combobox = 'combobox',
-}
-
-export enum VsfInputAriaAutocomplete {
-  none = 'none',
-  both = 'both',
-  list = 'list',
-}
-export interface VsfInputProps extends PropsWithStyle, PropsWithChildren {
-  value: string;
+export interface VsfInputProps extends PropsWithStyle, Omit<InputHTMLAttributes<HTMLInputElement>, 'size'> {
   size?: `${VsfInputSize}`;
-  label?: string;
-  disabled?: boolean;
-  required?: boolean;
   invalid?: boolean;
-  characterLimit?: number;
-  readonly?: boolean;
-  placeholder?: string;
-  errorText?: string;
-  helpText?: string;
-  requiredText?: string;
-  children?: ReactNode;
-  role?: VsfInputRole;
-  ariaAutocomplete?: VsfInputAriaAutocomplete;
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
-  onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
-  onClick?: MouseEventHandler<HTMLInputElement>;
+  wrapperClassName?: string;
 }
