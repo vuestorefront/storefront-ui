@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: DefaultLayout
 hideBreadcrumbs: true
 description: Checkout page in one of the most important pages in e-commerce. Usually it contains information about delivery destination, shipping options and payment methods.
 ---
@@ -11,7 +11,7 @@ description: Checkout page in one of the most important pages in e-commerce. Usu
 
 Present possible delivery options in a way where your customers can easily see differences and choose the best one for their needs.
 
-<Showcase showcase-name="Checkout/CheckoutDeliveryOptions" style="height: 250px">
+<Showcase showcase-name="Checkout/CheckoutDeliveryOptions" >
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Checkout/CheckoutDeliveryOptions.vue

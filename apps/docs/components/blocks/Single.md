@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: DefaultLayout
 hideBreadcrumbs: true
 description: Some showcase example
 ---

@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: DefaultLayout
 hideBreadcrumbs: true
 description: RadioGroup is a common way to allow users to make a single selection from a list of radios. It is a wrapper for Radio components.
 ---

@@ -1,5 +1,5 @@
 const components = require('../utils/components.json');
-const showcases = require('../utils/showcases.json');
+const showcases = require('../utils/blocks.json');
 const hooks = require('../utils/hooks.json');
 const { generateComponentPath } = require('./utils/path.util');
 
@@ -9,12 +9,13 @@ const FIGMA_URL = 'https://www.figma.com/file/ko7VoZYxnInYeJJmsnILHU/SFUI-2-%7C-
 
 const convertComponentPathsToLinks = (paths, slug, type) =>
   paths.map((c) => [generateComponentPath(slug, c, type), c.replace('Vsf', '')]);
+
 module.exports = {
   title: `Storefront UI`,
   base: process.env.VITE_DOCS_BASEPATH ?? '/',
   description: `Documentation for the Storefront UI`,
   head: [['link', { rel: 'icon', href: '/favicon.png' }]],
-  patterns: ['**/*.md', '**/*.vue', '!components/**/*.md', '!showcases/**/*.md', '!hooks/**/*.md'], // ignore components folder
+  patterns: ['**/*.md', '**/*.vue', '!components/**/*.md', '!blocks/**/*.md', '!hooks/**/*.md'], // ignore components folder
   markdown: {
     extractHeaders: ['h1', 'h2', 'h3'],
   },
@@ -25,85 +26,95 @@ module.exports = {
     title: 'Storefront UI',
     repo: 'https://github.com/vuestorefront/sfui2',
     docsRepoPath: 'https://github.com/vuestorefront/sfui2/tree/main/apps/docs/components/', // used to generate direct edit links on docs pages.
-    secondaryNav: [
-      { text: 'Home', link: '/' },
-      { text: 'Getting Started', link: '/getting-started/' },
-      {
-        text: 'Components',
-        match: '(react|vue)/components',
-        children: [
-          { text: 'React', link: '/react/components.html' },
-          { text: 'Vue', link: '/vue/components.html' },
-        ],
-      },
-      {
-        text: 'Hooks',
-        match: '(react|vue)/hooks',
-        children: [
-          { text: 'React', link: '/react/hooks.html' },
-          { text: 'Vue', link: '/vue/hooks.html' },
-        ],
-      },
-      {
-        text: 'Showcases',
-        match: '(react|vue|)/showcases',
-        children: [
-          { text: 'React', link: '/react/showcases.html' },
-          { text: 'Vue', link: '/vue/showcases.html' },
-        ],
-      },
-      { text: 'Contributing', link: 'https://github.com/vuestorefront/sfui2/blob/main/CONTRIBUTING.md' },
-    ],
+    secondaryNav: {
+      '/react/': [
+        { text: 'Getting Started', link: '/react/getting-started' },
+
+        { text: 'Docs', link: '/react/components' },
+        { text: 'Blocks', link: '/react/blocks' },
+      ],
+      '/vue/': [
+        { text: 'Getting Started', link: '/vue/getting-started' },
+        { text: 'Docs', link: '/vue/components' },
+        { text: 'Blocks', link: '/vue/blocks' },
+      ],
+      '/': [
+        { text: 'Getting Started', link: '/vue/getting-started' },
+        { text: 'Docs', link: '/vue/components' },
+        { text: 'Blocks', link: '/vue/blocks' },
+      ],
+    },
     sidebar: {
-      '/getting-started/': [
+      '/react/blocks': [
+        {
+          title: 'Blocks',
+          collapsable: false,
+          children: convertComponentPathsToLinks(showcases.react, 'react', 'blocks'),
+        },
+      ],
+      '/vue/blocks': [
+        {
+          title: 'Blocks',
+          collapsable: false,
+          children: convertComponentPathsToLinks(showcases.vue, 'vue', 'blocks'),
+        },
+      ],
+      '/react/': [
         {
           title: 'Getting Started',
-          collapsable: false,
+          collapsable: true,
+          children: [['/react/getting-started', 'Installation']],
+        },
+        {
+          title: 'Customization',
+          collapsable: true,
           children: [
-            ['/getting-started/react', 'React'],
-            ['/getting-started/vue', 'Vue'],
+            ['/react/customization/', 'Overview'],
+            ['/react/customization/theming', 'Theming'],
+            ['/react/customization/typography', 'Typography'],
           ],
         },
-      ],
-      '/react/components/': [
         {
-          title: 'Components',
-          collapsable: false,
-          children: convertComponentPathsToLinks(components.react, 'react', 'components'),
+          title: 'Base Components',
+          collapsable: true,
+          children: [
+            ['/react/components', 'Overview'],
+            ...convertComponentPathsToLinks(components.react, 'react', 'components'),
+          ],
         },
-      ],
-      '/vue/components/': [
-        {
-          title: 'Components',
-          collapsable: false,
-          children: convertComponentPathsToLinks(components.vue, 'vue', 'components'),
-        },
-      ],
-      '/react/showcases/': [
-        {
-          title: 'Showcases',
-          collapsable: false,
-          children: convertComponentPathsToLinks(showcases.react, 'react', 'showcases'),
-        },
-      ],
-      '/vue/showcases/': [
-        {
-          title: 'Showcases',
-          collapsable: false,
-          children: convertComponentPathsToLinks(showcases.vue, 'vue', 'showcases'),
-        },
-      ],
-      '/react/hooks/': [
         {
           title: 'Hooks',
-          collapsable: false,
+          collapsable: true,
           children: convertComponentPathsToLinks(hooks.react, 'react', 'hooks'),
         },
       ],
-      '/vue/hooks/': [
+      '/vue/': [
         {
-          title: 'Hooks',
-          collapsable: false,
+          title: 'Getting Started',
+          collapsable: true,
+          children: [['/vue/getting-started', 'Installation']],
+        },
+        {
+          title: 'Customization',
+          collapsable: true,
+          children: [
+            ['/vue/customization/', 'Overview'],
+            ['/vue/customization/theming', 'Theming'],
+            ['/vue/customization/typography', 'Typography'],
+          ],
+        },
+        {
+          title: 'Base Components',
+          collapsable: true,
+          children: [
+            ['/vue/components', 'Overview'],
+            ...convertComponentPathsToLinks(components.vue, 'vue', 'components'),
+          ],
+        },
+
+        {
+          title: 'Composables',
+          collapsable: true,
           children: convertComponentPathsToLinks(hooks.vue, 'vue', 'hooks'),
         },
       ],

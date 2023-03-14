@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: DefaultLayout
 hideBreadcrumbs: true
 description: Chip component usage showcases
 ---
