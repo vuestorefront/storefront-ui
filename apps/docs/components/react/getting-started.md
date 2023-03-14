@@ -1,3 +1,7 @@
+---
+layout: DefaultLayout
+hideBreadcrumbs: true
+---
 # React
 
 ## Installation
@@ -7,14 +11,8 @@ Install StorefrontUI by running one of the following commands:
 
 ```bash
 npm install @storefront-ui/react
-```
-
-```bash
-yarn add @storefront-ui/react
-```
-
-```bash
-pnpm add @storefront-ui/react
+# yarn add @storefront-ui/react
+# pnpm add @storefront-ui/react
 ```
 
 ## Usage

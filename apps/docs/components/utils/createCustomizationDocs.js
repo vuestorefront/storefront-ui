@@ -5,7 +5,7 @@ const commandLineArgs = require('command-line-args');
 
 const options = commandLineArgs([{ name: 'event' }, { name: 'path' }]);
 
-const mdFiles = glob.sync('./blocks/*.md');
+const mdFiles = glob.sync('./customization/*.md');
 
 function generateDocs() {
   if (options.event === 'change') {
@@ -16,7 +16,7 @@ function generateDocs() {
     saveDoc(`./react/${options.path}`, reactDocContent);
     saveDoc(`./vue/${options.path}`, vueDocContent);
   } else {
-    docsSplit(mdFiles, 'blocks');
+    docsSplit(mdFiles, 'customization');
   }
 }
 

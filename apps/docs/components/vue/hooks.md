@@ -1,5 +1,6 @@
 ---
 layout: home
+tabOptions: [vue,nuxt,vite]
 ---
 
 <FigmaLink />
@@ -12,4 +13,6 @@ layout: home
 
 :::
 
+::: slot vue
 <ComponentList type="vue" hook />
+:::

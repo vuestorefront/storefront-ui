@@ -10,10 +10,10 @@
     "dev:docs": "yarn update-files && VITE_DOCS_EXAMPLES_REACT_PATH=http://localhost:3002 VITE_DOCS_EXAMPLES_VUE_PATH=http://localhost:3001 && concurrently \"vuepress dev\" \"yarn watch-docs\" \"yarn watch-showcases\"",
     "build": "yarn update-files && VITE_DOCS_BASEPATH=/v2/ VITE_DOCS_EXAMPLES_REACT_PATH=https://docs.storefrontui.io/v2-react VITE_DOCS_EXAMPLES_VUE_PATH=https://docs.storefrontui.io/v2-vue && vuepress build",
     "watch-docs": "chokidar --initial \"./components/**/*.md\" -c \"yarn update-docs --event {event} --path {path};\"",
-    "watch-showcases": "chokidar --initial \"./showcases/**/*.md\" -c \"yarn update-showcases --event {event} --path {path};\"",
+    "watch-showcases": "chokidar --initial \"./blocks/**/*.md\" -c \"yarn update-showcases --event {event} --path {path};\"",
     "serve": "vuepress serve",
-    "clear": "yarn concurrently \"rimraf ./vue/components\" \"rimraf ./vue/showcases\" \"rimraf ./react/components\" \"rimraf ./react/showcases\"",
-    "update-docs": "yarn node ./utils/createComponentList && yarn node ./utils/createFrameworksDocs && yarn node ./utils/createHooksList && yarn node ./utils/createHooksDocs",
+    "clear": "yarn concurrently \"rimraf ./vue/components\" \"rimraf ./vue/blocks\" \"rimraf ./vue/customization\" \"rimraf ./react/components\" \"rimraf ./react/blocks\" \"rimraf ./react/customization\"",
+    "update-docs": "yarn node ./utils/createComponentList && yarn node ./utils/createFrameworksDocs && yarn node ./utils/createHooksList && yarn node ./utils/createHooksDocs && yarn node ./utils/createCustomizationDocs",
     "update-showcases": "yarn node ./utils/createShowcaseList && yarn node ./utils/createShowcaseDocs",
     "update-files": "yarn clear && yarn concurrently \"yarn update-docs\" \"yarn update-showcases\""
   },
@@ -42,7 +42,7 @@
     "sass-loader": "^13.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "vue-multiselect": "^2.1.6",
-    "vuepress-theme-vsf-docs": "^1.2.8"
+    "vuepress-theme-vsf-docs": "^1.2.11"
   },
   "resolutions": {
     "webpack-hot-middleware": "2.25.3"

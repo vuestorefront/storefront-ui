@@ -43,6 +43,7 @@ Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide
 ## Playground
 
 <Generate style="height: 600px"/>
+
 :::
 
 ::: slot api
