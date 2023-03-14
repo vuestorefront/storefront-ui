@@ -1,9 +1,19 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
+const getSizeClasses = {
+  [VsfInputSize.sm]: 'py-1.5 px-4',
+  [VsfInputSize.base]: 'py-2 px-4',
+  [VsfInputSize.lg]: 'py-3 px-4',
+};
+</script>
+
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { computed, toRefs } from 'vue';
+import { toRefs } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { useId } from '../../shared/useId';
-import { VsfInputSize, VsfInputRole, VsfInputAriaAutocomplete } from './types';
+import { VsfInputSize } from './types';
 
 const props = defineProps({
   modelValue: {
@@ -14,60 +24,12 @@ const props = defineProps({
     type: String as PropType<`${VsfInputSize}`>,
     default: VsfInputSize.base,
   },
-  role: {
-    type: String as PropType<VsfInputRole>,
-    default: undefined,
-  },
-  label: {
-    type: String,
-    default: '',
-  },
-  placeholder: {
-    type: String,
-    default: '',
-  },
-  helpText: {
-    type: String,
-    default: '',
-  },
-  errorText: {
-    type: String,
-    default: '',
-  },
-  requiredText: {
-    type: String,
-    default: '',
-  },
-  characterLimit: {
-    type: Number,
-    default: null,
-  },
-  disabled: {
-    type: Boolean,
-    default: false,
-  },
   invalid: {
     type: Boolean,
     default: false,
   },
-  required: {
-    type: Boolean,
-    default: false,
-  },
-  readonly: {
-    type: Boolean,
-    default: false,
-  },
-  ariaAutocomplete: {
-    type: String as PropType<VsfInputAriaAutocomplete>,
-    default: VsfInputAriaAutocomplete.none,
-  },
-  ariaExpanded: {
-    type: Boolean,
-    default: false,
-  },
-  ariaControls: {
-    type: String,
+  wrapperClass: {
+    type: [String, Object],
     default: '',
   },
 });
@@ -75,67 +37,29 @@ const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void;
   (event: 'focus'): void;
 }>();
-const { invalid, modelValue, characterLimit } = toRefs(props);
+const { invalid } = toRefs(props);
 
 const inputValue = useVModel(props, 'modelValue', emit);
-const isAboveLimit = computed(() => inputValue.value.length > characterLimit.value);
-const charsCount = computed(() => characterLimit.value - modelValue.value.length);
-const inputId = useId();
 </script>
 
 <template>
   <div
     :class="[
-      'vsf-input',
-      `vsf-input--size-${size}`,
-      {
-        'vsf-input--disabled': disabled,
-        'vsf-input--invalid': invalid && !disabled,
-      },
+      'flex items-center bg-white rounded-md ring-inset text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
+      getSizeClasses[size],
+      invalid ? 'ring-2 ring-negative-700' : 'ring-1 ring-neutral-200',
+      wrapperClass,
     ]"
     data-testid="input"
   >
-    <label v-if="label" :for="inputId" class="vsf-input__label" data-testid="input-label">{{ label }}</label>
-    <div class="vsf-input__input-wrapper">
-      <div v-if="$slots.prefix" class="vsf-input__prefix"><slot name="prefix" /></div>
-      <input
-        :id="inputId"
-        v-model="inputValue"
-        class="vsf-input__field"
-        type="text"
-        :role="role"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        :invalid="invalid"
-        :required="required"
-        :readonly="readonly"
-        :aria-expanded="ariaExpanded"
-        :aria-autocomplete="ariaAutocomplete"
-        :aria-controls="ariaControls"
-        data-testid="input-field"
-        @focus="emit('focus')"
-      />
-      <div v-if="$slots.suffix" class="vsf-input__suffix">
-        <slot name="suffix" />
-      </div>
-    </div>
-    <div class="vsf-input__bottom-wrapper">
-      <div>
-        <p v-if="invalid && !disabled" class="vsf-input__error-text" data-testid="input-error-text">
-          {{ errorText }}
-        </p>
-        <p v-if="helpText" class="vsf-input__help-text" data-testid="input-help-text">{{ helpText }}</p>
-        <p v-if="requiredText && required" class="vsf-input__required-text" data-testid="input-required-text">
-          {{ requiredText }}
-        </p>
-      </div>
-      <p
-        v-if="characterLimit && !readonly"
-        :class="['vsf-input__character-limit', { 'vsf-input__character-limit--above': isAboveLimit }]"
-        data-testid="input-chars-count"
-      >
-        {{ charsCount }}
-      </p>
-    </div>
+    <slot name="prefix" />
+    <input
+      v-model="inputValue"
+      v-bind="$attrs"
+      class="min-w-[160px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent read-only:text-disabled-900"
+      data-testid="input-field"
+      :size="1"
+    />
+    <slot name="suffix" />
   </div>
 </template>
