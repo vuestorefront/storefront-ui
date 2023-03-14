@@ -19,7 +19,41 @@ export default defineConfig({
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
-      external: ['react', '@storefront-ui/shared'].concat(Object.keys(pkg.peerDependencies || {})),
+      external: ['react/jsx-runtime', 'react-dom', '@storefront-ui/shared', 'next', 'next/link'].concat(
+        Object.keys({
+          ...(pkg.peerDependencies || {}),
+          ...(pkg.dependencies || {}),
+        }),
+      ),
+      input: 'index.ts',
+      output: [
+        {
+          preserveModules: true,
+          inlineDynamicImports: false,
+          preserveModulesRoot: './',
+          format: 'esm',
+          exports: 'named',
+          sourcemap: false,
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDom',
+            'react-use': 'ReactUse',
+          },
+          entryFileNames: '[name].es.js',
+        },
+        {
+          name: 'umd',
+          format: 'umd',
+          exports: 'named',
+          sourcemap: false,
+          globals: {
+            react: 'React',
+            'react-dom': 'ReactDom',
+            'react-use': 'ReactUse',
+          },
+          entryFileNames: '[name].umd.js',
+        },
+      ],
     },
   },
 });

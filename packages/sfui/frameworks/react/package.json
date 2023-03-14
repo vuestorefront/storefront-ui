@@ -10,6 +10,7 @@
   },
   "source": "index.ts",
   "main": "dist/index.umd.js",
+  "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build:react": "vite build",
@@ -44,5 +45,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "sideEffects": false
 }
