@@ -1,5 +1,4 @@
-import { VsfInput } from '@storefront-ui/react/components/VsfInput/index';
-import { VsfIconSearch, VsfIconLock } from '@storefront-ui/react/components/VsfIcons/index';
+import { VsfInput, VsfIconSearch, VsfIconLock } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

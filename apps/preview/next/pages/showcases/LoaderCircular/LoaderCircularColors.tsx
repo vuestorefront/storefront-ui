@@ -1,4 +1,4 @@
-import { VsfLoaderCircular } from '@storefront-ui/react/components/VsfLoaderCircular/index';
+import { VsfLoaderCircular } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

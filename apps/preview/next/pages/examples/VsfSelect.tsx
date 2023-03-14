@@ -1,4 +1,4 @@
-import { VsfSelect, VsfSelectSize, VsfSelectProps } from '@storefront-ui/react/components/VsfSelect';
+import { VsfSelect, VsfSelectSize, VsfSelectProps } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';

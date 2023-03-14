@@ -1,4 +1,4 @@
-import { VsfAccordionItem, VsfAccordionItemSize } from '@storefront-ui/react/components/VsfAccordionItem';
+import { VsfAccordionItem, VsfAccordionItemSize } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';

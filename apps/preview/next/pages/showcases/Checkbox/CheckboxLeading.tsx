@@ -1,4 +1,4 @@
-import { VsfCheckbox } from '@storefront-ui/react/components/VsfCheckbox';
+import { VsfCheckbox } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

@@ -1,6 +1,5 @@
 import type { ElementType } from 'react';
-
-import { VsfLink, VsfLinkVariant } from '@storefront-ui/react/components/VsfLink';
+import { VsfLink, VsfLinkVariant } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import ComponentExample from '../../components/utils/ComponentExample';

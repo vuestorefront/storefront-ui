@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { useDropdown } from '../../hooks/useDropdown';
-import { VsfDropdownProps } from './types';
+import { useDropdown } from '@storefront-ui/react';
+import type { VsfDropdownProps } from '@storefront-ui/react';
 
 export default function VsfDropdown(props: VsfDropdownProps) {
   const { children, trigger, isOpen, className, style: containerStyle, ...dropdownOptions } = props;

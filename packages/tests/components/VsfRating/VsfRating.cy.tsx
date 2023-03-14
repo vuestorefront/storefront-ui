@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfRatingSize } from '@storefront-ui/vue/components/VsfRating/types';
+import { VsfRatingSize } from '@storefront-ui/vue/index';
 import { mount, useComponent } from '../../utils/mount';
 import VsfRatingBaseObject from './VsfRating.PageObject';
 

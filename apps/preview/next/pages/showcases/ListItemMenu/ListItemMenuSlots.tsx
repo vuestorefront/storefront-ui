@@ -1,6 +1,4 @@
-import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';
-import { VsfCounter } from '@storefront-ui/react/components/VsfCounter';
-import { VsfIconCircle, VsfIconCheck } from '@storefront-ui/react/components/VsfIcons';
+import { VsfListItemMenu, VsfCounter, VsfIconCircle, VsfIconCheck } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

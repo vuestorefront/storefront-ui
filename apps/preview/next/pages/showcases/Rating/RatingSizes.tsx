@@ -1,4 +1,4 @@
-import { VsfRating } from '@storefront-ui/react/components/VsfRating/index';
+import { VsfRating } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

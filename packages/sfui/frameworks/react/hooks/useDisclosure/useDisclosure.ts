@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 
-import { UseDisclosureOptions } from './types';
+import { UseDisclosureOptions } from '@storefront-ui/react';
 
 export function useDisclosure(options: UseDisclosureOptions = {}) {
   const { initialState = false } = options;

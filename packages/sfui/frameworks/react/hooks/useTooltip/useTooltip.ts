@@ -1,10 +1,14 @@
 import { useRef } from 'react';
 import { arrow, flip, offset, shift } from '@floating-ui/react-dom';
 
-import { composeHandlers, createPropsGetter } from '../../shared/utils';
-import { VsfPopoverBasePlacement, usePopover } from '../usePopover';
-import { useDisclosure } from '../useDisclosure';
-import { UseTooltipOptions } from './types';
+import {
+  composeHandlers,
+  createPropsGetter,
+  VsfPopoverBasePlacement,
+  usePopover,
+  useDisclosure,
+} from '@storefront-ui/react';
+import type { UseTooltipOptions } from '@storefront-ui/react';
 
 export function useTooltip(options?: UseTooltipOptions) {
   const {

@@ -1,8 +1,6 @@
 import classNames from 'classnames';
-import type { VsfLinkProps } from './types';
-import { VsfLinkVariant } from './types';
-
-import { polymorphicForwardRef } from '../../shared/utils';
+import { VsfLinkVariant, polymorphicForwardRef } from '@storefront-ui/react';
+import type { VsfLinkProps } from '@storefront-ui/react';
 
 const defaultLinkTag = 'a';
 

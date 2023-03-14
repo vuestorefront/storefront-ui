@@ -1,7 +1,6 @@
 import classNames from 'classnames';
 import { ChangeEvent, useState } from 'react';
-import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
-import { VsfIconExpandLess, VsfIconExpandMore } from '@storefront-ui/react/components/VsfIcons/index';
+import { VsfButton, VsfButtonVariant, VsfButtonSize, VsfIconExpandLess, VsfIconExpandMore } from '@storefront-ui/react';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 import { ControlOptionBind, ControlsProps, ControlsType } from './types';
 

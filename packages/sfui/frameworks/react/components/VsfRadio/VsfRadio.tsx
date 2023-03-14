@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { forwardRef } from 'react';
-import { VsfRadioProps } from './types';
+import type { VsfRadioProps } from '@storefront-ui/react';
 
 export default forwardRef<HTMLInputElement, VsfRadioProps>((props, ref) => {
   const { invalid, className, disabled, ...attributes } = props;

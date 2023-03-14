@@ -3,7 +3,7 @@ import React from 'react';
 import type { InputHTMLAttributes } from 'react';
 import type { Ref } from 'vue';
 import { ref } from 'vue';
-import { VsfChipSize } from '@storefront-ui/vue/components/VsfChip/types';
+import { VsfChipSize } from '@storefront-ui/vue/index';
 import { mount, Wrapper, useComponent } from '../../utils/mount';
 import VsfChipObject from './VsfChip.PageObject';
 

@@ -1,6 +1,6 @@
 import { VsfDrawerPlacement } from '@storefront-ui/shared';
 import type { PropsWithChildren } from 'react';
-import type { PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle } from '@storefront-ui/react';
 
 export interface VsfDrawerProps extends PropsWithStyle, PropsWithChildren {
   open: boolean;

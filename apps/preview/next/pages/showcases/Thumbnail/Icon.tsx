@@ -1,5 +1,4 @@
-import { VsfThumbnail } from '@storefront-ui/react/components/VsfThumbnail';
-import { VsfIconFavorite } from '@storefront-ui/react/components/VsfIcons/index';
+import { VsfThumbnail, VsfIconFavorite } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

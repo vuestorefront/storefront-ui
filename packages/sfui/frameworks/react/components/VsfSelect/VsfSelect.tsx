@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-import { VsfSelectSize } from './types';
-import { VsfIconExpandMore } from '../VsfIcons';
+import { VsfSelectSize, VsfIconExpandMore } from '@storefront-ui/react';
 
 import type { VsfSelectProps } from './types';
 

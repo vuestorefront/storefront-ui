@@ -27,6 +27,20 @@ const changeImport = (code: string, framework: "react") => {
   });
 };
 
+const storefrontUiReactAlias = {
+  find: "@storefront-ui/react",
+  replacement: path.resolve(
+    __dirname,
+    "..",
+    "..",
+    "..",
+    "packages",
+    "tests",
+    "utils",
+    "fake-import.ts"
+  ),
+};
+
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -87,7 +101,9 @@ export default defineConfig({
             "vue"
           ),
         },
+        storefrontUiReactAlias,
       ],
     }),
+    alias: [storefrontUiReactAlias],
   },
 });

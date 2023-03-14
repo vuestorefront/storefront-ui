@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { VsfSelect } from '@storefront-ui/react/components/VsfSelect';
+import { VsfSelect } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 const options = [

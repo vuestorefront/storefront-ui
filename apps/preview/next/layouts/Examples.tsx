@@ -2,9 +2,14 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { ReactElement, useState, createElement } from 'react';
 import useSWR from 'swr';
-import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/react/components/VsfButton';
-import { VsfListItemMenu } from '@storefront-ui/react/components/VsfListItemMenu';
-import { VsfIconChevronLeft, VsfIconChevronRight } from '@storefront-ui/react/components/VsfIcons/index';
+import {
+  VsfButton,
+  VsfButtonVariant,
+  VsfButtonSize,
+  VsfListItemMenu,
+  VsfIconChevronLeft,
+  VsfIconChevronRight,
+} from '@storefront-ui/react';
 import classNames from 'classnames';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -29,30 +34,19 @@ export default function ExampleLayout({ children }: { children: ReactElement }) 
             onClick={() => setIsOpen(!isOpen)}
             slotPrefix={isOpen ? <VsfIconChevronLeft /> : <VsfIconChevronRight />}
             aria-label={isOpen ? 'Hide sidebar' : 'Open sidebar'}
+            square
           />
           <ul className="sidebar-list">
             {components?.map((component) => (
               <li key={component} data-sidebar-component={component}>
-                {/* TODO: Redo after VsfListItemMenu uses VsfLink internall */}
-                {/* currently there is no way to use Next/Link & VsfListItemMenu together due to their onClick prop incompatibility */}
                 <Link href={`/examples/${component}`} legacyBehavior>
-                  {createElement(({ onClick }: { onClick: (e: Event) => void }) => (
-                    <VsfListItemMenu
-                      onClick={() => {
-                        const event = new Event('click');
-                        Object.defineProperty(event, 'currentTarget', {
-                          writable: false,
-                          value: document.querySelector(`li[data-sidebar-component="${component}"] a`),
-                        });
-                        onClick(event);
-                      }}
-                      className={classNames({ 'font-medium': router.pathname === `/examples/${component}` })}
-                      active={router.pathname === `/examples/${component}`}
-                      as="a"
-                    >
-                      {component}
-                    </VsfListItemMenu>
-                  ))}
+                  <VsfListItemMenu
+                    className={classNames({ 'font-medium': router.pathname === `/examples/${component}` })}
+                    active={router.pathname === `/examples/${component}`}
+                    as="a"
+                  >
+                    {component}
+                  </VsfListItemMenu>
                 </Link>
               </li>
             ))}

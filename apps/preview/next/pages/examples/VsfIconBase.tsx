@@ -1,4 +1,4 @@
-import { VsfIconSize, VsfIconPackage } from '@storefront-ui/react/components/VsfIcons/index';
+import { VsfIconSize, VsfIconPackage } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';

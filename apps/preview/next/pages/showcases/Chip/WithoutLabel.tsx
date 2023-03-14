@@ -1,5 +1,4 @@
-import { VsfChip } from '@storefront-ui/react/components/VsfChip';
-import { VsfThumbnail } from '@storefront-ui/react/components/VsfThumbnail';
+import { VsfChip, VsfThumbnail } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

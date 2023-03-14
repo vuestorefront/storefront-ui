@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import { VsfProgressSize, type VsfProgressCircularProps } from './types';
+import { VsfProgressSize } from '@storefront-ui/react';
+import type { VsfProgressCircularProps } from '@storefront-ui/react';
 
 const sizeClasses = {
   [VsfProgressSize.xs]: 'h-4 w-4 ring-2',

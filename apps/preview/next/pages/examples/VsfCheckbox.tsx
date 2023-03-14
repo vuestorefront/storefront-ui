@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { VsfCheckbox } from '@storefront-ui/react/components/VsfCheckbox';
-import type { VsfCheckboxProps } from '@storefront-ui/react/components/VsfCheckbox/types';
+import { VsfCheckbox } from '@storefront-ui/react';
+import type { VsfCheckboxProps } from '@storefront-ui/react';
 import { useRef, useEffect } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';

@@ -1,5 +1,4 @@
-import type { Prettify } from '../../shared/types';
-import type { UsePopoverOptions } from '../usePopover';
+import type { Prettify, UsePopoverOptions } from '@storefront-ui/react';
 
 export type UseTooltipOptions = Prettify<
   Omit<UsePopoverOptions, 'isOpen'> & {

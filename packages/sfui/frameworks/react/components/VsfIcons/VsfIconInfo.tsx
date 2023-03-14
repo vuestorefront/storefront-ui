@@ -1,5 +1,5 @@
-import type { VsfIconProps } from './types';
-import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
+import type { VsfIconProps } from '@storefront-ui/react';
+import { VsfIconBase, VsfIconSize } from '@storefront-ui/react';
 
 export default function VsfIconInfo({ size = VsfIconSize.base, viewBox = '0 0 24 24', ...attributes }: VsfIconProps) {
   return (

@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfLoaderLinearSize, VsfLoaderSize } from '@storefront-ui/react/components/VsfLoaderLinear/types';
+import { VsfLoaderLinearSize, VsfLoaderSize } from '@storefront-ui/vue/index';
 import { mount, useComponent } from '../../utils/mount';
 import VsfLoaderLinearBaseObject from './VsfLoaderLinear.PageObject';
 

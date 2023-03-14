@@ -26,7 +26,10 @@
     "incremental": true,
     "preserveConstEnums": true,
     "sourceMap": true,
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@storefront-ui/react": ["./index.ts"]
+    }
   },
   "include": [
     "**/*.ts",

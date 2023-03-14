@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import { VsfLink } from '@storefront-ui/react/components/VsfLink';
+import { VsfLink } from '@storefront-ui/react';
 import Link from 'next/link';
 import { ShowcasePageLayout } from '../../showcases';
 

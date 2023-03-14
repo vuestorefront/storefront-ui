@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfAccordionItemSize } from '@storefront-ui/vue/components/VsfAccordionItem/types';
+import { VsfAccordionItemSize } from '@storefront-ui/vue/index';
 import { mount, useComponent } from '../../utils/mount';
 import VsfAccordionItemBaseObject from './VsfAccordionItem.PageObject';
 

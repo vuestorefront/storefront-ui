@@ -1,5 +1,6 @@
 import classNames from 'classnames';
-import { type VsfProgressLinearProps, VsfProgressSize, VsfProgressLinearSize } from './types';
+import { VsfProgressSize, VsfProgressLinearSize } from '@storefront-ui/react';
+import type { VsfProgressLinearProps } from '@storefront-ui/react';
 
 const sizeClasses = {
   [VsfProgressLinearSize.minimal]: 'h-1',

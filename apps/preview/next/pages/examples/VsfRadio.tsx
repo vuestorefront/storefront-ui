@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { VsfRadio } from '@storefront-ui/react/components/VsfRadio';
+import { VsfRadio } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';

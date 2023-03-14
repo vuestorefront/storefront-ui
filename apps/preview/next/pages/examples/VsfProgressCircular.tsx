@@ -1,4 +1,4 @@
-import { VsfProgressCircular, VsfProgressSize } from '@storefront-ui/react/components/VsfProgressCircular/index';
+import { VsfProgressCircular, VsfProgressSize } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
 import ComponentExample from '../../components/utils/ComponentExample';

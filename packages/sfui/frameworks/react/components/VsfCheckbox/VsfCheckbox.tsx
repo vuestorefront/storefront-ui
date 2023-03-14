@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { forwardRef } from 'react';
-import { VsfCheckboxProps } from './types';
+import type { VsfCheckboxProps } from '@storefront-ui/react';
 
 const VsfCheckbox = forwardRef<HTMLInputElement, VsfCheckboxProps>(
   ({ invalid, className, ...attributes }, ref): JSX.Element => (

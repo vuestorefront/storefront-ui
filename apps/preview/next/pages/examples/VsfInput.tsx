@@ -1,7 +1,6 @@
-import { VsfInput } from '@storefront-ui/react/components/VsfInput';
-import { VsfInputProps, VsfInputSize } from '@storefront-ui/react/components/VsfInput/types';
+import { VsfInput, VsfInputSize, VsfIconSearch, VsfIconLock } from '@storefront-ui/react';
+import type { VsfInputProps } from '@storefront-ui/react';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
-import { VsfIconSearch, VsfIconLock } from '@storefront-ui/react/components/VsfIcons';
 import classNames from 'classnames';
 import { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';

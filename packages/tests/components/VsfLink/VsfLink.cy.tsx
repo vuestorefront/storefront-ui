@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfLinkVariant } from '@storefront-ui/vue/components/VsfLink/types';
+import { VsfLinkVariant } from '@storefront-ui/vue/index';
 import { mount, useComponent } from '../../utils/mount';
 import VsfLinkBaseObject from './VsfLink.PageObject';
 

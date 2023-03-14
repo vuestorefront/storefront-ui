@@ -1,4 +1,4 @@
-import { VsfLink } from '@storefront-ui/react/components/VsfLink';
+import { VsfLink } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

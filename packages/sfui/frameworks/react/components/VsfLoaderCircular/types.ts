@@ -1,5 +1,5 @@
 import { VsfLoaderSize } from '@storefront-ui/shared';
-import type { PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle } from '@storefront-ui/react';
 
 export { VsfLoaderSize };
 export interface VsfLoaderCircularProps extends PropsWithStyle {

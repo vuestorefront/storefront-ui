@@ -2,12 +2,12 @@ import {
   VsfListItemMenu,
   VsfListItemMenuProps,
   VsfListItemMenuSize,
-} from '@storefront-ui/react/components/VsfListItemMenu';
+  VsfIconSize,
+  VsfIconCheck,
+  VsfCounter,
+} from '@storefront-ui/react';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
-import { VsfIconSize } from '@storefront-ui/react/components/VsfIcons/types';
-import { VsfIconCheck } from '~/../../../packages/sfui/frameworks/react/components/VsfIcons';
 import classNames from 'classnames';
-import { VsfCounter } from '@storefront-ui/react/components/VsfCounter';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';

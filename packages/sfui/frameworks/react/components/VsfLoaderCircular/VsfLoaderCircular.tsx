@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { VsfLoaderSize } from './types';
-import type { VsfLoaderCircularProps } from './types';
+import { VsfLoaderSize } from '@storefront-ui/react';
+import type { VsfLoaderCircularProps } from '@storefront-ui/react';
 
 const sizeClasses = {
   [VsfLoaderSize.xs]: 'h-4 w-4 ring-2',

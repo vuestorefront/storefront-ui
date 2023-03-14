@@ -62,6 +62,7 @@
     "string-replace-loader": "^3.1.0",
     "swc-plugin-coverage-instrument": "^0.0.14",
     "tailwindcss": "^3.2.7",
-    "ts-loader": "^9.4.2"
+    "ts-loader": "^9.4.2",
+    "vite-tsconfig-paths": "^4.0.5"
   }
 }

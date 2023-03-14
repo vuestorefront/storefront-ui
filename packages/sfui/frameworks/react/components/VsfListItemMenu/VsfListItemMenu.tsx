@@ -1,6 +1,6 @@
 import classNames from 'classnames';
-import { VsfListItemMenuProps, VsfListItemMenuSize } from './types';
-import { polymorphicForwardRef } from '../../shared/utils';
+import { VsfListItemMenuSize, polymorphicForwardRef } from '@storefront-ui/react';
+import type { VsfListItemMenuProps } from '@storefront-ui/react';
 
 const defaultListItemMenuTag = 'li';
 

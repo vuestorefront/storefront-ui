@@ -1,5 +1,5 @@
 import type { ReactNode, PropsWithChildren } from 'react';
-import type { PropsWithStyle } from '../../shared/types';
+import type { PropsWithStyle } from '@storefront-ui/react';
 
 export enum VsfButtonSize {
   sm = 'sm',

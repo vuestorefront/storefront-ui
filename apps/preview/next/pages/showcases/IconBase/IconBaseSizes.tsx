@@ -1,4 +1,4 @@
-import { VsfIconHome } from '@storefront-ui/react/components/VsfIcons/index';
+import { VsfIconHome } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {
