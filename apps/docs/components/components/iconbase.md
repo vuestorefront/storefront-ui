@@ -98,17 +98,19 @@ When using icon element with custom icon remember to specify viewBox or width/he
 
 ## Slots
 
-| Slot name |         Description          |
-| --------- | :--------------------------: |
+| Slot name | Description                                                                     |
+| --------- | ------------------------------------------------------------------------------- |
 | default   | Content of an SVF, e.g. `<path d='...'/>`. Takes precedence over `content` prop |
 <!-- end vue -->
 :::
 
 ::: slot source
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfIconBase/VsfIconBase.vue
 <!-- end vue -->
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfIconBase/VsfIconBase.tsx
 <!-- end react -->
+</SourceCode>
 :::

@@ -69,9 +69,7 @@ function Dropdown() {
 :::
 
 ::: slot source
-
-## Source code
-
+<SourceCode>
 <<<../../../packages/sfui/frameworks/react/hooks/useDropdown/useDropdown.ts
-
+</SourceCode>
 :::

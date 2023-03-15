@@ -54,19 +54,19 @@ Switch component can have a leading or trailing alignment.
 
 ## Events
 
-| Event name        |            Trigger             |
-| ----------------- | :----------------------------: |
-| update:modelValue | triggers v-model update event  |
+| Event name        | Trigger                       |
+| ----------------- | ----------------------------- |
+| update:modelValue | triggers v-model update event |
 <!-- end vue -->
 :::
 
 ::: slot source
-## Source code
-
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfSwitch/VsfSwitch.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfSwitch/VsfSwitch.tsx
 <!-- end react -->
+</SourceCode>
 :::

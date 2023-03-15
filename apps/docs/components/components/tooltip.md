@@ -42,11 +42,9 @@ Tooltip component is built on to of the `useTooltip` hook and accepts all its pa
 :::
 
 ::: slot source
-
-## Source code
-
+<SourceCode>
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfTooltip/VsfTooltip.tsx
 <!-- end react -->
-
+</SourceCode>
 :::

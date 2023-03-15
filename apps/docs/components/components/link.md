@@ -82,18 +82,20 @@ Use `tag` prop to render component as `NuxtLink`.
 <!-- end react -->
 
 <!-- vue -->
-| Slot name |         Description          |
-| --------- | :--------------------------: |
+| Slot name | Description                  |
+| --------- | ---------------------------- |
 | default   | replaces the default content |
 <!-- end vue -->
 
 :::
 
 ::: slot source
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfLink/VsfLink.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfLink/VsfLink.tsx
 <!-- end react -->
+</SourceCode>
 :::

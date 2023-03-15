@@ -111,24 +111,26 @@ Please note that `aria-label` should be added for a showcase without text label.
 
 ## Slots 
 
-| Slot name |            Description            |
-|-----------| :-------------------------------: |
-| default   |  Replaces content inside chip     |
+| Slot name | Description                  |
+| --------- | ---------------------------- |
+| default   | Replaces content inside chip |
 
 ## Events
 
-| Event name        |            Trigger             |
-| ----------------- | :----------------------------: |
-| update:modelValue | triggers v-model update event  |
+| Event name        | Trigger                       |
+| ----------------- | ----------------------------- |
+| update:modelValue | triggers v-model update event |
 
 <!-- end vue -->
 :::
 
 ::: slot source
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfChip/VsfChip.vue
 <!-- end vue -->
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfChip/VsfChip.tsx
 <!-- end react -->
+</SourceCode>
 :::

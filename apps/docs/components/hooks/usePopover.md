@@ -71,9 +71,7 @@ function Tooltip({ children, text }: TooltipProps) {
 :::
 
 ::: slot source
-
-## Source code
-
+<SourceCode>
 <<<../../../packages/sfui/frameworks/react/hooks/usePopover/usePopover.ts
-
+</SourceCode>
 :::

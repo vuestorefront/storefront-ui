@@ -82,23 +82,23 @@ ListItemMenu has additional slots to place custom content. Slot <!-- vue --> `pr
 <!-- vue -->
 ## Slots
 
-| Slot name     |        Description         |
-| ------------- | :------------------------: |
-| default       |  content                   |
-| prefix        | right side content         |
-| suffix        | left side content          |
+| Slot name | Description        |
+| --------- | ------------------ |
+| default   | content            |
+| prefix    | right side content |
+| suffix    | left side content  |
 
 <!-- end vue -->
 
 :::
 
 ::: slot source
-## Source code
-
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfListItemMenu/VsfListItemMenu.vue
 <!-- end vue -->
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfListItemMenu/VsfListItemMenu.tsx
 <!-- end react -->
+</SourceCode>
 :::

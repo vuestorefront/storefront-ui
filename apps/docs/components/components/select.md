@@ -89,25 +89,23 @@ Select with invalid state.
 <!-- vue -->
 ## Slots
 
-| Slot name     |            Description            |
-| ---------     | :-------------------------------: |
-|  default      |   Place for select options        |
-|  chevron      |   Custom chevron                  |
+| Slot name | Description              |
+| --------- | ------------------------ |
+| default   | Place for select options |
+| chevron   | Custom chevron           |
 
 ## Events
 
-| Event name        |            Trigger             |
-| ----------------- | :----------------------------: |
-| update:modelValue | triggers v-model update event  |
+| Event name        | Trigger                       |
+| ----------------- | ----------------------------- |
+| update:modelValue | triggers v-model update event |
 
 <!-- end vue -->
 
 :::
 
 ::: slot source
-
-## Source code
-
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfSelect/VsfSelect.vue
 <!-- end vue -->
@@ -115,5 +113,5 @@ Select with invalid state.
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfSelect/VsfSelect.tsx
 <!-- end react -->
-
+</SourceCode>
 :::

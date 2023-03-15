@@ -138,11 +138,11 @@ Avoid using buttons to navigate the page. Use links or tabs.
 <!-- vue -->
 ## Slots
 
-| Slot name |         Description          |
-| --------- | :--------------------------: |
-| prefix    |     before default slot      |
+| Slot name | Description                  |
+| --------- | ---------------------------- |
+| prefix    | before default slot          |
 | default   | replaces the default content |
-| suffix    |      after default slot      |
+| suffix    | after default slot           |
 <!-- end vue -->
 
 :::

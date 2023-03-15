@@ -111,11 +111,12 @@ Icons can be applied by placing into the default slot of component.
 :::
 
 ::: slot source
-
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfThumbnail/VsfThumbnail.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfThumbnail/VsfThumbnail.tsx
 <!-- end react -->
+</SourceCode>
 :::

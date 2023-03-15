@@ -40,11 +40,9 @@ Dropdown component is built on to of the `useDropdown` hook and accepts all its 
 :::
 
 ::: slot source
-
-## Source code
-
+<SourceCode>
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfDropdown/VsfDropdown.tsx
 <!-- end react -->
-
+</SourceCode>
 :::
