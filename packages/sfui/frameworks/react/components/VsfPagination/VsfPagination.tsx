@@ -90,7 +90,7 @@ export default function VsfPagination({
               )}
             </li>
           )}
-          {pagination.startPage >= 2 && (
+          {pagination.startPage > 2 && (
             <li>
               <div className="vsf-pagination__item">
                 <VsfButton
@@ -107,27 +107,61 @@ export default function VsfPagination({
           )}
           {children ||
             pagination.pages.map((page) => (
-              <li key={`page-${page}`}>
-                <div
-                  className={classNames(
-                    'vsf-pagination__item',
-                    selectedPage === page && 'vsf-pagination__item--selected',
-                  )}
-                >
-                  <VsfButton
-                    className="vsf-pagination__button"
-                    aria-label={ariaLabelButton(page, pagination.totalPages)}
-                    aria-current={selectedPage === page}
-                    variant={VsfButtonVariant.tertiary}
-                    onClick={() => onPageChange(page)}
-                    data-testid={`pagination-button-visible-${page}`}
+              <>
+                {maxVisiblePages === 1 && selectedPage === pagination.totalPages && (
+                  <li>
+                    <div className={classNames('vsf-pagination__item')}>
+                      <VsfButton
+                        className="vsf-pagination__button"
+                        aria-label={ariaLabelButton(pagination.endPage - 1, pagination.totalPages)}
+                        aria-current={selectedPage}
+                        onClick={() => onPageChange(pagination.endPage - 1)}
+                        variant={VsfButtonVariant.tertiary}
+                        data-testid="pagination-button-first"
+                      >
+                        {pagination.endPage - 1}
+                      </VsfButton>
+                    </div>
+                  </li>
+                )}
+                <li key={`page-${page}`}>
+                  <div
+                    className={classNames(
+                      'vsf-pagination__item',
+                      selectedPage === page && 'vsf-pagination__item--selected',
+                    )}
                   >
-                    {page}
-                  </VsfButton>
-                </div>
-              </li>
+                    <VsfButton
+                      className="vsf-pagination__button"
+                      aria-label={ariaLabelButton(page, pagination.totalPages)}
+                      aria-current={selectedPage === page}
+                      variant={VsfButtonVariant.tertiary}
+                      onClick={() => onPageChange(page)}
+                      data-testid={`pagination-button-visible-${page}`}
+                    >
+                      {page}
+                    </VsfButton>
+                  </div>
+                </li>
+                {maxVisiblePages === 1 && selectedPage === 1 && (
+                  <li>
+                    <div className={classNames('vsf-pagination__item')}>
+                      <VsfButton
+                        className="vsf-pagination__button"
+                        aria-label={ariaLabelButton(2, pagination.totalPages)}
+                        aria-current={selectedPage}
+                        onClick={() => onPageChange(2)}
+                        variant={VsfButtonVariant.tertiary}
+                        data-testid="pagination-button-first"
+                      >
+                        2
+                      </VsfButton>
+                    </div>
+                  </li>
+                )}
+              </>
             ))}
-          {pagination.endPage <= pagination.totalPages - 1 && (
+          {pagination.endPage < pagination.totalPages - 1 && (
             <li>
               <div className="vsf-pagination__item">
                 <VsfButton

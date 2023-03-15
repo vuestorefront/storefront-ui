@@ -109,7 +109,7 @@ const onPageChange = (newPage: number) => {
           </div>
         </slot>
       </li>
-      <li v-if="startPage >= 2">
+      <li v-if="startPage > 2">
         <div class="vsf-pagination__item">
           <VsfButton
             disabled
@@ -123,6 +123,20 @@ const onPageChange = (newPage: number) => {
         </div>
       </li>
       <slot>
+        <li v-if="maxVisiblePages === 1 && selectedPage === totalPages">
+          <div :class="['vsf-pagination__item']">
+            <VsfButton
+              class="vsf-pagination__button"
+              :aria-label="ariaLabelButton(endPage - 1, totalPages)"
+              :aria-current="endPage - 1"
+              :variant="VsfButtonVariant.tertiary"
+              :data-testid="`pagination-button-visible-${endPage - 1}`"
+              @click="onPageChange(endPage - 1)"
+            >
+              {{ endPage - 1 }}
+            </VsfButton>
+          </div>
+        </li>
         <li v-for="page in pages" :key="`page-${page}`">
           <div :class="['vsf-pagination__item', { 'vsf-pagination__item--selected': selectedPage === page }]">
             <VsfButton
@@ -137,8 +151,22 @@ const onPageChange = (newPage: number) => {
             </VsfButton>
           </div>
         </li>
+        <li v-if="maxVisiblePages === 1 && selectedPage === 1">
+          <div :class="['vsf-pagination__item']">
+            <VsfButton
+              class="vsf-pagination__button"
+              :aria-label="ariaLabelButton(2, totalPages)"
+              :aria-current="2"
+              :variant="VsfButtonVariant.tertiary"
+              :data-testid="`pagination-button-visible-${2}`"
+              @click="onPageChange(2)"
+            >
+              2
+            </VsfButton>
+          </div>
+        </li>
       </slot>
-      <li v-if="endPage <= totalPages - 1">
+      <li v-if="endPage < totalPages - 1">
         <div class="vsf-pagination__item">
           <VsfButton
             disabled
