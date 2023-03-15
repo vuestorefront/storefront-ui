@@ -88,10 +88,12 @@ Rating could be presented as a simple star icon with value label.
 :::
 
 ::: slot source
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfRating/VsfRating.vue
 <!-- end vue -->
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfRating/VsfRating.tsx
 <!-- end react -->
+</SourceCode>
 :::

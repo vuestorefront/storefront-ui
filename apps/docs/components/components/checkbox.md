@@ -84,19 +84,20 @@ The component with label element and the input aligned to the right edge of the 
 <!-- vue -->
 ## Events
 
-| Event name        |            Trigger             |
-| ----------------- | :----------------------------: |
-| update:modelValue | triggers v-model update event  |
+| Event name        | Trigger                       |
+| ----------------- | ----------------------------- |
+| update:modelValue | triggers v-model update event |
 <!-- end vue -->
 
 :::
 
 ::: slot source
-
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfCheckbox/VsfCheckbox.vue
 <!-- end vue -->
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfCheckbox/VsfCheckbox.tsx
 <!-- end react -->
+</SourceCode>
 :::

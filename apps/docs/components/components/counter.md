@@ -59,21 +59,20 @@ The pill version of the component with size set to `xl` and colored background.
 <!-- vue -->
 ## Slots
 
-| Slot name |            Description            |
-| --------- | :-------------------------------: |
-| default   | To be filled with counter value   |
+| Slot name | Description                     |
+| --------- | ------------------------------- |
+| default   | To be filled with counter value |
 <!-- end vue -->
 
 :::
 
 ::: slot source
-## Source code
-
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfCounter/VsfCounter.vue
 <!-- end vue -->
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfCounter/VsfCounter.tsx
 <!-- end react -->
-
+</SourceCode>
 :::

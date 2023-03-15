@@ -84,16 +84,15 @@ Label can be either on the right side of an input or on the left side.
 <!-- vue -->
 ## Events
 
-| Event name        |          Trigger          |
-| ----------------- | :-----------------------: |
+| Event name        | Trigger                   |
+| ----------------- | ------------------------- |
 | update:modelValue | triggers radio event emit |
 
 <!-- end vue -->
 :::
 
 ::: slot source
-## Source code
-
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfRadio/VsfRadio.vue
 <!-- end vue -->
@@ -101,4 +100,5 @@ Label can be either on the right side of an input or on the left side.
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfRadio/VsfRadio.tsx
 <!-- end react -->
+</SourceCode>
 :::

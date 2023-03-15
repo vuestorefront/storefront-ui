@@ -58,10 +58,12 @@ LoaderCircular by default uses a `primary-700` as animated-shape color (customiz
 <!-- end react -->
 :::
 ::: slot source
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfLoaderCircular/VsfLoaderCircular.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfLoaderCircular/VsfLoaderCircular.tsx
 <!-- end react -->
+</SourceCode>
 :::

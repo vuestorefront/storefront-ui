@@ -133,19 +133,19 @@ The input component when in invalid state.
 <!-- vue -->
 ## Slots
 
-| Slot name     |            Description            |
-| ---------     | :-------------------------------: |
-|  prefix       |   Custom content for prefix in input       |
-|  suffix       |   Custom content for suffix in input       |
+| Slot name | Description                        |
+| --------- | ---------------------------------- |
+| prefix    | Custom content for prefix in input |
+| suffix    | Custom content for suffix in input |
 <!-- end vue -->
 
 <!-- vue -->
 
 ## Events
 
-| Event name        |            Trigger             |
-| ----------------- | :----------------------------: |
-| update:modelValue | triggers v-model update event  |
+| Event name        | Trigger                       |
+| ----------------- | ----------------------------- |
+| update:modelValue | triggers v-model update event |
 
 <!-- end vue -->
 
@@ -153,7 +153,7 @@ The input component when in invalid state.
 :::
 
 ::: slot source
-## Source code
+<SourceCode>
 
 <!-- vue -->
 
@@ -166,4 +166,5 @@ The input component when in invalid state.
 <<< ../../../packages/sfui/frameworks/react/components/VsfInput/VsfInput.tsx
 
 <!-- end react -->
+</SourceCode>
 :::

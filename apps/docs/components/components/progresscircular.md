@@ -76,16 +76,18 @@ ProgressCircular might be displayed with a text representation of it's value. To
 <!-- vue -->
 ## Slots
 
-| Slot name |         Description          |
-| --------- | :--------------------------: |
+| Slot name | Description                     |
+| --------- | ------------------------------- |
 | default   | adds content within svg element |
 <!-- end vue -->
 :::
 ::: slot source
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfProgressCircular/VsfProgressCircular.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfProgressCircular/VsfProgressCircular.tsx
 <!-- end react -->
+</SourceCode>
 :::

@@ -69,23 +69,25 @@ Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide
 
 ## Slots
 
-| Slot name       |            Description            |
-| ---------       | :-------------------------------: |
-|  default        |  place content of drawer      |
+| Slot name | Description             |
+| --------- | ----------------------- |
+| default   | place content of drawer |
 
 ## Events
 
-| Event name |            Trigger               |
-| ---------- | :----------------------------:   |
-| update:modelValue     |  emits on clicking close button  |
+| Event name        | Trigger                        |
+| ----------------- | ------------------------------ |
+| update:modelValue | emits on clicking close button |
 <!-- end vue -->
 :::
 
 ::: slot source
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfDrawer/VsfDrawer.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfDrawer/VsfDrawer.tsx
 <!-- end react -->
+</SourceCode>
 :::

@@ -80,12 +80,12 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
         <table aria-label="Controls table">
           <thead className="table-heading">
             <tr>
-              <th>PropName</th>
-              <th>Value</th>
-              <th>Type</th>
-              <th>DefaultValue</th>
-              <th>Required</th>
-              <th>Description</th>
+              <th className="whitespace-nowrap">Prop Name</th>
+              <th className="whitespace-nowrap">Value</th>
+              <th className="whitespace-nowrap">Type</th>
+              <th className="whitespace-nowrap">Default Value</th>
+              <th className="whitespace-nowrap">Required</th>
+              <th className="whitespace-nowrap">Description</th>
             </tr>
           </thead>
           <tbody>

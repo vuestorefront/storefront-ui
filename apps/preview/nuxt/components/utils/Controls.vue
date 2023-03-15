@@ -19,12 +19,12 @@
         <table aria-label="Controls table">
           <thead class="table-heading">
             <tr>
-              <th>PropName</th>
-              <th>Value</th>
-              <th>Type</th>
-              <th>DefaultValue</th>
-              <th>Required</th>
-              <th>Description</th>
+              <th class="whitespace-nowrap">Prop Name</th>
+              <th class="whitespace-nowrap">Value</th>
+              <th class="whitespace-nowrap">Type</th>
+              <th class="whitespace-nowrap">Default Value</th>
+              <th class="whitespace-nowrap">Required</th>
+              <th class="whitespace-nowrap">Description</th>
             </tr>
           </thead>
           <tbody>

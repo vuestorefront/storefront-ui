@@ -77,10 +77,12 @@ ProgressLinear should be displayed with an accessible text label. You achieve th
 <!-- end react -->
 :::
 ::: slot source
+<SourceCode>
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/VsfProgressLinear/VsfProgressLinear.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfProgressLinear/VsfProgressLinear.tsx
 <!-- end react -->
+</SourceCode>
 :::

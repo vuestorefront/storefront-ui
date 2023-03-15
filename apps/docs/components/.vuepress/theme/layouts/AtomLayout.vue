@@ -18,7 +18,17 @@
       </div>
       <KeepAlive>
         <div ref="tabs">
-          <Content v-for="{ value } in tabOptions" :key="value" :slot-key="value" v-if="selectedTab === value" />
+          <div v-for="{ value } in tabOptions" v-if="selectedTab === value" :key="value">
+            <div v-if="value === 'source'" class="mt-4 custom-block tip mb-4">
+              <p class="custom-block-title">Need to change the default behavior?</p>
+              <p>
+                By copying over our base component into your project, you can customize any behavior or stylings. Just
+                make sure to use your custom component when you copy over our
+                <RouterLink :to="`/${framework}/blocks`">Blocks</RouterLink>!
+              </p>
+            </div>
+            <Content :slot-key="value" />
+          </div>
         </div>
       </KeepAlive>
     </template>
@@ -104,3 +114,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+:deep(td, th) {
+  @apply text-left !important;
+}
+</style>
