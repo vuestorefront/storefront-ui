@@ -1,15 +1,13 @@
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col gap-y-5">
     <label>
       <span class="text-sm font-medium">Label</span>
       <VsfInput size="sm" />
     </label>
-    <br />
     <label>
       <span class="text-sm font-medium">Label</span>
       <VsfInput />
     </label>
-    <br />
     <label>
       <span class="text-sm font-medium">Label</span>
       <VsfInput size="lg" />

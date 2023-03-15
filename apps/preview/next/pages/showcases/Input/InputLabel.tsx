@@ -4,17 +4,15 @@ import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-y-5">
       <label>
         <span className="text-sm font-medium">Label</span>
         <VsfInput size="sm" />
       </label>
-      <br />
       <label>
         <span className="text-sm font-medium">Label</span>
         <VsfInput />
       </label>
-      <br />
       <label>
         <span className="text-sm font-medium">Label</span>
         <VsfInput size="lg" />
