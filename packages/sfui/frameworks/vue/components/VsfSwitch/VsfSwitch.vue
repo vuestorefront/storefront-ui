@@ -4,7 +4,7 @@ import { InputHTMLAttributes, PropType, toRefs, computed } from 'vue';
 const props = defineProps({
   modelValue: {
     type: [String, Array, Boolean] as PropType<InputHTMLAttributes['checked']>,
-    required: true,
+    default: false,
   },
   value: {
     type: String,

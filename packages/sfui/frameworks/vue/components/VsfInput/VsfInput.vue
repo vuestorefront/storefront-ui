@@ -56,7 +56,7 @@ const inputValue = useVModel(props, 'modelValue', emit);
     <input
       v-model="inputValue"
       v-bind="$attrs"
-      class="min-w-[160px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent read-only:text-disabled-900"
+      class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent read-only:text-disabled-900"
       data-testid="input-field"
       :size="1"
     />

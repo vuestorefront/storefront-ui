@@ -137,8 +137,8 @@ export const tailwindConfig: Config = {
         },
       },
       fontFamily: {
-        headings: ['Red Hat Display', 'sans-serif'],
-        body: ['Red Hat Text', 'sans-serif'],
+        headings: '"Red Hat Display",sans-serif',
+        body: '"Red Hat Text",sans-serif',
       },
       screens: {
         '2-extra-small': '360px',

@@ -23,7 +23,7 @@ const VsfInput = forwardRef<HTMLInputElement, VsfInputProps>(
       {slotPrefix}
       <input
         className={classNames([
-          'appearance-none outline-none min-w-[160px] w-full text-base text-neutral-700 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent read-only:text-disabled-900',
+          'appearance-none outline-none min-w-[80px] w-full text-base text-neutral-700 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent read-only:text-disabled-900',
           className,
         ])}
         type="text"
