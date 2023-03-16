@@ -1,94 +1,110 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfAccordionItemSize } from '@storefront-ui/vue/index';
+import { noop } from '@storefront-ui/shared';
 import { mount, useComponent } from '../../utils/mount';
 import VsfAccordionItemBaseObject from './VsfAccordionItem.PageObject';
 
 const { vue: VsfAccordionItemVue, react: VsfAccordionItemReact } = useComponent('VsfAccordionItem');
 
 describe('VsfAccordionItem', () => {
-  let title: string;
-  let open: boolean;
-  let chevronLeft: boolean;
-  let slotContent: string;
-  let size: VsfAccordionItemSize;
-
   const page = () => new VsfAccordionItemBaseObject('accordion-item');
 
-  const initializeComponent = () => {
+  const initializeComponent = (props?: {
+    open?: boolean;
+    onToggle?: (open: boolean) => void;
+    summary?: string;
+    children?: string;
+    className?: string;
+    summaryClassName?: string;
+  }) => {
+    const {
+      open = false,
+      onToggle = noop,
+      summary = 'Accordion title',
+      children = 'This is some content inside accordion',
+      className = '',
+      summaryClassName = '',
+    } = props || {};
+
     return mount({
       vue: {
         component: VsfAccordionItemVue,
-        props: {
-          open,
-          title,
-          size,
-          chevronLeft,
-        },
+        props: { modelValue: open, 'onUpdate:modelValue': onToggle, class: className, summaryClass: summaryClassName },
         slots: {
-          default: () => slotContent,
+          default: () => children,
+          summary: () => summary,
         },
       },
       react: (
-        <VsfAccordionItemReact title={title} open={open} size={size} chevronLeft={chevronLeft}>
-          {slotContent}
+        <VsfAccordionItemReact
+          summary={summary}
+          open={open}
+          onToggle={onToggle}
+          className={className}
+          summaryClassName={summaryClassName}
+        >
+          {children}
         </VsfAccordionItemReact>
       ),
     });
   };
 
-  afterEach(() => {
-    title = 'Accordion title';
-    slotContent = 'This is some content inside accordion';
-    open = false;
-    chevronLeft = false;
-  });
+  describe('When prop open=true', () => {
+    it('Should show content', () => {
+      const props = { open: true, children: 'Content is visible' };
+      initializeComponent(props);
 
-  it('initial state', () => {
-    title = '';
-    slotContent = '';
-    initializeComponent();
+      page().isOpen().hasContent(props.children).makeSnapshot();
+    });
 
-    page().doesNotHaveHeader().doesNotHaveContent().isNotOpen().makeSnapshot();
-  });
+    it('Should show given summary', () => {
+      const props = { open: true, summary: 'Header text' };
+      initializeComponent(props);
 
-  describe('when prop size is set to ', () => {
-    Object.values(VsfAccordionItemSize).forEach((componentSize) => {
-      describe(`${componentSize}`, () => {
-        it(`should render correct ${componentSize} size`, () => {
-          size = componentSize;
-
-          initializeComponent();
-
-          page().makeSnapshot();
-        });
-      });
+      page().hasSummary(props.summary).makeSnapshot();
     });
   });
 
-  describe('when accordion prop open=true and filled', () => {
-    it('should render correctly', () => {
-      open = true;
-      initializeComponent();
+  describe('When prop open=false', () => {
+    it('Should hide content', () => {
+      const props = { open: false, children: 'Content is hidden' };
+      initializeComponent(props);
 
-      page().hasHeader(title).hasContent(slotContent).isOpen().makeSnapshot();
+      page().isNotOpen().hasContent(props.children).makeSnapshot();
+    });
+
+    it('Should show given summary', () => {
+      const props = { open: false, summary: 'Header text' };
+      initializeComponent(props);
+
+      page().hasSummary(props.summary).makeSnapshot();
     });
   });
 
-  describe('when prop chevronLeft=true', () => {
-    it('should display chevron icon on left side', () => {
-      chevronLeft = true;
-      initializeComponent();
+  describe('When summary has been clicked', () => {
+    it('Should call toggle event handler', () => {
+      const props = { onToggle: cy.spy(), open: false };
+      initializeComponent(props);
 
-      page().makeSnapshot();
+      page().clickSummary(props.onToggle, !props.open);
     });
   });
 
-  describe('when header is clicked', () => {
-    it('should open/close accordion', () => {
-      initializeComponent();
+  describe('When class prop is added', () => {
+    it('Should apply given classes to <details> element', () => {
+      const props = { className: 'custom-class' };
+      initializeComponent(props);
 
-      page().isNotOpen().clickHeader().isOpen().clickHeader().isNotOpen().makeSnapshot();
+      page().hasClassName(props.className);
+    });
+  });
+
+  describe('When summaryClass prop is added', () => {
+    it('Should apply given classes to <summary> element', () => {
+      const props = { summaryClassName: 'custom-summary-class' };
+      initializeComponent(props);
+
+      page().hasSummaryClassName(props.summaryClassName);
     });
   });
 });

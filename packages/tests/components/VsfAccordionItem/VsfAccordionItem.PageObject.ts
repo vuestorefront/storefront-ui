@@ -1,28 +1,13 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class VsfAccordionItemBaseObject extends BasePage {
-  clickHeader() {
-    this.headerSummaryElement.click();
-    return this;
-  }
-
-  hasHeader(label: string) {
-    this.headerSummaryElement.contains(label);
-    return this;
-  }
-
-  doesNotHaveHeader() {
-    this.headerSummaryElement.should('be.empty');
+  hasSummary(label: string) {
+    this.summaryElement.contains(label);
     return this;
   }
 
   hasContent(content: string) {
-    this.contentElement.contains(content);
-    return this;
-  }
-
-  doesNotHaveContent() {
-    this.contentElement.should('be.empty');
+    this.container.contains(content);
     return this;
   }
 
@@ -40,11 +25,25 @@ export default class VsfAccordionItemBaseObject extends BasePage {
     return this;
   }
 
-  get headerSummaryElement() {
-    return this.findTestElement('accordion-item-title');
+  clickSummary(spy: Cypress.Agent<sinon.SinonSpy>, open: boolean) {
+    this.summaryElement.click();
+    cy.then(() => {
+      expect(spy).calledOnceWith(open);
+    });
+    return this;
   }
 
-  get contentElement() {
-    return this.findTestElement('accordion-item-content');
+  hasClassName(className: string) {
+    this.container.should('have.class', className);
+    return this;
+  }
+
+  hasSummaryClassName(className: string) {
+    this.summaryElement.should('have.class', className);
+    return this;
+  }
+
+  get summaryElement() {
+    return this.container.get('summary');
   }
 }

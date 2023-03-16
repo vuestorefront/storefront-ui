@@ -1,41 +1,27 @@
+import { forwardRef } from 'react';
+import type { MouseEvent } from 'react';
 import classNames from 'classnames';
 import type { VsfAccordionItemProps } from '@storefront-ui/react';
-import { VsfAccordionItemSize, VsfIconExpandLess } from '@storefront-ui/react';
 
-export default function VsfAccordionItem({
-  open,
-  title,
-  size = VsfAccordionItemSize.base,
-  chevronLeft,
-  slotPrefix,
-  slotSuffix,
-  onToggle,
-  children,
-  className,
-  ...attributes
-}: VsfAccordionItemProps): JSX.Element {
-  const classes = classNames([className, 'vsf-accordion-item']);
+const VsfAccordionItem = forwardRef<HTMLDetailsElement, VsfAccordionItemProps>((props, ref) => {
+  const { open, onToggle, children, summary, summaryClassName, ...attributes } = props;
+
+  const handleClick = (event: MouseEvent<HTMLElement>) => {
+    event.preventDefault();
+    onToggle?.(!open);
+  };
+
   return (
-    <details className={classes} open={open} onToggle={onToggle} {...attributes} data-testid="accordion-item">
+    <details ref={ref} open={open} {...attributes} data-testid="accordion-item">
       <summary
-        className={classNames('vsf-accordion-item__header', { 'vsf-accordion-item__header--right': chevronLeft })}
+        onClick={handleClick}
+        className={classNames(summaryClassName, 'list-none [&::-webkit-details-marker]:hidden cursor-pointer')}
       >
-        {slotPrefix || (
-          <span
-            className={classNames({
-              'vsf-accordion-item__title--right': chevronLeft,
-              [`vsf-accordion-item__title vsf-accordion-item__header--${size}`]: true,
-            })}
-            data-testid="accordion-item-title"
-          >
-            {title}
-          </span>
-        )}
-        {slotSuffix || <VsfIconExpandLess className="vsf-accordion-item__icon" />}
+        {summary}
       </summary>
-      <div className="vsf-accordion-item__content" data-testid="accordion-item-content">
-        {children}
-      </div>
+      {children}
     </details>
   );
-}
+});
+
+export default VsfAccordionItem;
