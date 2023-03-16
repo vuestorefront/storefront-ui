@@ -9,7 +9,7 @@
       >
         <div v-if="!hideThumbnail" class="w-full flex items-center justify-center bg-gray-100">
           <img
-            :src="`/thumbnails/components/${componentName.replace('Vsf', '')}.png`"
+            :src="$withBase(`/thumbnails/components/${componentName.replace('Vsf', '')}.png`)"
             class="w-full h-full object-cover"
             :alt="componentName"
           />
