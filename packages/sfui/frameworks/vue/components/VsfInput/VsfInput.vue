@@ -17,7 +17,7 @@ import { VsfInputSize } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
-    type: String,
+    type: [String, Number],
     default: '',
   },
   size: {
