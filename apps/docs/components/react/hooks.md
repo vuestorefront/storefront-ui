@@ -12,4 +12,4 @@ layout: home
 
 :::
 
-<ComponentList type="react" hook />
+<ComponentList framework="react" type="hooks" hide-thumbnail  />

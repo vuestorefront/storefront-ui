@@ -12,4 +12,4 @@ layout: DefaultLayout
 Fully accessible UI showcases, designed to integrate beautifully with Tailwind CSS and Vue.
 :::
 
-<ComponentList type="react" showcase/>
+<ComponentList framework="react" type="blocks" hide-thumbnail/>

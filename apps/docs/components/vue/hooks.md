@@ -14,5 +14,5 @@ tabOptions: [vue,nuxt,vite]
 :::
 
 ::: slot vue
-<ComponentList type="vue" hook />
+<ComponentList framework="vue" type="hooks" hide-thumbnail />
 :::

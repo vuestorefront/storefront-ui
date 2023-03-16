@@ -13,4 +13,4 @@ Fully accessible UI components, designed to integrate beautifully with Tailwind 
 :::
 
 
-<ComponentList type="vue" />
+<ComponentList framework="vue" type="components" hide-description />

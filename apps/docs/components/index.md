@@ -36,11 +36,11 @@ hideBreadcrumbs: true
 
 ## Components
 
-<ComponentList type="vue" />
+<ComponentList framework="vue" type="components" hide-description />
 
 ## Composables
 
-<ComponentList type="vue" hook/>
+<ComponentList framework="vue" type="hooks" hide-thumbnail />
 
 :::
 
@@ -48,11 +48,11 @@ hideBreadcrumbs: true
 
 ## Components
 
-<ComponentList type="react" />
+<ComponentList framework="react" type="components" hide-description />
 
 ## Hooks
 
-<ComponentList type="react" hook/>
+<ComponentList framework="react" type="hooks" hide-thumbnail/>
 
 
 :::
