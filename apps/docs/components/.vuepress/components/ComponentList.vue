@@ -5,15 +5,18 @@
         v-for="componentName in components"
         :key="componentName"
         class="overflow-hidden hover:-translate-y-1 hover:shadow-md transition-all border rounded-lg col-span-12 md:col-span-6 lg:col-span-4 hover:border-black dark:hover:border-white dark:border-zinc-700"
-        :to="generateComponentPath(type, componentName, showcase ? 'blocks' : hook ? 'hooks' : 'components')"
+        :to="generateComponentPath(framework, componentName, type)"
       >
-        <!-- TODO: Replace with images when available-->
-        <!-- <div class="aspect-video bg-gradient-default w-full flex items-center justify-center">
-
-        </div> -->
+        <div v-if="!hideThumbnail" class="w-full flex items-center justify-center bg-gray-100">
+          <img
+            :src="`/thumbnails/components/${componentName.replace('Vsf', '')}.png`"
+            class="w-full h-full object-cover"
+            :alt="componentName"
+          />
+        </div>
         <div class="p-4">
           <h4 class="font-bold">{{ componentName.replace('Vsf', '') }}</h4>
-          <p class="mt-2 text-sm">{{ componentDescription(componentName) }}</p>
+          <p v-if="!hideDescription" class="mt-2 text-sm">{{ componentDescription(componentName) }}</p>
         </div>
       </RouterLink>
     </div>
@@ -22,36 +25,38 @@
 
 <script>
 import components from '../../utils/components.json';
-import showcases from '../../utils/blocks.json';
+import blocks from '../../utils/blocks.json';
 import hooks from '../../utils/hooks.json';
 import { generateComponentPath } from '../utils/path.util';
 export default {
   props: {
-    type: {
+    framework: {
       type: String,
       required: true,
     },
-    showcase: {
+    type: {
+      type: String,
+      default: 'components',
+    },
+    hideThumbnail: {
       type: Boolean,
       default: false,
     },
-    hook: {
+    hideDescription: {
       type: Boolean,
       default: false,
     },
   },
   computed: {
     components() {
-      const files = this.showcase ? showcases : this.hook ? hooks : components;
-      const list = this.type === 'react' ? files.react : files.vue;
+      const files = this.type === 'blocks' ? blocks : this.type === 'hooks' ? hooks : components;
+      const list = this.framework === 'react' ? files.react : files.vue;
       return list;
     },
   },
   methods: {
     componentDescription(componentName) {
-      const componentPath = `/${this.type}/${
-        this.showcase ? 'showcases' : this.hook ? 'hooks' : 'components'
-      }/${componentName.replace('Vsf', '').toLowerCase()}.html`;
+      const componentPath = `/${this.framework}/${this.type}/${componentName.replace('Vsf', '').toLowerCase()}.html`;
 
       return this.$site.pages.find((page) => page.path.toLowerCase() === componentPath)?.frontmatter?.description;
     },
