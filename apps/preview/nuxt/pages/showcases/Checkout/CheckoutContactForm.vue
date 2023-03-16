@@ -43,10 +43,8 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfInput } from '@storefront-ui/vue/components/VsfInput/index';
-import { VsfButton } from '@storefront-ui/vue/components/VsfButton/index';
-import { VsfSelect } from '@storefront-ui/vue/components/VsfSelect/index';
 import { ref } from 'vue';
+import { VsfInput, VsfButton, VsfSelect } from '@storefront-ui/vue';
 
 const invalid = ref(true);
 const options = [1, 7, 20, 27, 30, 30, 31, 32, 33, 34, 36, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 51];
