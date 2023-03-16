@@ -13,7 +13,7 @@ const getFrameworkFiles = (frameworkName, componentsExt) => {
 };
 
 const hooks = {
-  vue: getFrameworkFiles('vue', 'vue'),
+  vue: getFrameworkFiles('vue', 'ts'),
   react: getFrameworkFiles('react', 'ts'),
 };
 

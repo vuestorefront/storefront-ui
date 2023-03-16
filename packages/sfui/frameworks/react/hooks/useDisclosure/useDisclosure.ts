@@ -1,10 +1,8 @@
 import { useState, useCallback } from 'react';
+import type { UseDisclosureOptions } from '@storefront-ui/react';
 
-import { UseDisclosureOptions } from '@storefront-ui/react';
-
-export function useDisclosure(options: UseDisclosureOptions = {}) {
-  const { initialState = false } = options;
-  const [isOpen, setOpen] = useState<boolean>(initialState);
+export function useDisclosure({ initialValue = false }: UseDisclosureOptions = {}) {
+  const [isOpen, setOpen] = useState<boolean>(initialValue);
 
   const open = useCallback(() => setOpen(true), []);
   const close = useCallback(() => setOpen(false), []);

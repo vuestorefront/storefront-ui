@@ -10,17 +10,12 @@ description: API reference docs for the useDropdown hook.
 
 {{ $frontmatter.description }}
 
-## Import
-
-```tsx
-import { useDropdown } from '@storefront-ui/react';
-```
-
 ## Usage
 
+<!-- react -->
 ```tsx
 import * as React from 'react';
-import { useDropdown, VsfButton } from '@storefront-ui/react'
+import { useDropdown, VsfButton } from '@storefront-ui/react';
 
 function Dropdown() {
   const [isOpen, setOpen] = React.useState(false);
@@ -44,6 +39,30 @@ function Dropdown() {
   );
 }
 ```
+<!-- end react -->
+<!-- vue -->
+```vue
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { useTooltip, VsfButton } from '@storefront-ui/vue';
+
+const isOpen = ref(false);
+
+const { referenceRef, floatingRef,, style } = useDropdown({ isOpen, onClose: () => isOpen.value = false });
+</script>
+
+<template>
+  <div ref="referenceRef" class="w-max">
+    <VsfButton @click="isOpen != isOpen">Toggle</VsfButton>
+    <ul v-if="isOpen" ref="floatingRef" :style="style" class="absolute p-2 w-max rounded bg-gray-100">
+      <li>More</li>
+      <li>About</li>
+      <li>Settings</li>
+    </ul>
+  </div>
+</template>
+```
+<!-- end vue -->
 
 :::
 
@@ -53,23 +72,42 @@ function Dropdown() {
 
 | Name      | Type                     | Default value | Description                               |
 | --------- | ------------------------ | ------------- | ----------------------------------------- |
-| isOpen\*  | `boolean`                |               | Recalculate position when isOpen is true. |
 | onClose\* | `() => void`             |               |                                           |
-| placement | `VsfPopoverPlacement`    | 'bottom'      |                                           |
-| offset    | `number`                 | 8             |                                           |
-| arrowRef  | `React.Ref<HTMLElement>` |               |                                           |
+<!-- react -->
+| isOpen  | `boolean`                |  `false`             | Recalculates position when isOpen is true |
+<!-- end react -->
+<!-- vue -->
+| isOpen  | `MaybeRef<boolean>`                |  `false`             | Recalculates position when isOpen is true |
+| referenceRef  | `MaybeElementRef<Element | VirtualElement>` | `undefined`              | Reference element based on which floating element will be positioned  |
+| floatingRef  | `MaybeElementRef<HTMLElement>` | `undefined`              | Element to float next to the reference element  |
+<!-- end vue -->
+| placement | `VsfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
+| middleware    | `UseFloatingProps['middleware']`                 |              | Array of `@floating-ui` middlewares |
+| strategy | `VsfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)              |
 
 ## Return value
 
 | Name  | Type           | Default value | Description |
 | ----- | -------------- | ------------- | ----------- |
-| refs  | `RefsObject`   |               |             |
-| style | `StylesObject` |               |             |
-
+| style | `Object` |               | Styles object for positioning the floating element            |
+<!-- react -->
+| refs  | `Object`   |               | Element refs setters & getters            |
+<!-- end react -->
+<!-- vue -->
+| referenceRef  | `MaybeElementRef<Element | VirtualElement>` | `undefined`              | Reference element based on which floating element will be positioned  |
+| floatingRef  | `MaybeElementRef<HTMLElement>` | `undefined`              | Element to float next to the reference element  |
+<!-- end vue -->
 :::
 
 ::: slot source
 <SourceCode>
+
+<!-- react -->
 <<<../../../packages/sfui/frameworks/react/hooks/useDropdown/useDropdown.ts
+<!-- end react -->
+<!-- vue -->
+<<<../../../packages/sfui/frameworks/vue/composables/useDropdown/useDropdown.ts
+<!-- end vue -->
+
 </SourceCode>
 :::

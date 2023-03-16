@@ -10,6 +10,10 @@ description: VsfDropdown
 
 {{ $frontmatter.description }}
 
+## Notes
+
+Dropdown component is built on to of the `useDropdown` hook and accepts all its params.
+
 ## Playground
 
 <Generate />
@@ -17,32 +21,46 @@ description: VsfDropdown
 :::
 
 ::: slot api
-
-## Notes
-
-Dropdown component is built on to of the `useDropdown` hook and accepts all its params.
-
-## Props
-
 | Prop name | Type                                                     | Default value | Possible values |
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
-| trigger\* | `ReactNode`                                              |               |                 |
-| isOpen\*  | `boolean`                                                |               |                 |
-| onClose\* | `() => void`                                             |               |                 |
-| placement | `VsfPopoverPlacement`                                    |               |                 |
-| offset    | `number`                                                 |               |                 |
-| arrowRef  | `ReactRef<HTMLElement>`                                  |               |                 |
-| arrowSize | `${number}px` &#124; `${number}em` &#124; `${number}rem` |               |                 |
 <!-- react -->
-| children  | `ReactNode`                                              |               |                 |
+| onClose\* | `() => void`                                             |               |                 |
+| trigger\* | `ReactNode`                                              |               |                 |
+| children | `ReactNode` | | |
+| open  | `boolean`                                                |               |                 |
 <!-- end react -->
+<!-- vue -->
+| modelValue  | `boolean`                                                |               |                 |
+<!-- end vue -->
+| placement | `VsfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
+| middleware    | `UseFloatingProps['middleware']`                 |              | Array of `@floating-ui` middlewares |
+| strategy | `VsfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)         |
+<!-- vue -->
 
+## Slots
+
+| Slot name |            Description            |
+| --------- | ------------------------------- |
+| default   | Dropdown content   |
+| trigger   | Element that opens up the dropdown   |
+
+## Events
+
+| Event name |            Trigger               |
+| ---------- | ----------------------------   |
+| update:modelValue     |  emits on clicking outside of dropdown or on escape  |
+<!-- end vue -->
 :::
 
 ::: slot source
 <SourceCode>
+
+<!-- vue -->
+<<<../../../packages/sfui/frameworks/vue/components/VsfDropdown/VsfDropdown.vue
+<!-- end vue -->
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/VsfDropdown/VsfDropdown.tsx
 <!-- end react -->
+
 </SourceCode>
 :::

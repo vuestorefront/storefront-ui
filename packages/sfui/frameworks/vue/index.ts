@@ -1,4 +1,8 @@
 // Composables
+export * from './composables/useDisclosure';
+export * from './composables/useDropdown';
+export * from './composables/usePopover';
+export * from './composables/useTooltip';
 export * from './composables/useTrapFocus';
 
 // Shared
@@ -12,7 +16,7 @@ export * from './components/VsfChip';
 export * from './components/VsfCounter';
 export * from './components/VsfDialog';
 export * from './components/VsfDrawer';
-export * from './components/VsfDropdownInternal';
+export * from './components/VsfDropdown';
 export * from './components/VsfIconBase';
 export * from './components/VsfIcons';
 export * from './components/VsfInput';

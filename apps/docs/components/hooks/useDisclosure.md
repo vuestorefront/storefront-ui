@@ -10,14 +10,9 @@ description: API reference docs for the useDisclosure hook.
 
 {{ $frontmatter.description }}
 
-## Import
-
-```tsx
-import { useDisclosure } from '@storefront-ui/react';
-```
-
 ## Usage
 
+<!-- react -->
 ```tsx
 import { VsfButton, useDisclosure } from '@storefront-ui/react';
 
@@ -32,6 +27,21 @@ function Basic() {
   );
 }
 ```
+<!-- end react -->
+<!-- vue -->
+```vue
+<script lang="ts" setup>
+import { VsfButton, useDisclosure } from '@storefront-ui/vue';
+
+const { isOpen, toggle } = useDisclosure();
+</script>
+
+<template>
+  <VsfButton @click="toggle">Toggle</VsfButton>
+  <p v-if="isOpen">This text shows when isOpen value is true.</p>
+</template>
+```
+<!-- end vue -->
 
 :::
 
@@ -41,7 +51,7 @@ function Basic() {
 
 | Name         | Type      | Default value | Description |
 | ------------ | --------- | ------------- | ----------- |
-| initailState | `boolean` | false         |             |
+| initialValue | `boolean` | false         |             |
 
 ## Return value
 
@@ -55,9 +65,14 @@ function Basic() {
 :::
 
 ::: slot source
+<SourceCode>
 
-## Source code
-
+<!-- react -->
 <<<../../../packages/sfui/frameworks/react/hooks/useDisclosure/useDisclosure.ts
+<!-- end react -->
+<!-- vue -->
+<<<../../../packages/sfui/frameworks/vue/composables/useDisclosure/useDisclosure.ts
+<!-- end vue -->
 
+</SourceCode>
 :::

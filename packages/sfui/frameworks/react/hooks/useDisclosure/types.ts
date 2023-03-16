@@ -1,3 +1,3 @@
 export interface UseDisclosureOptions {
-  initialState?: boolean;
+  initialValue?: boolean;
 }
