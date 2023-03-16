@@ -1,4 +1,4 @@
-import { VsfDropdown, VsfButton } from '@storefront-ui/react';
+import { VsfButton, VsfDropdown, VsfPopoverPlacement, VsfPopoverStrategy } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -8,29 +8,49 @@ function Example() {
     [
       {
         type: 'boolean',
-        modelName: 'isOpen',
+        modelName: 'open',
         propType: 'boolean',
-        propDefaultValue: 'false',
         isRequired: true,
+        description: 'Controls floating content visibility',
+      },
+      {
+        type: 'select',
+        modelName: 'placement',
+        propType: 'VsfPopoverPlacement',
+        propDefaultValue: VsfPopoverPlacement.bottom,
+        options: Object.values(VsfPopoverPlacement),
+        description:
+          'Dropdown default placement - may be automatically shifted or flipped based on screen size and dropdown position',
+      },
+      {
+        type: 'select',
+        modelName: 'strategy',
+        propType: 'VsfPopoverStrategy',
+        propDefaultValue: VsfPopoverStrategy.absolute,
+        options: Object.values(VsfPopoverStrategy),
+        description: 'Dropdown positioning strategy',
       },
     ],
     {
-      isOpen: false,
+      open: false,
+      placement: VsfPopoverPlacement.bottom,
+      strategy: VsfPopoverStrategy.absolute,
     },
   );
 
-  const close = () => state.set({ isOpen: false });
-  const toggle = () => state.set((currentState) => ({ ...currentState, isOpen: !currentState.isOpen }));
+  const close = () => state.set({ open: false });
+  const toggle = () => state.set((currentState) => ({ ...currentState, open: !currentState.open }));
 
   return (
     <ComponentExample controls={{ state, controls }}>
       <VsfDropdown
         trigger={<VsfButton onClick={toggle}>Toggle</VsfButton>}
-        isOpen={state.get.isOpen}
+        open={state.get.open}
+        strategy={state.get.strategy}
+        placement={state.get.placement}
         onClose={close}
-        placement="bottom-start"
       >
-        <ul className="absolute p-2 w-max rounded bg-gray-100">
+        <ul className="p-2 rounded bg-gray-100">
           <li>More</li>
           <li>About</li>
           <li>Settings</li>

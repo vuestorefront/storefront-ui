@@ -12,4 +12,6 @@ export * from './VsfProgress';
 export * from './VsfRating';
 export * from './VsfSelect';
 export * from './VsfThumbnail';
-export * from './VsfTooltip';
+
+export * from './usePopover';
+export * from './utils';

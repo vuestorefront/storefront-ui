@@ -10,16 +10,13 @@ description: API reference docs for the usePopover hook.
 
 {{ $frontmatter.description }}
 
-## Import
-
-```tsx
-import { usePopover } from '@storefront-ui/react';
-```
-
 ## Usage
 
 Simple Tooltip component example built on top of the `usePopover` hook.
 
+<SourceCode>
+
+<!-- react -->
 ```tsx
 import * as React from 'react';
 import { usePopover } from '@storefront-ui/react';
@@ -31,22 +28,55 @@ interface TooltipProps {
 
 function Tooltip({ children, text }: TooltipProps) {
   const [isOpen, setOpen] = React.useState(false);
-  const arrowRef = React.useRef(null);
-  const { refs, style } = usePopover({ isOpen, arrowRef });
+  const { refs, style } = usePopover({ isOpen });
 
   return (
     <span ref={refs.setReference} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       {children}
       {isOpen && (
-        <div ref={refs.setFloating} style={style.floating} className="p-2 rounded bg-black text-white">
+        <div ref={refs.setFloating} style={style} className="p-2 rounded bg-black text-white">
           {text}
-          <div ref={arrowRef} style={style.arrow} className="bg-black h-4 w-4 rotate-45" />
         </div>
       )}
     </span>
   );
 }
 ```
+<!-- end react -->
+<!-- vue -->
+```vue
+<script lang="ts" setup>
+import { ref } from 'vue';
+import { usePopover } from '@storefront-ui/vue';
+
+defineProps({
+  text: {
+    type: String,
+    default: '',
+  },
+});
+
+const isOpen = ref(false);
+const { referenceRef, floatingRef, style } = usePopover({ isOpen });
+</script>
+
+<template>
+  <span ref="referenceRef" @mouseenter="isOpen = true" @mouseleave="isOpen = false">
+    <slot />
+    <div
+      v-if="isOpen"
+      ref="floatingRef"
+      class="p-2 rounded bg-black text-white"
+      :style="style"
+    >
+      {{ text }}
+    </div>
+  </span>
+</template>
+```
+<!-- end vue -->
+
+</SourceCode>
 
 :::
 
@@ -56,22 +86,42 @@ function Tooltip({ children, text }: TooltipProps) {
 
 | Name      | Type                     | Default value | Description                               |
 | --------- | ------------------------ | ------------- | ----------------------------------------- |
-| isOpen\*  | `boolean`                |               | Recalculate position when isOpen is true. |
-| placement | `VsfPopoverPlacement`    | 'bottom'      |                                           |
-| offset    | `number`                 | 8             |                                           |
-| arrowRef  | `React.Ref<HTMLElement>` |               |                                           |
+<!-- react -->
+| isOpen  | `boolean`                |  `false`             | Recalculates position when isOpen is true |
+<!-- end react -->
+<!-- vue -->
+| isOpen  | `MaybeRef<boolean>`                |  `false`             | Recalculates position when isOpen is true |
+| referenceRef  | `MaybeElementRef<Element | VirtualElement>` | `undefined`              | Reference element based on which floating element will be positioned  |
+| floatingRef  | `MaybeElementRef<HTMLElement>` | `undefined`              | Element to float next to the reference element  |
+<!-- end vue -->
+| placement | `VsfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
+| middleware    | `UseFloatingProps['middleware']`                 |              | Array of `@floating-ui` middlewares |
+| strategy | `VsfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)              |
 
 ## Return value
 
 | Name  | Type           | Default value | Description |
 | ----- | -------------- | ------------- | ----------- |
-| refs  | `RefsObject`   |               |             |
-| style | `StylesObject` |               |             |
-
+| style | `Object` |               | Styles object for positioning the floating element            |
+| middlewareData | `MiddlewareData` | | MiddlewareData coming from @floating-ui |
+<!-- react -->
+| refs  | `Object`   |               | Element refs setters & getters            |
+<!-- end react -->
+<!-- vue -->
+| referenceRef  | `MaybeElementRef<Element | VirtualElement>` | `undefined`              | Reference element based on which floating element will be positioned  |
+| floatingRef  | `MaybeElementRef<HTMLElement>` | `undefined`              | Element to float next to the reference element  |
+<!-- end vue -->
 :::
 
 ::: slot source
 <SourceCode>
+
+<!-- react -->
 <<<../../../packages/sfui/frameworks/react/hooks/usePopover/usePopover.ts
+<!-- end react -->
+<!-- vue -->
+<<<../../../packages/sfui/frameworks/vue/composables/usePopover/usePopover.ts
+<!-- end vue -->
+
 </SourceCode>
 :::

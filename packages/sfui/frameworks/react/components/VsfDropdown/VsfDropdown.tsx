@@ -3,7 +3,7 @@ import { useDropdown } from '@storefront-ui/react';
 import type { VsfDropdownProps } from '@storefront-ui/react';
 
 export default function VsfDropdown(props: VsfDropdownProps) {
-  const { children, trigger, isOpen, className, style: containerStyle, ...dropdownOptions } = props;
+  const { children, trigger, open: isOpen = false, className, style: containerStyle, ...dropdownOptions } = props;
   const { refs, style: dropdownStyle } = useDropdown({ isOpen, ...dropdownOptions });
 
   return (

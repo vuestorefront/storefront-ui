@@ -14,6 +14,10 @@ description: VsfTooltips provide contextual information about an element when th
 
 Tooltip element has role="tooltip".
 
+## Notes
+
+Tooltip component is built on to of the `useTooltip` hook and accepts all its params.
+
 ## Playground
 
 <Generate />
@@ -21,30 +25,34 @@ Tooltip element has role="tooltip".
 :::
 
 ::: slot api
-
-## Notes
-
-Tooltip component is built on to of the `useTooltip` hook and accepts all its params.
-
-## Props
-
 | Prop name | Type                                                     | Default value | Possible values |
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
 | label\*   | `string`                                                 |               |                 |
 | showArrow | `boolean`                                                | `false`       |                 |
 | placement | `VsfPopoverPlacement`                                    |               |                 |
-| offset    | `number`                                                 |               |                 |
 | arrowSize | `${number}px` &#124; `${number}em` &#124; `${number}rem` |               |                 |
 <!-- react -->
-| children  | `ReactNode`                                              |               |                 |
+| children | `ReactNode` | | |
 <!-- end react -->
 
+<!-- vue -->
+## Slots
+
+| Slot name |            Description            |
+| --------- | ------------------------------- |
+| default   | Content being described by the tooltip   |
+<!-- end vue -->
 :::
 
 ::: slot source
 <SourceCode>
+
+<!-- vue -->
+<<<../../../packages/sfui/frameworks/vue/components/VsfTooltip/VsfTooltip.vue
+<!-- end vue -->
 <!-- react -->
 <<<../../../packages/sfui/frameworks/react/components/VsfTooltip/VsfTooltip.tsx
 <!-- end react -->
+
 </SourceCode>
 :::

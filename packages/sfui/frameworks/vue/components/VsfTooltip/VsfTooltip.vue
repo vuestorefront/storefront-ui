@@ -1,54 +1,45 @@
 <script lang="ts" setup>
-import type { PropType } from 'vue';
-import { VsfTooltipPlacement, VsfDropdownInternal, VsfDropdownInternalTriggerEvent } from '@storefront-ui/vue';
+import { type PropType, toRefs } from 'vue';
+import type { Middleware } from '@floating-ui/vue';
+import { useTooltip, type VsfPopoverPlacement, type VsfPopoverStrategy } from '@storefront-ui/vue';
 
-defineProps({
+const props = defineProps({
+  placement: {
+    type: String as PropType<VsfPopoverPlacement | undefined>,
+    default: undefined,
+  },
+  middleware: {
+    type: Array as PropType<Middleware[] | undefined>,
+    default: undefined,
+  },
+  strategy: {
+    type: String as PropType<VsfPopoverStrategy | undefined>,
+    default: undefined,
+  },
+  showArrow: {
+    type: Boolean,
+    default: false,
+  },
   label: {
     type: String,
-    default: '',
-  },
-  placement: {
-    type: String as PropType<`${VsfTooltipPlacement}`>,
-    default: VsfTooltipPlacement.bottom,
-  },
-  hidePointer: {
-    type: Boolean,
-    default: false,
-  },
-  modelValue: {
-    type: Boolean,
-    default: false,
+    required: true,
   },
 });
 
-defineEmits<{
-  (event: 'update:modelValue', value: boolean): void;
-}>();
+const { placement, middleware, strategy } = toRefs(props);
+const { isOpen, triggerProps, tooltipProps, arrowProps } = useTooltip({ placement, middleware, strategy });
 </script>
-
 <template>
-  <VsfDropdownInternal
-    :model-value="modelValue"
-    class="vsf-tooltip"
-    :placement="placement"
-    :trigger-event="VsfDropdownInternalTriggerEvent.hover"
-    data-testid="tooltip"
-    @update:model-value="$emit('update:modelValue', $event)"
-  >
-    <template #trigger>
-      <div class="vsf-tooltip__trigger"><slot /></div>
-    </template>
-    <slot name="label">
-      <div
-        role="tooltip"
-        :class="[
-          `vsf-tooltip__label vsf-tooltip__label--${placement}`,
-          { 'vsf-tooltip__label--without-pointer': hidePointer },
-        ]"
-        data-testid="tooltip-label"
-      >
-        {{ label }}
-      </div>
-    </slot>
-  </VsfDropdownInternal>
+  <span v-bind="triggerProps">
+    <slot />
+    <div
+      v-if="label && isOpen"
+      role="tooltip"
+      class="bg-black px-2 py-1.5 rounded-md text-white text-xs w-max max-w-[360px] drop-shadow"
+      v-bind="tooltipProps"
+    >
+      {{ label }}
+      <span v-if="showArrow" v-bind="arrowProps" class="bg-black rotate-45" />
+    </div>
+  </span>
 </template>

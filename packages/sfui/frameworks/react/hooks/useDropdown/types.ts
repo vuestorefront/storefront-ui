@@ -1,4 +1,5 @@
-import type { Prettify, UsePopoverOptions } from '@storefront-ui/react';
+import type { Prettify } from '@storefront-ui/shared';
+import type { UsePopoverOptions } from '../usePopover';
 
 export type UseDropdownOptions = Prettify<
   UsePopoverOptions & {

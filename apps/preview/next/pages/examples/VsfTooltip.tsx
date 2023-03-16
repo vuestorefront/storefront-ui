@@ -1,4 +1,4 @@
-import { VsfTooltip, VsfTooltipProps, VsfPopoverPlacement } from '@storefront-ui/react';
+import { VsfTooltip, type VsfTooltipProps, VsfPopoverPlacement, VsfPopoverStrategy } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -21,6 +21,14 @@ function Example() {
         description: 'Initial position of tooltip in reference to trigger',
       },
       {
+        type: 'select',
+        modelName: 'strategy',
+        propType: 'VsfPopoverStrategy',
+        propDefaultValue: VsfPopoverStrategy.absolute,
+        options: Object.values(VsfPopoverStrategy),
+        description: 'Tooltip positioning strategy',
+      },
+      {
         type: 'boolean',
         modelName: 'showArrow',
         propType: 'boolean',
@@ -31,6 +39,7 @@ function Example() {
     {
       label: 'Tooltip text',
       placement: VsfPopoverPlacement.top,
+      strategy: VsfPopoverStrategy.absolute,
       showArrow: false,
     },
   );
