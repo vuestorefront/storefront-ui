@@ -1,6 +1,1 @@
-export enum VsfTooltipPlacement {
-  top = 'top',
-  bottom = 'bottom',
-  left = 'left',
-  right = 'right',
-}
+export { VsfTooltipPlacement } from '@storefront-ui/shared';

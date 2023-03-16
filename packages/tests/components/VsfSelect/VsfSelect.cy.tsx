@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfSelectSize } from '@storefront-ui/vue/index';
+import { VsfSelectSize } from '@storefront-ui/vue';
 import { h } from 'vue';
 import { mount, useComponent } from '../../utils/mount';
 import VsfSelectBaseObject from './VsfSelect.PageObject';

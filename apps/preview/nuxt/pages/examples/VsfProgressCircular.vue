@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfProgressCircular, VsfProgressSize } from '@storefront-ui/vue/components/VsfProgressCircular/index';
+import { VsfProgressCircular, VsfProgressSize } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

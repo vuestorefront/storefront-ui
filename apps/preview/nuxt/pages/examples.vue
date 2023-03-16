@@ -37,10 +37,14 @@
 </template>
 
 <script setup>
-import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
-import { VsfButtonVariant, VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
-import VsfListItemMenu from '@storefront-ui/vue/components/VsfListItemMenu/VsfListItemMenu.vue';
-import { VsfIconChevronLeft, VsfIconChevronRight } from '@storefront-ui/vue/components/VsfIcons/index';
+import {
+  VsfButton,
+  VsfButtonVariant,
+  VsfButtonSize,
+  VsfListItemMenu,
+  VsfIconChevronLeft,
+  VsfIconChevronRight,
+} from '@storefront-ui/vue';
 
 const { currentRoute } = useRouter();
 

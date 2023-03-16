@@ -39,19 +39,19 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfDrawer, VsfDrawerPlacement } from '@storefront-ui/vue/components/VsfDrawer/index';
-import { VsfButton } from '@storefront-ui/vue/components/VsfButton/index';
-import { VsfIconFavorite, VsfIconClose } from '@storefront-ui/vue/components/VsfIcons/index';
+import {
+  VsfDrawer,
+  VsfDrawerPlacement,
+  VsfButton,
+  VsfIconFavorite,
+  VsfIconClose,
+  useTrapFocus,
+} from '@storefront-ui/vue';
 import { ref } from 'vue';
-import { useTrapFocus } from '@storefront-ui/vue/shared/useTrapFocus/useTrapFocus';
-import { useEventListener } from '@vueuse/core';
 
 const placement = ref<`${VsfDrawerPlacement}`>('left');
 const open = ref(false);
 const drawerRef = ref();
 
-useEventListener(drawerRef, 'keydown', (e) => {
-  console.log(e);
-});
 useTrapFocus(drawerRef, { activeState: open });
 </script>

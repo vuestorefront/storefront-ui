@@ -16,18 +16,6 @@ describe('test scenario', () => {
 });
 ```
 
-## Import Component
-
-**Important**: for specifying framework-specific component imports use `// import ${framework}` and `// end import ${framework}` instead, for example:
-```ts
-// import vue
-import VueComponent from 'packages/sfui/frameworks/vue/components/VueComponent/VueComponent.vue';
-// end import vue
-// import react
-import ReactComponent from 'packages/sfui/frameworks/react/components/VueComponent/VueComponent';
-// end import react
-```
-
 ## Why?
 
 When using our internal `mount()` util we need to provide it with a separate configuration for React and Vue components. Unfortunately, at the same time, we don't want to import React components when running tests against Vue framework and other way around - we don't want to import Vue component when testing React.

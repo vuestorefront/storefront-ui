@@ -8,5 +8,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfIconThumbUp } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconThumbUp } from '@storefront-ui/vue';
 </script>

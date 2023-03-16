@@ -18,8 +18,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfRadio } from '@storefront-ui/vue/components/VsfRadio/index';
-import { VsfListItemMenu } from '@storefront-ui/vue/components/VsfListItemMenu/index';
+import { VsfRadio, VsfListItemMenu } from '@storefront-ui/vue';
+
 const deliveryOptions = [
   {
     name: 'Standard',

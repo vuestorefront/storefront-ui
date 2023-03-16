@@ -9,5 +9,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfButton, VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfButton, VsfButtonSize } from '@storefront-ui/vue';
 </script>

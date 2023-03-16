@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfLink } from '@storefront-ui/vue/components/VsfLink/index';
+import { VsfLink } from '@storefront-ui/vue';
 </script>

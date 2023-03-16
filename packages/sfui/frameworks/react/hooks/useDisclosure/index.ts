@@ -1,2 +1,2 @@
-export * from './useDisclosure';
 export * from './types';
+export * from './useDisclosure';

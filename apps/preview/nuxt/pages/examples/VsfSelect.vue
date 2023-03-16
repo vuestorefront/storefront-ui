@@ -24,7 +24,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfSelect, VsfSelectSize } from '@storefront-ui/vue/components/VsfSelect/index';
+import { VsfSelect, VsfSelectSize } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

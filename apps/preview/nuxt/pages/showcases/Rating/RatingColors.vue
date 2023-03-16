@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfRating } from '@storefront-ui/vue/components/VsfRating/index';
+import { VsfRating } from '@storefront-ui/vue';
 </script>

@@ -4,7 +4,3 @@ export enum VsfLoaderLinearSize {
   'minimal' = 'minimal',
 }
 export { VsfLoaderSize };
-export type VsfLoaderLinearProps = {
-  size?: `${VsfLoaderLinearSize | VsfLoaderSize}`;
-  screenReaderText?: string;
-};

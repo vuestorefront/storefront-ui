@@ -5,6 +5,5 @@
   </VsfInput>
 </template>
 <script lang="ts" setup>
-import { VsfInput } from '@storefront-ui/vue/components/VsfInput/index';
-import { VsfIconSearch, VsfIconLock } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfInput, VsfIconSearch, VsfIconLock } from '@storefront-ui/vue';
 </script>

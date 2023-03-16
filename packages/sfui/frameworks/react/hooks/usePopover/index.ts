@@ -1,2 +1,2 @@
-export * from './usePopover';
 export * from './types';
+export * from './usePopover';

@@ -8,7 +8,7 @@
 </template>
 <script lang="ts" setup>
 import { PropType } from 'vue';
-import { VsfIconBase, VsfIconSize } from '../VsfIconBase';
+import { VsfIconBase, VsfIconSize } from '@storefront-ui/vue';
 
 defineProps({
   size: {

@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfLoaderLinear } from '@storefront-ui/vue/components/VsfLoaderLinear/index';
+import { VsfLoaderLinear } from '@storefront-ui/vue';
 </script>

@@ -11,8 +11,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfChip } from '@storefront-ui/vue/components/VsfChip/index';
-import { VsfThumbnail } from '@storefront-ui/vue/components/VsfThumbnail/index';
+import { VsfChip, VsfThumbnail } from '@storefront-ui/vue';
 
 const chipRedActive = ref();
 const chipBlueActive = ref();

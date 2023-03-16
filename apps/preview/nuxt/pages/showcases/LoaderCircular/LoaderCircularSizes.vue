@@ -13,5 +13,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfLoaderCircular } from '@storefront-ui/vue/components/VsfLoaderCircular/index';
+import { VsfLoaderCircular } from '@storefront-ui/vue';
 </script>

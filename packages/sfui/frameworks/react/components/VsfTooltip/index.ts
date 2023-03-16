@@ -1,3 +1,3 @@
-export { default as VsfTooltip } from './VsfTooltip';
-
 export * from './types';
+
+export { default as VsfTooltip } from './VsfTooltip';

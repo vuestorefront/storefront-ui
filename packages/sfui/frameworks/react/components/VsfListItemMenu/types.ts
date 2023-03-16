@@ -1,12 +1,8 @@
 import type { ReactNode, PropsWithChildren } from 'react';
 import type { PropsWithStyle } from '@storefront-ui/react';
+import { VsfListItemMenuSize } from '@storefront-ui/shared';
 
-export enum VsfListItemMenuSize {
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-}
-
+export { VsfListItemMenuSize };
 export interface VsfListItemMenuProps extends PropsWithChildren, PropsWithStyle {
   size?: `${VsfListItemMenuSize}`;
   disabled?: boolean;

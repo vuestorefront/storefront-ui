@@ -1,5 +1,1 @@
-export enum VsfListItemMenuSize {
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-}
+export { VsfListItemMenuSize } from '@storefront-ui/shared';

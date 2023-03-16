@@ -1,1 +1,1 @@
-export * from '../VsfIconBase/types';
+export { VsfIconSize } from '@storefront-ui/shared';

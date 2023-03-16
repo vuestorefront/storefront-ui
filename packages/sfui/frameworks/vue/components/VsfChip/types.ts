@@ -1,4 +1,1 @@
-export enum VsfChipSize {
-  sm = 'sm',
-  base = 'base',
-}
+export { VsfChipSize } from '@storefront-ui/shared';

@@ -1,13 +1,7 @@
 import type { PropsWithStyle } from '@storefront-ui/react';
+import { VsfRatingSize } from '@storefront-ui/shared';
 
-export enum VsfRatingSize {
-  xs = 'xs',
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-  xl = 'xl',
-}
-
+export { VsfRatingSize };
 export interface VsfRatingProps extends PropsWithStyle {
   value?: number;
   max?: number;

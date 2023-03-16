@@ -20,8 +20,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfAccordionItem } from '@storefront-ui/vue/components/VsfAccordionItem/index';
-import { VsfIconChevronLeft } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfAccordionItem, VsfIconChevronLeft } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

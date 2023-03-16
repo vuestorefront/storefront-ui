@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import { ref, defineComponent } from 'vue';
-import { VsfLink, VsfLinkVariant } from '@storefront-ui/vue/components/VsfLink/index';
+import { VsfLink, VsfLinkVariant } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

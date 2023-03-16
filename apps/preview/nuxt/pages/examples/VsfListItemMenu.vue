@@ -19,12 +19,11 @@
 
 <script lang="ts">
 import { defineComponent, ref, h } from 'vue';
-import { VsfListItemMenu, VsfListItemMenuSize } from '@storefront-ui/vue/components/VsfListItemMenu/index';
-import { VsfCounter } from '@storefront-ui/vue/components/VsfCounter/index';
-import { VsfIconSize, VsfIconCheck } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfListItemMenu, VsfListItemMenuSize, VsfCounter, VsfIconSize, VsfIconCheck } from '@storefront-ui/vue';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
+
 const prefixSlotOptions = createControlsOptions({
   none: undefined,
   'Check icon': h(VsfIconCheck, { size: VsfIconSize.sm }),

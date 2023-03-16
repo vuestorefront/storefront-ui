@@ -1,46 +1,28 @@
 import vue from "@vitejs/plugin-vue";
 import { defineConfig, searchForWorkspaceRoot, type PluginOption } from "vite";
 import {
-  extractImports,
-  changeImports,
-  dynamicImports,
   removeCode,
   changeFrameworkPathInImports,
 } from "@storefront-ui/tests-shared";
 import istanbul from "vite-plugin-istanbul";
 import path from "path";
 import nycConfig from "./.nycrc.json";
+import { existsSync } from "fs";
 
 const isCoverageEnabled = process.env.CYPRESS_COVERAGE === "true";
-const changeImport = (code: string, framework: "react") => {
-  // Find imports of component and replace it with utils/fake-import.ts empty file
-  const EXTRACT_IMPORTS = extractImports(framework);
-  const CHANGE_IMPORTS = changeImports(framework);
-  const DYNAMIC_IMPORTS = dynamicImports(framework);
-
-  return code.replace(EXTRACT_IMPORTS, (_m, frameworkImport: string) => {
-    return frameworkImport
-      .replace(DYNAMIC_IMPORTS, "./fake-import")
-      .replace(CHANGE_IMPORTS, (_m, importName: string) => {
-        return `import${importName}from '../../utils/fake-import';`;
-      });
-  });
-};
-
-const storefrontUiReactAlias = {
-  find: "@storefront-ui/react",
-  replacement: path.resolve(
-    __dirname,
-    "..",
-    "..",
-    "..",
-    "packages",
-    "tests",
-    "utils",
-    "fake-import.ts"
-  ),
-};
-
+const vueComponentsPath = isCoverageEnabled
+  ? path.resolve(__dirname, "src", "components", "sfui", "vue", "index.ts")
+  : path.resolve(
+      __dirname,
+      "..",
+      "..",
+      "..",
+      "packages",
+      "sfui",
+      "frameworks",
+      "vue",
+      "index.ts"
+    );
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
@@ -64,9 +46,10 @@ export default defineConfig({
         const REMOVE_REGEX = removeCode("react");
         const REGEX_FRAMEWORK = changeFrameworkPathInImports("react");
 
-        const changedCode = changeImport(code, "react")
+        let changedCode = code
+          // 1. Remove all `// react` and `// end react` from code
           .replace(REMOVE_REGEX, "")
-          // Find all imports with `/react/` files and replace it to `/vue/` so we would test correct package
+          // 2. Find all imports with `/react/` files and replace it to `/vue/` so we would test correct package
           .replace(REGEX_FRAMEWORK, (_match, g1, g2, g3) => {
             return `${g1}/vue/${g3}`;
           });
@@ -74,6 +57,42 @@ export default defineConfig({
         return {
           code: changedCode,
         };
+      },
+    },
+    {
+      name: "add-types-to-import",
+      enforce: "pre",
+      async transform(code, id) {
+        // Because Nuxt does not respect proper order of imports in index.ts and on initial load types file are not available when import of component is loaded first
+        if (
+          /\/src\/components\/sfui\/vue\/index\.ts/.test(id) ||
+          /\/sfui\/frameworks\/vue\/index\.ts/.test(id)
+        ) {
+          code = code.replace(
+            /^export \* from '\.\/components\/([^']+?)';/gm,
+            (_match, componentName) => {
+              const filePath = path.join(
+                __dirname,
+                "..",
+                "..",
+                "..",
+                "packages",
+                "sfui",
+                "frameworks",
+                "vue",
+                "components",
+                componentName,
+                "types.ts"
+              );
+              if (!existsSync(filePath)) return _match;
+              return `export * from './components/${componentName}/types';\nexport * from './components/${componentName}';`;
+            }
+          );
+
+          return { code };
+        }
+
+        return null;
       },
     },
     ...(isCoverageEnabled
@@ -88,22 +107,16 @@ export default defineConfig({
   ],
   resolve: {
     dedupe: ["vue"],
-    ...(isCoverageEnabled && {
-      // Unfortunately we cant do alias directly to packages/sfui/frameworks/vue because node_modules are hardcode excluded from cypress, nyc and code_coverage. And we cant change cwd for nyc(available in cli) because @cypress/code-coverage hardoce cwd where we have package.json https://github.com/cypress-io/code-coverage/blob/706dd66d3450236af9f1dba037dfc1e1fcd5e6d5/task.js#L20
-      alias: [
-        {
-          find: "@storefront-ui/vue",
-          replacement: path.resolve(
-            __dirname,
-            "src",
-            "components",
-            "sfui",
-            "vue"
-          ),
-        },
-        storefrontUiReactAlias,
-      ],
-    }),
-    alias: [storefrontUiReactAlias],
+    // Unfortunately we cant do alias directly to packages/sfui/frameworks/vue because node_modules are hardcode excluded from cypress, nyc and code_coverage. And we cant change cwd for nyc(available in cli) because @cypress/code-coverage hardoce cwd where we have package.json https://github.com/cypress-io/code-coverage/blob/706dd66d3450236af9f1dba037dfc1e1fcd5e6d5/task.js#L20
+    alias: [
+      {
+        find: "@storefront-ui/vue",
+        replacement: vueComponentsPath,
+      },
+      {
+        find: "@storefront-ui/react",
+        replacement: vueComponentsPath,
+      },
+    ],
   },
 });

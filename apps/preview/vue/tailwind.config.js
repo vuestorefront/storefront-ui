@@ -1,6 +1,22 @@
 const vsfTypography = require("@storefront-ui/typography");
 /** @type {import('tailwindcss').Config} */
 const { tailwindConfig } = require("@storefront-ui/tailwind-config");
+const { join } = require("path");
+console.log(
+  join(
+    __dirname,
+    "..",
+    "..",
+    "..",
+    "packages",
+    "sfui",
+    "frameworks",
+    "vue",
+    "components",
+    "**",
+    "*.{ts,vue}"
+  )
+);
 module.exports = {
   presets: [tailwindConfig],
   content: [
@@ -8,7 +24,19 @@ module.exports = {
     "./**/*.ts",
     "./**/*.tsx",
     "../../../node_modules/@storefront-ui/vue/shared/**/*.ts",
-    "../../../node_modules/@storefront-ui/vue/components/**/*.{ts,vue}",
+    join(
+      __dirname,
+      "..",
+      "..",
+      "..",
+      "packages",
+      "sfui",
+      "frameworks",
+      "vue",
+      "components",
+      "**",
+      "*.{ts,vue}"
+    ),
   ],
   theme: {
     extend: {

@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { type PropType, ConcreteComponent, computed, toRefs, useSlots } from 'vue';
-import { VsfButtonSize, VsfButtonVariant } from './types';
+import { VsfButtonSize, VsfButtonVariant } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {

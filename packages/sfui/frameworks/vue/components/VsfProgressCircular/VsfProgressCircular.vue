@@ -13,7 +13,7 @@ const sizeClasses = {
 
 <script lang="ts" setup>
 import { computed, toRefs, type PropType } from 'vue';
-import { VsfProgressSize } from './types';
+import { VsfProgressSize } from '@storefront-ui/vue';
 
 const props = defineProps({
   value: {

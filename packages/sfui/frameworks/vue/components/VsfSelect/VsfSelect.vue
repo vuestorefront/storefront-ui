@@ -5,8 +5,7 @@ export default {
 </script>
 <script lang="ts" setup>
 import { ref, type PropType } from 'vue';
-import { VsfSelectSize } from './types';
-import { VsfIconExpandMore } from '../VsfIcons';
+import { VsfSelectSize, VsfIconExpandMore } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {

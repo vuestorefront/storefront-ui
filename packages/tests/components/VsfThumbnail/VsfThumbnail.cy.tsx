@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfThumbnailSize } from '@storefront-ui/vue/index';
+import { VsfThumbnailSize } from '@storefront-ui/vue';
 import { mount, useComponent } from '../../utils/mount';
 const { vue: VsfThumbnailVue, react: VsfThumbnailReact } = useComponent('VsfThumbnail');
 import VsfThumbnailBaseObject from './VsfThumbnail.PageObject';

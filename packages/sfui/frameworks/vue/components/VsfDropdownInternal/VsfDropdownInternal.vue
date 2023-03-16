@@ -2,9 +2,12 @@
 import { ref, toRefs } from 'vue';
 import type { PropType } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
-import { ClassProp } from '../../shared/props';
-import { VsfDropdownInternalTriggerEvent, VsfDropdownInternalPlacement } from './types';
+import {
+  useTrapFocus,
+  ClassProp,
+  VsfDropdownInternalTriggerEvent,
+  VsfDropdownInternalPlacement,
+} from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {

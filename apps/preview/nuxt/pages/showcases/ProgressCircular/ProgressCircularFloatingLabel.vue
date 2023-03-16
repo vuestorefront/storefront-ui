@@ -20,7 +20,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfProgressCircular } from '@storefront-ui/vue/components/VsfProgressCircular/index';
+import { VsfProgressCircular } from '@storefront-ui/vue';
 
 const value = ref(70);
 </script>

@@ -16,10 +16,13 @@
     "baseUrl": ".",
     "types": [
       "vite/client",
-    ]
+    ],
+    "paths": {
+      "@storefront-ui/vue": ["./index.ts"]
+    }
   },
   "include": [
     "**/*.ts",
-    "**/*.vue",
+    "**/*.vue"
   ]
 }

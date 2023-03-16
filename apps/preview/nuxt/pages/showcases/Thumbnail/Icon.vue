@@ -5,6 +5,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfThumbnail } from '@storefront-ui/vue/components/VsfThumbnail/index';
-import { VsfIconFavorite } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfThumbnail, VsfIconFavorite } from '@storefront-ui/vue';
 </script>

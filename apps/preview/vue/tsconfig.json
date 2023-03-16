@@ -12,6 +12,9 @@
     }
   ],
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@storefront-ui/vue": ["../../../packages/sfui/frameworks/vue/index.ts"]
+    }
   }
 }

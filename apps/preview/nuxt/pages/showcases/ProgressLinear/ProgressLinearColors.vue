@@ -7,5 +7,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfProgressLinear } from '@storefront-ui/vue/components/VsfProgressLinear/index';
+import { VsfProgressLinear } from '@storefront-ui/vue';
 </script>

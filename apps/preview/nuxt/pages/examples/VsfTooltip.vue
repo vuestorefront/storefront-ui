@@ -6,10 +6,9 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { ref } from 'vue';
-import { VsfTooltip, VsfTooltipPlacement } from '@storefront-ui/vue/components/VsfTooltip/index';
-import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
+import { VsfTooltip, VsfTooltipPlacement, VsfButton } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

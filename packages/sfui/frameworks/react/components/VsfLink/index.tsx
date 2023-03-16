@@ -1,3 +1,3 @@
-export { default as VsfLink } from './VsfLink';
-
 export * from './types';
+
+export { default as VsfLink } from './VsfLink';

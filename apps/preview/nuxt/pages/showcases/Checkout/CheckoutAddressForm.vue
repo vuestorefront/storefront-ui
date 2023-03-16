@@ -73,10 +73,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfSelect } from '@storefront-ui/vue/components/VsfSelect/index';
-import { VsfInput } from '@storefront-ui/vue/components/VsfInput/index';
-import { VsfCheckbox } from '@storefront-ui/vue/components/VsfCheckbox/index';
-import { VsfButton } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfSelect, VsfInput, VsfCheckbox, VsfButton } from '@storefront-ui/vue';
 
 // Here you should provide a list of countries you want to support
 // or use an up-to-date country list like: https://www.npmjs.com/package/country-list

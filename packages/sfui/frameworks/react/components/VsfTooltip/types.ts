@@ -1,7 +1,5 @@
 import type { PropsWithChildren } from 'react';
-
-import type { UseTooltipOptions } from '../../hooks/useTooltip';
-import type { PropsWithStyle } from '../../shared/types/index';
+import type { UseTooltipOptions, PropsWithStyle } from '@storefront-ui/react';
 
 export interface VsfTooltipProps extends UseTooltipOptions, PropsWithChildren, PropsWithStyle {
   label: string;

@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { resolveComponent } from 'vue';
-import { VsfButton } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfButton } from '@storefront-ui/vue';
 
 const NuxtLink = resolveComponent('NuxtLink');
 </script>

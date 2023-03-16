@@ -8,5 +8,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfThumbnail } from '@storefront-ui/vue/components/VsfThumbnail/index';
+import { VsfThumbnail } from '@storefront-ui/vue';
 </script>

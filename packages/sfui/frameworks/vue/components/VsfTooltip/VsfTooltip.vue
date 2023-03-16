@@ -1,7 +1,6 @@
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { VsfTooltipPlacement } from './types';
-import { VsfDropdownInternal, VsfDropdownInternalTriggerEvent } from '../VsfDropdownInternal';
+import { VsfTooltipPlacement, VsfDropdownInternal, VsfDropdownInternalTriggerEvent } from '@storefront-ui/vue';
 
 defineProps({
   label: {

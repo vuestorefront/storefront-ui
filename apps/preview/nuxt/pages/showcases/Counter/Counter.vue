@@ -9,5 +9,5 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { VsfCounter } from '@storefront-ui/vue/components/VsfCounter/index';
+import { VsfCounter } from '@storefront-ui/vue';
 </script>

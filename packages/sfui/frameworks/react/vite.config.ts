@@ -22,7 +22,11 @@ export default defineConfig({
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
-      external: ['react', '@storefront-ui/shared'].concat(Object.keys(pkg.peerDependencies || {})),
+      external: ['react', '@storefront-ui/shared'].concat(
+        Object.keys(pkg.peerDependencies || {}),
+        Object.keys(pkg.devDependencies || {}),
+        Object.keys(pkg.dependencies || {}),
+      ),
     },
   },
 });

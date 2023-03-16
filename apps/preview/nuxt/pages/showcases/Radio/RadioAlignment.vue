@@ -11,7 +11,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfRadio } from '@storefront-ui/vue/components/VsfRadio/index';
+import { VsfRadio } from '@storefront-ui/vue';
 
 const radioModel = ref('');
 </script>

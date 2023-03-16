@@ -10,10 +10,9 @@
   </ComponentExample>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent, ref } from 'vue';
-import { VsfChip, VsfChipSize } from '@storefront-ui/vue/components/VsfChip/index';
-import { VsfThumbnail, VsfThumbnailSize } from '@storefront-ui/vue/components/VsfThumbnail/index';
+import { VsfChip, VsfChipSize, VsfThumbnail, VsfThumbnailSize } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

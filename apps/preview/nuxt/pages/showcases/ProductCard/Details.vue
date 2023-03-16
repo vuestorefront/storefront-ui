@@ -70,15 +70,15 @@
 
 <script lang="ts" setup>
 import {
+  VsfButton,
+  VsfCounter,
+  VsfLink,
+  VsfRating,
   VsfIconSafetyCheck,
   VsfIconCompareArrows,
   VsfIconWarehouse,
   VsfIconPackage,
   VsfIconFavorite,
   VsfIconSell,
-} from '@storefront-ui/vue/components/VsfIcons/index';
-import { VsfButton } from '@storefront-ui/vue/components/VsfButton/index';
-import { VsfCounter } from '@storefront-ui/vue/components/VsfCounter/index';
-import { VsfLink } from '@storefront-ui/vue/components/VsfLink/index';
-import { VsfRating } from '@storefront-ui/vue/components/VsfRating/index';
+} from '@storefront-ui/vue';
 </script>
