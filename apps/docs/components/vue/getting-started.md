@@ -51,7 +51,7 @@ import { tailwindConfig } from '@storefront-ui/tailwind-config';
 
 export default <Config>{
   presets: [tailwindConfig],
-  content: ['./**/*.vue', './node_modules/@storefront-ui/vue/**/*.{ts,vue}'],
+  content: ['./**/*.vue', './node_modules/@storefront-ui/vue/**/*.js'],
 };
 
 ```
