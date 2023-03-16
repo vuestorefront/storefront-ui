@@ -1,11 +1,26 @@
 ---
 layout: ComponentLayout
 hideBreadcrumbs: true
-description: Product Card usage blocks
+description: Product Card usage blocks.
 ---
 # ProductCard
 
 {{ $frontmatter.description }}
+
+## ProductCard Vertical
+
+The most popular option for presenting detailed product information in a group.
+
+<Showcase showcase-name="ProductCard/ProductCardVertical" style="height: 600px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/ProductCard/ProductCardVertical.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/ProductCard/ProductCardVertical.tsx
+<!-- end react -->
+
+</Showcase>
 
 ## Details
 
