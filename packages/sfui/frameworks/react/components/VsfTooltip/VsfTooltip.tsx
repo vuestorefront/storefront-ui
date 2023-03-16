@@ -1,5 +1,5 @@
-import { useTooltip } from '../../hooks/useTooltip';
-import { VsfTooltipProps } from './types';
+import { useTooltip } from '@storefront-ui/react';
+import type { VsfTooltipProps } from '@storefront-ui/react';
 
 export default function VsfTooltip(props: VsfTooltipProps) {
   const { children, label, className, style, showArrow, ...tooltipOptions } = props;

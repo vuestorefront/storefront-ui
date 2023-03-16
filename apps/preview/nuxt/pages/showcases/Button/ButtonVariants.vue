@@ -9,5 +9,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfButton, VsfButtonVariant } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfButton, VsfButtonVariant } from '@storefront-ui/vue';
 </script>

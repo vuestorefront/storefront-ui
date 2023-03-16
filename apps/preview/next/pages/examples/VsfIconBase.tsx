@@ -27,7 +27,7 @@ function Example() {
   );
   return (
     <ComponentExample controls={{ state, controls }}>
-      VsfIconPackage imported from `@storefront-ui/react/VsfIcons`: <br />
+      VsfIconPackage imported from `@storefront-ui/react`: <br />
       <div style={{ color: state.get.color }}>
         <VsfIconPackage size={state.get.size} />
       </div>

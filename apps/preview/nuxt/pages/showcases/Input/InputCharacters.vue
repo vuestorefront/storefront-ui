@@ -33,8 +33,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { VsfInput } from '@storefront-ui/vue/components/VsfInput/index';
 import { ref, computed } from 'vue';
+import { VsfInput } from '@storefront-ui/vue';
 
 const characterLimit = ref(25);
 const inputValue = ref('');

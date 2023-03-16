@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfSelect } from '@storefront-ui/vue/components/VsfSelect/index';
+import { VsfSelect } from '@storefront-ui/vue';
 
 const options = [
   { label: 'red', value: 'red' },

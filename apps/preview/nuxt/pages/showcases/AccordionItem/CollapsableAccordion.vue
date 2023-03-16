@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfAccordionItem } from '@storefront-ui/vue/components/VsfAccordionItem/index';
 import { ref } from 'vue';
+import { VsfAccordionItem } from '@storefront-ui/vue';
 
 const opened = ref<string | null>(null);
 

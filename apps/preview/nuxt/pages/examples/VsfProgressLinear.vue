@@ -6,11 +6,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import {
-  VsfProgressLinear,
-  VsfProgressSize,
-  VsfProgressLinearSize,
-} from '@storefront-ui/vue/components/VsfProgressLinear/index';
+import { VsfProgressLinear, VsfProgressSize, VsfProgressLinearSize } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

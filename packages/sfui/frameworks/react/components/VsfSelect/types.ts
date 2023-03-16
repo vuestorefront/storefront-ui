@@ -1,11 +1,7 @@
 import type { PropsWithChildren, ReactNode } from 'react';
+import { VsfSelectSize } from '@storefront-ui/shared';
 
-export enum VsfSelectSize {
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-}
-
+export { VsfSelectSize };
 export interface VsfSelectProps extends PropsWithChildren, Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
   size?: `${VsfSelectSize}`;
   invalid?: boolean;

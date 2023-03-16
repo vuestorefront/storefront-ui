@@ -3,7 +3,7 @@ import type { CheckOptions, FocusableElement, TabbableOptions } from 'tabbable';
 import { tabbable } from 'tabbable';
 import { type Ref, ref, watch } from 'vue';
 import { focusFirstElement, focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
-import { waitForNextRender } from '../render';
+import { waitForNextRender } from '@storefront-ui/vue';
 
 // TODO: add possibility to focus on init any number 1,2,3 and also support autofocus attr so user will be able to decide which element focus
 export enum InitialFocusType {

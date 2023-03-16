@@ -1,4 +1,4 @@
-import { VsfProgressCircular } from '@storefront-ui/react/components/VsfProgressCircular/index';
+import { VsfProgressCircular } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { ref, reactive } from 'vue';
-import { VsfRating, VsfRatingSize } from '@storefront-ui/vue/components/VsfRating/index';
+import { VsfRating, VsfRatingSize } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

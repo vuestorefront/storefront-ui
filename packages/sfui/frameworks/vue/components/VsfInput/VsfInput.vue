@@ -13,7 +13,7 @@ const getSizeClasses = {
 import type { PropType } from 'vue';
 import { toRefs } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { VsfInputSize } from './types';
+import { VsfInputSize } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {

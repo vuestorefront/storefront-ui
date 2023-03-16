@@ -1,15 +1,16 @@
 <template>
   <ComponentExample :controls-attrs="state.controlsAttrs">
-    VsfIconPackage imported from `@storefront-ui/vue/VsfIcons`: <br />
+    VsfIconPackage imported from `@storefront-ui/vue`: <br />
     <VsfIconPackage :style="{ color: state.colorExample.value }" :size="state.size.value" />
   </ComponentExample>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfIconSize, VsfIconPackage } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconSize, VsfIconPackage } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
+
 const state = prepareControls(
   [
     {

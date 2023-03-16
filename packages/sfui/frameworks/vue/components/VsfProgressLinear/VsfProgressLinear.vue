@@ -14,7 +14,7 @@ const sizeClasses = {
 
 <script lang="ts" setup>
 import { type PropType } from 'vue';
-import { VsfProgressSize, VsfProgressLinearSize } from './types';
+import { VsfProgressSize, VsfProgressLinearSize } from '@storefront-ui/vue';
 
 defineProps({
   value: {

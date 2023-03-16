@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-import { VsfAccordionItem } from '@storefront-ui/react/components/VsfAccordionItem';
+import { VsfAccordionItem } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 const accordionItems = [

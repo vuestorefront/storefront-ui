@@ -1,3 +1,3 @@
-export { default as VsfLoaderLinear } from './VsfLoaderLinear';
-
 export * from './types';
+
+export { default as VsfLoaderLinear } from './VsfLoaderLinear';

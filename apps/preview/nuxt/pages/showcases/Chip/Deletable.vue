@@ -18,9 +18,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfChip } from '@storefront-ui/vue/components/VsfChip/index';
-import { VsfIconClose } from '@storefront-ui/vue/components/VsfIcons/index';
-import { VsfThumbnail } from '@storefront-ui/vue/components/VsfThumbnail/index';
+import { VsfChip, VsfIconClose, VsfThumbnail } from '@storefront-ui/vue';
 
 const chipValues = ref([
   { label: 'Red', value: 'red' },

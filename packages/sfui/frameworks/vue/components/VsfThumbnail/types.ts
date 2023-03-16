@@ -1,3 +1,1 @@
-import { VsfThumbnailSize } from '@storefront-ui/shared';
-
-export { VsfThumbnailSize };
+export { VsfThumbnailSize } from '@storefront-ui/shared';

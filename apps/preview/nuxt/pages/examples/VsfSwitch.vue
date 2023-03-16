@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import { VsfSwitch } from '@storefront-ui/vue/components/VsfSwitch/index';
+import { VsfSwitch } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

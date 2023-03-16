@@ -13,8 +13,7 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfSelect } from '@storefront-ui/vue/components/VsfSelect/index';
-import { VsfIconUnfoldMore } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfSelect, VsfIconUnfoldMore } from '@storefront-ui/vue';
 
 const options = [
   { label: 'red', value: 'red' },

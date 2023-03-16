@@ -5,10 +5,7 @@ export default {
 </script>
 <script lang="ts" setup>
 import { ref, toRefs, watch } from 'vue';
-import { VsfButton, VsfButtonVariant } from '../VsfButton';
-import { VsfIconClose } from '../VsfIcons';
-import { waitForElementInDOM } from '../../shared/render';
-import { useTrapFocus } from '../../shared/useTrapFocus/useTrapFocus';
+import { useTrapFocus, waitForElementInDOM, VsfIconClose, VsfButton, VsfButtonVariant } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {

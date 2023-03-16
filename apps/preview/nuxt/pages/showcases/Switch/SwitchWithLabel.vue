@@ -8,7 +8,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfSwitch } from '@storefront-ui/vue/components/VsfSwitch/index';
+import { VsfSwitch } from '@storefront-ui/vue';
 
 const modelCheck = ref(true);
 </script>

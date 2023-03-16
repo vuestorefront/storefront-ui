@@ -1,3 +1,3 @@
-export { default as VsfInput } from './VsfInput.vue';
-
 export * from './types';
+
+export { default as VsfInput } from './VsfInput.vue';

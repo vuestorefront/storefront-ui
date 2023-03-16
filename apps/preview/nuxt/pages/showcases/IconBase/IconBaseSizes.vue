@@ -12,5 +12,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfIconHome } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconHome } from '@storefront-ui/vue';
 </script>

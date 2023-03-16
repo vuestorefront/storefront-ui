@@ -3,5 +3,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfButton } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfButton } from '@storefront-ui/vue';
 </script>

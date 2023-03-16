@@ -1,7 +1,7 @@
 <script lang="ts" setup>
-import { PropType, InputHTMLAttributes, toRefs, computed } from 'vue';
-import { useId } from '../../shared/useId';
-import { VsfChipSize } from './types';
+import type { PropType, InputHTMLAttributes } from 'vue';
+import { toRefs, computed } from 'vue';
+import { useId, VsfChipSize } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {

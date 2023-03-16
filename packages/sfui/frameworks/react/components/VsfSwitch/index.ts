@@ -1,3 +1,3 @@
-export { default as VsfSwitch } from './VsfSwitch';
-
 export * from './types';
+
+export { default as VsfSwitch } from './VsfSwitch';

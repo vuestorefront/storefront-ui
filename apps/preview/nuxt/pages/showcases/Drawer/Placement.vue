@@ -33,8 +33,7 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfDrawer, VsfDrawerPlacement } from '@storefront-ui/vue/components/VsfDrawer/index';
-import { VsfButton } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfDrawer, VsfDrawerPlacement, VsfButton } from '@storefront-ui/vue';
 import { ref } from 'vue';
 
 const placement = ref<`${VsfDrawerPlacement}`>('left');

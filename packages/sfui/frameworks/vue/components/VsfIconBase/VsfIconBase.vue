@@ -1,6 +1,6 @@
 <script lang="ts">
 import { type PropType, h, defineComponent, computed, toRefs } from 'vue';
-import { VsfIconSize } from './types';
+import { VsfIconSize } from '@storefront-ui/vue';
 
 export default defineComponent({
   name: 'VsfIconBase',

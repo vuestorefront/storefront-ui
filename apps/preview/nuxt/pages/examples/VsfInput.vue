@@ -41,10 +41,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, h, computed } from 'vue';
-import VsfInput from '@storefront-ui/vue/components/VsfInput/VsfInput';
-import { VsfInputSize } from '@storefront-ui/vue/components/VsfInput/types';
+import { VsfInput, VsfInputSize, VsfIconLock, VsfIconSearch } from '@storefront-ui/vue';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
-import { VsfIconLock, VsfIconSearch } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

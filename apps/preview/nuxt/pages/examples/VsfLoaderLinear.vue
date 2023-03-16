@@ -6,9 +6,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import VsfLoaderLinear from '@storefront-ui/vue/components/VsfLoaderLinear/VsfLoaderLinear.vue';
-import { VsfLoaderSize } from '@storefront-ui/shared';
-import { VsfLoaderLinearSize } from '@storefront-ui/vue/components/VsfLoaderLinear/types';
+import { VsfLoaderLinear, VsfLoaderSize, VsfLoaderLinearSize } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

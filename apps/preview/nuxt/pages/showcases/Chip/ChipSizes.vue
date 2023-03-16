@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfChip } from '@storefront-ui/vue/components/VsfChip/index';
+import { VsfChip } from '@storefront-ui/vue';
 
 const chipSmallActive = ref();
 const chipBaseActive = ref();

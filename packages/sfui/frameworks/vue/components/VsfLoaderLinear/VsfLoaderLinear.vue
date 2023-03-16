@@ -14,7 +14,7 @@ const sizeClasses = {
 
 <script lang="ts" setup>
 import { type PropType } from 'vue';
-import { VsfLoaderLinearSize, VsfLoaderSize } from './types';
+import { VsfLoaderLinearSize, VsfLoaderSize } from '@storefront-ui/vue';
 
 defineProps({
   size: {

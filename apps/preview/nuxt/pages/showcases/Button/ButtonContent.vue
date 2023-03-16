@@ -21,6 +21,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfButton } from '@storefront-ui/vue/components/VsfButton/index';
-import { VsfIconHome, VsfIconStar, VsfIconAdd } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfButton, VsfIconHome, VsfIconStar, VsfIconAdd } from '@storefront-ui/vue';
 </script>

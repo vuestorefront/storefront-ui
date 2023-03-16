@@ -1,3 +1,3 @@
-export { default as VsfProgressCircular } from './VsfProgressCircular.vue';
-
 export * from './types';
+
+export { default as VsfProgressCircular } from './VsfProgressCircular.vue';

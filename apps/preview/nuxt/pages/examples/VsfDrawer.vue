@@ -26,9 +26,7 @@
 
 <script lang="ts">
 import { ref } from 'vue';
-import VsfDrawer from '@storefront-ui/vue/components/VsfDrawer/VsfDrawer.vue';
-import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
-import { VsfDrawerPlacement } from '@storefront-ui/shared';
+import { VsfDrawer, VsfButton, VsfDrawerPlacement } from '@storefront-ui/vue';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

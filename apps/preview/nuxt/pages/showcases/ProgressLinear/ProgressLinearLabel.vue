@@ -10,7 +10,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfProgressLinear } from '@storefront-ui/vue/components/VsfProgressLinear/index';
+import { VsfProgressLinear } from '@storefront-ui/vue';
 
 const value = ref(70);
 </script>

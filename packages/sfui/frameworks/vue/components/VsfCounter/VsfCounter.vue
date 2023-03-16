@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { PropType, computed, toRefs } from 'vue';
-import { VsfCounterSize } from './types';
+import type { PropType } from 'vue';
+import { computed, toRefs } from 'vue';
+import { VsfCounterSize } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -15,7 +16,7 @@ const props = defineProps({
 const { size, pill } = toRefs(props);
 
 const sizeClasses = computed(() => {
-  switch (size.value) {
+  switch (size?.value) {
     case VsfCounterSize.xs:
       return ['text-3xs', { 'px-1': pill.value }];
     case VsfCounterSize.sm:

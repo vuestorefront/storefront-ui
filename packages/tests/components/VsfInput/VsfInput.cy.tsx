@@ -1,6 +1,6 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfInputSize } from '@storefront-ui/vue/index';
+import { VsfInputSize } from '@storefront-ui/vue';
 import { mount, useComponent } from '../../utils/mount';
 import VsfInputBaseObject from './VsfInput.PageObject';
 

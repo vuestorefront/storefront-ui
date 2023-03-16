@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { type PropType, ref, toRefs, computed } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import { VsfDrawerPlacement } from './types';
+import { VsfDrawerPlacement } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {

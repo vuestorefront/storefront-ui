@@ -123,9 +123,7 @@
 
 <script lang="ts">
 import { toRefs, computed, reactive, Ref, defineComponent, PropType } from 'vue';
-import VsfButton from '@storefront-ui/vue/components/VsfButton/VsfButton.vue';
-import { VsfButtonVariant, VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/types';
-import { VsfIconExpandMore, VsfIconExpandLess } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfButton, VsfButtonVariant, VsfButtonSize, VsfIconExpandMore, VsfIconExpandLess } from '@storefront-ui/vue';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 
 type RefValueUnknown = Ref<unknown>;

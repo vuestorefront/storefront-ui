@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ClassProp } from '../../shared/props';
+import { ClassProp } from '@storefront-ui/vue';
 
 defineProps({
   modelValue: {

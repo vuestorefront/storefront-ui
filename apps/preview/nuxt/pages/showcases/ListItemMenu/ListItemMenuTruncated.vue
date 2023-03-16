@@ -8,5 +8,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfListItemMenu } from '@storefront-ui/vue/components/VsfListItemMenu/index';
+import { VsfListItemMenu } from '@storefront-ui/vue';
 </script>

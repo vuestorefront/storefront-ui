@@ -13,7 +13,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfSelect } from '@storefront-ui/vue/components/VsfSelect/index';
+import { VsfSelect } from '@storefront-ui/vue';
 
 const options = ref([
   { label: 'Relevance', value: 'relevance' },

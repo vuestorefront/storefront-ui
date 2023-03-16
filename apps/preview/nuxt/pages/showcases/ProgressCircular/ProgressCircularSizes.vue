@@ -13,5 +13,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfProgressCircular } from '@storefront-ui/vue/components/VsfProgressCircular/index';
+import { VsfProgressCircular } from '@storefront-ui/vue';
 </script>

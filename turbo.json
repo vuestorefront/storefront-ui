@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "cache": false,
-      "dependsOn": ["^build:shared", "^build:typography", "^build:tailwind-config", "^build"],
+      "dependsOn": ["^build:shared", "^build:typography", "^build:tailwind-config", "build:release",  "^build"],
       "outputs": ["dist/**"]
     },
     "lint": {

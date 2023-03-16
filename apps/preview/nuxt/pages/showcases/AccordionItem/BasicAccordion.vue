@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfAccordionItem } from '@storefront-ui/vue/components/VsfAccordionItem/index';
+import { VsfAccordionItem } from '@storefront-ui/vue';
 import { ref } from 'vue';
 
 const opened = ref<boolean[]>([]);

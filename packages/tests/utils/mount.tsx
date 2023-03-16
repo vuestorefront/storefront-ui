@@ -6,10 +6,10 @@ import type { ReactNode, FunctionComponent } from 'react';
 import { isRef, unref, watch, reactive } from 'vue';
 import type { Ref } from 'vue';
 // import vue
-import * as vueComponents from '@storefront-ui/vue/index';
+import * as vueComponents from '@storefront-ui/vue';
 // end import vue
 // import react
-import * as reactComponents from '@storefront-ui/react/index';
+import * as reactComponents from '@storefront-ui/react';
 // end import react
 import { isReact, isVue } from './utils';
 

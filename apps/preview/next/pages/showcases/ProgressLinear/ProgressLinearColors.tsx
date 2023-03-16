@@ -1,4 +1,4 @@
-import { VsfProgressLinear } from '@storefront-ui/react/components/VsfProgressLinear/index';
+import { VsfProgressLinear } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {

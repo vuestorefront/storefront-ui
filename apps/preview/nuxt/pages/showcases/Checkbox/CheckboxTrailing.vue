@@ -7,7 +7,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { VsfCheckbox } from '@storefront-ui/vue/components/VsfCheckbox/index';
+import { VsfCheckbox } from '@storefront-ui/vue';
+
 import { ref } from 'vue';
 const modelValue = ref([]);
 </script>

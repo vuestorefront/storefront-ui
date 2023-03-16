@@ -2,7 +2,7 @@
 import React from 'react';
 import { ref } from 'vue';
 import type { Ref } from 'vue';
-import { VsfDrawerPlacement } from '@storefront-ui/shared';
+import { VsfDrawerPlacement } from '@storefront-ui/vue';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
 import VsfDrawerBaseObject from './VsfDrawer.PageObject';
 

@@ -15,5 +15,5 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { VsfInput } from '@storefront-ui/vue/components/VsfInput/index';
+import { VsfInput } from '@storefront-ui/vue';
 </script>

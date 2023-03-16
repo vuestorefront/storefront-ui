@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, toRefs, type PropType } from 'vue';
-import { VsfListItemMenuSize } from './types';
+import { VsfListItemMenuSize } from '@storefront-ui/vue';
+
 const props = defineProps({
   size: {
     type: String as PropType<`${VsfListItemMenuSize}`>,

@@ -17,7 +17,5 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfListItemMenu } from '@storefront-ui/vue/components/VsfListItemMenu/index';
-import { VsfCounter } from '@storefront-ui/vue/components/VsfCounter/index';
-import { VsfIconCheck, VsfIconCircle } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfListItemMenu, VsfCounter, VsfIconCheck, VsfIconCircle } from '@storefront-ui/vue';
 </script>

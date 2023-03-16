@@ -1,3 +1,3 @@
-export { default as VsfListItemMenu } from './VsfListItemMenu';
-
 export * from './types';
+
+export { default as VsfListItemMenu } from './VsfListItemMenu';

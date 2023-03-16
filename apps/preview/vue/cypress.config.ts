@@ -11,7 +11,7 @@ export default defineConfig({
     viewportHeight: 300,
     viewportWidth: 300,
     video: false,
-    specPattern: `src/components/sfui/tests/components/${singleFile}**/*.{cy,spec}.{js,ts,jsx,tsx}`,
+    specPattern: `src/components/sfui/tests/components/${singleFile}**/*.cy.tsx`,
     fixturesFolder: "src/components/sfui/tests/fixtures",
     devServer: {
       framework: "vue",

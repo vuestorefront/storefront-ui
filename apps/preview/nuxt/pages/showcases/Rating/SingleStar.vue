@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfIconStarFilled } from '@storefront-ui/vue/components/VsfIcons/index';
+import { VsfIconStarFilled } from '@storefront-ui/vue';
 
 const value = ref(4.5);
 </script>

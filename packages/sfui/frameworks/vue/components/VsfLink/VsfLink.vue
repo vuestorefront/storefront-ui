@@ -1,8 +1,7 @@
 <script lang="ts" setup>
 import { toRefs, computed } from 'vue';
 import type { PropType, ConcreteComponent } from 'vue';
-
-import { VsfLinkVariant } from './types';
+import { VsfLinkVariant } from '@storefront-ui/vue';
 
 const props = defineProps({
   tag: {

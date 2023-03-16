@@ -16,9 +16,8 @@
 
 <script lang="ts">
 import { defineComponent, ref, h } from 'vue';
-import { VsfButton, VsfButtonVariant, VsfButtonSize } from '@storefront-ui/vue/components/VsfButton/index';
+import { VsfButton, VsfButtonVariant, VsfButtonSize, VsfIconLock, VsfIconSearch } from '@storefront-ui/vue';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
-import { VsfIconLock, VsfIconSearch } from '@storefront-ui/vue/components/VsfIcons/index';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';
 

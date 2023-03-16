@@ -19,8 +19,8 @@
 </template>
 
 <script lang="ts">
-import { VsfCheckbox } from '@storefront-ui/vue/components/VsfCheckbox/index';
 import { defineComponent, ref, watch } from 'vue';
+import { VsfCheckbox } from '@storefront-ui/vue';
 import { unrefElement, MaybeElement } from '@vueuse/core';
 import { prepareControls } from '../../components/utils/Controls.vue';
 import ComponentExample from '../../components/utils/ComponentExample.vue';

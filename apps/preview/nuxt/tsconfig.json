@@ -7,19 +7,21 @@
     "resolveJsonModule": true,
     "jsx": "preserve",
     "types": [
-      "vite/client",
+      "vite/client"
     ],
     "baseUrl": "./",
     "paths": {
       "~/*": [
         "./*"
       ],
-      "@assets/*": ["./assets/fixture"]
+      "@assets/*": ["./assets/fixture"],
+      "@storefront-ui/vue": ["../../../packages/sfui/frameworks/vue/index.ts"],
+      "@storefront-ui/react": ["../../../packages/sfui/frameworks/vue/index.ts"]
     }
   },
   "exclude": [
     "node_modules",
     "output",
-    "pages/examples/ListOfIcons.vue",
+    "pages/examples/ListOfIcons.vue"
   ]
 }
