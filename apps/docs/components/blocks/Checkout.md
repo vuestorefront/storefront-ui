@@ -26,13 +26,28 @@ Ease the checkout process for users by providing them with well-structured addre
 
 Present possible delivery options in a way where your customers can easily see differences and choose the best one for their needs.
 
-<Showcase showcase-name="Checkout/CheckoutDeliveryOptions" >
-
+<Showcase showcase-name="Checkout/CheckoutDeliveryOptions" style="height: 300px;">
+<SourceCode>
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Checkout/CheckoutDeliveryOptions.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Checkout/CheckoutDeliveryOptions.tsx
 <!-- end react -->
+</SourceCode>
+</Showcase>
 
+## Contact form
+
+The contact form for customers provides the way to send email (field with simple validation) and phone number with separate country code. 
+
+<Showcase showcase-name="Checkout/CheckoutContactForm" style="height: 400px;">
+<SourceCode>
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Checkout/CheckoutContactForm.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Checkout/CheckoutContactForm.tsx
+<!-- end react -->
+</SourceCode>
 </Showcase>
