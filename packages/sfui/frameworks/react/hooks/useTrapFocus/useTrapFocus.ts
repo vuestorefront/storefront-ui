@@ -13,6 +13,7 @@ type UseTrapFocusOptions = TabbableOptions &
     arrowFocusGroupSelector?: string;
     activeState?: boolean;
     initialFocus?: number | `${InitialFocusType}` | false;
+    initialFocusContainerFallback?: boolean;
     arrowKeysOn?: boolean;
   };
 
@@ -20,11 +21,20 @@ const defaultOptions = {
   trapTabs: true,
   activeState: true,
   initialFocus: 0,
+  initialFocusContainerFallback: false,
   arrowKeysOn: false,
 };
 
 export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>, options?: UseTrapFocusOptions) => {
-  const { trapTabs, arrowFocusGroupSelector, includeContainer, activeState, initialFocus, arrowKeysOn } = {
+  const {
+    trapTabs,
+    arrowFocusGroupSelector,
+    includeContainer,
+    activeState,
+    initialFocus,
+    arrowKeysOn,
+    initialFocusContainerFallback,
+  } = {
     ...defaultOptions,
     ...options,
   };
@@ -76,18 +86,22 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
       removeEventListeners();
     }
     if (containerElementRef.current && activeState) {
+      let focusFallbackNeeded = false;
       focusableElements.current = tabbable(containerElementRef.current, { includeContainer });
 
       if (typeof initialFocus === 'number') {
-        try {
-          focusableElements.current[initialFocus]?.focus();
-        } catch (error) {
+        if (!focusableElements.current[initialFocus]) {
           // eslint-disable-next-line no-console
           console.error(`There is no element with given index ${initialFocus}`);
-        }
+          focusFallbackNeeded = true;
+        } else focusableElements.current[initialFocus].focus();
       } else if (initialFocus === InitialFocusType.autofocus) {
-        focusableElements.current.find((focusable) => focusable.hasAttribute('autofocus'))?.focus();
+        const autofocusElement = focusableElements.current.find((focusable) => focusable.hasAttribute('autofocus'));
+        if (autofocusElement) autofocusElement.focus();
+        else focusFallbackNeeded = true;
       }
+
+      if (initialFocusContainerFallback && focusFallbackNeeded) containerElementRef.current.focus();
     } else {
       focusableElements.current = [];
       currentlyFocused.current = undefined;

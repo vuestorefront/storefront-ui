@@ -49,7 +49,6 @@ const placementClasses = computed(() => ({
   'top-0': placement.value !== VsfDrawerPlacement.bottom,
   'bottom-0': placement.value !== VsfDrawerPlacement.top,
 }));
-defineExpose({ ref: drawerRef });
 </script>
 
 <template>

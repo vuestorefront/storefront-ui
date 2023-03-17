@@ -8,7 +8,7 @@
       <option value="left" selected>left</option>
     </select>
   </label>
-  <VsfButton type="button" @click="open = $event"> Open Drawer </VsfButton>
+  <VsfButton type="button" @click="open = true"> Open Drawer </VsfButton>
 
   <VsfDrawer
     v-model="open"

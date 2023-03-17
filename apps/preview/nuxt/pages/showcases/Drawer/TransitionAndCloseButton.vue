@@ -1,5 +1,5 @@
 <template>
-  <VsfButton type="button" @click="open = $event"> Open Drawer </VsfButton>
+  <VsfButton type="button" @click="open = true"> Open Drawer </VsfButton>
 
   <transition
     enter-active-class="transition duration-500 ease-in-out"
