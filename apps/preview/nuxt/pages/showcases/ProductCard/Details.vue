@@ -6,24 +6,24 @@
       <VsfIconSell size="sm" class="mr-1.5" />
       Sale
     </div>
-    <h1 class="typography-headline-3 font-bold">Athletic Mens Walking Sneakers Athletic Shoes Breathable Knit</h1>
+    <h1 class="font-bold typography-headline-3">Athletic Mens Walking Sneakers Athletic Shoes Breathable Knit</h1>
     <div class="flex items-baseline py-2">
-      <strong class="typography-headline-3 font-bold text-secondary-600">$2,345.99</strong>
-      <span class="ml-2 text-base font-normal leading-4 text-neutral-500 line-through">$3,129.99</span>
+      <strong class="font-bold typography-headline-3 text-secondary-600">$2,345.99</strong>
+      <span class="ml-2 text-base font-normal leading-4 line-through text-neutral-500">$3,129.99</span>
     </div>
     <div class="inline-flex items-end mb-2">
       <VsfRating size="xs" :value="3" :max="5" />
       <VsfCounter class="ml-1">123</VsfCounter>
-      <VsfLink href="#" variant="secondary" class="text-xs ml-2"> 123 reviews </VsfLink>
+      <VsfLink href="#" variant="secondary" class="ml-2 text-xs"> 123 reviews </VsfLink>
     </div>
-    <div class="text-sm mb-4">
+    <div class="mb-4 text-sm">
       <p>Stretch mesh upper for breathability. Lightweight.</p>
       <p>Non slip.</p>
       <p>Flexible outsole.</p>
       <p>Easy to wear on and off.</p>
     </div>
     <!-- TODO: Place QuantitySelector when ready -->
-    <div class="border-y border-gray-200 py-4 mb-4">
+    <div class="py-4 mb-4 border-gray-200 border-y">
       <VsfButton type="button" size="lg" class="w-full">
         <template #prefix>
           <VsfIconShoppingCart size="sm" />
@@ -44,7 +44,7 @@
       </div>
     </div>
     <div class="flex first:mt-4">
-      <VsfIconPackage size="sm" class="text-neutral-500 mr-1 flex-shrink-0" />
+      <VsfIconPackage size="sm" class="flex-shrink-0 mr-1 text-neutral-500" />
       <p class="text-sm">
         Free shipping, arrives by Thu, Apr 7. Want it faster?
         <VsfLink href="#" variant="secondary" class="mx-1"> Add an address </VsfLink>
@@ -52,14 +52,14 @@
       </p>
     </div>
     <div class="flex mt-4">
-      <VsfIconWarehouse size="sm" class="text-neutral-500 mr-1 flex-shrink-0" />
+      <VsfIconWarehouse size="sm" class="flex-shrink-0 mr-1 text-neutral-500" />
       <p class="text-sm">
         Pickup not available at your shop.
         <VsfLink href="#" variant="secondary" class="ml-1"> Check availability nearby </VsfLink>
       </p>
     </div>
     <div class="flex mt-4">
-      <VsfIconSafetyCheck size="sm" class="text-neutral-500 mr-1 flex-shrink-0" />
+      <VsfIconSafetyCheck size="sm" class="flex-shrink-0 mr-1 text-neutral-500" />
       <p class="text-sm">
         Free 30-days returns.
         <VsfLink href="#" variant="secondary" class="ml-1"> Details </VsfLink>
@@ -80,5 +80,6 @@ import {
   VsfIconPackage,
   VsfIconFavorite,
   VsfIconSell,
+  VsfIconShoppingCart,
 } from '@storefront-ui/vue';
 </script>
