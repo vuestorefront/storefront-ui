@@ -1,12 +1,10 @@
 import type { CheckOptions, FocusableElement, TabbableOptions } from 'tabbable';
 import { tabbable } from 'tabbable';
-import { focusFirstElement, focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
+import { focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
 import { useEffect, useRef, type RefObject } from 'react';
 
-// TODO: add possibility to focus on init any number 1,2,3 and also support autofocus attr so user will be able to decide which element focus
 export enum InitialFocusType {
-  first = 'first',
-  none = 'none',
+  autofocus = 'autofocus',
 }
 
 type UseTrapFocusOptions = TabbableOptions &
@@ -14,19 +12,19 @@ type UseTrapFocusOptions = TabbableOptions &
     trapTabs?: boolean;
     arrowFocusGroupSelector?: string;
     activeState?: boolean;
-    initialFocus?: `${InitialFocusType}`;
+    initialFocus?: number | `${InitialFocusType}` | false;
+    arrowKeysOn?: boolean;
   };
-/**
- * arrowFocusGroupSelector - when arrow left/right press will focus first element of given selector requirement: all children needs to be same structure, options dedicated for slider with many items that has focusable elements inside
- * trapTabs - define if tab should be trapped inside container, usefull when user would like to have only arrow right/left trapped but not tab
- * */
+
 const defaultOptions = {
   trapTabs: true,
   activeState: true,
-  initialFocus: InitialFocusType.first,
+  initialFocus: 0,
+  arrowKeysOn: false,
 };
+
 export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>, options?: UseTrapFocusOptions) => {
-  const { trapTabs, arrowFocusGroupSelector, includeContainer, activeState, initialFocus } = {
+  const { trapTabs, arrowFocusGroupSelector, includeContainer, activeState, initialFocus, arrowKeysOn } = {
     ...defaultOptions,
     ...options,
   };
@@ -36,18 +34,21 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
   const onKeyDownListener = (event: KeyboardEvent) => {
     const isAnyGroupElement =
       arrowFocusGroupSelector && containerElementRef.current?.querySelector(arrowFocusGroupSelector);
-    if (event.key === 'ArrowRight') {
-      focusNext({
-        current: currentlyFocused.current,
-        focusables: focusableElements.current,
-        ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-      });
-    } else if (event.key === 'ArrowLeft') {
-      focusPrev({
-        current: currentlyFocused.current,
-        focusables: focusableElements.current,
-        ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-      });
+
+    if (arrowKeysOn) {
+      if (event.key === 'ArrowRight') {
+        focusNext({
+          current: currentlyFocused.current,
+          focusables: focusableElements.current,
+          ...(isAnyGroupElement && { arrowFocusGroupSelector }),
+        });
+      } else if (event.key === 'ArrowLeft') {
+        focusPrev({
+          current: currentlyFocused.current,
+          focusables: focusableElements.current,
+          ...(isAnyGroupElement && { arrowFocusGroupSelector }),
+        });
+      }
     }
 
     if (trapTabs && isTab(event)) {
@@ -76,7 +77,17 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     }
     if (containerElementRef.current && activeState) {
       focusableElements.current = tabbable(containerElementRef.current, { includeContainer });
-      if (initialFocus === InitialFocusType.first) focusFirstElement({ focusables: focusableElements.current });
+
+      if (typeof initialFocus === 'number') {
+        try {
+          focusableElements.current[initialFocus]?.focus();
+        } catch (error) {
+          // eslint-disable-next-line no-console
+          console.error(`There is no element with given index ${initialFocus}`);
+        }
+      } else if (initialFocus === InitialFocusType.autofocus) {
+        focusableElements.current.find((focusable) => focusable.hasAttribute('autofocus'))?.focus();
+      }
     } else {
       focusableElements.current = [];
       currentlyFocused.current = undefined;

@@ -1,7 +1,7 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: API reference docs for the useTooltip hook.
+description: API reference docs for the useTooltip <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
 ---
 
 # useTooltip
@@ -12,7 +12,7 @@ description: API reference docs for the useTooltip hook.
 
 ## Usage
 
-Example of custom tooltip with Transition built on to of the `useTooltip` hook.
+Example of custom tooltip with Transition built on to of the `useTooltip` <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
 
 <!-- react -->
 ```tsx

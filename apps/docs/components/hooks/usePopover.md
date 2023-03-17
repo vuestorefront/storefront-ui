@@ -1,7 +1,7 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: API reference docs for the usePopover hook.
+description: API reference docs for the usePopover <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
 ---
 
 # usePopover
@@ -12,7 +12,7 @@ description: API reference docs for the usePopover hook.
 
 ## Usage
 
-Simple Tooltip component example built on top of the `usePopover` hook.
+Simple Tooltip component example built on top of the `usePopover` <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
 
 <SourceCode>
 

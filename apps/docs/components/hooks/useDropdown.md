@@ -1,7 +1,7 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: API reference docs for the useDropdown hook.
+description: API reference docs for the useDropdown <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
 ---
 
 # useDropdown
@@ -48,7 +48,7 @@ import { useTooltip, VsfButton } from '@storefront-ui/vue';
 
 const isOpen = ref(false);
 
-const { referenceRef, floatingRef,, style } = useDropdown({ isOpen, onClose: () => isOpen.value = false });
+const { referenceRef, floatingRef, style } = useDropdown({ isOpen, onClose: () => isOpen.value = false });
 </script>
 
 <template>

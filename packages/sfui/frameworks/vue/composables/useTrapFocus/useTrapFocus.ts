@@ -2,13 +2,11 @@ import { unrefElement } from '@vueuse/core';
 import type { CheckOptions, FocusableElement, TabbableOptions } from 'tabbable';
 import { tabbable } from 'tabbable';
 import { type Ref, ref, watch } from 'vue';
-import { focusFirstElement, focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
+import { focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
 import { waitForNextRender } from '@storefront-ui/vue';
 
-// TODO: add possibility to focus on init any number 1,2,3 and also support autofocus attr so user will be able to decide which element focus
 export enum InitialFocusType {
-  first = 'first',
-  none = 'none',
+  autofocus = 'autofocus',
 }
 
 type UseTrapFocusOptions = TabbableOptions &
@@ -16,19 +14,19 @@ type UseTrapFocusOptions = TabbableOptions &
     trapTabs?: boolean;
     arrowFocusGroupSelector?: string;
     activeState?: Ref<boolean>;
-    initialFocus?: `${InitialFocusType}`;
+    initialFocus?: number | `${InitialFocusType}` | false;
+    arrowKeysOn?: boolean;
   };
-/**
- * arrowFocusGroupSelector - when arrow left/right press will focus first element of given selector requirement: all children needs to be same structure, options dedicated for slider with many items that has focusable elements inside
- * trapTabs - define if tab should be trapped inside container, usefull when user would like to have only arrow right/left trapped but not tab
- * */
+
 const defaultOptions = {
   trapTabs: true,
   activeState: ref(true),
-  initialFocus: InitialFocusType.first,
+  initialFocus: 0,
+  arrowKeysOn: false,
 };
+
 export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, options?: UseTrapFocusOptions) => {
-  const { trapTabs, arrowFocusGroupSelector, includeContainer, activeState, initialFocus } = {
+  const { trapTabs, arrowFocusGroupSelector, includeContainer, activeState, initialFocus, arrowKeysOn } = {
     ...defaultOptions,
     ...options,
   };
@@ -42,18 +40,20 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
 
   const onKeyDownListener = (event: KeyboardEvent) => {
     const isAnyGroupElement = arrowFocusGroupSelector && containeHTMLElement?.querySelector(arrowFocusGroupSelector);
-    if (event.key === 'ArrowRight') {
-      focusNext({
-        current: currentlyFocused.value,
-        focusables: focusableElements.value,
-        ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-      });
-    } else if (event.key === 'ArrowLeft') {
-      focusPrev({
-        current: currentlyFocused.value,
-        focusables: focusableElements.value,
-        ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-      });
+    if (arrowKeysOn) {
+      if (event.key === 'ArrowRight') {
+        focusNext({
+          current: currentlyFocused.value,
+          focusables: focusableElements.value,
+          ...(isAnyGroupElement && { arrowFocusGroupSelector }),
+        });
+      } else if (event.key === 'ArrowLeft') {
+        focusPrev({
+          current: currentlyFocused.value,
+          focusables: focusableElements.value,
+          ...(isAnyGroupElement && { arrowFocusGroupSelector }),
+        });
+      }
     }
 
     if (trapTabs && isTab(event)) {
@@ -87,7 +87,15 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
         await waitForNextRender();
         focusableElements.value = tabbable(containeHTMLElement as HTMLElement, { includeContainer });
 
-        if (initialFocus === InitialFocusType.first) focusFirstElement({ focusables: focusableElements.value });
+        if (typeof initialFocus === 'number') {
+          try {
+            focusableElements.value[initialFocus]?.focus();
+          } catch (error) {
+            console.error(`There is no element with given index ${initialFocus}`);
+          }
+        } else if (initialFocus === InitialFocusType.autofocus) {
+          focusableElements.value.find((focusable) => focusable.hasAttribute('autofocus'))?.focus();
+        }
       } else {
         focusableElements.value = [];
         currentlyFocused.value = undefined;
