@@ -50,13 +50,13 @@
 </template>
 <script lang="ts" setup>
 import {
+  VsfButton,
   VsfIconShoppingCart,
   VsfIconFavorite,
   VsfIconPerson,
   VsfIconMenu,
   VsfIconVuestorefront,
-} from '@storefront-ui/vue/components/VsfIcons/index';
-import { VsfButton } from '@storefront-ui/vue/components/VsfButton/index';
+} from '@storefront-ui/vue';
 import brandLogo from '@assets/vsf_logo_white.svg';
 
 const actionItems = [
