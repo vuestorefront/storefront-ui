@@ -36,9 +36,9 @@ const onSelected = computed({
 const sizeClasses = computed(() => {
   switch (size.value) {
     case VsfChipSize.sm:
-      return square.value ? 'text-sm p-1.5' : 'text-sm py-1.5 px-3';
+      return square.value ? 'text-sm p-1.5' : 'text-sm py-1.5 px-3 min-w-[3rem]';
     default:
-      return square.value ? 'text-base p-2' : 'text-base h-10 py-2 px-4 min-w-[2.5rem]';
+      return square.value ? 'text-base p-2' : 'text-base h-10 py-2 px-4 min-w-[3rem]';
   }
 });
 </script>
