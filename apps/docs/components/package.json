@@ -7,15 +7,21 @@
     "hoistingLimits": "workspaces"
   },
   "scripts": {
-    "dev:docs": "yarn update-files && VITE_DOCS_EXAMPLES_REACT_PATH=http://localhost:3002 VITE_DOCS_EXAMPLES_VUE_PATH=http://localhost:3001 && concurrently \"vuepress dev\" \"yarn watch-docs\" \"yarn watch-showcases\"",
+    "dev:docs": "yarn update-files && VITE_DOCS_EXAMPLES_REACT_PATH=http://localhost:3002 VITE_DOCS_EXAMPLES_VUE_PATH=http://localhost:3001 && concurrently \"vuepress dev\" \"yarn watch-base\" \"yarn watch-blocks\" \"yarn watch-hooks\" \"yarn watch-customization\"",
     "build": "yarn update-files && VITE_DOCS_BASEPATH=/v2/ VITE_DOCS_EXAMPLES_REACT_PATH=https://docs.storefrontui.io/v2-react VITE_DOCS_EXAMPLES_VUE_PATH=https://docs.storefrontui.io/v2-vue && vuepress build",
-    "watch-docs": "chokidar --initial \"./components/**/*.md\" -c \"yarn update-docs --event {event} --path {path};\"",
-    "watch-showcases": "chokidar --initial \"./blocks/**/*.md\" -c \"yarn update-showcases --event {event} --path {path};\"",
+    "watch-base": "chokidar --initial \"./components/**/*.md\" -c \"yarn update-base --event {event} --path {path};\"",
+    "watch-blocks": "chokidar --initial \"./blocks/*.md\" -c \"yarn update-blocks --event {event} --path {path};\"",
+    "watch-hooks": "chokidar --initial \"./hooks/*.md\" -c \"yarn update-hooks --event {event} --path {path};\"",
+    "watch-customization": "chokidar --initial \"./customization/*.md\" -c \"yarn update-customization --event {event} --path {path};\"",
     "serve": "vuepress serve",
-    "clear": "yarn concurrently \"rimraf ./vue/components\" \"rimraf ./vue/blocks\" \"rimraf ./vue/customization\" \"rimraf ./react/components\" \"rimraf ./react/blocks\" \"rimraf ./react/customization\"",
-    "update-docs": "yarn node ./utils/createComponentList && yarn node ./utils/createFrameworksDocs && yarn node ./utils/createHooksList && yarn node ./utils/createHooksDocs && yarn node ./utils/createCustomizationDocs",
-    "update-showcases": "yarn node ./utils/createShowcaseList && yarn node ./utils/createShowcaseDocs",
-    "update-files": "yarn clear && yarn concurrently \"yarn update-docs\" \"yarn update-showcases\""
+    "clear-vue-dir": "yarn concurrently \"rimraf ./vue/components\" \"rimraf ./vue/blocks\" \"rimraf ./vue/customization\" \"rimraf ./vue/hooks\"",
+    "clear-react-dir": "yarn concurrently \"rimraf ./react/components\" \"rimraf ./react/blocks\" \"rimraf ./react/customization\" \"rimraf ./react/hooks\"",
+    "clear": "yarn concurrently \"yarn clear-vue-dir\" \"yarn clear-react-dir\"",
+    "update-base": "yarn node ./utils/createComponentList && yarn node ./utils/createFrameworksDocs && yarn node ./utils/createHooksList && yarn node ./utils/createHooksDocs && yarn node ./utils/createCustomizationDocs",
+    "update-hooks": "yarn node ./utils/createHooksList && yarn node ./utils/createHooksDocs",
+    "update-customization": "yarn node ./utils/createCustomizationDocs",
+    "update-blocks": "yarn node ./utils/createShowcaseList && yarn node ./utils/createShowcaseDocs",
+    "update-files": "yarn clear && yarn concurrently \"yarn update-base\" \"yarn update-blocks\" \"yarn update-hooks\" \"yarn update-customization\""
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.21.5",
