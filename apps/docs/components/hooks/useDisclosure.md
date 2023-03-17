@@ -1,7 +1,7 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: API reference docs for the useDisclosure hook.
+description: API reference docs for the useDisclosure <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
 ---
 
 # useDisclosure
