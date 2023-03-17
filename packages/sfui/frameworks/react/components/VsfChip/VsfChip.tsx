@@ -5,9 +5,9 @@ import { VsfChipProps, VsfChipSize } from '@storefront-ui/react';
 const getSizeClasses = (size: VsfChipProps['size'], square: VsfChipProps['square']) => {
   switch (size) {
     case VsfChipSize.sm:
-      return square ? 'text-sm p-1.5' : 'text-sm py-1.5 px-3';
+      return square ? 'text-sm p-1.5' : 'text-sm py-1.5 px-3 min-w-[3rem]';
     default:
-      return square ? 'text-base p-2' : 'text-base h-10 py-2 px-4 min-w-[2.5rem]';
+      return square ? 'text-base p-2' : 'text-base h-10 py-2 px-4 min-w-[3rem]';
   }
 };
 

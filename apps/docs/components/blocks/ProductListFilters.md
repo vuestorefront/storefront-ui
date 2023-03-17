@@ -7,6 +7,15 @@ description: Product list sidebar navigation filters showcases
 
 {{ $frontmatter.description }}
 
+## Sizes
+
+<Showcase showcase-name="ProductListFilters/Sizes">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/ProductListFilters/Sizes.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/ProductListFilters/Sizes.tsx
 ## Colors
 
 <Showcase showcase-name="ProductListFilters/Color" style="min-height:350px">
