@@ -22,6 +22,21 @@ The most popular option for presenting detailed product information in a group.
 
 </Showcase>
 
+## ProductCard Horizontal
+
+Present products in checkout summary in a way that customers can have an easy access to increase, decrease and remove particular product.
+
+<Showcase showcase-name="ProductCard/ProductCardHorizontal" style="height: 300px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/ProductCard/ProductCardHorizontal.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/ProductCard/ProductCardHorizontal.tsx
+<!-- end react -->
+
+</Showcase>
+
 ## Details
 
 ProductCard details can be used in product details page or to build component used for listing products of many categories. 
