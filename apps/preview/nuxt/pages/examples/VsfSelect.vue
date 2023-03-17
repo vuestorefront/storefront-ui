@@ -4,9 +4,9 @@
     <label>
       <span
         :class="[
-          'pb-1 text-sm font-body font-medium',
+          `pb-1 text-sm font-body font-medium`,
+          required && `after:content-['*']`,
           {
-            'after:content-[\'*\'] after:text-sm': required,
             'text-disabled-500 cursor-not-allowed': disabled,
           },
         ]"
