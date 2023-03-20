@@ -1,15 +1,19 @@
 import { useState } from 'react';
 import classNames from 'classnames';
-import { VsfDropdown, VsfLink, VsfIconMoreHoriz, VsfIconHome } from '@storefront-ui/react';
+import { VsfDropdown, VsfButton, VsfLink, VsfIconMoreHoriz } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 const breadcrumbs = [
-  { name: 'Next link', link: '/examples/ListOfIcons' },
-  { name: 'Page 2', link: '/page1' },
-  { name: 'Page 3', link: '/page1' },
-  { name: 'Page 4', link: '/page1' },
-  { name: 'Page 5', link: '/page1' },
+  {
+    name: 'Home',
+    link: '/page',
+  },
+  { name: 'Page 2', link: '/page' },
+  { name: 'Page 3', link: '/page' },
+  { name: 'Page 4', link: '/page' },
+  { name: 'Page 5', link: '/page' },
 ];
+
 export function Showcase() {
   const [dropdownOpened, setDropdownOpened] = useState(false);
 
@@ -17,48 +21,61 @@ export function Showcase() {
     setDropdownOpened(false);
   };
 
+
   return (
-    <nav className="vsf-breadcrumbs">
-      <ol className="vsf-breadcrumbs__ol">
-        <li className="vsf-breadcrumbs__item">
+    <nav className="inline-flex items-center text-sm font-normal font-body">
+      <ol className="flex w-auto leading-none group md:flex-wrap">
+        <li className="block sm:hidden text-neutral-500">
           <VsfDropdown
             trigger={
-              <button className="vsf-breadcrumbs__dropdown-button" aria-label="More button" type="button">
-                <VsfIconMoreHoriz size="sm" className="vsf-breadcrumbs__item-link-icon" />
-              </button>
+              <VsfButton
+                className="relative w-5 h-5 p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
+                aria-label="More breadcrumbs"
+                type="button"
+                variant="tertiary"
+                slotPrefix={
+                  <VsfIconMoreHoriz
+                    size="sm"
+                    className="hover:text-primary-700 active:text-primary-800 active:bg-transparent"
+                  />
+                }
+                square
+                onClick={() => setDropdownOpened(!dropdownOpened)}
+              />
             }
             open={dropdownOpened}
-            strategy="absolute"
+            strategy="fixed"
             placement="bottom-start"
             onClose={close}
           >
             {breadcrumbs.map(({ name, link }) => (
-              <li className="vsf-breadcrumbs__dropdown-list-item" aria-label={name} key={name}>
-                <VsfLink href={link} variant="primary">
-                  <a className="vsf-breadcrumbs__dropdown-list-button">{name}</a>
+              <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
+                <VsfLink
+                  href={link}
+                  variant="secondary"
+                  className="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600"
+                >
+                  {name}
                 </VsfLink>
               </li>
             ))}
           </VsfDropdown>
         </li>
         {breadcrumbs.map((item) => (
-          <li className="vsf-breadcrumbs__item" key={item.name}>
-            {withIcon && breadcrumbs.indexOf(item) === 0 ? (
-              <VsfLink
-                href={item.link}
-                variant="primary"
-                aria-label="Home icon"
-                className="vsf-breadcrumbs__item-link--home"
-              >
-                <span className="vsf-breadcrumbs__item-link-icon--home">
-                  {slotIcon || <VsfIconHome size={VsfIconSize.sm} />}
-                </span>
-              </VsfLink>
-            ) : (
-              <VsfLink href={item.link} variant={VsfLinkVariant.none} className="vsf-breadcrumbs__item-link">
-                {item.name}
-              </VsfLink>
+          <li
+            className={classNames(
+              'peer hidden sm:block peer-[:nth-of-type(even)]:before:px-2 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium',
+              `peer-[:nth-of-type(even)]:before:content-['?')]`,
             )}
+            key={item.name}
+          >
+            <VsfLink
+              href={item.link}
+              variant="secondary"
+              className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
+            >
+              {item.name}
+            </VsfLink>
           </li>
         ))}
       </ol>

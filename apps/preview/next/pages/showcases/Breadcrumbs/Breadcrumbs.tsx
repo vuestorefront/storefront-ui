@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import classNames from 'classnames';
 import { VsfDropdown, VsfButton, VsfLink, VsfIconMoreHoriz } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 const breadcrumbs = [
   {
-    name: 'Home', link: '/page' },
+    name: 'Home',
+    link: '/page',
+  },
   { name: 'Page 2', link: '/page' },
   { name: 'Page 3', link: '/page' },
   { name: 'Page 4', link: '/page' },
@@ -30,7 +31,12 @@ export function Showcase() {
                 aria-label="More breadcrumbs"
                 type="button"
                 variant="tertiary"
-                slotPrefix={<VsfIconMoreHoriz size="sm" className="hover:text-primary-700 active:text-primary-800 active:bg-transparent" />}
+                slotPrefix={
+                  <VsfIconMoreHoriz
+                    size="sm"
+                    className="hover:text-primary-700 active:text-primary-800 active:bg-transparent"
+                  />
+                }
                 square
                 onClick={() => setDropdownOpened(!dropdownOpened)}
               />
@@ -42,7 +48,11 @@ export function Showcase() {
           >
             {breadcrumbs.map(({ name, link }) => (
               <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
-                <VsfLink href={link} variant="secondary" className="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600">
+                <VsfLink
+                  href={link}
+                  variant="secondary"
+                  className="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600"
+                >
                   {name}
                 </VsfLink>
               </li>
