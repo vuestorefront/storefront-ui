@@ -7,10 +7,16 @@
   ],
   "packageRules": [
     {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["patch"],
+      "groupName": "all non-major dependency bump",
+      "groupSlug": "all-patch",
+      "automerge": true
+    },
+    {
       "extends": "packages:linters",
       "groupName": "linters",
-      "automerge": true,
-      "automergeType": "branch"
+      "automerge": true
     },
     {
       "extends": "packages:postcss",
@@ -19,22 +25,12 @@
     {
       "extends": "packages:test",
       "groupName": "test packages",
-      "automerge": true,
-      "automergeType": "branch"
+      "automerge": true
     },
     {
       "groupName": "definitelyTyped",
       "matchPackagePrefixes": ["@types/"],
-      "automerge": true,
-      "automergeType": "branch"
-    },
-    {
-      "matchPackagePatterns": ["*"],
-      "matchUpdateTypes": ["patch"],
-      "groupName": "all non-major dependency bump",
-      "groupSlug": "all-patch",
-      "automerge": true,
-      "automergeType": "branch"
+      "automerge": true
     }
   ]
 }
