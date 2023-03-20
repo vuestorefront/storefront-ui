@@ -74,8 +74,3 @@ import { VsfButton } from '@storefront-ui/vue';
 
 
 :::::::
-<!-- ## Our dependencies
-
-```
-@storefront-ui/css @storefront-ui/shared @vueuse/core jw-paginate tabbable
-``` -->

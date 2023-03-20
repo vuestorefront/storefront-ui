@@ -31,7 +31,6 @@
     "@percy/cypress": "^3.1.2",
     "@rushstack/eslint-patch": "^1.2.0",
     "@storefront-ui/eslint-config": "workspace:*",
-    "@storefront-ui/sass": "workspace:*",
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
     "@storefront-ui/tests-shared": "workspace:*",
