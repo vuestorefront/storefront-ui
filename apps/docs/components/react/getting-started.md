@@ -26,17 +26,3 @@ import { VsfAlert, VsfAlertVariants } from '@storefront-ui/react';
 The line above will import styleless version of the component.
 
 To apply default CSS styling, import the CSS file anywhere in your application:
-
-```ts
-import '@storefront-ui/css/storefront-ui.css'
-```
-
-Congratulation, you're now able to use StrorefrontUI React components! :tada:
-
-Now [head to the components page](../vue/components.html) to see more how can they be useful for you!
-
-## Our dependencies
-
-```
-@storefront-ui/css @storefront-ui/shared classnames jw-paginate tabbable react-use react-transition-group
-```

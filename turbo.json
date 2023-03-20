@@ -35,7 +35,7 @@
       "cache": false
     },
     "build:release": {
-      "dependsOn": ["build:react", "build:vue", "build:css"],
+      "dependsOn": ["build:react", "build:vue"],
       "cache": false
     },
     "build:shared": {
@@ -48,9 +48,6 @@
       "cache": false
     },
     "build:test-utils": {
-      "cache": false
-    },
-    "build:css": {
       "cache": false
     },
     "dev": {
