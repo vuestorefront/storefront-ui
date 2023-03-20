@@ -10,7 +10,7 @@ const props = defineProps({
   },
   tag: {
     type: String,
-    default: 'div',
+    default: '',
   },
   disableClickAway: {
     type: Boolean,
@@ -47,7 +47,7 @@ useTrapFocus(modalRef, {
 
 <template>
   <component
-    :is="tag"
+    :is="tag || 'div'"
     v-if="modelValue"
     ref="modalRef"
     aria-modal="true"
