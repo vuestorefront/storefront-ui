@@ -19,7 +19,7 @@ export default defineConfig({
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
-      external: ['react/jsx-runtime', 'react-dom', '@storefront-ui/shared', 'next', 'next/link'].concat(
+      external: ['react/jsx-runtime', 'react-dom', '@storefront-ui/shared', 'next/link'].concat(
         Object.keys({
           ...(pkg.peerDependencies || {}),
           ...(pkg.dependencies || {}),
@@ -42,8 +42,9 @@ export default defineConfig({
           entryFileNames: '[name].es.js',
         },
         {
-          name: 'umd',
-          format: 'umd',
+          dynamicImportInCjs: false,
+          name: 'cjs',
+          format: 'cjs',
           exports: 'named',
           sourcemap: false,
           globals: {
@@ -51,7 +52,7 @@ export default defineConfig({
             'react-dom': 'ReactDom',
             'react-use': 'ReactUse',
           },
-          entryFileNames: '[name].umd.js',
+          entryFileNames: '[name].cjs.js',
         },
       ],
     },
