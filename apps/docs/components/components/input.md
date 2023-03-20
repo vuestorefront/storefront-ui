@@ -30,7 +30,7 @@ Used an `input` element with `type="text"`, for single-line input.
 
 The simple input with the label in three accessible size variants.
 
-<Showcase showcase-name="Input/InputLabel" style="height:400px;">
+<Showcase showcase-name="Input/InputLabel" style="min-height:400px;">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Input/InputLabel.vue

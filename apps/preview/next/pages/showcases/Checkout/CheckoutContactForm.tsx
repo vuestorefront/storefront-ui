@@ -63,8 +63,8 @@ export function Showcase() {
           />
         </div>
       </label>
-      <div className="flex justify-between md:justify-end">
-        <VsfButton className="w-full gap-4 md:w-auto" type="reset" variant="secondary">
+      <div className="flex justify-between gap-4 md:justify-end">
+        <VsfButton className="w-full md:w-auto" type="reset" variant="secondary">
           Clear all
         </VsfButton>
         <VsfButton className="w-full md:w-auto" type="submit">
