@@ -35,8 +35,8 @@
         />
       </div>
     </label>
-    <div class="flex justify-between large:justify-end">
-      <VsfButton class="w-full gap-4 large:w-auto" type="reset" variant="secondary"> Clear all </VsfButton>
+    <div class="flex justify-between gap-4 large:justify-end">
+      <VsfButton class="w-full large:w-auto" type="reset" variant="secondary"> Clear all </VsfButton>
       <VsfButton class="w-full large:w-auto" type="submit">Save</VsfButton>
     </div>
   </form>

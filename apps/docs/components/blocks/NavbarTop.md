@@ -10,7 +10,7 @@ description: The NavbarTop block is used as navigation. Usually it's at the top 
 
 ## NavbarTop with white background
 
-<Showcase showcase-name="NavbarTop/NavbarTop" style="height: 500px;">
+<Showcase showcase-name="NavbarTop/NavbarTop" style="min-height: 500px;">
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/NavbarTop/NavbarTop.vue
 <!-- end vue -->
@@ -22,7 +22,7 @@ description: The NavbarTop block is used as navigation. Usually it's at the top 
 ## NavbarTop with filled background
 
 
-<Showcase showcase-name="NavbarTop/NavbarTopFilled" style="height: 500px;">
+<Showcase showcase-name="NavbarTop/NavbarTopFilled" style="min-height: 500px;">
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopFilled.vue
 <!-- end vue -->

@@ -11,7 +11,7 @@ description: Product Card usage blocks.
 
 The most popular option for presenting detailed product information in a group.
 
-<Showcase showcase-name="ProductCard/ProductCardVertical" style="height: 600px">
+<Showcase showcase-name="ProductCard/ProductCardVertical" style="min-height: 600px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/ProductCard/ProductCardVertical.vue
@@ -26,7 +26,7 @@ The most popular option for presenting detailed product information in a group.
 
 Present products in checkout summary in a way that customers can have an easy access to increase, decrease and remove particular product.
 
-<Showcase showcase-name="ProductCard/ProductCardHorizontal" style="height: 300px">
+<Showcase showcase-name="ProductCard/ProductCardHorizontal" style="min-height: 300px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/ProductCard/ProductCardHorizontal.vue
