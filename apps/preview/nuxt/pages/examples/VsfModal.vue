@@ -40,7 +40,7 @@ const { controlsAttrs, state } = prepareControls(
       type: 'text',
       modelName: 'tag',
       propType: 'string',
-      propDefaultValue: 'aside',
+      propDefaultValue: 'div',
       description: 'Tag of modal HTML element',
     },
     {
