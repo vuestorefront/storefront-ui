@@ -22,7 +22,7 @@ description: A breadcrumb trail consists of a list of links to the parent pages 
 
 Breadcrumbs block with icons as a item separator.
 
-<Showcase showcase-name="Breadcrumbs/BreadcrumbsSeparator" style="height: 300px;">
+<Showcase showcase-name="Breadcrumbs/BreadcrumbsSeparator" style="min-height: 300px;">
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Breadcrumbs/BreadcrumbsSeparator.vue
 <!-- end vue -->
@@ -35,7 +35,7 @@ Breadcrumbs block with icons as a item separator.
 
 Breadrcrumbs block with home icon as the first item.
 
-<Showcase showcase-name="Breadcrumbs/BreadcrumbsWithIcon" style="height: 300px;">
+<Showcase showcase-name="Breadcrumbs/BreadcrumbsWithIcon" style="min-height: 300px;">
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Breadcrumbs/BreadcrumbsWithIcon.vue
 <!-- end vue -->
