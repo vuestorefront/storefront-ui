@@ -1,20 +1,19 @@
 <template>
   <div class="w-full h-full bg-neutral-50">
     <header class="flex justify-center w-full bg-white border-b h-14 md:h-20 border-neutral-200">
-      <div class="flex items-center flex-row flex-nowrap justify-between h-full max-w-[1536px] w-full px-4 md:px-10">
+      <div class="flex items-center flex-row flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <a aria-label="VSF Homepage" class="inline-block h-8 md:h-10 lg:h-7 text-primary-700">
-          <img :src="brandLogo" alt="VSF Logo" class="hidden lg:block w-[12.5rem] h-[1.75rem]" />
-          <VsfIconVuestorefront size="xl" class="hidden md:block lg:hidden" />
-          <VsfIconVuestorefront size="lg" class="block md:hidden" />
+          <img :src="brandLogo" alt="VSF Logo" class="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
+          <img :src="brandLogoSign" alt="Vsf Logo" className="block w-8 h-8 md:w-10 md:h-10 mr-4 lg:hidden" />
         </a>
-        <VsfButton class="block" type="button" variant="tertiary">
+        <VsfButton class="block !px-2 mr-auto" type="button" variant="tertiary">
           <template #prefix>
             <VsfIconMenu />
           </template>
-          Menu
+          <span className="hidden md:inline-flex">Categories</span>
         </VsfButton>
-        <nav class="flex flex-row flex-nowrap">
-          <div>
+        <nav>
+          <div class="flex flex-row flex-nowrap">
             <VsfButton
               v-for="actionItem in actionItems"
               :key="actionItem.ariaLabel"
@@ -47,15 +46,9 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {
-  VsfButton,
-  VsfIconShoppingCart,
-  VsfIconFavorite,
-  VsfIconPerson,
-  VsfIconMenu,
-  VsfIconVuestorefront,
-} from '@storefront-ui/vue';
+import { VsfButton, VsfIconShoppingCart, VsfIconFavorite, VsfIconPerson, VsfIconMenu } from '@storefront-ui/vue';
 import brandLogo from '@assets/vsf_logo.svg';
+import brandLogoSign from '@assets/vsf_logo_sign.svg';
 
 const actionItems = [
   {
