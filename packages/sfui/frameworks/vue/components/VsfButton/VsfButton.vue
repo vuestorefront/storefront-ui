@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { type PropType, ConcreteComponent, computed, toRefs, useSlots } from 'vue';
-import { VsfButtonSize, VsfButtonVariant } from '@storefront-ui/vue';
+import { type PropType, ConcreteComponent, computed, toRefs } from 'vue';
+import { VsfButtonSize, VsfButtonVariant, useSlotsRef } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -26,19 +26,25 @@ const props = defineProps({
 });
 
 const { size, variant, square } = toRefs(props);
-const slots = useSlots();
+const slots = useSlotsRef();
 
 const sizeClasses = computed(() => {
   switch (size.value) {
     case VsfButtonSize.sm:
       return [
         square.value ? 'p-1.5' : 'leading-5 text-sm py-0.75 px-3',
-        slots.prefix || slots.suffix ? 'gap-1.5' : null,
+        slots.value.prefix || slots.value.suffix ? 'gap-1.5' : null,
       ].join(' ');
     case VsfButtonSize.lg:
-      return [square.value ? 'p-4' : 'py-3 leading-6 px-6', slots.prefix || slots.suffix ? 'gap-3' : null].join(' ');
+      return [
+        square.value ? 'p-4' : 'py-3 leading-6 px-6',
+        slots.value.prefix || slots.value.suffix ? 'gap-3' : null,
+      ].join(' ');
     default:
-      return [square.value ? 'p-2' : 'py-2 leading-6 px-4', slots.prefix || slots.suffix ? 'gap-2' : null].join(' ');
+      return [
+        square.value ? 'p-2' : 'py-2 leading-6 px-4',
+        slots.value.prefix || slots.value.suffix ? 'gap-2' : null,
+      ].join(' ');
   }
 });
 
@@ -65,8 +71,8 @@ const variantClasses = computed(() => {
     ]"
     data-testid="button"
   >
-    <slot v-if="$slots.prefix" name="prefix"></slot>
+    <slot v-if="$slots.prefix" name="prefix" />
     <slot />
-    <slot v-if="$slots.suffix" name="suffix"></slot>
+    <slot v-if="$slots.suffix" name="suffix" />
   </component>
 </template>
