@@ -9,6 +9,7 @@
   "scripts": {
     "dev:docs": "yarn update-files && VITE_DOCS_EXAMPLES_REACT_PATH=http://localhost:3002 VITE_DOCS_EXAMPLES_VUE_PATH=http://localhost:3001 && concurrently \"vuepress dev\" \"yarn watch-base\" \"yarn watch-blocks\" \"yarn watch-hooks\" \"yarn watch-customization\"",
     "build": "yarn update-files && VITE_DOCS_BASEPATH=/v2/ VITE_DOCS_EXAMPLES_REACT_PATH=https://docs.storefrontui.io/v2-react VITE_DOCS_EXAMPLES_VUE_PATH=https://docs.storefrontui.io/v2-vue && vuepress build",
+    "build:docs": "yarn build",
     "watch-base": "chokidar --initial \"./components/**/*.md\" -c \"yarn update-base --event {event} --path {path};\"",
     "watch-blocks": "chokidar --initial \"./blocks/*.md\" -c \"yarn update-blocks --event {event} --path {path};\"",
     "watch-hooks": "chokidar --initial \"./hooks/*.md\" -c \"yarn update-hooks --event {event} --path {path};\"",
@@ -49,7 +50,7 @@
     "sass-loader": "^13.0.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
     "vue-multiselect": "^2.1.6",
-    "vuepress-theme-vsf-docs": "^1.2.11"
+    "vuepress-theme-vsf-docs": "^1.2.12"
   },
   "resolutions": {
     "webpack-hot-middleware": "2.25.3"

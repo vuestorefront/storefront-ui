@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "cache": false,
-      "dependsOn": ["^build:shared", "^build:typography", "^build:tailwind-config", "build:release",  "^build"],
+      "dependsOn": ["^build:shared", "^build:typography", "^build:tailwind-config", "build:release", "^build"],
       "outputs": ["dist/**"]
     },
     "lint": {
@@ -25,6 +25,10 @@
     "build:nuxt": {
       "cache": false,
       "dependsOn": ["^build:vue", "^build:typography", "^build:tailwind-config"]
+    },
+    "build:docs": {
+      "dependsOn": ["^build:tailwind-config"],
+      "cache": false
     },
     "build:react": {
       "dependsOn": ["^build:shared"],
