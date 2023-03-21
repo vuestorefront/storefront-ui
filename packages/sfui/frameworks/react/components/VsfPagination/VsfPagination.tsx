@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 import paginate from 'jw-paginate';
 import classNames from 'classnames';
 import { VsfButton, VsfButtonVariant } from '../VsfButton';
@@ -107,7 +107,7 @@ export default function VsfPagination({
           )}
           {children ||
             pagination.pages.map((page) => (
-              <>
+              <Fragment key={page}>
                 {maxVisiblePages === 1 && selectedPage === pagination.totalPages && (
                   <li>
                     <div className={classNames('vsf-pagination__item')}>
@@ -159,7 +159,7 @@ export default function VsfPagination({
                     </div>
                   </li>
                 )}
-              </>
+              </Fragment>
             ))}
           {pagination.endPage < pagination.totalPages - 1 && (
             <li>
