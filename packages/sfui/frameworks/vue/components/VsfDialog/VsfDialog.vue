@@ -66,7 +66,13 @@ useTrapFocus(dialogRef, { activeState: modelValue, initialFocus: 'none' });
 </script>
 
 <template>
-  <dialog ref="dialogRef" class="vsf-dialog" data-testid="dialog" @click="outsideClickClose && onClick($event)">
+  <dialog
+    ref="dialogRef"
+    class="vsf-dialog"
+    data-testid="dialog"
+    @click="outsideClickClose && onClick($event)"
+    @close="handleCloseDialog"
+  >
     <div class="vsf-dialog__inner" v-bind="$attrs">
       <template v-if="!hideCloseButton">
         <VsfButton

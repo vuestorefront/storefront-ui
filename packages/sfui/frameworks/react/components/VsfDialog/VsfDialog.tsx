@@ -51,7 +51,7 @@ export default function VsfDialog({
   });
 
   return (
-    <dialog ref={dialogRef} className="vsf-dialog" data-testid="dialog">
+    <dialog ref={dialogRef} className="vsf-dialog" data-testid="dialog" onClose={handleCloseDialog}>
       <div {...attributes} className={classNames('vsf-dialog__inner', className)}>
         {hideCloseButton ? null : (
           <VsfButton
