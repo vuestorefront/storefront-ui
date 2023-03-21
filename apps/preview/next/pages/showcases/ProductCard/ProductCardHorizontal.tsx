@@ -71,7 +71,7 @@ export function Showcase() {
                 id={inputId}
                 type="number"
                 role="spinbutton"
-                className="appearance-none px-2 border-y border-neutral-300 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                className="appearance-none px-2 border-y border-neutral-300 rounded-none text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
                 min={min}
                 max={max}
                 value={value}
