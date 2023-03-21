@@ -76,7 +76,7 @@ export function Showcase() {
               <VsfLink
                 href={item.link}
                 variant="secondary"
-                className="leading-5 no-underline text-neutral-500 hover:underline active:underline whitespace-nowrap outline-secondary-600"
+                className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600"
               >
                 {item.name}
               </VsfLink>
