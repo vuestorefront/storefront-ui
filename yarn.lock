@@ -3683,6 +3683,7 @@ __metadata:
   dependencies:
     "@microsoft/api-documenter": ^7.21.5
     "@microsoft/api-extractor": ^7.34.4
+    "@storefront-ui/tailwind-config": "workspace:^"
     "@vuepress/plugin-active-header-links": ^1.9.8
     "@vuepress/plugin-back-to-top": ^1.9.8
     "@vuepress/plugin-medium-zoom": ^1.9.8
@@ -3886,7 +3887,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/tailwind-config@workspace:*, @storefront-ui/tailwind-config@workspace:packages/config/tailwind":
+"@storefront-ui/tailwind-config@workspace:*, @storefront-ui/tailwind-config@workspace:^, @storefront-ui/tailwind-config@workspace:packages/config/tailwind":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/tailwind-config@workspace:packages/config/tailwind"
   dependencies:

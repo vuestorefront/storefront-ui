@@ -5,6 +5,9 @@ module.exports = {
   purge: false,
   theme: {
     extend: {
+      fontFamily: {
+        mono: ['Incosolata', 'monospace'],
+      },
       colors: {
         react: {
           DEFAULT: '#61DBFB',

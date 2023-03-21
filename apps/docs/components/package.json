@@ -40,6 +40,7 @@
     "vuepress-plugin-clean-urls": "^1.1.2"
   },
   "dependencies": {
+    "@storefront-ui/tailwind-config": "workspace:^",
     "autoprefixer": "^9",
     "concurrently": "^7.6.0",
     "markdown-it-external-links": "^0.0.6",
