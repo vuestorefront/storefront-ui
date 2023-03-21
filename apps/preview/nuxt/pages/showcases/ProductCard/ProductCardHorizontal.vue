@@ -54,7 +54,7 @@
               v-model="count"
               type="number"
               role="spinbutton"
-              class="appearance-none px-2 border-y border-neutral-300 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+              class="appearance-none px-2 border-y border-neutral-300 rounded-none text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
               :min="min"
               :max="max"
               @input="handleOnChange"
