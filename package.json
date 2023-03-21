@@ -25,6 +25,7 @@
     "lint": "turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "lint:fix:sfui": "turbo run lint:fix:sfui",
+    "build:docs": "turbo run build:docs",
     "build:next": "turbo run build:next",
     "build:nuxt": "turbo run build:nuxt",
     "build:react": "turbo run build:react",

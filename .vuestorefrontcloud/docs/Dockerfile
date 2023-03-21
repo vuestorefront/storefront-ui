@@ -9,7 +9,7 @@ RUN apk add --no-cache libc6-compat
 
 COPY . .
 RUN yarn
-RUN cd apps/docs/components && yarn build
+RUN yarn build:docs
 
 FROM nginx
 COPY --from=build /var/www/apps/docs/components/.vuepress/dist /usr/share/nginx/html/v2
