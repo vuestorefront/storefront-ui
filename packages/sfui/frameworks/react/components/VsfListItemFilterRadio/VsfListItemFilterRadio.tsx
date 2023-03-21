@@ -24,7 +24,7 @@ export default function VsfListItemFilterRadio({
 
   return (
     <VsfListItemMenu
-      tag="li"
+      tag="label"
       label={label}
       counter={counter}
       size={size}
@@ -33,7 +33,6 @@ export default function VsfListItemFilterRadio({
       secondaryText={secondaryText}
       disabled={disabled}
       truncate={truncate}
-      onClick={() => toggle(value, selected)}
       slotPrefix={
         variant === VsfListItemFilterRadioVariant.left ? (
           <VsfRadio

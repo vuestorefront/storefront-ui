@@ -43,19 +43,14 @@ const toggle = (value: string, modelValue: string) => {
 </script>
 
 <template>
-  <VsfListItemMenu
-    tag="li"
-    v-bind="props"
-    :selected="modelValue === value"
-    @click="$emit('update:modelValue', toggle(value, modelValue))"
-  >
+  <VsfListItemMenu tag="label" v-bind="props" :selected="modelValue === value">
     <template v-if="variant === VsfListItemFilterRadioVariant.left" #prefix>
       <VsfRadio
         :value="value"
         :model-value="modelValue"
         :aria-label="label"
         :disabled="disabled"
-        @click.stop="$emit('update:modelValue', toggle(value, modelValue))"
+        @click="$emit('update:modelValue', toggle(value, modelValue))"
       />
     </template>
     <template v-if="variant === VsfListItemFilterRadioVariant.right" #suffix>
@@ -64,7 +59,7 @@ const toggle = (value: string, modelValue: string) => {
         :model-value="modelValue"
         :aria-label="label"
         :disabled="disabled"
-        @click.stop="$emit('update:modelValue', toggle(value, modelValue))"
+        @click="$emit('update:modelValue', toggle(value, modelValue))"
       />
     </template>
     <slot />
