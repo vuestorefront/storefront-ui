@@ -87,10 +87,7 @@ function Example() {
   return (
     <ComponentExample controls={{ state, controls }} componentContainerClassName="space-x-2">
       <VsfButton
-        size={state.get.size}
-        square={state.get.square}
-        variant={state.get.variant}
-        disabled={state.get.disabled}
+        {...state.get}
         slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
         slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
         className="max-w-[200px]"
