@@ -21,11 +21,6 @@ export default class VsfChipObject extends BasePage {
     return this;
   }
 
-  isSquare(value) {
-    this.container.should('have.class', value);
-    return this;
-  }
-
   isNotVisible() {
     this.input.should('not.be.visible');
     return this;

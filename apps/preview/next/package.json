@@ -42,6 +42,7 @@
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
     "@storefront-ui/tests-shared": "workspace:*",
+    "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.13.0",

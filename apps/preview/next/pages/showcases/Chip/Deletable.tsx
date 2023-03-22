@@ -19,10 +19,16 @@ export function Showcase() {
     <ul className="flex flex-wrap gap-4 sm:flex-row">
       {chipList.map(({ label, value }) => (
         <li>
-          <VsfChip key={value} className="mr-2" inputProps={{ checked: true, onChange: () => handleRemoveChip(value) }}>
-            <VsfThumbnail className={`bg-${value}-500`} />
-            <span className="ml-2">{label}</span>
-            <VsfIconClose className="ml-1 text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20" />
+          <VsfChip
+            key={value}
+            className="mr-2"
+            inputProps={{ checked: true, onChange: () => handleRemoveChip(value) }}
+            slotPrefix={<VsfThumbnail className={`bg-${value}-500`} />}
+            slotSuffix={
+              <VsfIconClose className="text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20" />
+            }
+          >
+            {label}
           </VsfChip>
         </li>
       ))}

@@ -9,7 +9,7 @@ import VsfChipObject from './VsfChip.PageObject';
 
 const { vue: VsfChipVue, react: VsfChipReact } = useComponent('VsfChip');
 
-describe.skip('VsfChip', () => {
+describe('VsfChip', () => {
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
   const slotContent = 'Label';
   const page = () => new VsfChipObject('chip');
@@ -102,7 +102,7 @@ describe.skip('VsfChip', () => {
     it(`should render square chip`, () => {
       initializeComponent({ square: true });
 
-      page().isSquare('p-2').makeSnapshot();
+      page().hasClass('px-2').hasClass('py-2').makeSnapshot();
     });
   });
 });

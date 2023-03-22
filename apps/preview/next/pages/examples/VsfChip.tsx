@@ -18,6 +18,12 @@ function Example() {
         description: 'Sets value of the input checkbox element',
       },
       {
+        type: 'text',
+        modelName: 'label',
+        propType: 'string',
+        description: 'Text next to thumbnail',
+      },
+      {
         type: 'select',
         modelName: 'size',
         options: Object.keys(VsfChipSize),
@@ -64,13 +70,14 @@ function Example() {
           value: state.get.value,
           onChange: selectHandler,
         }}
-        // eslint-disable-next-line no-console
+        slotPrefix={
+          <VsfThumbnail
+            size={state.get.size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base}
+            className="bg-gray-500"
+          />
+        }
       >
-        <VsfThumbnail
-          size={state.get.size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base}
-          className="bg-gray-500 mr-2"
-        />
-        <span>{state.get.label}</span>
+        {state.get.label}
       </VsfChip>
     </ComponentExample>
   );

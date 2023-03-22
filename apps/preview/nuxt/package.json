@@ -17,6 +17,7 @@
     "@storefront-ui/example-style": "workspace:*",
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
+    "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
     "@storefront-ui/vue": "workspace:*",
     "@types/lodash-es": "^4.17.6",

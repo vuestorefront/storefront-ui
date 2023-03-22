@@ -6,11 +6,11 @@
         :input-props="{ value: item.value }"
         @update:model-value="handleChipRemove(index)"
       >
-        <VsfThumbnail :class="`mr-2 bg-${item.value}-500`" />
+        <template #prefix><VsfThumbnail :class="`bg-${item.value}-500`" /></template>
         {{ item.label }}
-        <VsfIconClose
-          class="ml-2 text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20"
-        />
+        <template #suffix>
+          <VsfIconClose class="text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20" />
+        </template>
       </VsfChip>
     </li>
   </ul>
