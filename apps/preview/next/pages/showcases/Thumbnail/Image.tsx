@@ -1,8 +1,9 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfThumbnail } from '@storefront-ui/react';
 import card from '@assets/card.png';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function ThumbnailImage() {
   return (
     <VsfThumbnail size="xl">
       <img src={card.src} alt="Thumbnail avatar" />
@@ -10,5 +11,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ThumbnailImage.getLayout = ShowcasePageLayout;

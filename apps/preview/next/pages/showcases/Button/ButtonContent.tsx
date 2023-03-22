@@ -1,7 +1,8 @@
-import { VsfButton, VsfIconHome, VsfIconStar, VsfIconShoppingCart } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfButton, VsfIconHome, VsfIconStar, VsfIconShoppingCart } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ButtonContent() {
   return (
     <div className="flex flex-col items-center space-y-4 xs:flex-row xs:space-y-0 xs:space-x-4">
       <VsfButton slotPrefix={<VsfIconHome />}>Home</VsfButton>
@@ -14,6 +15,5 @@ export function Showcase() {
     </div>
   );
 }
-
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ButtonContent.getLayout = ShowcasePageLayout;

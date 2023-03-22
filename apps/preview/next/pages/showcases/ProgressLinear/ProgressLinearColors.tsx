@@ -1,7 +1,8 @@
-import { VsfProgressLinear } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfProgressLinear } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ProgressLinearColors() {
   return (
     <div className="flex gap-4 flex-wrap">
       <VsfProgressLinear className="w-12 !text-cyan-700" value={60} size="lg" />
@@ -11,5 +12,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ProgressLinearColors.getLayout = ShowcasePageLayout;

@@ -1,14 +1,15 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfSelect, VsfInput, VsfCheckbox, VsfButton } from '@storefront-ui/react';
 import { FormEventHandler, ChangeEvent, FocusEvent, useState } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
 // Here you should provide a list of countries you want to support
 // or use an up-to-date country list like: https://www.npmjs.com/package/country-list
 const countries = ['Germany', 'Great Britain', 'Poland', 'United States of America'] as const;
 const states = ['California', 'Florida', 'New York', 'Texas'] as const;
 
-export function Showcase() {
+export default function AddressForm() {
   const [streetIsValid, setStreetIsValid] = useState(true);
 
   const validateStreet = (e: ChangeEvent<HTMLInputElement> | FocusEvent<HTMLInputElement>) => {
@@ -107,5 +108,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+AddressForm.getLayout = ShowcasePageLayout;

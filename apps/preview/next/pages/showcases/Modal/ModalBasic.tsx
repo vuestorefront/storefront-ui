@@ -1,7 +1,8 @@
-import { VsfModal, VsfButton, VsfIconClose, useDisclosure } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfModal, VsfButton, VsfIconClose, useDisclosure } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ModalDemo() {
   const { isOpen, open, close } = useDisclosure({ initialValue: false });
 
   return (
@@ -44,5 +45,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ModalDemo.getLayout = ShowcasePageLayout;

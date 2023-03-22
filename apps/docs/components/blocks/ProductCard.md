@@ -17,7 +17,7 @@ The most popular option for presenting detailed product information in a group.
 <<<../../preview/nuxt/pages/showcases/ProductCard/ProductCardVertical.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProductCard/ProductCardVertical.tsx
+<<<../../preview/next/pages/showcases/ProductCard/ProductCardVertical.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -32,7 +32,7 @@ Present products in checkout summary in a way that customers can have an easy ac
 <<<../../preview/nuxt/pages/showcases/ProductCard/ProductCardHorizontal.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProductCard/ProductCardHorizontal.tsx
+<<<../../preview/next/pages/showcases/ProductCard/ProductCardHorizontal.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -44,10 +44,10 @@ ProductCard details can be used in product details page or to build component us
 <Showcase showcase-name="ProductCard/Details" style="min-height:600px">
 
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProductCard/Details.tsx
+<<<../../preview/next/pages/showcases/ProductCard/Details.tsx#source
 <!-- end react -->
 <!-- vue -->
-<<<../../preview/next/pages/showcases/ProductCard/Details.tsx
+<<<../../preview/next/pages/showcases/ProductCard/Details.tsx#source
 <!-- end vue -->
 
 </Showcase>

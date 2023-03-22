@@ -1,7 +1,8 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfChip, VsfAccordionItem, VsfIconChevronLeft } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { useState } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
 const chipSizes = [
   { id: 's1', label: '6', value: '6', isAvailable: true },
@@ -18,7 +19,7 @@ const chipSizes = [
   { id: 's12', label: '12', value: '12', isAvailable: true },
 ];
 
-export function Showcase() {
+export default function FilterSizes() {
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [opened, setOpened] = useState(true);
   const handleSizeSelection = (val: string) => {
@@ -56,5 +57,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+FilterSizes.getLayout = ShowcasePageLayout;

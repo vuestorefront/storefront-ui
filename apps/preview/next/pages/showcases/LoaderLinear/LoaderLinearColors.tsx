@@ -1,7 +1,8 @@
-import { VsfLoaderLinear } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfLoaderLinear } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function LoaderLinearColors() {
   return (
     <div className="flex gap-4 flex-wrap">
       <VsfLoaderLinear className="w-12 !text-cyan-700" size="lg" />
@@ -11,5 +12,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+LoaderLinearColors.getLayout = ShowcasePageLayout;

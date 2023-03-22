@@ -25,7 +25,7 @@ Switch component can have a leading or trailing alignment.
 <<<../../preview/nuxt/pages/showcases/Switch/SwitchAlignment.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Switch/SwitchAlignment.tsx
+<<<../../preview/next/pages/showcases/Switch/SwitchAlignment.tsx#source
 <!-- end react -->
 
 </Showcase>

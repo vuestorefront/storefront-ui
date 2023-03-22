@@ -1,7 +1,8 @@
-import { VsfListItem } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region sources
+import { VsfListItem } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ListItemSizes() {
   return (
     <div className="flex flex-col max-w-sm gap-4">
       <VsfListItem size="sm">
@@ -17,5 +18,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ListItemSizes.getLayout = ShowcasePageLayout;

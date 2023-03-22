@@ -1,9 +1,10 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfDrawer, VsfDrawerPlacement, type VsfDrawerProps, VsfButton } from '@storefront-ui/react';
 import { ChangeEventHandler, useState } from 'react';
 import classNames from 'classnames';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function DrawerDemo() {
   const [open, setOpen] = useState(false);
   const [placementState, setPlacement] = useState<VsfDrawerProps['placement']>(VsfDrawerPlacement.left);
 
@@ -51,5 +52,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+DrawerDemo.getLayout = ShowcasePageLayout;

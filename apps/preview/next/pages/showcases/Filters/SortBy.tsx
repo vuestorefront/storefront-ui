@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { VsfSelect } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfSelect } from '@storefront-ui/react';
 
 const options = [
   { label: 'Relevance', value: 'relevance' },
@@ -11,7 +12,7 @@ const options = [
   { label: 'Bestsellers', value: 'bestsellers' },
 ];
 
-export function Showcase() {
+export default function SortByFilter() {
   return (
     <>
       <h6 className="bg-neutral-100 mb-4 px-4 py-2 rounded uppercase typography-headline-6 font-bold tracking-widest">
@@ -30,5 +31,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+SortByFilter.getLayout = ShowcasePageLayout;

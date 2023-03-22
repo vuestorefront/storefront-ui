@@ -21,7 +21,7 @@ Drawer supports 4 different placements that can be set via `placement` prop: `to
 <<<../../preview/nuxt/pages/showcases/Drawer/Placement.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Drawer/Placement.tsx
+<<<../../preview/next/pages/showcases/Drawer/Placement.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -36,7 +36,7 @@ Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide
 <<<../../preview/nuxt/pages/showcases/Drawer/TransitionAndCloseButton.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Drawer/TransitionAndCloseButton.tsx
+<<<../../preview/next/pages/showcases/Drawer/TransitionAndCloseButton.tsx#source
 <!-- end react -->
 </Showcase>
 

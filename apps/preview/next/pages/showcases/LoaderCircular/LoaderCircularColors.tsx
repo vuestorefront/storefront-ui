@@ -1,7 +1,8 @@
-import { VsfLoaderCircular } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfLoaderCircular } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function LoaderCircularColors() {
   return (
     <div className="flex gap-4 flex-wrap">
       <VsfLoaderCircular className="!text-cyan-700" size="2xl" />
@@ -11,5 +12,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+LoaderCircularColors.getLayout = ShowcasePageLayout;

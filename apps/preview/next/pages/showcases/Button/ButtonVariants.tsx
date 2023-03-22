@@ -1,23 +1,24 @@
-import { VsfButton, VsfButtonVariant } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfButton } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ButtonVariants() {
   return (
-    <div className="flex flex-col items-center space-y-4 xs:block xs:space-x-4">
-      <VsfButton type="button" variant={VsfButtonVariant.primary}>
+    <div className="flex flex-col items-center  extra-small:flex-row gap-4">
+      <VsfButton type="button" variant="primary">
         Hello
       </VsfButton>
 
-      <VsfButton type="button" variant={VsfButtonVariant.secondary}>
+      <VsfButton type="button" variant="secondary">
         Hello
       </VsfButton>
 
-      <VsfButton type="button" variant={VsfButtonVariant.tertiary}>
+      <VsfButton type="button" variant="tertiary">
         Hello
       </VsfButton>
     </div>
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ButtonVariants.getLayout = ShowcasePageLayout;

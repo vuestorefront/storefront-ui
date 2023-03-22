@@ -1,10 +1,11 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfButton, VsfIconAdd, VsfIconRemove } from '@storefront-ui/react';
 import { useCounter } from 'react-use';
 import { useId, ChangeEvent } from 'react';
 import { clamp } from '@storefront-ui/shared';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function QuantitySelector() {
   const inputId = useId();
   const min = 1;
   const max = 10;
@@ -55,5 +56,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+QuantitySelector.getLayout = ShowcasePageLayout;

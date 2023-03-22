@@ -1,10 +1,11 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfIconShoppingCart, VsfIconFavorite, VsfIconPerson, VsfIconMenu, VsfButton } from '@storefront-ui/react';
 import classNames from 'classnames';
 import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function TopNavFilled() {
   const actionItems = [
     {
       icon: <VsfIconShoppingCart />,
@@ -68,5 +69,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+TopNavFilled.getLayout = ShowcasePageLayout;

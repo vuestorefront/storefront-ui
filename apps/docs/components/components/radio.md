@@ -25,7 +25,7 @@ It's a good practice to have label for inputs elements.
 <<<../../preview/nuxt/pages/showcases/Radio/RadioWithLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Radio/RadioWithLabel.tsx
+<<<../../preview/next/pages/showcases/Radio/RadioWithLabel.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -39,7 +39,7 @@ Label can be smaller than an input.
 <<<../../preview/nuxt/pages/showcases/Radio/RadioWithLabelSmall.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Radio/RadioWithLabelSmall.tsx
+<<<../../preview/next/pages/showcases/Radio/RadioWithLabelSmall.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -53,7 +53,7 @@ Label can be either on the right side of an input or on the left side.
 <<<../../preview/nuxt/pages/showcases/Radio/RadioAlignment.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Radio/RadioAlignment.tsx
+<<<../../preview/next/pages/showcases/Radio/RadioAlignment.tsx#source
 <!-- end react -->
 </Showcase>
 

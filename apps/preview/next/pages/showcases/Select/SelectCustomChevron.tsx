@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { VsfSelect, VsfIconUnfoldMore } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfSelect, VsfIconUnfoldMore } from '@storefront-ui/react';
 
 const options = [
   { label: 'red', value: 'red' },
@@ -12,7 +13,7 @@ const options = [
   { label: 'brown', value: 'brown' },
 ];
 
-export function Showcase() {
+export default function SelectWithCustomChevron() {
   return (
     <label>
       <span className="pb-1 text-sm font-medium text-neutral-900 font-body">Label</span>
@@ -30,5 +31,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+SelectWithCustomChevron.getLayout = ShowcasePageLayout;

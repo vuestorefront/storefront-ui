@@ -1,7 +1,8 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { useState } from 'react';
 import classNames from 'classnames';
 import { VsfAccordionItem } from '@storefront-ui/react';
-import { ShowcasePageLayout } from '../../showcases';
 
 const accordionItems = [
   {
@@ -23,7 +24,7 @@ const accordionItems = [
   },
 ];
 
-export function Showcase() {
+export default function CollapsableAccordion() {
   const [active, setActive] = useState<string | null>(null);
 
   const isOpen = (id: string) => id === active;
@@ -53,5 +54,6 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+
+CollapsableAccordion.getLayout = ShowcasePageLayout;

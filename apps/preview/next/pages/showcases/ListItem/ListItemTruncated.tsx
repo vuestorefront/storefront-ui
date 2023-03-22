@@ -1,7 +1,8 @@
-import { VsfListItem } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfListItem } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ListItemTruncated() {
   return (
     <VsfListItem className="max-w-sm">
       <div className="break-words">Label</div>
@@ -12,5 +13,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ListItemTruncated.getLayout = ShowcasePageLayout;

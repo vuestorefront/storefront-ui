@@ -29,7 +29,7 @@ Select supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
 <<<../../preview/nuxt/pages/showcases/Select/SelectSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Select/SelectSizes.tsx
+<<<../../preview/next/pages/showcases/Select/SelectSizes.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -43,7 +43,7 @@ Select can have custom chevron by using <!-- vue -->slot `chevron`<!-- end vue -
 <<<../../preview/nuxt/pages/showcases/Select/SelectCustomChevron.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Select/SelectCustomChevron.tsx
+<<<../../preview/next/pages/showcases/Select/SelectCustomChevron.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -57,7 +57,7 @@ Select with invalid state.
 <<<../../preview/nuxt/pages/showcases/Select/SelectInvalid.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Select/SelectInvalid.tsx
+<<<../../preview/next/pages/showcases/Select/SelectInvalid.tsx#source
 <!-- end react -->
 </Showcase>
 

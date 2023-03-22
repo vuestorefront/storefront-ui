@@ -1,6 +1,7 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfChip, VsfThumbnail } from '@storefront-ui/react';
 import classNames from 'classnames';
-import { ShowcasePageLayout } from '../../showcases';
 
 const chipValues = [
   { label: 'Red', value: 'red' },
@@ -8,7 +9,7 @@ const chipValues = [
   { label: 'Gray', value: 'gray' },
 ];
 
-export function Showcase() {
+export default function ChipList() {
   return (
     <ul className="flex flex-wrap gap-4 sm:flex-row">
       {chipValues.map(({ label, value }) => (
@@ -34,5 +35,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ChipList.getLayout = ShowcasePageLayout;

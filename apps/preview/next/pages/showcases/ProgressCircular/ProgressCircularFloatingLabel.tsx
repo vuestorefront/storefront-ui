@@ -1,7 +1,8 @@
-import { VsfProgressCircular } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfProgressCircular } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ProgressCircularWithLabels() {
   const value = 70;
 
   return (
@@ -31,5 +32,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ProgressCircularWithLabels.getLayout = ShowcasePageLayout;

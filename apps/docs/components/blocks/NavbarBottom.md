@@ -12,10 +12,10 @@ description: NavbarBottom block is the navigation element used in mobile view.
 <Showcase showcase-name="NavbarBottom/NavbarBottom" style="min-height:200px">
 
 <!-- react -->
-<<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottom.tsx
+<<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottom.tsx#source
 <!-- end react -->
 <!-- vue -->
-<<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottom.tsx
+<<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottom.tsx#source
 <!-- end vue -->
 
 </Showcase>
@@ -25,10 +25,10 @@ description: NavbarBottom block is the navigation element used in mobile view.
 <Showcase showcase-name="NavbarBottom/NavbarBottomFilled" style="min-height:200px">
 
 <!-- react -->
-<<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottomFilled.tsx
+<<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottomFilled.tsx#source
 <!-- end react -->
 <!-- vue -->
-<<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottomFilled.tsx
+<<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottomFilled.tsx#source
 <!-- end vue -->
 
 </Showcase>

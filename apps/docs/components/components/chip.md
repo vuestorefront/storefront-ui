@@ -23,7 +23,7 @@ Chip uses `base` and `sm` sizes that can be set via `size` prop.
 <<<../../preview/nuxt/pages/showcases/Chip/ChipSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Chip/ChipSizes.tsx
+<<<../../preview/next/pages/showcases/Chip/ChipSizes.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -38,7 +38,7 @@ Anything can be passed via default slot to the chip component. One of many possi
 <<<../../preview/nuxt/pages/showcases/Chip/ChipWithThumbnail.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Chip/ChipWithThumbnail.tsx
+<<<../../preview/next/pages/showcases/Chip/ChipWithThumbnail.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -53,7 +53,7 @@ Chip can act as a deletable item. It can be achieved by passing `VsfIconClose` i
 <<<../../preview/nuxt/pages/showcases/Chip/Deletable.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Chip/Deletable.tsx
+<<<../../preview/next/pages/showcases/Chip/Deletable.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -68,7 +68,7 @@ Example of list rendering with many chips and values.
 <<<../../preview/nuxt/pages/showcases/Chip/ListOfChips.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Chip/ListOfChips.tsx
+<<<../../preview/next/pages/showcases/Chip/ListOfChips.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -84,7 +84,7 @@ Please note that `aria-label` should be added for a showcase without text label.
 <<<../../preview/nuxt/pages/showcases/Chip/WithoutLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Chip/WithoutLabel.tsx
+<<<../../preview/next/pages/showcases/Chip/WithoutLabel.tsx#source
 <!-- end react -->
 
 </Showcase>

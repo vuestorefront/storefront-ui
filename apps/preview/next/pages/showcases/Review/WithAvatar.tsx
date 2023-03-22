@@ -1,8 +1,9 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfRating, VsfIconCheck } from '@storefront-ui/react';
 import reviewAvatar from '@assets/review_avatar.png';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function Review() {
   return (
     <article className="w-full p-4 border rounded-md">
       <header className="flex flex-col items-start pb-6 space-y-2 md:flex-row md:justify-between md:space-y-0">
@@ -24,5 +25,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+Review.getLayout = ShowcasePageLayout;

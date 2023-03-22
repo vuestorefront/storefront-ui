@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { VsfInput } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfInput } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function InvalidInput() {
   return (
     <>
       <label>
@@ -19,5 +20,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+InvalidInput.getLayout = ShowcasePageLayout;

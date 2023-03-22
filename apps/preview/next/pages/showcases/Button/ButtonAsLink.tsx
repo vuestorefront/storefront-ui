@@ -1,8 +1,9 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfButton } from '@storefront-ui/react';
 import Link from 'next/link';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function ButtonAsLink() {
   return (
     <div className="flex flex-col items-center space-y-4 xs:block xs:space-x-4">
       <VsfButton as="a" href="/">
@@ -15,5 +16,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ButtonAsLink.getLayout = ShowcasePageLayout;

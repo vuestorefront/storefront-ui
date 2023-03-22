@@ -1,9 +1,10 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfDrawer, VsfButton, VsfIconFavorite, VsfIconClose, useTrapFocus } from '@storefront-ui/react';
 import { useState, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function DrawerWithTransition() {
   const [open, setOpen] = useState(false);
   const nodeRef = useRef(null);
   const drawerRef = useRef(null);
@@ -68,5 +69,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+DrawerWithTransition.getLayout = ShowcasePageLayout;

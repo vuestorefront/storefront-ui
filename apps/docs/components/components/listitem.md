@@ -19,7 +19,7 @@ ListItem supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
 <<<../../preview/nuxt/pages/showcases/ListItem/ListItemSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ListItem/ListItemSizes.tsx
+<<<../../preview/next/pages/showcases/ListItem/ListItemSizes.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -33,7 +33,7 @@ ListItem with `truncate` class.
 <<<../../preview/nuxt/pages/showcases/ListItem/ListItemTruncated.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ListItem/ListItemTruncated.tsx
+<<<../../preview/next/pages/showcases/ListItem/ListItemTruncated.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -47,7 +47,7 @@ ListItem has additional slots to place custom content. Slot <!-- vue --> `prefix
 <<<../../preview/nuxt/pages/showcases/ListItem/ListItemSlots.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ListItem/ListItemSlots.tsx
+<<<../../preview/next/pages/showcases/ListItem/ListItemSlots.tsx#source
 <!-- end react -->
 </Showcase>
 

@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
-import { VsfRadio } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfRadio } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function RadioGroupUncontrolled() {
   return (
     <fieldset role="radiogroup">
       <div className="flex flex-col">
@@ -20,5 +21,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+RadioGroupUncontrolled.getLayout = ShowcasePageLayout;

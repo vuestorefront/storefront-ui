@@ -1,3 +1,5 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import {
   VsfRating,
   VsfButton,
@@ -12,9 +14,7 @@ import {
   VsfIconSafetyCheck,
 } from '@storefront-ui/react';
 
-import { ShowcasePageLayout } from '../../showcases';
-
-export function Showcase() {
+export default function ProductDetails() {
   return (
     <section className="md:max-w-[640px]">
       <div className="inline-flex items-center justify-center text-sm font-medium text-white bg-secondary-600 py-1.5 px-2 mb-2">
@@ -84,5 +84,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ProductDetails.getLayout = ShowcasePageLayout;

@@ -1,3 +1,5 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import {
   VsfAccordionItem,
   VsfButton,
@@ -14,7 +16,6 @@ import {
 } from '@storefront-ui/react';
 import { useState } from 'react';
 import classNames from 'classnames';
-import { ShowcasePageLayout } from '../../showcases';
 
 const sortOptions = [
   { id: 'sort1', label: 'Relevance', value: 'relevance' },
@@ -113,7 +114,7 @@ const filtersData = [
   },
 ];
 
-export function Showcase() {
+export default function FiltersPanel() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [opened, setOpened] = useState<string[]>(filtersData.map((item) => item.id));
 
@@ -314,5 +315,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+FiltersPanel.getLayout = ShowcasePageLayout;

@@ -12,7 +12,7 @@ description: QuantitySelector allows the selection of a numeric value and the di
 <Showcase showcase-name="QuantitySelector/QuantitySelector">
 
 <!-- react -->
-<<<../../preview/next/pages/showcases/QuantitySelector/QuantitySelector.tsx
+<<<../../preview/next/pages/showcases/QuantitySelector/QuantitySelector.tsx#source
 <!-- end react -->
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/QuantitySelector/QuantitySelector.vue
@@ -28,7 +28,7 @@ description: QuantitySelector allows the selection of a numeric value and the di
 <<<../../preview/nuxt/pages/showcases/QuantitySelector/Rounded.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/QuantitySelector/Rounded.tsx
+<<<../../preview/next/pages/showcases/QuantitySelector/Rounded.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -41,7 +41,7 @@ description: QuantitySelector allows the selection of a numeric value and the di
 <<<../../preview/nuxt/pages/showcases/QuantitySelector/OutOfStock.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/QuantitySelector/OutOfStock.tsx
+<<<../../preview/next/pages/showcases/QuantitySelector/OutOfStock.tsx#source
 <!-- end react -->
 
 </Showcase>

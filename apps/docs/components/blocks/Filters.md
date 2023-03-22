@@ -16,7 +16,7 @@ Color filters are a type of product filter that allow online shoppers to narrow 
 <<<../../preview/nuxt/pages/showcases/Filters/Color.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Filters/Color.tsx
+<<<../../preview/next/pages/showcases/Filters/Color.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -29,7 +29,7 @@ Sizes in category pages are a feature that allows online shoppers to filter thei
 <<<../../preview/nuxt/pages/showcases/Filters/Sizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Filters/Sizes.tsx
+<<<../../preview/next/pages/showcases/Filters/Sizes.tsx#source
 
 </Showcase>
 
@@ -44,7 +44,7 @@ Sorting in category pages is a feature that allows online shoppers to arrange an
 <<<../../preview/nuxt/pages/showcases/Filters/SortBy.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Filters/SortBy.tsx
+<<<../../preview/next/pages/showcases/Filters/SortBy.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -59,7 +59,7 @@ Filters panel can be customized to suit the specific needs of different applicat
 <<<../../preview/nuxt/pages/showcases/Filters/FiltersPanel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Filters/FiltersPanel.tsx
+<<<../../preview/next/pages/showcases/Filters/FiltersPanel.tsx#source
 <!-- end react -->
 
 </Showcase>

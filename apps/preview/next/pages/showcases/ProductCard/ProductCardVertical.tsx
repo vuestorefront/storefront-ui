@@ -1,9 +1,10 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfButton, VsfRating, VsfCounter, VsfLink, VsfIconShoppingCart, VsfIconFavorite } from '@storefront-ui/react';
 import productImage from '@assets/sneakers.png';
 import Image from 'next/image';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function ProductCardVertical() {
   return (
     <div className="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
       <div className="relative">
@@ -50,5 +51,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ProductCardVertical.getLayout = ShowcasePageLayout;

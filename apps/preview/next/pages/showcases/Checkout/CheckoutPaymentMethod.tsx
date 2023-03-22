@@ -1,8 +1,9 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import ApplePayLogo from '@assets/apple-pay-logo.svg';
 import GooglePayLogo from '@assets/google-pay-logo.svg';
 import PayPalLogo from '@assets/paypal-logo.svg';
 import VisaLogo from '@assets/visa-logo.svg';
-import { ShowcasePageLayout } from '../../showcases';
 
 // List of payment methods
 const paymentMethods = [
@@ -32,7 +33,7 @@ const paymentMethods = [
   },
 ];
 
-export function Showcase() {
+export default function PaymentMethods() {
   return (
     <fieldset>
       <legend className="mb-4 typography-headline-5 font-bold text-neutral-900">Payment method</legend>
@@ -53,5 +54,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+PaymentMethods.getLayout = ShowcasePageLayout;
