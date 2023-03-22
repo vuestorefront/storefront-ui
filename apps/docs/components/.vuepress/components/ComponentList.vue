@@ -9,13 +9,14 @@
       >
         <div v-if="!hideThumbnail" class="w-full flex items-center justify-center bg-gray-100">
           <img
-            :src="$withBase(`/thumbnails/components/${componentName.replace('Sf', '')}.png`)"
+            :src="$withBase(`/thumbnails/${type}/${componentName.replace('Sf', '')}.png`)"
             class="w-full h-full object-cover"
             :alt="componentName"
           />
         </div>
         <div class="p-4">
           <h4 class="font-bold">{{ componentName.replace('Sf', '') }}</h4>
+          <p v-if="type === 'blocks'" class="mt-2 text-sm">{{ blockCount(componentName) }} blocks</p>
           <p v-if="!hideDescription" class="mt-2 text-sm">{{ componentDescription(componentName) }}</p>
         </div>
       </RouterLink>
@@ -59,6 +60,11 @@ export default {
       const componentPath = `/${this.framework}/${this.type}/${componentName.replace('Sf', '').toLowerCase()}.html`;
 
       return this.$site.pages.find((page) => page.path.toLowerCase() === componentPath)?.frontmatter?.description;
+    },
+    blockCount(componentName) {
+      const componentPath = `/${this.framework}/${this.type}/${componentName.replace('Vsf', '').toLowerCase()}.html`;
+
+      return this.$site.pages.find((page) => page.path.toLowerCase() === componentPath)?.frontmatter?.blockCount;
     },
   },
   data() {

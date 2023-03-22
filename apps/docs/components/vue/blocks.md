@@ -12,4 +12,4 @@ layout: DefaultLayout
 Fully accessible UI showcases, designed to integrate beautifully with Tailwind CSS and Vue.
 :::
 
-<ComponentList framework="vue"  type="blocks" hide-thumbnail/>
+<ComponentList framework="vue"  type="blocks" hide-description/>
