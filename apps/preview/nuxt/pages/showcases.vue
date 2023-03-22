@@ -29,14 +29,14 @@
             <ul>
               <li v-for="showcaseName in groupValue.showcases" :key="groupKey + showcaseName">
                 <NuxtLink :key="showcaseName" v-slot="{ navigate }" :to="groupItemHref(groupKey, showcaseName)" custom>
-                  <VsfListItemMenu
+                  <VsfListItem
                     tag="span"
-                    :active="currentRoute.path === groupItemHref(groupKey, showcaseName)"
+                    :selected="currentRoute.path === groupItemHref(groupKey, showcaseName)"
                     :class="{ 'font-medium': currentRoute.path === groupItemHref(groupKey, showcaseName) }"
                     @click="navigate"
                   >
                     {{ showcaseName }}
-                  </VsfListItemMenu>
+                  </VsfListItem>
                 </NuxtLink>
               </li>
             </ul>
@@ -57,7 +57,7 @@ import {
   VsfButton,
   VsfButtonVariant,
   VsfButtonSize,
-  VsfListItemMenu,
+  VsfListItem,
   VsfIconChevronLeft,
   VsfIconChevronRight,
   VsfIconExpandMore,

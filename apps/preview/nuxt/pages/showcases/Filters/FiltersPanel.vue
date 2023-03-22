@@ -44,13 +44,13 @@
             </li>
           </ul>
           <template v-if="type === 'color'">
-            <VsfListItemMenu
+            <VsfListItem
               v-for="{ id, value, label, counter } in details"
               :key="id"
               size="sm"
               tag="label"
               :class="['px-1.5 bg-transparent hover:bg-transparent', { 'font-medium': isItemActive(value) }]"
-              :active="isItemActive(value)"
+              :selected="isItemActive(value)"
             >
               <template #prefix>
                 <input v-model="selectedFilters" :value="value" class="peer appearance-none" type="checkbox" />
@@ -63,10 +63,10 @@
                 <span className="typography-text-sm mr-2">{{ label }}</span>
                 <VsfCounter>{{ counter }}</VsfCounter>
               </p>
-            </VsfListItemMenu>
+            </VsfListItem>
           </template>
           <template v-if="type === 'checkbox'">
-            <VsfListItemMenu
+            <VsfListItem
               v-for="{ id, value, label, counter } in details"
               :key="id"
               as="label"
@@ -80,10 +80,10 @@
                 <span class="text-sm mr-2">{{ label }}</span>
                 <VsfCounter>{{ counter }}</VsfCounter>
               </p>
-            </VsfListItemMenu>
+            </VsfListItem>
           </template>
           <template v-if="type === 'radio'">
-            <VsfListItemMenu
+            <VsfListItem
               v-for="{ id, value, label, counter } in details"
               :key="id"
               as="label"
@@ -102,7 +102,7 @@
                 <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
                 <VsfCounter>{{ counter }}</VsfCounter>
               </p>
-            </VsfListItemMenu>
+            </VsfListItem>
           </template>
         </VsfAccordionItem>
         <hr class="my-4" />
@@ -126,7 +126,7 @@ import {
   VsfIconChevronLeft,
   VsfIconCancel,
   VsfIconClose,
-  VsfListItemMenu,
+  VsfListItem,
   VsfRadio,
   VsfSelect,
   VsfThumbnail,

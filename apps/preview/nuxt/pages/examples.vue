@@ -20,14 +20,14 @@
       <ul class="sidebar-list flex flex-col">
         <li v-for="component in components" :key="component">
           <NuxtLink v-slot="{ navigate }" :to="`/examples/${component}`" custom>
-            <VsfListItemMenu
+            <VsfListItem
               tag="span"
-              :active="currentRoute.path === `/examples/${component}`"
+              :selected="currentRoute.path === `/examples/${component}`"
               :class="{ 'font-medium': currentRoute.path === `/examples/${component}` }"
               @click="navigate"
             >
               {{ component }}
-            </VsfListItemMenu>
+            </VsfListItem>
           </NuxtLink>
         </li>
       </ul>
@@ -41,7 +41,7 @@ import {
   VsfButton,
   VsfButtonVariant,
   VsfButtonSize,
-  VsfListItemMenu,
+  VsfListItem,
   VsfIconChevronLeft,
   VsfIconChevronRight,
 } from '@storefront-ui/vue';

@@ -35,11 +35,11 @@ const sizeClasses = computed(() => {
 
 <template>
   <span
-    class="inline-flex items-center font-body before:content-['('] after:content-[')'] text-gray-500"
+    class="inline-flex items-center before:content-['('] after:content-[')'] text-neutral-500"
     :class="[
       sizeClasses,
       {
-        'rounded-full py-0.5 text-gray-900 font-medium ring-1 ring-gray-200 ring-inset before:content-none after:content-none':
+        'rounded-full py-0.5 font-medium ring-1 ring-neutral-200 ring-inset before:content-none after:content-none':
           pill,
       },
     ]"

@@ -1,10 +1,11 @@
 import {
-  VsfListItemMenu,
-  VsfListItemMenuProps,
-  VsfListItemMenuSize,
-  VsfIconSize,
-  VsfIconCheck,
+  VsfListItem,
+  VsfListItemProps,
+  VsfListItemSize,
+  VsfIconTune,
+  VsfIconChevronRight,
   VsfCounter,
+  VsfIconProps,
 } from '@storefront-ui/react';
 import { createControlsOptions } from '@storefront-ui/preview-shared/utils/controlsOptions';
 import classNames from 'classnames';
@@ -14,26 +15,26 @@ import { ExamplePageLayout } from '../examples';
 
 const prefixSlotOptions = createControlsOptions({
   none: undefined,
-  'Check icon': <VsfIconCheck size={VsfIconSize.sm} />,
+  'Tune icon': (attrs: VsfIconProps) => <VsfIconTune {...attrs} />,
 });
 const suffixSlotOptions = createControlsOptions({
   none: undefined,
-  'Check icon': <VsfIconCheck size={VsfIconSize.sm} />,
+  'Chevron right icon': (attrs: VsfIconProps) => <VsfIconChevronRight {...attrs} />,
 });
 
-interface ListItemMenuControls extends Omit<VsfListItemMenuProps, 'slotPrefix' | 'slotSuffix'> {
+interface ListItemControls extends Omit<VsfListItemProps, 'slotPrefix' | 'slotSuffix'> {
   slotPrefix: typeof prefixSlotOptions.defaultOption;
   slotSuffix: typeof suffixSlotOptions.defaultOption;
 }
 
 function Example() {
   const { state, controls } = prepareControls<
-    ListItemMenuControls & {
+    ListItemControls & {
       label: string;
       counter: number;
       secondaryText: string;
       as: React.ElementType;
-      truncate: boolean;
+      truncate?: boolean;
     }
   >(
     [
@@ -77,7 +78,7 @@ function Example() {
       {
         type: 'select',
         modelName: 'size',
-        options: Object.keys(VsfListItemMenuSize),
+        options: Object.keys(VsfListItemSize),
         description: 'Set size variant',
       },
       {
@@ -87,8 +88,8 @@ function Example() {
       },
       {
         type: 'boolean',
-        modelName: 'active',
-        description: 'Show active state of component',
+        modelName: 'selected',
+        description: 'Show selected state of component',
       },
       {
         type: 'boolean',
@@ -99,52 +100,51 @@ function Example() {
     {
       as: 'li',
       label: 'Label',
-      size: VsfListItemMenuSize.base,
+      size: VsfListItemSize.base,
       counter: 123,
       slotPrefix: prefixSlotOptions.defaultOption,
       slotSuffix: suffixSlotOptions.defaultOption,
       secondaryText: 'Secondary text',
-      disabled: false,
-      active: false,
-      truncate: false,
+      disabled: undefined as boolean | undefined,
+      selected: undefined as boolean | undefined,
+      truncate: undefined as boolean | undefined,
     },
   );
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfListItemMenu
+      <VsfListItem
         className="max-w-sm"
-        as={state.get.as}
-        size={state.get.size}
-        active={state.get.active}
-        disabled={state.get.disabled}
-        slotPrefix={
-          <span className={classNames({ 'text-primary-700': state.get.active && !state.get.disabled })}>
-            {prefixSlotOptions.getValue(state.get.slotPrefix)}
-          </span>
-        }
-        slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
-        onClick={() => state.set((currentState) => ({ ...currentState, active: !currentState.active }))}
+        {...state.get}
+        slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)?.({
+          size: state.get.size === 'sm' ? 'sm' : 'base',
+        })}
+        slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)?.({
+          size: state.get.size === 'sm' ? 'sm' : 'base',
+        })}
+        onClick={() => state.set((currentState) => ({ ...currentState, selected: !currentState.selected }))}
       >
-        <span className="inline-block break-words font-body">
-          <span
-            className={classNames({
-              'font-normal text-disabled-500': state.get.disabled,
-              'font-medium': state.get.active,
-            })}
-          >
-            {state.get.label}
-          </span>
+        <span className="break-words">
+          {state.get.label}
           {state.get.counter && (
-            <VsfCounter v-if="counter" className="ml-2" size="xl">
+            <VsfCounter
+              className={classNames('ml-2 font-normal', { '!text-disabled-500': state.get.disabled })}
+              size={state.get.size === 'sm' ? 'lg' : 'xl'}
+            >
               {state.get.counter}
             </VsfCounter>
           )}
         </span>
-        <span className={classNames('text-xs text-gray-500 break-words', { truncate: state.get.truncate })}>
+
+        <p
+          className={classNames('text-xs text-neutral-500 break-words font-normal', {
+            truncate: state.get.truncate,
+            '!text-disabled-500': state.get.disabled,
+          })}
+        >
           {state.get.secondaryText}
-        </span>
-      </VsfListItemMenu>
+        </p>
+      </VsfListItem>
     </ComponentExample>
   );
 }

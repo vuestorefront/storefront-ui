@@ -1,6 +1,6 @@
 import { BasePage } from '../../utils/BasePage';
 
-export default class VsfListItemMenuObject extends BasePage {
+export default class VsfListItemObject extends BasePage {
   hasTag(tagName: string) {
     this.container.then((el) => {
       expect(el[0].tagName).to.equal(tagName);
@@ -14,17 +14,17 @@ export default class VsfListItemMenuObject extends BasePage {
   }
 
   hasPrefix() {
-    this.container.children().first().should('have.class', 'flex-grow-0 text-neutral-500 mr-2.5');
+    this.container.children().first().should('have.class', 'text-neutral-500');
     return this;
   }
 
   hasSuffix() {
-    this.container.children().last().should('have.class', 'flex-grow-0 text-neutral-500');
+    this.container.children().last().should('have.class', 'text-neutral-500');
     return this;
   }
 
   isDisabled() {
-    this.container.should('have.class', 'opacity-40 bg-white cursor-not-allowed pointer-events-none');
+    this.container.should('have.class', 'cursor-not-allowed pointer-events-none text-disabled-900');
     return this;
   }
 }

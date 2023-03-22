@@ -1,5 +1,5 @@
 <template>
-  <VsfListItemMenu
+  <VsfListItem
     v-for="({ name, cost, date }, index) in deliveryOptions"
     :key="index"
     tag="label"
@@ -13,12 +13,12 @@
     <template #suffix>
       <span className="text-gray-900">{{ cost }}</span>
     </template>
-  </VsfListItemMenu>
+  </VsfListItem>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfRadio, VsfListItemMenu } from '@storefront-ui/vue';
+import { VsfRadio, VsfListItem } from '@storefront-ui/vue';
 
 const deliveryOptions = [
   {

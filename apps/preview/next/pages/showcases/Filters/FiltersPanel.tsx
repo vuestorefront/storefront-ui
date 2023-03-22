@@ -6,7 +6,7 @@ import {
   VsfIconCancel,
   VsfIconClose,
   VsfIconChevronLeft,
-  VsfListItemMenu,
+  VsfListItem,
   VsfThumbnail,
   VsfRadio,
   VsfSelect,
@@ -214,14 +214,14 @@ export function Showcase() {
             )}
             {section.type === 'color' &&
               section.details.map(({ id, label, value, counter }) => (
-                <VsfListItemMenu
+                <VsfListItem
                   key={id}
                   as="label"
                   size="sm"
                   className={classNames('px-1.5 bg-transparent hover:bg-transparent', {
                     'font-medium': isFilterSelected(value),
                   })}
-                  active={isFilterSelected(value)}
+                  selected={isFilterSelected(value)}
                   slotPrefix={
                     <>
                       <input
@@ -243,11 +243,11 @@ export function Showcase() {
                     <span className="text-sm mr-2">{label}</span>
                     <VsfCounter>{counter}</VsfCounter>
                   </p>
-                </VsfListItemMenu>
+                </VsfListItem>
               ))}
             {section.type === 'checkbox' &&
               section.details.map(({ label, value, counter }) => (
-                <VsfListItemMenu
+                <VsfListItem
                   key={value}
                   as="label"
                   size="sm"
@@ -270,11 +270,11 @@ export function Showcase() {
                     <span className="text-sm mr-2">{label}</span>
                     <VsfCounter>{counter}</VsfCounter>
                   </p>
-                </VsfListItemMenu>
+                </VsfListItem>
               ))}
             {section.type === 'radio' &&
               section.details.map(({ label, value, counter }) => (
-                <VsfListItemMenu
+                <VsfListItem
                   key={value}
                   as="label"
                   size="sm"
@@ -298,7 +298,7 @@ export function Showcase() {
                     <span className="text-sm mr-2">{label}</span>
                     <VsfCounter>{counter}</VsfCounter>
                   </p>
-                </VsfListItemMenu>
+                </VsfListItem>
               ))}
           </VsfAccordionItem>
           <hr className="my-4" />
