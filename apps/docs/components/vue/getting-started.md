@@ -8,11 +8,13 @@ tabOptions: [nuxt,vite,astro]
 Since Storefront UI is designed to fit seamlessly into your Tailwind CSS workflow, there will be different installation steps depending on your environment.
 
 :::::: slot vite
+
 ## Vite + Vue 3
 
 ### Create Your Vite Project
 
-If you are creating a new project with Vite, you can use the `create-vite` command to get started. 
+If you are creating a new project with Vite, you can use the `create-vite` command to get started.
+
 ```bash
 # npm 6.x
 npm create vite@latest my-vue-app --template vue-ts
@@ -26,24 +28,25 @@ yarn create vite my-vue-app --template vue-ts
 # pnpm
 pnpm create vite my-vue-app --template vue-ts
 ```
+
 ### Install Tailwind and Storefront UI Dependencies
 
-Next, you'll need to install Tailwind CSS and PostCSS, as well as the Storefront UI's Vue library and Tailwind preset. 
+Next, you'll need to install Tailwind CSS and PostCSS, as well as the Storefront UI's Vue library and Tailwind preset.
 
 ```bash
 # npm
-npm i -D tailwindcss postcss autoprefixer @storefront-ui/vue @storefront-ui/tailwind-config
+npm i -D tailwindcss postcss autoprefixer @storefront-ui/vue
 
 # yarn
-yarn add -D tailwindcss postcss autoprefixer @storefront-ui/vue @storefront-ui/tailwind-config
+yarn add -D tailwindcss postcss autoprefixer @storefront-ui/vue
 
 # pnpm
-pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/vue @storefront-ui/tailwind-config
+pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/vue
 ```
 
 ### Initialize Tailwind
 
-Running Tailwind's `init` command will generate a `tailwind.config.cjs` and `postcss.config.cjs` file in your project's root directory. 
+Running Tailwind's `init` command will generate a `tailwind.config.cjs` and `postcss.config.cjs` file in your project's root directory.
 
 ```bash
 npx tailwindcss init -p
@@ -60,7 +63,7 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 
 ```ts
 // tailwind.config.cjs
-const { tailwindConfig } = require('@storefront-ui/tailwind-config');
+const { tailwindConfig } = require('@storefront-ui/vue/tailwind-config');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
@@ -77,7 +80,7 @@ module.exports = {
 
 ### Add Tailwind to Your CSS
 
-Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS. 
+Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
 
 
 ```css
@@ -116,13 +119,13 @@ Additionally, you'll need to install the Storefront UI's Vue library and Tailwin
 
 ```bash
 # npm
-npm i -D @nuxtjs/tailwindcss @storefront-ui/vue @storefront-ui/tailwind-config
+npm i -D @nuxtjs/tailwindcss @storefront-ui/vue
 
 # yarn
-yarn add -D @nuxtjs/tailwindcss @storefront-ui/vue @storefront-ui/tailwind-config
+yarn add -D @nuxtjs/tailwindcss @storefront-ui/vue
 
 # pnpm
-pnpm add -D @nuxtjs/tailwindcss @storefront-ui/vue @storefront-ui/tailwind-config
+pnpm add -D @nuxtjs/tailwindcss @storefront-ui/vue
 ```
 
 ### Add the Nuxt Tailwind module to your `nuxt.config.ts`
@@ -146,7 +149,7 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 ```ts
 // tailwind.config.ts
 import type { Config } from 'tailwindcss';
-import { tailwindConfig } from '@storefront-ui/tailwind-config';
+import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
 export default <Config>{
   presets: [tailwindConfig],
@@ -170,7 +173,6 @@ import { VsfButton } from '@storefront-ui/vue';
 
 <Showcase showcase-name="Button/ButtonBlock" :show-source="false"/>
 
-
 :::::::
 
 :::::: slot astro
@@ -179,7 +181,7 @@ import { VsfButton } from '@storefront-ui/vue';
 
 ### Add Vue and Tailwind to Your Astro Project
 
-When working with Astro, you'll first need to configure your project to use Astro's Vue and Tailwind integrations. 
+When working with Astro, you'll first need to configure your project to use Astro's Vue and Tailwind integrations.
 
 The simplest way to do this is use the `astro add` command, but you can manually configure these two integrations using the [Astro Vue](https://docs.astro.build/en/guides/integrations-guide/vue/) and [Astro Tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/) guides.
 
@@ -202,13 +204,13 @@ Now that your Astro project is configured to use Vue and Tailwind, you'll need t
 
 ```bash
 # npm
-npm i -D @storefront-ui/vue @storefront-ui/tailwind-config
+npm i -D @storefront-ui/vue
 
 # yarn
-yarn add -D @storefront-ui/vue @storefront-ui/tailwind-config
+yarn add -D @storefront-ui/vue
 
 # pnpm
-pnpm add -D @storefront-ui/vue @storefront-ui/tailwind-config
+pnpm add -D @storefront-ui/vue
 ```
 
 ### Modify Your Tailwind Configuration File
@@ -222,7 +224,7 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 
 ```js
 // tailwind.config.cjs
-const { tailwindConfig } = require('@storefront-ui/tailwind-config');
+const { tailwindConfig } = require('@storefront-ui/vue/tailwind-config');
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
