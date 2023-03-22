@@ -9,7 +9,7 @@
         <template #prefix><VsfThumbnail :class="`bg-${item.value}-500`" /></template>
         {{ item.label }}
         <template #suffix>
-          <VsfIconClose class="text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20" />
+          <VsfIconCloseSm class="text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20" />
         </template>
       </VsfChip>
     </li>
@@ -18,7 +18,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfChip, VsfIconClose, VsfThumbnail } from '@storefront-ui/vue';
+import { VsfChip, VsfIconCloseSm, VsfThumbnail } from '@storefront-ui/vue';
 
 const chipValues = ref([
   { label: 'Red', value: 'red' },

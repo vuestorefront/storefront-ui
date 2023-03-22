@@ -8,7 +8,7 @@ export default function ChipWithThumbnail() {
       <VsfChip size="sm" className="mr-2" slotPrefix={<VsfThumbnail className="bg-red-500" size="sm" />}>
         Red
       </VsfChip>
-      <VsfChip slotPrefix={<VsfThumbnail className="bg-blue-500" size="base" />}>Blue</VsfChip>
+      <VsfChip slotPrefix={<VsfThumbnail className="bg-secondary-400" size="base" />}>Blue</VsfChip>
     </>
   );
 }
