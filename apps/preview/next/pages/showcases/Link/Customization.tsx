@@ -5,16 +5,10 @@ export function Showcase() {
   return (
     <div className="space-x-4">
       <VsfLink href="#" className="text-sm">
-        {' '}
-        Small{' '}
+        Small
       </VsfLink>
-      <VsfLink href="#" className="text-base">
-        {' '}
-        Base{' '}
-      </VsfLink>
-      <VsfLink href="#" className="text-large">
-        {' '}
-        Large{' '}
+      <VsfLink href="#" variant="secondary" className="text-negative-700">
+        To delete page
       </VsfLink>
     </div>
   );

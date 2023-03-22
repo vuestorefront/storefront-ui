@@ -4,22 +4,18 @@ import type { VsfLinkProps } from '@storefront-ui/react';
 
 const defaultLinkTag = 'a';
 
-const getVariantClasses = (variant: Required<VsfLinkProps>['variant']) => {
-  switch (variant) {
-    case VsfLinkVariant.secondary:
-      return 'text-neutral-900 underline hover:text-primary-700 active:text-primary-800 visited:text-primary-800';
-    case VsfLinkVariant.primary:
-    default:
-      return 'text-primary-700 hover:underline active:text-primary-800 active:underline visited:text-primary-800 visited:underline';
-  }
-};
-
 const VsfLink = polymorphicForwardRef<typeof defaultLinkTag, VsfLinkProps>((props, ref) => {
+  const variantClasses = {
+    [VsfLinkVariant.primary]:
+      'text-primary-700 underline hover:text-primary-800 active:text-primary-900 visited:text-primary-900',
+    [VsfLinkVariant.secondary]: 'underline hover:text-primary-800 active:text-primary-900 visited:text-primary-900',
+  };
+
   const { as, className, children, variant = VsfLinkVariant.primary, ...attributes } = props;
   const Tag = as || defaultLinkTag;
 
   return (
-    <Tag ref={ref} className={classNames(getVariantClasses(variant), className)} data-testid="link" {...attributes}>
+    <Tag ref={ref} className={classNames(variantClasses[variant], className)} data-testid="link" {...attributes}>
       {children}
     </Tag>
   );
