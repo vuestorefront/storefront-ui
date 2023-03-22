@@ -52,7 +52,9 @@ const inputValue = useVModel(props, 'modelValue', emit);
     ]"
     data-testid="input"
   >
-    <slot name="prefix" />
+    <span v-if="$slots.prefix" class="pr-2">
+      <slot name="prefix" />
+    </span>
     <input
       v-model="inputValue"
       v-bind="$attrs"
@@ -60,6 +62,8 @@ const inputValue = useVModel(props, 'modelValue', emit);
       data-testid="input-field"
       :size="1"
     />
-    <slot name="suffix" />
+    <span v-if="$slots.suffix" class="pl-2">
+      <slot name="suffix" />
+    </span>
   </div>
 </template>

@@ -20,7 +20,7 @@ const VsfInput = forwardRef<HTMLInputElement, VsfInputProps>(
       ])}
       data-testid="input"
     >
-      {slotPrefix}
+      {slotPrefix && <span className="pr-2">{slotPrefix}</span>}
       <input
         className={classNames([
           'appearance-none outline-none min-w-[80px] w-full text-base text-neutral-700 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent read-only:text-disabled-900',
@@ -31,7 +31,7 @@ const VsfInput = forwardRef<HTMLInputElement, VsfInputProps>(
         ref={ref}
         {...attributes}
       />
-      {slotSuffix}
+      {slotSuffix && <span className="pl-2">{slotSuffix}</span>}
     </div>
   ),
 );
