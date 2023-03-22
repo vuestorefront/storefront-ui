@@ -25,7 +25,7 @@ export function Showcase() {
     <div className="w-full h-full bg-neutral-50">
       <header className="flex justify-center w-full bg-white border-b h-14 md:h-20 border-neutral-200">
         <div className="flex items-center flex-row flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
-          <a href="/" aria-label="VSF Homepage" className="inline-block h-8 md:h-10 lg:h-7 text-primary-700">
+          <a href="/" aria-label="VSF Homepage" className="inline-block text-primary-700">
             <img src={brandLogo.src} alt="Vsf Logo" className="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
             <img src={brandLogoSign.src} alt="Vsf Logo" className="block w-8 h-8 mr-4 md:w-10 md:h-10 lg:hidden" />
           </a>
