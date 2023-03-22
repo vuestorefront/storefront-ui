@@ -7,7 +7,7 @@ tabOptions: [next.js,vite,astro]
 
 Since Storefront UI is designed to fit seamlessly into your Tailwind CSS workflow, there will be different installation steps depending on your environment.
 
-:::::: slot next
+:::::: slot next.js
 
 ## Next.js
 

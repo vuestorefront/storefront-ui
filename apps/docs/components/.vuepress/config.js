@@ -14,7 +14,7 @@ module.exports = {
   title: `Storefront UI`,
   base: process.env.VITE_DOCS_BASEPATH ?? '/',
   description: `Documentation for the Storefront UI`,
-  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
+  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   patterns: ['**/*.md', '**/*.vue', '!components/**/*.md', '!blocks/**/*.md', '!hooks/**/*.md'], // ignore components folder
   markdown: {
     extractHeaders: ['h1', 'h2', 'h3'],
