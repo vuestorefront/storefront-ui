@@ -4,6 +4,7 @@ import {
   VsfCounter,
   VsfChip,
   VsfIconCancel,
+  VsfIconClose,
   VsfIconChevronLeft,
   VsfListItemMenu,
   VsfThumbnail,
@@ -116,12 +117,21 @@ export function Showcase() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [opened, setOpened] = useState<string[]>(filtersData.map((item) => item.id));
 
+  const isAccordionItemOpen = (id: string) => opened.includes(id);
+  const isFilterSelected = (val: string) => selectedFilters.includes(val);
+
   const handleFilterSelection = (val: string) => {
     if (selectedFilters.indexOf(val) > -1) {
       setSelectedFilters([...selectedFilters.filter((value) => value !== val)]);
     } else {
       setSelectedFilters([...selectedFilters, val]);
     }
+  };
+
+  const handleRadioSelection = (val: string) => {
+    const newSelectedFilters = selectedFilters.filter((selectedFilter) => !isFilterSelected(selectedFilter));
+    newSelectedFilters.push(val);
+    setSelectedFilters(newSelectedFilters);
   };
 
   const handleToggle = (id: string) => (open: boolean) => {
@@ -132,23 +142,25 @@ export function Showcase() {
     }
   };
 
-  const isAccordionItemOpen = (id: string) => opened.includes(id);
-  const isFilterSelected = (val: string) => selectedFilters.includes(val);
-
   return (
     <aside>
-      <div className="flex justify-between">
+      <div className="flex items-center justify-between">
         <h4 className="px-2 typography-headline-4 font-bold">Filters</h4>
         {selectedFilters.length ? (
           <VsfButton
+            type="reset"
             size="sm"
             variant="tertiary"
+            className="hidden md:flex"
             onClick={() => setSelectedFilters([])}
             slotSuffix={<VsfIconCancel size="sm" />}
           >
             Clear all
           </VsfButton>
         ) : null}
+        <button type="button" className="md:hidden text-neutral-500">
+          <VsfIconClose />
+        </button>
       </div>
       <hr className="my-4" />
       <p className="mb-2 px-2 typography-headline-5 font-medium">Sort by:</p>
@@ -187,7 +199,12 @@ export function Showcase() {
                     <VsfChip
                       key={id}
                       size="sm"
-                      inputProps={{ value, disabled: !counter, onChange: () => handleFilterSelection(value) }}
+                      inputProps={{
+                        value,
+                        disabled: !counter,
+                        checked: isFilterSelected(value),
+                        onChange: (event) => handleFilterSelection(event.target.value),
+                      }}
                     >
                       {label}
                     </VsfChip>
@@ -201,7 +218,9 @@ export function Showcase() {
                   key={id}
                   as="label"
                   size="sm"
-                  className="px-1.5 bg-transparent hover:bg-transparent"
+                  className={classNames('px-1.5 bg-transparent hover:bg-transparent', {
+                    'font-medium': isFilterSelected(value),
+                  })}
                   active={isFilterSelected(value)}
                   slotPrefix={
                     <>
@@ -233,8 +252,19 @@ export function Showcase() {
                   as="label"
                   size="sm"
                   disabled={counter === 0}
-                  className="px-1.5 bg-transparent hover:bg-transparent"
-                  slotPrefix={<VsfCheckbox disabled={counter === 0} value={value} />}
+                  className={classNames('px-1.5 bg-transparent hover:bg-transparent', {
+                    'font-medium': isFilterSelected(value),
+                  })}
+                  slotPrefix={
+                    <VsfCheckbox
+                      disabled={counter === 0}
+                      value={value}
+                      checked={isFilterSelected(value)}
+                      onChange={(event) => {
+                        handleFilterSelection(event.target.value);
+                      }}
+                    />
+                  }
                 >
                   <p>
                     <span className="text-sm mr-2">{label}</span>
@@ -249,7 +279,9 @@ export function Showcase() {
                   as="label"
                   size="sm"
                   disabled={counter === 0}
-                  className="px-1.5 bg-transparent hover:bg-transparent"
+                  className={classNames('px-1.5 bg-transparent hover:bg-transparent', {
+                    'font-medium': isFilterSelected(value),
+                  })}
                   slotPrefix={
                     <VsfRadio
                       disabled={counter === 0}
@@ -257,7 +289,7 @@ export function Showcase() {
                       name="radio-price"
                       checked={isFilterSelected(value)}
                       onChange={(event) => {
-                        handleFilterSelection(event.target.value);
+                        handleRadioSelection(event.target.value);
                       }}
                     />
                   }
@@ -272,7 +304,12 @@ export function Showcase() {
           <hr className="my-4" />
         </>
       ))}
-      <VsfButton className="w-full">Show products</VsfButton>
+      <div className="flex justify-between">
+        <VsfButton variant="secondary" className="w-full md:hidden mr-3">
+          Clear all filters
+        </VsfButton>
+        <VsfButton className="w-full">Show products</VsfButton>
+      </div>
     </aside>
   );
 }

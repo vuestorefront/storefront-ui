@@ -2,12 +2,22 @@
   <aside>
     <div class="flex justify-between">
       <h4 class="px-2 typography-headline-4 font-bold">Filters</h4>
-      <VsfButton v-if="selectedFilters.length" size="sm" variant="tertiary" @click="clearSelection()">
+      <VsfButton
+        v-if="selectedFilters.length"
+        type="reset"
+        size="sm"
+        variant="tertiary"
+        class="hidden md:flex text-neutral-500"
+        @click="clearSelection()"
+      >
         Clear all
         <template #suffix>
           <VsfIconCancel size="sm" />
         </template>
       </VsfButton>
+      <button type="button" class="md:hidden text-neutral-500">
+        <VsfIconClose />
+      </button>
     </div>
     <hr class="my-4" />
     <p class="mb-2 px-2 typography-headline-5 font-medium">Sort by:</p>
@@ -27,73 +37,70 @@
             </div>
           </template>
           <ul v-if="type === 'size'" class="flex flex-wrap gap-4 px-1.5">
-            <li v-for="size in details" :key="size.id">
-              <VsfChip
-                v-model="selectedFilters"
-                size="sm"
-                :input-props="{ value: size.value, disabled: !size.counter }"
-              >
-                {{ size.label }}
+            <li v-for="{ id, value, counter, label } in details" :key="id">
+              <VsfChip v-model="selectedFilters" size="sm" :input-props="{ value, disabled: !counter }">
+                {{ label }}
               </VsfChip>
             </li>
           </ul>
           <template v-if="type === 'color'">
             <VsfListItemMenu
-              v-for="color in details"
-              :key="color.id"
-              as="label"
+              v-for="{ id, value, label, counter } in details"
+              :key="id"
               size="sm"
-              class="px-1.5 bg-transparent hover:bg-transparent"
+              tag="label"
+              :class="['px-1.5 bg-transparent hover:bg-transparent', { 'font-medium': isItemActive(value) }]"
+              :active="isItemActive(value)"
             >
               <template #prefix>
-                <input v-model="selectedFilters" :value="color.value" class="peer appearance-none" type="checkbox" />
+                <input v-model="selectedFilters" :value="value" class="peer appearance-none" type="checkbox" />
                 <span
                   class="cursor-pointer p-1 ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline"
-                >
-                  <VsfThumbnail size="sm" :class="color.value" />
-                </span>
+                  ><VsfThumbnail size="sm" :class="value"
+                /></span>
               </template>
               <p>
-                <span class="text-sm mr-2">{{ color.label }}</span>
-                <VsfCounter>{{ color.counter }}</VsfCounter>
+                <span className="typography-text-sm mr-2">{{ label }}</span>
+                <VsfCounter>{{ counter }}</VsfCounter>
               </p>
             </VsfListItemMenu>
           </template>
           <template v-if="type === 'checkbox'">
             <VsfListItemMenu
-              v-for="brand in details"
-              :key="brand.id"
+              v-for="{ id, value, label, counter } in details"
+              :key="id"
               as="label"
               size="sm"
-              class="px-1.5 bg-transparent hover:bg-transparent"
+              :class="['px-1.5 bg-transparent hover:bg-transparent', { 'font-medium': isItemActive(value) }]"
             >
               <template #prefix>
-                <VsfCheckbox v-model="selectedFilters" :disabled="brand.counter === 0" :value="brand.value" />
+                <VsfCheckbox v-model="selectedFilters" :disabled="counter === 0" :value="value" />
               </template>
               <p>
-                <span class="text-sm mr-2">{{ brand.label }}</span>
-                <VsfCounter>{{ brand.counter }}</VsfCounter>
+                <span class="text-sm mr-2">{{ label }}</span>
+                <VsfCounter>{{ counter }}</VsfCounter>
               </p>
             </VsfListItemMenu>
           </template>
           <template v-if="type === 'radio'">
             <VsfListItemMenu
-              v-for="price in details"
-              :key="price.id"
+              v-for="{ id, value, label, counter } in details"
+              :key="id"
               as="label"
               size="sm"
               class="px-1.5 bg-transparent hover:bg-transparent"
             >
               <template #prefix>
                 <VsfRadio
+                  v-model="radioModel"
                   name="radio-price"
-                  :value="price.value"
-                  @update:model-value="handleRadioSelection(price.value)"
+                  :value="value"
+                  @update:model-value="handleRadioSelection(value)"
                 />
               </template>
               <p>
-                <span class="text-sm mr-2">{{ price.label }}</span>
-                <VsfCounter>{{ price.counter }}</VsfCounter>
+                <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
+                <VsfCounter>{{ counter }}</VsfCounter>
               </p>
             </VsfListItemMenu>
           </template>
@@ -101,7 +108,10 @@
         <hr class="my-4" />
       </li>
     </ul>
-    <VsfButton class="w-full">Show products</VsfButton>
+    <div class="flex justify-between">
+      <VsfButton variant="secondary" class="w-full md:hidden mr-3"> Clear all filters </VsfButton>
+      <VsfButton class="w-full">Show products</VsfButton>
+    </div>
   </aside>
 </template>
 
@@ -115,6 +125,7 @@ import {
   VsfCounter,
   VsfIconChevronLeft,
   VsfIconCancel,
+  VsfIconClose,
   VsfListItemMenu,
   VsfRadio,
   VsfSelect,
@@ -219,14 +230,18 @@ const sortOptions = ref([
 
 const selectedFilters = ref<string[]>([]);
 const opened = ref<boolean[]>(filtersData.value.map(() => true));
+const radioModel = ref('');
+
+const isItemActive = (val: string) => {
+  return selectedFilters.value?.includes(val);
+};
 const handleRadioSelection = (val: string) => {
-  const newSelectedFilters = selectedFilters.value.filter(
-    (selectedFilter) => !selectedFilters.value.includes(selectedFilter),
-  );
+  const newSelectedFilters = selectedFilters.value.filter((selectedFilter) => !isItemActive(selectedFilter));
   newSelectedFilters.push(val);
   selectedFilters.value = newSelectedFilters;
 };
 const clearSelection = () => {
   selectedFilters.value = [];
+  radioModel.value = '';
 };
 </script>

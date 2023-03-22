@@ -3,33 +3,33 @@ layout: DefaultLayout
 hideBreadcrumbs: true
 description: Product filters are a valuable tool for online shoppers to quickly and easily find the products they are looking for on e-commerce websites.
 ---
-# ProductListFilters
+# Filters
 
 {{ $frontmatter.description }}
 
 ## Colors
 Color filters are a type of product filter that allow online shoppers to narrow down their search results based on the color or colors of the products they are interested in.
 
-<Showcase showcase-name="ProductListFilters/Color">
+<Showcase showcase-name="Filters/Color">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/ProductListFilters/Color.vue
+<<<../../preview/nuxt/pages/showcases/Filters/Color.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProductListFilters/Color.tsx
+<<<../../preview/next/pages/showcases/Filters/Color.tsx
 <!-- end react -->
 </Showcase>
 
 ## Sizes
 Sizes in category pages are a feature that allows online shoppers to filter their search results based on specific sizes of products they are interested in.
 
-<Showcase showcase-name="ProductListFilters/Sizes">
+<Showcase showcase-name="Filters/Sizes">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/ProductListFilters/Sizes.vue
+<<<../../preview/nuxt/pages/showcases/Filters/Sizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProductListFilters/Sizes.tsx
+<<<../../preview/next/pages/showcases/Filters/Sizes.tsx
 
 </Showcase>
 
@@ -38,13 +38,13 @@ Sizes in category pages are a feature that allows online shoppers to filter thei
 
 Sorting in category pages is a feature that allows online shoppers to arrange and view products on an e-commerce website based on a specific order or criteria.
 
-<Showcase showcase-name="ProductListFilters/SortBy">
+<Showcase showcase-name="Filters/SortBy">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/ProductListFilters/SortBy.vue
+<<<../../preview/nuxt/pages/showcases/Filters/SortBy.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProductListFilters/SortBy.tsx
+<<<../../preview/next/pages/showcases/Filters/SortBy.tsx
 <!-- end react -->
 
 </Showcase>
@@ -53,13 +53,13 @@ Sorting in category pages is a feature that allows online shoppers to arrange an
 
 Filters panel can be customized to suit the specific needs of different applications or user groups. It may offer simple or advanced filtering options.
 
-<Showcase showcase-name="ProductListFilters/FiltersPanel" style="min-height:1500px">
+<Showcase showcase-name="Filters/FiltersPanel" style="min-height:1500px">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/ProductListFilters/FiltersPanel.vue
+<<<../../preview/nuxt/pages/showcases/Filters/FiltersPanel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProductListFilters/FiltersPanel.tsx
+<<<../../preview/next/pages/showcases/Filters/FiltersPanel.tsx
 <!-- end react -->
 
 </Showcase>
