@@ -76,6 +76,11 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
     return this;
   }
 
+  hasClass(className: string) {
+    this.container.should('have.class', className);
+    return this;
+  }
+
   makeSnapshot(name?: string, opts?: Parameters<typeof cy.percySnapshot>[1]) {
     cy.percySnapshot(name, opts);
     return this;

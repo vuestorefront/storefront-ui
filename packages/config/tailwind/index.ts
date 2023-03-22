@@ -1,5 +1,7 @@
 import { Config } from 'tailwindcss';
 import tailwindCssVariables from '@mertasan/tailwindcss-variables';
+import peerNextPlugin from '@storefront-ui/tw-plugin-peer-next';
+
 export const tailwindConfig: Config = {
   content: [],
   future: {
@@ -109,7 +111,7 @@ export const tailwindConfig: Config = {
       },
       fontFamily: {
         headings: 'Red Hat Display, sans-serif',
-        body: 'Red Hat Text, sans-serif'
+        body: 'Red Hat Text, sans-serif',
       },
       screens: {
         xs: '376px',
@@ -119,23 +121,23 @@ export const tailwindConfig: Config = {
         'stroke-loader-circular': {
           '0%': { 'stroke-dasharray': '1, 200', 'stroke-dashoffset': '0' },
           '50%': { 'stroke-dasharray': '140, 200', 'stroke-dashoffset': '-35' },
-          '100%': { 'stroke-dasharray': '89, 200', 'stroke-dashoffset': '-150' }
+          '100%': { 'stroke-dasharray': '89, 200', 'stroke-dashoffset': '-150' },
         },
         line: {
           from: {
             left: '-100%',
-            width: '100%'
+            width: '100%',
           },
           to: {
             left: '100%',
-            width: '10%'
-          }
-        }
+            width: '10%',
+          },
+        },
       },
       animation: {
         'spin-slow': 'spin 1.5s linear infinite',
         line: 'line 1.5s ease-in infinite',
-        'stroke-loader-circular': 'stroke-loader-circular 2s ease-in-out infinite'
+        'stroke-loader-circular': 'stroke-loader-circular 2s ease-in-out infinite',
       },
       fontSize: {
         '2xs': ['10px', '11px'],
@@ -233,5 +235,5 @@ export const tailwindConfig: Config = {
       },
     },
   },
-  plugins: [tailwindCssVariables],
+  plugins: [tailwindCssVariables, peerNextPlugin],
 };

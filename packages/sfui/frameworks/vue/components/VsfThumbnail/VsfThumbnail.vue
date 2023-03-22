@@ -1,13 +1,13 @@
 <script lang="ts">
 const sizeClasses = {
-  [VsfThumbnailSize.sm]: 'w-4 h-4',
-  [VsfThumbnailSize.base]: 'w-5 h-5',
-  [VsfThumbnailSize.lg]: 'w-[2.125rem] h-[2.125rem]',
-  [VsfThumbnailSize.xl]: 'w-12 h-12',
+  [VsfThumbnailSize.sm]: 'w-5 h-5',
+  [VsfThumbnailSize.base]: 'w-6 h-6',
+  [VsfThumbnailSize.lg]: 'w-10 h-10',
+  [VsfThumbnailSize.xl]: 'w-14 h-14',
 };
 </script>
 <script lang="ts" setup>
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
 import { VsfThumbnailSize } from '@storefront-ui/vue';
 
 defineProps({
@@ -19,7 +19,7 @@ defineProps({
 </script>
 
 <template>
-  <div :class="['rounded-full overflow-hidden', sizeClasses[size]]" data-testid="chip-thumbnail">
+  <div :class="['rounded-full overflow-hidden bg-clip-content p-0.5', sizeClasses[size]]" data-testid="chip-thumbnail">
     <slot />
   </div>
 </template>

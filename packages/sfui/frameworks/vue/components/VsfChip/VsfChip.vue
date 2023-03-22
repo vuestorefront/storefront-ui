@@ -1,7 +1,13 @@
+<script lang="ts">
+const sizeClasses = {
+  [VsfChipSize.sm]: 'text-sm py-1.5 gap-1.5',
+  [VsfChipSize.base]: 'text-base py-2 gap-2',
+};
+</script>
 <script lang="ts" setup>
-import type { PropType, InputHTMLAttributes } from 'vue';
+import { type PropType, type InputHTMLAttributes } from 'vue';
 import { toRefs, computed } from 'vue';
-import { useId, VsfChipSize } from '@storefront-ui/vue';
+import { useId, VsfChipSize, useSlotsRef } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -21,11 +27,12 @@ const props = defineProps({
     default: false,
   },
 });
+
 const { size, square, modelValue } = toRefs(props);
 const emit = defineEmits<{
   (event: 'update:modelValue', param: InputHTMLAttributes['checked']): void;
 }>();
-
+const slots = useSlotsRef();
 const inputId = useId();
 
 const onSelected = computed({
@@ -33,33 +40,36 @@ const onSelected = computed({
   set: (value) => emit('update:modelValue', value),
 });
 
-const sizeClasses = computed(() => {
+const paddingForSize = computed(() => {
   switch (size.value) {
     case VsfChipSize.sm:
-      return square.value ? 'text-sm p-1.5' : 'text-sm py-1.5 px-3 min-w-[3rem]';
+      return square.value ? 'px-1.5' : [slots.value.prefix ? 'pl-1.5' : 'pl-3', slots.value.suffix ? 'pr-1.5' : 'pr-3'];
     default:
-      return square.value ? 'text-base p-2' : 'text-base h-10 py-2 px-4 min-w-[3rem]';
+      return square.value ? 'px-2' : [slots.value.prefix ? 'pl-2' : 'pl-4', slots.value.suffix ? 'pr-2' : 'pr-4'];
   }
 });
 </script>
 
 <template>
-  <!-- TODO: [last-check: 09-03-2023] reimplement when has() has support https://caniuse.com/css-has -->
   <input
     v-bind="inputProps"
     :id="inputId"
     v-model="onSelected"
-    class="peer appearance-none outline-none absolute w-0"
+    class="absolute w-0 outline-none appearance-none peer"
     type="checkbox"
   />
   <label
     v-bind="$attrs"
     :for="inputId"
     :class="[
-      'cursor-pointer ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline',
-      sizeClasses,
+      'cursor-pointer ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-next-checked:ring-2 peer-next-checked:ring-primary-700 hover:bg-primary-100 peer-next-hover:ring-primary-200 active:bg-primary-200 peer-next-active:ring-primary-300 peer-next-disabled:cursor-not-allowed peer-next-disabled:bg-disabled-100 peer-next-disabled:opacity-50 peer-next-disabled:ring-1 peer-next-disabled:ring-disabled-200 peer-next-disabled:hover:ring-disabled-200 peer-next-checked:hover:ring-primary-700 peer-next-checked:active:ring-primary-700 peer-next-focus-visible:outline',
+      sizeClasses[size],
+      paddingForSize,
     ]"
     data-testid="chip"
-    ><slot />
+  >
+    <slot v-if="$slots.prefix" name="prefix" />
+    <slot />
+    <slot v-if="$slots.suffix" name="suffix" />
   </label>
 </template>

@@ -3,7 +3,7 @@
   "pipeline": {
     "build": {
       "cache": false,
-      "dependsOn": ["^build:shared", "^build:typography", "^build:tailwind-config", "build:release", "^build"],
+      "dependsOn": ["^build:shared", "^build:typography", "build:tailwind-config", "build:release",  "build:next", "build:nuxt", "build:docs"],
       "outputs": ["dist/**"]
     },
     "lint": {
@@ -20,11 +20,11 @@
     },
     "build:next": {
       "cache": false,
-      "dependsOn": ["^build:react", "^build:typography", "^build:tailwind-config"]
+      "dependsOn": ["^build:react", "^build:typography", "build:tailwind-config"]
     },
     "build:nuxt": {
       "cache": false,
-      "dependsOn": ["^build:vue", "^build:typography", "^build:tailwind-config"]
+      "dependsOn": ["^build:vue", "^build:typography", "build:tailwind-config"]
     },
     "build:docs": {
       "dependsOn": ["^build:tailwind-config"],
@@ -48,6 +48,9 @@
     "build:typography": {
       "cache": false
     },
+    "build:peer-next": {
+      "cache": false
+    },
     "build:tailwind-config": {
       "cache": false
     },
@@ -59,7 +62,7 @@
     },
     "dev:docs": {
       "cache": false,
-      "dependsOn": ["^build:typography", "build:tailwind-config"]
+      "dependsOn": ["^build:typography", "build:peer-next", "build:tailwind-config"]
     },
     "dev:shared": {
       "cache": false
@@ -69,11 +72,11 @@
       "cache": false
     },
     "test:ci:vue": {
-      "dependsOn": ["^build:shared", "^build:typography", "^build:tailwind-config", "build:test-utils"],
+      "dependsOn": ["^build:shared", "^build:typography", "build:peer-next", "build:tailwind-config", "build:test-utils"],
       "cache": false
     },
     "test:ci:react": {
-      "dependsOn": ["^build:shared", "^build:typography", "build:test-utils", "^build:tailwind-config"],
+      "dependsOn": ["^build:shared", "^build:typography", "build:peer-next", "build:test-utils", "build:tailwind-config"],
       "cache": false
     }
   }

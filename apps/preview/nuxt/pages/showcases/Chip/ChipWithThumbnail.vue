@@ -1,11 +1,11 @@
 <template>
   <VsfChip v-model="chipRedActive" size="sm" class="mr-2">
-    <VsfThumbnail class="bg-red-500" size="sm" />
-    <span class="ml-2">Red</span>
+    <template #prefix><VsfThumbnail class="bg-red-500" size="sm" /></template>
+    Red
   </VsfChip>
   <VsfChip v-model="chipBlueActive">
-    <VsfThumbnail class="bg-blue-500" size="base" />
-    <span class="ml-2">Blue</span>
+    <template #prefix><VsfThumbnail class="bg-blue-500" size="base" /></template>
+    Blue
   </VsfChip>
 </template>
 

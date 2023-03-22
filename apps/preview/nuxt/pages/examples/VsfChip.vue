@@ -1,11 +1,13 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
     <VsfChip v-model="modelValue" :size="size" :square="square" :input-props="{ disabled, value }">
-      <VsfThumbnail
-        :size="size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base"
-        class="bg-gray-500 mr-2"
-      />
-      <span class="ml-2">{{ label }}</span>
+      <template #prefix>
+        <VsfThumbnail
+          :size="size === VsfChipSize.sm ? VsfThumbnailSize.sm : VsfThumbnailSize.base"
+          class="bg-gray-500"
+        />
+      </template>
+      {{ label }}
     </VsfChip>
   </ComponentExample>
 </template>
@@ -39,6 +41,12 @@ export default defineComponent({
             description: 'Sets value of the input checkbox element',
           },
           {
+            type: 'text',
+            modelName: 'label',
+            propType: 'string',
+            description: 'Text next to thumbnail',
+          },
+          {
             type: 'select',
             modelName: 'size',
             options: Object.keys(VsfChipSize),
@@ -54,6 +62,7 @@ export default defineComponent({
             type: 'boolean',
             modelName: 'square',
             propType: 'boolean',
+            description: 'Useful when only icon and paddings has to be equal',
           },
         ],
         {

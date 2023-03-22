@@ -4,14 +4,10 @@ import { ShowcasePageLayout } from '../../showcases';
 export function Showcase() {
   return (
     <>
-      <VsfChip size="sm" className="mr-2">
-        <VsfThumbnail className="mr-2 bg-red-500" size="sm" />
-        <span>Red</span>
+      <VsfChip size="sm" className="mr-2" slotPrefix={<VsfThumbnail className="bg-red-500" size="sm" />}>
+        Red
       </VsfChip>
-      <VsfChip>
-        <VsfThumbnail className="mr-2 bg-blue-500" size="base" />
-        <span>Blue</span>
-      </VsfChip>
+      <VsfChip slotPrefix={<VsfThumbnail className="bg-blue-500" size="base" />}>Blue</VsfChip>
     </>
   );
 }

@@ -2,21 +2,7 @@ const vsfTypography = require("@storefront-ui/typography");
 /** @type {import('tailwindcss').Config} */
 const { tailwindConfig } = require("@storefront-ui/tailwind-config");
 const { join } = require("path");
-console.log(
-  join(
-    __dirname,
-    "..",
-    "..",
-    "..",
-    "packages",
-    "sfui",
-    "frameworks",
-    "vue",
-    "components",
-    "**",
-    "*.{ts,vue}"
-  )
-);
+
 module.exports = {
   presets: [tailwindConfig],
   content: [

@@ -3769,6 +3769,7 @@ __metadata:
     "@storefront-ui/shared": "workspace:*"
     "@storefront-ui/tailwind-config": "workspace:*"
     "@storefront-ui/tests-shared": "workspace:*"
+    "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
     "@types/lodash-es": ^4.17.6
     "@types/node": ^18.13.0
@@ -3812,6 +3813,7 @@ __metadata:
     "@storefront-ui/preview-shared": "workspace:^"
     "@storefront-ui/shared": "workspace:*"
     "@storefront-ui/tailwind-config": "workspace:*"
+    "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
     "@storefront-ui/vue": "workspace:*"
     "@types/lodash-es": ^4.17.6
@@ -3916,6 +3918,18 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@storefront-ui/tw-plugin-peer-next@workspace:*, @storefront-ui/tw-plugin-peer-next@workspace:packages/sfui/tw-plugin-peer-next":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/tw-plugin-peer-next@workspace:packages/sfui/tw-plugin-peer-next"
+  dependencies:
+    typescript: ^4.9.5
+    vite: ^4.1.2
+    vite-plugin-dts: ^2.0.0-beta.1
+  peerDependencies:
+    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
+  languageName: unknown
+  linkType: soft
+
 "@storefront-ui/typescript-config@workspace:*, @storefront-ui/typescript-config@workspace:packages/config/typescript":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/typescript-config@workspace:packages/config/typescript"
@@ -3948,6 +3962,7 @@ __metadata:
     "@storefront-ui/shared": "workspace:*"
     "@storefront-ui/tailwind-config": "workspace:*"
     "@storefront-ui/tests-shared": "workspace:*"
+    "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
     "@storefront-ui/vue": "workspace:*"
     "@types/node": ^18.13.0
