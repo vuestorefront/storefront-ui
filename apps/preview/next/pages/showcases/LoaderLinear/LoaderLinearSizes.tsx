@@ -1,7 +1,8 @@
-import { VsfLoaderLinear } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfLoaderLinear } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function LoaderLinearSizes() {
   return (
     <div className="flex flex-col gap-4 flex-wrap sm:flex-row">
       <VsfLoaderLinear className="w-12" />
@@ -18,5 +19,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+LoaderLinearSizes.getLayout = ShowcasePageLayout;

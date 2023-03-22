@@ -15,7 +15,7 @@ description: Chip component usage showcases
 <<<../../preview/nuxt/pages/showcases/Chip/ChipWithThumbnail.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Chip/ChipWithThumbnail.tsx
+<<<../../preview/next/pages/showcases/Chip/ChipWithThumbnail.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -28,7 +28,7 @@ description: Chip component usage showcases
 <<<../../preview/nuxt/pages/showcases/Chip/Deletable.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Chip/Deletable.tsx
+<<<../../preview/next/pages/showcases/Chip/Deletable.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -41,7 +41,7 @@ description: Chip component usage showcases
 <<<../../preview/nuxt/pages/showcases/Chip/ListOfChips.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Chip/ListOfChips.tsx
+<<<../../preview/next/pages/showcases/Chip/ListOfChips.tsx#source
 <!-- end react -->
 
 </Showcase>

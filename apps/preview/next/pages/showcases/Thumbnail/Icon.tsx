@@ -1,7 +1,8 @@
-import { VsfThumbnail, VsfIconFavorite } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfThumbnail, VsfIconFavorite } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ThumbnailIcon() {
   return (
     <VsfThumbnail size="xl" className="bg-gray-100 flex items-center justify-center">
       <VsfIconFavorite />
@@ -9,5 +10,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ThumbnailIcon.getLayout = ShowcasePageLayout;

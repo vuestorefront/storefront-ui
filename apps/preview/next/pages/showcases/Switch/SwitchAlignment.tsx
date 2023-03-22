@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfSwitch } from '@storefront-ui/react';
 import { useState } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function SwitchAlignment() {
   const [checkedState, setCheckedState] = useState(false);
   return (
     <>
@@ -22,5 +23,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+SwitchAlignment.getLayout = ShowcasePageLayout;

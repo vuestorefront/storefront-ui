@@ -1,7 +1,8 @@
-import { VsfLoaderCircular } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfLoaderCircular } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function LoaderCircularSizes() {
   return (
     <div className="flex flex-col gap-4 flex-wrap sm:flex-row mb-6 mr-6">
       <VsfLoaderCircular size="xs" />
@@ -17,5 +18,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+LoaderCircularSizes.getLayout = ShowcasePageLayout;

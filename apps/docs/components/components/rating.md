@@ -23,7 +23,7 @@ Rating allows setting of currently displayed value via `value` prop and max numb
 <<<../../preview/nuxt/pages/showcases/Rating/RatingValues.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Rating/RatingValues.tsx
+<<<../../preview/next/pages/showcases/Rating/RatingValues.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -38,7 +38,7 @@ Rating supports various sizes that can be set via `size` prop: `xs`, `sm`, `base
 <<<../../preview/nuxt/pages/showcases/Rating/RatingSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Rating/RatingSizes.tsx
+<<<../../preview/next/pages/showcases/Rating/RatingSizes.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -53,7 +53,7 @@ Rating by default uses a `warning-500` as filled and partially filled star icons
 <<<../../preview/nuxt/pages/showcases/Rating/RatingColors.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Rating/RatingColors.tsx
+<<<../../preview/next/pages/showcases/Rating/RatingColors.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -68,7 +68,7 @@ Rating could be presented as a simple star icon with value label.
 <<<../../preview/nuxt/pages/showcases/Rating/SingleStar.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Rating/SingleStar.tsx
+<<<../../preview/next/pages/showcases/Rating/SingleStar.tsx#source
 <!-- end react -->
 
 </Showcase>

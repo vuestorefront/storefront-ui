@@ -1,7 +1,8 @@
-import { VsfCounter } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfCounter } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function CounterPill() {
   return (
     <VsfCounter size="xl" pill>
       123
@@ -9,5 +10,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+CounterPill.getLayout = ShowcasePageLayout;

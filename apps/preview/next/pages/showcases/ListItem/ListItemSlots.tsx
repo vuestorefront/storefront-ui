@@ -1,7 +1,8 @@
-import { VsfListItem, VsfCounter, VsfIconChevronRight, VsfIconTune } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfListItem, VsfCounter, VsfIconChevronRight, VsfIconTune } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ListItemSlots() {
   return (
     <VsfListItem className="max-w-sm" slotPrefix={<VsfIconTune />} slotSuffix={<VsfIconChevronRight />}>
       <div className="break-words">
@@ -15,5 +16,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ListItemSlots.getLayout = ShowcasePageLayout;

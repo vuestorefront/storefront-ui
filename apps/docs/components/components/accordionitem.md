@@ -20,7 +20,7 @@ Simple implementation of accordion component.
 <<<../../preview/nuxt/pages/showcases/AccordionItem/BasicAccordion.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/AccordionItem/BasicAccordion.tsx
+<<<../../preview/next/pages/showcases/AccordionItem/BasicAccordion.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -35,7 +35,7 @@ Accordion component that collapse inactive sections.
 <<<../../preview/nuxt/pages/showcases/AccordionItem/CollapsableAccordion.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/AccordionItem/CollapsableAccordion.tsx
+<<<../../preview/next/pages/showcases/AccordionItem/CollapsableAccordion.tsx#source
 <!-- end react -->
 
 </Showcase>

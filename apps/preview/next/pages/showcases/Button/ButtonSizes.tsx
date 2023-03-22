@@ -1,14 +1,17 @@
-import { VsfButton } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfButton } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ButtonSizes() {
   return (
     <div className="flex flex-col items-center space-y-4 xs:block xs:space-x-4">
       <VsfButton type="button" size="sm">
         Hello
       </VsfButton>
 
-      <VsfButton type="button">Hello</VsfButton>
+      <VsfButton type="button" size="base">
+        Hello
+      </VsfButton>
 
       <VsfButton type="button" size="lg">
         Hello
@@ -16,6 +19,5 @@ export function Showcase() {
     </div>
   );
 }
-
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ButtonSizes.getLayout = ShowcasePageLayout;

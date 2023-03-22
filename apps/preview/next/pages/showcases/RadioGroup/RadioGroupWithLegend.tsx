@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfRadio } from '@storefront-ui/react';
 import { useState } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
 const radioOptions = [
   {
@@ -16,7 +17,7 @@ const radioOptions = [
     name: 'radio-1',
   },
 ];
-export function Showcase() {
+export default function RadioGroupWithLegend() {
   const [checkedState, setCheckedState] = useState('');
   return (
     <fieldset role="radiogroup">
@@ -40,5 +41,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+RadioGroupWithLegend.getLayout = ShowcasePageLayout;

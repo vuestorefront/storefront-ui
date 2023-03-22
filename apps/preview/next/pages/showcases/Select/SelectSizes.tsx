@@ -1,6 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-import { VsfSelect } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfSelect } from '@storefront-ui/react';
 
 const options = [
   { label: 'red', value: 'red' },
@@ -12,7 +13,7 @@ const options = [
   { label: 'brown', value: 'brown' },
 ];
 
-export function Showcase() {
+export default function SelectSizes() {
   return (
     <div className="flex flex-col gap-y-6">
       <label>
@@ -51,5 +52,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+SelectSizes.getLayout = ShowcasePageLayout;

@@ -28,7 +28,7 @@ The simple checkbox input without additional elements.
 <<<../../preview/nuxt/pages/showcases/Checkbox/CheckboxNoLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Checkbox/CheckboxNoLabel.tsx
+<<<../../preview/next/pages/showcases/Checkbox/CheckboxNoLabel.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -42,7 +42,7 @@ The component with label element and the input aligned to the left edge of the s
 <<<../../preview/nuxt/pages/showcases/Checkbox/CheckboxLeading.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Checkbox/CheckboxLeading.tsx
+<<<../../preview/next/pages/showcases/Checkbox/CheckboxLeading.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -56,7 +56,7 @@ The component with label element and the input aligned to the right edge of the 
 <<<../../preview/nuxt/pages/showcases/Checkbox/CheckboxTrailing.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Checkbox/CheckboxTrailing.tsx
+<<<../../preview/next/pages/showcases/Checkbox/CheckboxTrailing.tsx#source
 <!-- end react -->
 </Showcase>
 

@@ -26,7 +26,7 @@ ProgressLinear supports various sizes that can be set via `size` prop: `xs`, `sm
 <<<../../preview/nuxt/pages/showcases/ProgressLinear/ProgressLinearSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProgressLinear/ProgressLinearSizes.tsx
+<<<../../preview/next/pages/showcases/ProgressLinear/ProgressLinearSizes.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -41,7 +41,7 @@ ProgressLinear by default uses a `primary-700` as animated-shape color (customiz
 <<<../../preview/nuxt/pages/showcases/ProgressLinear/ProgressLinearColors.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProgressLinear/ProgressLinearColors.tsx
+<<<../../preview/next/pages/showcases/ProgressLinear/ProgressLinearColors.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -56,7 +56,7 @@ ProgressLinear should be displayed with an accessible text label. You achieve th
 <<<../../preview/nuxt/pages/showcases/ProgressLinear/ProgressLinearLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProgressLinear/ProgressLinearLabel.tsx
+<<<../../preview/next/pages/showcases/ProgressLinear/ProgressLinearLabel.tsx#source
 <!-- end react -->
 
 </Showcase>

@@ -36,7 +36,7 @@ The simple input with the label in three accessible size variants.
 <<<../../preview/nuxt/pages/showcases/Input/InputLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Input/InputLabel.tsx
+<<<../../preview/next/pages/showcases/Input/InputLabel.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -50,7 +50,7 @@ The input with icons passed through <!-- vue --> `prefix` and `suffix` slots<!--
 <<<../../preview/nuxt/pages/showcases/Input/InputIcons.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Input/InputIcons.tsx
+<<<../../preview/next/pages/showcases/Input/InputIcons.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -64,7 +64,7 @@ The component when disabled.
 <<<../../preview/nuxt/pages/showcases/Input/InputDisabled.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Input/InputDisabled.tsx
+<<<../../preview/next/pages/showcases/Input/InputDisabled.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -78,7 +78,7 @@ The input component with readonly attribute.
 <<<../../preview/nuxt/pages/showcases/Input/InputReadonly.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Input/InputReadonly.tsx
+<<<../../preview/next/pages/showcases/Input/InputReadonly.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -92,7 +92,7 @@ The input component when in invalid state.
 <<<../../preview/nuxt/pages/showcases/Input/InputInvalid.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Input/InputInvalid.tsx
+<<<../../preview/next/pages/showcases/Input/InputInvalid.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -106,7 +106,7 @@ The input component when in invalid state.
 <<<../../preview/nuxt/pages/showcases/Input/InputCharacters.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Input/InputCharacters.tsx
+<<<../../preview/next/pages/showcases/Input/InputCharacters.tsx#source
 <!-- end react -->
 </Showcase>
 

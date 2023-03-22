@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfInput, VsfButton, VsfSelect } from '@storefront-ui/react';
 import { useState, ChangeEvent, FormEventHandler } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function ContactForm() {
   const [invalid, setInvalid] = useState(true);
   const options = [1, 7, 20, 27, 30, 30, 31, 32, 33, 34, 36, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 51];
   const emailRegExp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
@@ -75,5 +76,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ContactForm.getLayout = ShowcasePageLayout;

@@ -1,6 +1,7 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfRadio, VsfListItem } from '@storefront-ui/react';
 import { useState } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
 const deliveryOptions = [
   {
@@ -15,7 +16,7 @@ const deliveryOptions = [
   },
 ];
 
-export function Showcase() {
+export default function DeliveryOptions() {
   const [checkedState, setCheckedState] = useState('');
 
   return (
@@ -45,5 +46,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+DeliveryOptions.getLayout = ShowcasePageLayout;

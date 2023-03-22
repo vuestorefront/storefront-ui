@@ -1,7 +1,8 @@
-import { VsfCounter } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfCounter } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function CounterDemo() {
   return (
     <div className="flex flex-col gap-2 md:flex-row">
       <VsfCounter size="xs"> 123 </VsfCounter>
@@ -14,5 +15,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+CounterDemo.getLayout = ShowcasePageLayout;

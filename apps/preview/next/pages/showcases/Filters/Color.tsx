@@ -1,7 +1,8 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfAccordionItem, VsfCounter, VsfListItem, VsfThumbnail, VsfIconChevronLeft } from '@storefront-ui/react';
 import { useState } from 'react';
 import classNames from 'classnames';
-import { ShowcasePageLayout } from '../../showcases';
 
 const colorValues = [
   {
@@ -42,7 +43,7 @@ const colorValues = [
   },
 ];
 
-export function Showcase() {
+export default function FilterColor() {
   const [colorList, setColorList] = useState<string[]>([]);
   const [opened, setOpened] = useState(true);
   const handleColorSelection = (val: string) => {
@@ -100,5 +101,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+FilterColor.getLayout = ShowcasePageLayout;

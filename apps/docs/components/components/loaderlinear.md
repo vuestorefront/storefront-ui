@@ -27,7 +27,7 @@ LoaderLinear supports various sizes that can be set via `size` prop: `minimal`, 
 <<<../../preview/nuxt/pages/showcases/LoaderLinear/LoaderLinearSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/LoaderLinear/LoaderLinearSizes.tsx
+<<<../../preview/next/pages/showcases/LoaderLinear/LoaderLinearSizes.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -42,7 +42,7 @@ LoaderLinear by default uses a `primary-700` as bar color (customizable by setti
 <<<../../preview/nuxt/pages/showcases/LoaderLinear/LoaderLinearColors.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/LoaderLinear/LoaderLinearColors.tsx
+<<<../../preview/next/pages/showcases/LoaderLinear/LoaderLinearColors.tsx#source
 <!-- end react -->
 
 </Showcase>

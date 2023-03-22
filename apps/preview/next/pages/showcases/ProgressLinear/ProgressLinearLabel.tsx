@@ -1,7 +1,8 @@
-import { VsfProgressLinear } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfProgressLinear } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ProgressLinearWithLabel() {
   const value = 70;
 
   return (
@@ -15,5 +16,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ProgressLinearWithLabel.getLayout = ShowcasePageLayout;

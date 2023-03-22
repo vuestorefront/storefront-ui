@@ -17,7 +17,7 @@ Ease the checkout process for users by providing them with well-structured addre
 <<<../../preview/nuxt/pages/showcases/Checkout/CheckoutAddressForm.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Checkout/CheckoutAddressForm.tsx
+<<<../../preview/next/pages/showcases/Checkout/CheckoutAddressForm.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -32,7 +32,7 @@ Present possible delivery options in a way where your customers can easily see d
 <<<../../preview/nuxt/pages/showcases/Checkout/CheckoutDeliveryOptions.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Checkout/CheckoutDeliveryOptions.tsx
+<<<../../preview/next/pages/showcases/Checkout/CheckoutDeliveryOptions.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -47,7 +47,7 @@ Let your users pick a payment method of their choice in a nice and clear way.
 <<<../../preview/nuxt/pages/showcases/Checkout/CheckoutPaymentMethod.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Checkout/CheckoutPaymentMethod.tsx
+<<<../../preview/next/pages/showcases/Checkout/CheckoutPaymentMethod.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -62,7 +62,7 @@ The contact form for customers provides the way to send email (field with simple
 <<<../../preview/nuxt/pages/showcases/Checkout/CheckoutContactForm.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Checkout/CheckoutContactForm.tsx
+<<<../../preview/next/pages/showcases/Checkout/CheckoutContactForm.tsx#source
 <!-- end react -->
 
 </Showcase>

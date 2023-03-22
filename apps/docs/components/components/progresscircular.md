@@ -22,7 +22,7 @@ ProgressCircular supports various sizes that can be set via `size` prop: `xs`, `
 <<<../../preview/nuxt/pages/showcases/ProgressCircular/ProgressCircularSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProgressCircular/ProgressCircularSizes.tsx
+<<<../../preview/next/pages/showcases/ProgressCircular/ProgressCircularSizes.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -37,7 +37,7 @@ ProgressCircular by default uses a `primary-700` as animated-shape color (custom
 <<<../../preview/nuxt/pages/showcases/ProgressCircular/ProgressCircularColors.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProgressCircular/ProgressCircularColors.tsx
+<<<../../preview/next/pages/showcases/ProgressCircular/ProgressCircularColors.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -52,7 +52,7 @@ ProgressCircular might be displayed with a text representation of it's value. To
 <<<../../preview/nuxt/pages/showcases/ProgressCircular/ProgressCircularFloatingLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/ProgressCircular/ProgressCircularFloatingLabel.tsx
+<<<../../preview/next/pages/showcases/ProgressCircular/ProgressCircularFloatingLabel.tsx#source
 <!-- end react -->
 
 </Showcase>

@@ -23,7 +23,7 @@ LoaderCircular supports various sizes that can be set via `size` prop: `xs`, `sm
 <<<../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/LoaderCircular/LoaderCircularSizes.tsx
+<<<../../preview/next/pages/showcases/LoaderCircular/LoaderCircularSizes.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -38,7 +38,7 @@ LoaderCircular by default uses a `primary-700` as animated-shape color (customiz
 <<<../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularColors.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/LoaderCircular/LoaderCircularColors.tsx
+<<<../../preview/next/pages/showcases/LoaderCircular/LoaderCircularColors.tsx#source
 <!-- end react -->
 
 </Showcase>

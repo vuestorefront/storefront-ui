@@ -1,7 +1,8 @@
-import { VsfIconStarFilled } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfIconStarFilled } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function SingleStarRating() {
   const value = 4.5;
   return (
     <div className="flex flex-col gap-2">
@@ -25,5 +26,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+SingleStarRating.getLayout = ShowcasePageLayout;

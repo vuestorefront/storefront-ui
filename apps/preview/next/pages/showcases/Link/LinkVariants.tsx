@@ -1,7 +1,8 @@
-import { VsfLink } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfLink } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function LinkVariants() {
   return (
     <div className="space-x-4">
       <VsfLink variant="primary"> Primary </VsfLink>
@@ -10,5 +11,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+LinkVariants.getLayout = ShowcasePageLayout;

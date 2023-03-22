@@ -36,7 +36,7 @@ Modal can be used to provide additional interactions for your users.
 <<<../../preview/nuxt/pages/showcases/Modal/ModalBasic.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Modal/ModalBasic.tsx
+<<<../../preview/next/pages/showcases/Modal/ModalBasic.tsx#source
 <!-- end react -->
 
 </Showcase>

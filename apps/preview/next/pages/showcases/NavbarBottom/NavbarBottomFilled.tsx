@@ -1,3 +1,5 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import classNames from 'classnames';
 import {
   VsfButton,
@@ -8,9 +10,8 @@ import {
   VsfIconFavorite,
 } from '@storefront-ui/react';
 import { useState } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function BottomNavFilled() {
   const items = [
     {
       label: 'Home',
@@ -59,5 +60,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+BottomNavFilled.getLayout = ShowcasePageLayout;

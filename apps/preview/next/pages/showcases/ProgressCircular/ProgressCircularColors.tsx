@@ -1,7 +1,8 @@
-import { VsfProgressCircular } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfProgressCircular } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ProgressCircularColors() {
   return (
     <div className="flex gap-4 flex-wrap">
       <VsfProgressCircular className="!text-cyan-700" value={70} size="3xl" />
@@ -11,5 +12,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ProgressCircularColors.getLayout = ShowcasePageLayout;

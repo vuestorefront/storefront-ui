@@ -1,7 +1,9 @@
+import { ShowcasePageLayout } from '../../showcases';
+
+// #region source
 import { useState } from 'react';
 import classNames from 'classnames';
 import { VsfAccordionItem } from '@storefront-ui/react';
-import { ShowcasePageLayout } from '../../showcases';
 
 const accordionItems = [
   {
@@ -22,7 +24,7 @@ const accordionItems = [
     details: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
   },
 ];
-export function Showcase() {
+export default function BasicAccordion() {
   const [opened, setOpened] = useState<string[]>([]);
 
   const isOpen = (id: string) => opened.includes(id);
@@ -52,5 +54,6 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+
+BasicAccordion.getLayout = ShowcasePageLayout;

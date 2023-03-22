@@ -1,7 +1,8 @@
-import { VsfChip, VsfThumbnail } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfChip, VsfThumbnail } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function SquareChips() {
   return (
     <>
       <VsfChip size="sm" className="mr-2" square>
@@ -14,5 +15,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+SquareChips.getLayout = ShowcasePageLayout;

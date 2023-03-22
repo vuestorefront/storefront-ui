@@ -27,7 +27,7 @@ Icon supports various sizes that can be set via `size` prop: `xs`, `sm`, `base`,
 <<<../../preview/nuxt/pages/showcases/IconBase/IconBaseSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/IconBase/IconBaseSizes.tsx
+<<<../../preview/next/pages/showcases/IconBase/IconBaseSizes.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -42,7 +42,7 @@ Icons inherit the text color. So, you can specify it using [Tailwind `text color
 <<<../../preview/nuxt/pages/showcases/IconBase/IconBaseColors.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/IconBase/IconBaseColors.tsx
+<<<../../preview/next/pages/showcases/IconBase/IconBaseColors.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -57,7 +57,7 @@ List of all icons shipped with SFUI2 below. Click on any of the icons to copy it
 <<<../../preview/nuxt/pages/showcases/IconBase/ListOfIcons.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/IconBase/ListOfIcons.tsx
+<<<../../preview/next/pages/showcases/IconBase/ListOfIcons.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -74,7 +74,7 @@ When using icon element with custom icon remember to specify viewBox or width/he
 <<<../../preview/nuxt/pages/showcases/IconBase/CustomIcon.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/IconBase/CustomIcon.tsx
+<<<../../preview/next/pages/showcases/IconBase/CustomIcon.tsx#source
 <!-- end react -->
 
 </Showcase>

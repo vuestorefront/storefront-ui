@@ -1,7 +1,8 @@
-import { VsfThumbnail } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfThumbnail } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ThumbnailSizes() {
   return (
     <div className="flex items-center justify-around max-w-sm">
       <VsfThumbnail size="sm" className="bg-primary-500 mr-2" />
@@ -12,5 +13,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ThumbnailSizes.getLayout = ShowcasePageLayout;

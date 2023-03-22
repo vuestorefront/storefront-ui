@@ -1,9 +1,10 @@
-import { VsfThumbnail } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfThumbnail } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ThumbnailColor() {
   return <VsfThumbnail className="bg-primary-500" />;
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ThumbnailColor.getLayout = ShowcasePageLayout;

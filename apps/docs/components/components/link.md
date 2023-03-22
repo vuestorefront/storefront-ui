@@ -23,7 +23,7 @@ Link supports 2 variants that can be set via `variant` prop: `primary`, `seconda
 <<<../../preview/nuxt/pages/showcases/Link/LinkVariants.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Link/LinkVariants.tsx
+<<<../../preview/next/pages/showcases/Link/LinkVariants.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -37,7 +37,7 @@ Link is open for customization via tailwind classes. In `secondary` variant defa
 <<<../../preview/nuxt/pages/showcases/Link/Customization.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Link/Customization.tsx
+<<<../../preview/next/pages/showcases/Link/Customization.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -47,7 +47,7 @@ Link is open for customization via tailwind classes. In `secondary` variant defa
 Link component can be composed together with `NextJS` link component.
 
 <Showcase showcase-name="Link/NextLink">
-<<<../../preview/next/pages/showcases/Link/NextLink.tsx
+<<<../../preview/next/pages/showcases/Link/NextLink.tsx#source
 </Showcase>
 <!-- end react -->
 

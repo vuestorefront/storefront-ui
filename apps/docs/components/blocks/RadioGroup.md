@@ -18,7 +18,7 @@ RadioGroup can have a `legend` tag, which represents a caption for the content o
 <<<../../preview/nuxt/pages/showcases/RadioGroup/RadioGroupWithLegend.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/RadioGroup/RadioGroupWithLegend.tsx
+<<<../../preview/next/pages/showcases/RadioGroup/RadioGroupWithLegend.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -33,7 +33,7 @@ Radio components can be aligned inside RadioGroup in a `column` or in a `row`.
 <<<../../preview/nuxt/pages/showcases/RadioGroup/RadioGroupAlignment.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/RadioGroup/RadioGroupAlignment.tsx
+<<<../../preview/next/pages/showcases/RadioGroup/RadioGroupAlignment.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -45,7 +45,7 @@ RadioGroup uncontrolled version.
 
 <Showcase showcase-name="RadioGroup/RadioGroupUncontrolled" >
 
-<<<../../preview/next/pages/showcases/RadioGroup/RadioGroupUncontrolled.tsx
+<<<../../preview/next/pages/showcases/RadioGroup/RadioGroupUncontrolled.tsx#source
 
 </Showcase>
 <!-- end react -->

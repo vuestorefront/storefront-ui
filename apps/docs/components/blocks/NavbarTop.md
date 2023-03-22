@@ -15,7 +15,7 @@ description: The NavbarTop block is used as navigation. Usually it's at the top 
 <<<../../preview/nuxt/pages/showcases/NavbarTop/NavbarTop.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/NavbarTop/NavbarTop.tsx
+<<<../../preview/next/pages/showcases/NavbarTop/NavbarTop.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -27,6 +27,6 @@ description: The NavbarTop block is used as navigation. Usually it's at the top 
 <<<../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopFilled.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/NavbarTop/NavbarTopFilled.tsx
+<<<../../preview/next/pages/showcases/NavbarTop/NavbarTopFilled.tsx#source
 <!-- end react -->
 </Showcase>

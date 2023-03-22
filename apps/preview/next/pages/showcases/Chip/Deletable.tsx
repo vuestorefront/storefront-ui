@@ -1,6 +1,7 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfChip, VsfThumbnail, VsfIconClose } from '@storefront-ui/react';
 import { useState } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
 const chipValues = [
   { label: 'Red', value: 'red' },
@@ -8,7 +9,7 @@ const chipValues = [
   { label: 'Gray', value: 'gray' },
 ];
 
-export function Showcase() {
+export default function DeletableChips() {
   const [chipList, setChipList] = useState(chipValues);
   const handleRemoveChip = (val: string) => {
     const newList = chipList.filter((item) => item.value !== val);
@@ -36,5 +37,6 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+
+DeletableChips.getLayout = ShowcasePageLayout;

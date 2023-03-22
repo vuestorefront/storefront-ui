@@ -19,7 +19,7 @@ The basic component with value inside the parentheses in all sizes accessible by
 <<<../../preview/nuxt/pages/showcases/Counter/Counter.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Counter/Counter.tsx
+<<<../../preview/next/pages/showcases/Counter/Counter.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -34,7 +34,7 @@ The pill version of the component with size set to `xl` and colored background.
 <<<../../preview/nuxt/pages/showcases/Counter/CounterPill.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Counter/CounterPill.tsx
+<<<../../preview/next/pages/showcases/Counter/CounterPill.tsx#source
 <!-- end react -->
 </Showcase>
 

@@ -1,7 +1,8 @@
-import { VsfRating } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfRating } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function RatingSizes() {
   return (
     <div className="flex flex-col">
       <VsfRating value={4} size="xs" />
@@ -14,5 +15,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+RatingSizes.getLayout = ShowcasePageLayout;

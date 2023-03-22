@@ -1,10 +1,11 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { useState, createElement } from 'react';
 import * as AllVsfComponents from '@storefront-ui/react';
 import useSWR from 'swr';
-import { ShowcasePageLayout } from '../../showcases';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
-function Showcase() {
+export default function IconList() {
   const [copied, setCopied] = useState('');
   const { data: componentsNames = [] } = useSWR<string[]>(
     `${process.env.DOCS_EXAMPLES_REACT_PATH || ''}/api/getIcons`,
@@ -40,5 +41,5 @@ function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+IconList.getLayout = ShowcasePageLayout;

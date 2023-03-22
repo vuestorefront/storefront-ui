@@ -1,7 +1,8 @@
-import { VsfIconThumbUp } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfIconThumbUp } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function IconColors() {
   return (
     <>
       <VsfIconThumbUp className="text-red-600" />
@@ -14,5 +15,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+IconColors.getLayout = ShowcasePageLayout;

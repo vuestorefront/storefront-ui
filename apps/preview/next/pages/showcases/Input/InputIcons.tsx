@@ -1,9 +1,10 @@
-import { VsfInput, VsfIconSearch, VsfIconLock } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfInput, VsfIconSearch, VsfIconLock } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function InputWithPrefix() {
   return <VsfInput slotPrefix={<VsfIconSearch />} slotSuffix={<VsfIconLock />} />;
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+InputWithPrefix.getLayout = ShowcasePageLayout;

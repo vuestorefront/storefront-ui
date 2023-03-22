@@ -1,12 +1,13 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfButton, VsfIconRemove, VsfLink, VsfIconAdd, VsfIconSell, VsfIconDelete } from '@storefront-ui/react';
 import card from '@assets/smartwatch.png';
 import Image from 'next/image';
 import { useCounter } from 'react-use';
 import { useId, ChangeEvent } from 'react';
 import { clamp } from '@storefront-ui/shared';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function ProductCardHorizontal() {
   const inputId = useId();
   const min = 1;
   const max = 10;
@@ -103,5 +104,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ProductCardHorizontal.getLayout = ShowcasePageLayout;

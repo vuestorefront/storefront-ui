@@ -1,7 +1,8 @@
-import { VsfChip, VsfThumbnail } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfChip, VsfThumbnail } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ChipWithThumbnail() {
   return (
     <>
       <VsfChip size="sm" className="mr-2" slotPrefix={<VsfThumbnail className="bg-red-500" size="sm" />}>
@@ -12,5 +13,6 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+
+ChipWithThumbnail.getLayout = ShowcasePageLayout;

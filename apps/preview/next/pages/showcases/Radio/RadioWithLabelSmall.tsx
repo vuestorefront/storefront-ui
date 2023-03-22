@@ -1,6 +1,7 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfRadio } from '@storefront-ui/react';
 import { useState } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
 const radioOptions = [
   {
@@ -14,7 +15,7 @@ const radioOptions = [
     name: 'radio-1',
   },
 ];
-export function Showcase() {
+export default function RadioWithLabelSmall() {
   const [checkedState, setCheckedState] = useState('');
   return (
     <div>
@@ -35,5 +36,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+RadioWithLabelSmall.getLayout = ShowcasePageLayout;

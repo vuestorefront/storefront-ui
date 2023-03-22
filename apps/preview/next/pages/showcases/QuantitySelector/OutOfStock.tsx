@@ -1,8 +1,9 @@
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfButton, VsfIconAdd, VsfIconRemove } from '@storefront-ui/react';
 import { useId } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function OutOfStockDemo() {
   const inputId = useId();
   const min = 1;
   const max = 10;
@@ -39,5 +40,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+OutOfStockDemo.getLayout = ShowcasePageLayout;

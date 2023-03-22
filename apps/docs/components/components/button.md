@@ -30,7 +30,7 @@ Button supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
 <<<../../preview/nuxt/pages/showcases/Button/ButtonSizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Button/ButtonSizes.tsx
+<<<../../preview/next/pages/showcases/Button/ButtonSizes.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -44,7 +44,7 @@ Button supports 3 variants of colors that can be set via `variant` prop: `primar
 <<<../../preview/nuxt/pages/showcases/Button/ButtonVariants.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Button/ButtonVariants.tsx
+<<<../../preview/next/pages/showcases/Button/ButtonVariants.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -59,7 +59,7 @@ This component can be used as a link (or any other tag) that can be set via <!--
 <<<../../preview/nuxt/pages/showcases/Button/ButtonAsLink.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Button/ButtonAsLink.tsx
+<<<../../preview/next/pages/showcases/Button/ButtonAsLink.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -73,7 +73,7 @@ Button can have full-width by adding `w-full` class.
 <<<../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Button/ButtonBlock.tsx
+<<<../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -87,7 +87,7 @@ Button can truncate its content depending on it's width by adding `truncate` cla
 <<<../../preview/nuxt/pages/showcases/Button/ButtonTruncation.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Button/ButtonTruncation.tsx
+<<<../../preview/next/pages/showcases/Button/ButtonTruncation.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -101,7 +101,7 @@ Button can have additional content. You can use slot `prefix`/`slotPrefix` to ad
 <<<../../preview/nuxt/pages/showcases/Button/ButtonContent.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Button/ButtonContent.tsx
+<<<../../preview/next/pages/showcases/Button/ButtonContent.tsx#source
 <!-- end react -->
 </Showcase>
 

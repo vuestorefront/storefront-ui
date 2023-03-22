@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfRadio } from '@storefront-ui/react';
 import { useState } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
 const radioOptions = [
   {
@@ -30,7 +31,7 @@ const radioOptionsTwo = [
   },
 ];
 
-export function Showcase() {
+export default function RadioGroupAlignment() {
   const [checkedStateRadioOne, setCheckedStateRadioOne] = useState('');
   const [checkedStateRadioTwo, setCheckedStateRadioTwo] = useState('');
 
@@ -74,5 +75,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+RadioGroupAlignment.getLayout = ShowcasePageLayout;

@@ -1,10 +1,11 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
+import { ShowcasePageLayout } from '../../showcases';
+// #region source
 import { VsfInput } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { ChangeEvent } from 'react';
-import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function InputWithLimit() {
   let value = '';
   const characterLimit = 25;
   const label = 'Label';
@@ -70,5 +71,5 @@ export function Showcase() {
   );
 }
 
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+InputWithLimit.getLayout = ShowcasePageLayout;

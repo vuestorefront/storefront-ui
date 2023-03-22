@@ -23,7 +23,7 @@ Thumbnail supports various sizes that can be set via `size` prop: `sm`, `base`, 
 <<<../../preview/nuxt/pages/showcases/Thumbnail/Sizes.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Thumbnail/Sizes.tsx
+<<<../../preview/next/pages/showcases/Thumbnail/Sizes.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -37,7 +37,7 @@ The most simple use case of thumbnail can be achieved by seting a single color w
 <<<../../preview/nuxt/pages/showcases/Thumbnail/Color.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Thumbnail/Color.tsx
+<<<../../preview/next/pages/showcases/Thumbnail/Color.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -51,7 +51,7 @@ Gradient colour can be applied with tailwind `bg-gradient-` classes.
 <<<../../preview/nuxt/pages/showcases/Thumbnail/Gradient.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Thumbnail/Gradient.tsx
+<<<../../preview/next/pages/showcases/Thumbnail/Gradient.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -65,7 +65,7 @@ To achieve avatar-like look of Thumbnail, image must placed into the default slo
 <<<../../preview/nuxt/pages/showcases/Thumbnail/Image.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Thumbnail/Image.tsx
+<<<../../preview/next/pages/showcases/Thumbnail/Image.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -79,7 +79,7 @@ Icons can be applied by placing into the default slot of component.
 <<<../../preview/nuxt/pages/showcases/Thumbnail/Icon.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Thumbnail/Icon.tsx
+<<<../../preview/next/pages/showcases/Thumbnail/Icon.tsx#source
 <!-- end react -->
 </Showcase>
 

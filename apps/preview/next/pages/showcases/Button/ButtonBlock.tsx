@@ -1,13 +1,13 @@
-import { VsfButton } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
+// #region source
+import { VsfButton } from '@storefront-ui/react';
 
-export function Showcase() {
+export default function ButtonBlock() {
   return (
     <VsfButton type="button" className="w-full">
       Hello
     </VsfButton>
   );
 }
-
-Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;
+// #endregion source
+ButtonBlock.getLayout = ShowcasePageLayout;

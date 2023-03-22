@@ -15,7 +15,7 @@ description: Showcases of switch component usage
 <<<../../preview/nuxt/pages/showcases/Switch/SwitchWithLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Switch/SwitchWithLabel.tsx
+<<<../../preview/next/pages/showcases/Switch/SwitchWithLabel.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -27,6 +27,6 @@ description: Showcases of switch component usage
 <<<../../preview/nuxt/pages/showcases/Switch/SwitchAlignment.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Switch/SwitchAlignment.tsx
+<<<../../preview/next/pages/showcases/Switch/SwitchAlignment.tsx#source
 <!-- end react -->
 </Showcase>
