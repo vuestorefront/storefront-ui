@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfChip, VsfThumbnail, VsfIconClose } from '@storefront-ui/react';
+import { VsfChip, VsfThumbnail, VsfIconCloseSm } from '@storefront-ui/react';
 import { useState } from 'react';
 
 const chipValues = [
@@ -26,7 +26,7 @@ export default function DeletableChips() {
             inputProps={{ checked: true, onChange: () => handleRemoveChip(value) }}
             slotPrefix={<VsfThumbnail className={`bg-${value}-500`} />}
             slotSuffix={
-              <VsfIconClose className="text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20" />
+              <VsfIconCloseSm className="text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20" />
             }
           >
             {label}

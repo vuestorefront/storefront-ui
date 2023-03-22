@@ -4,7 +4,7 @@
     Red
   </VsfChip>
   <VsfChip v-model="chipBlueActive">
-    <template #prefix><VsfThumbnail class="bg-blue-500" size="base" /></template>
+    <template #prefix><VsfThumbnail class="bg-secondary-400" size="base" /></template>
     Blue
   </VsfChip>
 </template>
