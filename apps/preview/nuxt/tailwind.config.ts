@@ -1,6 +1,6 @@
 import type { Config } from 'tailwindcss';
 import vsfTypography from '@storefront-ui/typography';
-import { tailwindConfig } from '@storefront-ui/tailwind-config';
+import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
 export default <Config>{
   presets: [tailwindConfig],

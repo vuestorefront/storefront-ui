@@ -31,6 +31,7 @@
     "vite-plugin-dts": "^2.0.0-beta.1"
   },
   "dependencies": {
-    "@mertasan/tailwindcss-variables": "^2.5.2"
+    "@mertasan/tailwindcss-variables": "^2.5.2",
+    "@storefront-ui/tw-plugin-peer-next": "workspace:*"
   }
 }

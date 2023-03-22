@@ -16,9 +16,12 @@ export default defineConfig({
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'index.ts'),
+      entry: {
+        index: path.resolve(__dirname, 'index.ts'),
+        'tailwind-config': path.resolve(__dirname, 'tailwind-config.ts'),
+      },
       name: 'storefront-ui-react',
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format, entryName) => `${entryName}.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
