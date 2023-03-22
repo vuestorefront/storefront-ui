@@ -16,6 +16,15 @@ module.exports = {
   description: `Documentation for the Storefront UI`,
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   patterns: ['**/*.md', '**/*.vue', '!components/**/*.md', '!blocks/**/*.md', '!hooks/**/*.md'], // ignore components folder
+  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
+  patterns: [
+    '**/*.md',
+    '**/*.vue',
+    '!components/**/*.md',
+    '!blocks/**/*.md',
+    '!hooks/**/*.md',
+    '!customization/**/*.md',
+  ], // ignore components folder
   markdown: {
     extractHeaders: ['h1', 'h2', 'h3'],
   },
@@ -69,8 +78,8 @@ module.exports = {
           title: 'Customization',
           collapsable: true,
           children: [
-            ['/react/customization/', 'Overview'],
             ['/react/customization/theming', 'Theming'],
+            ['/react/customization/overriding-default-styles', 'Overriding Default Styles'],
             ['/react/customization/typography', 'Typography'],
           ],
         },
@@ -98,8 +107,8 @@ module.exports = {
           title: 'Customization',
           collapsable: true,
           children: [
-            ['/vue/customization/', 'Overview'],
             ['/vue/customization/theming', 'Theming'],
+            ['/vue/customization/overriding-default-styles', 'Overriding Default Styles'],
             ['/vue/customization/typography', 'Typography'],
           ],
         },
