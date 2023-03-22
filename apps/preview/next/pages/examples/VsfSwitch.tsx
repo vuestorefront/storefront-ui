@@ -23,16 +23,10 @@ function Example() {
         modelName: 'disabled',
         propType: 'boolean',
       },
-      {
-        type: 'boolean',
-        modelName: 'invalid',
-        propType: 'boolean',
-      },
     ],
     {
       value: 'value',
       disabled: false,
-      invalid: false,
       checkedValue: [],
     },
   );
@@ -48,12 +42,7 @@ function Example() {
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <VsfSwitch
-        value={state.get.value}
-        disabled={state.get.disabled}
-        invalid={state.get.invalid}
-        onChange={onChange}
-      />
+      <VsfSwitch value={state.get.value} disabled={state.get.disabled} onChange={onChange} />
     </ComponentExample>
   );
 }

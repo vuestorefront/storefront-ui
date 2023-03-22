@@ -15,9 +15,9 @@ export function Showcase() {
             setCheckedState(event.target.checked);
           }}
         />
-        <span className="text-gray-900 font-body text-base cursor-pointer ml-3">Label</span>
+        <span className="ml-3 text-base text-gray-900 cursor-pointer font-body">Label</span>
       </label>
-      <span className="text-xs mt-0.5 ml-12 text-gray-500">Help text</span>
+      <span className="text-xs mt-0.5 ml-12 block text-gray-500">Help text</span>
     </>
   );
 }

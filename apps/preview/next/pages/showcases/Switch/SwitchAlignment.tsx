@@ -7,8 +7,8 @@ export function Showcase() {
   const [checkedState, setCheckedState] = useState(false);
   return (
     <>
-      <label className="flex justify-between items-center">
-        <span className="text-gray-900 font-body text-base cursor-pointer">Label</span>
+      <label className="flex items-center justify-between">
+        <span className="text-base text-gray-900 cursor-pointer font-body">Label</span>
         <VsfSwitch
           checked={checkedState}
           value="value-1"
@@ -17,7 +17,7 @@ export function Showcase() {
           }}
         />
       </label>
-      <span className="text-xs mt-0.5 text-gray-500">Help text</span>
+      <span className="text-xs mt-0.5 block text-gray-500">Help text</span>
     </>
   );
 }
