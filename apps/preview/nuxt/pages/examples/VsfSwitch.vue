@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <VsfSwitch v-model="modelCheck" :value="value" :disabled="disabled" :invalid="invalid" />
+    <VsfSwitch v-model="modelCheck" :value="value" :disabled="disabled" />
   </ComponentExample>
 </template>
 
@@ -37,16 +37,10 @@ export default {
             modelName: 'disabled',
             propType: 'boolean',
           },
-          {
-            type: 'boolean',
-            modelName: 'invalid',
-            propType: 'boolean',
-          },
         ],
         {
           value: ref('value'),
           disabled: ref(false),
-          invalid: ref(false),
           modelCheck: ref([]),
         },
       ),
