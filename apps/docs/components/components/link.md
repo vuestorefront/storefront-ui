@@ -27,20 +27,19 @@ Link supports 2 variants that can be set via `variant` prop: `primary`, `seconda
 <!-- end react -->
 </Showcase>
 
-## Text sizes
+## Customization
 
-<Showcase showcase-name="Link/TextSizes">
+Link is open for customization via tailwind classes. In `secondary` variant default state text color is inherited from parent element.
 
-Customize typography settings like for eg. `fontSize` by passing additional CSS classes via `class`/`className` prop.
+<Showcase showcase-name="Link/Customization">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Link/TextSizes.vue
+<<<../../preview/nuxt/pages/showcases/Link/Customization.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Link/TextSizes.tsx
+<<<../../preview/next/pages/showcases/Link/Customization.tsx
 <!-- end react -->
 </Showcase>
-
 
 <!-- react -->
 ## Usage with NextJS Link
@@ -61,7 +60,6 @@ Use `tag` prop to render component as `NuxtLink`.
 <<<../../preview/nuxt/pages/showcases/Link/NuxtLink.vue
 </Showcase>
 <!-- end vue -->
-
 
 ## Playground
 

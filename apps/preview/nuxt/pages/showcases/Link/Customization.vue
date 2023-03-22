@@ -1,8 +1,7 @@
 <template>
   <div class="space-x-4">
     <VsfLink href="#" class="text-sm"> Small </VsfLink>
-    <VsfLink href="#" class="text-base"> Base </VsfLink>
-    <VsfLink href="#" class="text-large"> Large </VsfLink>
+    <VsfLink href="#" variant="secondary" class="text-negative-700"> To delete page </VsfLink>
   </div>
 </template>
 

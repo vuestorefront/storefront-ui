@@ -18,11 +18,13 @@ function Example() {
         modelName: 'as',
         propType: 'React.ElementType',
         description: 'Change element tag',
+        propDefaultValue: 'a',
       },
       {
         type: 'select',
         modelName: 'variant',
         propType: 'VsfLinkVariant',
+        propDefaultValue: 'primary',
         options: Object.keys(VsfLinkVariant),
       },
       {
@@ -33,10 +35,10 @@ function Example() {
       },
     ],
     {
-      href: '/examples/VsfLink',
+      href: '/examples/VsfLink#',
       variant: VsfLinkVariant.primary,
       children: 'Link',
-      as: 'a' as ElementType<any>,
+      as: '' as ElementType<any>,
     },
   );
 
