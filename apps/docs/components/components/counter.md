@@ -38,6 +38,20 @@ The pill version of the component with size set to `xl` and colored background.
 <!-- end react -->
 </Showcase>
 
+## Custom background
+
+The pill version of the component with custom background set to `bg-secondary-700` white text and ring.
+
+<Showcase showcase-name="Counter/CounterCustomBackground">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Counter/CounterCustomBackground.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Counter/CounterCustomBackground.tsx
+<!-- end react -->
+</Showcase>
+
 ## Playground
 
 <Generate />
