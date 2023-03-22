@@ -23,7 +23,7 @@ export function Showcase() {
   return (
     <nav className="inline-flex items-center text-sm font-normal font-body">
       <ol className="flex w-auto leading-none group md:flex-wrap">
-        <li className="block sm:hidden">
+        <li className="flex items-center sm:hidden">
           <VsfDropdown
             trigger={
               <VsfButton
@@ -46,17 +46,19 @@ export function Showcase() {
             placement="bottom-start"
             onClose={close}
           >
-            {breadcrumbs.map(({ name, link }) => (
-              <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
-                <VsfLink
-                  href={link}
-                  variant="secondary"
-                  className="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600"
-                >
-                  {name}
-                </VsfLink>
-              </li>
-            ))}
+            <div className="px-4 py-2 rounded-md shadow-md border-neutral-100">
+              {breadcrumbs.map(({ name, link }) => (
+                <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
+                  <VsfLink
+                    href={link}
+                    variant="secondary"
+                    className="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600"
+                  >
+                    {name}
+                  </VsfLink>
+                </li>
+              ))}
+            </div>
           </VsfDropdown>
         </li>
         {breadcrumbs.map((item) => (

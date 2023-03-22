@@ -1,4 +1,5 @@
 import { useState } from 'react';
+// import chevronRight from '@assets/chevron_right.svg';
 import classNames from 'classnames';
 import { VsfDropdown, VsfButton, VsfLink, VsfIconMoreHoriz } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
@@ -21,11 +22,10 @@ export function Showcase() {
     setDropdownOpened(false);
   };
 
-
   return (
     <nav className="inline-flex items-center text-sm font-normal font-body">
       <ol className="flex w-auto leading-none group md:flex-wrap">
-        <li className="block sm:hidden text-neutral-500">
+        <li className="flex items-center sm:hidden text-neutral-500">
           <VsfDropdown
             trigger={
               <VsfButton
@@ -48,25 +48,26 @@ export function Showcase() {
             placement="bottom-start"
             onClose={close}
           >
-            {breadcrumbs.map(({ name, link }) => (
-              <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
-                <VsfLink
-                  href={link}
-                  variant="secondary"
-                  className="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600"
-                >
-                  {name}
-                </VsfLink>
-              </li>
-            ))}
+            <div className="px-4 py-2 rounded-md shadow-md border-neutral-100">
+              {breadcrumbs.map(({ name, link }) => (
+                <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
+                  <VsfLink
+                    href={link}
+                    variant="secondary"
+                    className="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600"
+                  >
+                    {name}
+                  </VsfLink>
+                </li>
+              ))}
+            </div>
           </VsfDropdown>
         </li>
         {breadcrumbs.map((item) => (
           <li
-            className={classNames(
-              'peer hidden sm:block peer-[:nth-of-type(even)]:before:px-2 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium',
-              `peer-[:nth-of-type(even)]:before:content-['?')]`,
-            )}
+            // className={classNames(
+            //   `peer hidden sm:block peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:content-[url('${chevronRight.src}'))] last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium`,
+            // )}
             key={item.name}
           >
             <VsfLink

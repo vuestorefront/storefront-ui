@@ -1,7 +1,7 @@
 <template>
   <nav class="inline-flex items-center text-sm font-normal font-body">
     <ol class="flex w-auto leading-none group md:flex-wrap">
-      <li class="block sm:hidden text-neutral-500">
+      <li class="flex items-center sm:hidden text-neutral-500">
         <VsfDropdown v-model="dropdownOpened" strategy="fixed" placement="bottom-start" @update:model-value="close">
           <template #trigger>
             <VsfButton
@@ -20,15 +20,17 @@
               </template>
             </VsfButton>
           </template>
-          <li v-for="item in breadcrumbs" :key="item.name" class="py-2 last-of-type:hidden" :aria-label="item.name">
-            <VsfLink
-              :href="item.link"
-              variant="secondary"
-              class="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600"
-            >
-              {{ item.name }}
-            </VsfLink>
-          </li>
+          <div class="px-4 py-2 rounded-md shadow-md border-neutral-100">
+            <li v-for="item in breadcrumbs" :key="item.name" class="py-2 last-of-type:hidden" :aria-label="item.name">
+              <VsfLink
+                :href="item.link"
+                variant="secondary"
+                class="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600"
+              >
+                {{ item.name }}
+              </VsfLink>
+            </li>
+          </div>
         </VsfDropdown>
       </li>
       <li
