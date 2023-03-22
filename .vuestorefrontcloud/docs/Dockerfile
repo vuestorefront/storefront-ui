@@ -9,6 +9,7 @@ RUN apk add --no-cache libc6-compat
 
 COPY . .
 RUN yarn
+RUN yarn build:peer-next
 RUN yarn build:docs
 
 FROM nginx
