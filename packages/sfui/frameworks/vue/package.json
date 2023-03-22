@@ -4,12 +4,16 @@
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
-      "require": "./dist/index.umd.js"
+      "require": "./dist/index.cjs.js"
+    },
+    "./tailwind-config": {
+      "import": "./dist/tailwind-config.es.js",
+      "require": "./dist/tailwind-config.cjs.js"
     },
     "./*": "./*"
   },
   "source": "index.ts",
-  "main": "dist/index.umd.js",
+  "main": "dist/index.cjs.js",
   "types": "dist/index.d.ts",
   "scripts": {
     "build:vue": "vite build",
@@ -26,6 +30,7 @@
   "dependencies": {
     "@floating-ui/vue": "^0.2.1",
     "@storefront-ui/shared": "workspace:*",
+    "@storefront-ui/tailwind-config": "workspace:*",
     "@vueuse/core": "^9.12.0",
     "jw-paginate": "^1.0.4",
     "tabbable": "^6.1.1"

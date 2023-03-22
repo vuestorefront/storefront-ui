@@ -1,7 +1,7 @@
 <template>
   <aside>
     <div class="flex justify-between">
-      <h4 class="px-2 typography-headline-4 font-bold">Filters</h4>
+      <h4 class="px-2 font-bold typography-headline-4">Filters</h4>
       <VsfButton
         v-if="selectedFilters.length"
         type="reset"
@@ -20,7 +20,7 @@
       </button>
     </div>
     <hr class="my-4" />
-    <p class="mb-2 px-2 typography-headline-5 font-medium">Sort by:</p>
+    <p class="px-2 mb-2 font-medium typography-headline-5">Sort by:</p>
     <div class="px-2">
       <VsfSelect aria-label="Sort by">
         <option v-for="{ id, label, value } in sortOptions" :key="id" :value="value">{{ label }}</option>
@@ -28,11 +28,11 @@
     </div>
     <hr class="my-4" />
     <ul>
-      <li v-for="({ id, type, summary, details }, index) in filtersData" :key="id">
+      <li v-for="({ id: filterDataId, type, summary, details }, index) in filtersData" :key="filterDataId">
         <VsfAccordionItem v-model="opened[index]">
           <template #summary>
             <div class="flex justify-between p-2 mb-2">
-              <p class="p-2 typography-headline-5 font-medium">{{ summary }}</p>
+              <p class="p-2 font-medium typography-headline-5">{{ summary }}</p>
               <VsfIconChevronLeft :class="opened[index] ? 'rotate-90' : '-rotate-90'" />
             </div>
           </template>
@@ -53,9 +53,9 @@
               :selected="isItemActive(value)"
             >
               <template #prefix>
-                <input v-model="selectedFilters" :value="value" class="peer appearance-none" type="checkbox" />
+                <input v-model="selectedFilters" :value="value" class="appearance-none peer" type="checkbox" />
                 <span
-                  class="cursor-pointer p-1 ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline"
+                  class="inline-flex items-center justify-center p-1 transition duration-300 rounded-full cursor-pointer ring-1 ring-neutral-200 ring-inset outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline"
                   ><VsfThumbnail size="sm" :class="value"
                 /></span>
               </template>
@@ -77,7 +77,7 @@
                 <VsfCheckbox v-model="selectedFilters" :disabled="counter === 0" :value="value" />
               </template>
               <p>
-                <span class="text-sm mr-2">{{ label }}</span>
+                <span class="mr-2 text-sm">{{ label }}</span>
                 <VsfCounter>{{ counter }}</VsfCounter>
               </p>
             </VsfListItem>
@@ -109,7 +109,7 @@
       </li>
     </ul>
     <div class="flex justify-between">
-      <VsfButton variant="secondary" class="w-full md:hidden mr-3"> Clear all filters </VsfButton>
+      <VsfButton variant="secondary" class="w-full mr-3 md:hidden"> Clear all filters </VsfButton>
       <VsfButton class="w-full">Show products</VsfButton>
     </div>
   </aside>
