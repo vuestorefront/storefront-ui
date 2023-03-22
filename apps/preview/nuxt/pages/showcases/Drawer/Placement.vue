@@ -8,9 +8,9 @@
       <option value="left" selected>left</option>
     </select>
   </label>
-  <VsfButton type="button" @click="open = true"> Open Drawer </VsfButton>
+  <SfButton type="button" @click="open = true"> Open Drawer </SfButton>
 
-  <VsfDrawer
+  <SfDrawer
     v-model="open"
     :placement="placement"
     :class="[
@@ -18,7 +18,7 @@
       'p-3',
       'border',
       'border-gray-300',
-      { 'max-w-[370px]': placement === VsfDrawerPlacement.left || placement === VsfDrawerPlacement.right },
+      { 'max-w-[370px]': placement === SfDrawerPlacement.left || placement === SfDrawerPlacement.right },
     ]"
   >
     <div>
@@ -29,15 +29,15 @@
       </p>
       <strong>You can close Drawer by clicking outside or focus and use ESC button</strong>
     </div>
-  </VsfDrawer>
+  </SfDrawer>
 </template>
 
 <script lang="ts" setup>
-import { VsfDrawer, VsfDrawerPlacement, VsfButton } from '@storefront-ui/vue';
+import { SfDrawer, SfDrawerPlacement, SfButton } from '@storefront-ui/vue';
 import { ref } from 'vue';
 
-const placement = ref<`${VsfDrawerPlacement}`>('left');
+const placement = ref<`${SfDrawerPlacement}`>('left');
 const open = ref(false);
 const chagePlacement = (event: Event) =>
-  (placement.value = (event.target as HTMLSelectElement)?.value as VsfDrawerPlacement);
+  (placement.value = (event.target as HTMLSelectElement)?.value as SfDrawerPlacement);
 </script>

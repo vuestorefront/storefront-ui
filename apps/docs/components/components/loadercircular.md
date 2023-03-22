@@ -51,7 +51,7 @@ LoaderCircular by default uses a `primary-700` as animated-shape color (customiz
 ::: slot api
 | Prop name             | Type                       | Default value                 | Possible values                      |
 |-----------------------|----------------------------|-------------------------------|--------------------------------------|
-| size                |      `VsfLoaderSize`        | `VsfLoaderSize.base`           | `xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
+| size                |      `SfLoaderSize`        | `SfLoaderSize.base`           | `xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
 | ariaLabel    |      string                | `loading`                     |                                      |
 <!-- react -->
 | className             |  String                    |               |                                  |            |
@@ -60,10 +60,10 @@ LoaderCircular by default uses a `primary-700` as animated-shape color (customiz
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfLoaderCircular/VsfLoaderCircular.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfLoaderCircular/SfLoaderCircular.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfLoaderCircular/VsfLoaderCircular.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfLoaderCircular/SfLoaderCircular.tsx
 <!-- end react -->
 </SourceCode>
 :::

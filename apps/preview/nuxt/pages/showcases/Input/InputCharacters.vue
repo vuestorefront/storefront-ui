@@ -3,7 +3,7 @@
     <span :class="['text-sm font-medium', { 'cursor-not-allowed text-disabled-500': disabled }]">
       {{ label }}
     </span>
-    <VsfInput
+    <SfInput
       v-model="inputValue"
       :wrapper-class="{
         'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
@@ -34,7 +34,7 @@
 </template>
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
-import { VsfInput } from '@storefront-ui/vue';
+import { SfInput } from '@storefront-ui/vue';
 
 const characterLimit = ref(25);
 const inputValue = ref('');

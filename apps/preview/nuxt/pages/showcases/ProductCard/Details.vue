@@ -3,7 +3,7 @@
     <div
       class="inline-flex items-center justify-center text-sm font-medium text-white bg-secondary-600 py-1.5 px-2 mb-2"
     >
-      <VsfIconSell size="sm" class="mr-1.5" />
+      <SfIconSell size="sm" class="mr-1.5" />
       Sale
     </div>
     <h1 class="font-bold typography-headline-3">Athletic Mens Walking Sneakers Athletic Shoes Breathable Knit</h1>
@@ -12,9 +12,9 @@
       <span class="ml-2 text-base font-normal leading-4 line-through text-neutral-500">$3,129.99</span>
     </div>
     <div class="inline-flex items-end mb-2">
-      <VsfRating size="xs" :value="3" :max="5" />
-      <VsfCounter class="ml-1">123</VsfCounter>
-      <VsfLink href="#" variant="secondary" class="ml-2 text-xs"> 123 reviews </VsfLink>
+      <SfRating size="xs" :value="3" :max="5" />
+      <SfCounter class="ml-1">123</SfCounter>
+      <SfLink href="#" variant="secondary" class="ml-2 text-xs"> 123 reviews </SfLink>
     </div>
     <div class="mb-4 text-sm">
       <p>Stretch mesh upper for breathability. Lightweight.</p>
@@ -24,45 +24,45 @@
     </div>
     <!-- TODO: Place QuantitySelector when ready -->
     <div class="py-4 mb-4 border-gray-200 border-y">
-      <VsfButton type="button" size="lg" class="w-full">
+      <SfButton type="button" size="lg" class="w-full">
         <template #prefix>
-          <VsfIconShoppingCart size="sm" />
+          <SfIconShoppingCart size="sm" />
         </template>
         Add to cart
-      </VsfButton>
+      </SfButton>
       <div class="flex justify-center mt-4">
-        <VsfButton type="button" size="sm" variant="tertiary">
+        <SfButton type="button" size="sm" variant="tertiary">
           <template #prefix>
-            <VsfIconCompareArrows size="sm" />
+            <SfIconCompareArrows size="sm" />
           </template>
           Compare
-        </VsfButton>
-        <VsfButton type="button" size="sm" variant="tertiary">
-          <VsfIconFavorite size="sm" />
+        </SfButton>
+        <SfButton type="button" size="sm" variant="tertiary">
+          <SfIconFavorite size="sm" />
           Add to list
-        </VsfButton>
+        </SfButton>
       </div>
     </div>
     <div class="flex first:mt-4">
-      <VsfIconPackage size="sm" class="flex-shrink-0 mr-1 text-neutral-500" />
+      <SfIconPackage size="sm" class="flex-shrink-0 mr-1 text-neutral-500" />
       <p class="text-sm">
         Free shipping, arrives by Thu, Apr 7. Want it faster?
-        <VsfLink href="#" variant="secondary" class="mx-1"> Add an address </VsfLink>
+        <SfLink href="#" variant="secondary" class="mx-1"> Add an address </SfLink>
         to see options
       </p>
     </div>
     <div class="flex mt-4">
-      <VsfIconWarehouse size="sm" class="flex-shrink-0 mr-1 text-neutral-500" />
+      <SfIconWarehouse size="sm" class="flex-shrink-0 mr-1 text-neutral-500" />
       <p class="text-sm">
         Pickup not available at your shop.
-        <VsfLink href="#" variant="secondary" class="ml-1"> Check availability nearby </VsfLink>
+        <SfLink href="#" variant="secondary" class="ml-1"> Check availability nearby </SfLink>
       </p>
     </div>
     <div class="flex mt-4">
-      <VsfIconSafetyCheck size="sm" class="flex-shrink-0 mr-1 text-neutral-500" />
+      <SfIconSafetyCheck size="sm" class="flex-shrink-0 mr-1 text-neutral-500" />
       <p class="text-sm">
         Free 30-days returns.
-        <VsfLink href="#" variant="secondary" class="ml-1"> Details </VsfLink>
+        <SfLink href="#" variant="secondary" class="ml-1"> Details </SfLink>
       </p>
     </div>
   </section>
@@ -70,16 +70,16 @@
 
 <script lang="ts" setup>
 import {
-  VsfButton,
-  VsfCounter,
-  VsfLink,
-  VsfRating,
-  VsfIconSafetyCheck,
-  VsfIconCompareArrows,
-  VsfIconWarehouse,
-  VsfIconPackage,
-  VsfIconFavorite,
-  VsfIconSell,
-  VsfIconShoppingCart,
+  SfButton,
+  SfCounter,
+  SfLink,
+  SfRating,
+  SfIconSafetyCheck,
+  SfIconCompareArrows,
+  SfIconWarehouse,
+  SfIconPackage,
+  SfIconFavorite,
+  SfIconSell,
+  SfIconShoppingCart,
 } from '@storefront-ui/vue';
 </script>

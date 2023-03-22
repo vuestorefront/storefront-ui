@@ -84,10 +84,10 @@ Modal can be used to provide additional interactions for your users.
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfModal/VsfModal.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfModal/SfModal.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfModal/VsfModal.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfModal/SfModal.tsx
 <!-- end react -->
 </SourceCode>
 :::

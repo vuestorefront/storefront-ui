@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfChip, VsfThumbnail, VsfIconCloseSm } from '@storefront-ui/react';
+import { SfChip, SfThumbnail, SfIconCloseSm } from '@storefront-ui/react';
 import { useState } from 'react';
 
 const chipValues = [
@@ -20,17 +20,17 @@ export default function DeletableChips() {
     <ul className="flex flex-wrap gap-4 sm:flex-row">
       {chipList.map(({ label, value }) => (
         <li>
-          <VsfChip
+          <SfChip
             key={value}
             className="mr-2"
             inputProps={{ checked: true, onChange: () => handleRemoveChip(value) }}
-            slotPrefix={<VsfThumbnail className={`bg-${value}-500`} />}
+            slotPrefix={<SfThumbnail className={`bg-${value}-500`} />}
             slotSuffix={
-              <VsfIconCloseSm className="text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20" />
+              <SfIconCloseSm className="text-neutral-500 hover:text-primary-800 active:text-primary-900 disabled:opacity-20" />
             }
           >
             {label}
-          </VsfChip>
+          </SfChip>
         </li>
       ))}
     </ul>

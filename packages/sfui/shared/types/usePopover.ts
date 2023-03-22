@@ -1,4 +1,4 @@
-export enum VsfPopoverPlacement {
+export enum SfPopoverPlacement {
   'top-start' = 'top-start',
   top = 'top',
   'top-end' = 'top-end',
@@ -13,13 +13,13 @@ export enum VsfPopoverPlacement {
   'right-end' = 'right-end',
 }
 
-export type VsfPopoverBasePlacement<TPlacement> = TPlacement extends `${infer TBase}-start`
+export type SfPopoverBasePlacement<TPlacement> = TPlacement extends `${infer TBase}-start`
   ? TBase
   : TPlacement extends `${infer TBase}-end`
   ? TBase
   : TPlacement;
 
-export enum VsfPopoverStrategy {
+export enum SfPopoverStrategy {
   fixed = 'fixed',
   absolute = 'absolute',
 }

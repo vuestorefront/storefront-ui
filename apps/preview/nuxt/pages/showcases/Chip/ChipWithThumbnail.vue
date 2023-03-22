@@ -1,17 +1,17 @@
 <template>
-  <VsfChip v-model="chipRedActive" size="sm" class="mr-2">
-    <template #prefix><VsfThumbnail class="bg-red-500" size="sm" /></template>
+  <SfChip v-model="chipRedActive" size="sm" class="mr-2">
+    <template #prefix><SfThumbnail class="bg-red-500" size="sm" /></template>
     Red
-  </VsfChip>
-  <VsfChip v-model="chipBlueActive">
-    <template #prefix><VsfThumbnail class="bg-secondary-400" size="base" /></template>
+  </SfChip>
+  <SfChip v-model="chipBlueActive">
+    <template #prefix><SfThumbnail class="bg-secondary-400" size="base" /></template>
     Blue
-  </VsfChip>
+  </SfChip>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfChip, VsfThumbnail } from '@storefront-ui/vue';
+import { SfChip, SfThumbnail } from '@storefront-ui/vue';
 
 const chipRedActive = ref();
 const chipBlueActive = ref();

@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfSwitch } from '@storefront-ui/react';
+import { SfSwitch } from '@storefront-ui/react';
 import { useState } from 'react';
 
 export default function SwitchWithLabel() {
@@ -9,7 +9,7 @@ export default function SwitchWithLabel() {
   return (
     <>
       <label className="flex items-center">
-        <VsfSwitch
+        <SfSwitch
           checked={checkedState}
           value="value-1"
           onChange={(event) => {

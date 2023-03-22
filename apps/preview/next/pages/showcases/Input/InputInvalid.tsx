@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfInput } from '@storefront-ui/react';
+import { SfInput } from '@storefront-ui/react';
 
 export default function InvalidInput() {
   return (
     <>
       <label>
         <span className="text-sm font-medium">Label</span>
-        <VsfInput invalid />
+        <SfInput invalid />
       </label>
       <div className="flex justify-between">
         <div>

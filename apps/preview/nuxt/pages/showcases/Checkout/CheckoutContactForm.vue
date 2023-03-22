@@ -4,7 +4,7 @@
     <div class="gap-y-0.5">
       <label class="gap-y-0.5">
         <span class="text-sm font-medium">Email</span>
-        <VsfInput
+        <SfInput
           v-model="value"
           name="email"
           placeholder="email address"
@@ -20,13 +20,13 @@
     <label class="flex flex-col gap-y-0.5">
       <span class="font-medium typography-text-sm">Phone number</span>
       <div class="flex">
-        <VsfSelect name="phone-country-code" class="w-16 mr-4" placeholder="--" auto-complete="tel-country-code">
+        <SfSelect name="phone-country-code" class="w-16 mr-4" placeholder="--" auto-complete="tel-country-code">
           <option v-for="option in options" :key="option" :value="option">
             {{ option }}
           </option>
           ))}
-        </VsfSelect>
-        <VsfInput
+        </SfSelect>
+        <SfInput
           name="phone-national"
           wrapper-class="w-full"
           type="tel"
@@ -36,15 +36,15 @@
       </div>
     </label>
     <div class="flex justify-between gap-4 md:justify-end">
-      <VsfButton class="w-full md:w-auto" type="reset" variant="secondary"> Clear all </VsfButton>
-      <VsfButton class="w-full md:w-auto" type="submit">Save</VsfButton>
+      <SfButton class="w-full md:w-auto" type="reset" variant="secondary"> Clear all </SfButton>
+      <SfButton class="w-full md:w-auto" type="submit">Save</SfButton>
     </div>
   </form>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfInput, VsfButton, VsfSelect } from '@storefront-ui/vue';
+import { SfInput, SfButton, SfSelect } from '@storefront-ui/vue';
 
 const invalid = ref(true);
 const options = [1, 7, 20, 27, 30, 30, 31, 32, 33, 34, 36, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 51];

@@ -6,13 +6,13 @@
         <div class="flex-col pl-2">
           <span class="text-sm text-neutral-900">Karla</span>
           <span class="flex items-center pr-2 text-xs text-neutral-500">
-            <VsfRating :value="5" :max="5" size="xs" class="mr-2" />
+            <SfRating :value="5" :max="5" size="xs" class="mr-2" />
             2 days ago
           </span>
         </div>
       </div>
       <p class="flex items-center text-xs truncate text-primary-700">
-        <VsfIconCheck size="xs" class="mr-1" /> Verified purchase
+        <SfIconCheck size="xs" class="mr-1" /> Verified purchase
       </p>
     </header>
     <div class="text-sm text-neutral-900">I love them</div>
@@ -20,6 +20,6 @@
 </template>
 
 <script lang="ts" setup>
-import { VsfRating, VsfIconCheck } from '@storefront-ui/vue';
+import { SfRating, SfIconCheck } from '@storefront-ui/vue';
 import reviewAvatar from '@assets/review_avatar.png';
 </script>

@@ -3,12 +3,12 @@ import { useRouter } from 'next/router';
 import { ReactElement, useState } from 'react';
 import useSWR from 'swr';
 import {
-  VsfButton,
-  VsfButtonVariant,
-  VsfButtonSize,
-  VsfListItem,
-  VsfIconChevronLeft,
-  VsfIconChevronRight,
+  SfButton,
+  SfButtonVariant,
+  SfButtonSize,
+  SfListItem,
+  SfIconChevronLeft,
+  SfIconChevronRight,
 } from '@storefront-ui/react';
 import classNames from 'classnames';
 
@@ -27,12 +27,12 @@ export default function ExampleLayout({ children }: { children: ReactElement }) 
             <h2>StorefrontUI v2</h2>
             <h3>React components</h3>
           </header>
-          <VsfButton
+          <SfButton
             className="sidebar-toggle"
-            variant={VsfButtonVariant.tertiary}
-            size={VsfButtonSize.sm}
+            variant={SfButtonVariant.tertiary}
+            size={SfButtonSize.sm}
             onClick={() => setIsOpen(!isOpen)}
-            slotPrefix={isOpen ? <VsfIconChevronLeft /> : <VsfIconChevronRight />}
+            slotPrefix={isOpen ? <SfIconChevronLeft /> : <SfIconChevronRight />}
             aria-label={isOpen ? 'Hide sidebar' : 'Open sidebar'}
             square
           />
@@ -40,13 +40,13 @@ export default function ExampleLayout({ children }: { children: ReactElement }) 
             {components?.map((component) => (
               <li key={component} data-sidebar-component={component}>
                 <Link href={`/examples/${component}`} legacyBehavior>
-                  <VsfListItem
+                  <SfListItem
                     className={classNames({ 'font-medium': router.pathname === `/examples/${component}` })}
                     selected={router.pathname === `/examples/${component}`}
                     as="a"
                   >
                     {component}
-                  </VsfListItem>
+                  </SfListItem>
                 </Link>
               </li>
             ))}

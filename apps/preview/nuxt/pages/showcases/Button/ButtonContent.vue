@@ -1,25 +1,25 @@
 <template>
   <div class="flex flex-col items-center space-y-4 xs:flex-row xs:space-y-0 xs:space-x-4">
-    <VsfButton>
+    <SfButton>
       <template #prefix>
-        <VsfIconHome />
+        <SfIconHome />
       </template>
       Home
-    </VsfButton>
+    </SfButton>
 
-    <VsfButton>
+    <SfButton>
       <template #suffix>
-        <VsfIconStar />
+        <SfIconStar />
       </template>
       Hello
-    </VsfButton>
+    </SfButton>
 
-    <VsfButton type="button" :square="true" aria-label="Add to cart">
-      <VsfIconAdd />
-    </VsfButton>
+    <SfButton type="button" :square="true" aria-label="Add to cart">
+      <SfIconAdd />
+    </SfButton>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { VsfButton, VsfIconHome, VsfIconStar, VsfIconAdd } from '@storefront-ui/vue';
+import { SfButton, SfIconHome, SfIconStar, SfIconAdd } from '@storefront-ui/vue';
 </script>

@@ -1,7 +1,7 @@
 <template>
-  <VsfButton type="button" class="w-full"> Hello </VsfButton>
+  <SfButton type="button" class="w-full"> Hello </SfButton>
 </template>
 
 <script lang="ts" setup>
-import { VsfButton } from '@storefront-ui/vue';
+import { SfButton } from '@storefront-ui/vue';
 </script>

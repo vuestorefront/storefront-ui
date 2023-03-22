@@ -1,12 +1,12 @@
 <template>
-  <VsfChip v-model="chipSmallActive" size="sm" class="mr-2"> Small </VsfChip>
-  <VsfChip v-model="chipBaseActive" size="base" class="mr-2"> Base </VsfChip>
-  <VsfChip v-model="chipDefaultActive" size="base"> Default </VsfChip>
+  <SfChip v-model="chipSmallActive" size="sm" class="mr-2"> Small </SfChip>
+  <SfChip v-model="chipBaseActive" size="base" class="mr-2"> Base </SfChip>
+  <SfChip v-model="chipDefaultActive" size="base"> Default </SfChip>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfChip } from '@storefront-ui/vue';
+import { SfChip } from '@storefront-ui/vue';
 
 const chipSmallActive = ref();
 const chipBaseActive = ref();

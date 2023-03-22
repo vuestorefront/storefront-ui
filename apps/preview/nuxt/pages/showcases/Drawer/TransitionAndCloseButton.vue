@@ -1,5 +1,5 @@
 <template>
-  <VsfButton type="button" @click="open = true"> Open Drawer </VsfButton>
+  <SfButton type="button" @click="open = true"> Open Drawer </SfButton>
 
   <transition
     enter-active-class="transition duration-500 ease-in-out"
@@ -9,7 +9,7 @@
     leave-from-class="translate-x-0"
     leave-to-class="-translate-x-full"
   >
-    <VsfDrawer
+    <SfDrawer
       ref="drawerRef"
       v-model="open"
       :placement="placement"
@@ -17,14 +17,14 @@
         'bg-neutral-50',
         'border',
         'border-gray-300',
-        { 'max-w-[370px]': placement === VsfDrawerPlacement.left || placement === VsfDrawerPlacement.right },
+        { 'max-w-[370px]': placement === SfDrawerPlacement.left || placement === SfDrawerPlacement.right },
       ]"
     >
       <header className="bg-primary-700 flex justify-between py-6 px-10 items-center">
-        <div className="flex items-center text-white"><VsfIconFavorite class="mr-2" /> Your favorite items</div>
-        <VsfButton square variant="tertiary" class="text-white" @click="open = false">
-          <VsfIconClose />
-        </VsfButton>
+        <div className="flex items-center text-white"><SfIconFavorite class="mr-2" /> Your favorite items</div>
+        <SfButton square variant="tertiary" class="text-white" @click="open = false">
+          <SfIconClose />
+        </SfButton>
       </header>
       <div class="p-5 px-10">
         <p className="mb-2">
@@ -34,22 +34,15 @@
         </p>
         <strong>You can close Drawer by clicking outside or focus and use ESC button</strong>
       </div>
-    </VsfDrawer>
+    </SfDrawer>
   </transition>
 </template>
 
 <script lang="ts" setup>
-import {
-  VsfDrawer,
-  VsfDrawerPlacement,
-  VsfButton,
-  VsfIconFavorite,
-  VsfIconClose,
-  useTrapFocus,
-} from '@storefront-ui/vue';
+import { SfDrawer, SfDrawerPlacement, SfButton, SfIconFavorite, SfIconClose, useTrapFocus } from '@storefront-ui/vue';
 import { ref } from 'vue';
 
-const placement = ref<`${VsfDrawerPlacement}`>('left');
+const placement = ref<`${SfDrawerPlacement}`>('left');
 const open = ref(false);
 const drawerRef = ref();
 

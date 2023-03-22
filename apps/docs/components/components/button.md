@@ -114,8 +114,8 @@ Button can have additional content. You can use slot `prefix`/`slotPrefix` to ad
 
 | Prop name | Type                | Default value | Possible values                    |
 | --------- | ------------------- | ------------- | ---------------------------------- |
-| variant   | VsfButtonVariant    | primary       | primary, secondary, tertiary       |
-| size      | VsfButtonSize       | base          | sm, base, lg                       |
+| variant   | SfButtonVariant    | primary       | primary, secondary, tertiary       |
+| size      | SfButtonSize       | base          | sm, base, lg                       |
 | disabled  | Boolean             | false         |                                    |
 | square    | Boolean             | false         |                                    |
 <!-- vue -->
@@ -144,10 +144,10 @@ Button can have additional content. You can use slot `prefix`/`slotPrefix` to ad
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfButton/VsfButton.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfButton/SfButton.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfButton/VsfButton.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfButton/SfButton.tsx
 <!-- end react -->
 </SourceCode>
 :::

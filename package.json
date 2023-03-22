@@ -39,8 +39,8 @@
     "test:ci:react": "yarn build:peer-next && turbo run test:ci:react",
     "clean": "rimraf ./**/node_modules && rm yarn.lock",
     "clean:total": "rimraf ./**/node_modules && rimraf ./**/.cache && rimraf ./**/.turbo && rm yarn.lock",
-    "createVueIcons": "yarn node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/VsfIcons/ absolutePathToIconBase=@storefront-ui/vue",
-    "createReactIcons": "yarn node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/VsfIcons/ absolutePathToIconBase=@storefront-ui/react",
+    "createVueIcons": "yarn node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/SfIcons/ absolutePathToIconBase=@storefront-ui/vue",
+    "createReactIcons": "yarn node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/SfIcons/ absolutePathToIconBase=@storefront-ui/react",
     "hygen": "./node_modules/.bin/hygen",
     "component": "yarn hygen component",
     "component-new": "yarn hygen component new"

@@ -1,10 +1,10 @@
 <template>
   <div class="space-x-4">
-    <VsfLink href="#" class="text-sm"> Small </VsfLink>
-    <VsfLink href="#" variant="secondary" class="text-negative-700"> To delete page </VsfLink>
+    <SfLink href="#" class="text-sm"> Small </SfLink>
+    <SfLink href="#" variant="secondary" class="text-negative-700"> To delete page </SfLink>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { VsfLink } from '@storefront-ui/vue';
+import { SfLink } from '@storefront-ui/vue';
 </script>

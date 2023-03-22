@@ -1,9 +1,9 @@
 <template>
-  <VsfButton>
+  <SfButton>
     <span class="truncate max-w-[200px]"> Too long description for button </span>
-  </VsfButton>
+  </SfButton>
 </template>
 
 <script lang="ts" setup>
-import { VsfButton } from '@storefront-ui/vue';
+import { SfButton } from '@storefront-ui/vue';
 </script>

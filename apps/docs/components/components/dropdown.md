@@ -1,7 +1,7 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: VsfDropdown
+description: SfDropdown
 ---
 
 # Dropdown
@@ -32,9 +32,9 @@ Dropdown component is built on to of the `useDropdown` hook and accepts all its 
 <!-- vue -->
 | modelValue  | `boolean`                                                |               |                 |
 <!-- end vue -->
-| placement | `VsfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
+| placement | `SfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
 | middleware    | `UseFloatingProps['middleware']`                 |              | Array of `@floating-ui` middlewares |
-| strategy | `VsfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)         |
+| strategy | `SfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)         |
 <!-- vue -->
 
 ## Slots
@@ -56,10 +56,10 @@ Dropdown component is built on to of the `useDropdown` hook and accepts all its 
 <SourceCode>
 
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfDropdown/VsfDropdown.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfDropdown/SfDropdown.vue
 <!-- end vue -->
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfDropdown/VsfDropdown.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfDropdown/SfDropdown.tsx
 <!-- end react -->
 
 </SourceCode>

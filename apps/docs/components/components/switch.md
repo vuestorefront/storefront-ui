@@ -63,10 +63,10 @@ Switch component can have a leading or trailing alignment.
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfSwitch/VsfSwitch.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfSwitch/SfSwitch.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfSwitch/VsfSwitch.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfSwitch/SfSwitch.tsx
 <!-- end react -->
 </SourceCode>
 :::

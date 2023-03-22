@@ -69,7 +69,7 @@
 
 ---
 
-# VSF Typography
+# SF Typography
 
 Tailwind plugin that allows you to create fully customizable typography system. Ships with StorefrontUI typography by default.
 <br /><br />
@@ -78,7 +78,7 @@ Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">V
 ## Why?
 
 In many projects the designers specify a standarized range of typography atoms. From headings, body texts to elements like labels - everything follows the same palette of font styles. And whilst Tailwind is great when it comes to dealing with atomic styling we believe that **having typography-related classes structured leads to a better developer experience**. 💚
-That's why we introduce you `VSF Typography` plugin - to bring typography systems back to the Tailwind world!
+That's why we introduce you `SF Typography` plugin - to bring typography systems back to the Tailwind world!
 
 ## Installation
 
@@ -89,11 +89,11 @@ npm install --save-dev @storefront-ui/typography
 ```ts
 // tailwind.config.ts
 
-import vsfTypography from '@storefront-ui/typography';
+import sfTypography from '@storefront-ui/typography';
 
 export default {
   content: ['your-components-source-directory/*.ts'],
-  plugins: [vsfTypography]
+  plugins: [sfTypography]
 };
 ```
 
@@ -123,15 +123,15 @@ Typography-related styling can be customized as a part of [Tailwind theme custom
 ```ts
 // tailwind.config.ts
 
-import vsfTypography from '@storefront-ui/typography';
+import sfTypography from '@storefront-ui/typography';
 
 export default {
   content: ['your-components-source-directory/*.ts'],
-  plugins: [vsfTypography],
+  plugins: [sfTypography],
 
   theme: {
     extend: {
-      vsfTypography: ({ theme }) => ({
+      sfTypography: ({ theme }) => ({
         'headline-2': {
           fontSize: theme('fontSize.4xl'),
           lineHeight: '1.1',
@@ -154,14 +154,14 @@ You can also specify your own, fully custom typography palette:
 ```ts
 // tailwind.config.ts
 
-import vsfTypography from '@storefront-ui/typography';
+import sfTypography from '@storefront-ui/typography';
 
 export default {
   content: ['your-components-source-directory/*.ts'],
-  plugins: [vsfTypography],
+  plugins: [sfTypography],
 
   theme: {
-    vsfTypography: ({ theme }) => ({
+    sfTypography: ({ theme }) => ({
       'heading': {
         fontSize: theme('fontSize.4xl'),
         lineHeight: '1.1',
@@ -185,11 +185,11 @@ You can change the default prefix `typography-` by passing configuration options
 ```ts
 // tailwind.config.ts
 
-import vsfTypography from '@storefront-ui/typography';
+import sfTypography from '@storefront-ui/typography';
 
 export default {
   content: ['your-components-source-directory/*.ts'],
-  plugins: [vsfTypography({ utilityPrefix: 'custom-text' })]
+  plugins: [sfTypography({ utilityPrefix: 'custom-text' })]
 };
 ```
 

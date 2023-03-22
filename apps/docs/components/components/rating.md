@@ -81,7 +81,7 @@ Rating could be presented as a simple star icon with value label.
 ::: slot api
 | Prop name     | Type                | Default value | Possible values            |
 | ------------- | ------------------- | ------------- | -------------------------- |
-| size          | `VsfRatingSize`    | `base`        | `xs`,`sm`,`base`,`lg`,`xl` |
+| size          | `SfRatingSize`    | `base`        | `xs`,`sm`,`base`,`lg`,`xl` |
 | value         | `Number`            | `0`           |                            |
 | max           | `Number`            | `5`           |                            |
 | halfIncrement | `Boolean`           | `false`       |                            |
@@ -90,10 +90,10 @@ Rating could be presented as a simple star icon with value label.
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfRating/VsfRating.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfRating/SfRating.vue
 <!-- end vue -->
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfRating/VsfRating.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfRating/SfRating.tsx
 <!-- end react -->
 </SourceCode>
 :::

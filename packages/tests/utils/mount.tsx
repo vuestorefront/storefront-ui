@@ -53,7 +53,7 @@ export const mount = (mountOptions: {
   <Wrapper
     open={modelValue}
     onOpenChange={(e: boolean) => modelValue.value = e}
-    component={VsfNavigationTopReact}
+    component={SfNavigationTopReact}
   />
 
   or you can define pair prop - callback if names are different
@@ -62,7 +62,7 @@ export const mount = (mountOptions: {
     open={modelValue}
     onChange={(e: boolean) => modelValue.value = e}
     propCallbackPair={{open: 'onChange'}}
-    component={VsfNavigationTopReact}
+    component={SfNavigationTopReact}
   />
 */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

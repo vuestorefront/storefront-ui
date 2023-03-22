@@ -1,10 +1,10 @@
 <template>
-  <VsfThumbnail size="xl">
+  <SfThumbnail size="xl">
     <img :src="card" alt="Thumbnail avatar" />
-  </VsfThumbnail>
+  </SfThumbnail>
 </template>
 
 <script lang="ts" setup>
 import card from '@assets/card.png';
-import { VsfThumbnail } from '@storefront-ui/vue';
+import { SfThumbnail } from '@storefront-ui/vue';
 </script>

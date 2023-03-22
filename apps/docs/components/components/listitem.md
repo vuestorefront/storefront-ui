@@ -90,10 +90,10 @@ ListItem has additional slots to place custom content. Slot <!-- vue --> `prefix
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfListItem/VsfListItem.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfListItem/SfListItem.vue
 <!-- end vue -->
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfListItem/VsfListItem.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfListItem/SfListItem.tsx
 <!-- end react -->
 </SourceCode>
 :::

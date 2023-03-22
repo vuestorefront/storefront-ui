@@ -1,6 +1,6 @@
 <template>
   <nav className="max-w-[500px] bottom-0 w-full left-0 fixed flex flex-row items-stretch bg-white text-primary-700">
-    <VsfButton
+    <SfButton
       v-for="item in items"
       :key="item.label"
       variant="tertiary"
@@ -14,40 +14,33 @@
         <Component :is="item.icon" />
       </template>
       {{ item.label }}
-    </VsfButton>
+    </SfButton>
   </nav>
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-import {
-  VsfButton,
-  VsfIconHome,
-  VsfIconMenu,
-  VsfIconSearch,
-  VsfIconShoppingCart,
-  VsfIconFavorite,
-} from '@storefront-ui/vue';
+import { SfButton, SfIconHome, SfIconMenu, SfIconSearch, SfIconShoppingCart, SfIconFavorite } from '@storefront-ui/vue';
 
 const items = [
   {
     label: 'Home',
-    icon: VsfIconHome,
+    icon: SfIconHome,
   },
   {
     label: 'Products',
-    icon: VsfIconMenu,
+    icon: SfIconMenu,
   },
   {
     label: 'Search',
-    icon: VsfIconSearch,
+    icon: SfIconSearch,
   },
   {
     label: 'Cart',
-    icon: VsfIconShoppingCart,
+    icon: SfIconShoppingCart,
   },
   {
     label: 'Wishlist',
-    icon: VsfIconFavorite,
+    icon: SfIconFavorite,
   },
 ];
 const selectedItem = ref('');

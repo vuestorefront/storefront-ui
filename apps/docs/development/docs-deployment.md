@@ -1,5 +1,5 @@
 # Docs deployment
-The documentation is deployed using GitHub Actions to our VSF cloud Farmer instance.
+The documentation is deployed using GitHub Actions to our SF cloud Farmer instance.
 The GitHub action workflow file is in `.github/workflows/deploy-docs-vue-storefront-cloud.yml`
 
 The process is as follows:

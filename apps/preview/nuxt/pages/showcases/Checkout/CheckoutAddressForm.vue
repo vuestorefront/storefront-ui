@@ -3,26 +3,26 @@
     <h2 class="w-full typography-headline-4 md:typography-headline-3 font-bold">Billing address</h2>
     <label class="w-full md:w-auto flex-grow flex flex-col gap-0.5 mt-4 md:mt-0">
       <span class="typography-text-sm font-medium">First Name</span>
-      <VsfInput name="firstName" autocomplete="given-name" required />
+      <SfInput name="firstName" autocomplete="given-name" required />
     </label>
     <label class="w-full md:w-auto flex-grow flex flex-col gap-0.5">
       <span class="typography-text-sm font-medium">Last Name</span>
-      <VsfInput name="lastName" autocomplete="family-name" required />
+      <SfInput name="lastName" autocomplete="family-name" required />
     </label>
     <label class="w-full flex flex-col gap-0.5">
       <span class="typography-text-sm font-medium">Phone</span>
-      <VsfInput name="phone" type="tel" autocomplete="tel" required />
+      <SfInput name="phone" type="tel" autocomplete="tel" required />
     </label>
     <label class="w-full flex flex-col gap-0.5 flex flex-col gap-0.5">
       <span class="typography-text-sm font-medium">Country</span>
-      <VsfSelect name="country" placeholder="-- Select --" autocomplete="country-name" required>
+      <SfSelect name="country" placeholder="-- Select --" autocomplete="country-name" required>
         <option v-for="countryName in countries" :key="countryName">{{ countryName }}</option>
-      </VsfSelect>
+      </SfSelect>
     </label>
     <div class="w-full md:w-auto flex-grow flex flex-col gap-0.5">
       <label>
         <span class="typography-text-sm font-medium">Street</span>
-        <VsfInput
+        <SfInput
           name="street"
           autocomplete="address-line1"
           class="mt-.05"
@@ -40,40 +40,40 @@
     <div class="w-full flex flex-col gap-0.5 md:w-[120px]">
       <label>
         <span class="typography-text-sm font-medium">Apt#, Suite, etc</span>
-        <VsfInput name="aptNo" class="mt-0.5" />
+        <SfInput name="aptNo" class="mt-0.5" />
       </label>
       <small class="typography-text-xs text-neutral-500">Optional</small>
     </div>
     <label class="w-full flex flex-col gap-0.5">
       <span class="typography-text-sm font-medium">City</span>
-      <VsfInput name="city" autocomplete="address-level2" required />
+      <SfInput name="city" autocomplete="address-level2" required />
     </label>
     <label class="w-full md:w-auto flex flex-col gap-0.5 flex-grow">
       <span class="typography-text-sm font-medium">State</span>
-      <VsfSelect name="state" placeholder="-- Select --" autocomplete="address-level1" required>
+      <SfSelect name="state" placeholder="-- Select --" autocomplete="address-level1" required>
         <option v-for="stateName in states" :key="stateName">{{ stateName }}</option>
-      </VsfSelect>
+      </SfSelect>
     </label>
     <label class="w-full flex flex-col gap-0.5 md:w-[120px]">
       <span class="typography-text-sm font-medium">ZIP Code</span>
-      <VsfInput name="zipCode" placeholder="eg. 12345" autocomplete="postal-code" required />
+      <SfInput name="zipCode" placeholder="eg. 12345" autocomplete="postal-code" required />
     </label>
 
     <label class="w-full flex items-center gap-2">
-      <VsfCheckbox name="useAsShippingAddress" />
+      <SfCheckbox name="useAsShippingAddress" />
       Use as shipping address
     </label>
 
     <div class="w-full flex gap-4 mt-4 md:mt-0 md:justify-end">
-      <VsfButton type="reset" variant="secondary" class="w-full md:w-auto">Clear all</VsfButton>
-      <VsfButton class="w-full md:w-auto">Save</VsfButton>
+      <SfButton type="reset" variant="secondary" class="w-full md:w-auto">Clear all</SfButton>
+      <SfButton class="w-full md:w-auto">Save</SfButton>
     </div>
   </form>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfSelect, VsfInput, VsfCheckbox, VsfButton } from '@storefront-ui/vue';
+import { SfSelect, SfInput, SfCheckbox, SfButton } from '@storefront-ui/vue';
 
 // Here you should provide a list of countries you want to support
 // or use an up-to-date country list like: https://www.npmjs.com/package/country-list

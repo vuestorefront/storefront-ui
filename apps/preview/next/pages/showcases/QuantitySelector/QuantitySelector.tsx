@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfButton, VsfIconAdd, VsfIconRemove } from '@storefront-ui/react';
+import { SfButton, SfIconAdd, SfIconRemove } from '@storefront-ui/react';
 import { useCounter } from 'react-use';
 import { useId, ChangeEvent } from 'react';
 import { clamp } from '@storefront-ui/shared';
@@ -18,7 +18,7 @@ export default function QuantitySelector() {
   return (
     <div className="inline-flex flex-col items-center">
       <div className="flex">
-        <VsfButton
+        <SfButton
           type="button"
           variant="tertiary"
           square
@@ -28,8 +28,8 @@ export default function QuantitySelector() {
           aria-label="Decrease value"
           onClick={() => dec()}
         >
-          <VsfIconRemove />
-        </VsfButton>
+          <SfIconRemove />
+        </SfButton>
         <input
           id={inputId}
           type="number"
@@ -40,7 +40,7 @@ export default function QuantitySelector() {
           value={value}
           onChange={handleOnChange}
         />
-        <VsfButton
+        <SfButton
           type="button"
           variant="tertiary"
           square
@@ -50,8 +50,8 @@ export default function QuantitySelector() {
           aria-label="Increase value"
           onClick={() => inc()}
         >
-          <VsfIconAdd />
-        </VsfButton>
+          <SfIconAdd />
+        </SfButton>
       </div>
       <p className="text-xs mt-2 text-neutral-500">
         <strong className="text-neutral-900">{max}</strong> in stock

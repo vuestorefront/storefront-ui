@@ -1,7 +1,7 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: VsfTooltips provide contextual information about an element when that owning element receives focus or is hovered over, but is otherwise not visible on the page.
+description: SfTooltips provide contextual information about an element when that owning element receives focus or is hovered over, but is otherwise not visible on the page.
 ---
 
 # Tooltip
@@ -29,7 +29,7 @@ Tooltip component is built on to of the `useTooltip` hook and accepts all its pa
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
 | label\*   | `string`                                                 |               |                 |
 | showArrow | `boolean`                                                | `false`       |                 |
-| placement | `VsfPopoverPlacement`                                    |               |                 |
+| placement | `SfPopoverPlacement`                                    |               |                 |
 | arrowSize | `${number}px` &#124; `${number}em` &#124; `${number}rem` |               |                 |
 <!-- react -->
 | children | `ReactNode` | | |
@@ -48,10 +48,10 @@ Tooltip component is built on to of the `useTooltip` hook and accepts all its pa
 <SourceCode>
 
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfTooltip/VsfTooltip.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfTooltip/SfTooltip.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfTooltip/VsfTooltip.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfTooltip/SfTooltip.tsx
 <!-- end react -->
 
 </SourceCode>

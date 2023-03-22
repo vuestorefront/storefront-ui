@@ -2,7 +2,7 @@
   <aside>
     <div class="flex justify-between">
       <h4 class="px-2 font-bold typography-headline-4">Filters</h4>
-      <VsfButton
+      <SfButton
         v-if="selectedFilters.length"
         type="reset"
         size="sm"
@@ -12,39 +12,40 @@
       >
         Clear all
         <template #suffix>
-          <VsfIconCancel size="sm" />
+          <SfIconCancel size="sm" />
         </template>
-      </VsfButton>
+      </SfButton>
       <button type="button" class="md:hidden text-neutral-500">
-        <VsfIconClose />
+        <SfIconClose />
       </button>
     </div>
     <hr class="my-4" />
     <p class="px-2 mb-2 font-medium typography-headline-5">Sort by:</p>
     <div class="px-2">
-      <VsfSelect aria-label="Sort by">
+      <SfSelect aria-label="Sort by">
         <option v-for="{ id, label, value } in sortOptions" :key="id" :value="value">{{ label }}</option>
-      </VsfSelect>
+      </SfSelect>
     </div>
     <hr class="my-4" />
     <ul>
-      <li v-for="({ id: filterDataId, type, summary, details }, index) in filtersData" :key="filterDataId">
-        <VsfAccordionItem v-model="opened[index]">
+      <!-- eslint-disable-next-line prettier/prettier -->
+      <li v-for="{ id: filterDataId, type, summary, details }, index in filtersData" :key="filterDataId">
+        <SfAccordionItem v-model="opened[index]">
           <template #summary>
             <div class="flex justify-between p-2 mb-2">
               <p class="p-2 font-medium typography-headline-5">{{ summary }}</p>
-              <VsfIconChevronLeft :class="opened[index] ? 'rotate-90' : '-rotate-90'" />
+              <SfIconChevronLeft :class="opened[index] ? 'rotate-90' : '-rotate-90'" />
             </div>
           </template>
           <ul v-if="type === 'size'" class="flex flex-wrap gap-4 px-1.5">
             <li v-for="{ id, value, counter, label } in details" :key="id">
-              <VsfChip v-model="selectedFilters" size="sm" :input-props="{ value, disabled: !counter }">
+              <SfChip v-model="selectedFilters" size="sm" :input-props="{ value, disabled: !counter }">
                 {{ label }}
-              </VsfChip>
+              </SfChip>
             </li>
           </ul>
           <template v-if="type === 'color'">
-            <VsfListItem
+            <SfListItem
               v-for="{ id, value, label, counter } in details"
               :key="id"
               size="sm"
@@ -56,17 +57,17 @@
                 <input v-model="selectedFilters" :value="value" class="appearance-none peer" type="checkbox" />
                 <span
                   class="inline-flex items-center justify-center p-1 transition duration-300 rounded-full cursor-pointer ring-1 ring-neutral-200 ring-inset outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline"
-                  ><VsfThumbnail size="sm" :class="value"
+                  ><SfThumbnail size="sm" :class="value"
                 /></span>
               </template>
               <p>
                 <span className="typography-text-sm mr-2">{{ label }}</span>
-                <VsfCounter>{{ counter }}</VsfCounter>
+                <SfCounter>{{ counter }}</SfCounter>
               </p>
-            </VsfListItem>
+            </SfListItem>
           </template>
           <template v-if="type === 'checkbox'">
-            <VsfListItem
+            <SfListItem
               v-for="{ id, value, label, counter } in details"
               :key="id"
               as="label"
@@ -74,16 +75,16 @@
               :class="['px-1.5 bg-transparent hover:bg-transparent', { 'font-medium': isItemActive(value) }]"
             >
               <template #prefix>
-                <VsfCheckbox v-model="selectedFilters" :disabled="counter === 0" :value="value" />
+                <SfCheckbox v-model="selectedFilters" :disabled="counter === 0" :value="value" />
               </template>
               <p>
                 <span class="mr-2 text-sm">{{ label }}</span>
-                <VsfCounter>{{ counter }}</VsfCounter>
+                <SfCounter>{{ counter }}</SfCounter>
               </p>
-            </VsfListItem>
+            </SfListItem>
           </template>
           <template v-if="type === 'radio'">
-            <VsfListItem
+            <SfListItem
               v-for="{ id, value, label, counter } in details"
               :key="id"
               as="label"
@@ -91,7 +92,7 @@
               class="px-1.5 bg-transparent hover:bg-transparent"
             >
               <template #prefix>
-                <VsfRadio
+                <SfRadio
                   v-model="radioModel"
                   name="radio-price"
                   :value="value"
@@ -100,17 +101,17 @@
               </template>
               <p>
                 <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
-                <VsfCounter>{{ counter }}</VsfCounter>
+                <SfCounter>{{ counter }}</SfCounter>
               </p>
-            </VsfListItem>
+            </SfListItem>
           </template>
-        </VsfAccordionItem>
+        </SfAccordionItem>
         <hr class="my-4" />
       </li>
     </ul>
     <div class="flex justify-between">
-      <VsfButton variant="secondary" class="w-full mr-3 md:hidden"> Clear all filters </VsfButton>
-      <VsfButton class="w-full">Show products</VsfButton>
+      <SfButton variant="secondary" class="w-full mr-3 md:hidden"> Clear all filters </SfButton>
+      <SfButton class="w-full">Show products</SfButton>
     </div>
   </aside>
 </template>
@@ -118,18 +119,18 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import {
-  VsfAccordionItem,
-  VsfButton,
-  VsfChip,
-  VsfCheckbox,
-  VsfCounter,
-  VsfIconChevronLeft,
-  VsfIconCancel,
-  VsfIconClose,
-  VsfListItem,
-  VsfRadio,
-  VsfSelect,
-  VsfThumbnail,
+  SfAccordionItem,
+  SfButton,
+  SfChip,
+  SfCheckbox,
+  SfCounter,
+  SfIconChevronLeft,
+  SfIconCancel,
+  SfIconClose,
+  SfListItem,
+  SfRadio,
+  SfSelect,
+  SfThumbnail,
 } from '@storefront-ui/vue';
 
 const filtersData = ref([

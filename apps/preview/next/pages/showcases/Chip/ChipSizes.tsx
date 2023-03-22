@@ -1,17 +1,17 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfChip } from '@storefront-ui/react';
+import { SfChip } from '@storefront-ui/react';
 
 export default function ChipSizes() {
   return (
     <div>
-      <VsfChip size="sm" className="mr-2">
+      <SfChip size="sm" className="mr-2">
         Small
-      </VsfChip>
-      <VsfChip size="base" className="mr-2">
+      </SfChip>
+      <SfChip size="base" className="mr-2">
         Base
-      </VsfChip>
-      <VsfChip>Default</VsfChip>
+      </SfChip>
+      <SfChip>Default</SfChip>
     </div>
   );
 }

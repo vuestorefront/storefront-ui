@@ -1,6 +1,6 @@
 import { autoUpdate, type FloatingElement, useFloating, type ReferenceElement } from '@floating-ui/vue';
 import { ref, computed } from 'vue';
-import { VsfPopoverPlacement, VsfPopoverStrategy, type UsePopoverOptions } from '@storefront-ui/vue';
+import { SfPopoverPlacement, SfPopoverStrategy, type UsePopoverOptions } from '@storefront-ui/vue';
 
 export function usePopover<T extends ReferenceElement = ReferenceElement>(options: UsePopoverOptions<T>) {
   const {
@@ -8,8 +8,8 @@ export function usePopover<T extends ReferenceElement = ReferenceElement>(option
     floatingRef = ref<FloatingElement>(),
     isOpen = false,
     middleware,
-    placement: initialPlacement = VsfPopoverPlacement.bottom,
-    strategy: initialStrategy = VsfPopoverStrategy.absolute,
+    placement: initialPlacement = SfPopoverPlacement.bottom,
+    strategy: initialStrategy = SfPopoverStrategy.absolute,
   } = options;
 
   const { strategy, x, y, middlewareData, placement } = useFloating<T>(referenceRef, floatingRef, {

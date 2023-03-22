@@ -14,14 +14,14 @@ description: API reference docs for the useDisclosure <!-- react -->hook<!-- end
 
 <!-- react -->
 ```tsx
-import { VsfButton, useDisclosure } from '@storefront-ui/react';
+import { SfButton, useDisclosure } from '@storefront-ui/react';
 
 function Basic() {
   const { isOpen, toggle } = useDisclosure();
 
   return (
     <>
-      <VsfButton onClick={toggle}>Toggle</VsfButton>
+      <SfButton onClick={toggle}>Toggle</SfButton>
       {isOpen && <p>This text shows when isOpen value is true.</p>}
     </>
   );
@@ -31,13 +31,13 @@ function Basic() {
 <!-- vue -->
 ```vue
 <script lang="ts" setup>
-import { VsfButton, useDisclosure } from '@storefront-ui/vue';
+import { SfButton, useDisclosure } from '@storefront-ui/vue';
 
 const { isOpen, toggle } = useDisclosure();
 </script>
 
 <template>
-  <VsfButton @click="toggle">Toggle</VsfButton>
+  <SfButton @click="toggle">Toggle</SfButton>
   <p v-if="isOpen">This text shows when isOpen value is true.</p>
 </template>
 ```

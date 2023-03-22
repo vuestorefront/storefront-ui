@@ -5,38 +5,38 @@
         <h2>StorefrontUI v2</h2>
         <h3>Vue showcases</h3>
       </header>
-      <VsfButton
+      <SfButton
         class="sidebar-toggle"
-        :variant="VsfButtonVariant.tertiary"
-        :size="VsfButtonSize.sm"
+        :variant="SfButtonVariant.tertiary"
+        :size="SfButtonSize.sm"
         :aria-label="isOpen ? 'Hide sidebar' : 'Open sidebar'"
         @click="isOpen = !isOpen"
       >
         <template #prefix>
-          <VsfIconChevronLeft v-if="isOpen" />
-          <VsfIconChevronRight v-else />
+          <SfIconChevronLeft v-if="isOpen" />
+          <SfIconChevronRight v-else />
         </template>
-      </VsfButton>
+      </SfButton>
       <ul class="sidebar-list">
         <template v-for="(groupValue, groupKey) in groups" :key="groupKey">
           <li
             class="flex justify-between px-2 py-1 bg-gray-200 cursor-pointer select-none"
             @click="groupValue.open = !groupValue.open"
           >
-            {{ groupKey }}<VsfIconExpandMore :class="{ 'rotate-180': groupValue.open }" />
+            {{ groupKey }}<SfIconExpandMore :class="{ 'rotate-180': groupValue.open }" />
           </li>
           <li v-show="groupValue.open">
             <ul>
               <li v-for="showcaseName in groupValue.showcases" :key="groupKey + showcaseName">
                 <NuxtLink :key="showcaseName" v-slot="{ navigate }" :to="groupItemHref(groupKey, showcaseName)" custom>
-                  <VsfListItem
+                  <SfListItem
                     tag="span"
                     :selected="currentRoute.path === groupItemHref(groupKey, showcaseName)"
                     :class="{ 'font-medium': currentRoute.path === groupItemHref(groupKey, showcaseName) }"
                     @click="navigate"
                   >
                     {{ showcaseName }}
-                  </VsfListItem>
+                  </SfListItem>
                 </NuxtLink>
               </li>
             </ul>
@@ -54,13 +54,13 @@
 
 <script setup>
 import {
-  VsfButton,
-  VsfButtonVariant,
-  VsfButtonSize,
-  VsfListItem,
-  VsfIconChevronLeft,
-  VsfIconChevronRight,
-  VsfIconExpandMore,
+  SfButton,
+  SfButtonVariant,
+  SfButtonSize,
+  SfListItem,
+  SfIconChevronLeft,
+  SfIconChevronRight,
+  SfIconExpandMore,
 } from '@storefront-ui/vue';
 
 const { currentRoute } = useRouter();

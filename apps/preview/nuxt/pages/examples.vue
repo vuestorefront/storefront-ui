@@ -5,29 +5,29 @@
         <h2>StorefrontUI v2</h2>
         <h3>Vue components</h3>
       </header>
-      <VsfButton
+      <SfButton
         class="sidebar-toggle"
-        :variant="VsfButtonVariant.tertiary"
-        :size="VsfButtonSize.sm"
+        :variant="SfButtonVariant.tertiary"
+        :size="SfButtonSize.sm"
         :aria-label="isOpen ? 'Hide sidebar' : 'Open sidebar'"
         @click="isOpen = !isOpen"
       >
         <template #prefix>
-          <VsfIconChevronLeft v-if="isOpen" />
-          <VsfIconChevronRight v-else />
+          <SfIconChevronLeft v-if="isOpen" />
+          <SfIconChevronRight v-else />
         </template>
-      </VsfButton>
+      </SfButton>
       <ul class="sidebar-list flex flex-col">
         <li v-for="component in components" :key="component">
           <NuxtLink v-slot="{ navigate }" :to="`/examples/${component}`" custom>
-            <VsfListItem
+            <SfListItem
               tag="span"
               :selected="currentRoute.path === `/examples/${component}`"
               :class="{ 'font-medium': currentRoute.path === `/examples/${component}` }"
               @click="navigate"
             >
               {{ component }}
-            </VsfListItem>
+            </SfListItem>
           </NuxtLink>
         </li>
       </ul>
@@ -38,12 +38,12 @@
 
 <script setup>
 import {
-  VsfButton,
-  VsfButtonVariant,
-  VsfButtonSize,
-  VsfListItem,
-  VsfIconChevronLeft,
-  VsfIconChevronRight,
+  SfButton,
+  SfButtonVariant,
+  SfButtonSize,
+  SfListItem,
+  SfIconChevronLeft,
+  SfIconChevronRight,
 } from '@storefront-ui/vue';
 
 const { currentRoute } = useRouter();

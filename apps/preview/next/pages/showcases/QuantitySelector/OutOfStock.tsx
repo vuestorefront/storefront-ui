@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfButton, VsfIconAdd, VsfIconRemove } from '@storefront-ui/react';
+import { SfButton, SfIconAdd, SfIconRemove } from '@storefront-ui/react';
 import { useId } from 'react';
 
 export default function OutOfStockDemo() {
@@ -10,7 +10,7 @@ export default function OutOfStockDemo() {
   return (
     <div className="inline-flex flex-col items-center">
       <div className="flex rounded-md bg-neutral-100 relative after:content-['-'] after:text-disabled-900 after:absolute after:flex after:justify-center after:items-center after:w-full after:h-full">
-        <VsfButton
+        <SfButton
           variant="tertiary"
           type="button"
           square
@@ -19,8 +19,8 @@ export default function OutOfStockDemo() {
           aria-label="Decrease value"
           className="!bg-neutral-100"
         >
-          <VsfIconRemove />
-        </VsfButton>
+          <SfIconRemove />
+        </SfButton>
         <input
           id={inputId}
           type="number"
@@ -31,9 +31,9 @@ export default function OutOfStockDemo() {
           max={max}
         />
 
-        <VsfButton variant="tertiary" type="button" square disabled aria-controls={inputId} aria-label="Increase value">
-          <VsfIconAdd />
-        </VsfButton>
+        <SfButton variant="tertiary" type="button" square disabled aria-controls={inputId} aria-label="Increase value">
+          <SfIconAdd />
+        </SfButton>
       </div>
       <p className="text-negative-700 font-medium text-xs mt-2">Out of stock</p>
     </div>

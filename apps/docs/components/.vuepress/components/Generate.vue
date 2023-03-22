@@ -27,7 +27,7 @@ export default {
     },
     exampleUrl() {
       const componentNameFull = components[this.frameworkName].find((component) =>
-        component.toLowerCase().includes('vsf' + this.componentName),
+        component.toLowerCase().includes('sf' + this.componentName),
       );
 
       return `${

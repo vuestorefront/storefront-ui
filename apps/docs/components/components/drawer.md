@@ -1,7 +1,7 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: VsfDrawer is surface containing supplementary content that is anchored to the left, right, top or bottom edge of the screen.
+description: SfDrawer is surface containing supplementary content that is anchored to the left, right, top or bottom edge of the screen.
 ---
 # Drawer
 
@@ -58,7 +58,7 @@ Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide
 | open                  | boolean                    | false         |                                        |
 | as                    | ReactElement               | aside         |                                        |
 <!-- end react -->
-|  placement            | VsfDrawerPlacement         | VsfDrawerPlacement.left        |                                        |
+|  placement            | SfDrawerPlacement         | SfDrawerPlacement.left        |                                        |
 |  disableClickAway     | boolean                    | false        |                                        |
 |  disableEsc           |  boolean                   | false        |                                        |
 <!-- react -->
@@ -84,10 +84,10 @@ Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfDrawer/VsfDrawer.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfDrawer/SfDrawer.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfDrawer/VsfDrawer.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfDrawer/SfDrawer.tsx
 <!-- end react -->
 </SourceCode>
 :::

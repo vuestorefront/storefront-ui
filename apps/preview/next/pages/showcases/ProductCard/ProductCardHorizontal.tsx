@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfButton, VsfIconRemove, VsfLink, VsfIconAdd, VsfIconSell, VsfIconDelete } from '@storefront-ui/react';
+import { SfButton, SfIconRemove, SfLink, SfIconAdd, SfIconSell, SfIconDelete } from '@storefront-ui/react';
 import card from '@assets/smartwatch.png';
 import Image from 'next/image';
 import { useCounter } from 'react-use';
@@ -20,7 +20,7 @@ export default function ProductCardHorizontal() {
   return (
     <div className="relative flex border-b-[1px] border-neutral-200 hover:shadow-lg min-w-[320px] max-w-[640px] p-4">
       <div className="relative overflow-hidden rounded-md w-[100px] sm:w-[176px]">
-        <VsfLink href="#">
+        <SfLink href="#">
           <Image
             className="w-full h-auto border rounded-md border-neutral-200"
             src={card.src}
@@ -28,16 +28,16 @@ export default function ProductCardHorizontal() {
             width={300}
             height={300}
           />
-        </VsfLink>
+        </SfLink>
         <div className="absolute top-0 left-0 text-white bg-secondary-600 py-1 pl-1.5 pr-2 text-xs font-medium">
-          <VsfIconSell size="xs" className="mr-1" />
+          <SfIconSell size="xs" className="mr-1" />
           Sale
         </div>
       </div>
       <div className="flex flex-col pl-4 min-w-[180px] flex-1">
-        <VsfLink href="#" variant="secondary" className="no-underline typography-text-sm sm:typography-text-lg">
+        <SfLink href="#" variant="secondary" className="no-underline typography-text-sm sm:typography-text-lg">
           Smartwatch Fitness Tracker
-        </VsfLink>
+        </SfLink>
         <div className="my-2 sm:mb-0">
           <ul className="text-xs font-normal leading-5 sm:typography-text-sm text-neutral-700">
             <li>
@@ -54,7 +54,7 @@ export default function ProductCardHorizontal() {
           <span className="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99</span>
           <div className="flex items-center justify-between mt-4 sm:mt-0">
             <div className="flex mr-auto sm:mr-4">
-              <VsfButton
+              <SfButton
                 type="button"
                 variant="tertiary"
                 square
@@ -64,8 +64,8 @@ export default function ProductCardHorizontal() {
                 aria-label="Decrease value"
                 onClick={() => dec()}
               >
-                <VsfIconRemove />
-              </VsfButton>
+                <SfIconRemove />
+              </SfButton>
               <input
                 id={inputId}
                 type="number"
@@ -76,7 +76,7 @@ export default function ProductCardHorizontal() {
                 value={value}
                 onChange={handleOnChange}
               />
-              <VsfButton
+              <SfButton
                 type="button"
                 variant="tertiary"
                 square
@@ -86,15 +86,15 @@ export default function ProductCardHorizontal() {
                 aria-label="Increase value"
                 onClick={() => inc()}
               >
-                <VsfIconAdd />
-              </VsfButton>
+                <SfIconAdd />
+              </SfButton>
             </div>
             <button
               aria-label="Remove"
               type="button"
               className="text-neutral-500 text-xs font-light ml-auto flex items-center px-3 py-1.5"
             >
-              <VsfIconDelete />
+              <SfIconDelete />
               <span className="hidden ml-1.5 sm:block"> Remove </span>
             </button>
           </div>

@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfRating, VsfIconCheck, VsfIconThumbUp, VsfIconThumbDown, VsfCounter } from '@storefront-ui/react';
+import { SfRating, SfIconCheck, SfIconThumbUp, SfIconThumbDown, SfCounter } from '@storefront-ui/react';
 import { useState } from 'react';
 
 export default function Review() {
@@ -19,13 +19,13 @@ export default function Review() {
         <div className="flex flex-col items-start">
           <span className="text-sm text-neutral-900">Karla</span>
           <span className="flex items-center pr-2 text-xs text-neutral-500">
-            <VsfRating value={5} max={5} size="xs" className="mr-2" />2 days ago
+            <SfRating value={5} max={5} size="xs" className="mr-2" />2 days ago
           </span>
         </div>
         <div className="flex items-end">
           <p className="flex items-center text-xs truncate text-primary-700">
             <span className="mr-2 text-xs text-neutral-500">Karla | Black, XS</span>
-            <VsfIconCheck size="xs" className="mr-1" /> Verified purchase
+            <SfIconCheck size="xs" className="mr-1" /> Verified purchase
           </p>
         </div>
       </header>
@@ -44,16 +44,16 @@ export default function Review() {
       <footer className="flex items-center justify-between">
         <div className="text-sm text-neutral-500">
           <button type="button" className="mr-6 hover:text-primary-800">
-            <VsfIconThumbUp size="sm" className="mr-2.5" />
-            <VsfCounter size="sm" className="text-inherit">
+            <SfIconThumbUp size="sm" className="mr-2.5" />
+            <SfCounter size="sm" className="text-inherit">
               6
-            </VsfCounter>
+            </SfCounter>
           </button>
           <button type="button" className="hover:text-primary-800">
-            <VsfIconThumbDown size="sm" className="mr-2.5" />
-            <VsfCounter size="sm" className="text-inherit">
+            <SfIconThumbDown size="sm" className="mr-2.5" />
+            <SfCounter size="sm" className="text-inherit">
               2
-            </VsfCounter>
+            </SfCounter>
           </button>
         </div>
 

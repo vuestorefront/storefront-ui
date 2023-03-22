@@ -93,7 +93,7 @@ When using icon element with custom icon remember to specify viewBox or width/he
 <!-- react -->
 | children               | `ReactNode` |  |       Content of an SVG, e.g. `<path d='...'/>`        |
 <!-- end react -->
-| size                  | `VsfIconSize`                          | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl` |
+| size                  | `SfIconSize`                          | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl` |
 <!-- vue -->
 
 ## Slots
@@ -107,10 +107,10 @@ When using icon element with custom icon remember to specify viewBox or width/he
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfIconBase/VsfIconBase.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfIconBase/SfIconBase.vue
 <!-- end vue -->
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfIconBase/VsfIconBase.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfIconBase/SfIconBase.tsx
 <!-- end react -->
 </SourceCode>
 :::

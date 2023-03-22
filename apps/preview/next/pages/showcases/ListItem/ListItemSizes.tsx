@@ -1,19 +1,19 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region sources
-import { VsfListItem } from '@storefront-ui/react';
+import { SfListItem } from '@storefront-ui/react';
 
 export default function ListItemSizes() {
   return (
     <div className="flex flex-col max-w-sm gap-4">
-      <VsfListItem size="sm">
+      <SfListItem size="sm">
         <span className="break-words">Label</span>
-      </VsfListItem>
-      <VsfListItem>
+      </SfListItem>
+      <SfListItem>
         <span className="break-words">Label</span>
-      </VsfListItem>
-      <VsfListItem size="lg">
+      </SfListItem>
+      <SfListItem size="lg">
         <span className="break-words">Label</span>
-      </VsfListItem>
+      </SfListItem>
     </div>
   );
 }

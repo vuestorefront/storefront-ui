@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfRadio } from '@storefront-ui/react';
+import { SfRadio } from '@storefront-ui/react';
 import { useState } from 'react';
 
 const radioOptions = [
@@ -37,7 +37,7 @@ export default function RadioAlignment() {
     <div>
       {radioOptions.map(({ label, value, name }) => (
         <label key={value} className="flex items-center mb-4 cursor-pointer">
-          <VsfRadio
+          <SfRadio
             name={name}
             value={value}
             checked={checkedState === value}
@@ -51,7 +51,7 @@ export default function RadioAlignment() {
       {radioOptionsTwo.map(({ label, value, name }) => (
         <label key={value} className="flex items-center justify-between max-w-xs mb-4 cursor-pointer">
           <span className="ml-2 text-base font-normal leading-6 font-body">{label}</span>
-          <VsfRadio
+          <SfRadio
             name={name}
             value={value}
             checked={checkedStateTwo === value}

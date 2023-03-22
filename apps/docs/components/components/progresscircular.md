@@ -1,7 +1,7 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: VsfProgressCircular is used to provided feedback about the duration and progression of a process to indicate how long a user will be waiting
+description: SfProgressCircular is used to provided feedback about the duration and progression of a process to indicate how long a user will be waiting
 ---
 # ProgressCircular
 
@@ -66,7 +66,7 @@ ProgressCircular might be displayed with a text representation of it's value. To
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
 |  value                |  `number`                    | 0 0            |                                        |
-|  size              |  `VsfProgressSize` |   `VsfProgressSize.base`        |   `xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl`  |
+|  size              |  `SfProgressSize` |   `SfProgressSize.base`        |   `xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl`  |
 |  ariaLabel         |  string                    |   'Progress element'  |                                        |
 <!-- react -->
 |  className            |  String                    |               |                                        |
@@ -84,10 +84,10 @@ ProgressCircular might be displayed with a text representation of it's value. To
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfProgressCircular/VsfProgressCircular.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfProgressCircular/SfProgressCircular.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfProgressCircular/VsfProgressCircular.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfProgressCircular/SfProgressCircular.tsx
 <!-- end react -->
 </SourceCode>
 :::

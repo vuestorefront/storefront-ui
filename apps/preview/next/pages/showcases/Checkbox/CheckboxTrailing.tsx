@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfCheckbox } from '@storefront-ui/react';
+import { SfCheckbox } from '@storefront-ui/react';
 
 export default function CheckboxTrailing() {
   return (
@@ -11,7 +11,7 @@ export default function CheckboxTrailing() {
       >
         Label
       </label>
-      <VsfCheckbox value="value" className="peer" id="checkbox" />
+      <SfCheckbox value="value" className="peer" id="checkbox" />
     </div>
   );
 }

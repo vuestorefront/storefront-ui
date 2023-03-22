@@ -1,6 +1,6 @@
 <template>
-  <VsfCounter size="xl" pill> 123 </VsfCounter>
+  <SfCounter size="xl" pill> 123 </SfCounter>
 </template>
 <script lang="ts" setup>
-import { VsfCounter } from '@storefront-ui/vue';
+import { SfCounter } from '@storefront-ui/vue';
 </script>

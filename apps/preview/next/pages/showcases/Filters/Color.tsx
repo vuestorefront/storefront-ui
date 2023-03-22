@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfAccordionItem, VsfCounter, VsfListItem, VsfThumbnail, VsfIconChevronLeft } from '@storefront-ui/react';
+import { SfAccordionItem, SfCounter, SfListItem, SfThumbnail, SfIconChevronLeft } from '@storefront-ui/react';
 import { useState } from 'react';
 import classNames from 'classnames';
 
@@ -57,18 +57,18 @@ export default function FilterColor() {
   const isColorSelected = (val: string) => colorList.includes(val);
 
   return (
-    <VsfAccordionItem
+    <SfAccordionItem
       open={opened}
       onToggle={() => setOpened(!opened)}
       summary={
         <div className="flex justify-between p-2 mb-2">
           <p className="font-medium">Color</p>
-          <VsfIconChevronLeft className={classNames('text-neutral-500', `${opened ? 'rotate-90' : '-rotate-90'}`)} />
+          <SfIconChevronLeft className={classNames('text-neutral-500', `${opened ? 'rotate-90' : '-rotate-90'}`)} />
         </div>
       }
     >
       {colorValues.map(({ label, value, counter }) => (
-        <VsfListItem
+        <SfListItem
           key={value}
           as="label"
           size="sm"
@@ -86,18 +86,18 @@ export default function FilterColor() {
                 }}
               />
               <span className="cursor-pointer p-1 ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline">
-                <VsfThumbnail size="sm" className={value} />
+                <SfThumbnail size="sm" className={value} />
               </span>
             </>
           }
         >
           <p>
             <span className="text-sm mr-2">{label}</span>
-            <VsfCounter>{counter}</VsfCounter>
+            <SfCounter>{counter}</SfCounter>
           </p>
-        </VsfListItem>
+        </SfListItem>
       ))}
-    </VsfAccordionItem>
+    </SfAccordionItem>
   );
 }
 

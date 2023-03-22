@@ -1,7 +1,7 @@
 <template>
   <div class="inline-flex flex-col items-center">
     <div class="flex">
-      <VsfButton
+      <SfButton
         type="button"
         square
         class="!rounded-full"
@@ -10,8 +10,8 @@
         aria-label="Decrease value"
         @click="dec()"
       >
-        <VsfIconRemove />
-      </VsfButton>
+        <SfIconRemove />
+      </SfButton>
       <input
         :id="inputId"
         v-model="count"
@@ -23,7 +23,7 @@
         @input="handleOnChange"
       />
 
-      <VsfButton
+      <SfButton
         type="button"
         square
         class="!rounded-full"
@@ -32,8 +32,8 @@
         aria-label="Increase value"
         @click="inc()"
       >
-        <VsfIconAdd />
-      </VsfButton>
+        <SfIconAdd />
+      </SfButton>
     </div>
   </div>
 </template>
@@ -41,7 +41,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { useCounter } from '@vueuse/core';
-import { VsfButton, VsfIconAdd, VsfIconRemove, useId } from '@storefront-ui/vue';
+import { SfButton, SfIconAdd, SfIconRemove, useId } from '@storefront-ui/vue';
 import { clamp } from '@storefront-ui/shared';
 
 const min = ref(1);

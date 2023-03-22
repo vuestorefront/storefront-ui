@@ -1,7 +1,7 @@
 <template>
-  <VsfThumbnail class="bg-primary-500" />
+  <SfThumbnail class="bg-primary-500" />
 </template>
 
 <script lang="ts" setup>
-import { VsfThumbnail } from '@storefront-ui/vue';
+import { SfThumbnail } from '@storefront-ui/vue';
 </script>

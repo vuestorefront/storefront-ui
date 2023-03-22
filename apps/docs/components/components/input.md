@@ -16,9 +16,9 @@ Used for forms, for example to enter address details, email, password, credit ca
 
 For search feature use Search component instead of Input.
 
-All attributes added to `VsfInput` component are passed directly to native input element and so are the styles. But if you want to style entire component pass your classes via <!-- vue -->`wrapperClass`<!-- end vue --> <!-- react --> `wrapperClassName`<!-- end react -->prop. 
+All attributes added to `SfInput` component are passed directly to native input element and so are the styles. But if you want to style entire component pass your classes via <!-- vue -->`wrapperClass`<!-- end vue --> <!-- react --> `wrapperClassName`<!-- end react -->prop. 
 
-If you want to apply `size` attribute to input element, use `width` property with `ch` unit instead, eg. `width: 10ch`. `size` property is already used to customize layout of `VsfInput` component.
+If you want to apply `size` attribute to input element, use `width` property with `ch` unit instead, eg. `width: 10ch`. `size` property is already used to customize layout of `SfInput` component.
 
 ## Accessibility notes
 
@@ -122,7 +122,7 @@ The input component when in invalid state.
 
 | Prop name    | Type            | Default value | Possible values                        |
 | ------------ | --------        | ------------- | -------------------------------------- |
-| size         | VsfInputSize  | base          | sm, base, lg                           |
+| size         | SfInputSize  | base          | sm, base, lg                           |
 | invalid      | Boolean         | false         |                                        |
 <!-- react -->
 | slotPrefix   | ReactNode       |               |                                        |
@@ -157,13 +157,13 @@ The input component when in invalid state.
 
 <!-- vue -->
 
-<<<../../../packages/sfui/frameworks/vue/components/VsfInput/VsfInput.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfInput/SfInput.vue
 
 <!-- end vue -->
 
 <!-- react -->
 
-<<< ../../../packages/sfui/frameworks/react/components/VsfInput/VsfInput.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfInput/SfInput.tsx
 
 <!-- end react -->
 </SourceCode>

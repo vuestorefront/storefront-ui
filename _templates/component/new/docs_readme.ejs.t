@@ -1,5 +1,5 @@
 ---
-to: apps/docs/components/components/<%= name.replace('Vsf', '').toLowerCase() %>.md
+to: apps/docs/components/components/<%= name.replace('Sf', '').toLowerCase() %>.md
 force: false
 ---
 <%- '---' %>
@@ -7,7 +7,7 @@ layout: AtomLayout
 hideBreadcrumbs: true
 <%- '---' %>
 
-<% DocsName = name.replace('Vsf', '') %># <%= DocsName %> component
+<% DocsName = name.replace('Sf', '') %># <%= DocsName %> component
 
 <Generate />
 

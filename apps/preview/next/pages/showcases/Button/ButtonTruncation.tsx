@@ -1,12 +1,12 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfButton } from '@storefront-ui/react';
+import { SfButton } from '@storefront-ui/react';
 
 export default function ButtonTruncation() {
   return (
-    <VsfButton>
+    <SfButton>
       <span className="truncate max-w-[200px]"> Too long description for button </span>
-    </VsfButton>
+    </SfButton>
   );
 }
 // #endregion source

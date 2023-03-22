@@ -87,10 +87,10 @@ The AccordionItem component is built on top of the [\<details>](https://develope
 ## Source code
 
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfAccordionItem/VsfAccordionItem.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfAccordionItem/SfAccordionItem.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfAccordionItem/VsfAccordionItem.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfAccordionItem/SfAccordionItem.tsx
 <!-- end react -->
 
 :::

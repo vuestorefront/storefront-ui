@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { ChangeEvent, useState } from 'react';
-import { VsfButton, VsfButtonVariant, VsfButtonSize, VsfIconExpandLess, VsfIconExpandMore } from '@storefront-ui/react';
+import { SfButton, SfButtonVariant, SfButtonSize, SfIconExpandLess, SfIconExpandMore } from '@storefront-ui/react';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 import { ControlOptionBind, ControlsProps, ControlsType } from './types';
 
@@ -67,14 +67,14 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
       <div className="heading-wrapper">
         <h1 className="heading">Controls</h1>
 
-        <VsfButton
-          variant={VsfButtonVariant.tertiary}
-          size={VsfButtonSize.sm}
+        <SfButton
+          variant={SfButtonVariant.tertiary}
+          size={SfButtonSize.sm}
           onClick={() => setPreviewBottomOpen(!previewBottomOpen)}
-          slotSuffix={previewBottomOpen ? <VsfIconExpandMore /> : <VsfIconExpandLess />}
+          slotSuffix={previewBottomOpen ? <SfIconExpandMore /> : <SfIconExpandLess />}
         >
           {previewBottomOpen ? 'Close' : 'Open'}
-        </VsfButton>
+        </SfButton>
       </div>
       <div className="table-wrapper">
         <table aria-label="Controls table">

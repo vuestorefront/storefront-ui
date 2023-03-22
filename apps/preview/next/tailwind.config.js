@@ -1,4 +1,4 @@
-const vsfTypography = require('@storefront-ui/typography');
+const sfTypography = require('@storefront-ui/typography');
 /** @type {import('tailwindcss').Config} */
 const { tailwindConfig } = require('@storefront-ui/tailwind-config');
 
@@ -12,5 +12,5 @@ module.exports = {
       },
     },
   },
-  plugins: [vsfTypography],
+  plugins: [sfTypography],
 };

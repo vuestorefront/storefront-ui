@@ -1,13 +1,13 @@
 <template>
   <div class="flex flex-col gap-2 md:flex-row">
-    <VsfCounter size="xs"> 123 </VsfCounter>
-    <VsfCounter size="sm"> 123 </VsfCounter>
-    <VsfCounter size="base"> 123 </VsfCounter>
-    <VsfCounter size="lg"> 123 </VsfCounter>
-    <VsfCounter size="xl"> 123 </VsfCounter>
-    <VsfCounter size="2xl"> 123 </VsfCounter>
+    <SfCounter size="xs"> 123 </SfCounter>
+    <SfCounter size="sm"> 123 </SfCounter>
+    <SfCounter size="base"> 123 </SfCounter>
+    <SfCounter size="lg"> 123 </SfCounter>
+    <SfCounter size="xl"> 123 </SfCounter>
+    <SfCounter size="2xl"> 123 </SfCounter>
   </div>
 </template>
 <script lang="ts" setup>
-import { VsfCounter } from '@storefront-ui/vue';
+import { SfCounter } from '@storefront-ui/vue';
 </script>

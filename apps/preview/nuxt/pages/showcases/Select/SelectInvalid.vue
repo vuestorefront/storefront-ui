@@ -1,16 +1,16 @@
 <template>
   <label>
     <span class="pb-1 text-sm font-medium text-neutral-900 font-body"> Label </span>
-    <VsfSelect :invalid="true" placeholder="-- Select --">
+    <SfSelect :invalid="true" placeholder="-- Select --">
       <option v-for="{ value, label } in options" :key="value" :value="value">
         {{ label }}
       </option>
-    </VsfSelect>
+    </SfSelect>
   </label>
 </template>
 
 <script lang="ts" setup>
-import { VsfSelect } from '@storefront-ui/vue';
+import { SfSelect } from '@storefront-ui/vue';
 
 const options = [
   { label: 'red', value: 'red' },

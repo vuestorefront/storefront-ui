@@ -63,7 +63,7 @@ The pill version of the component with custom background set to `bg-secondary-70
 
 | Prop name | Type              | Default value | Possible values                       |
 |-----------|-------------------|---------------|---------------------------------------|
-| size      | `VsfCounterSize` | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl` |
+| size      | `SfCounterSize` | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl` |
 | pill      | `Boolean`         | `false`       |                                       |
 <!-- react -->
 | children  | `ReactNode`       |               |                                       |
@@ -83,10 +83,10 @@ The pill version of the component with custom background set to `bg-secondary-70
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfCounter/VsfCounter.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfCounter/SfCounter.vue
 <!-- end vue -->
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfCounter/VsfCounter.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfCounter/SfCounter.tsx
 <!-- end react -->
 </SourceCode>
 :::

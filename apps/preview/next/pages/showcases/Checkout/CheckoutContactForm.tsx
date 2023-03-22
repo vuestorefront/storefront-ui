@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfInput, VsfButton, VsfSelect } from '@storefront-ui/react';
+import { SfInput, SfButton, SfSelect } from '@storefront-ui/react';
 import { useState, ChangeEvent, FormEventHandler } from 'react';
 
 export default function ContactForm() {
@@ -31,7 +31,7 @@ export default function ContactForm() {
       <div className="gap-y-0.5">
         <label className="gap-y-0.5">
           <span className="text-sm font-medium">Email</span>
-          <VsfInput
+          <SfInput
             name="email"
             onChange={handleValidation}
             placeholder="email address"
@@ -48,14 +48,14 @@ export default function ContactForm() {
       <label className="flex flex-col gap-y-0.5">
         <span className="font-medium typography-text-sm">Phone number</span>
         <div className="flex">
-          <VsfSelect name="phone-country-code" className="w-16 mr-4" placeholder="--" autoComplete="tel-country-code">
+          <SfSelect name="phone-country-code" className="w-16 mr-4" placeholder="--" autoComplete="tel-country-code">
             {options.map((option) => (
               <option value={option} key={option}>
                 {option}
               </option>
             ))}
-          </VsfSelect>
-          <VsfInput
+          </SfSelect>
+          <SfInput
             name="phone-national"
             wrapperClassName="w-full"
             type="tel"
@@ -65,12 +65,12 @@ export default function ContactForm() {
         </div>
       </label>
       <div className="flex justify-between gap-4 md:justify-end">
-        <VsfButton className="w-full md:w-auto" type="reset" variant="secondary">
+        <SfButton className="w-full md:w-auto" type="reset" variant="secondary">
           Clear all
-        </VsfButton>
-        <VsfButton className="w-full md:w-auto" type="submit">
+        </SfButton>
+        <SfButton className="w-full md:w-auto" type="submit">
           Save
-        </VsfButton>
+        </SfButton>
       </div>
     </form>
   );
