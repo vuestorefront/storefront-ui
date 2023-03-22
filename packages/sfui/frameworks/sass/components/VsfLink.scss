@@ -1,6 +1,6 @@
 .vsf-link {
   &:not(&--none){
-    @apply hover:underline hover:text-primary-700 active:underline active:text-primary-800;
+    @apply outline-none focus-visible:outline focus-visible:rounded-sm focus-visible:outline-offset-2 focus-visible:outline-2 focus-visible:outline-secondary-600 hover:underline hover:text-primary-700 active:underline active:text-primary-800;
   }
 
   &--primary {

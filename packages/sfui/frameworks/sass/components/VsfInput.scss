@@ -6,7 +6,7 @@ $self: &;
   }
 
   &__input-wrapper {
-    @apply flex items-center ring-1 ring-gray-200 ring-inset rounded-md text-gray-500 rounded-md py-2 px-4 bg-white hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2;
+    @apply flex items-center ring-1 ring-gray-200 ring-inset outline-none rounded-md text-gray-500 rounded-md py-2 px-4 bg-white hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 focus-within:outline focus-within:outline-secondary-600;
   }
 
   &__prefix {

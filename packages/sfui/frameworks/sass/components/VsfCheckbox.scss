@@ -24,7 +24,7 @@
   }
 
   &__input {
-    @apply flex self-center h-[18px] min-w-[18px] border-2 rounded-sm appearance-none cursor-pointer text-gray-500 hover:border-primary-800 active:border-primary-900 hover:checked:text-primary-800 hover:indeterminate:text-primary-800 active:checked:text-primary-900 checked:text-primary-700 checked:bg-checked-checkbox-current border-current indeterminate:bg-indeterminate-checkbox-current indeterminate:text-primary-700;
+    @apply flex self-center h-[18px] min-w-[18px] border-2 rounded-sm appearance-none cursor-pointer text-gray-500 hover:border-primary-800 active:border-primary-900 hover:checked:text-primary-800 hover:indeterminate:text-primary-800 active:checked:text-primary-900 checked:text-primary-700 checked:bg-checked-checkbox-current border-current indeterminate:bg-indeterminate-checkbox-current indeterminate:text-primary-700 outline-none focus-visible:outline-secondary-700;
 
     &--invalid, &:invalid {
       @apply border-negative-700 hover:border-negative-800 active:border-negative-900;

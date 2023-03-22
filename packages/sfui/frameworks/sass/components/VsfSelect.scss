@@ -16,7 +16,7 @@
   }
 
   &__input {
-    @apply appearance-none disabled:cursor-not-allowed cursor-pointer order-2 py-2 pl-4 pr-3.5 text-gray-900 bg-transparent shadow-inner-border shadow-gray-300 rounded-md hover:shadow-primary-700 active:shadow-inner-border-bolded active:shadow-primary-700 disabled:bg-gray-100 disabled:opacity-50 disabled:text-gray-900/40 disabled:shadow-gray-200;
+    @apply focus:outline-none focus-visible:outline focus-visible:outline-secondary-600 appearance-none disabled:cursor-not-allowed cursor-pointer order-2 py-2 pl-4 pr-3.5 text-gray-900 bg-transparent shadow-inner-border shadow-gray-300 rounded-md hover:shadow-primary-800 active:shadow-inner-border-bolded active:shadow-primary-700 focus:shadow-inner-border-bolded focus:shadow-primary-700 disabled:bg-gray-100 disabled:opacity-50 disabled:text-gray-900/40 disabled:shadow-gray-200;
 
     &--small {
       @apply py-1.5;
