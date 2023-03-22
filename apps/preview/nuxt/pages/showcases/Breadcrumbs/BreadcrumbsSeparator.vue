@@ -36,6 +36,7 @@
       <li
         v-for="item in breadcrumbs"
         :key="item.name"
+        icon=""
         class="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-[url('@assets/chevron_right.svg')] peer-[:nth-of-type(even)]:before:inline-flex last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
       >
         <VsfLink

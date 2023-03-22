@@ -1,7 +1,5 @@
 import { useState } from 'react';
-// import chevronRight from '@assets/chevron_right.svg';
-import classNames from 'classnames';
-import { VsfDropdown, VsfButton, VsfLink, VsfIconMoreHoriz } from '@storefront-ui/react';
+import { VsfDropdown, VsfButton, VsfLink, VsfIconMoreHoriz, VsfIconChevronRight } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 const breadcrumbs = [
@@ -29,14 +27,14 @@ export function Showcase() {
           <VsfDropdown
             trigger={
               <VsfButton
-                className="relative w-5 h-5 p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
+                className="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
                 aria-label="More breadcrumbs"
                 type="button"
                 variant="tertiary"
                 slotPrefix={
                   <VsfIconMoreHoriz
                     size="sm"
-                    className="hover:text-primary-700 active:text-primary-800 active:bg-transparent"
+                    className="text-neutral-500 hover:text-primary-700 active:text-primary-800 active:bg-transparent"
                   />
                 }
                 square
@@ -65,11 +63,13 @@ export function Showcase() {
         </li>
         {breadcrumbs.map((item) => (
           <li
-            // className={classNames(
-            //   `peer hidden sm:block peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:content-[url('${chevronRight.src}'))] last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium`,
-            // )}
+            data-icon="url('@assets/chevron_right.svg')"
+            className="hidden peer sm:flex text-neutral-500 last-of-type:flex last-of-type:text-neutral-900 last-of-type:font-medium"
             key={item.name}
           >
+            {breadcrumbs.indexOf(item) === 0 ? null : (
+              <VsfIconChevronRight size="sm" className="mx-0.5 text-disabled-500" />
+            )}
             <VsfLink
               href={item.link}
               variant="secondary"

@@ -21,20 +21,20 @@ export function Showcase() {
   };
 
   return (
-    <nav className="inline-flex items-center text-sm font-normal font-body">
-      <ol className="flex w-auto leading-none group md:flex-wrap">
-        <li className="flex items-center sm:hidden">
+    <nav className="inline-flex text-sm font-normal font-body">
+      <ol className="flex items-center w-auto leading-none group md:flex-wrap">
+        <li className="flex sm:hidden">
           <VsfDropdown
             trigger={
               <VsfButton
-                className="relative w-5 h-5 p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
+                className="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
                 aria-label="More breadcrumbs"
                 type="button"
                 variant="tertiary"
                 slotPrefix={
                   <VsfIconMoreHoriz
                     size="sm"
-                    className="hover:text-primary-700 active:text-primary-800 active:bg-transparent"
+                    className="text-neutral-500 hover:text-primary-700 active:text-primary-800 active:bg-transparent"
                   />
                 }
                 square
