@@ -6,7 +6,7 @@ import {
   VsfButton,
   VsfButtonVariant,
   VsfButtonSize,
-  VsfListItemMenu,
+  VsfListItem,
   VsfIconChevronLeft,
   VsfIconChevronRight,
   VsfIconExpandMore,
@@ -83,15 +83,15 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
                       {groups[group].showcases.map((showcaseName) => (
                         <li key={showcaseName} data-sidebar-component={showcaseName}>
                           <Link href={groupItemHref(group, showcaseName)} legacyBehavior>
-                            <VsfListItemMenu
-                              active={router.pathname === groupItemHref(group, showcaseName)}
+                            <VsfListItem
+                              selected={router.pathname === groupItemHref(group, showcaseName)}
                               className={classNames({
                                 'font-medium': router.pathname === groupItemHref(group, showcaseName),
                               })}
                               as="a"
                             >
                               {showcaseName}
-                            </VsfListItemMenu>
+                            </VsfListItem>
                           </Link>
                         </li>
                       ))}

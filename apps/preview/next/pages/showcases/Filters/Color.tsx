@@ -1,4 +1,4 @@
-import { VsfAccordionItem, VsfCounter, VsfListItemMenu, VsfThumbnail, VsfIconChevronLeft } from '@storefront-ui/react';
+import { VsfAccordionItem, VsfCounter, VsfListItem, VsfThumbnail, VsfIconChevronLeft } from '@storefront-ui/react';
 import { useState } from 'react';
 import classNames from 'classnames';
 import { ShowcasePageLayout } from '../../showcases';
@@ -67,12 +67,12 @@ export function Showcase() {
       }
     >
       {colorValues.map(({ label, value, counter }) => (
-        <VsfListItemMenu
+        <VsfListItem
           key={value}
           as="label"
           size="sm"
           className="px-1.5 bg-transparent hover:bg-transparent"
-          active={isColorSelected(value)}
+          selected={isColorSelected(value)}
           slotPrefix={
             <>
               <input
@@ -94,7 +94,7 @@ export function Showcase() {
             <span className="text-sm mr-2">{label}</span>
             <VsfCounter>{counter}</VsfCounter>
           </p>
-        </VsfListItemMenu>
+        </VsfListItem>
       ))}
     </VsfAccordionItem>
   );

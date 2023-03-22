@@ -6,7 +6,7 @@ import {
   VsfButton,
   VsfButtonVariant,
   VsfButtonSize,
-  VsfListItemMenu,
+  VsfListItem,
   VsfIconChevronLeft,
   VsfIconChevronRight,
 } from '@storefront-ui/react';
@@ -40,13 +40,13 @@ export default function ExampleLayout({ children }: { children: ReactElement }) 
             {components?.map((component) => (
               <li key={component} data-sidebar-component={component}>
                 <Link href={`/examples/${component}`} legacyBehavior>
-                  <VsfListItemMenu
+                  <VsfListItem
                     className={classNames({ 'font-medium': router.pathname === `/examples/${component}` })}
-                    active={router.pathname === `/examples/${component}`}
+                    selected={router.pathname === `/examples/${component}`}
                     as="a"
                   >
                     {component}
-                  </VsfListItemMenu>
+                  </VsfListItem>
                 </Link>
               </li>
             ))}

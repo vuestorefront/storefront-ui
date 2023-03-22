@@ -1,4 +1,4 @@
-import { VsfRadio, VsfListItemMenu } from '@storefront-ui/react';
+import { VsfRadio, VsfListItem } from '@storefront-ui/react';
 import { useState } from 'react';
 import { ShowcasePageLayout } from '../../showcases';
 
@@ -21,7 +21,7 @@ export function Showcase() {
   return (
     <div>
       {deliveryOptions.map(({ name, cost, date }) => (
-        <VsfListItemMenu
+        <VsfListItem
           as="label"
           key={name}
           slotPrefix={
@@ -39,7 +39,7 @@ export function Showcase() {
         >
           {name}
           <span className="text-xs text-gray-500 break-words">{date}</span>
-        </VsfListItemMenu>
+        </VsfListItem>
       ))}
     </div>
   );

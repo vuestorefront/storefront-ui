@@ -6,7 +6,7 @@ export * from './VsfDrawer';
 export * from './VsfInput';
 export * from './VsfIconBase';
 export * from './VsfLink';
-export * from './VsfListItemMenu';
+export * from './VsfListItem';
 export * from './VsfLoader';
 export * from './VsfProgress';
 export * from './VsfRating';

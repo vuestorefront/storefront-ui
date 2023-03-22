@@ -20,7 +20,7 @@ export * from './components/VsfIconBase';
 export * from './components/VsfIcons';
 export * from './components/VsfInput';
 export * from './components/VsfLink';
-export * from './components/VsfListItemMenu';
+export * from './components/VsfListItem';
 export * from './components/VsfLoaderCircular';
 export * from './components/VsfLoaderLinear';
 export * from './components/VsfModal';

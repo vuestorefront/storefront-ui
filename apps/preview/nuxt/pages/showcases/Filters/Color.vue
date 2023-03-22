@@ -6,13 +6,13 @@
         <VsfIconChevronLeft :class="['text-neutral-500', open ? 'rotate-90' : '-rotate-90']" />
       </div>
     </template>
-    <VsfListItemMenu
+    <VsfListItem
       v-for="({ label, value, counter }, index) in colorValues"
       :key="index"
       size="sm"
       tag="label"
       class="px-1.5 bg-transparent hover:bg-transparent"
-      :active="isItemActive(value)"
+      :selected="isItemActive(value)"
     >
       <template #prefix>
         <input v-model="selectedValues" :value="value" class="peer appearance-none" type="checkbox" />
@@ -25,13 +25,13 @@
         <span className="typography-text-sm mr-2">{{ label }}</span>
         <VsfCounter>{{ counter }}</VsfCounter>
       </p>
-    </VsfListItemMenu>
+    </VsfListItem>
   </VsfAccordionItem>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfAccordionItem, VsfCounter, VsfListItemMenu, VsfThumbnail, VsfIconChevronLeft } from '@storefront-ui/vue';
+import { VsfAccordionItem, VsfCounter, VsfListItem, VsfThumbnail, VsfIconChevronLeft } from '@storefront-ui/vue';
 
 const colorValues = ref([
   {

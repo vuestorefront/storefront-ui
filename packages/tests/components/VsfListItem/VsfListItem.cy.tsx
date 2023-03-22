@@ -1,29 +1,29 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { VsfListItemMenuSize } from '@storefront-ui/vue';
+import { VsfListItemSize } from '@storefront-ui/vue';
 import { mount, useComponent } from '../../utils/mount';
-import VsfListItemMenuBaseObject from './VsfListItemMenu.PageObject';
+import VsfListItemBaseObject from './VsfListItem.PageObject';
 
-const { vue: VsfListItemMenuVue, react: VsfListItemMenuReact } = useComponent('VsfListItemMenu');
+const { vue: VsfListItemVue, react: VsfListItemReact } = useComponent('VsfListItem');
 const { vue: VsfIconCheckCircleVue, react: VsfIconCheckCircleReact } = useComponent('VsfIconCheckCircle');
 const { vue: VsfIconCircleVue, react: VsfIconCircleReact } = useComponent('VsfIconCircle');
 
 const defaultSlotContent = 'Label';
 
-describe('VsfListItemMenu', () => {
+describe('VsfListItem', () => {
   let disabled: boolean;
-  let size: VsfListItemMenuSize;
+  let size: VsfListItemSize;
   let selected: boolean;
   let slotPrefix: boolean;
   let slotSuffix: boolean;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
 
-  const page = () => new VsfListItemMenuBaseObject('list-item-menu');
+  const page = () => new VsfListItemBaseObject('list-item');
 
   const initializeComponent = () => {
     return mount({
       vue: {
-        component: VsfListItemMenuVue,
+        component: VsfListItemVue,
         global: {
           components: {
             VsfIconCheckCircleVue,
@@ -43,7 +43,7 @@ describe('VsfListItemMenu', () => {
         },
       },
       react: (
-        <VsfListItemMenuReact
+        <VsfListItemReact
           disabled={disabled}
           selected={selected}
           size={size}
@@ -52,7 +52,7 @@ describe('VsfListItemMenu', () => {
           onClick={onChangeSpy}
         >
           {defaultSlotContent}
-        </VsfListItemMenuReact>
+        </VsfListItemReact>
       ),
     });
   };
@@ -62,7 +62,7 @@ describe('VsfListItemMenu', () => {
   });
 
   afterEach(() => {
-    size = VsfListItemMenuSize.base;
+    size = VsfListItemSize.base;
   });
 
   it('initial state', () => {
@@ -83,7 +83,7 @@ describe('VsfListItemMenu', () => {
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(VsfListItemMenuSize).forEach((componentSize) => {
+    Object.values(VsfListItemSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
