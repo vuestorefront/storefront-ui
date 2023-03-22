@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-2 medium:flex-row">
+  <div class="flex flex-col gap-2 md:flex-row">
     <VsfCounter size="xs"> 123 </VsfCounter>
     <VsfCounter size="sm"> 123 </VsfCounter>
     <VsfCounter size="base"> 123 </VsfCounter>

@@ -56,12 +56,12 @@ const changedValue = (event: Event) => {
       :required="required"
       :disabled="disabled"
       :class="[
-        'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 bg-transparent shadow-inner-border shadow-neutral-300 rounded-md hover:shadow-primary-700 active:shadow-inner-border-bolded active:shadow-primary-700 disabled:bg-disabled-100 disabled:opacity-50 disabled:text-disabled-900 disabled:shadow-disabled-200 peer',
+        'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200 peer',
         {
           'py-1.5': size === VsfSelectSize.sm,
           'py-2': size === VsfSelectSize.base,
           'py-3 text-base': size === VsfSelectSize.lg,
-          '!shadow-negative-600 shadow-inner-border-bolded': invalid,
+          '!ring-negative-600 ring-2': invalid && !disabled,
         },
       ]"
       data-testid="select-input"
@@ -86,8 +86,8 @@ const changedValue = (event: Event) => {
     <slot name="chevron">
       <VsfIconExpandMore
         :class="[
-          'absolute -translate-y-1 pointer-events-none top-1/3 right-4 text-neutral-500 peer-focus:rotate-180 transition easy-in-out duration-0.5',
-          { 'text-disabled-500': disabled },
+          'absolute -translate-y-1 pointer-events-none top-1/3 right-4 peer-focus:rotate-180 transition easy-in-out duration-0.5',
+          disabled ? 'text-disabled-500' : 'text-neutral-500',
         ]"
       />
     </slot>

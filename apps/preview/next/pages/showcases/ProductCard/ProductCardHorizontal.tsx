@@ -18,7 +18,7 @@ export function Showcase() {
   }
   return (
     <div className="relative flex border-b-[1px] border-neutral-200 hover:shadow-lg min-w-[320px] max-w-[640px] p-4">
-      <div className="relative overflow-hidden rounded-md w-[100px] small:w-[176px]">
+      <div className="relative overflow-hidden rounded-md w-[100px] sm:w-[176px]">
         <VsfLink href="#">
           <Image
             className="w-full h-auto border rounded-md border-neutral-200"
@@ -34,11 +34,11 @@ export function Showcase() {
         </div>
       </div>
       <div className="flex flex-col pl-4 min-w-[180px] flex-1">
-        <VsfLink href="#" variant="secondary" className="no-underline typography-text-sm small:typography-text-lg">
+        <VsfLink href="#" variant="secondary" className="no-underline typography-text-sm sm:typography-text-lg">
           Smartwatch Fitness Tracker
         </VsfLink>
-        <div className="my-2 small:mb-0">
-          <ul className="text-xs font-normal leading-5 small:typography-text-sm text-neutral-700">
+        <div className="my-2 sm:mb-0">
+          <ul className="text-xs font-normal leading-5 sm:typography-text-sm text-neutral-700">
             <li>
               <span className="mr-1">Size:</span>
               <span className="font-medium">6.5</span>
@@ -49,12 +49,10 @@ export function Showcase() {
             </li>
           </ul>
         </div>
-        <div className="items-center small:mt-auto small:flex">
-          <span className="font-bold small:ml-auto small:order-1 typography-text-sm small:typography-text-lg">
-            $2,345.99
-          </span>
-          <div className="flex items-center justify-between mt-4 small:mt-0">
-            <div className="flex mr-auto small:mr-4">
+        <div className="items-center sm:mt-auto sm:flex">
+          <span className="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99</span>
+          <div className="flex items-center justify-between mt-4 sm:mt-0">
+            <div className="flex mr-auto sm:mr-4">
               <VsfButton
                 type="button"
                 variant="tertiary"
@@ -96,7 +94,7 @@ export function Showcase() {
               className="text-neutral-500 text-xs font-light ml-auto flex items-center px-3 py-1.5"
             >
               <VsfIconDelete />
-              <span className="hidden ml-1.5 small:block"> Remove </span>
+              <span className="hidden ml-1.5 sm:block"> Remove </span>
             </button>
           </div>
         </div>

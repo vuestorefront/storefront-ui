@@ -3,7 +3,7 @@
     <header class="flex justify-center w-full text-white border-0 bg-primary-700 h-14 md:h-20 border-neutral-200">
       <div class="flex items-center flex-row flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <a aria-label="VSF Homepage" class="inline-block h-8 text-white md:h-10 lg:h-7 text-primary-700">
-          <img :src="brandLogo" alt="VSF Logo" class="hidden large:block mr-10 w-[12.5rem] h-[1.75rem]" />
+          <img :src="brandLogo" alt="VSF Logo" class="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
           <img :src="brandLogoSign" alt="Vsf Logo" className="hidden w-10 h-10 mr-4 md:block lg:hidden" />
           <img :src="brandLogoSign" alt="Vsf Logo" className="block w-8 h-8 mr-4 min-w-8 md:hidden" />
         </a>

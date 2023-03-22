@@ -149,9 +149,9 @@ export default {
 or
 
 ```js
-const config = require('@storefront-ui/tailwind-config/index.json');
+const { tailwindConfig } = require('@storefront-ui/tailwind-config');
 
 module.exports = {
-  ...config,
+  presets: [tailwindConfig]
 };
 ```
