@@ -3,7 +3,7 @@ import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {
   return (
-    <div className="flex flex-col items-center space-y-4 extra-small:flex-row extra-small:space-y-0 extra-small:space-x-4">
+    <div className="flex flex-col items-center space-y-4 xs:flex-row xs:space-y-0 xs:space-x-4">
       <VsfButton slotPrefix={<VsfIconHome />}>Home</VsfButton>
 
       <VsfButton slotSuffix={<VsfIconStar />}>Hello</VsfButton>

@@ -7,47 +7,18 @@ export const tailwindConfig: Config = {
   },
   theme: {
     extend: {
-      spacing: {
-        '0.75': '0.375rem',
-      },
       outlineColor: {
         violet: '#6F40EC',
       },
       boxShadow: {
-        base: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
-        inset: '0 0 0 2px rgba(255,255,255, 1) inset,0 0 0 rgba(255,255,255, 1) inset',
-        medium: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
-        large: '0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -2px rgba(0, 0, 0, 0.05)',
-        'extra-large': '0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 10px 10px -5px rgba(0, 0, 0, 0.04)',
-        'inner-border': 'inset -1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px, inset 1px 0px 0px 0px',
-        'inner-border-button-left': 'inset 1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px',
-        'inner-border-button-right': 'inset -1px 0px 0px 0px, inset 0px 1px 0px 0px, inset 0px -1px 0px 0px',
-        'inner-border-bolded':
-          'inset -2px 0px 0px 0px, inset 0px 2px 0px 0px, inset 0px -2px 0px 0px, inset 2px 0px 0px 0px',
+        DEFAULT: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
+        md: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
       },
       backgroundImage: {
-        'star-filled': "url('../../assets/star.svg')",
-        'star-outline': "url('../../assets/star-outline.svg')",
         'checked-checkbox-current':
           'linear-gradient(-45deg,transparent 65%, currentcolor 65.99%),linear-gradient(45deg,transparent 75%, currentcolor 75.99%),linear-gradient(-45deg, currentcolor 40%,transparent 40.99%),linear-gradient(45deg, currentcolor 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, currentcolor 50.99%)',
         'indeterminate-checkbox-current':
           'linear-gradient(90deg,transparent 80%, currentcolor 80%),linear-gradient(-90deg,transparent 80%, currentcolor 80%),linear-gradient(0deg, currentcolor 43%, white 43%, white 57%, currentcolor 57%)',
-        'checked-checkbox':
-          'linear-gradient(-45deg,transparent 65%, #02BB4D 65.99%),linear-gradient(45deg,transparent 75%, #02BB4D 75.99%),linear-gradient(-45deg, #02BB4D 40%,transparent 40.99%),linear-gradient(45deg, #02BB4D 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #02BB4D 50.99%)',
-        'checked-disabled-checkbox':
-          'linear-gradient(-45deg,transparent 65%, #b8b8bc 65.99%),linear-gradient(45deg,transparent 75%, #b8b8bc 75.99%),linear-gradient(-45deg, #b8b8bc 40%,transparent 40.99%),linear-gradient(45deg, #b8b8bc 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #b8b8bc 50.99%)',
-        'checked-checkbox-hover':
-          'linear-gradient(-45deg,transparent 65%, #16A34A 65.99%),linear-gradient(45deg,transparent 75%, #16A34A 75.99%),linear-gradient(-45deg, #16A34A 40%,transparent 40.99%),linear-gradient(45deg, #16A34A 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #16A34A 50.99%)',
-        'checked-checkbox-active':
-          'linear-gradient(-45deg,transparent 65%, #15803D 65.99%),linear-gradient(45deg,transparent 75%, #15803D 75.99%),linear-gradient(-45deg, #15803D 40%,transparent 40.99%),linear-gradient(45deg, #15803D 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, #15803D 50.99%)',
-        'indeterminate-checkbox':
-          'linear-gradient(90deg,transparent 80%, #02BB4D 80%),linear-gradient(-90deg,transparent 80%, #02BB4D 80%),linear-gradient(0deg, #02BB4D 43%, white 43%, white 57%, #02BB4D 57%)',
-        'indeterminate-checkbox-hover':
-          'linear-gradient(90deg,transparent 80%, #16A34A 80%),linear-gradient(-90deg,transparent 80%, #16A34A 80%),linear-gradient(0deg, #16A34A 43%, white 43%, white 57%, #16A34A 57%)',
-        'indeterminate-checkbox-active':
-          'linear-gradient(90deg,transparent 80%, #15803D 80%),linear-gradient(-90deg,transparent 80%, #15803D 80%),linear-gradient(0deg, #15803D 43%, white 43%, white 57%, #15803D 57%)',
-        'indeterminate-disabled-checkbox':
-          'linear-gradient(90deg,transparent 80%, #b8b8bc 80%),linear-gradient(-90deg,transparent 80%, #b8b8bc 80%),linear-gradient(0deg, #b8b8bc 43%, white 43%, white 57%, #b8b8bc 57%)',
       },
       colors: {
         brand: 'rgb(var(--colors-brand) / <alpha-value>)',
@@ -141,15 +112,8 @@ export const tailwindConfig: Config = {
         body: 'Red Hat Text, sans-serif'
       },
       screens: {
-        '2-extra-small': '360px',
-        'extra-small': '376px',
-        small: '640px',
-        medium: '768px',
-        large: '1024px',
-        'extra-large': '1280px',
-        '2-extra-large': '1366px',
-        '3-extra-large': '1536px',
-        '4-extra-large': '1920px',
+        xs: '376px',
+        sm: '640px',
       },
       keyframes: {
         'stroke-loader-circular': {

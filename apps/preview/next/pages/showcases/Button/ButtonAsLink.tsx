@@ -4,7 +4,7 @@ import { ShowcasePageLayout } from '../../showcases';
 
 export function Showcase() {
   return (
-    <div className="flex flex-col items-center space-y-4 extra-small:block extra-small:space-x-4">
+    <div className="flex flex-col items-center space-y-4 xs:block xs:space-x-4">
       <VsfButton as="a" href="/">
         Link
       </VsfButton>

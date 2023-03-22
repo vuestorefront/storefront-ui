@@ -1,6 +1,6 @@
 <template>
   <div class="flex border-b-[1px] border-neutral-200 hover:shadow-lg min-w-[320px] max-w-[640px] p-4">
-    <div class="relative overflow-hidden rounded-md w-[100px] small:w-[176px]">
+    <div class="relative overflow-hidden rounded-md w-[100px] sm:w-[176px]">
       <VsfLink href="#">
         <img
           class="w-full h-auto border rounded-md border-neutral-200"
@@ -16,11 +16,11 @@
       </div>
     </div>
     <div class="flex flex-col pl-4 min-w-[180px] flex-1">
-      <VsfLink href="#" variant="secondary" class="no-underline typography-text-sm small:typography-text-lg">
+      <VsfLink href="#" variant="secondary" class="no-underline typography-text-sm sm:typography-text-lg">
         Smartwatch Fitness Tracker
       </VsfLink>
-      <div class="my-2 small:mb-0">
-        <ul class="font-normal leading-5 typography-text-xs small:typography-text-sm text-neutral-700">
+      <div class="my-2 sm:mb-0">
+        <ul class="font-normal leading-5 typography-text-xs sm:typography-text-sm text-neutral-700">
           <li>
             <span class="mr-1">Size:</span>
             <span class="font-medium">6.5</span>
@@ -31,12 +31,10 @@
           </li>
         </ul>
       </div>
-      <div class="items-center small:mt-auto small:flex">
-        <span class="font-bold small:ml-auto small:order-1 typography-text-sm small:typography-text-lg"
-          >$2,345.99
-        </span>
-        <div class="flex items-center justify-between mt-4 small:mt-0">
-          <div class="flex mr-auto small:mr-4">
+      <div class="items-center sm:mt-auto sm:flex">
+        <span class="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99 </span>
+        <div class="flex items-center justify-between mt-4 sm:mt-0">
+          <div class="flex mr-auto sm:mr-4">
             <VsfButton
               type="button"
               variant="tertiary"
@@ -78,7 +76,7 @@
             class="text-neutral-500 typography-text-xs font-light ml-auto flex items-center px-3 py-1.5"
           >
             <VsfIconDelete />
-            <span class="hidden ml-1.5 small:block"> Remove </span>
+            <span class="hidden ml-1.5 sm:block"> Remove </span>
           </button>
         </div>
       </div>

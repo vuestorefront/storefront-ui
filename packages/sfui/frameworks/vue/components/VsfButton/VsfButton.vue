@@ -32,7 +32,7 @@ const sizeClasses = computed(() => {
   switch (size.value) {
     case VsfButtonSize.sm:
       return [
-        square.value ? 'p-1.5' : 'leading-5 text-sm py-0.75 px-3',
+        square.value ? 'p-1.5' : 'leading-5 text-sm py-1.5 px-3',
         slots.value.prefix || slots.value.suffix ? 'gap-1.5' : null,
       ].join(' ');
     case VsfButtonSize.lg:
@@ -51,11 +51,11 @@ const sizeClasses = computed(() => {
 const variantClasses = computed(() => {
   switch (variant.value) {
     case VsfButtonVariant.secondary:
-      return 'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ring-1 ring-primary-700 hover:shadow-medium active:shadow shadow hover:ring-primary-800 active:ring-primary-900 disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50';
+      return 'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ring-1 ring-primary-700 shadow hover:shadow-md active:shadow hover:ring-primary-800 active:ring-primary-900 disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50';
     case VsfButtonVariant.tertiary:
       return 'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 disabled:bg-transparent';
     default:
-      return 'text-white hover:shadow-medium shadow-base bg-primary-700 hover:bg-primary-800 active:bg-primary-900 disabled:bg-disabled-300';
+      return 'text-white shadow hover:shadow-md active:shadow bg-primary-700 hover:bg-primary-800 active:bg-primary-900 disabled:bg-disabled-300';
   }
 });
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center space-y-4 extra-small:block extra-small:space-x-4">
+  <div class="flex flex-col items-center space-y-4 xs:block xs:space-x-4">
     <VsfButton tag="a" href="/"> Link </VsfButton>
 
     <VsfButton :tag="NuxtLink" to="/"> NuxtLink </VsfButton>
