@@ -63,7 +63,7 @@ export function Showcase() {
         </li>
         {breadcrumbs.map((item) => (
           <li
-            className="peer hidden sm:block peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
+            className="peer hidden sm:flex peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
             key={item.name}
           >
             {breadcrumbs.indexOf(item) === 0 ? (

@@ -21,8 +21,8 @@ export function Showcase() {
   };
 
   return (
-    <nav className="inline-flex items-center text-sm font-normal font-body">
-      <ol className="flex w-auto leading-none group md:flex-wrap">
+    <nav className="inline-flex text-sm font-normal font-body">
+      <ol className="flex items-center w-auto leading-none group md:flex-wrap">
         <li className="flex items-center sm:hidden text-neutral-500">
           <VsfDropdown
             trigger={
@@ -63,7 +63,7 @@ export function Showcase() {
         </li>
         {breadcrumbs.map((item) => (
           <li
-            className="peer hidden sm:block peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
+            className="peer hidden sm:block peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
             key={item.name}
           >
             <VsfLink
