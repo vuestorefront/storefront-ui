@@ -3,7 +3,7 @@
     <div class="relative">
       <VsfLink href="#">
         <img
-          :src="card"
+          :src="productImage"
           alt="Great product"
           class="block object-cover h-auto rounded-md aspect-square"
           :width="300"
@@ -22,7 +22,7 @@
       </VsfButton>
     </div>
     <div class="p-4 border-t border-neutral-200">
-      <VsfLink href="#" variant="secondary" class="no-underline"> The standard chunk of Lorem Ipsum </VsfLink>
+      <VsfLink href="#" variant="secondary" class="no-underline"> Athletic mens walking sneakers </VsfLink>
       <div class="flex items-center pt-1">
         <VsfRating size="xs" :value="5" :max="5" />
 
@@ -31,7 +31,7 @@
         </VsfLink>
       </div>
       <p class="block py-2 font-normal leading-5 typography-text-sm text-neutral-700">
-        There are many variations of passages of Lorem Ipsum available
+        Lightweight • Non slip • Flexible outsole • Easy to wear on and off
       </p>
       <span class="block pb-2 font-bold typography-text-lg">$2345,99</span>
       <VsfButton type="button" size="sm">
@@ -47,5 +47,5 @@
 <script lang="ts" setup>
 import { VsfRating, VsfCounter, VsfLink, VsfButton, VsfIconShoppingCart, VsfIconFavorite } from '@storefront-ui/vue';
 
-import card from '@assets/card.png';
+import productImage from '@assets/sneakers.png';
 </script>
