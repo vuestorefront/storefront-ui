@@ -95,7 +95,7 @@ Icons can be applied by placing into the default slot of component.
 
 | Prop name         | Type                       | Default value | Possible values                        |
 |------------------ |----------------------------|---------------|----------------------------------------|
-| size              | VsfChip                    | base          | sm, base, lg                           |
+| size              | SfChip                    | base          | sm, base, lg                           |
 <!-- react -->
 | children          | ReactNode                  |               |  allows to pass icon or image          |
 | className         | string                     |               |                                        |
@@ -113,10 +113,10 @@ Icons can be applied by placing into the default slot of component.
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfThumbnail/VsfThumbnail.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfThumbnail/SfThumbnail.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfThumbnail/VsfThumbnail.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfThumbnail/SfThumbnail.tsx
 <!-- end react -->
 </SourceCode>
 :::

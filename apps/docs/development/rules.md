@@ -2,10 +2,10 @@
 
 ## Naming
 
-- component name should be prefixed with `Vsf` string;
+- component name should be prefixed with `Sf` string;
 - each components should be placed in dedicated directory
-  - `packages/sfui/frameworks/vue/VsfComponentName/VsfComponentName.vue`
-  - `packages/sfui/frameworks/react/VsfComponentName/VsfComponentName.tsx`
+  - `packages/sfui/frameworks/vue/SfComponentName/SfComponentName.vue`
+  - `packages/sfui/frameworks/react/SfComponentName/SfComponentName.tsx`
 
 ## Prop naming
 

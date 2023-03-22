@@ -59,10 +59,10 @@ export default {
         options: {
           // only for dev purposes in monorepo:
           // Search all imports and add typing files before them, webpack has problem with re-exporting from packages
-          // import { VsfThumbnailSize } from '@storefront-ui/shared';
+          // import { SfThumbnailSize } from '@storefront-ui/shared';
           // import type { PropsWithStyle } from '@storefront-ui/react';
 
-          // export { VsfThumbnailSize };
+          // export { SfThumbnailSize };
           search: /^export \* from '\.\/components\/([^']+?)';/gm,
           replace: (_match, componentName) => {
             const path = join(

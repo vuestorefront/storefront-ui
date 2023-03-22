@@ -9,13 +9,13 @@
       >
         <div v-if="!hideThumbnail" class="w-full flex items-center justify-center bg-gray-100">
           <img
-            :src="$withBase(`/thumbnails/components/${componentName.replace('Vsf', '')}.png`)"
+            :src="$withBase(`/thumbnails/components/${componentName.replace('Sf', '')}.png`)"
             class="w-full h-full object-cover"
             :alt="componentName"
           />
         </div>
         <div class="p-4">
-          <h4 class="font-bold">{{ componentName.replace('Vsf', '') }}</h4>
+          <h4 class="font-bold">{{ componentName.replace('Sf', '') }}</h4>
           <p v-if="!hideDescription" class="mt-2 text-sm">{{ componentDescription(componentName) }}</p>
         </div>
       </RouterLink>
@@ -56,7 +56,7 @@ export default {
   },
   methods: {
     componentDescription(componentName) {
-      const componentPath = `/${this.framework}/${this.type}/${componentName.replace('Vsf', '').toLowerCase()}.html`;
+      const componentPath = `/${this.framework}/${this.type}/${componentName.replace('Sf', '').toLowerCase()}.html`;
 
       return this.$site.pages.find((page) => page.path.toLowerCase() === componentPath)?.frontmatter?.description;
     },

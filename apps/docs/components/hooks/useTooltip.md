@@ -104,9 +104,9 @@ const { isOpen, triggerProps, tooltipProps, arrowProps } = useTooltip();
 | floatingRef  | `MaybeElementRef<HTMLElement>` | `undefined`              | Element to float next to the reference element  |
 | arrowRef  | `MaybeElementRef<HTMLElement>`  | `undefined`              |                 |
 <!-- end vue -->
-| placement | `VsfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
+| placement | `SfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
 | middleware    | `UseFloatingProps['middleware']`                 |              | Array of `@floating-ui` middlewares |
-| strategy | `VsfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)              |
+| strategy | `SfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)              |
 
 ## Return value
 

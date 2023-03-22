@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfRadio, VsfListItem } from '@storefront-ui/react';
+import { SfRadio, SfListItem } from '@storefront-ui/react';
 import { useState } from 'react';
 
 const deliveryOptions = [
@@ -22,11 +22,11 @@ export default function DeliveryOptions() {
   return (
     <div>
       {deliveryOptions.map(({ name, cost, date }) => (
-        <VsfListItem
+        <SfListItem
           as="label"
           key={name}
           slotPrefix={
-            <VsfRadio
+            <SfRadio
               name="delivery-options"
               value={name}
               checked={checkedState === name}
@@ -40,7 +40,7 @@ export default function DeliveryOptions() {
         >
           {name}
           <span className="text-xs text-gray-500 break-words">{date}</span>
-        </VsfListItem>
+        </SfListItem>
       ))}
     </div>
   );

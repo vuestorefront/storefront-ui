@@ -1,6 +1,6 @@
 <template>
   <div class="border rounded divide-y">
-    <VsfAccordionItem
+    <SfAccordionItem
       v-for="({ id, summary, details }, index) in accordionItems"
       :key="id"
       v-model="opened[index]"
@@ -10,12 +10,12 @@
         <p class="p-2">{{ summary }}</p>
       </template>
       <p class="p-2">{{ details }}</p>
-    </VsfAccordionItem>
+    </SfAccordionItem>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { VsfAccordionItem } from '@storefront-ui/vue';
+import { SfAccordionItem } from '@storefront-ui/vue';
 import { ref } from 'vue';
 
 const opened = ref<boolean[]>([]);

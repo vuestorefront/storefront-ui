@@ -2,18 +2,18 @@
   <div class="flex flex-col gap-y-5">
     <label>
       <span class="text-sm font-medium">Label</span>
-      <VsfInput size="sm" />
+      <SfInput size="sm" />
     </label>
     <label>
       <span class="text-sm font-medium">Label</span>
-      <VsfInput />
+      <SfInput />
     </label>
     <label>
       <span class="text-sm font-medium">Label</span>
-      <VsfInput size="lg" />
+      <SfInput size="lg" />
     </label>
   </div>
 </template>
 <script lang="ts" setup>
-import { VsfInput } from '@storefront-ui/vue';
+import { SfInput } from '@storefront-ui/vue';
 </script>

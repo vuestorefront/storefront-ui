@@ -8,7 +8,7 @@ const DOCS_EXAMPLES_VUE_PATH = process.env.VITE_DOCS_EXAMPLES_VUE_PATH;
 const FIGMA_URL = 'https://www.figma.com/file/ko7VoZYxnInYeJJmsnILHU/SFUI-2-%7C-Design-System-(public-RC)';
 
 const convertComponentPathsToLinks = (paths, slug, type) =>
-  paths.map((c) => [generateComponentPath(slug, c, type), c.replace('Vsf', '')]);
+  paths.map((c) => [generateComponentPath(slug, c, type), c.replace('Sf', '')]);
 
 module.exports = {
   title: `Storefront UI`,

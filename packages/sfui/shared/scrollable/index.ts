@@ -1,4 +1,4 @@
-import VSFScrollable from './scrollable';
+import SFScrollable from './scrollable';
 
 export * from './types';
-export { VSFScrollable };
+export { SFScrollable };

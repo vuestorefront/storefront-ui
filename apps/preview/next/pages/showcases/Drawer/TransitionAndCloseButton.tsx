@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfDrawer, VsfButton, VsfIconFavorite, VsfIconClose, useTrapFocus } from '@storefront-ui/react';
+import { SfDrawer, SfButton, SfIconFavorite, SfIconClose, useTrapFocus } from '@storefront-ui/react';
 import { useState, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 
@@ -13,9 +13,9 @@ export default function DrawerWithTransition() {
 
   return (
     <>
-      <VsfButton onClick={() => setOpen(true)} type="button">
+      <SfButton onClick={() => setOpen(true)} type="button">
         Open Drawer
-      </VsfButton>
+      </SfButton>
 
       <CSSTransition
         ref={nodeRef}
@@ -29,7 +29,7 @@ export default function DrawerWithTransition() {
           exitActive: '-translate-x-full transition duration-500 ease-in-out',
         }}
       >
-        <VsfDrawer
+        <SfDrawer
           ref={drawerRef}
           open
           onClose={() => setOpen(false)}
@@ -37,9 +37,9 @@ export default function DrawerWithTransition() {
         >
           <header className="bg-primary-700 flex justify-between py-6 px-10 items-center">
             <div className="flex items-center text-white">
-              <VsfIconFavorite className="mr-2" /> Your favorite items
+              <SfIconFavorite className="mr-2" /> Your favorite items
             </div>
-            <VsfButton
+            <SfButton
               square
               variant="tertiary"
               onClick={() => {
@@ -47,8 +47,8 @@ export default function DrawerWithTransition() {
               }}
               className="text-white"
             >
-              <VsfIconClose />
-            </VsfButton>
+              <SfIconClose />
+            </SfButton>
           </header>
           <div className="p-5 px-10">
             <p className="mb-2">
@@ -63,7 +63,7 @@ export default function DrawerWithTransition() {
             </p>
             <strong>You can close Drawer by clicking outside or focus and use ESC button</strong>
           </div>
-        </VsfDrawer>
+        </SfDrawer>
       </CSSTransition>
     </>
   );

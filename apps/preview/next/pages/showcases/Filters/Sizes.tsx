@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfChip, VsfAccordionItem, VsfIconChevronLeft } from '@storefront-ui/react';
+import { SfChip, SfAccordionItem, SfIconChevronLeft } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { useState } from 'react';
 
@@ -30,30 +30,30 @@ export default function FilterSizes() {
     }
   };
   return (
-    <VsfAccordionItem
+    <SfAccordionItem
       open={opened}
       onToggle={() => setOpened(!opened)}
       summary={
         <div className="flex justify-between p-2 mb-2">
           <p className="font-medium">Sizes</p>
-          <VsfIconChevronLeft className={classNames('text-neutral-500', `${opened ? 'rotate-90' : '-rotate-90'}`)} />
+          <SfIconChevronLeft className={classNames('text-neutral-500', `${opened ? 'rotate-90' : '-rotate-90'}`)} />
         </div>
       }
     >
       <ul className="flex flex-wrap gap-4 px-1.5">
         {chipSizes.map(({ id, label, value, isAvailable }) => (
           <li>
-            <VsfChip
+            <SfChip
               key={id}
               size="sm"
               inputProps={{ value, disabled: !isAvailable, onChange: () => handleSizeSelection(value) }}
             >
               {label}
-            </VsfChip>
+            </SfChip>
           </li>
         ))}
       </ul>
-    </VsfAccordionItem>
+    </SfAccordionItem>
   );
 }
 

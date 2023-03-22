@@ -4,16 +4,16 @@
       <div class="heading-wrapper">
         <h1 class="heading">Controls</h1>
 
-        <VsfButton
-          :variant="VsfButtonVariant.tertiary"
-          :size="VsfButtonSize.sm"
+        <SfButton
+          :variant="SfButtonVariant.tertiary"
+          :size="SfButtonSize.sm"
           @click="previewBottomOpen = !previewBottomOpen"
         >
           {{ previewBottomOpen ? 'Close' : 'Open' }}
           <template #suffix>
-            <component :is="previewBottomOpen ? 'VsfIconExpandMore' : 'VsfIconExpandLess'" />
+            <component :is="previewBottomOpen ? 'SfIconExpandMore' : 'SfIconExpandLess'" />
           </template>
-        </VsfButton>
+        </SfButton>
       </div>
       <div class="table-wrapper">
         <table aria-label="Controls table">
@@ -123,7 +123,7 @@
 
 <script lang="ts">
 import { toRefs, computed, reactive, Ref, defineComponent, PropType } from 'vue';
-import { VsfButton, VsfButtonVariant, VsfButtonSize, VsfIconExpandMore, VsfIconExpandLess } from '@storefront-ui/vue';
+import { SfButton, SfButtonVariant, SfButtonSize, SfIconExpandMore, SfIconExpandLess } from '@storefront-ui/vue';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 
 type RefValueUnknown = Ref<unknown>;
@@ -169,9 +169,9 @@ export function prepareControls<T extends { [k: string]: any }>(controlsObject: 
 export default defineComponent({
   name: 'Controls',
   components: {
-    VsfButton,
-    VsfIconExpandLess,
-    VsfIconExpandMore,
+    SfButton,
+    SfIconExpandLess,
+    SfIconExpandMore,
   },
   inheritAttrs: false,
   props: {
@@ -191,8 +191,8 @@ export default defineComponent({
     });
 
     return {
-      VsfButtonVariant,
-      VsfButtonSize,
+      SfButtonVariant,
+      SfButtonSize,
       ...useControlsSearchParams(proxyModels),
       proxyModels: reactive(proxyModels),
     };

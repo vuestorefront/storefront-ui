@@ -2,7 +2,7 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { useState } from 'react';
 import classNames from 'classnames';
-import { VsfAccordionItem } from '@storefront-ui/react';
+import { SfAccordionItem } from '@storefront-ui/react';
 
 const accordionItems = [
   {
@@ -40,7 +40,7 @@ export default function CollapsableAccordion() {
   return (
     <div className="border rounded divide-y">
       {accordionItems.map(({ id, summary, details }) => (
-        <VsfAccordionItem
+        <SfAccordionItem
           key={id}
           summary={<p className="p-2">{summary}</p>}
           onToggle={handleToggle(id)}
@@ -48,7 +48,7 @@ export default function CollapsableAccordion() {
           className={classNames({ 'bg-gray-100': isOpen(id) })}
         >
           <p className="p-2">{details}</p>
-        </VsfAccordionItem>
+        </SfAccordionItem>
       ))}
     </div>
   );

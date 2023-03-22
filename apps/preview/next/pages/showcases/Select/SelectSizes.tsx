@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfSelect } from '@storefront-ui/react';
+import { SfSelect } from '@storefront-ui/react';
 
 const options = [
   { label: 'red', value: 'red' },
@@ -18,35 +18,35 @@ export default function SelectSizes() {
     <div className="flex flex-col gap-y-6">
       <label>
         <span className="pb-1 text-sm font-medium text-neutral-900 font-body">Label</span>
-        <VsfSelect placeholder="-- Select --" size="sm">
+        <SfSelect placeholder="-- Select --" size="sm">
           {options.map((option) => (
             <option value={option.value} key={option.value}>
               {option.label}
             </option>
           ))}
-        </VsfSelect>
+        </SfSelect>
       </label>
 
       <label>
         <span className="pb-1 text-sm font-medium text-neutral-900 font-body">Label</span>
-        <VsfSelect placeholder="-- Select --" size="base">
+        <SfSelect placeholder="-- Select --" size="base">
           {options.map((option) => (
             <option value={option.value} key={option.value}>
               {option.label}
             </option>
           ))}
-        </VsfSelect>
+        </SfSelect>
       </label>
 
       <label>
         <span className="pb-1 text-sm font-medium text-neutral-900 font-body">Label</span>
-        <VsfSelect placeholder="-- Select --" size="lg">
+        <SfSelect placeholder="-- Select --" size="lg">
           {options.map((option) => (
             <option value={option.value} key={option.value}>
               {option.label}
             </option>
           ))}
-        </VsfSelect>
+        </SfSelect>
       </label>
     </div>
   );

@@ -2,33 +2,33 @@
   <div class="flex flex-col gap-y-6 font-body">
     <label>
       <span class="pb-1 text-sm font-medium text-neutral-900"> Label </span>
-      <VsfSelect size="sm">
+      <SfSelect size="sm">
         <option v-for="{ value, label } in options" :key="value" :value="value">
           {{ label }}
         </option>
-      </VsfSelect>
+      </SfSelect>
     </label>
     <label>
       <span class="pb-1 text-sm font-medium text-neutral-900"> Label </span>
-      <VsfSelect size="base">
+      <SfSelect size="base">
         <option v-for="{ value, label } in options" :key="value" :value="value">
           {{ label }}
         </option>
-      </VsfSelect>
+      </SfSelect>
     </label>
     <label>
       <span class="pb-1 text-sm font-medium text-neutral-900"> Label </span>
-      <VsfSelect size="lg">
+      <SfSelect size="lg">
         <option v-for="{ value, label } in options" :key="value" :value="value">
           {{ label }}
         </option>
-      </VsfSelect>
+      </SfSelect>
     </label>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { VsfSelect } from '@storefront-ui/vue';
+import { SfSelect } from '@storefront-ui/vue';
 
 const options = [
   { label: 'red', value: 'red' },

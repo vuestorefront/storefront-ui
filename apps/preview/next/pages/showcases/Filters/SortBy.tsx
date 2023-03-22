@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfSelect } from '@storefront-ui/react';
+import { SfSelect } from '@storefront-ui/react';
 
 const options = [
   { label: 'Relevance', value: 'relevance' },
@@ -19,13 +19,13 @@ export default function SortByFilter() {
         Sort by
       </h6>
       <div className="px-4">
-        <VsfSelect aria-label="Sort by">
+        <SfSelect aria-label="Sort by">
           {options.map((option) => (
             <option value={option.value} key={option.value}>
               {option.label}
             </option>
           ))}
-        </VsfSelect>
+        </SfSelect>
       </div>
     </>
   );

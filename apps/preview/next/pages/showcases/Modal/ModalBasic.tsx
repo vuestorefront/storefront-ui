@@ -1,17 +1,17 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfModal, VsfButton, VsfIconClose, useDisclosure } from '@storefront-ui/react';
+import { SfModal, SfButton, SfIconClose, useDisclosure } from '@storefront-ui/react';
 
 export default function ModalDemo() {
   const { isOpen, open, close } = useDisclosure({ initialValue: false });
 
   return (
     <>
-      <VsfButton type="button" onClick={open}>
+      <SfButton type="button" onClick={open}>
         To Checkout
-      </VsfButton>
+      </SfButton>
 
-      <VsfModal
+      <SfModal
         open={isOpen}
         onClose={close}
         className="max-w-[90%] md:max-w-lg"
@@ -21,9 +21,9 @@ export default function ModalDemo() {
         aria-describedby="promoModalDesc"
       >
         <header>
-          <VsfButton square variant="tertiary" className="absolute right-2 top-2" onClick={close}>
-            <VsfIconClose />
-          </VsfButton>
+          <SfButton square variant="tertiary" className="absolute right-2 top-2" onClick={close}>
+            <SfIconClose />
+          </SfButton>
           <h3 id="promoModalTitle" className="typography-headline-4 md:typography-headline-3 font-bold">
             You might miss out on great deals
           </h3>
@@ -33,14 +33,14 @@ export default function ModalDemo() {
           proceeding to checkout page?
         </p>
         <footer className="mt-4 flex justify-end gap-4">
-          <VsfButton type="button" variant="secondary" onClick={close}>
+          <SfButton type="button" variant="secondary" onClick={close}>
             Skip
-          </VsfButton>
-          <VsfButton type="button" onClick={close}>
+          </SfButton>
+          <SfButton type="button" onClick={close}>
             Yes!
-          </VsfButton>
+          </SfButton>
         </footer>
-      </VsfModal>
+      </SfModal>
     </>
   );
 }

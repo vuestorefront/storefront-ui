@@ -3,7 +3,7 @@
     <div
       class="flex rounded-md bg-neutral-100 relative after:content-['-'] after:text-disabled-900 after:absolute after:flex after:justify-center after:items-center after:w-full after:h-full"
     >
-      <VsfButton
+      <SfButton
         variant="tertiary"
         type="button"
         square
@@ -12,8 +12,8 @@
         aria-label="Decrease value"
         class="!bg-neutral-100"
       >
-        <VsfIconRemove />
-      </VsfButton>
+        <SfIconRemove />
+      </SfButton>
       <input
         :id="inputId"
         type="number"
@@ -24,9 +24,9 @@
         :max="max"
       />
 
-      <VsfButton variant="tertiary" type="button" square disabled :aria-controls="inputId" aria-label="Increase value">
-        <VsfIconAdd />
-      </VsfButton>
+      <SfButton variant="tertiary" type="button" square disabled :aria-controls="inputId" aria-label="Increase value">
+        <SfIconAdd />
+      </SfButton>
     </div>
     <p class="text-negative-700 font-medium text-xs mt-2">Out of stock</p>
   </div>
@@ -34,7 +34,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfButton, VsfIconAdd, VsfIconRemove, useId } from '@storefront-ui/vue';
+import { SfButton, SfIconAdd, SfIconRemove, useId } from '@storefront-ui/vue';
 
 const min = ref(1);
 const max = ref(10);

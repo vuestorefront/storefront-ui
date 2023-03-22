@@ -1,24 +1,24 @@
 <template>
-  <VsfAccordionItem v-model="open">
+  <SfAccordionItem v-model="open">
     <template #summary>
       <div class="flex justify-between p-2 mb-2">
         <p class="font-medium">Sizes</p>
-        <VsfIconChevronLeft :class="['text-neutral-500', open ? 'rotate-90' : '-rotate-90']" />
+        <SfIconChevronLeft :class="['text-neutral-500', open ? 'rotate-90' : '-rotate-90']" />
       </div>
     </template>
     <ul class="flex flex-wrap gap-4 px-1.5">
       <li v-for="({ label, value, isAvailable }, index) in chipSizes" :key="index">
-        <VsfChip v-model="selectedSizes" size="sm" :input-props="{ value, disabled: !isAvailable }">
+        <SfChip v-model="selectedSizes" size="sm" :input-props="{ value, disabled: !isAvailable }">
           {{ label }}
-        </VsfChip>
+        </SfChip>
       </li>
     </ul>
-  </VsfAccordionItem>
+  </SfAccordionItem>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfChip, VsfAccordionItem, VsfIconChevronLeft } from '@storefront-ui/vue';
+import { SfChip, SfAccordionItem, SfIconChevronLeft } from '@storefront-ui/vue';
 
 const open = ref(true);
 const selectedSizes = ref([]);

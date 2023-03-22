@@ -2,18 +2,18 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfRadio } from '@storefront-ui/react';
+import { SfRadio } from '@storefront-ui/react';
 
 export default function RadioGroupUncontrolled() {
   return (
     <fieldset role="radiogroup">
       <div className="flex flex-col">
         <label className="flex items-center mb-4 cursor-pointer">
-          <VsfRadio name="name" />
+          <SfRadio name="name" />
           <span className="ml-2 text-base font-normal leading-6 font-body">Label</span>
         </label>
         <label className="flex items-center cursor-pointer">
-          <VsfRadio name="name" />
+          <SfRadio name="name" />
           <span className="ml-2 text-base font-normal leading-6 font-body">Label 2</span>
         </label>
       </div>

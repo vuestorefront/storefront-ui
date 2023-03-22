@@ -66,7 +66,7 @@
 
 ---
 
-# VSF Typography
+# SF Typography
 
 Extend of `peer` tailwind class but with `+` (first next sibling). Original `peer` class is for `~` (every following sibling).
 <br /><br />
@@ -85,11 +85,11 @@ npm install --save-dev @storefront-ui/tw-plugin-peer-next
 ```ts
 // tailwind.config.ts
 
-import vsfPeerNext from '@storefront-ui/tw-plugin-peer-next';
+import sfPeerNext from '@storefront-ui/tw-plugin-peer-next';
 
 export default {
   content: ['your-components-source-directory/*.ts'],
-  plugins: [vsfPeerNext]
+  plugins: [sfPeerNext]
 };
 ```
 

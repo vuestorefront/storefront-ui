@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfSelect } from '@storefront-ui/react';
+import { SfSelect } from '@storefront-ui/react';
 
 const options = [
   { label: 'red', value: 'red' },
@@ -17,13 +17,13 @@ export default function SelectInvalid() {
   return (
     <label>
       <span className="pb-1 text-sm font-medium text-neutral-900 font-body">Label</span>
-      <VsfSelect invalid placeholder="-- Select --">
+      <SfSelect invalid placeholder="-- Select --">
         {options.map((option) => (
           <option value={option.value} key={option.value}>
             {option.label}
           </option>
         ))}
-      </VsfSelect>
+      </SfSelect>
     </label>
   );
 }

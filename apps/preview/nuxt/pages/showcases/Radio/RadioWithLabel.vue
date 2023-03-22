@@ -4,14 +4,14 @@
     :key="value"
     class="flex items-center mb-4 mr-6 rounded cursor-pointer"
   >
-    <VsfRadio v-model="radioModel" :value="value" :name="name" />
+    <SfRadio v-model="radioModel" :value="value" :name="name" />
     <span class="ml-2 text-base font-normal leading-6 font-body">{{ label }}</span>
   </label>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfRadio } from '@storefront-ui/vue';
+import { SfRadio } from '@storefront-ui/vue';
 
 const radioModel = ref('');
 const radioOptions = [

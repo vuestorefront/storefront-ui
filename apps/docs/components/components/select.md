@@ -74,7 +74,7 @@ Select with invalid state.
 | Prop name         | Type            | Default value | Possible values                        |
 | ----------------  | --------        | ------------- | -------------------------------------- |
 | value             | string          | ''            |                                        |
-| size              | VsfSelectSize   | base          | sm, base, lg                           |
+| size              | SfSelectSize   | base          | sm, base, lg                           |
 | disabled          | boolean         | false         |                                        |
 | invalid           | boolean         | false         |                                        |
 | required          | boolean         | false         |                                        |
@@ -107,11 +107,11 @@ Select with invalid state.
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfSelect/VsfSelect.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfSelect/SfSelect.vue
 <!-- end vue -->
 
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfSelect/VsfSelect.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfSelect/SfSelect.tsx
 <!-- end react -->
 </SourceCode>
 :::

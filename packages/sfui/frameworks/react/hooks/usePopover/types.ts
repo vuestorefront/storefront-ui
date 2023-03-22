@@ -1,11 +1,11 @@
 import type { UseFloatingProps } from '@floating-ui/react-dom';
-import { VsfPopoverPlacement, VsfPopoverStrategy, type VsfPopoverBasePlacement } from '@storefront-ui/shared';
+import { SfPopoverPlacement, SfPopoverStrategy, type SfPopoverBasePlacement } from '@storefront-ui/shared';
 
-export { VsfPopoverPlacement, VsfPopoverStrategy, type VsfPopoverBasePlacement };
+export { SfPopoverPlacement, SfPopoverStrategy, type SfPopoverBasePlacement };
 
 export interface UsePopoverOptions {
   isOpen?: boolean;
-  placement?: `${VsfPopoverPlacement}`;
+  placement?: `${SfPopoverPlacement}`;
   middleware?: UseFloatingProps['middleware'];
-  strategy?: `${VsfPopoverStrategy}`;
+  strategy?: `${SfPopoverStrategy}`;
 }

@@ -7,11 +7,11 @@ export type Options = { utilityPrefix?: string } | undefined;
 
 declare module 'tailwindcss/types/config' {
   export interface ThemeConfig {
-    vsfTypography: ResolvableTo<ConfigKeyValuePair>
+    sfTypography: ResolvableTo<ConfigKeyValuePair>
   }
 }
 
-const PLUGIN_CONFIG_KEY = 'vsfTypography';
+const PLUGIN_CONFIG_KEY = 'sfTypography';
 
 export default plugin.withOptions(({ utilityPrefix = 'typography' }: Options = {}) =>
   function({ matchUtilities, theme }) {

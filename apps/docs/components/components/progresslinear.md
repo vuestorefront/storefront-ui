@@ -1,7 +1,7 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: VsfProgressLinear is used to provides feedback about the duration and progression of a process to indicate how long a user will be waiting
+description: SfProgressLinear is used to provides feedback about the duration and progression of a process to indicate how long a user will be waiting
 ---
 # ProgressLinear
 
@@ -70,7 +70,7 @@ ProgressLinear should be displayed with an accessible text label. You achieve th
 | Prop name             | Type                       | Default value | Possible values                              |
 |-----------------------|----------------------------|---------------|----------------------------------------      |
 |  value                |  `number`                    | 0 0            |                                        |
-| size                |      `VsfProgressLinearSize | VsfProgressSize`        | `VsfProgressSize.base`           |  `minimal`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
+| size                |      `SfProgressLinearSize | SfProgressSize`        | `SfProgressSize.base`           |  `minimal`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
 | ariaLabel    |      `string`                | `Progress linear`                     |                                      |
 <!-- react -->
 | className             |  String                    |               |                                  |            |
@@ -79,10 +79,10 @@ ProgressLinear should be displayed with an accessible text label. You achieve th
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfProgressLinear/VsfProgressLinear.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfProgressLinear/SfProgressLinear.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfProgressLinear/VsfProgressLinear.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfProgressLinear/SfProgressLinear.tsx
 <!-- end react -->
 </SourceCode>
 :::

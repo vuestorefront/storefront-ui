@@ -1,5 +1,5 @@
 <template>
-  <VsfListItem
+  <SfListItem
     v-for="({ name, cost, date }, index) in deliveryOptions"
     :key="index"
     tag="label"
@@ -8,17 +8,17 @@
     {{ name }}
     <span className="text-xs text-gray-500 break-words">{{ date }}</span>
     <template #prefix>
-      <VsfRadio v-model="radioModel" :value="name" name="delivery-options" />
+      <SfRadio v-model="radioModel" :value="name" name="delivery-options" />
     </template>
     <template #suffix>
       <span className="text-gray-900">{{ cost }}</span>
     </template>
-  </VsfListItem>
+  </SfListItem>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfRadio, VsfListItem } from '@storefront-ui/vue';
+import { SfRadio, SfListItem } from '@storefront-ui/vue';
 
 const deliveryOptions = [
   {

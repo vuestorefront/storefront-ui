@@ -3,7 +3,7 @@
     "node_modules",
     "coverage/",
     "cypress",
-    "components/VsfIcons"
+    "components/SfIcons"
   ],
   "include": [
     "**"

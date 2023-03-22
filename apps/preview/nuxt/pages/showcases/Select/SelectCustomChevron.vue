@@ -1,19 +1,19 @@
 <template>
   <label>
     <span class="pb-1 text-sm font-medium text-neutral-900 font-body"> Label </span>
-    <VsfSelect>
+    <SfSelect>
       <template #chevron>
-        <VsfIconUnfoldMore class="absolute pointer-events-none top-2 right-4 text-neutral-500" />
+        <SfIconUnfoldMore class="absolute pointer-events-none top-2 right-4 text-neutral-500" />
       </template>
       <option v-for="{ value, label } in options" :key="value" :value="value">
         {{ label }}
       </option>
-    </VsfSelect>
+    </SfSelect>
   </label>
 </template>
 
 <script lang="ts" setup>
-import { VsfSelect, VsfIconUnfoldMore } from '@storefront-ui/vue';
+import { SfSelect, SfIconUnfoldMore } from '@storefront-ui/vue';
 
 const options = [
   { label: 'red', value: 'red' },

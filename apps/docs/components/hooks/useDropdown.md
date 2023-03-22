@@ -15,7 +15,7 @@ description: API reference docs for the useDropdown <!-- react -->hook<!-- end r
 <!-- react -->
 ```tsx
 import * as React from 'react';
-import { useDropdown, VsfButton } from '@storefront-ui/react';
+import { useDropdown, SfButton } from '@storefront-ui/react';
 
 function Dropdown() {
   const [isOpen, setOpen] = React.useState(false);
@@ -27,7 +27,7 @@ function Dropdown() {
 
   return (
     <div ref={refs.setReference} className="w-max">
-      <VsfButton onClick={toggle}>Toggle</VsfButton>
+      <SfButton onClick={toggle}>Toggle</SfButton>
       {isOpen && (
         <ul ref={refs.setFloating} style={style.floating} className="absolute p-2 w-max rounded bg-gray-100">
           <li>More</li>
@@ -44,7 +44,7 @@ function Dropdown() {
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { useTooltip, VsfButton } from '@storefront-ui/vue';
+import { useTooltip, SfButton } from '@storefront-ui/vue';
 
 const isOpen = ref(false);
 
@@ -53,7 +53,7 @@ const { referenceRef, floatingRef, style } = useDropdown({ isOpen, onClose: () =
 
 <template>
   <div ref="referenceRef" class="w-max">
-    <VsfButton @click="isOpen != isOpen">Toggle</VsfButton>
+    <SfButton @click="isOpen != isOpen">Toggle</SfButton>
     <ul v-if="isOpen" ref="floatingRef" :style="style" class="absolute p-2 w-max rounded bg-gray-100">
       <li>More</li>
       <li>About</li>
@@ -81,9 +81,9 @@ const { referenceRef, floatingRef, style } = useDropdown({ isOpen, onClose: () =
 | referenceRef  | `MaybeElementRef<Element | VirtualElement>` | `undefined`              | Reference element based on which floating element will be positioned  |
 | floatingRef  | `MaybeElementRef<HTMLElement>` | `undefined`              | Element to float next to the reference element  |
 <!-- end vue -->
-| placement | `VsfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
+| placement | `SfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
 | middleware    | `UseFloatingProps['middleware']`                 |              | Array of `@floating-ui` middlewares |
-| strategy | `VsfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)              |
+| strategy | `SfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)              |
 
 ## Return value
 

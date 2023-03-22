@@ -1,7 +1,7 @@
 <template>
   <div class="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
     <div class="relative">
-      <VsfLink href="#">
+      <SfLink href="#">
         <img
           :src="productImage"
           alt="Great product"
@@ -9,8 +9,8 @@
           :width="300"
           :height="300"
         />
-      </VsfLink>
-      <VsfButton
+      </SfLink>
+      <SfButton
         type="button"
         variant="tertiary"
         size="sm"
@@ -18,34 +18,34 @@
         class="absolute bottom-0 right-0 mr-2 mb-2 bg-white border border-neutral-200 !rounded-full"
         aria-label="Add to wishlist"
       >
-        <VsfIconFavorite size="sm" />
-      </VsfButton>
+        <SfIconFavorite size="sm" />
+      </SfButton>
     </div>
     <div class="p-4 border-t border-neutral-200">
-      <VsfLink href="#" variant="secondary" class="no-underline"> Athletic mens walking sneakers </VsfLink>
+      <SfLink href="#" variant="secondary" class="no-underline"> Athletic mens walking sneakers </SfLink>
       <div class="flex items-center pt-1">
-        <VsfRating size="xs" :value="5" :max="5" />
+        <SfRating size="xs" :value="5" :max="5" />
 
-        <VsfLink href="#" variant="secondary" class="pl-1 no-underline">
-          <VsfCounter>123</VsfCounter>
-        </VsfLink>
+        <SfLink href="#" variant="secondary" class="pl-1 no-underline">
+          <SfCounter>123</SfCounter>
+        </SfLink>
       </div>
       <p class="block py-2 font-normal leading-5 typography-text-sm text-neutral-700">
         Lightweight • Non slip • Flexible outsole • Easy to wear on and off
       </p>
       <span class="block pb-2 font-bold typography-text-lg">$2345,99</span>
-      <VsfButton type="button" size="sm">
+      <SfButton type="button" size="sm">
         <template #prefix>
-          <VsfIconShoppingCart size="sm" />
+          <SfIconShoppingCart size="sm" />
         </template>
         Add to cart
-      </VsfButton>
+      </SfButton>
     </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { VsfRating, VsfCounter, VsfLink, VsfButton, VsfIconShoppingCart, VsfIconFavorite } from '@storefront-ui/vue';
+import { SfRating, SfCounter, SfLink, SfButton, SfIconShoppingCart, SfIconFavorite } from '@storefront-ui/vue';
 
 import productImage from '@assets/sneakers.png';
 </script>

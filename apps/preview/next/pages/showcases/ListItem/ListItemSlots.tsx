@@ -1,18 +1,18 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfListItem, VsfCounter, VsfIconChevronRight, VsfIconTune } from '@storefront-ui/react';
+import { SfListItem, SfCounter, SfIconChevronRight, SfIconTune } from '@storefront-ui/react';
 
 export default function ListItemSlots() {
   return (
-    <VsfListItem className="max-w-sm" slotPrefix={<VsfIconTune />} slotSuffix={<VsfIconChevronRight />}>
+    <SfListItem className="max-w-sm" slotPrefix={<SfIconTune />} slotSuffix={<SfIconChevronRight />}>
       <div className="break-words">
         Label
-        <VsfCounter className="ml-2" size="xl">
+        <SfCounter className="ml-2" size="xl">
           123
-        </VsfCounter>
+        </SfCounter>
       </div>
       <span className="text-xs text-neutral-500 break-words">Secondary text</span>
-    </VsfListItem>
+    </SfListItem>
   );
 }
 

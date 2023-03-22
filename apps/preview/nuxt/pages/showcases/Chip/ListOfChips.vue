@@ -1,9 +1,9 @@
 <template>
   <ul class="flex flex-col flex-wrap gap-4 sm:flex-row">
     <li v-for="({ label, value }, index) in chipValues" :key="index">
-      <VsfChip :input-props="{ value: value }">
+      <SfChip :input-props="{ value: value }">
         <template #prefix>
-          <VsfThumbnail
+          <SfThumbnail
             :class="{
               'bg-red-500': value === 'red',
               'bg-blue-500': value === 'blue',
@@ -12,14 +12,14 @@
           />
         </template>
         {{ label }}
-      </VsfChip>
+      </SfChip>
     </li>
   </ul>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfChip, VsfThumbnail } from '@storefront-ui/vue';
+import { SfChip, SfThumbnail } from '@storefront-ui/vue';
 
 const chipValues = ref([
   { label: 'Red', value: 'red' },

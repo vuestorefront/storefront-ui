@@ -1,13 +1,13 @@
 <template>
   <div class="flex flex-col items-center space-y-4 xs:block xs:space-x-4">
-    <VsfButton type="button" :variant="VsfButtonVariant.primary"> Hello </VsfButton>
+    <SfButton type="button" :variant="SfButtonVariant.primary"> Hello </SfButton>
 
-    <VsfButton type="button" :variant="VsfButtonVariant.secondary"> Hello </VsfButton>
+    <SfButton type="button" :variant="SfButtonVariant.secondary"> Hello </SfButton>
 
-    <VsfButton type="button" :variant="VsfButtonVariant.tertiary"> Hello </VsfButton>
+    <SfButton type="button" :variant="SfButtonVariant.tertiary"> Hello </SfButton>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { VsfButton, VsfButtonVariant } from '@storefront-ui/vue';
+import { SfButton, SfButtonVariant } from '@storefront-ui/vue';
 </script>

@@ -1,17 +1,17 @@
 <template>
   <div class="flex flex-col max-w-sm gap-4">
-    <VsfListItem size="sm">
+    <SfListItem size="sm">
       <span class="break-words">Label</span>
-    </VsfListItem>
-    <VsfListItem>
+    </SfListItem>
+    <SfListItem>
       <span class="break-words">Label</span>
-    </VsfListItem>
-    <VsfListItem size="lg">
+    </SfListItem>
+    <SfListItem size="lg">
       <span class="break-words">Label</span>
-    </VsfListItem>
+    </SfListItem>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { VsfListItem } from '@storefront-ui/vue';
+import { SfListItem } from '@storefront-ui/vue';
 </script>

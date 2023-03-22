@@ -11,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     'node_modules',
     '@storefront-ui/react',
     'components',
-    'VsfIcons',
+    'SfIcons',
   );
   const fileContents = fs.readdirSync(iconPath, 'utf8').reduce((prev, current) => {
     if (current.endsWith('.tsx')) {

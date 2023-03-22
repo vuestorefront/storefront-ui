@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfInput } from '@storefront-ui/react';
+import { SfInput } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { ChangeEvent } from 'react';
 
@@ -36,7 +36,7 @@ export default function InputWithLimit() {
         >
           {label}
         </span>
-        <VsfInput
+        <SfInput
           size="base"
           value={value}
           invalid={false}

@@ -1,15 +1,15 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfDrawer, VsfDrawerPlacement, type VsfDrawerProps, VsfButton } from '@storefront-ui/react';
+import { SfDrawer, SfDrawerPlacement, type SfDrawerProps, SfButton } from '@storefront-ui/react';
 import { ChangeEventHandler, useState } from 'react';
 import classNames from 'classnames';
 
 export default function DrawerDemo() {
   const [open, setOpen] = useState(false);
-  const [placementState, setPlacement] = useState<VsfDrawerProps['placement']>(VsfDrawerPlacement.left);
+  const [placementState, setPlacement] = useState<SfDrawerProps['placement']>(SfDrawerPlacement.left);
 
   const changePlacement: ChangeEventHandler<HTMLSelectElement> = (event) => {
-    setPlacement((event.target as HTMLSelectElement).value as VsfDrawerProps['placement']);
+    setPlacement((event.target as HTMLSelectElement).value as SfDrawerProps['placement']);
   };
 
   return (
@@ -27,16 +27,16 @@ export default function DrawerDemo() {
           <option value="left">left</option>
         </select>
       </label>
-      <VsfButton onClick={() => setOpen(true)} type="button">
+      <SfButton onClick={() => setOpen(true)} type="button">
         Open Drawer
-      </VsfButton>
+      </SfButton>
 
-      <VsfDrawer
+      <SfDrawer
         open={open}
         onClose={() => setOpen(false)}
         placement={placementState}
         className={classNames('bg-neutral-50 p-3 border border-gray-300', {
-          'max-w-[370px]': placementState === VsfDrawerPlacement.left || placementState === VsfDrawerPlacement.right,
+          'max-w-[370px]': placementState === SfDrawerPlacement.left || placementState === SfDrawerPlacement.right,
         })}
       >
         <div>
@@ -47,7 +47,7 @@ export default function DrawerDemo() {
           </p>
           <strong>You can close Drawer by clicking outside or focus and use ESC button</strong>
         </div>
-      </VsfDrawer>
+      </SfDrawer>
     </>
   );
 }

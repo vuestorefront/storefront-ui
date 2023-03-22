@@ -94,10 +94,10 @@ The component with label element and the input aligned to the right edge of the 
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfCheckbox/VsfCheckbox.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfCheckbox/SfCheckbox.vue
 <!-- end vue -->
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfCheckbox/VsfCheckbox.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfCheckbox/SfCheckbox.tsx
 <!-- end react -->
 </SourceCode>
 :::

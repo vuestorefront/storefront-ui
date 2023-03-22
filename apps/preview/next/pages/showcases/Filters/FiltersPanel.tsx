@@ -1,18 +1,18 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import {
-  VsfAccordionItem,
-  VsfButton,
-  VsfCounter,
-  VsfChip,
-  VsfIconCancel,
-  VsfIconClose,
-  VsfIconChevronLeft,
-  VsfListItem,
-  VsfThumbnail,
-  VsfRadio,
-  VsfSelect,
-  VsfCheckbox,
+  SfAccordionItem,
+  SfButton,
+  SfCounter,
+  SfChip,
+  SfIconCancel,
+  SfIconClose,
+  SfIconChevronLeft,
+  SfListItem,
+  SfThumbnail,
+  SfRadio,
+  SfSelect,
+  SfCheckbox,
 } from '@storefront-ui/react';
 import { useState } from 'react';
 import classNames from 'classnames';
@@ -148,43 +148,43 @@ export default function FiltersPanel() {
       <div className="flex items-center justify-between">
         <h4 className="px-2 typography-headline-4 font-bold">Filters</h4>
         {selectedFilters.length ? (
-          <VsfButton
+          <SfButton
             type="reset"
             size="sm"
             variant="tertiary"
             className="hidden md:flex"
             onClick={() => setSelectedFilters([])}
-            slotSuffix={<VsfIconCancel size="sm" />}
+            slotSuffix={<SfIconCancel size="sm" />}
           >
             Clear all
-          </VsfButton>
+          </SfButton>
         ) : null}
         <button type="button" className="md:hidden text-neutral-500">
-          <VsfIconClose />
+          <SfIconClose />
         </button>
       </div>
       <hr className="my-4" />
       <p className="mb-2 px-2 typography-headline-5 font-medium">Sort by:</p>
       <div className="px-2">
-        <VsfSelect aria-label="Sort by">
+        <SfSelect aria-label="Sort by">
           {sortOptions.map((option) => (
             <option value={option.value} key={option.value}>
               {option.label}
             </option>
           ))}
-        </VsfSelect>
+        </SfSelect>
       </div>
       <hr className="my-4" />
       {filtersData.map((section) => (
         <>
-          <VsfAccordionItem
+          <SfAccordionItem
             key={section.id}
             onToggle={handleToggle(section.id)}
             open={isAccordionItemOpen(section.id)}
             summary={
               <div className="flex justify-between p-2 mb-2">
                 <p className="mb-2 typography-headline-5 font-medium">{section.summary}</p>
-                <VsfIconChevronLeft
+                <SfIconChevronLeft
                   className={classNames(
                     'text-neutral-500',
                     `${isAccordionItemOpen(section.id) ? 'rotate-90' : '-rotate-90'}`,
@@ -197,7 +197,7 @@ export default function FiltersPanel() {
               <ul className="flex flex-wrap gap-4 px-1.5">
                 {section.details.map(({ id, label, value, counter }) => (
                   <li>
-                    <VsfChip
+                    <SfChip
                       key={id}
                       size="sm"
                       inputProps={{
@@ -208,14 +208,14 @@ export default function FiltersPanel() {
                       }}
                     >
                       {label}
-                    </VsfChip>
+                    </SfChip>
                   </li>
                 ))}
               </ul>
             )}
             {section.type === 'color' &&
               section.details.map(({ id, label, value, counter }) => (
-                <VsfListItem
+                <SfListItem
                   key={id}
                   as="label"
                   size="sm"
@@ -235,20 +235,20 @@ export default function FiltersPanel() {
                         }}
                       />
                       <span className="cursor-pointer p-1 ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline">
-                        <VsfThumbnail size="sm" className={value} />
+                        <SfThumbnail size="sm" className={value} />
                       </span>
                     </>
                   }
                 >
                   <p>
                     <span className="text-sm mr-2">{label}</span>
-                    <VsfCounter>{counter}</VsfCounter>
+                    <SfCounter>{counter}</SfCounter>
                   </p>
-                </VsfListItem>
+                </SfListItem>
               ))}
             {section.type === 'checkbox' &&
               section.details.map(({ label, value, counter }) => (
-                <VsfListItem
+                <SfListItem
                   key={value}
                   as="label"
                   size="sm"
@@ -257,7 +257,7 @@ export default function FiltersPanel() {
                     'font-medium': isFilterSelected(value),
                   })}
                   slotPrefix={
-                    <VsfCheckbox
+                    <SfCheckbox
                       disabled={counter === 0}
                       value={value}
                       checked={isFilterSelected(value)}
@@ -269,13 +269,13 @@ export default function FiltersPanel() {
                 >
                   <p>
                     <span className="text-sm mr-2">{label}</span>
-                    <VsfCounter>{counter}</VsfCounter>
+                    <SfCounter>{counter}</SfCounter>
                   </p>
-                </VsfListItem>
+                </SfListItem>
               ))}
             {section.type === 'radio' &&
               section.details.map(({ label, value, counter }) => (
-                <VsfListItem
+                <SfListItem
                   key={value}
                   as="label"
                   size="sm"
@@ -284,7 +284,7 @@ export default function FiltersPanel() {
                     'font-medium': isFilterSelected(value),
                   })}
                   slotPrefix={
-                    <VsfRadio
+                    <SfRadio
                       disabled={counter === 0}
                       value={value}
                       name="radio-price"
@@ -297,19 +297,19 @@ export default function FiltersPanel() {
                 >
                   <p>
                     <span className="text-sm mr-2">{label}</span>
-                    <VsfCounter>{counter}</VsfCounter>
+                    <SfCounter>{counter}</SfCounter>
                   </p>
-                </VsfListItem>
+                </SfListItem>
               ))}
-          </VsfAccordionItem>
+          </SfAccordionItem>
           <hr className="my-4" />
         </>
       ))}
       <div className="flex justify-between">
-        <VsfButton variant="secondary" className="w-full md:hidden mr-3">
+        <SfButton variant="secondary" className="w-full md:hidden mr-3">
           Clear all filters
-        </VsfButton>
-        <VsfButton className="w-full">Show products</VsfButton>
+        </SfButton>
+        <SfButton className="w-full">Show products</SfButton>
       </div>
     </aside>
   );

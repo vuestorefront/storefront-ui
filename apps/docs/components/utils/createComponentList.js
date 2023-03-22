@@ -9,7 +9,7 @@ const getFrameworkFiles = (frameworkName, componentsExt) => {
   const existingDocsNames = removeIndexEntry(componentNames);
   return componentNameFromPath(
     glob.sync(`../../../../packages/sfui/frameworks/${frameworkName}/**/*.${componentsExt}`, { cwd: __dirname }),
-  ).filter((name) => existingDocsNames.includes(name.replace('Vsf', '').toLowerCase()));
+  ).filter((name) => existingDocsNames.includes(name.replace('Sf', '').toLowerCase()));
 };
 
 const components = {

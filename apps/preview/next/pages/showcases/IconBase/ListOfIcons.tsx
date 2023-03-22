@@ -1,7 +1,7 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { useState, createElement } from 'react';
-import * as AllVsfComponents from '@storefront-ui/react';
+import * as AllSfComponents from '@storefront-ui/react';
 import useSWR from 'swr';
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
@@ -32,7 +32,7 @@ export default function IconList() {
             copyToClipboard(componentName);
           }}
         >
-          {createElement((AllVsfComponents as Record<string, any>)[componentName])}
+          {createElement((AllSfComponents as Record<string, any>)[componentName])}
         </button>
       ))}
 

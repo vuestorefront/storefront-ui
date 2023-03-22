@@ -5,14 +5,14 @@
       <div class="flex flex-col items-start">
         <span class="text-sm text-neutral-900">Karla</span>
         <span class="flex items-center pr-2 text-xs text-neutral-500">
-          <VsfRating :value="5" :max="5" size="xs" class="mr-2" />
+          <SfRating :value="5" :max="5" size="xs" class="mr-2" />
           2 days ago
         </span>
       </div>
       <div class="flex items-end">
         <p class="flex items-center text-xs truncate text-primary-700">
           <span class="mr-2 text-xs text-neutral-500">Karla | Black, XS</span>
-          <VsfIconCheck size="xs" class="mr-1" /> Verified purchase
+          <SfIconCheck size="xs" class="mr-1" /> Verified purchase
         </p>
       </div>
     </header>
@@ -28,12 +28,12 @@
     <footer class="flex items-center justify-between">
       <div class="text-sm text-neutral-500">
         <button type="button" class="mr-6 hover:text-primary-800">
-          <VsfIconThumbUp size="sm" class="mr-2.5" />
-          <VsfCounter size="sm" class="text-inherit">6</VsfCounter>
+          <SfIconThumbUp size="sm" class="mr-2.5" />
+          <SfCounter size="sm" class="text-inherit">6</SfCounter>
         </button>
         <button type="button" class="hover:text-primary-800">
-          <VsfIconThumbDown size="sm" class="mr-2.5" />
-          <VsfCounter size="sm" class="text-inherit">2</VsfCounter>
+          <SfIconThumbDown size="sm" class="mr-2.5" />
+          <SfCounter size="sm" class="text-inherit">2</SfCounter>
         </button>
       </div>
 
@@ -46,7 +46,7 @@
 
 <script lang="ts" setup>
 import { computed, ref } from 'vue';
-import { VsfRating, VsfIconCheck, VsfIconThumbUp, VsfIconThumbDown, VsfCounter } from '@storefront-ui/vue';
+import { SfRating, SfIconCheck, SfIconThumbUp, SfIconThumbDown, SfCounter } from '@storefront-ui/vue';
 
 const content =
   "I recently purchased a pair of sneakers and I am thoroughly impressed with their quality and comfort. The design is sleek and modern, and the shoes are available in a variety of colors to suit anyone's style preferences. The upper is made of a breathable and durable material that allows my feet to stay cool and dry during long walks or runs. The sole is also very comfortable and provides great support for my feet, making it easy for me to wear them all day without experiencing any discomfort or fatigue. One of my favorite features of these sneakers is the excellent traction they provide, even on slippery surfaces. I feel confident wearing them in any weather condition or terrain. Additionally, the shoes have held up well over time and have not shown any signs of wear and tear, even after frequent use. Overall, I highly recommend these sneakers to anyone in the market for a comfortable and stylish shoe that can handle any activity. They are definitely worth the investment!";

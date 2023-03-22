@@ -70,7 +70,7 @@ Use `tag` prop to render component as `NuxtLink`.
 
 | Prop name | Type             | Default value | Possible values    |
 | --------- | ---------------- | ------------- | ------------------ |
-| variant   | VsfLinkVariant   | primary       | primary, secondary |
+| variant   | SfLinkVariant   | primary       | primary, secondary |
 <!-- vue -->
 | tag | String | a | |
 <!-- end vue -->
@@ -90,10 +90,10 @@ Use `tag` prop to render component as `NuxtLink`.
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfLink/VsfLink.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfLink/SfLink.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfLink/VsfLink.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfLink/SfLink.tsx
 <!-- end react -->
 </SourceCode>
 :::

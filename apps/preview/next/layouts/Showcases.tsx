@@ -3,13 +3,13 @@ import { useRouter } from 'next/router';
 import { Fragment, ReactElement, useState } from 'react';
 import useSWR from 'swr';
 import {
-  VsfButton,
-  VsfButtonVariant,
-  VsfButtonSize,
-  VsfListItem,
-  VsfIconChevronLeft,
-  VsfIconChevronRight,
-  VsfIconExpandMore,
+  SfButton,
+  SfButtonVariant,
+  SfButtonSize,
+  SfListItem,
+  SfIconChevronLeft,
+  SfIconChevronRight,
+  SfIconExpandMore,
 } from '@storefront-ui/react';
 import classNames from 'classnames';
 
@@ -58,12 +58,12 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
             <h2>StorefrontUI v2</h2>
             <h3>React showcases</h3>
           </header>
-          <VsfButton
+          <SfButton
             className="sidebar-toggle"
-            variant={VsfButtonVariant.tertiary}
-            size={VsfButtonSize.sm}
+            variant={SfButtonVariant.tertiary}
+            size={SfButtonSize.sm}
             onClick={() => setIsOpen(!isOpen)}
-            slotPrefix={isOpen ? <VsfIconChevronLeft /> : <VsfIconChevronRight />}
+            slotPrefix={isOpen ? <SfIconChevronLeft /> : <SfIconChevronRight />}
             aria-label={isOpen ? 'Hide sidebar' : 'Open sidebar'}
           />
           <ul className="sidebar-list">
@@ -75,7 +75,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
                   onClick={() => onGroupClick(group)}
                 >
                   {group}
-                  <VsfIconExpandMore className={`${!groupsOpen[group] ? 'rotate-180' : ''}`} />
+                  <SfIconExpandMore className={`${!groupsOpen[group] ? 'rotate-180' : ''}`} />
                 </li>
                 {!groupsOpen[group] ? (
                   <li>
@@ -83,7 +83,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
                       {groups[group].showcases.map((showcaseName) => (
                         <li key={showcaseName} data-sidebar-component={showcaseName}>
                           <Link href={groupItemHref(group, showcaseName)} legacyBehavior>
-                            <VsfListItem
+                            <SfListItem
                               selected={router.pathname === groupItemHref(group, showcaseName)}
                               className={classNames({
                                 'font-medium': router.pathname === groupItemHref(group, showcaseName),
@@ -91,7 +91,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
                               as="a"
                             >
                               {showcaseName}
-                            </VsfListItem>
+                            </SfListItem>
                           </Link>
                         </li>
                       ))}

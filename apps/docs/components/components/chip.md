@@ -45,7 +45,7 @@ Anything can be passed via default slot to the chip component. One of many possi
 
 ## Deletable behaviour
 
-Chip can act as a deletable item. It can be achieved by passing `VsfIconClose` icon into the slot and a little bit of logic to the component.
+Chip can act as a deletable item. It can be achieved by passing `SfIconClose` icon into the slot and a little bit of logic to the component.
 
 <Showcase showcase-name="Chip/Deletable">
 
@@ -127,10 +127,10 @@ Please note that `aria-label` should be added for a showcase without text label.
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfChip/VsfChip.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfChip/SfChip.vue
 <!-- end vue -->
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfChip/VsfChip.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfChip/SfChip.tsx
 <!-- end react -->
 </SourceCode>
 :::

@@ -1,12 +1,12 @@
-export type VsfScrollableOptions = {
+export type SfScrollableOptions = {
   reduceMotion?: boolean;
   snap?: boolean;
   drag?: { sensitivity: number };
   vertical?: boolean;
-  onScroll?: (data: VsfScrollableCallbackData) => void;
+  onScroll?: (data: SfScrollableCallbackData) => void;
 };
 
-export type VsfScrollableCallbackData = {
+export type SfScrollableCallbackData = {
   left: number;
   width: number;
   scrollWidth: number;

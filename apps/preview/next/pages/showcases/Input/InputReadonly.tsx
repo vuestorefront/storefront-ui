@@ -1,14 +1,14 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfInput } from '@storefront-ui/react';
+import { SfInput } from '@storefront-ui/react';
 
 export default function ReadonlyInput() {
   return (
     <>
       <label>
         <span className="text-sm font-medium">Label</span>
-        <VsfInput value="value" wrapperClassName="!bg-disabled-100 !ring-disabled-300 !ring-1" readOnly />
+        <SfInput value="value" wrapperClassName="!bg-disabled-100 !ring-disabled-300 !ring-1" readOnly />
       </label>
       <div className="flex justify-between">
         <div>

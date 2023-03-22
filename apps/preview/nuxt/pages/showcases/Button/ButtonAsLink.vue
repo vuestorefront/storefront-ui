@@ -1,16 +1,16 @@
 <template>
   <div class="flex flex-col items-center space-y-4 xs:block xs:space-x-4">
-    <VsfButton tag="a" href="/"> Link </VsfButton>
+    <SfButton tag="a" href="/"> Link </SfButton>
 
-    <VsfButton :tag="NuxtLink" to="/"> NuxtLink </VsfButton>
+    <SfButton :tag="NuxtLink" to="/"> NuxtLink </SfButton>
 
-    <VsfButton tag="router-link" to="/"> router-link </VsfButton>
+    <SfButton tag="router-link" to="/"> router-link </SfButton>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { resolveComponent } from 'vue';
-import { VsfButton } from '@storefront-ui/vue';
+import { SfButton } from '@storefront-ui/vue';
 
 const NuxtLink = resolveComponent('NuxtLink');
 </script>

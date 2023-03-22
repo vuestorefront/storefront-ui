@@ -1,7 +1,7 @@
 <template>
   <div class="inline-flex flex-col items-center">
     <div class="flex">
-      <VsfButton
+      <SfButton
         type="button"
         variant="tertiary"
         :disabled="count <= min"
@@ -11,8 +11,8 @@
         aria-label="Decrease value"
         @click="dec()"
       >
-        <VsfIconRemove />
-      </VsfButton>
+        <SfIconRemove />
+      </SfButton>
       <input
         :id="inputId"
         v-model="count"
@@ -23,7 +23,7 @@
         :max="max"
         @input="handleOnChange"
       />
-      <VsfButton
+      <SfButton
         type="button"
         variant="tertiary"
         :disabled="count >= max"
@@ -33,8 +33,8 @@
         aria-label="Increase value"
         @click="inc()"
       >
-        <VsfIconAdd />
-      </VsfButton>
+        <SfIconAdd />
+      </SfButton>
     </div>
     <p class="text-xs mt-2 text-neutral-500">
       <strong class="text-neutral-900">{{ max }}</strong> in stock
@@ -46,7 +46,7 @@
 import { ref } from 'vue';
 import { clamp } from '@storefront-ui/shared';
 import { useCounter } from '@vueuse/core';
-import { VsfButton, VsfIconAdd, VsfIconRemove, useId } from '@storefront-ui/vue';
+import { SfButton, SfIconAdd, SfIconRemove, useId } from '@storefront-ui/vue';
 
 const min = ref(1);
 const max = ref(10);

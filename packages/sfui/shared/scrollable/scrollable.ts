@@ -1,17 +1,17 @@
-import type { VsfScrollableOptions, VsfScrollableCallbackData } from './types';
+import type { SfScrollableOptions, SfScrollableCallbackData } from './types';
 
-const defaultVsfScrollableOptions: VsfScrollableOptions = {
+const defaultSfScrollableOptions: SfScrollableOptions = {
   reduceMotion: false,
   snap: false,
   drag: undefined,
   vertical: false,
 };
 
-const DRAGGING_CLASS = 'vsf-scrollable__container--dragging';
+const DRAGGING_CLASS = 'sf-scrollable__container--dragging';
 
-export default class VSFScrollable {
+export default class SFScrollable {
   public container: HTMLElement;
-  private options: VsfScrollableOptions;
+  private options: SfScrollableOptions;
   private debounceId?: ReturnType<typeof setTimeout>;
   private isDragged?: boolean;
   private dragScrollX: number;
@@ -26,11 +26,11 @@ export default class VSFScrollable {
   private mouseMoveListenerInstance: (event: MouseEvent) => void = () => undefined;
   private mouseLeaveListenerInstance: (event: MouseEvent) => void = () => undefined;
 
-  constructor(container: Element, VsfScrollableOptions?: Partial<VsfScrollableOptions>) {
+  constructor(container: Element, SfScrollableOptions?: Partial<SfScrollableOptions>) {
     if (!(container instanceof HTMLElement))
-      throw new Error(`VsfScrollable: Container is not a HTMLElement! Received: ${container}`);
+      throw new Error(`SfScrollable: Container is not a HTMLElement! Received: ${container}`);
     this.container = container;
-    this.options = { ...defaultVsfScrollableOptions, ...VsfScrollableOptions };
+    this.options = { ...defaultSfScrollableOptions, ...SfScrollableOptions };
     this.dragScrollX = 0;
     this.dragScrollLeft = 0;
     this.dragScrollY = 0;
@@ -43,8 +43,8 @@ export default class VSFScrollable {
     this.onScrollHandler();
   }
 
-  public update(VsfScrollableOptions?: Partial<VsfScrollableOptions>) {
-    this.options = { ...defaultVsfScrollableOptions, ...VsfScrollableOptions };
+  public update(SfScrollableOptions?: Partial<SfScrollableOptions>) {
+    this.options = { ...defaultSfScrollableOptions, ...SfScrollableOptions };
     this.removeListeners();
     this.init();
   }
@@ -80,7 +80,7 @@ export default class VSFScrollable {
     }
   }
 
-  public refresh(callback?: (data: VsfScrollableCallbackData) => void) {
+  public refresh(callback?: (data: SfScrollableCallbackData) => void) {
     requestAnimationFrame(() => {
       const data = this.calculate();
       callback?.(data);
@@ -190,7 +190,7 @@ export default class VSFScrollable {
     this.refresh((data) => this.options.onScroll?.(data));
   }
 
-  private calculate(): VsfScrollableCallbackData {
+  private calculate(): SfScrollableCallbackData {
     const { container, options } = this;
 
     function hasNext() {

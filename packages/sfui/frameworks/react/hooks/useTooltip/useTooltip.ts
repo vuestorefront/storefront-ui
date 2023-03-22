@@ -4,7 +4,7 @@ import { arrow, flip, offset, shift } from '@floating-ui/react-dom';
 import {
   composeHandlers,
   createPropsGetter,
-  VsfPopoverBasePlacement,
+  SfPopoverBasePlacement,
   usePopover,
   useDisclosure,
 } from '@storefront-ui/react';
@@ -33,7 +33,7 @@ export function useTooltip(options?: UseTooltipOptions) {
   function arrowStyle() {
     if (middlewareData.arrow) {
       const { x: arrowX, y: arrowY } = middlewareData.arrow;
-      const basePlacement = placement.split('-')[0] as VsfPopoverBasePlacement<typeof placement>;
+      const basePlacement = placement.split('-')[0] as SfPopoverBasePlacement<typeof placement>;
       return {
         position: 'absolute',
         width: arrowSize,

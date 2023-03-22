@@ -93,30 +93,30 @@ const attributesMap = {
 
 const vueIcon = (name, content, attributes) => `
 <template>
-    <VsfIconBase :size="size" viewBox="${attributes.viewBox}" ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</VsfIconBase>
+    <SfIconBase :size="size" viewBox="${attributes.viewBox}" ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</SfIconBase>
 </template>
 <script lang="ts" setup>
 import { PropType } from 'vue';
-import { VsfIconBase, VsfIconSize } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}VsfIconBase`)}';
+import { SfIconBase, SfIconSize } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}SfIconBase`)}';
 
 defineProps({
     size: {
-        type: String as PropType<\`\${VsfIconSize}\`>,
-        default: VsfIconSize.base
+        type: String as PropType<\`\${SfIconSize}\`>,
+        default: SfIconSize.base
     }
 });
 </script>`;
 
 const reactIcon = (name, camelCaseName, content, attributes) => `
-import type { VsfIconProps } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}VsfIcons/types`)}';
-import { VsfIconBase, VsfIconSize } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}VsfIconBase`)}';
+import type { SfIconProps } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}SfIcons/types`)}';
+import { SfIconBase, SfIconSize } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}SfIconBase`)}';
 
-export default function VsfIcon${camelCaseName}({
-    size = VsfIconSize.base,
+export default function SfIcon${camelCaseName}({
+    size = SfIconSize.base,
     viewBox = '${attributes.viewBox}',
     ...attributes
-}: VsfIconProps) {
-    return <VsfIconBase {...attributes} size={size} viewBox={viewBox} ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</VsfIconBase>;
+}: SfIconProps) {
+    return <SfIconBase {...attributes} size={size} viewBox={viewBox} ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</SfIconBase>;
 }`;
 
 const vueExports = [];
@@ -184,7 +184,7 @@ const createExports = async (file, doOptimiziation) => {
         if(process.env.PROD !== "true") {
             attributes['dataTestId'] = name;
         }
-        const componentName = `VsfIcon${capitializedCamelCaseName}`;
+        const componentName = `SfIcon${capitializedCamelCaseName}`;
 
         if (framework === 'vue') {
             await fsPromise.writeFile(

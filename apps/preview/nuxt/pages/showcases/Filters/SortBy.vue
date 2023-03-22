@@ -3,17 +3,17 @@
     Sort by
   </h6>
   <div class="px-4">
-    <VsfSelect v-model="selected" aria-label="Sort by">
+    <SfSelect v-model="selected" aria-label="Sort by">
       <option v-for="{ value, label } in options" :key="value" :value="value">
         {{ label }}
       </option>
-    </VsfSelect>
+    </SfSelect>
   </div>
 </template>
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { VsfSelect } from '@storefront-ui/vue';
+import { SfSelect } from '@storefront-ui/vue';
 
 const options = ref([
   { label: 'Relevance', value: 'relevance' },

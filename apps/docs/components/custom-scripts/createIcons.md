@@ -31,9 +31,9 @@ Path to directory with `*.svg` files
 Path to directory where generated components will be placed
 
 ### `relativePathToIconBase`
-Path used inside generated component to `VsfBaseIcon` component
+Path used inside generated component to `SfBaseIcon` component
 
-Source code(vue): `import VsfIconBase, { VsfIconSize } from '${relativePathToIconBase}VsfIconBase/VsfIconBase';`
+Source code(vue): `import SfIconBase, { SfIconSize } from '${relativePathToIconBase}SfIconBase/SfIconBase';`
 
 ### `optimize`
 Optimizing svg file with [svgo](https://github.com/svg/svgo)

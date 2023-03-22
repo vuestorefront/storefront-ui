@@ -3,7 +3,7 @@
     "node_modules",
     "coverage/",
     "cypress",
-    "src/components/sfui/vue/components/VsfIcons",
+    "src/components/sfui/vue/components/SfIcons",
     "src/components/sfui/tests"
   ],
   "include": [

@@ -94,11 +94,11 @@ Label can be either on the right side of an input or on the left side.
 ::: slot source
 <SourceCode>
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfRadio/VsfRadio.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfRadio/SfRadio.vue
 <!-- end vue -->
 
 <!-- react -->
-<<< ../../../packages/sfui/frameworks/react/components/VsfRadio/VsfRadio.tsx
+<<< ../../../packages/sfui/frameworks/react/components/SfRadio/SfRadio.tsx
 <!-- end react -->
 </SourceCode>
 :::

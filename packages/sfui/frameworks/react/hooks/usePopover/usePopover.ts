@@ -1,12 +1,12 @@
 import { autoUpdate, useFloating } from '@floating-ui/react-dom';
-import { VsfPopoverPlacement, VsfPopoverStrategy, type UsePopoverOptions } from '@storefront-ui/react';
+import { SfPopoverPlacement, SfPopoverStrategy, type UsePopoverOptions } from '@storefront-ui/react';
 
 export function usePopover(options: UsePopoverOptions) {
   const {
     isOpen,
     middleware,
-    placement = VsfPopoverPlacement.bottom,
-    strategy: initialStrategy = VsfPopoverStrategy.absolute,
+    placement = SfPopoverPlacement.bottom,
+    strategy: initialStrategy = SfPopoverStrategy.absolute,
   } = options;
 
   const { refs, strategy, x, y, middlewareData } = useFloating<HTMLElement>({

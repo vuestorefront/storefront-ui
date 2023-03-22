@@ -55,7 +55,7 @@ LoaderLinear by default uses a `primary-700` as bar color (customizable by setti
 ::: slot api
 | Prop name             | Type                       | Default value                 | Possible values                      |
 |-----------------------|----------------------------|-------------------------------|--------------------------------------|
-| size                |      `VsfLoaderLinearSize | VsfLoaderSize`        | `VsfLoaderLinearSize.base`           |  `minimal`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
+| size                |      `SfLoaderLinearSize | SfLoaderSize`        | `SfLoaderLinearSize.base`           |  `minimal`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
 | ariaLabel    |      `string`                | `loading`                     |                                      |
 <!-- react -->
 | className             |  String                    |               |                                  |            |
@@ -63,9 +63,9 @@ LoaderLinear by default uses a `primary-700` as bar color (customizable by setti
 :::
 ::: slot source
 <!-- vue -->
-<<<../../../packages/sfui/frameworks/vue/components/VsfLoaderLinear/VsfLoaderLinear.vue
+<<<../../../packages/sfui/frameworks/vue/components/SfLoaderLinear/SfLoaderLinear.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../../packages/sfui/frameworks/react/components/VsfLoaderLinear/VsfLoaderLinear.tsx
+<<<../../../packages/sfui/frameworks/react/components/SfLoaderLinear/SfLoaderLinear.tsx
 <!-- end react -->
 :::

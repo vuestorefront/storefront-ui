@@ -2,12 +2,12 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import classNames from 'classnames';
 import {
-  VsfButton,
-  VsfIconHome,
-  VsfIconMenu,
-  VsfIconSearch,
-  VsfIconShoppingCart,
-  VsfIconFavorite,
+  SfButton,
+  SfIconHome,
+  SfIconMenu,
+  SfIconSearch,
+  SfIconShoppingCart,
+  SfIconFavorite,
 } from '@storefront-ui/react';
 import { useState } from 'react';
 
@@ -15,23 +15,23 @@ export default function BottomNav() {
   const items = [
     {
       label: 'Home',
-      icon: <VsfIconHome />,
+      icon: <SfIconHome />,
     },
     {
       label: 'Products',
-      icon: <VsfIconMenu />,
+      icon: <SfIconMenu />,
     },
     {
       label: 'Search',
-      icon: <VsfIconSearch />,
+      icon: <SfIconSearch />,
     },
     {
       label: 'Cart',
-      icon: <VsfIconShoppingCart />,
+      icon: <SfIconShoppingCart />,
     },
     {
       label: 'Wishlist',
-      icon: <VsfIconFavorite />,
+      icon: <SfIconFavorite />,
     },
   ];
 
@@ -43,7 +43,7 @@ export default function BottomNav() {
   return (
     <nav className="max-w-[500px] bottom-0 w-full left-0 fixed flex flex-row items-stretch bg-white text-primary-700">
       {items.map((item) => (
-        <VsfButton
+        <SfButton
           key={item.label}
           variant="tertiary"
           slotPrefix={item.icon}
@@ -54,7 +54,7 @@ export default function BottomNav() {
           onClick={() => onClickHandler(item.label)}
         >
           {item.label}
-        </VsfButton>
+        </SfButton>
       ))}
     </nav>
   );

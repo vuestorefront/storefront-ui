@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfSelect, VsfIconUnfoldMore } from '@storefront-ui/react';
+import { SfSelect, SfIconUnfoldMore } from '@storefront-ui/react';
 
 const options = [
   { label: 'red', value: 'red' },
@@ -17,16 +17,16 @@ export default function SelectWithCustomChevron() {
   return (
     <label>
       <span className="pb-1 text-sm font-medium text-neutral-900 font-body">Label</span>
-      <VsfSelect
+      <SfSelect
         placeholder="-- Select --"
-        slotChevron={<VsfIconUnfoldMore className="absolute pointer-events-none top-2 right-4 text-neutral-500" />}
+        slotChevron={<SfIconUnfoldMore className="absolute pointer-events-none top-2 right-4 text-neutral-500" />}
       >
         {options.map((option) => (
           <option value={option.value} key={option.value}>
             {option.label}
           </option>
         ))}
-      </VsfSelect>
+      </SfSelect>
     </label>
   );
 }

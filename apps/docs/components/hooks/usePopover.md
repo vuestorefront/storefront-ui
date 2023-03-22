@@ -94,9 +94,9 @@ const { referenceRef, floatingRef, style } = usePopover({ isOpen });
 | referenceRef  | `MaybeElementRef<Element | VirtualElement>` | `undefined`              | Reference element based on which floating element will be positioned  |
 | floatingRef  | `MaybeElementRef<HTMLElement>` | `undefined`              | Element to float next to the reference element  |
 <!-- end vue -->
-| placement | `VsfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
+| placement | `SfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
 | middleware    | `UseFloatingProps['middleware']`                 |              | Array of `@floating-ui` middlewares |
-| strategy | `VsfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)              |
+| strategy | `SfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)              |
 
 ## Return value
 

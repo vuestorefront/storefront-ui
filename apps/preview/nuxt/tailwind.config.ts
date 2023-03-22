@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss';
-import vsfTypography from '@storefront-ui/typography';
+import sfTypography from '@storefront-ui/typography';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
 export default <Config>{
@@ -12,5 +12,5 @@ export default <Config>{
       },
     },
   },
-  plugins: [vsfTypography],
+  plugins: [sfTypography],
 };

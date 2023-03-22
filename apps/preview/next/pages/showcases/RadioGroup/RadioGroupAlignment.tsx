@@ -2,7 +2,7 @@
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { VsfRadio } from '@storefront-ui/react';
+import { SfRadio } from '@storefront-ui/react';
 import { useState } from 'react';
 
 const radioOptions = [
@@ -41,7 +41,7 @@ export default function RadioGroupAlignment() {
         <div className="flex flex-col">
           {radioOptions.map(({ label, value, name }) => (
             <label key={value} className="flex items-center mb-4 cursor-pointer">
-              <VsfRadio
+              <SfRadio
                 name={name}
                 value={value}
                 checked={checkedStateRadioOne === value}
@@ -58,7 +58,7 @@ export default function RadioGroupAlignment() {
         <div className="flex flex-row">
           {radioOptionsTwo.map(({ label, value, name }) => (
             <label key={value} className="flex items-center mx-4 cursor-pointer">
-              <VsfRadio
+              <SfRadio
                 name={name}
                 value={value}
                 checked={checkedStateRadioTwo === value}

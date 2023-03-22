@@ -1,10 +1,10 @@
 <template>
   <div class="space-x-4">
-    <VsfLink href="#" variant="primary"> Primary </VsfLink>
-    <VsfLink href="#" variant="secondary"> Secondary </VsfLink>
+    <SfLink href="#" variant="primary"> Primary </SfLink>
+    <SfLink href="#" variant="secondary"> Secondary </SfLink>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { VsfLink } from '@storefront-ui/vue';
+import { SfLink } from '@storefront-ui/vue';
 </script>

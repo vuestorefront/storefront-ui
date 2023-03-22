@@ -7,7 +7,7 @@
     :data-tooltip="componentName"
     @click="copyToClipboard(componentName)"
   >
-    <component :is="VsfIcons[componentName]" />
+    <component :is="SfIcons[componentName]" />
   </button>
 
   <p v-if="copied" class="mt-1 text-sm">&quot;{{ copied }}&quot; has been copied to clipboard</p>
@@ -15,10 +15,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import * as VsfIcons from '@storefront-ui/vue';
+import * as SfIcons from '@storefront-ui/vue';
 
-const componentsNames = Object.keys(VsfIcons).filter(
-  (exportName): exportName is keyof typeof VsfIcons => exportName !== 'VsfIconSize' && exportName.includes('VsfIcon'),
+const componentsNames = Object.keys(SfIcons).filter(
+  (exportName): exportName is keyof typeof SfIcons => exportName !== 'SfIconSize' && exportName.includes('SfIcon'),
 );
 const copied = ref('');
 const copyToClipboard = (componentName: string) => {

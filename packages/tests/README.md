@@ -24,7 +24,7 @@ To handle this case, we need to mark imports, so our internal tooling can replac
 Having said that there is better solution for marking your component imports than using comments above. For most of cases, using our `useComponent` util will be a better fit. It allows you to import the react/vue components and uses the same comment under the hood. Example:
 
 ```ts
-const {vue: VsfRadioGroupVue, react: VsfRadioGroupReact} = useComponent('VsfRadioGroup');
+const {vue: SfRadioGroupVue, react: SfRadioGroupReact} = useComponent('SfRadioGroup');
 ```
 
 This util will work perfectly for cases where the component does exist both in React and Vue frameworks. In a situation when the component is not exported from one of framework bundles (for example when you're testing a React-only component) you should use import comments as a fallback strategy:  `// import react` and `// end import react`.
@@ -72,7 +72,7 @@ it('some test', () => {
       <Wrapper
           open={someProp}
           onOpenChange={(e: boolean) => someProp.value = e}
-          component={VsfNavigationTopReact}
+          component={SfNavigationTopReact}
       />
   });
 
@@ -91,4 +91,4 @@ it('some test', () => {
 
 Currently code coverage is implemented only for `vue`.
 Coverage can be checked locally, by running `yarn test:ci:vue` in `root` directory or `yarn test:ci` in `apps/preview/vue` directory.
-Additionally, if to run only a single test file you can use command like: `SPEC=VsfAlert yarn test:ci`. It will run cypress headless tests and generation report only for specified component test file (`VsfAlert` in this example).
+Additionally, if to run only a single test file you can use command like: `SPEC=SfAlert yarn test:ci`. It will run cypress headless tests and generation report only for specified component test file (`SfAlert` in this example).

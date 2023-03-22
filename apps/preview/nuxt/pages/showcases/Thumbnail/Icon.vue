@@ -1,9 +1,9 @@
 <template>
-  <VsfThumbnail size="xl" class="bg-gray-100 flex items-center justify-center">
-    <VsfIconFavorite />
-  </VsfThumbnail>
+  <SfThumbnail size="xl" class="bg-gray-100 flex items-center justify-center">
+    <SfIconFavorite />
+  </SfThumbnail>
 </template>
 
 <script lang="ts" setup>
-import { VsfThumbnail, VsfIconFavorite } from '@storefront-ui/vue';
+import { SfThumbnail, SfIconFavorite } from '@storefront-ui/vue';
 </script>

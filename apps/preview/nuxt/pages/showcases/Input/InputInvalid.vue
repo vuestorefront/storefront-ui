@@ -1,7 +1,7 @@
 <template>
   <label>
     <span class="text-sm font-medium">Label</span>
-    <VsfInput invalid />
+    <SfInput invalid />
   </label>
   <div class="flex justify-between">
     <div>
@@ -11,5 +11,5 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { VsfInput } from '@storefront-ui/vue';
+import { SfInput } from '@storefront-ui/vue';
 </script>
