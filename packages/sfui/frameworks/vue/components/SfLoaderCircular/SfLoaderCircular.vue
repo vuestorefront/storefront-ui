@@ -9,6 +9,16 @@ const sizeClasses = {
   [SfLoaderSize['3xl']]: 'h-24 w-24 ring-4',
   [SfLoaderSize['4xl']]: 'h-48 w-48 ring-8',
 };
+const strokeSizeClass = {
+  [SfLoaderSize.xs]: 'stroke-[10px]',
+  [SfLoaderSize.sm]: 'stroke-[8px]',
+  [SfLoaderSize.base]: 'stroke-[6px]',
+  [SfLoaderSize.lg]: 'stroke-[4px]',
+  [SfLoaderSize.xl]: 'stroke-[3px]',
+  [SfLoaderSize['2xl']]: 'stroke-[3px]',
+  [SfLoaderSize['3xl']]: 'stroke-2',
+  [SfLoaderSize['4xl']]: 'stroke-2',
+};
 </script>
 
 <script lang="ts" setup>
@@ -29,13 +39,19 @@ defineProps({
 
 <template>
   <svg
-    class="inline-block ring-inset ring-neutral-300 text-primary-700 rounded-full animate-spin-slow"
+    class="inline-block rounded-full ring-inset ring-neutral-300 text-primary-700 animate-spin-slow"
     :class="sizeClasses[size]"
     viewBox="25 25 50 50"
     aria-live="polite"
     :aria-label="ariaLabel"
     data-testid="loader-circular"
   >
-    <circle class="fill-none stroke-2 stroke-current animate-stroke-loader-circular" cx="50" cy="50" r="24" />
+    <circle
+      :class="strokeSizeClass[size]"
+      class="stroke-current stroke-2 fill-none animate-stroke-loader-circular"
+      cx="50"
+      cy="50"
+      r="24"
+    />
   </svg>
 </template>
