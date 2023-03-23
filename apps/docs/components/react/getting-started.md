@@ -97,13 +97,7 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/st
 
 <SourceCode>
 
-```tsx
-// Foo.tsx
-import { SfButton } from '@storefront-ui/react';
-export default function Foo() {
-  return <SfButton className="w-full">Hello</SfButton>;
-}
-```
+<<<../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
 
 </SourceCode>
 
@@ -204,13 +198,7 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 
 <SourceCode>
 
-```tsx
-// Foo.tsx
-import { SfButton } from '@storefront-ui/react';
-export default function Foo() {
-  return <SfButton className="w-full">Hello</SfButton>;
-}
-```
+<<<../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
 
 </SourceCode>
 
@@ -288,13 +276,7 @@ You can now import Storefront UI components inside your Astro project! You can e
 
 <SourceCode>
 
-```tsx
-// Foo.tsx
-import { SfButton } from '@storefront-ui/react';
-export default function Foo() {
-  return <SfButton className="w-full">Hello</SfButton>;
-}
-```
+<<<../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
 
 </SourceCode>
 
@@ -302,7 +284,6 @@ export default function Foo() {
 
 ```md
 ---
-// Foo.astro
 import { SfButton } from '@storefront-ui/react';
 ---
 
