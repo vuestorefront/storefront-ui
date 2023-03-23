@@ -65,12 +65,12 @@ ProgressCircular might be displayed with a text representation of it's value. To
 ::: slot api
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
-|  value                |  `number`                    | 0 0            |                                        |
-|  size              |  `SfProgressSize` |   `SfProgressSize.base`        |   `xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl`  |
-|  ariaLabel         |  string                    |   'Progress element'  |                                        |
+|  `value`                |  `number`                    | `0`             |                                        |
+|  `size`              |  `SfProgressSize` |   `'base'`        |   `'xs'`,`'sm'`,`'base'`,`'lg'`,`'xl'`,`'2xl'`,`'3xl'`,`'4xl'`  |
+|  `ariaLabel`         |  `string`                    |   `'Progress element'`  |                                        |
 <!-- react -->
-|  className            |  String                    |               |                                        |
-| children   | ReactNode          |               | Default slotted content            |
+|  `className`            |  `string`                    |               |                                        |
+| `children`   | `ReactNode`          |               | Default slotted content            |
 <!-- end react -->
 
 <!-- vue -->
@@ -78,7 +78,7 @@ ProgressCircular might be displayed with a text representation of it's value. To
 
 | Slot name | Description                     |
 | --------- | ------------------------------- |
-| default   | adds content within svg element |
+| `default`   | adds content within svg element |
 <!-- end vue -->
 :::
 ::: slot source

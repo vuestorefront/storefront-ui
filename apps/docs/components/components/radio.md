@@ -68,17 +68,17 @@ Radio base component with input control aligned to the right.
 
 | Prop name  | Type                          | Default value | Possible values       |
 | ---------- | ----------------------------- | ------------- | --------------------- |
-| invalid    | Boolean                       | false         |                       |
+| `name`\*       | `string`                        |               |                       |
+| `invalid`    | `boolean`                       | `false`         |                       |
 <!-- vue -->
-| name       | String                        |               |                       |
-| value      | String                        |               |                       |
-| modelValue | String                        |               |                       |
-| disabled   | Boolean                       | false         |                       |
+| `value`      | `string`                        |               |                       |
+| `modelValue` | `string`                        |               |                       |
+| `disabled`   | `boolean`                       | `false`         |                       |
 <!-- end vue -->
 <!-- react -->
-| checked   | boolean                        |               |                       |
-| className | String                         |               |                       |
-| onChange   | triggers radio event emit     |               |                       |
+| `checked`   | `boolean`                        |               |                       |
+| `onChange`   | `Function`     |               |                       |
+| `className` | `string`                         |               |                       |
 <!-- end react -->
 
 <!-- vue -->
@@ -86,7 +86,7 @@ Radio base component with input control aligned to the right.
 
 | Event name        | Trigger                   |
 | ----------------- | ------------------------- |
-| update:modelValue | triggers radio event emit |
+| `update:modelValue` | triggers radio event emit |
 
 <!-- end vue -->
 :::

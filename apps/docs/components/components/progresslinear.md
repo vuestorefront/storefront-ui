@@ -69,11 +69,11 @@ ProgressLinear should be displayed with an accessible text label. You achieve th
 ::: slot api
 | Prop name             | Type                       | Default value | Possible values                              |
 |-----------------------|----------------------------|---------------|----------------------------------------      |
-|  value                |  `number`                    | 0 0            |                                        |
-| size                |      `SfProgressLinearSize | SfProgressSize`        | `SfProgressSize.base`           |  `minimal`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
-| ariaLabel    |      `string`                | `Progress linear`                     |                                      |
+|  `value`                |  `number`                    | `0`            |                                        |
+| `size`                |      `SfProgressLinearSize | SfProgressSize`        | `'base'`           |  `'minimal'`,`'xs'`,`'sm'`,`'base'`,`'lg'`,`'xl'`,`'2xl'`,`'3xl'`,`'4xl'` |
+| `ariaLabel`    |      `string`                | `'Progress linear'`                     |                                      |
 <!-- react -->
-| className             |  String                    |               |                                  |            |
+| `className`             |  `string`                    |               |                                  |            |
 <!-- end react -->
 :::
 ::: slot source

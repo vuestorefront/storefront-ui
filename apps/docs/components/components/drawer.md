@@ -51,19 +51,19 @@ Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
 <!-- vue -->
-| modelValue            | boolean                    | false         |                                        |
-| tag                   | string                     | aside         |                                        |
+| `modelValue`            | `boolean`                    | `false`         |                                        |
+| `tag`                   | `string`                     | `'aside'`         |                                        |
 <!-- end vue -->
 <!-- react -->
-| open                  | boolean                    | false         |                                        |
-| as                    | ReactElement               | aside         |                                        |
+| `open`\*                  | `boolean`                    | `false`         |                                        |
+| `as`                    | `ReactElement`               | `'aside'`         |                                        |
 <!-- end react -->
-|  placement            | SfDrawerPlacement         | SfDrawerPlacement.left        |                                        |
-|  disableClickAway     | boolean                    | false        |                                        |
-|  disableEsc           |  boolean                   | false        |                                        |
+|  `placement`            | `SfDrawerPlacement`         | `'left'`          | `'top'`, `'bottom'`, `'left'`, `'right'`   |                                        
+|  `disableClickAway`     | `boolean`                    | `false`        |                                        |
+|  `disableEsc`           |  `boolean`                   | `false`        |                                        |
 <!-- react -->
-|  children             |  ReactNode                 |               |                                        |
-|  onClose              |  Function                  |               |                                        |
+|  `onClose`              |  `Function`                  |               |                                        |
+|  `children`             |  `ReactNode`                 |               |                                        |
 <!-- end react -->
 <!-- vue -->
 
@@ -71,13 +71,13 @@ Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide
 
 | Slot name | Description             |
 | --------- | ----------------------- |
-| default   | place content of drawer |
+| `default`   | place content of drawer |
 
 ## Events
 
 | Event name        | Trigger                        |
 | ----------------- | ------------------------------ |
-| update:modelValue | emits on clicking close button |
+| `update:modelValue` | emits on clicking close button |
 <!-- end vue -->
 :::
 

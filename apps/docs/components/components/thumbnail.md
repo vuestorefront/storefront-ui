@@ -95,10 +95,10 @@ Icons can be applied by placing into the default slot of component.
 
 | Prop name         | Type                       | Default value | Possible values                        |
 |------------------ |----------------------------|---------------|----------------------------------------|
-| size              | SfChip                    | base          | sm, base, lg                           |
+| `size`              | `SfChip`                    | `'base'`          | `'sm'`, `'base'`, `'lg'`                           |
 <!-- react -->
-| children          | ReactNode                  |               |  allows to pass icon or image          |
-| className         | string                     |               |                                        |
+| `className`         | `string`                     |               |                                        |
+| `children`          | `ReactNode`                  |               |            |
 <!-- end react -->
 
 <!-- vue -->
@@ -106,7 +106,7 @@ Icons can be applied by placing into the default slot of component.
 
 | Slot name |            Description          |
 | --------- | ------------------------------- |
-| default   |  allows to pass icon or image   |
+| `default`   |  allows to pass icon or image   |
 <!-- end vue -->
 :::
 

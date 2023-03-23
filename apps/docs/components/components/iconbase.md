@@ -87,20 +87,20 @@ When using icon element with custom icon remember to specify viewBox or width/he
 ::: slot api
 | Prop name      | Type                                   | Default value | Possible values |
 |----------------|----------------------------------------|---------------|-----------------|
+| `size`                  | `SfIconSize`                          | `'base'`        | `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, `'2xl'`, `'3xl'` |
 <!-- vue -->
-| content               | `String` |  |      Content of and SVG, e.g. `<path d='...'/>`           |
+| `content`               | `string` |  |      Content of and SVG, e.g. `<path d='...'/>`           |
 <!-- end vue -->
 <!-- react -->
-| children               | `ReactNode` |  |       Content of an SVG, e.g. `<path d='...'/>`        |
+| `children`               | `ReactNode` |  |       Content of an SVG, e.g. `<path d='...'/>`        |
 <!-- end react -->
-| size                  | `SfIconSize`                          | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl` |
 <!-- vue -->
 
 ## Slots
 
 | Slot name | Description                                                                     |
 | --------- | ------------------------------------------------------------------------------- |
-| default   | Content of an SVF, e.g. `<path d='...'/>`. Takes precedence over `content` prop |
+| `default`   | Content of an SVF, e.g. `<path d='...'/>`. Takes precedence over `content` prop |
 <!-- end vue -->
 :::
 

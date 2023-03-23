@@ -60,18 +60,18 @@ ListItem has additional slots to place custom content. Slot <!-- vue --> `prefix
 ::: slot api
 | Prop name          | Type          | Default value | Possible values            |
 | ------------------ | ------------  | ------------- | -------------------------- |
-| size               | string        | base          | sm, base, lg               |
-| disabled           | boolean       | false         |                            |
-| selected           | boolean       | false         |                            |
+| `size`               | `SfListItemSize`        | `'base'`          | `'sm'`, `'base'`, `'lg'`               |
+| `disabled `          | `boolean`      | `false`         |                            |
+| `selected`           | `boolean`       | `false`        |                            |
 <!-- vue -->
-| tag                | string        | li            | any tag name               |
+| `tag`                | `string`        | `'li'`           | any tag name               |
 <!-- end vue -->
 <!-- react -->
-| as                 | ReactElement  | li            | any tag name               |
-| children           | ReactNode     |               | label content              |
-| slotPrefix         | ReactNode     |               | right side content         |
-| slotSuffix         | ReactNode     |               | left side content          |
-| className          | string        |               |                            |
+| `as`                 | `ReactElement`  | `'li'`            | any tag name               |
+| `children`           | `ReactNode`     |               | label content              |
+| `slotPrefix`         | `ReactNode`     |               | right side content         |
+| `slotSuffix`         | `ReactNode`     |               | left side content          |
+| `className`          | `string`        |               |                            |
 <!-- end react -->
 
 <!-- vue -->

@@ -55,10 +55,10 @@ LoaderLinear by default uses a `primary-700` as bar color (customizable by setti
 ::: slot api
 | Prop name             | Type                       | Default value                 | Possible values                      |
 |-----------------------|----------------------------|-------------------------------|--------------------------------------|
-| size                |      `SfLoaderLinearSize | SfLoaderSize`        | `SfLoaderLinearSize.base`           |  `minimal`,`xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
-| ariaLabel    |      `string`                | `loading`                     |                                      |
+| `size`                |      `SfLoaderLinearSize | SfLoaderSize`        | `'base'`           |  `'minimal'`,`'xs'`,`'sm'`,`'base'`,`'lg'`,`'xl'`,`'2xl'`,`'3xl'`,`'4xl'` |
+| `ariaLabel`    |      `string`                | `'loading'`                     |                                      |
 <!-- react -->
-| className             |  String                    |               |                                  |            |
+| `className`             |  `string`                    |               |                                  |            |
 <!-- end react -->
 :::
 ::: slot source

@@ -70,14 +70,13 @@ Switch component with a label align on the left.
 
 | Prop name    | Type                     | Default value | Possible values                        |
 | ------------ | ------------------------ | ------------- | -------------------------------------- |
-| value        | String                   | ''            |                                        |
 <!-- vue -->
-| modelValue   | Boolean | string[]       | undefined     |                                        |
+| `modelValue`   | `boolean` | `string[]`       | `undefined`     |                                        |
 <!-- end vue -->
+| `value`        | `string`                   |             |                                        |
 <!-- react -->
-| className    | String                   |               |                                        |
-| onChange     | Function                 |               |                                        |
-
+| `onChange`     | `Function`                 |               |                                        |
+| `className`    | `string`                   |               |                                        |
 <!-- end react -->
 
 <!-- vue -->
@@ -86,7 +85,7 @@ Switch component with a label align on the left.
 
 | Event name        | Trigger                       |
 | ----------------- | ----------------------------- |
-| update:modelValue | triggers v-model update event |
+| `update:modelValue` | triggers v-model update event |
 <!-- end vue -->
 :::
 

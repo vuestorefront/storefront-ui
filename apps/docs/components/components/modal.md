@@ -52,18 +52,18 @@ Modal can be used to provide additional interactions for your users.
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
 <!-- vue -->
-| modelValue            | boolean                    | false         |                                        |
-| tag                   | string                     | div         |                                        |
+| `modelValue`            | `boolean`                    | `false`         |                                        |
+| `tag`                   | `string`                     | `'div'`         |                                        |
 <!-- end vue -->
 <!-- react -->
-| open                  | boolean                    | false         |                                        |
-| as                    | ReactElement               | div         |                                        |
+| `open`                  | `boolean`                    | `false`         |                                        |
+| `as`                    | `ReactElement`               | `div`         |                                        |
 <!-- end react -->
-|  disableClickAway     | boolean                    | false        |                                        |
-|  disableEsc           |  boolean                   | false        |                                        |
+|  `disableClickAway`     | `boolean`                    | `false`        |                                        |
+|  `disableEsc`           |  `boolean`                   | `false`        |                                        |
 <!-- react -->
-|  children             |  ReactNode                 |               |                                        |
-|  onClose              |  Function                  |               |                                        |
+|  `children`             |  `ReactNode`                 |               |                                        |
+|  `onClose`              |  `Function`                  |               |                                        |
 <!-- end react -->
 <!-- vue -->
 
@@ -71,13 +71,13 @@ Modal can be used to provide additional interactions for your users.
 
 | Slot name | Description             |
 | --------- | ----------------------- |
-| default   | place content of modal |
+| `default`   | place content of modal |
 
 ## Events
 
 | Event name        | Trigger                        |
 | ----------------- | ------------------------------ |
-| update:modelValue | emits when hiting `esc` key (when `disableEsc` is set to `false`) and on click outside (when `disableClickAway` is set to `false`) |
+| `update:modelValue` | emits when hitting `esc` key (when `disableEsc` is set to `false`) and on click outside (when `disableClickAway` is set to `false`) |
 <!-- end vue -->
 :::
 

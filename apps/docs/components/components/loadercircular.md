@@ -51,10 +51,10 @@ LoaderCircular by default uses a `primary-700` as animated-shape color (customiz
 ::: slot api
 | Prop name             | Type                       | Default value                 | Possible values                      |
 |-----------------------|----------------------------|-------------------------------|--------------------------------------|
-| size                |      `SfLoaderSize`        | `SfLoaderSize.base`           | `xs`,`sm`,`base`,`lg`,`xl`,`2xl`,`3xl`,`4xl` |
-| ariaLabel    |      string                | `loading`                     |                                      |
+| `size`                |      `SfLoaderSize`        | `'base'`           | `'xs'`,`'sm'`,`'base'`,`'lg'`,`'xl'`,`'2xl'`,`'3xl'`,`'4xl'` |
+| `ariaLabel`    |      `string`                | `'loading'`                     |                                      |
 <!-- react -->
-| className             |  String                    |               |                                  |            |
+| `className`             |  `string`                    |               |                                  |            |
 <!-- end react -->
 :::
 ::: slot source

@@ -70,19 +70,19 @@ Use `tag` prop to render component as `NuxtLink`.
 
 | Prop name | Type             | Default value | Possible values    |
 | --------- | ---------------- | ------------- | ------------------ |
-| variant   | SfLinkVariant   | primary       | primary, secondary |
+| `variant`   | `SfLinkVariant`   | `'primary'`       | `'primary'`, `'secondary'` |
 <!-- vue -->
-| tag | String | a | |
+| `tag` | `string` | `'a'` | |
 <!-- end vue -->
 <!-- react -->
-| children | ReactNode | | Default slotted content |
-| as | ReactElement | a | any tag name |
+| `as` | `ReactElement` | `'a'` | any tag name |
+| `children` | `ReactNode` | | Default slotted content |
 <!-- end react -->
 
 <!-- vue -->
 | Slot name | Description                  |
 | --------- | ---------------------------- |
-| default   | replaces the default content |
+| `default`   | replaces the default content |
 <!-- end vue -->
 
 :::

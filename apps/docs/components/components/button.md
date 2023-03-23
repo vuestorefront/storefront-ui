@@ -114,19 +114,19 @@ Button can have additional content. You can use slot `prefix`/`slotPrefix` to ad
 
 | Prop name | Type                | Default value | Possible values                    |
 | --------- | ------------------- | ------------- | ---------------------------------- |
-| variant   | SfButtonVariant    | primary       | primary, secondary, tertiary       |
-| size      | SfButtonSize       | base          | sm, base, lg                       |
-| disabled  | Boolean             | false         |                                    |
-| square    | Boolean             | false         |                                    |
+| `variant`   | `SfButtonVariant`    | `'primary'`       | `'primary'`, `'secondary'`, `'tertiary'`       |
+| `size`      | `VsfButtonSize`       | `'base'`          | `'sm'`, `'base'`, `'lg'`                       |
+| `disabled`  | `boolean`             | `false`         |                                    |
+| `square`    | `boolean`             | `false`         |                                    |
 <!-- vue -->
-| tag       | String              | button        |                                    |
+| `tag`       | `string`              | `'button'`        |                                    |
 <!-- end vue -->
 <!-- react -->
-| children   | ReactNode          |               | Default slotted content            |
-| as         | ReactElement       | button        | any tag name                       |
-| slotPrefix | ReactNode          |               | Left side slotted content          |
-| slotSuffix | ReactNode          |               | Right side slotted content         |
-| onClick    | Function           |               |                                    |
+| `children`   | `ReactNode`          |               | Default slotted content            |
+| `as`         | `ReactElement`       | `'button'`        | any tag name                       |
+| `slotPrefix` | `ReactNode`          |               | Left side slotted content          |
+| `slotSuffix` | `ReactNode`          |               | Right side slotted content         |
+| `onClick`    | `Function`           |               |                                    |
 <!-- end react -->
 
 <!-- vue -->
@@ -134,9 +134,9 @@ Button can have additional content. You can use slot `prefix`/`slotPrefix` to ad
 
 | Slot name | Description                  |
 | --------- | ---------------------------- |
-| prefix    | before default slot          |
-| default   | replaces the default content |
-| suffix    | after default slot           |
+| `prefix`    | before default slot          |
+| `default`   | replaces the default content |
+| `suffix`    | after default slot           |
 <!-- end vue -->
 
 :::

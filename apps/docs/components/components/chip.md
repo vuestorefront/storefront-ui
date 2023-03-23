@@ -98,28 +98,28 @@ Please note that `aria-label` should be added for a showcase without text label.
 
 | Prop name | Type      | Default value | Possible values   |
 |-----------|-----------|---------------|-------------------|
-| size      | `string`  | `base`        | `sm`, `base`      |
-| square    | `boolean` | `false`       |                   |
-| inputProps  | `InputHTMLAttributes`   |        |  `{ disabled: true }`                 |
+| `size`      | `string`  | `'base'`        | `'sm'`, `'base'`      |
+| `square`    | `boolean` | `false`       |                   |
+| `inputProps`  | `InputHTMLAttributes`   |        |  `{ disabled: true }`                 |
 <!-- react -->
-| children  | `ReactNode`|              |                   |
-| onSelected| `Function` |`(event?: ChangeEvent<HTMLInputElement>) => void`|                         |
+| `onSelected`| `Function` |`(event?: ChangeEvent<HTMLInputElement>) => void`|                         |
+| `children`  | `ReactNode`|              |                   |
 <!-- end react -->
 <!-- vue -->
-| modelValue| `Boolean`  |  `false`     |                   |
+| `modelValue`| `boolean`  |  `false`     |                   |
 
 
 ## Slots 
 
 | Slot name | Description                  |
 | --------- | ---------------------------- |
-| default   | Replaces content inside chip |
+| `default`   | Replaces content inside chip |
 
 ## Events
 
 | Event name        | Trigger                       |
 | ----------------- | ----------------------------- |
-| update:modelValue | triggers v-model update event |
+| `update:modelValue` | triggers v-model update event |
 
 <!-- end vue -->
 :::

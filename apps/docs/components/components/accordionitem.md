@@ -55,14 +55,14 @@ The AccordionItem component is built on top of the [\<details>](https://develope
 | Prop name         | Type                      | Default value | Possible values |
 | ----------------- | ------------------------- | ------------- | --------------- |
 <!-- react -->
-| open              | `boolean`                 | false         |                 |
-| onToggle          | `(open: boolean) => void` |               |                 |
-| children          | `ReactNode`               |               |                 |
-| summaryClassName  | `string`                  |               |                 |
+| `open`              | `boolean`                 | false         |                 |
+| `summaryClassName`  | `string`                  |               |                 |
+| `onToggle`          | `(open: boolean) => void` |               |                 |
+| `children`          | `ReactNode`               |               |                 |
 <!-- end react -->
 <!-- vue -->
-| modelValue        | `boolean`                 | false         |                 |
-| summaryClass      | `string`                  |               |                 |
+| `modelValue`        | `boolean`                 | false         |                 |
+| `summaryClass`      | `string`                  |               |                 |
 <!-- end vue -->
 
 <!-- vue -->
@@ -70,14 +70,14 @@ The AccordionItem component is built on top of the [\<details>](https://develope
 
 | Slot name | Description           |
 | --------- | --------------------- |
-| default   | content to expand     |
-| summary   | header with a summary |
+| `default`   | content to expand     |
+| `summary`   | header with a summary |
 
 ## Events
 
 | Event name            | Trigger                            |
 | --------------------- | ---------------------------------- |
-| update:modelValue     | Triggers when click on the summary |
+| `update:modelValue`     | Triggers when click on the summary |
 <!-- end vue -->
 
 :::
