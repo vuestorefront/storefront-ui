@@ -1,22 +1,31 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: API reference docs for the usePopover <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
+description: Position and control any type of floating element.
 ---
 
 # usePopover
 
-::: slot usage
+:::::: slot usage
 
-{{ $frontmatter.description }}
+`usePopover` is a wrapper around the [Floating UI library](<!-- react -->https://floating-ui.com/docs/react<!-- end react --><!-- vue -->https://floating-ui.com/docs/vue<!-- end vue -->). It provides an API for positioning floating elements next to reference elements. This can be useful for creating tooltips, dropdowns, popovers, and other floating elements.
 
 ## Usage
 
 Simple Tooltip component example built on top of the `usePopover` <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
 
-<SourceCode>
 
 <!-- react -->
+
+For a minimal example, we can implement a floating element using two properties returned by the `usePopover` hook.
+
+1. `refs` - An object that contains a `setReference` and `setFloating` function. These functions should be bound to the element that the floating element will be positioned relative to and the floating element itself, respectively.
+2. `style` - An object containing the position styles for your floating element.
+
+By binding these properties to the appropriate elements, we can create any floating element - in this case, we have a Tooltip that displays when the reference element is hovered.
+
+<SourceCode>
+
 ```tsx
 import * as React from 'react';
 import { usePopover } from '@storefront-ui/react';
@@ -42,8 +51,19 @@ function Tooltip({ children, text }: TooltipProps) {
   );
 }
 ```
+</SourceCode>
 <!-- end react -->
 <!-- vue -->
+For a minimal example, we can implement a floating element using three properties returned by the `usePopover` composable.
+
+1. `referenceRef` - A Vue template ref that should be bound to the element that the floating element will be positioned relative to.
+2. `floatingRef` - A Vue template ref that should be bound to the element you want to be floating.
+3. `style` - An object containing the position styles for your floating element.
+
+By binding these properties to the appropriate elements, we can create any floating element - in this case, we have a Tooltip that displays when the reference element is hovered.
+
+<SourceCode>
+
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue';
@@ -74,11 +94,15 @@ const { referenceRef, floatingRef, style } = usePopover({ isOpen });
   </span>
 </template>
 ```
-<!-- end vue -->
-
 </SourceCode>
 
+<!-- end vue -->
+
+:::tip There are more options!
+For a full list of the possible parameters and return values, see the API section.
 :::
+
+::::::
 
 ::: slot api
 

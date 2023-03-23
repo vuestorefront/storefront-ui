@@ -1,20 +1,29 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: API reference docs for the useTooltip <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
+description: A wrapper for usePopover with additional features for creating tooltips.
 ---
 
 # useTooltip
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`useTooltip` is a wrapper around `usePopover` that adds specific behavior for displaying tooltips. For example, the tooltip will automatically hide/show depending on the hover state of a given element.
 
 ## Usage
 
-Example of custom tooltip with Transition built on to of the `useTooltip` <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
+
 
 <!-- react -->
+To implement a tooltip, we can use the `useTooltip` hook to create a custom tooltip component. This hook returns a set of properties that can be used to build a custom tooltip component. For a minimal example, we can implement a tooltip using the following properties:
+
+1. `refs` - An object that contains a `floating` property that should be placed on your tooltip content
+2. `isOpen` - A boolean that indicates whether or not the tooltip should be open
+3. `getTriggerProps` - A function that returns the props that should be placed on the trigger element (the element that the tooltip will be positioned relative to)
+4. `getTooltipProps` - A function that returns the props that should be placed on the tooltip element
+5. `getArrowProps` - A function that returns the props that should be placed on the tooltip arrow element
+
+So if we wanted to build a custom tooltip with `Transition`, we could do something like this:
 ```tsx
 import * as React from 'react';
 import { useTooltip } from '@storefront-ui/react';
@@ -58,6 +67,16 @@ function CustomTooltip(props: Props) {
 ```
 <!-- end react -->
 <!-- vue -->
+
+To implement a tooltip, we can use the `useTooltip` composable to create a custom tooltip component. This hook returns a set of properties that can be used to build a custom tooltip component. For a minimal example, we can implement a tooltip using the following properties:
+
+1. `isOpen` - A boolean that indicates whether or not the tooltip should be open
+2. `triggerProps` - An object containing the props that should be placed on the trigger element (the element that the tooltip will be positioned relative to)
+3. `tooltipProps` - An object containing the props that should be placed on the tooltip element
+4. `arrowProps` - An object containing  the props that should be placed on the tooltip arrow element
+
+So if we wanted to build a custom tooltip with `Transition`, we could do something like this:
+
 ```vue
 <script lang="ts" setup>
 import { toRefs } from 'vue';
