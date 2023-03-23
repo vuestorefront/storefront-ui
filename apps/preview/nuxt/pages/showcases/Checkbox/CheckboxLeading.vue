@@ -5,6 +5,9 @@
       Label
     </label>
   </div>
+  <div className="flex justify-between ml-8">
+    <p className="text-xs mt-0.5 text-neutral-500">helpText</p>
+  </div>
 </template>
 <script lang="ts" setup>
 import { SfCheckbox } from '@storefront-ui/vue';
