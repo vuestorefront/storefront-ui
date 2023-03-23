@@ -14,7 +14,7 @@ export default function ModalDemo() {
       <SfModal
         open={isOpen}
         onClose={close}
-        className="max-w-[90%] md:max-w-lg outline-none"
+        className="max-w-[90%] md:max-w-lg"
         as="section"
         role="alertdialog"
         aria-labelledby="promoModalTitle"

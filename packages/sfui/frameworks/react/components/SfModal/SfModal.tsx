@@ -33,7 +33,7 @@ const SfModal = polymorphicForwardRef<typeof defaultModalTag, SfModalProps>(
       <Tag
         ref={mergeRefs(modalRef, ref)}
         className={classNames(
-          'fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-xl',
+          'fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-xl outline-none',
           className,
         )}
         tabIndex="-1"

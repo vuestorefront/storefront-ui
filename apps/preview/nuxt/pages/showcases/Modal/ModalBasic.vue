@@ -3,7 +3,7 @@
 
   <SfModal
     v-model="isOpen"
-    class="max-w-[90%] md:max-w-lg outline-none"
+    class="max-w-[90%] md:max-w-lg"
     tag="section"
     role="alertdialog"
     aria-labelledby="promoModalTitle"
