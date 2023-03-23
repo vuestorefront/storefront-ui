@@ -7,7 +7,7 @@
       <span v-else class="px-2 py-1 text-sm font-medium text-blue-500 bg-blue-500 rounded bg-opacity-20"> React </span>
     </template>
     <template #sidebar-top>
-      <div class="relative mb-4 text-black content-menu dark:text-white mt-4 mr-4" ref="menu">
+      <div class="relative mb-4 text-black content-menu dark:text-white mt-4 mr-4 hidden sm:block" ref="menu">
         <button
           type="button"
           @click="menuOpen = !menuOpen"

@@ -10,6 +10,64 @@ const FIGMA_URL = 'https://www.figma.com/file/ko7VoZYxnInYeJJmsnILHU/SFUI-2-%7C-
 const convertComponentPathsToLinks = (paths, slug, type) =>
   paths.map((c) => [generateComponentPath(slug, c, type), c.replace('Sf', '')]);
 
+const reactMenu = [
+  {
+    title: 'Getting Started',
+    collapsable: true,
+    children: [['/react/getting-started', 'Installation']],
+  },
+  {
+    title: 'Customization',
+    collapsable: true,
+    children: [
+      ['/react/customization/theming', 'Theming'],
+      ['/react/customization/overriding-default-styles', 'Overriding Default Styles'],
+      ['/react/customization/typography', 'Typography'],
+    ],
+  },
+  {
+    title: 'Base Components',
+    collapsable: true,
+    children: [
+      ['/react/components', 'Overview'],
+      ...convertComponentPathsToLinks(components.react, 'react', 'components'),
+    ],
+  },
+  {
+    title: 'Hooks',
+    collapsable: true,
+    children: convertComponentPathsToLinks(hooks.react, 'react', 'hooks'),
+  },
+];
+
+const vueMenu = [
+  {
+    title: 'Getting Started',
+    collapsable: true,
+    children: [['/vue/getting-started', 'Installation']],
+  },
+  {
+    title: 'Customization',
+    collapsable: true,
+    children: [
+      ['/vue/customization/theming', 'Theming'],
+      ['/vue/customization/overriding-default-styles', 'Overriding Default Styles'],
+      ['/vue/customization/typography', 'Typography'],
+    ],
+  },
+  {
+    title: 'Base Components',
+    collapsable: true,
+    children: [['/vue/components', 'Overview'], ...convertComponentPathsToLinks(components.vue, 'vue', 'components')],
+  },
+
+  {
+    title: 'Composables',
+    collapsable: true,
+    children: convertComponentPathsToLinks(hooks.vue, 'vue', 'hooks'),
+  },
+];
+
 module.exports = {
   title: `Storefront UI`,
   base: process.env.VITE_DOCS_BASEPATH ?? '/',
@@ -37,7 +95,6 @@ module.exports = {
     secondaryNav: {
       '/react/': [
         { text: 'Getting Started', link: '/react/getting-started' },
-
         { text: 'Docs', link: '/react/components' },
         { text: 'Blocks', link: '/react/blocks' },
       ],
@@ -52,6 +109,18 @@ module.exports = {
         { text: 'Blocks', link: '/vue/blocks' },
       ],
     },
+    mobileMenu: [
+      {
+        title: 'Vue',
+        collapsable: true,
+        children: vueMenu,
+      },
+      {
+        title: 'React',
+        collapsable: true,
+        children: reactMenu,
+      },
+    ],
     sidebar: {
       '/react/blocks': [
         {
@@ -67,65 +136,8 @@ module.exports = {
           children: convertComponentPathsToLinks(showcases.vue, 'vue', 'blocks'),
         },
       ],
-      '/react/': [
-        {
-          title: 'Getting Started',
-          collapsable: true,
-          children: [['/react/getting-started', 'Installation']],
-        },
-        {
-          title: 'Customization',
-          collapsable: true,
-          children: [
-            ['/react/customization/theming', 'Theming'],
-            ['/react/customization/overriding-default-styles', 'Overriding Default Styles'],
-            ['/react/customization/typography', 'Typography'],
-          ],
-        },
-        {
-          title: 'Base Components',
-          collapsable: true,
-          children: [
-            ['/react/components', 'Overview'],
-            ...convertComponentPathsToLinks(components.react, 'react', 'components'),
-          ],
-        },
-        {
-          title: 'Hooks',
-          collapsable: true,
-          children: convertComponentPathsToLinks(hooks.react, 'react', 'hooks'),
-        },
-      ],
-      '/vue/': [
-        {
-          title: 'Getting Started',
-          collapsable: true,
-          children: [['/vue/getting-started', 'Installation']],
-        },
-        {
-          title: 'Customization',
-          collapsable: true,
-          children: [
-            ['/vue/customization/theming', 'Theming'],
-            ['/vue/customization/overriding-default-styles', 'Overriding Default Styles'],
-            ['/vue/customization/typography', 'Typography'],
-          ],
-        },
-        {
-          title: 'Base Components',
-          collapsable: true,
-          children: [
-            ['/vue/components', 'Overview'],
-            ...convertComponentPathsToLinks(components.vue, 'vue', 'components'),
-          ],
-        },
-
-        {
-          title: 'Composables',
-          collapsable: true,
-          children: convertComponentPathsToLinks(hooks.vue, 'vue', 'hooks'),
-        },
-      ],
+      '/react/': reactMenu,
+      '/vue/': vueMenu,
     },
   },
   postcss: {
