@@ -110,7 +110,9 @@
       </li>
     </ul>
     <div class="flex justify-between">
-      <SfButton variant="secondary" class="w-full mr-3 md:hidden"> Clear all filters </SfButton>
+      <SfButton variant="secondary" class="w-full md:hidden mr-3" @click="clearSelection()">
+        Clear all filters
+      </SfButton>
       <SfButton class="w-full">Show products</SfButton>
     </div>
   </aside>

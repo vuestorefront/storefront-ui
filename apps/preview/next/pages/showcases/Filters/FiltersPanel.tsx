@@ -306,7 +306,7 @@ export default function FiltersPanel() {
         </>
       ))}
       <div className="flex justify-between">
-        <SfButton variant="secondary" className="w-full md:hidden mr-3">
+        <SfButton variant="secondary" className="w-full md:hidden mr-3" onClick={() => setSelectedFilters([])}>
           Clear all filters
         </SfButton>
         <SfButton className="w-full">Show products</SfButton>
