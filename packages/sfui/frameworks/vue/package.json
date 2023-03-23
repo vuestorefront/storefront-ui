@@ -1,6 +1,7 @@
 {
   "name": "@storefront-ui/vue",
   "version": "2.0.0-rc.3",
+  "license": "MIT",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
@@ -24,8 +25,7 @@
     "lint:script:fix": "eslint --fix --ext .ts,.vue \"components/**\" \"shared/**\""
   },
   "files": [
-    "dist",
-    "README.md"
+    "dist"
   ],
   "dependencies": {
     "@floating-ui/vue": "^0.2.1",
@@ -51,5 +51,14 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "homepage": "https://docs.storefrontui.io/v2/#vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuestorefront/sfui2.git",
+    "directory": "packages/sfui/frameworks/vue"
+  },
+  "bugs": {
+    "url": "https://github.com/vuestorefront/sfui2/issues"
   }
 }
