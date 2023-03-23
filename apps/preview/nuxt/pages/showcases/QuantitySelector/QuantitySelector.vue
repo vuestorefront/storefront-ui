@@ -1,12 +1,12 @@
 <template>
   <div class="inline-flex flex-col items-center">
-    <div class="flex">
+    <div class="flex border border-neutral-300 rounded-md">
       <SfButton
         type="button"
         variant="tertiary"
         :disabled="count <= min"
         square
-        class="border-l border-y border-neutral-300 rounded-r-none"
+        class="rounded-r-none"
         :aria-controls="inputId"
         aria-label="Decrease value"
         @click="dec()"
@@ -18,7 +18,7 @@
         v-model="count"
         type="number"
         role="spinbutton"
-        class="appearance-none px-2 border-y border-neutral-300 rounded-none text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+        class="appearance-none mx-2 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         :min="min"
         :max="max"
         @input="handleOnChange"
@@ -28,7 +28,7 @@
         variant="tertiary"
         :disabled="count >= max"
         square
-        class="border-r border-y border-neutral-300 rounded-l-none"
+        class="rounded-l-none"
         :aria-controls="inputId"
         aria-label="Increase value"
         @click="inc()"

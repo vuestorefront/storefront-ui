@@ -15,7 +15,10 @@ const SfAccordionItem = forwardRef<HTMLDetailsElement, SfAccordionItemProps>((pr
     <details ref={ref} open={open} {...attributes} data-testid="accordion-item">
       <summary
         onClick={handleClick}
-        className={classNames(summaryClassName, 'list-none [&::-webkit-details-marker]:hidden cursor-pointer')}
+        className={classNames(
+          summaryClassName,
+          'list-none [&::-webkit-details-marker]:hidden cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:outline focus-visible:rounded-sm',
+        )}
       >
         {summary}
       </summary>

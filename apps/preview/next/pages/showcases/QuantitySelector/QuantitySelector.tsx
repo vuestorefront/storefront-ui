@@ -17,12 +17,12 @@ export default function QuantitySelector() {
   }
   return (
     <div className="inline-flex flex-col items-center">
-      <div className="flex">
+      <div className="flex border border-neutral-300 rounded-md">
         <SfButton
           type="button"
           variant="tertiary"
           square
-          className="border-l border-y border-neutral-300 rounded-r-none"
+          className="rounded-r-none"
           disabled={value <= min}
           aria-controls={inputId}
           aria-label="Decrease value"
@@ -34,7 +34,7 @@ export default function QuantitySelector() {
           id={inputId}
           type="number"
           role="spinbutton"
-          className="appearance-none px-2 border-y border-neutral-300 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+          className="appearance-none mx-2 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           min={min}
           max={max}
           value={value}
@@ -44,7 +44,7 @@ export default function QuantitySelector() {
           type="button"
           variant="tertiary"
           square
-          className="border-r border-y border-neutral-300 rounded-l-none"
+          className="rounded-l-none"
           disabled={value >= max}
           aria-controls={inputId}
           aria-label="Increase value"
