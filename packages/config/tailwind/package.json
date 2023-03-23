@@ -1,6 +1,7 @@
 {
   "name": "@storefront-ui/tailwind-config",
   "version": "2.0.0-rc.2",
+  "license": "MIT",
   "exports": {
     ".": {
       "import": "./dist/index.es.js",
@@ -19,7 +20,8 @@
   "homepage": "https://docs.storefrontui.io/v2/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuestorefront/sfui2.git"
+    "url": "git+https://github.com/vuestorefront/sfui2.git",
+    "directory": "packages/config/tailwind"
   },
   "bugs": {
     "url": "https://github.com/vuestorefront/sfui2/issues"
@@ -33,5 +35,8 @@
   "dependencies": {
     "@mertasan/tailwindcss-variables": "^2.5.2",
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
