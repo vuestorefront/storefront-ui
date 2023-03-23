@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { VsfDropdown, VsfButton, VsfLink, VsfIconMoreHoriz, VsfIconHome } from '@storefront-ui/react';
+import { SfDropdown, SfButton, SfLink, SfIconMoreHoriz, SfIconHome } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
 
 const breadcrumbs = [
@@ -24,15 +24,15 @@ export function Showcase() {
     <nav className="inline-flex text-sm font-normal font-body">
       <ol className="flex items-center w-auto leading-none group md:flex-wrap">
         <li className="flex sm:hidden">
-          <VsfDropdown
+          <SfDropdown
             trigger={
-              <VsfButton
+              <SfButton
                 className="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
                 aria-label="More breadcrumbs"
                 type="button"
                 variant="tertiary"
                 slotPrefix={
-                  <VsfIconMoreHoriz
+                  <SfIconMoreHoriz
                     size="sm"
                     className="text-neutral-500 hover:text-primary-700 active:text-primary-800 active:bg-transparent"
                   />
@@ -49,17 +49,17 @@ export function Showcase() {
             <div className="px-4 py-2 rounded-md shadow-md border-neutral-100">
               {breadcrumbs.map(({ name, link }) => (
                 <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
-                  <VsfLink
+                  <SfLink
                     href={link}
                     variant="secondary"
                     className="leading-5 no-underline text-inherit hover:underline active:underline whitespace-nowrap outline-secondary-600"
                   >
                     {name}
-                  </VsfLink>
+                  </SfLink>
                 </li>
               ))}
             </div>
-          </VsfDropdown>
+          </SfDropdown>
         </li>
         {breadcrumbs.map((item) => (
           <li
@@ -67,21 +67,21 @@ export function Showcase() {
             key={item.name}
           >
             {breadcrumbs.indexOf(item) === 0 ? (
-              <VsfLink
+              <SfLink
                 href={item.link}
                 variant="secondary"
                 className="inline-flex leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-neutral-500"
               >
-                <VsfIconHome size="sm" />
-              </VsfLink>
+                <SfIconHome size="sm" />
+              </SfLink>
             ) : (
-              <VsfLink
+              <SfLink
                 href={item.link}
                 variant="secondary"
                 className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600"
               >
                 {item.name}
-              </VsfLink>
+              </SfLink>
             )}
           </li>
         ))}
