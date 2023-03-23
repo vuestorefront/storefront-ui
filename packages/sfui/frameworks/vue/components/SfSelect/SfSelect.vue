@@ -53,6 +53,7 @@ const changedValue = (event: Event) => {
   <div :class="['relative flex flex-col', wrapperClassName]" data-testid="select">
     <select
       v-bind="$attrs"
+      :value="value"
       :required="required"
       :disabled="disabled"
       :class="[
