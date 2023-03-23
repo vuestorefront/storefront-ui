@@ -73,17 +73,17 @@ Select with invalid state.
 
 | Prop name         | Type            | Default value | Possible values                        |
 | ----------------  | --------        | ------------- | -------------------------------------- |
-| value             | string          | ''            |                                        |
-| size              | SfSelectSize   | base          | sm, base, lg                           |
-| disabled          | boolean         | false         |                                        |
-| invalid           | boolean         | false         |                                        |
-| required          | boolean         | false         |                                        |
-| placeholder       | string          | ''            |                                        |
-| wrapperClassName  | string          | ''            |                                        |
+| `value`             | `string`          |            |                                        |
+| `size`              | `SfSelectSize`   | `'base'`          | `'sm'`, `'base'`,`'lg'`                           |
+| `disabled`         | `boolean`         | `false`         |                                        |
+| `invalid`           | `boolean`         | `false`         |                                        |
+| `required`          | `boolean`         | `false`         |                                        |
+| `placeholder`       | `string`          |             |                                        |
+| `wrapperClassName`  | `string`          |             |                                        |
 <!-- react -->
-| slotChevron       | ReactNode       |               |                                        |
-| children          | ReactNode       |               |                                        |
-| onChange          | Function        |               |                                        |
+| `onChange`          | `Function`        |               |                                        |
+| `slotChevron`       | `ReactNode`       |               |                                        |
+| `children`          | `ReactNode`       |               |                                        |
 <!-- end react -->
 
 <!-- vue -->
@@ -91,14 +91,14 @@ Select with invalid state.
 
 | Slot name | Description              |
 | --------- | ------------------------ |
-| default   | Place for select options |
-| chevron   | Custom chevron           |
+| `default`   | Place for select options |
+| `chevron`   | Custom chevron           |
 
 ## Events
 
 | Event name        | Trigger                       |
 | ----------------- | ----------------------------- |
-| update:modelValue | triggers v-model update event |
+| `update:modelValue` | triggers v-model update event |
 
 <!-- end vue -->
 

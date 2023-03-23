@@ -63,11 +63,11 @@ The pill version of the component with custom background set to `bg-secondary-70
 
 | Prop name | Type              | Default value | Possible values                       |
 |-----------|-------------------|---------------|---------------------------------------|
-| size      | `SfCounterSize` | `base`        | `xs`, `sm`, `base`, `lg`, `xl`, `2xl` |
-| pill      | `Boolean`         | `false`       |                                       |
+| `size`      | `SfCounterSize` | `'base'`        | `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, `'2xl'` |
+| `pill`      | `boolean`         | `false`       |                                       |
 <!-- react -->
-| children  | `ReactNode`       |               |                                       |
-| className | `String`          |               |                                       |
+| `className` | `string`          |               |                                       |
+| `children`  | `ReactNode`       |               |                                       |
 <!-- end react -->
 
 <!-- vue -->
@@ -75,7 +75,7 @@ The pill version of the component with custom background set to `bg-secondary-70
 
 | Slot name | Description                     |
 | --------- | ------------------------------- |
-| default   | To be filled with counter value |
+| `default`   | To be filled with counter value |
 <!-- end vue -->
 
 :::

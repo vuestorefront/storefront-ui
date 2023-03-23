@@ -27,12 +27,12 @@ Tooltip component is built on to of the `useTooltip` hook and accepts all its pa
 ::: slot api
 | Prop name | Type                                                     | Default value | Possible values |
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
-| label\*   | `string`                                                 |               |                 |
-| showArrow | `boolean`                                                | `false`       |                 |
-| placement | `SfPopoverPlacement`                                    |               |                 |
-| arrowSize | `${number}px` &#124; `${number}em` &#124; `${number}rem` |               |                 |
+| `label`\*   | `string`                                                 |               |                 |
+| `showArrow` | `boolean`                                                | `false`       |                 |
+| `placement` | `SfPopoverPlacement`                                    |               |                 |
+| `arrowSize` | `${number}px` &#124; `${number}em` &#124; `${number}rem` |               |                 |
 <!-- react -->
-| children | `ReactNode` | | |
+| `children` | `ReactNode` | | |
 <!-- end react -->
 
 <!-- vue -->
@@ -40,7 +40,7 @@ Tooltip component is built on to of the `useTooltip` hook and accepts all its pa
 
 | Slot name |            Description            |
 | --------- | ------------------------------- |
-| default   | Content being described by the tooltip   |
+| `default`   | Content being described by the tooltip   |
 <!-- end vue -->
 :::
 

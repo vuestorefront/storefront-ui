@@ -122,12 +122,12 @@ The input component when in invalid state.
 
 | Prop name    | Type            | Default value | Possible values                        |
 | ------------ | --------        | ------------- | -------------------------------------- |
-| size         | SfInputSize  | base          | sm, base, lg                           |
-| invalid      | Boolean         | false         |                                        |
+| `size`         | `SfInputSize`  | `'base'`          | `'sm'`, `'base'`, `'lg'`                           |
+| `invalid`      | `boolean`         | `false`         |                                        |
 <!-- react -->
-| slotPrefix   | ReactNode       |               |                                        |
-| slotSuffix   | ReactNode       |               |                                        |
-| className    | String          |               |                                        |
+| `className`    | `string`          |               |                                        |
+| `slotPrefix`   | `ReactNode`       |               |                                        |
+| `slotSuffix`   | `ReactNode`       |               |                                        |
 <!-- end react -->
 
 <!-- vue -->
@@ -135,8 +135,8 @@ The input component when in invalid state.
 
 | Slot name | Description                        |
 | --------- | ---------------------------------- |
-| prefix    | Custom content for prefix in input |
-| suffix    | Custom content for suffix in input |
+| `prefix`    | Custom content for prefix in input |
+| `suffix`    | Custom content for suffix in input |
 <!-- end vue -->
 
 <!-- vue -->
@@ -145,7 +145,7 @@ The input component when in invalid state.
 
 | Event name        | Trigger                       |
 | ----------------- | ----------------------------- |
-| update:modelValue | triggers v-model update event |
+| `update:modelValue` | triggers v-model update event |
 
 <!-- end vue -->
 

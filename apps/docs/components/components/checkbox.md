@@ -74,19 +74,19 @@ The component with label element and the input aligned to the right edge of the 
 | Prop name    | Type                     | Default value | Possible values                        |
 | ------------ | ------------------------ | ------------- | -------------------------------------- |
 <!-- vue -->
-| modelValue   | Boolean | string[]       | undefined     |                                        |
+| `modelValue`   | `boolean` | `string[]`       | `undefined`     |                                        |
 <!-- end vue -->
 <!-- react -->
-| className    | String                   |               |                                        |
+| `className`    | `string`                   |               |                                        |
 <!-- end react -->
-| invalid      | Boolean                  | false         |                                        |
+| `invalid`      | `boolean`                  | `false`         |                                        |
 
 <!-- vue -->
 ## Events
 
 | Event name        | Trigger                       |
 | ----------------- | ----------------------------- |
-| update:modelValue | triggers v-model update event |
+| `update:modelValue` | triggers v-model update event |
 <!-- end vue -->
 
 :::

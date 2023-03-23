@@ -81,10 +81,10 @@ Rating could be presented as a simple star icon with value label.
 ::: slot api
 | Prop name     | Type                | Default value | Possible values            |
 | ------------- | ------------------- | ------------- | -------------------------- |
-| size          | `SfRatingSize`    | `base`        | `xs`,`sm`,`base`,`lg`,`xl` |
-| value         | `Number`            | `0`           |                            |
-| max           | `Number`            | `5`           |                            |
-| halfIncrement | `Boolean`           | `false`       |                            |
+| `size`          | `SfRatingSize`    | `'base'`        | `'xs'`,`'sm'`,`'base'`,`'lg'`,`'xl'` |
+| `value`         | `number`            | `0`           |                            |
+| `max`           | `number`            | `5`           |                            |
+| `halfIncrement` | `boolean`           | `false`       |                            |
 :::
 
 ::: slot source

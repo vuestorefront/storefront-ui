@@ -24,31 +24,31 @@ Dropdown component is built on to of the `useDropdown` hook and accepts all its 
 | Prop name | Type                                                     | Default value | Possible values |
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
 <!-- react -->
-| onClose\* | `() => void`                                             |               |                 |
-| trigger\* | `ReactNode`                                              |               |                 |
-| children | `ReactNode` | | |
-| open  | `boolean`                                                |               |                 |
+| `open`  | `boolean`                                                |               |                 |
+| `onClose`\* | `() => void`                                             |               |                 |
+| `trigger`\* | `ReactNode`                                              |               |                 |
+| `children` | `ReactNode` | | |
 <!-- end react -->
 <!-- vue -->
-| modelValue  | `boolean`                                                |               |                 |
+| `modelValue`  | `boolean`                                                |               |                 |
 <!-- end vue -->
-| placement | `SfPopoverPlacement`    | 'bottom'      | Placement of floating element              |
-| middleware    | `UseFloatingProps['middleware']`                 |              | Array of `@floating-ui` middlewares |
-| strategy | `SfPopoverStrategy`    | 'absolute'      | Positioning strategy (absolute or fixed)         |
+| `placement` | `SfPopoverPlacement`    | `'bottom'`      | Placement of floating element              |
+| `middleware`    | `UseFloatingProps['middleware']`                 |              | Array of `@floating-ui` middlewares |
+| `strategy` | `SfPopoverStrategy`    | `'absolute'`      | Positioning strategy (`absolute` or `fixed`)         |
 <!-- vue -->
 
 ## Slots
 
 | Slot name |            Description            |
 | --------- | ------------------------------- |
-| default   | Dropdown content   |
-| trigger   | Element that opens up the dropdown   |
+| `default`   | Dropdown content   |
+| `trigger`   | Element that opens up the dropdown   |
 
 ## Events
 
 | Event name |            Trigger               |
 | ---------- | ----------------------------   |
-| update:modelValue     |  emits on clicking outside of dropdown or on escape  |
+| `update:modelValue`     |  emits on clicking outside of dropdown or on escape  |
 <!-- end vue -->
 :::
 
