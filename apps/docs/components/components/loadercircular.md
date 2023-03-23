@@ -1,21 +1,18 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: The LoaderCircular is used when the loading progress can be determined.
 ---
 # LoaderCircular
 
-::: slot usage
-{{ $frontmatter.description }}
+:::::: slot usage
 
-## Accessibility notes
+`SfLoaderCircular` is animated loading spinner that can be used to show that some content is loading.
 
-It uses `aria-live` set to `polite` to allow screen reader to read the loading status. It can be changed by adding new value of this attribute to the component when it's used.
-It is important to properly set `screenReaderText` for screen readers to read proper information when target component is loading. Default value is set to `loading`.
+## Examples
 
-## Sizes
+### Sizes
 
-LoaderCircular supports various sizes that can be set via `size` prop: `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`, `4xl`.
+`SfLoaderCircular` supports various sizes that can be set with the `size` prop: `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, `'2xl'`, `'3xl'`, `'4xl'`.
 
 <Showcase showcase-name="LoaderCircular/LoaderCircularSizes" style="min-height:320px">
 
@@ -28,9 +25,13 @@ LoaderCircular supports various sizes that can be set via `size` prop: `xs`, `sm
 
 </Showcase>
 
-## Customizing color
+### Customizing colors
 
-LoaderCircular by default uses a `primary-700` as animated-shape color (customizable by setting text color) and `neutral-300` as a ring behind. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+By default, `SfLoaderCircular` uses `primary-700` as the animated shape color (customizable by setting text color) and `neutral-300` for the background ring. You can change these values in your [Tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override them for a single element using the [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+
+::: read-more
+Learn more about [overriding default styles](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/customization/overriding-default-styles) in Storefront UI.
+:::
 
 <Showcase showcase-name="LoaderCircular/LoaderCircularColors">
 
@@ -43,12 +44,22 @@ LoaderCircular by default uses a `primary-700` as animated-shape color (customiz
 
 </Showcase>
 
+## Accessibility notes
+
+`SfLoaderCircular` uses `aria-live="polite"` to allow screen readers to read the loading status. This can be overriden by passing your own `aria-live` value to the component.
+
+It's important to properly set `aria-label` for screen readers to read proper information while target component is loading. Default value is set to `loading`.
+
+
 ## Playground
 
 <Generate />
-:::
+::::::
 
 ::: slot api
+
+## Props
+
 | Prop name             | Type                       | Default value                 | Possible values                      |
 |-----------------------|----------------------------|-------------------------------|--------------------------------------|
 | `size`                |      `SfLoaderSize`        | `'base'`           | `'xs'`,`'sm'`,`'base'`,`'lg'`,`'xl'`,`'2xl'`,`'3xl'`,`'4xl'` |

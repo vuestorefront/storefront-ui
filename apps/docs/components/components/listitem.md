@@ -1,17 +1,20 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: The ListItem component is used in all kind of menus. It can act like a link or a button.
 ---
 # ListItem
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`SfListItem` is a component that can be used in all sorts of menus. It comes with styles for common data states like `disabled` and `selected`.
 
-## ListItem sizes
+For a great example of the `SfListItem` in action, check out the [Colors Filter](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/blocks/Filters) Block.
 
-ListItem supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
+## Examples
+
+### ListItem sizes
+
+`SfListItem` supports 3 sizes that can be set with the `size` prop: `'sm'`, `'base'`, `'lg'`.
 
 <Showcase showcase-name="ListItem/ListItemSizes" style="min-height:250px">
 
@@ -23,23 +26,9 @@ ListItem supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
 <!-- end react -->
 </Showcase>
 
-## ListItem truncate
+### ListItem slots
 
-ListItem with `truncate` class.
-
-<Showcase showcase-name="ListItem/ListItemTruncated" >
-
-<!-- vue -->
-<<<../../preview/nuxt/pages/showcases/ListItem/ListItemTruncated.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../preview/next/pages/showcases/ListItem/ListItemTruncated.tsx#source
-<!-- end react -->
-</Showcase>
-
-## ListItem slots
-
-ListItem has additional slots to place custom content. Slot <!-- vue --> `prefix`<!-- end vue --> <!-- react -->`prefixSlot` <!-- end react --> is used to place content on the left side of the component. Elements placed in slot  <!-- vue --> `suffix`<!-- end vue --> <!-- react --> `suffixSlot` <!-- end react --> will be added on its right side.
+`SfListItem` provides <!-- vue -->`prefix` and `suffix` slots<!-- end vue --><!-- react -->`slotPrefix` and `slotSuffix` props<!-- end react --> that you can use to add custom content before/after your default content. This can be useful for adding inputs, thumbnails, icons, or any other content to your list items. 
 
 <Showcase showcase-name="ListItem/ListItemSlots" >
 
@@ -51,6 +40,21 @@ ListItem has additional slots to place custom content. Slot <!-- vue --> `prefix
 <!-- end react -->
 </Showcase>
 
+### ListItem truncate
+
+For items with a lot of text content, you can use Tailwind's `truncate` class.
+
+<Showcase showcase-name="ListItem/ListItemTruncated" >
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/ListItem/ListItemTruncated.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/ListItem/ListItemTruncated.tsx#source
+<!-- end react -->
+</Showcase>
+
+
 ## Playground
 
 <Generate />
@@ -58,6 +62,9 @@ ListItem has additional slots to place custom content. Slot <!-- vue --> `prefix
 :::
 
 ::: slot api
+
+## Props
+
 | Prop name          | Type          | Default value | Possible values            |
 | ------------------ | ------------  | ------------- | -------------------------- |
 | `size`               | `SfListItemSize`        | `'base'`          | `'sm'`, `'base'`, `'lg'`               |

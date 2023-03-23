@@ -1,21 +1,18 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: A link is interactive reference to an internal or external resource.
 ---
 # Link
 
-::: slot usage
+:::::: slot usage
 
-{{ $frontmatter.description }}
+`SfLink` is a component that allows you to create a consistent link style across your application. 
 
-## Notes
+## Examples
 
-By default link component renders `anchor` HTML element.
+### Link variants
 
-## Link variants
-
-Link supports 2 variants that can be set via `variant` prop: `primary`, `secondary`.
+`SfLink` supports 2 variants that can be set via `variant` prop: `'primary'`, `'secondary'`. 
 
 <Showcase showcase-name="Link/LinkVariants">
 
@@ -27,9 +24,11 @@ Link supports 2 variants that can be set via `variant` prop: `primary`, `seconda
 <!-- end react -->
 </Showcase>
 
-## Customization
+### Customization
 
-Link is open for customization via tailwind classes. In `secondary` variant default state text color is inherited from parent element.
+When using the `'secondary'` variant, the text color of the base state is inherited from the parent element.
+
+You can [customize your color palette](../customization/theming.html) as a part of your Tailwind config.
 
 <Showcase showcase-name="Link/Customization">
 
@@ -41,10 +40,15 @@ Link is open for customization via tailwind classes. In `secondary` variant defa
 <!-- end react -->
 </Showcase>
 
-<!-- react -->
-## Usage with NextJS Link
+::: tip Need more customization?
 
-Link component can be composed together with `NextJS` link component.
+If you need more customization beyond the built-in variants, we recommend copying the `SfLink` [source code](#source) and modifying it to your needs. This way, you can have all the custom styles for your design system, but still be able to easily use all of our [Blocks](../blocks.html).
+:::
+
+<!-- react -->
+### Usage with NextJS Link
+
+`SfLink` can be composed together with `NextJS` link component.
 
 <Showcase showcase-name="Link/NextLink">
 <<<../../preview/next/pages/showcases/Link/NextLink.tsx#source
@@ -52,9 +56,9 @@ Link component can be composed together with `NextJS` link component.
 <!-- end react -->
 
 <!-- vue -->
-## Usage with Nuxt Link
+### Usage with Nuxt Link
 
-Use `tag` prop to render component as `NuxtLink`.
+You can use the `tag` prop to render component as `NuxtLink`.
 
 <Showcase showcase-name="Link/NuxtLink">
 <<<../../preview/nuxt/pages/showcases/Link/NuxtLink.vue
@@ -64,9 +68,11 @@ Use `tag` prop to render component as `NuxtLink`.
 ## Playground
 
 <Generate />
-:::
+::::::
 
 ::: slot api
+
+## Props
 
 | Prop name | Type             | Default value | Possible values    |
 | --------- | ---------------- | ------------- | ------------------ |

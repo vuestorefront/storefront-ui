@@ -1,21 +1,19 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: Chip allow selection of a single possibility from a set of options. They are a good alternative to toggle buttons, radio buttons, and single select menus. When `deletable` prop is set to `false` it can be selected and work as filter. When it's set to true, it disappears when clicked.
 ---
 # Chip
 
 ::: slot usage
-{{ $frontmatter.description }}
+`SfChip` is a toggleable input element. It can be a good alternative to toggle buttons, radio buttons, and single select menus. 
 
-## Accessibility notes
+Internally, `SfChip` uses a hidden `<input type="checkbox">` element to handle the selection state. This means that `SfChip` can be used in a form alongside other form elements. If you want to add additional attributes to this hidden input, you can pass `inputProps` to the component.
 
-When using thumbnail without any additional label and/or description, you should specify an `aria-label` on the component.
+## Examples
 
+### Sizes
 
-## Sizes
-
-Chip uses `base` and `sm` sizes that can be set via `size` prop.
+`SfChip` supports 2 sizes that can be set with the `size` prop: `'sm'` and `'base'`. The default size is `'base'`.
 
 <Showcase showcase-name="Chip/ChipSizes">
 
@@ -28,10 +26,10 @@ Chip uses `base` and `sm` sizes that can be set via `size` prop.
 
 </Showcase>
 
-## Thumbnails
+### Thumbnails
 
 <!-- TODO: Add linking to thumbnail component when ready -->
-Anything can be passed via default slot to the chip component. One of many possible use case scenarios is using chip to create a filter selection with thumbnail. User can create custom thumbnails or use `Thumbnail` component.
+`SfChip` provides <!-- vue -->`prefix` and `suffix` slots<!-- end vue --><!-- react -->`slotPrefix` and `slotSuffix` props<!-- end react --> that you can use to add custom content before/after your default content. This can be useful for adding things like icons, badges, or `SfThumbnail` to your toggleable chip.
 
 <Showcase showcase-name="Chip/ChipWithThumbnail">
 <!-- vue -->
@@ -43,24 +41,10 @@ Anything can be passed via default slot to the chip component. One of many possi
 </Showcase>
 
 
-## Deletable behaviour
 
-Chip can act as a deletable item. It can be achieved by passing `SfIconClose` icon into the slot and a little bit of logic to the component.
+### List of chips
 
-<Showcase showcase-name="Chip/Deletable">
-
-<!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Chip/Deletable.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../preview/next/pages/showcases/Chip/Deletable.tsx#source
-<!-- end react -->
-
-</Showcase>
-
-## List of chips
-
-Example of list rendering with many chips and values.
+We can set attributes in the hidden checkbox input by passing an object to the `inputProps` prop. 
 
 <Showcase showcase-name="Chip/ListOfChips">
 
@@ -73,10 +57,25 @@ Example of list rendering with many chips and values.
 
 </Showcase>
 
-## Rounded chip
 
-Example of a rounded chip with single icon. To achieve equal paddings ratio, prop `square` must be set to `true`.
-Please note that `aria-label` should be added for a showcase without text label.
+### Deletable behaviour
+
+By adding listeners for change events, we can make `SfChip` act as a deletable item. All chips are active by default, and then, when a chip is clicked, we can remove it by its index in the array.
+
+<Showcase showcase-name="Chip/Deletable">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Chip/Deletable.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Chip/Deletable.tsx#source
+<!-- end react -->
+
+</Showcase>
+
+### Rounded chip
+
+`SfChip` accepts a `square` prop that will set equal paddings on all sides of the chip.
 
 <Showcase showcase-name="Chip/WithoutLabel">
 
@@ -89,12 +88,18 @@ Please note that `aria-label` should be added for a showcase without text label.
 
 </Showcase>
 
+## Accessibility notes
+
+When using `SfChip` without any text label/description inside, you should specify an `aria-label` on the component so that it can be understood by people using screen readers. 
+
 ## Playground
 
 <Generate style="height: 380px" />
 :::
 
 ::: slot api
+
+## Props
 
 | Prop name | Type      | Default value | Possible values   |
 |-----------|-----------|---------------|-------------------|

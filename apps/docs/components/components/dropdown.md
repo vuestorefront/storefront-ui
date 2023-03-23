@@ -1,26 +1,34 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: SfDropdown
 ---
 
 # Dropdown
 
-::: slot usage
+:::::: slot usage
 
-{{ $frontmatter.description }}
+The `SfDropdown` component is built on top of the `useDropdown` hook and accepts all its params.
 
-## Notes
-
-Dropdown component is built on to of the `useDropdown` hook and accepts all its params.
+::: read-more
+<!-- react -->
+Learn more about `useDropdown` hook in the [Hooks > useDropdown docs](/react/hooks/useDropdown.html).
+<!-- end react -->
+<!-- vue -->
+Learn more about `useDropdown` composable in the [Composables > useDropdown docs](/vue/hooks/useDropdown.html).
+<!-- end vue -->
+:::
 
 ## Playground
 
 <Generate />
 
-:::
+::::::
 
 ::: slot api
+
+## Props
+
+
 | Prop name | Type                                                     | Default value | Possible values |
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
 <!-- react -->

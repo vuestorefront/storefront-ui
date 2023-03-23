@@ -1,25 +1,17 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: The LoaderLinear is used when the loading progress can be determined.
 ---
 # LoaderLinear
 
-::: slot usage
-{{ $frontmatter.description }}
+:::::: slot usage
+`SfLoaderLinear` is animated loading spinner that can be used to show that some content is loading.
 
-## Accessibility notes
+## Examples
 
-It uses `aria-live` set to `polite` to allow screen reader to read the loading status. It can be changed by adding new value of this attribute to the component when it's used.
-It is important to properly set `ariaLabel` for screen readers to read proper information when target component is loading. Default value is set to `loading`.
+### Sizes
 
-## Notes
-
-LoaderLinear does not set it's own width by default - have a look at [`Sizes` section for example of usage](#sizes).
-
-## Sizes
-
-LoaderLinear supports various sizes that can be set via `size` prop: `minimal`, `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`, `4xl`.
+`SfLoaderLinear` does not set it's own width by default, however you can control its height with the `size` prop. Possible values are `minimal`, `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, `'2xl'`, `'3xl'`, `'4xl'`.
 
 <Showcase showcase-name="LoaderLinear/LoaderLinearSizes" style="min-height:300px">
 
@@ -32,9 +24,14 @@ LoaderLinear supports various sizes that can be set via `size` prop: `minimal`, 
 
 </Showcase>
 
-## Customizing color
+### Customizing colors
 
-LoaderLinear by default uses a `primary-700` as bar color (customizable by setting text color) and `neutral-300` as its background. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+By default, `SfLoaderLinear` uses `primary-700` as the color of the bar (customizable by setting text color) and `neutral-300` as its background. You can change these values in your [Tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override them for a single element using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+
+::: read-more
+Learn more about [overriding default styles](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/customization/overriding-default-styles) in Storefront UI.
+:::
+
 
 <Showcase showcase-name="LoaderLinear/LoaderLinearColors">
 
@@ -47,12 +44,21 @@ LoaderLinear by default uses a `primary-700` as bar color (customizable by setti
 
 </Showcase>
 
+## Accessibility notes
+
+`SfLoaderLinear` uses `aria-live="polite"` to allow screen readers to read the loading status. This can be overriden by passing your own `aria-live` value to the component.
+
+It's important to properly set `aria-label` for screen readers to read proper information while target component is loading. Default value is set to `loading`.
+
 ## Playground
 
 <Generate />
-:::
+::::::
 
 ::: slot api
+
+## Props
+
 | Prop name             | Type                       | Default value                 | Possible values                      |
 |-----------------------|----------------------------|-------------------------------|--------------------------------------|
 | `size`                |      `SfLoaderLinearSize | SfLoaderSize`        | `'base'`           |  `'minimal'`,`'xs'`,`'sm'`,`'base'`,`'lg'`,`'xl'`,`'2xl'`,`'3xl'`,`'4xl'` |

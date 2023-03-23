@@ -1,28 +1,19 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: A button is an input that allows for user-triggered actions when clicked or pressed. Used for submitting a form, opening and closing a dialog or dropdowns, confirm and cancel an action.
 ---
 
 # Button
 
 :::::: slot usage
 
-{{ $frontmatter.description }}
+`SfButton` is an input that allows for user-triggered actions when clicked or pressed. This can be used for submitting forms, opening/closing dialogs, and much more.
 
-## Accessibility notes
-
-Button component can be rendered as `<button>` or `<a>` or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When rendered as `<button>` this component applies default `type='button'` if no other `type` is passed as a prop.
-
-:::warning
-Avoid using buttons to navigate the page. Use links or tabs.
-:::
-
-If you need to use Button with non-`<button>` tags like `<div>` you need to add `role='button'`. When this role is added to an element, the browser will send out an accessible alert event to assistive technology products which can then notify the user. You can override this behaviour by passing `role` prop by yourself.
+## Examples
 
 ### Button sizes
 
-Button supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
+`SfButton`  supports 3 sizes that can be set with the `size` prop: `'sm'`, `'base'`, `'lg'`.
 
 <Showcase showcase-name="Button/ButtonSizes" style="min-height:250px">
 
@@ -36,7 +27,7 @@ Button supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
 
 ### Button variants
 
-Button supports 3 variants of colors that can be set via `variant` prop: `primary`, `secondary`, `tertiary`.
+`SfButton` supports 3 style variants that can be set via `variant` prop: `'primary'`, `'secondary'`, `'tertiary'`.
 
 <Showcase showcase-name="Button/ButtonVariants" style="min-height:250px">
 
@@ -65,7 +56,7 @@ This component can be used as a link (or any other tag) that can be set via <!--
 
 ### Button block
 
-Button can have full-width by adding `w-full` class.
+You can create a full-width button with Tailwind's `w-full` class.
 
 <Showcase showcase-name="Button/ButtonBlock">
 
@@ -79,7 +70,7 @@ Button can have full-width by adding `w-full` class.
 
 ### Button truncation
 
-Button can truncate its content depending on it's width by adding `truncate` class.
+You can truncate button content with Tailwind using `max-w-` and `truncate` classes.
 
 <Showcase showcase-name="Button/ButtonTruncation">
 
@@ -93,7 +84,7 @@ Button can truncate its content depending on it's width by adding `truncate` cla
 
 ### Button content
 
-Button can have additional content. You can use slot `prefix`/`slotPrefix` to add custom content before the main one or use `suffix`/`slotSuffix` slot to add custom content after the main one
+`SfButton` provides <!-- vue -->`prefix` and `suffix` slots<!-- end vue --><!-- react -->`slotPrefix` and `slotSuffix` props<!-- end react --> that you can use to add custom content before/after your default content. This can be useful for adding icons or badges to your buttons. 
 
 <Showcase showcase-name="Button/ButtonContent" style="min-height:250px">
 
@@ -105,12 +96,25 @@ Button can have additional content. You can use slot `prefix`/`slotPrefix` to ad
 <!-- end react -->
 </Showcase>
 
+## Accessibility notes
+
+Button component can be rendered as `<button>` or `<a>` or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When rendered as `<button>` this component applies default `type='button'` if no other `type` is passed as a prop.
+
+:::warning
+Avoid using buttons to navigate the page. Use links or tabs.
+:::
+
+If you need to use Button with non-`<button>` tags like `<div>` you need to add `role='button'`. When this role is added to an element, the browser will send out an accessible alert event to assistive technology products which can then notify the user. You can override this behaviour by passing `role` prop by yourself.
+
+
 ## Playground
 
 <Generate />
 ::::::
 
 ::: slot api
+
+## Props
 
 | Prop name | Type                | Default value | Possible values                    |
 | --------- | ------------------- | ------------- | ---------------------------------- |

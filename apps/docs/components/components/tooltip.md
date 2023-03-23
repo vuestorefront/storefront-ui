@@ -1,30 +1,39 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: SfTooltips provide contextual information about an element when that owning element receives focus or is hovered over, but is otherwise not visible on the page.
 ---
 
 # Tooltip
 
-::: slot usage
+:::::: slot usage
 
-{{ $frontmatter.description }}
+`SfTooltip` can be used to provide additional information when an element receives focus or is hovered.
+
+It's built on top of `useTooltip` and accepts all its params.
+
+::: read-more
+<!-- react -->
+Learn more about `useTooltip` hook in the [Hooks > useTooltip docs](/react/hooks/useTooltip.html).
+<!-- end react -->
+<!-- vue -->
+Learn more about `useTooltip` composable in the [Composables > useTooltip docs](/vue/hooks/useTooltip.html).
+<!-- end vue -->
+:::
 
 ## Accessibility notes
 
-Tooltip element has role="tooltip".
+By default, this component sets `role="tooltip"`.
 
-## Notes
-
-Tooltip component is built on to of the `useTooltip` hook and accepts all its params.
 
 ## Playground
 
 <Generate />
 
-:::
+::::::
 
 ::: slot api
+## Props
+
 | Prop name | Type                                                     | Default value | Possible values |
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
 | `label`\*   | `string`                                                 |               |                 |

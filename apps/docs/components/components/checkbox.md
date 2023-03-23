@@ -7,20 +7,17 @@ description: A checkbox is an input that has three possible values - true, false
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`SfCheckbox` is a wrapper around `<input type="checkbox">` with additional styles for different states . It can be used for forms or expressing consents. 
 
-## Notes
+The root element is an `<input>` so any attributes that can be used on an `<input>` can be used on `SfCheckbox`.
 
-It is used especially for forms or expressing consents.
-Note that using indeterminate state requires additional code to manage it. See this case in the playground below.
+## Examples
 
-## Accessibility notes
+### Checkbox without label
 
-Pressing the Space key triggers checkbox.
-
-## Checkbox without label
-
-The simple checkbox input without additional elements. 
+<!-- vue -->
+You can use `v-model` with `SfCheckbox` to bind the value to a variable in your component.
+<!-- end vue -->
 
 <Showcase showcase-name="Checkbox/CheckboxWithoutLabel">
 
@@ -32,9 +29,9 @@ The simple checkbox input without additional elements.
 <!-- end react -->
 </Showcase>
 
-## Checkbox aligned to the left
+### Checkbox aligned to the left
 
-The component with label element and the input aligned to the left edge of the screen. 
+When using `SfCheckbox` with a label, you can use Tailwind's `peer` modifiers to control the styles of the label based on the state of the checkbox.
 
 <Showcase showcase-name="Checkbox/CheckboxLeading">
 
@@ -46,9 +43,7 @@ The component with label element and the input aligned to the left edge of the s
 <!-- end react -->
 </Showcase>
 
-## Checkbox aligned to the right
-
-The component with label element and the input aligned to the right edge of the screen. 
+### Checkbox aligned to the right
 
 <Showcase showcase-name="Checkbox/CheckboxTrailing">
 
@@ -60,6 +55,12 @@ The component with label element and the input aligned to the right edge of the 
 <!-- end react -->
 </Showcase>
 
+## Accessibility notes
+
+`SfCheckbox` is a wrapper for `<input type="checkbox">` so it inherits all the accessibility features of the native checkbox.
+
+It's focusable and can be toggled with `Space`.
+
 ## Playground
 
 <Generate style="height: 450px" />
@@ -67,7 +68,6 @@ The component with label element and the input aligned to the right edge of the 
 :::
 
 ::: slot api
-
 
 ## Props
 

@@ -1,21 +1,18 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: Thumbnail is a component that allows the user to pass in an custom icon/image or to pass a color/color gradient. It can be used as avatar or thumbnail for filters.
 ---
 # Thumbnail
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`SfThumbnail` is a component that allows the user to display a color, gradient, icon, or image in a thumbnail style. One common use case from our [blocks](../blocks/Filters.html) is using this component as avatar or thumbnail for filters.
 
-## Notes
-<!-- TODO: add link to ChipListItemFilter.md when it's implemented -->
-Thumbnail is a UI component that can be used an avatar or thumbnail e.g within [Chip](chip.md)
+## Examples
 
-## Sizes
+### Sizes
 
-Thumbnail supports various sizes that can be set via `size` prop: `sm`, `base`, `lg ` and `xl`
+Thumbnail supports various sizes that can be set with the `size` prop: `'sm'`, `'base'`, `lg ` and `'xl'`
 
 <Showcase showcase-name="Thumbnail/Sizes">
 
@@ -27,9 +24,9 @@ Thumbnail supports various sizes that can be set via `size` prop: `sm`, `base`, 
 <!-- end react -->
 </Showcase>
 
-## Single color
+### Single color
 
-The most simple use case of thumbnail can be achieved by seting a single color with tailwind background `bg-` property.
+The most simple use case of thumbnail can be achieved by seting a single color with any of Tailwind's background `bg-` property.
 
 <Showcase showcase-name="Thumbnail/Color">
 
@@ -41,9 +38,9 @@ The most simple use case of thumbnail can be achieved by seting a single color w
 <!-- end react -->
 </Showcase>
 
-## Gradient
+### Gradient
 
-Gradient colour can be applied with tailwind `bg-gradient-` classes.
+Gradients can be applied with any of Tailwind's `bg-gradient-` classes.
 
 <Showcase showcase-name="Thumbnail/Gradient">
 
@@ -55,9 +52,9 @@ Gradient colour can be applied with tailwind `bg-gradient-` classes.
 <!-- end react -->
 </Showcase>
 
-## Image
+### Image
 
-To achieve avatar-like look of Thumbnail, image must placed into the default slot of component. 
+You can pass an image <!-- vue -->into the default slot<!-- end vue --> <!-- react -->as children<!-- end react --> to achieve avatar-like look of thumbnail.
 
 <Showcase showcase-name="Thumbnail/Image">
 
@@ -69,9 +66,9 @@ To achieve avatar-like look of Thumbnail, image must placed into the default slo
 <!-- end react -->
 </Showcase>
 
-## Icon
+### Icon
 
-Icons can be applied by placing into the default slot of component. 
+Similar to images, you can also pass an icon <!-- vue -->into the default slot<!-- end vue --> <!-- react -->as children<!-- end react -->.
 
 <Showcase showcase-name="Thumbnail/Icon">
 

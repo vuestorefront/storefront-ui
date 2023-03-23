@@ -1,21 +1,21 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: The Rating component presents the average grade graphically and textually.
 ---
 
 # Rating
 
 ::: slot usage
-{{ $frontmatter.description }}
 
-## Accessibility notes
+`SfRating` gives you a nice way to display a rating both with graphics and through text. This can be used to show the rating of a product, score for a review, or any other rating you might need.
 
-Component implements `role="img"` and `aria-label` property with value `Rating: [Avg value] out of [Max value] stars`.
+## Examples
 
-## Value handling
+### Value handling
 
-Rating allows setting of currently displayed value via `value` prop and max number of start via `max` prop. Value can also be shown as half-filled star icons by using `half-increment` prop.
+The `value` prop allows you to set the current rating and max number of stars via `max` prop. 
+
+If you need to support partial stars, you can show half-filled star icons by passing the `half-increment` prop.
 
 <Showcase showcase-name="Rating/RatingValues">
 
@@ -28,9 +28,9 @@ Rating allows setting of currently displayed value via `value` prop and max numb
 
 </Showcase>
 
-## Sizes
+### Sizes
 
-Rating supports various sizes that can be set via `size` prop: `xs`, `sm`, `base`, `lg`, `xl`.
+`SfRating` supports 6 sizes that can be set with the `size` prop: `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`.
 
 <Showcase showcase-name="Rating/RatingSizes" style="min-height:250px">
 
@@ -43,9 +43,10 @@ Rating supports various sizes that can be set via `size` prop: `xs`, `sm`, `base
 
 </Showcase>
 
-## Colors
+### Colors
 
-Rating by default uses a `warning-500` as filled and partially filled star icons color and `disabled-500` as an empty icon color. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+Rating by default uses a `warning-500` for filled and partially filled stars and `disabled-500` as an empty icon color. You can change these values in your [Tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override them for a single element using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+
 
 <Showcase showcase-name="Rating/RatingColors">
 
@@ -58,9 +59,9 @@ Rating by default uses a `warning-500` as filled and partially filled star icons
 
 </Showcase>
 
-## Single star with value
+### Single star with value
 
-Rating could be presented as a simple star icon with value label.
+For a more minimal look, you can also present ratings a single star icon with a text label.
 
 <Showcase showcase-name="Rating/SingleStar" style="min-height:220px">
 
@@ -73,12 +74,19 @@ Rating could be presented as a simple star icon with value label.
 
 </Showcase>
 
+## Accessibility notes
+
+For better out-of-the-box accessibility, `SfRating` adds `role="img"` and an `aria-label` property with value `Rating: [Avg value] out of [Max value] stars` where the values are replaced with the actual values. This can be overridden by passing an `aria-label` property to the component.
+
 ## Playground
 
 <Generate style="height:400px" />
 :::
 
 ::: slot api
+
+## Props
+
 | Prop name     | Type                | Default value | Possible values            |
 | ------------- | ------------------- | ------------- | -------------------------- |
 | `size`          | `SfRatingSize`    | `'base'`        | `'xs'`,`'sm'`,`'base'`,`'lg'`,`'xl'` |
