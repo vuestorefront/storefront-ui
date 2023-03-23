@@ -13,7 +13,7 @@
     </div>
     <div class="inline-flex items-end mb-2">
       <SfRating size="xs" :value="3" :max="5" />
-      <SfCounter class="ml-1">123</SfCounter>
+      <SfCounter class="ml-1" size="xs">123</SfCounter>
       <SfLink href="#" variant="secondary" class="ml-2 text-xs"> 123 reviews </SfLink>
     </div>
     <div class="mb-4 text-sm">

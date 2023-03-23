@@ -146,7 +146,7 @@ export default function FiltersPanel() {
   return (
     <aside>
       <div className="flex items-center justify-between">
-        <h4 className="px-2 typography-headline-4 font-bold">Filters</h4>
+        <h4 className="px-2 font-bold typography-headline-4">Filters</h4>
         {selectedFilters.length ? (
           <SfButton
             type="reset"
@@ -164,7 +164,7 @@ export default function FiltersPanel() {
         </button>
       </div>
       <hr className="my-4" />
-      <p className="mb-2 px-2 typography-headline-5 font-medium">Sort by:</p>
+      <p className="px-2 mb-2 font-medium typography-headline-5">Sort by:</p>
       <div className="px-2">
         <SfSelect aria-label="Sort by">
           {sortOptions.map((option) => (
@@ -183,7 +183,7 @@ export default function FiltersPanel() {
             open={isAccordionItemOpen(section.id)}
             summary={
               <div className="flex justify-between p-2 mb-2">
-                <p className="mb-2 typography-headline-5 font-medium">{section.summary}</p>
+                <p className="mb-2 font-medium typography-headline-5">{section.summary}</p>
                 <SfIconChevronLeft
                   className={classNames(
                     'text-neutral-500',
@@ -228,21 +228,21 @@ export default function FiltersPanel() {
                       <input
                         value={value}
                         checked={isFilterSelected(value)}
-                        className="peer appearance-none"
+                        className="appearance-none peer"
                         type="checkbox"
                         onChange={(event) => {
                           handleFilterSelection(event.target.value);
                         }}
                       />
-                      <span className="cursor-pointer p-1 ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline">
+                      <span className="inline-flex items-center justify-center p-1 transition duration-300 rounded-full cursor-pointer ring-1 ring-neutral-200 ring-inset outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline">
                         <SfThumbnail size="sm" className={value} />
                       </span>
                     </>
                   }
                 >
                   <p>
-                    <span className="text-sm mr-2">{label}</span>
-                    <SfCounter>{counter}</SfCounter>
+                    <span className="mr-2 text-sm">{label}</span>
+                    <SfCounter size="sm">{counter}</SfCounter>
                   </p>
                 </SfListItem>
               ))}
@@ -268,8 +268,8 @@ export default function FiltersPanel() {
                   }
                 >
                   <p>
-                    <span className="text-sm mr-2">{label}</span>
-                    <SfCounter>{counter}</SfCounter>
+                    <span className="mr-2 text-sm">{label}</span>
+                    <SfCounter size="sm">{counter}</SfCounter>
                   </p>
                 </SfListItem>
               ))}
@@ -296,8 +296,8 @@ export default function FiltersPanel() {
                   }
                 >
                   <p>
-                    <span className="text-sm mr-2">{label}</span>
-                    <SfCounter>{counter}</SfCounter>
+                    <span className="mr-2 text-sm">{label}</span>
+                    <SfCounter size="sm">{counter}</SfCounter>
                   </p>
                 </SfListItem>
               ))}
@@ -306,7 +306,7 @@ export default function FiltersPanel() {
         </>
       ))}
       <div className="flex justify-between">
-        <SfButton variant="secondary" className="w-full md:hidden mr-3" onClick={() => setSelectedFilters([])}>
+        <SfButton variant="secondary" className="w-full mr-3 md:hidden" onClick={() => setSelectedFilters([])}>
           Clear all filters
         </SfButton>
         <SfButton className="w-full">Show products</SfButton>

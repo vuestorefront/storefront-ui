@@ -36,7 +36,7 @@ export default function ProductCardVertical() {
           <SfRating size="xs" value={5} max={5} />
 
           <SfLink href="#" variant="secondary" className="pl-1 no-underline">
-            <SfCounter>{123}</SfCounter>
+            <SfCounter size="xs">{123}</SfCounter>
           </SfLink>
         </div>
         <p className="block py-2 font-normal typography-text-sm text-neutral-700">

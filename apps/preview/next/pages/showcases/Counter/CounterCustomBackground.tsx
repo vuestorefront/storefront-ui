@@ -1,13 +1,13 @@
 import { SfCounter } from '@storefront-ui/react';
+// #region source
 import { ShowcasePageLayout } from '../../showcases';
 
-export function Showcase() {
+export default function Showcase() {
   return (
-    <SfCounter size="xl" pill className="text-white bg-secondary-700 ring-white">
+    <SfCounter size="lg" pill className="text-white bg-secondary-700 ring-white">
       123
     </SfCounter>
   );
 }
-
+// #endregion source
 Showcase.getLayout = ShowcasePageLayout;
-export default Showcase;

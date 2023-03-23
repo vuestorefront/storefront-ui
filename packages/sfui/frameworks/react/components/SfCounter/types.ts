@@ -1,15 +1,8 @@
 import type { PropsWithChildren } from 'react';
 import type { PropsWithStyle } from '@storefront-ui/react';
+import { SfCounterSize } from '@storefront-ui/shared';
 
-export enum SfCounterSize {
-  xs = 'xs',
-  sm = 'sm',
-  base = 'base',
-  lg = 'lg',
-  xl = 'xl',
-  '2xl' = '2xl',
-}
-
+export { SfCounterSize };
 export interface SfCounterProps extends PropsWithChildren, PropsWithStyle {
   size?: `${SfCounterSize}`;
   pill?: boolean;

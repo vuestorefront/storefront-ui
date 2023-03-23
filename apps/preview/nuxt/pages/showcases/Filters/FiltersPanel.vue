@@ -62,7 +62,7 @@
               </template>
               <p>
                 <span className="typography-text-sm mr-2">{{ label }}</span>
-                <SfCounter>{{ counter }}</SfCounter>
+                <SfCounter size="sm">{{ counter }}</SfCounter>
               </p>
             </SfListItem>
           </template>
@@ -79,7 +79,7 @@
               </template>
               <p>
                 <span class="mr-2 text-sm">{{ label }}</span>
-                <SfCounter>{{ counter }}</SfCounter>
+                <SfCounter size="sm">{{ counter }}</SfCounter>
               </p>
             </SfListItem>
           </template>
@@ -101,7 +101,7 @@
               </template>
               <p>
                 <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
-                <SfCounter>{{ counter }}</SfCounter>
+                <SfCounter size="sm">{{ counter }}</SfCounter>
               </p>
             </SfListItem>
           </template>
@@ -110,7 +110,7 @@
       </li>
     </ul>
     <div class="flex justify-between">
-      <SfButton variant="secondary" class="w-full md:hidden mr-3" @click="clearSelection()">
+      <SfButton variant="secondary" class="w-full mr-3 md:hidden" @click="clearSelection()">
         Clear all filters
       </SfButton>
       <SfButton class="w-full">Show products</SfButton>

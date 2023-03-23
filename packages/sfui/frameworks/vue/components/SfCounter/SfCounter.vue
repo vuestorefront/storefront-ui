@@ -17,18 +17,18 @@ const { size, pill } = toRefs(props);
 
 const sizeClasses = computed(() => {
   switch (size?.value) {
-    case SfCounterSize.xs:
+    case SfCounterSize['3xs']:
       return ['text-3xs', { 'px-1': pill.value }];
-    case SfCounterSize.sm:
-      return ['text-2xs', { 'px-1': pill.value }];
-    case SfCounterSize.lg:
-      return ['text-sm', { 'px-2.5': pill.value }];
-    case SfCounterSize.xl:
-      return ['text-base', { 'px-3': pill.value }];
-    case SfCounterSize['2xl']:
-      return ['text-lg', { 'px-3': pill.value }];
-    default:
+    case SfCounterSize['2xs']:
+      return ['text-2xs', { 'px-1.5': pill.value }];
+    case SfCounterSize.xs:
       return ['text-xs', { 'px-2': pill.value }];
+    case SfCounterSize.sm:
+      return ['text-sm', { 'px-2.5': pill.value }];
+    case SfCounterSize.lg:
+      return ['text-lg', { 'px-3.5': pill.value }];
+    default:
+      return ['text-base', { 'px-3': pill.value }];
   }
 });
 </script>
