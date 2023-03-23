@@ -1,19 +1,18 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: A switch is an input similar to a checkbox component, except for handling the indeterminate state. The two possible values are true and false. Used for enable/disable features, especially on mobile.
 ---
 #  Switch
 
 ::: slot usage
-{{ $frontmatter.description }}
 
-## Accessibility notes
+`SfSwitch` allows users to control a boolean value. This can be used to enable/disable features, especially on mobile.
 
-Switch component is build using `input` tag with `type='checkbox'`.
-## Notes
+It uses an `<input type="checkbox">` with additional stylings to give it the appearance of a switch.
 
-In forms, it might be a better choice to use a Checkbox component.
+From a functional perspective, it is similar to the [`SfCheckbox`](/checkbox.html) component, except the checkbox can handle indeterminate states. The two possible values are true and false. 
+
+## Examples
 
 ## Switch without label
 
@@ -30,9 +29,7 @@ Switch base component without a label.
 
 </Showcase>
 
-## Switch with control on the left
-
-Switch component with a label on the right.
+## Switch with leading control
 
 <Showcase showcase-name="Switch/SwitchLeading">
 
@@ -45,7 +42,7 @@ Switch component with a label on the right.
 
 </Showcase>
 
-## Switch with control on the right
+## Switch with trailing control
 
 Switch component with a label align on the left.
 
@@ -59,6 +56,12 @@ Switch component with a label align on the left.
 <!-- end react -->
 
 </Showcase>
+
+## Accessibility notes
+
+`SfSwitch` is built using the native `<input type="checkbox">` element. This means that has all of the same keyboard navigation and accessibility features as a native checkbox.
+
+By default, it comes with a `role="switch"` attribute. This is useful for screen readers, which can announce the element as a switch.
 
 ## Playground
 

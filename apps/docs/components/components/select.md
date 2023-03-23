@@ -1,27 +1,18 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: A select is an input that allows the user to choose from a set of options. Uses native html `<select>` tag. Used for forms or as a global setting, e.g. language, location.
 ---
 # Select
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`SfSelect` is a wrapper around the native `<select>` element. It provides additional styles for different states of `<select>` element.
 
-## Accessibility notes
+## Examples
 
-Keyboard users can use `tab`, open select with `space` and select options using `arrows`.
+### Select sizes
 
-## Notes
-
-Any additional attributes passed to the component will be binded to `select` tag. If there is a need to pass any class to the root tag, then `wrapperClassName` prop should be used.
-
-For a few options use [Radio](radio.html) component instead of Select. For very long set of options think about using Combobox component.
-
-## Select sizes
-
-Select supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
+`SfSelect` supports 3 sizes that can be set with the `size` prop: `'sm'`, `'base'`, `'lg'`.
 
 <Showcase showcase-name="Select/SelectSizes" style="min-height:350px" >
 
@@ -33,9 +24,9 @@ Select supports 3 sizes that can be set via `size` prop: `sm`, `base`, `lg`.
 <!-- end react -->
 </Showcase>
 
-## Custom chevron
+### Custom chevron
 
-Select can have custom chevron by using <!-- vue -->slot `chevron`<!-- end vue --> <!-- react -->`slotChevron`<!-- end react -->.
+You can replace the default chevron with your own custom content by using the <!-- vue -->`chevron` slot<!-- end vue --> <!-- react -->`slotChevron` prop<!-- end react -->.
 
 <Showcase showcase-name="Select/SelectCustomChevron">
 
@@ -47,9 +38,9 @@ Select can have custom chevron by using <!-- vue -->slot `chevron`<!-- end vue -
 <!-- end react -->
 </Showcase>
 
-## Invalid state
+### Invalid state
 
-Select with invalid state.
+`SfSelect` accepts an `invalid` prop that will add additional styling.
 
 <Showcase showcase-name="Select/SelectInvalid">
 
@@ -60,6 +51,17 @@ Select with invalid state.
 <<<../../preview/next/pages/showcases/Select/SelectInvalid.tsx#source
 <!-- end react -->
 </Showcase>
+
+## Notes
+
+All non-prop attributes and styles added to `SfSelect` component are passed directly to native input element. This means that you can add all of the input attributes directly to `SfSelect`. If you want to style the wrapper `div`, you can pass your classes via the `wrapperClassName` prop. 
+
+If you only have a few options, consider using the [`Radio`](radio.html) component instead of `Select`.
+
+
+## Accessibility notes
+
+Since this component uses the native `<select>` element, it inherits its accessibility features. For example, keyboard users can focus the select with `tab`, open with `space`, navigate the options using `arrows`, close the options menu with `Escape`, and select an option with `Enter` or `Space`.
 
 ## Playground
 

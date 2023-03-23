@@ -1,17 +1,20 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: Counter is a part of other complex components. Informs in numerical (integer) form about the number of elements.
 ---
 # Counter
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`SfCounter` provides formatting for numerical values. This can be used to show things like quantities of an item or number of reviews. Since it's a part of so many complex components, `SfChip` can be used to provide consistent styles across your application.
 
-## Counter
+## Examples
 
-The basic component with value inside the parentheses in all sizes accessible by prop. 
+### Counter
+
+By default, `SfCounter` will put parentheses around its children.
+
+`SfCounter` supports 6 different sizes that can be set with the `size` prop: `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, and `'2xl'`. The default size is `'base'`. 
 
 <Showcase showcase-name="Counter/Counter">
 
@@ -24,9 +27,9 @@ The basic component with value inside the parentheses in all sizes accessible by
 </Showcase>
 
 
-## Counter pill
+### Counter pill
 
-The pill version of the component with size set to `xl` and colored background. 
+`SfCounter` accepts a `pill` prop that will create a border around your counter rather than adding parentheses around it.
 
 <Showcase showcase-name="Counter/CounterPill">
 
@@ -38,9 +41,9 @@ The pill version of the component with size set to `xl` and colored background.
 <!-- end react -->
 </Showcase>
 
-## Custom background
+### Customizing Colors
 
-The pill version of the component with custom background set to `bg-secondary-700` white text and ring.
+You can customize the colors of `SfCounter` by passing Tailwind classes.
 
 <Showcase showcase-name="Counter/CounterCustomBackground">
 
@@ -51,6 +54,10 @@ The pill version of the component with custom background set to `bg-secondary-70
 <<<../../preview/next/pages/showcases/Counter/CounterCustomBackground.tsx
 <!-- end react -->
 </Showcase>
+
+## Notes
+
+The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline element, you should avoid placing block elements (like `div` or `p`) inside of it. 
 
 ## Playground
 

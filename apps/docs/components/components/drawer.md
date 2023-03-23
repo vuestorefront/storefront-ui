@@ -1,19 +1,21 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: SfDrawer is surface containing supplementary content that is anchored to the left, right, top or bottom edge of the screen.
 ---
 # Drawer
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`SfDrawer` is a container that can be anchored to the left, right, top or bottom edge of the screen. This can be used to create things like navigation drawers, sliding cart views, or anything else that needs to stick to the edge of the screen. It also adds additional functionality like closing when the user clicks outside of the drawer or presses the escape key.
+
 
 ## Examples
 
-### Drawer placement
+### Basic Usage
 
-Drawer supports 4 different placements that can be set via `placement` prop: `top`, `right`, `bottom`, `left`.
+`SfDrawer` supports 4 different placements that can be set via `placement` prop: `top`, `right`, `bottom`, `left`. To open/close the drawer, you can use <!-- vue -->`v-model`<!-- end vue --><!-- react -->the `open` prop and the `onClose` event<!-- end react -->. 
+
+By default, `SfDrawer` will <!-- vue -->emit `update:modelValue`<!-- end vue --><!-- react -->trigger `onClose`<!-- end react --> when the user clicks outside of the drawer or presses the escape key. These behaviors can be disabled by setting the `disableClickAway` and `disableEsc` props to `true`.
 
 <Showcase showcase-name="Drawer/Placement" style="min-height:400px">
 
@@ -28,7 +30,7 @@ Drawer supports 4 different placements that can be set via `placement` prop: `to
 
 ### Drawer transition and trap focus
 
-Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide/built-ins/transition.html#the-transition-component)<!-- end vue --><!-- react -->[`<CSSTransition>`](https://reactcommunity.org/react-transition-group/css-transition)<!-- end react --> component for animated showing and hiding. Drawer as well can use `useTrapFocus`  <!-- vue -->`composable`<!-- end vue --><!-- react -->`hook`<!-- end react --> for better control of focusable elements inside.
+You can wrap `SfDrawer` in a <!-- vue -->[`<transition>`](https://vuejs.org/guide/built-ins/transition.html#the-transition-component)<!-- end vue --><!-- react -->[`<CSSTransition>`](https://reactcommunity.org/react-transition-group/css-transition)<!-- end react --> component to add enter/exit animations. Additionally, you can use the `useTrapFocus` <!-- vue -->composable<!-- end vue --><!-- react -->hook<!-- end react --> for better control of focusable elements inside.
 
 <Showcase showcase-name="Drawer/TransitionAndCloseButton" style="min-height: 400px;">
 
@@ -47,6 +49,8 @@ Component can be wrapped in <!-- vue -->[`<transition>`](https://vuejs.org/guide
 :::
 
 ::: slot api
+
+## Props
 
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|

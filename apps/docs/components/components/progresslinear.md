@@ -1,24 +1,18 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: SfProgressLinear is used to provides feedback about the duration and progression of a process to indicate how long a user will be waiting
 ---
 # ProgressLinear
 
-::: slot usage
-{{ $frontmatter.description }}
+:::::: slot usage
 
-## Accessibility notes
+`SfProgressLinear` provides feedback about the duration and progression of a process.
 
-ProgressLinear uses [native `<progress>` HTMLElement](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) to [allow screen readers treat it as an indicator of progress status](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role).
+## Examples
 
-## Notes
+### Sizes
 
-LoaderLinear does not set it's own width by default - have a look at [`Sizes` section for example of usage](#sizes).
-
-## Sizes
-
-ProgressLinear supports various sizes that can be set via `size` prop: `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`, `4xl`.
+`SfProgressLinear` does not set it's own width by default, however you can control its height with the `size` prop. Possible values are `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, `'2xl'`, `'3xl'`, `'4xl'`.
 
 <Showcase showcase-name="ProgressLinear/ProgressLinearSizes" style="min-height:300px">
 
@@ -31,9 +25,13 @@ ProgressLinear supports various sizes that can be set via `size` prop: `xs`, `sm
 
 </Showcase>
 
-## Customizing color
+### Customizing colors
 
-ProgressLinear by default uses a `primary-700` as animated-shape color (customizable by setting text color) and `neutral-300` as a background behind. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+By default, `SfProgressLinear` uses `primary-700` as the color of the bar (customizable by setting text color) and `neutral-300` as its background. You can change these values in your [Tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override them for a single element using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+
+::: read-more
+Learn more about [overriding default styles](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/customization/overriding-default-styles) in Storefront UI.
+:::
 
 <Showcase showcase-name="ProgressLinear/ProgressLinearColors">
 
@@ -46,9 +44,9 @@ ProgressLinear by default uses a `primary-700` as animated-shape color (customiz
 
 </Showcase>
 
-## With label
+### With label
 
-ProgressLinear should be displayed with an accessible text label. You achieve this for example: by using `ariaLabel` prop or by nesting ProgressLinear withing `<label>` tag with text content.
+`SfProgressLinear` should be displayed with an accessible text label. You achieve this for example: by using `ariaLabel` prop or by nesting the component inside a `<label>` with text content.
 
 <Showcase showcase-name="ProgressLinear/ProgressLinearLabel">
 
@@ -61,12 +59,19 @@ ProgressLinear should be displayed with an accessible text label. You achieve th
 
 </Showcase>
 
+## Accessibility notes
+
+ProgressLinear uses native [`<progress>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/progress) HTMLElement] to [allow screen readers treat it as an indicator of [progress status](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role).
+
 ## Playground
 
 <Generate />
-:::
+::::::
 
 ::: slot api
+
+## Props
+
 | Prop name             | Type                       | Default value | Possible values                              |
 |-----------------------|----------------------------|---------------|----------------------------------------      |
 |  `value`                |  `number`                    | `0`            |                                        |

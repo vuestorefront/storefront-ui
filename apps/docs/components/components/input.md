@@ -1,34 +1,19 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: An input is a single-line text field allows users to enter any combination of letters, numbers, or symbols. Supports the use of prefix and suffix as text or icon.
 ---
 # Input
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`SfInput` is a single-line text field allows users to enter any combination of letters, numbers, or symbols. It adds default styles to the native `<input type="text">` and supports supports adding content before/after the text input.
+
+## Examples
 
 
-## Notes
+### Basic input component
 
-Used for forms, for example to enter address details, email, password, credit card numbers.
-
-For search feature use Search component instead of Input.
-
-All attributes added to `SfInput` component are passed directly to native input element and so are the styles. But if you want to style entire component pass your classes via <!-- vue -->`wrapperClass`<!-- end vue --> <!-- react --> `wrapperClassName`<!-- end react -->prop. 
-
-If you want to apply `size` attribute to input element, use `width` property with `ch` unit instead, eg. `width: 10ch`. `size` property is already used to customize layout of `SfInput` component.
-
-## Accessibility notes
-
-Keyboard users can use `tab` to focus on `input`
-Used an `input` element with `type="text"`, for single-line input.
-
-
-## Basic input component
-
-The simple input without the label in three accessible size variants.
+`SfInput` supports 3 sizes that can be set with the `size` prop: `'sm'`, `md`, and `'lg'`.
 
 <Showcase showcase-name="Input/InputWithoutLabel" style="min-height:400px;">
 
@@ -40,9 +25,11 @@ The simple input without the label in three accessible size variants.
 <!-- end react -->
 </Showcase>
 
-## Input with icons
+### Input with icons
 
-The input with icons passed through <!-- vue --> `prefix` and `suffix` slots<!-- end vue --><!-- react -->`slotPrefix` and `slotSuffix` props<!-- end react -->. 
+You can insert content before and after your input using the <!-- vue --> `prefix` and `suffix` slots<!-- end vue --><!-- react -->`slotPrefix` and `slotSuffix` props<!-- end react -->. 
+
+This can be useful for adding icons or buttons to your input.
 
 <Showcase showcase-name="Input/InputIcons">
 
@@ -54,9 +41,9 @@ The input with icons passed through <!-- vue --> `prefix` and `suffix` slots<!--
 <!-- end react -->
 </Showcase>
 
-## Input in disabled state
+### Input in disabled state
 
-The component when disabled. 
+`SfInput` comes with out-of-the-box styles for a disabled input.
 
 <Showcase showcase-name="Input/InputDisabled">
 
@@ -68,9 +55,9 @@ The component when disabled.
 <!-- end react -->
 </Showcase>
 
-## Input component in readonly
+### Readonly Input
 
-The input component with readonly attribute. 
+`SfInput` comes with out-of-the-box styles for a readonly input.
 
 <Showcase showcase-name="Input/InputReadonly">
 
@@ -82,9 +69,9 @@ The input component with readonly attribute.
 <!-- end react -->
 </Showcase>
 
-## Basic input in invalid state
+### Invalid State
 
-The input component when in invalid state. 
+If you pass the `invalid` prop, the input will be styled to indicate an invalid state.
 
 <Showcase showcase-name="Input/InputInvalid">
 
@@ -96,9 +83,9 @@ The input component when in invalid state.
 <!-- end react -->
 </Showcase>
 
-## Input component with all states styles applied and characters counting
+### Full Example
 
-The input component when in invalid state. 
+This is an example of what `SfInput` might look like in your end code. It has a label, help text, character counting, and different styles depending on the input state.
 
 <Showcase showcase-name="Input/InputCharacters">
 
@@ -109,6 +96,16 @@ The input component when in invalid state.
 <<<../../preview/next/pages/showcases/Input/InputCharacters.tsx#source
 <!-- end react -->
 </Showcase>
+
+## Notes
+
+All non-prop attributes and styles added to `SfInput` component are passed directly to the native input element. This means that you can add all of the input attributes directly to `SfInput`. If you want to style the wrapper `div`, you can pass your classes via the <!-- vue -->`wrapperClass`<!-- end vue --><!-- react --> `wrapperClassName`<!-- end react -->prop. 
+
+Since, `size` is a specified prop of `SfInput`, you won't be able to pass the native `size` attribute to your input element. Instead, you can use the `width` property with `ch` unit instead (eg. `width: 10ch`).
+
+## Accessibility notes
+
+Since `SfInput` uses `<input>`, it inherits all the features of the native input. For example, `SfInput` is focusable for keyboard users with `tab`.
 
 ## Playground
 

@@ -1,18 +1,30 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: The AccordionItem component is built on native details html element. Click on a header expands the content below.
 ---
 
 # AccordionItem
 
-::: slot usage
+:::::: slot usage
 
-{{ $frontmatter.description }}
+The `SfAccordionItem` component is a wrapper around the native `<details>` and `<summary>` HTML elements. It allows you to create an accordion component that expands and collapses content.
 
-## Basic Accordion
+The root element of this component is `<details>`, and any attributes that you apply onto the `SfAccordionItem` component will be passed to the `<details>` element. The one exception is the `onToggle` attribute. The component prevents the native browser behavior and implements its own `onToggle` handler.
 
-Simple implementation of accordion component.
+::: read-more
+See all of the attributes that you can pass to `<details>` in the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details).
+:::
+
+## Examples
+
+### Basic Accordion
+
+<!-- vue -->
+To control the state of the accordion, you can use the `modelValue` prop. This prop is a boolean that indicates whether the accordion is open or closed.
+<!-- end vue -->
+<!-- react -->
+To control the state of the accordion, you can use the `open` prop. This prop is a boolean that indicates whether the accordion is open or closed.
+<!-- end react -->
 
 <Showcase showcase-name="AccordionItem/BasicAccordion" style="min-height:400px">
 
@@ -25,9 +37,9 @@ Simple implementation of accordion component.
 
 </Showcase>
 
-## Accordion Group
+### Accordion Group
 
-Accordion component that collapse inactive sections.
+This example only allows one item to be open at a time.
 
 <Showcase showcase-name="AccordionItem/CollapsableAccordion" style="min-height:400px">
 
@@ -40,15 +52,19 @@ Accordion component that collapse inactive sections.
 
 </Showcase>
 
+## Accessibility Notes
+
+Since `SfAccordion` uses `<details>` and `<summary>` HTML elements, it inherits all of their accessibility features. 
+
+For example, `<summary>` elements are focusable and can be activated by pressing the `Enter` or `Space` keys.
+
 ## Playground
 
 <Generate />
 
-:::
+::::::
 
 ::: slot api
-
-The AccordionItem component is built on top of the [\<details>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/details) HTML element and accepts all of its attributes except `onToggle` attribute. The component prevents native browser behavior and implements its own `onToggle` handler.
 
 ## Props
 

@@ -1,34 +1,28 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: A modal is a window overlaid on website content for focus on primary action that requires user interaction. That is, users cannot interact with the content outside.
 ---
 # Modal
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`SfModal` creates a modal window that opens on top of the main window. This component can be used to display important information that requires user interaction. 
 
-## Accessibility notes
+In addition to the UI aspect, `SfModal` adds additional functionality that implements several best practices:
 
-The Modal is using the ARIA `aria-modal="true"` attribute.
+1. Traps focus within the modal using the [`useTrapFocus`](../hooks/useTrapFocus.html) function 
+2. Allows the user to close the modal by pressing the `Escape` key.
+3. Allows the user to close the modal by clicking outside of it.
 
-When Modal is opened `focus` is trapped within it's root container. The component can be closed via `Escape` key when `disableEsc` is set to `false` (default).
+The closing behavior can be disabled by setting the `disableClickAway`/`disableEsc` prop to `true`.
 
-Use `aria-labelledby` or `aria-label` to provide an accessible label for modal - usually title of modal can be used as such. To add more context use `aria-describedby` or `aria-description`. Both techiques can be seen in the code examples below.
-
-Modal can be used in different contexts, so no `role` is being enforced on it byt default. Make sure to add proper `role` based on your needs:
-
-- Use `role="alertdialog"` for dialogs where immediate user response is required. [See details.](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alertdialog_role)
-- Use `role="dialog"` for generic dialogs. [See details.](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
-
-## Notes
-
-Modal contains tab sequence which means, `Tab` and `Shift + Tab` do not move focus outside the modal. Used to prompt the user for input or response to displayed information.
+## Examples
 
 ### Basic usage
 
-Modal can be used to provide additional interactions for your users.
+The visibility of the modal is controlled by <!-- vue -->`v-model`<!-- end vue --><!-- react -->the `open` prop<!-- end react -->.
+
+This example also uses the [`useDisclosure`](../hooks/useDisclosure.html) function to provide nice controls for handling the modal's visibility.
 
 <Showcase showcase-name="Modal/ModalBasic" style="min-height:400px">
 
@@ -41,6 +35,21 @@ Modal can be used to provide additional interactions for your users.
 
 </Showcase>
 
+
+## Accessibility notes
+
+`SfModal` sets the `aria-modal="true"` attribute. Also, it sets the `tabindex` to `-1` so `Tab` and `Shift + Tab` do not move focus outside the modal.
+
+Since you may need to use this component in different contexts, there is no `role` attribute set by default. Make sure to add proper `role` based on your needs:
+
+- `role="alertdialog"` for dialogs where immediate user response is required. [See details.](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alertdialog_role)
+- `role="dialog"` for generic dialogs. [See details.](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
+
+You should add `aria-labelledby` or `aria-label` attributes to provide an accessible label for your modal - usually this value can be the title of the modal. To add more context, you should use the `aria-describedby` or `aria-description` attributes. 
+
+Both techniques can be seen in the code examples above.
+
+
 ## Playground
 
 <Generate style="height: 600px"/>
@@ -48,6 +57,8 @@ Modal can be used to provide additional interactions for your users.
 :::
 
 ::: slot api
+
+## Props
 
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|

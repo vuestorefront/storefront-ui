@@ -1,20 +1,18 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: SfProgressCircular is used to provided feedback about the duration and progression of a process to indicate how long a user will be waiting
 ---
 # ProgressCircular
 
-::: slot usage
-{{ $frontmatter.description }}
+:::::: slot usage
 
-## Accessibility notes
+`SfProgressCircular` can be used provide feedback about the duration and progression of a process. 
 
-It uses `role` set to `progressbar` to [allow screen readers treat it as an indicator of progress status](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role).
+## Examples
 
-## Sizes
+### Sizes
 
-ProgressCircular supports various sizes that can be set via `size` prop: `xs`, `sm`, `base`, `lg`, `xl`, `2xl`, `3xl`, `4xl`.
+`SfProgressCircular` supports various sizes that can be set with the `size` prop: `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, `'2xl'`, `'3xl'`, `'4xl'`.
 
 <Showcase showcase-name="ProgressCircular/ProgressCircularSizes" style="min-height:320px">
 
@@ -27,9 +25,13 @@ ProgressCircular supports various sizes that can be set via `size` prop: `xs`, `
 
 </Showcase>
 
-## Customizing color
+### Customizing colors
 
-ProgressCircular by default uses a `primary-700` as animated-shape color (customizable by setting text color) and `neutral-300` as a ring behind. You can easily change these in [tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override on single-element basis using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+By default, `SfProgressCircular` uses `primary-700` as the shape color (customizable by setting text color) and `neutral-300` for the background ring. You can change these values in your [Tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override them for a single-element using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
+
+::: read-more
+Learn more about [overriding default styles](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/customization/overriding-default-styles) in Storefront UI.
+:::
 
 <Showcase showcase-name="ProgressCircular/ProgressCircularColors">
 
@@ -42,9 +44,13 @@ ProgressCircular by default uses a `primary-700` as animated-shape color (custom
 
 </Showcase>
 
-## With floating label
+### With floating label
 
-ProgressCircular might be displayed with a text representation of it's value. To achieve this, provide a content to the component via <!-- react -->`children` prop<!-- end react --><!-- vue -->`default` slot<!-- end vue -->. Remember, ProgressCircular is built upon an `svg`, so your content must be SVG-compatible.
+You can add text to the center of the Progress Circle by providing content to the component via the <!-- react -->`children`<!-- end react --><!-- vue -->`default` slot<!-- end vue -->.
+
+::: warning
+`SfProgressCircular` is built using an `svg`, so your content must be SVG-compatible.
+:::
 
 <Showcase showcase-name="ProgressCircular/ProgressCircularFloatingLabel">
 
@@ -57,12 +63,20 @@ ProgressCircular might be displayed with a text representation of it's value. To
 
 </Showcase>
 
+## Accessibility notes
+
+This component sets the `role="progressbar"` to [allow screen readers treat it as an indicator of progress status](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/progressbar_role).
+
+
 ## Playground
 
 <Generate />
-:::
+::::::
 
 ::: slot api
+
+## Props
+
 | Prop name             | Type                       | Default value | Possible values                        |
 |-----------------------|----------------------------|---------------|----------------------------------------|
 |  `value`                |  `number`                    | `0`             |                                        |

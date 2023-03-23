@@ -1,23 +1,16 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: A radio is a checkable input always appears in a group of elements with the same role, where no more than one of the radio can be checked at a time.
 ---
 # Radio
 
 ::: slot usage
 
-{{ $frontmatter.description }}
+`SfRadio` provides additional styles for different states of `<input type="radio">`. It can be used for choosing between a list of values when only one option can be selected at a time.
 
-## Accessibility notes
+## Examples
 
-- Providing a bigger hit area for your radio buttons - select a radio button by clicking on its associated `label` element, as well as on the radio button itself.
-- [ARIA - radio role:](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radio_role) The radio role is one of a group of checkable buttons, in a radiogroup, where no more than one of the buttons can be checked at a time.
-- A radio element is a checkable input in a group of role elements, of which only one of which can be checked at a time. The radio elements must be grouped together in a [`radiogroup`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radiogroup_role) to indicate which ones affect the same value.
-
-## Radio without label
-
-Radio input component without a label.
+### Basic Usage
 
 <Showcase showcase-name="Radio/RadioWithoutLabel">
 
@@ -29,9 +22,9 @@ Radio input component without a label.
 <!-- end react -->
 </Showcase>
 
-## Radio with control on left
+### Radio with leading control
 
-Radio base component with input control aligned to the left.
+It's a best practice to use label with your `SfRadio` component so users can understand what the input is for. 
 
 <Showcase showcase-name="Radio/RadioLeading">
 
@@ -43,9 +36,7 @@ Radio base component with input control aligned to the left.
 <!-- end react -->
 </Showcase>
 
-## Radio with control on right
-
-Radio base component with input control aligned to the right.
+### Radio with trailing control
 
 <Showcase showcase-name="Radio/RadioTrailing">
 
@@ -56,6 +47,54 @@ Radio base component with input control aligned to the right.
 <<<../../preview/next/pages/showcases/Radio/RadioTrailing.tsx#source
 <!-- end react -->
 </Showcase>
+
+### With legend
+
+Radio Group can have a `legend` tag, which represents a caption for the content of its parent `fieldset` tag.
+
+<Showcase showcase-name="RadioGroup/RadioGroupWithLegend">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/RadioGroup/RadioGroupWithLegend.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/RadioGroup/RadioGroupWithLegend.tsx
+<!-- end react -->
+
+</Showcase>
+
+### Group Alignment
+
+Radio components can be aligned inside RadioGroup in a `column` or in a `row`.
+
+<Showcase showcase-name="RadioGroup/RadioGroupAlignment" >
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/RadioGroup/RadioGroupAlignment.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/RadioGroup/RadioGroupAlignment.tsx
+<!-- end react -->
+
+</Showcase>
+
+<!-- react -->
+### Uncontrolled Group
+
+<Showcase showcase-name="RadioGroup/RadioGroupUncontrolled" >
+
+<<<../../preview/next/pages/showcases/RadioGroup/RadioGroupUncontrolled.tsx
+
+</Showcase>
+
+## Accessibility notes
+
+You can provide a bigger hit area for your radio buttons by making your `label` element another trigger for the radio button. This can be done by wrapping the `input` element in a `label` element.
+
+When multiple radio elements are grouped together, one of their parent elements should have [`role="radiogroup"`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radiogroup_role). This will help indicate which radio inputs affect the same value.
+
+If you have an element that is not an `<input type="radio">`, you should set the [role="radio"](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radio_role) so that it is recognized as a radio button.
+
 
 ## Playground
 
