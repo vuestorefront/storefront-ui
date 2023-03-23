@@ -1,99 +1,85 @@
-<br />
 <p align="center">
   <img src="https://user-images.githubusercontent.com/1626923/157498695-885de6c5-deba-416d-8287-51e7269aef56.png" alt="Storefront UI" />
 </p>
 
 <h3 align="center">
-       The first Vue.js UI library dedicated to eCommerce
+  Framework-agnostic UI library and Design System for eCommerce based on <a href="https://tailwindcss.com/">TailwindCSS</a>.
 </h3>
-<p align="center">
-       Create stunning stores with this 100% customizable and accessible design system.
-</p>
+
 
 <p align="center">
-    <img alt="GitHub Repository Stars Count" src="https://img.shields.io/github/stars/vuestorefront/sfui2?style=social" />
-    <a href="https://twitter.com/storefrontui">
-        <img alt="Follow Us on Twitter" src="https://img.shields.io/twitter/follow/storefrontui?style=social" />
-    </a>
-    <a href="https://www.youtube.com/c/VueStorefront">
-        <img alt="Subscribe on our Youtube Channel" src="https://img.shields.io/youtube/channel/subscribers/UCkm1F3Cglty3CE1QwKQUhhg?style=social" />
-    </a>
     <a href="https://discord.gg/vuestorefront">
         <img alt="Chat with us on Discord" src="https://img.shields.io/discord/770285988244750366?label=join%20discord&logo=Discord&logoColor=white" />
     </a>
-</p>
-<p align="center">
     <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue/alpha">
     <a href="http://commitizen.github.io/cz-cli/">
         <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
     </a>
-    <a href="https://github.com/vuestorefront/sfui2">
-        <img alt="License" src="https://img.shields.io/github/license/vuestorefront/sfui2" />
+    <a href="https://github.com/vuestorefront/storefront-ui">
+        <img alt="License" src="https://img.shields.io/github/license/vuestorefront/storefront-ui" />
     </a>
     <a href="https://github.com/vuestorefront/storefront-ui/pulls">
         <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
     </a>
 </p>
-
----
-
-# #TechForUkraine
+<hr>
 
 <div align="center">
-<p>
-       <img src="https://user-images.githubusercontent.com/1626923/155853691-d6d0a541-d3b9-40bf-b8f5-2d38303e9e49.png" />
-</p>
-      <h2><strong>Russia’s military aggression against Ukraine.</strong></h2>
-<div align="left">
-      <h3>How can you support Ukrainian civil society?</h3>
-      All help is needed. If you are not able to help locally, by sheltering a fellow Ukrainian, you can also:
-      <ul>
-        <li>
-          Support the Ukraine Armed forces directly by sending funding to the special accounts.<br />
-          <a href="https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi" target="_blank">NBU Special Account to Raise Funds for Ukraine’s Armed Forces</a>
-        </li>
-        <li>
-          Help the ICRC (Red Cross) with donations.<br />
-          <a href="https://www.icrc.org/en/where-we-work/europe-central-asia/ukraine" target="_blank">Ukrainian Red Cross Society</a>
-        </li>
-        <li>
-          Donate to the United Help Ukraine.<br />
-          <a href="https://unitedhelpukraine.org/" target="_blank">United Help Ukraine</a>
-        </li>
-        <li>
-          Donate to Voices of Children<br />
-          <a href="https://voices.org.ua/en/" target="_blank">Voices of Children</a>
-        </li>
-        </div>
-          </div>
+  <a href="https://docs.storefrontui.io/v2/vue/getting-started.html"><img alt="Vue Installation" height="40px" widh="120px" src="./_readme/vuebtn.svg" /></a>
+  <a href="https://docs.storefrontui.io/v2/react/getting-started.html"><img alt="React Installation" height="40px" widh="120px" src="./_readme/reactbtn.svg" /></a>
+</div>
 
----
+<img src="./_readme/showcase.png">
 
-# Storefront UI 2
+## What problems does Storefront UI solve?
 
-**Current status:** Under construction, not suitable for production.
-<br />
-Accessible, performance-oriented and elegant out-of-the-box UI framework for eCommerce (and not only).
-<br /><br />
-[See our documentation](https://docs.storefrontui.io/v2/) 📚
-<br /><br />
-Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">Vue Storefront</a> team and contributors.
+Like any UI Library / Design System the main goal of Storefront UI is to **accelerate the development process** by providing an opinionated set of premade components, utilities and patterns.
 
-# What makes it unique?
+There is a lot of the things you have to take care of to build good user interfaces:
 
-StorefrontUI 2 was designed specifically for ecommerce. You can create stunning shops in a blink of an eye with these accessible, performsant, drop-in-ready components and the boilerplating system.
+🔹 **Developer/Designer workflow**: Storefront UI comes out of the box with Figma files - a pixel-perfect representation of your code that your design and engineering teams needs to stay aligned. 
 
-## Here are the key characteristics of Storefront UI:
+🔹 **Performance:** Poorly written and overcomplicated components are often the performance bottleneck ruining the experience of your users. **All standard eCommerce pages that we've built with Storefront UI hit 95-100 on Lighthouse**! (mobile performance measured using [PSI](https://pagespeed.web.dev/))
 
-We are building Storefront UI based on the following 6 fundamentals:
+🔹 **Accessibility:**  Web Accessibility is more than an ethical requirement in US: [it’s also legal](https://adasitecompliance.com/website-accessibility-legal-requirement/) and you risk fines if the justice department finds you guilty.  At the same time building accessible components takes a lot of time and requires specific domain knowledge. **Storefront UI components are WCAG AA compliant out of the box!**
 
-- **Customization**: You have full access to the code snippets. You can change whatever you like, we make it easier for you.
-- **Accessibility**: Every component is compliant with AA level of WCAG standard.
-- **Performance**: You're using only what you need for your project, even if it's just one component. No JS, no complicated logic, just plain UI as it's best.
-- **Best practices**: Storefront UI components follow best practices in terms of design and core.
-- **E-commerce**: As a UI library dedicated to eCommerce, Storefront UI along with standard UI components has all the elements necessary for building modern online stores.
-- **Open Source**: Storefront UI is a community effort to deliver the best possible experience to modern web applications and e-commerce shops, with carefully crafted components following best practices. Our team consists of agencies and volunteer contributors from all over the world.
+But let's be honest, almost all established UI libraries can solve that. **Here's what's Storefront UI is best at::**
 
-## How to get started?
+🔸 **Customization:**  Most of the UI libraries out there fail when components need to be heavily customized. You suddenly find yourself working against your library just to achieve the desired look. Storefront UI is built for complex cases. We ship a set of small and flexible _base components_ like `Button`, `Checkbox` or `Modal` that can be used to build more complex ones. We also deliver more complex examples (aka _Blocks_) like `ProductCard` or a different checkout steps as copy-pasteable code using Storefront UI components and Tailwind utilities.
 
-You can start by reading [the documentation at https://docs.storefrontui.io/v2](https://docs.storefrontui.io/v2/) 🚀
+In addition, Storefront UI fits perfectly complex UI setups where one library is inherited and customized by multiple projects differing visually.
+
+🔸 **Scaling:** The more your application grows the less maintainable your UI becomes. By providing the right building blocks and using Tailwind CSS we made sure that your UI will be easy to maintain and won't negatively impact your performance even on a large scale. 
+
+🔸 **Focus on eCommerce** Storefront UI comes out of the box with components specific to eCommerce like `ProductCard`, `QuantitySelector` and even checkout components
+
+## What comes out of the box? 🎁
+
+- **Base Components** - beautiful, fast and fully accessible components like `Input` `Checkbox` `Button` that you can use to quickly build more complex structures
+- **Blocks** - complex, copy-pasteable examples like `ProductCard` or checkout steps.
+- **Composables** like `useDropdown` that abstract complex UI interactions
+- **Tailwind preset** that maps tailwind config to CSS variables and provides few SFUI-specific defaults
+- **Typography** package simplifying usage of 3rd party fonts
+- **Figma** file with pixel-perfect representation of SFUI components based on tailwind properties
+
+<a href=""><img src="./_readme/figma_included.png"></a>
+
+## Contributing
+
+We believe that the best software is made when a lot of people with different views collaborate on it. We welcome all contributions to Storefrotn UI.
+
+You can become contributor not only by writing code:
+- Contribute to documentation
+- Write an article or tutorial
+- Help others on our [Discord server](https://discord.vuestorefront.io) 
+- Report a bug
+- Do a talk about Storefront UI at your local meetup
+
+We are grateful for all kind of contributions. If you don't know where to start check out our [contribution guide](./CONTRIBUTING.md) or ask for help on [Discord](https://discord.vuestorefront.io) 
+
+## Links
+
+- [Documentation](https://docs.storefrontui.io/v2/)
+- [Playground]()
+- [Discord](https://discord.vuestorefront.io)
+- [Vue Storefront](https://vuestorefront.io)
