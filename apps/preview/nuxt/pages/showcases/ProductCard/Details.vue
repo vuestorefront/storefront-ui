@@ -22,8 +22,43 @@
       <p>Flexible outsole.</p>
       <p>Easy to wear on and off.</p>
     </div>
-    <!-- TODO: Place QuantitySelector when ready -->
     <div class="py-4 mb-4 border-gray-200 border-y">
+      <div class="flex border border-neutral-300 rounded-md mb-4">
+        <SfButton
+          type="button"
+          variant="tertiary"
+          :disabled="count <= min"
+          square
+          class="rounded-r-none"
+          :aria-controls="useId"
+          aria-label="Decrease value"
+          @click="dec()"
+        >
+          <SfIconRemove />
+        </SfButton>
+        <input
+          :id="useId"
+          v-model="count"
+          type="number"
+          role="spinbutton"
+          class="appearance-none w-full mx-2 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          :min="min"
+          :max="max"
+          @input="handleOnChange"
+        />
+        <SfButton
+          type="button"
+          variant="tertiary"
+          :disabled="count >= max"
+          square
+          class="rounded-l-none"
+          :aria-controls="useId"
+          aria-label="Increase value"
+          @click="inc()"
+        >
+          <SfIconAdd />
+        </SfButton>
+      </div>
       <SfButton type="button" size="lg" class="w-full">
         <template #prefix>
           <SfIconShoppingCart size="sm" />
@@ -81,5 +116,20 @@ import {
   SfIconFavorite,
   SfIconSell,
   SfIconShoppingCart,
+  SfIconAdd,
+  SfIconRemove,
+  useId,
 } from '@storefront-ui/vue';
+import { ref } from 'vue';
+import { clamp } from '@storefront-ui/shared';
+import { useCounter } from '@vueuse/core';
+
+const min = ref(1);
+const max = ref(10);
+const { count, inc, dec, set } = useCounter(1, { min: min.value, max: max.value });
+function handleOnChange(event: Event) {
+  const currentValue = (event.target as HTMLInputElement)?.value;
+  const nextValue = parseFloat(currentValue);
+  set(clamp(nextValue, min.value, max.value));
+}
 </script>

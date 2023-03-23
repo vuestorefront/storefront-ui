@@ -10,11 +10,25 @@ import {
   SfIconFavorite,
   SfIconSell,
   SfIconPackage,
+  SfIconRemove,
+  SfIconAdd,
   SfIconWarehouse,
   SfIconSafetyCheck,
 } from '@storefront-ui/react';
+import { useCounter } from 'react-use';
+import { useId, ChangeEvent } from 'react';
+import { clamp } from '@storefront-ui/shared';
 
 export default function ProductDetails() {
+  const inputId = useId();
+  const min = 1;
+  const max = 10;
+  const [value, { inc, dec, set }] = useCounter(min);
+  function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
+    const { value: currentValue } = event.target;
+    const nextValue = parseFloat(currentValue);
+    set(Number(clamp(nextValue, min, max)));
+  }
   return (
     <section className="md:max-w-[640px]">
       <div className="inline-flex items-center justify-center text-sm font-medium text-white bg-secondary-600 py-1.5 px-2 mb-2">
@@ -40,8 +54,43 @@ export default function ProductDetails() {
         <p> Non slip.</p> <p>Flexible outsole.</p>
         <p>Easy to wear on and off.</p>
       </div>
-      {/* TODO: Include QuantitySelector when ready */}
-      <div className="py-4 mb-4 border-gray-200 border-y">
+      <div className="border-y border-gray-200 py-4 mb-4">
+        <div className="flex border border-neutral-300 rounded-md mb-4">
+          <SfButton
+            type="button"
+            variant="tertiary"
+            square
+            className="rounded-r-none"
+            disabled={value <= min}
+            aria-controls={inputId}
+            aria-label="Decrease value"
+            onClick={() => dec()}
+          >
+            <SfIconRemove />
+          </SfButton>
+          <input
+            id={inputId}
+            type="number"
+            role="spinbutton"
+            className="appearance-none w-full mx-2 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            min={min}
+            max={max}
+            value={value}
+            onChange={handleOnChange}
+          />
+          <SfButton
+            type="button"
+            variant="tertiary"
+            square
+            className="rounded-l-none"
+            disabled={value >= max}
+            aria-controls={inputId}
+            aria-label="Increase value"
+            onClick={() => inc()}
+          >
+            <SfIconAdd />
+          </SfButton>
+        </div>
         <SfButton type="button" size="lg" className="w-full" slotPrefix={<SfIconShoppingCart size="sm" />}>
           Add to cart
         </SfButton>
