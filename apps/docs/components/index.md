@@ -34,23 +34,31 @@ hideBreadcrumbs: true
 
 ::: slot vue
 
-## Components
+## Base Components
+
+Beautiful, fast, and fully accessible components that integrate with Tailwind CSS to help you quickly build more complex structures.
 
 <ComponentList framework="vue" type="components" hide-description />
 
-## Composables
+## Composables 
 
-<ComponentList framework="vue" type="hooks" hide-thumbnail />
+Complex UI logic is extracted into composables, which you can use to build your own custom components.
+
+<ComponentList framework="vue" type="hooks" hide-thumbnail  />
 
 :::
 
 ::: slot react
 
-## Components
+## Base Components
+
+Beautiful, fast, and fully accessible components that integrate with Tailwind CSS to help you quickly build more complex structures.
 
 <ComponentList framework="react" type="components" hide-description />
 
 ## Hooks
+
+Complex UI logic is extracted into hooks, which you can use to build your own custom components.
 
 <ComponentList framework="react" type="hooks" hide-thumbnail/>
 

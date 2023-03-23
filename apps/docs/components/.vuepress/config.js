@@ -16,7 +16,6 @@ module.exports = {
   description: `Documentation for the Storefront UI`,
   head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
   patterns: ['**/*.md', '**/*.vue', '!components/**/*.md', '!blocks/**/*.md', '!hooks/**/*.md'], // ignore components folder
-  head: [['link', { rel: 'icon', href: '/favicon.png' }]],
   patterns: [
     '**/*.md',
     '**/*.vue',

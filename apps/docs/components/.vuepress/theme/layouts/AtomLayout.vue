@@ -19,7 +19,7 @@
       <KeepAlive>
         <div ref="tabs">
           <div v-for="{ value } in tabOptions" v-if="selectedTab === value" :key="value">
-            <div v-if="value === 'source'" class="mt-4 custom-block tip mb-4">
+            <div v-if="value === 'source' && $route.path.includes('/components/')" class="mt-4 custom-block tip mb-4">
               <p class="custom-block-title">Need to change the default behavior?</p>
               <p>
                 By copying over our base component into your project, you can customize any behavior or stylings. Just

@@ -1,22 +1,30 @@
 ---
 layout: AtomLayout
 hideBreadcrumbs: true
-description: API reference docs for the useTrapFocus <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
+description: An easy to use function for creating trapping focus within an element.
 ---
 
-# useTooltip
+# useTrapFocus
 
-::: slot usage
+:::::: slot usage
 
-{{ $frontmatter.description }}
+`useTrapFocus` allows you to trap focus inside a specific DOM element. Focus traps are especially useful for modals, dropdown menus, and other elements that should keep focus within the element when it is open. 
+
+This is a great way to improve the accessibility of your application because with focus traps, you can ensure that users navigating your site using only a keyboard won't accidentally interact with elements outside the focus trap.
+
+::: read-more
+Under the hood, this <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue --> uses `focus-trap/tabbable`. To learn more about their specific implementation and see the rules used to gather focusable elements visit the [tabbable docs](https://github.com/focus-trap/tabbable).
+:::
 
 ## Usage
 
-Example of `useTrapFocus` <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->.
-
-Note: Under the hood <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue --> uses [tabbable](https://github.com/focus-trap/tabbable), where you can find rules based on which we gather focusable elements.
-
+### Base Usage
 <!-- react -->
+
+To use `useTrapFocus`, we can use `React.ref` to identify the element that we want to trap focus inside of. Then, we can pass that ref to `useTrapFocus` and whenever that element is being rendered, the focus trap will be active.
+
+<SourceCode>
+
 ```tsx
 import * as React from 'react';
 import { useTrapFocus } from '@storefront-ui/react';
@@ -33,8 +41,15 @@ function CustomTooltip(props: Props) {
   );
 }
 ```
+</SourceCode>
+
 <!-- end react -->
 <!-- vue -->
+
+To use `useTrapFocus`, we can use a template ref to identify the element that we want to trap focus inside of. Then, we can pass that ref to `useTrapFocus` and whenever that element is being rendered, the focus trap will be active.
+
+<SourceCode>
+
 ```vue
 <script lang="ts" setup>
 import { ref } from 'vue';
@@ -50,8 +65,9 @@ useTrapFocus(focusTrapElementRef)
   </div>
 </template>
 ```
+</SourceCode>
 <!-- end vue -->
-:::
+::::::
 
 ::: slot api
 
