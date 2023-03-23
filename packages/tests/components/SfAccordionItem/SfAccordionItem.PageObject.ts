@@ -33,11 +33,6 @@ export default class SfAccordionItemBaseObject extends BasePage {
     return this;
   }
 
-  hasClassName(className: string) {
-    this.container.should('have.class', className);
-    return this;
-  }
-
   hasSummaryClassName(className: string) {
     this.summaryElement.should('have.class', className);
     return this;

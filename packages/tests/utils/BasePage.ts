@@ -93,6 +93,18 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
     return this;
   }
 
+  mouseOver() {
+    this.container.trigger('mouseover');
+    this.container.trigger('mouseenter');
+    return this;
+  }
+
+  mouseOut() {
+    this.container.trigger('mouseout');
+    this.container.trigger('mouseleave');
+    return this;
+  }
+
   get cyRoot() {
     return cy.get('[data-cy-root]');
   }

@@ -6,7 +6,7 @@ export default function SfTooltip(props: SfTooltipProps) {
   const { isOpen, getTriggerProps, getTooltipProps, getArrowProps } = useTooltip(tooltipOptions);
 
   return (
-    <span {...getTriggerProps({ className, style })}>
+    <span {...getTriggerProps({ className, style })} data-testid="tooltip">
       {children}
       {label && isOpen && (
         <div

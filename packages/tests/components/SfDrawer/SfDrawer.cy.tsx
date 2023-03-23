@@ -116,7 +116,7 @@ describe('SfDrawer', () => {
   });
 
   describe('when disableClickAway prop is true', () => {
-    it('should not close on click outside', () => {
+    it('should not close on press Escape key', () => {
       const modelValue = ref(true);
       const disableEsc = ref();
       initializeComponent({ modelValue, disableEsc });
