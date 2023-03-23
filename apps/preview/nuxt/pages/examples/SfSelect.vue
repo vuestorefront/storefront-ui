@@ -1,6 +1,5 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    {{ value }}
     <label>
       <span
         :class="[
