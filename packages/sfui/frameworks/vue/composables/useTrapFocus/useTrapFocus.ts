@@ -83,19 +83,13 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
   watch(
     [containerElementRef, activeState],
     async ([containerElement, activeState]) => {
-      if (containerElement) {
+      if (containerElement && activeState) {
+        let focusFallbackNeeded = false;
         await waitForNextRender();
         containeHTMLElement = unrefElement(containerElement);
 
         containeHTMLElement?.addEventListener('focus', onFocusListener, true);
         containeHTMLElement?.addEventListener('keydown', onKeyDownListener);
-      } else {
-        removeEventListeners();
-      }
-
-      if (containerElement && activeState) {
-        let focusFallbackNeeded = false;
-        await waitForNextRender();
         focusableElements.value = tabbable(containeHTMLElement as HTMLElement, { includeContainer });
 
         if (typeof initialFocus === 'number') {
@@ -113,6 +107,7 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
       } else {
         focusableElements.value = [];
         currentlyFocused.value = undefined;
+        removeEventListeners();
       }
     },
     { immediate: true },

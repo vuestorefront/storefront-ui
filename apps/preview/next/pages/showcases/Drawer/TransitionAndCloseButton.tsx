@@ -35,7 +35,7 @@ export default function DrawerWithTransition() {
           onClose={() => setOpen(false)}
           className="bg-neutral-50 border border-gray-300 max-w-[370px]"
         >
-          <header className="bg-primary-700 flex justify-between py-6 px-10 items-center">
+          <header className="flex items-center justify-between px-10 py-6 bg-primary-700">
             <div className="flex items-center text-white">
               <SfIconFavorite className="mr-2" /> Your favorite items
             </div>

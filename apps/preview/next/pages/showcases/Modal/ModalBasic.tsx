@@ -14,7 +14,7 @@ export default function ModalDemo() {
       <SfModal
         open={isOpen}
         onClose={close}
-        className="max-w-[90%] md:max-w-lg"
+        className="max-w-[90%] md:max-w-lg outline-none"
         as="section"
         role="alertdialog"
         aria-labelledby="promoModalTitle"
@@ -24,7 +24,7 @@ export default function ModalDemo() {
           <SfButton square variant="tertiary" className="absolute right-2 top-2" onClick={close}>
             <SfIconClose />
           </SfButton>
-          <h3 id="promoModalTitle" className="typography-headline-4 md:typography-headline-3 font-bold">
+          <h3 id="promoModalTitle" className="font-bold typography-headline-4 md:typography-headline-3">
             You might miss out on great deals
           </h3>
         </header>
@@ -32,7 +32,7 @@ export default function ModalDemo() {
           There are special offers for some of the items on your wishlist. Do you want to see these deals before
           proceeding to checkout page?
         </p>
-        <footer className="mt-4 flex justify-end gap-4">
+        <footer className="flex justify-end gap-4 mt-4">
           <SfButton type="button" variant="secondary" onClick={close}>
             Skip
           </SfButton>

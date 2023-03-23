@@ -3,7 +3,7 @@
 
   <SfModal
     v-model="isOpen"
-    class="max-w-[90%] md:max-w-lg"
+    class="max-w-[90%] md:max-w-lg outline-none"
     tag="section"
     role="alertdialog"
     aria-labelledby="promoModalTitle"
@@ -13,7 +13,7 @@
       <SfButton square variant="tertiary" class="absolute right-2 top-2" @click="close">
         <SfIconClose />
       </SfButton>
-      <h3 id="promoModalTitle" class="typography-headline-4 md:typography-headline-3 font-bold">
+      <h3 id="promoModalTitle" class="font-bold typography-headline-4 md:typography-headline-3">
         You might miss out on great deals
       </h3>
     </header>
@@ -21,7 +21,7 @@
       There are special offers for some of the items on your wishlist. Do you want to see these deals before proceeding
       to checkout page?
     </p>
-    <footer class="mt-4 flex justify-end gap-4">
+    <footer class="flex justify-end gap-4 mt-4">
       <SfButton type="button" variant="secondary" @click="close">Skip</SfButton>
       <SfButton type="button" @click="close">Yes!</SfButton>
     </footer>
