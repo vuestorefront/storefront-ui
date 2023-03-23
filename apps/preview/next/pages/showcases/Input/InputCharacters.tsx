@@ -3,10 +3,9 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfInput } from '@storefront-ui/react';
 import classNames from 'classnames';
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 export default function InputWithLimit() {
-  let value = '';
   const characterLimit = 25;
   const label = 'Label';
   const placeholder = 'placeholder';
@@ -18,8 +17,10 @@ export default function InputWithLimit() {
   const requiredText = 'Required';
   const errorText = 'Error';
 
+  const [value, setValue] = useState('');
+
   function onChange(event: ChangeEvent<HTMLInputElement>) {
-    value = event?.target.value;
+    setValue(event?.target.value);
   }
   const isAboveLimit = characterLimit ? value.length > characterLimit : false;
   const charsCount = characterLimit ? characterLimit - value.length : null;

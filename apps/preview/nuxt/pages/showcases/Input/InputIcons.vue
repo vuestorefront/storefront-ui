@@ -1,9 +1,12 @@
 <template>
-  <SfInput>
-    <template #prefix><SfIconSearch /></template>
-    <template #suffix><SfIconLock /></template>
-  </SfInput>
+  <label>
+    <span class="text-sm font-medium">Label</span>
+    <SfInput>
+      <template #prefix><SfIconPerson /></template>
+      <template #suffix><SfIconLockOpen /></template>
+    </SfInput>
+  </label>
 </template>
 <script lang="ts" setup>
-import { SfInput, SfIconSearch, SfIconLock } from '@storefront-ui/vue';
+import { SfInput, SfIconPerson, SfIconLockOpen } from '@storefront-ui/vue';
 </script>

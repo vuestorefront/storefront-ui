@@ -28,15 +28,15 @@ Used an `input` element with `type="text"`, for single-line input.
 
 ## Basic input component
 
-The simple input with the label in three accessible size variants.
+The simple input without the label in three accessible size variants.
 
-<Showcase showcase-name="Input/InputLabel" style="min-height:400px;">
+<Showcase showcase-name="Input/InputWithoutLabel" style="min-height:400px;">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Input/InputLabel.vue
+<<<../../preview/nuxt/pages/showcases/Input/InputWithoutLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Input/InputLabel.tsx#source
+<<<../../preview/next/pages/showcases/Input/InputWithoutLabel.tsx
 <!-- end react -->
 </Showcase>
 

@@ -24,8 +24,7 @@
       v-if="characterLimit && !readonly"
       :class="[
         'text-xs mt-0.5',
-        disabled ? 'text-disabled-500' : 'text-neutral-500',
-        { 'text-negative-700 font-medium': isAboveLimit },
+        disabled ? 'text-disabled-500' : isAboveLimit ? 'text-negative-700 font-medium' : 'text-neutral-500',
       ]"
     >
       {{ charsCount }}

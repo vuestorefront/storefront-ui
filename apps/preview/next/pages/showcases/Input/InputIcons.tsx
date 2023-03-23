@@ -1,9 +1,15 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { SfInput, SfIconSearch, SfIconLock } from '@storefront-ui/react';
+import { SfInput, SfIconPerson, SfIconLockOpen } from '@storefront-ui/react';
 
 export default function InputWithPrefix() {
-  return <SfInput slotPrefix={<SfIconSearch />} slotSuffix={<SfIconLock />} />;
+  return (
+    <label>
+      <span className="text-sm font-medium">Label</span>
+      <SfInput slotPrefix={<SfIconPerson />} slotSuffix={<SfIconLockOpen />} />
+    </label>
+  );
 }
 
 // #endregion source

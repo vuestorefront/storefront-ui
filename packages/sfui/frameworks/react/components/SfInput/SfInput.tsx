@@ -23,7 +23,7 @@ const SfInput = forwardRef<HTMLInputElement, SfInputProps>(
       {slotPrefix && <span className="pr-2">{slotPrefix}</span>}
       <input
         className={classNames([
-          'appearance-none outline-none min-w-[80px] w-full text-base text-neutral-700 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent read-only:text-disabled-900',
+          'appearance-none outline-none min-w-[80px] w-full text-base text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent',
           className,
         ])}
         type="text"
