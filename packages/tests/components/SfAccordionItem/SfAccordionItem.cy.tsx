@@ -95,7 +95,7 @@ describe('SfAccordionItem', () => {
       const props = { className: 'custom-class' };
       initializeComponent(props);
 
-      page().hasClassName(props.className);
+      page().hasClass(props.className);
     });
   });
 

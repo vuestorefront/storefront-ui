@@ -40,9 +40,15 @@ const {
 });
 </script>
 <template>
-  <div ref="referenceRef" class="w-max">
+  <div ref="referenceRef" class="w-max" data-testid="dropdown">
     <slot name="trigger" />
-    <div v-if="modelValue" ref="floatingRef" :style="dropdownStyle" :aria-hidden="!modelValue || undefined">
+    <div
+      v-if="modelValue"
+      ref="floatingRef"
+      :style="dropdownStyle"
+      :aria-hidden="!modelValue || undefined"
+      data-testid="dropdown-content"
+    >
       <slot />
     </div>
   </div>
