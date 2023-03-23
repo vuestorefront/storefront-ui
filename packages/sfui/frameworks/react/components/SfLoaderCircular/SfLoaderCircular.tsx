@@ -13,6 +13,17 @@ const sizeClasses = {
   [SfLoaderSize['4xl']]: 'h-48 w-48 ring-8',
 };
 
+const strokeSizeClass = {
+  [SfLoaderSize.xs]: 'stroke-[10px]',
+  [SfLoaderSize.sm]: 'stroke-[8px]',
+  [SfLoaderSize.base]: 'stroke-[6px]',
+  [SfLoaderSize.lg]: 'stroke-[4px]',
+  [SfLoaderSize.xl]: 'stroke-[3px]',
+  [SfLoaderSize['2xl']]: 'stroke-[3px]',
+  [SfLoaderSize['3xl']]: 'stroke-2',
+  [SfLoaderSize['4xl']]: 'stroke-2',
+};
+
 export default function SfLoaderCircular({
   size = SfLoaderSize.base,
   ariaLabel = 'loading',
@@ -32,7 +43,15 @@ export default function SfLoaderCircular({
       data-testid="loader-circular"
       {...attributes}
     >
-      <circle className="fill-none stroke-2 stroke-current animate-stroke-loader-circular" cx="50" cy="50" r="24" />
+      <circle
+        className={classNames(
+          'fill-none stroke-2 stroke-current animate-stroke-loader-circular',
+          strokeSizeClass[size],
+        )}
+        cx="50"
+        cy="50"
+        r="24"
+      />
     </svg>
   );
 }

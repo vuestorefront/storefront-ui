@@ -13,6 +13,17 @@ const sizeClasses = {
   [SfProgressSize['4xl']]: 'h-48 w-48 ring-8',
 };
 
+const strokeSizeClass = {
+  [SfProgressSize.xs]: 'stroke-[10px]',
+  [SfProgressSize.sm]: 'stroke-[8px]',
+  [SfProgressSize.base]: 'stroke-[6px]',
+  [SfProgressSize.lg]: 'stroke-[4px]',
+  [SfProgressSize.xl]: 'stroke-[3px]',
+  [SfProgressSize['2xl']]: 'stroke-[3px]',
+  [SfProgressSize['3xl']]: 'stroke-2',
+  [SfProgressSize['4xl']]: 'stroke-2',
+};
+
 export default function SfProgressCircular({
   value = 0,
   size = SfProgressSize.base,
@@ -39,7 +50,12 @@ export default function SfProgressCircular({
       data-testid="progress"
       {...attributes}
     >
-      <circle className="fill-none stroke-2 stroke-current -rotate-90 origin-bottom-right" cx="50" cy="50" r="24" />
+      <circle
+        className={classNames('origin-bottom-right -rotate-90 stroke-current fill-none', strokeSizeClass[size])}
+        cx="50"
+        cy="50"
+        r="24"
+      />
       {children}
     </svg>
   );

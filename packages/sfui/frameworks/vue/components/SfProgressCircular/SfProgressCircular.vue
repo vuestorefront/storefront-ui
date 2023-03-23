@@ -9,6 +9,16 @@ const sizeClasses = {
   [SfProgressSize['3xl']]: 'h-24 w-24 ring-4',
   [SfProgressSize['4xl']]: 'h-48 w-48 ring-8',
 };
+const strokeSizeClass = {
+  [SfProgressSize.xs]: 'stroke-[10px]',
+  [SfProgressSize.sm]: 'stroke-[8px]',
+  [SfProgressSize.base]: 'stroke-[6px]',
+  [SfProgressSize.lg]: 'stroke-[4px]',
+  [SfProgressSize.xl]: 'stroke-[3px]',
+  [SfProgressSize['2xl']]: 'stroke-[3px]',
+  [SfProgressSize['3xl']]: 'stroke-2',
+  [SfProgressSize['4xl']]: 'stroke-2',
+};
 </script>
 
 <script lang="ts" setup>
@@ -47,7 +57,13 @@ const strokeDasharray = computed(() => `${(value.value / 100) * 151}, 150`);
     :stroke-dasharray="strokeDasharray"
     data-testid="progress"
   >
-    <circle class="fill-none stroke-2 stroke-current -rotate-90 origin-bottom-right" cx="50" cy="50" r="24" />
+    <circle
+      :class="strokeSizeClass[size]"
+      class="origin-bottom-right -rotate-90 stroke-current fill-none"
+      cx="50"
+      cy="50"
+      r="24"
+    />
     <slot />
   </svg>
 </template>
