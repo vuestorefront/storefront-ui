@@ -79,13 +79,9 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
   };
 
   useEffect(() => {
-    if (containerElementRef.current) {
+    if (containerElementRef.current && activeState) {
       containerElementRef.current?.addEventListener('focus', onFocusListener, true);
       containerElementRef.current?.addEventListener('keydown', onKeyDownListener);
-    } else {
-      removeEventListeners();
-    }
-    if (containerElementRef.current && activeState) {
       let focusFallbackNeeded = false;
       focusableElements.current = tabbable(containerElementRef.current, { includeContainer });
 
