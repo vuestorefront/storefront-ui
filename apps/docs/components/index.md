@@ -32,7 +32,11 @@ hideBreadcrumbs: true
   </div>
 </div>
 
-::: slot vue
+:::::: slot vue
+
+::: read-more
+If you're using Storefront UI 1, you can find that documentation at [https://storefrontui.io/v1](https://storefrontui.io/v1).
+:::
 
 ## Base Components
 
@@ -46,7 +50,8 @@ Complex UI logic is extracted into composables, which you can use to build your 
 
 <ComponentList framework="vue" type="hooks" hide-thumbnail  />
 
-:::
+
+::::::
 
 ::: slot react
 
@@ -61,6 +66,5 @@ Beautiful, fast, and fully accessible components that integrate with Tailwind CS
 Complex UI logic is extracted into hooks, which you can use to build your own custom components.
 
 <ComponentList framework="react" type="hooks" hide-thumbnail/>
-
 
 :::
