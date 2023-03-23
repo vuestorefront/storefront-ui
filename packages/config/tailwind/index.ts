@@ -9,8 +9,14 @@ export const tailwindConfig: Config = {
   },
   theme: {
     extend: {
-      outlineColor: {
-        violet: '#6F40EC',
+      outlineColor: ({ theme }) => ({
+        DEFAULT: theme('colors.secondary.600'),
+      }),
+      outlineOffset: {
+        DEFAULT: '2px',
+      },
+      outlineWidth: {
+        DEFAULT: '2px',
       },
       boxShadow: {
         DEFAULT: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',

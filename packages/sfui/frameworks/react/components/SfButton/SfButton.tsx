@@ -43,7 +43,7 @@ const SfButton = polymorphicForwardRef<typeof defaultButtonTag, SfButtonProps>((
       ref={ref}
       type={typeof Tag === 'string' && Tag.toLowerCase() === 'button' ? 'button' : undefined}
       className={classNames(
-        'inline-flex items-center justify-center font-medium text-base focus:outline focus:outline-offset-2 focus:outline-2 outline-secondary-600 rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
+        'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
         getSizeClasses(size, square),
         variantClasses[variant],
         className,
