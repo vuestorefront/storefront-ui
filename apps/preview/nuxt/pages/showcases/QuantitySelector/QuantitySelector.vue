@@ -50,7 +50,7 @@ import { SfButton, SfIconAdd, SfIconRemove, useId } from '@storefront-ui/vue';
 
 const min = ref(1);
 const max = ref(10);
-const inputId = useId;
+const inputId = useId();
 const { count, inc, dec, set } = useCounter(1, { min: min.value, max: max.value });
 
 function handleOnChange(event: Event) {
