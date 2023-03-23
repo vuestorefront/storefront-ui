@@ -7,7 +7,9 @@ Currently the release process is manual.
 1. In repository root run command `yarn build:release`.
 2. Bump version in package.json files and run `yarn npm publish --tag alpha` in directories:
     - packages/sfui/shared,
-    - packages/sfui/frameworks/css,
+    - packages/sfui/typography,
+    - packages/sfui/tw-plugin-peer-next,
+    - packages/sfui/tailwind,
     - packages/sfui/frameworks/vue,
     - packages/sfui/frameworks/react.
 3. Create a PR with title: "chore(release): [NUMBER OF RELEASE]"

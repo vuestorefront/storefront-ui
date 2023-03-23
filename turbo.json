@@ -39,7 +39,7 @@
       "cache": false
     },
     "build:release": {
-      "dependsOn": ["build:react", "build:vue"],
+      "dependsOn": ["build:react", "build:vue", "build:tailwind-config", "build:typography", "build:peer-next"],
       "cache": false
     },
     "build:shared": {
