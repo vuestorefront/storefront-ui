@@ -7,11 +7,9 @@ export default function ListItemSlots() {
     <SfListItem className="max-w-sm" slotPrefix={<SfIconTune />} slotSuffix={<SfIconChevronRight />}>
       <div className="break-words">
         Label
-        <SfCounter className="ml-2" size="xl">
-          123
-        </SfCounter>
+        <SfCounter className="ml-2">123</SfCounter>
       </div>
-      <span className="text-xs text-neutral-500 break-words">Secondary text</span>
+      <span className="text-xs break-words text-neutral-500">Secondary text</span>
     </SfListItem>
   );
 }

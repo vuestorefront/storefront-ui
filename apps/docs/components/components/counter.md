@@ -14,7 +14,7 @@ hideBreadcrumbs: true
 
 By default, `SfCounter` will put parentheses around its children.
 
-`SfCounter` supports 6 different sizes that can be set with the `size` prop: `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, and `'2xl'`. The default size is `'base'`. 
+`SfCounter` supports 6 different sizes that can be set with the `size` prop: `'3xs'`, `'2xs'`, `'xs'`, `'sm'`, `'base'`, and `'lg'`. The default size is `'base'`.
 
 <Showcase showcase-name="Counter/Counter">
 
@@ -24,8 +24,8 @@ By default, `SfCounter` will put parentheses around its children.
 <!-- react -->
 <<<../../preview/next/pages/showcases/Counter/Counter.tsx#source
 <!-- end react -->
-</Showcase>
 
+</Showcase>
 
 ### Counter pill
 
@@ -39,6 +39,7 @@ By default, `SfCounter` will put parentheses around its children.
 <!-- react -->
 <<<../../preview/next/pages/showcases/Counter/CounterPill.tsx#source
 <!-- end react -->
+
 </Showcase>
 
 ### Customizing Colors
@@ -53,11 +54,12 @@ You can customize the colors of `SfCounter` by passing Tailwind classes.
 <!-- react -->
 <<<../../preview/next/pages/showcases/Counter/CounterCustomBackground.tsx
 <!-- end react -->
+
 </Showcase>
 
 ## Notes
 
-The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline element, you should avoid placing block elements (like `div` or `p`) inside of it. 
+The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline element, you should avoid placing block elements (like `div` or `p`) inside of it.
 
 ## Playground
 
@@ -70,7 +72,7 @@ The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline ele
 
 | Prop name | Type              | Default value | Possible values                       |
 |-----------|-------------------|---------------|---------------------------------------|
-| `size`      | `SfCounterSize` | `'base'`        | `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, `'2xl'` |
+| `size`      | `SfCounterSize` | `'base'`        | `'3xs'`, `'2xs'`, `'xs'`, `'sm'`, `'base'`, `'lg'` |
 | `pill`      | `boolean`         | `false`       |                                       |
 <!-- react -->
 | `className` | `string`          |               |                                       |

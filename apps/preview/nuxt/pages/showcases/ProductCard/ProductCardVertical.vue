@@ -27,7 +27,7 @@
         <SfRating size="xs" :value="5" :max="5" />
 
         <SfLink href="#" variant="secondary" class="pl-1 no-underline">
-          <SfCounter>123</SfCounter>
+          <SfCounter size="xs">123</SfCounter>
         </SfLink>
       </div>
       <p class="block py-2 font-normal leading-5 typography-text-sm text-neutral-700">

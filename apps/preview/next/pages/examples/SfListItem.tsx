@@ -129,7 +129,7 @@ function Example() {
           {state.get.counter && (
             <SfCounter
               className={classNames('ml-2 font-normal', { '!text-disabled-500': state.get.disabled })}
-              size={state.get.size === 'sm' ? 'lg' : 'xl'}
+              size={state.get.size === 'sm' ? 'sm' : 'base'}
             >
               {state.get.counter}
             </SfCounter>

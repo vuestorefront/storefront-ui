@@ -10,12 +10,12 @@ export default function SfCounter({
   ...attributes
 }: SfCounterProps): JSX.Element {
   const sizeClasses: Record<SfCounterSize, string> = {
-    [SfCounterSize.xs]: classNames('text-3xs', { 'px-1': pill }),
-    [SfCounterSize.sm]: classNames('text-2xs', { 'px-1': pill }),
-    [SfCounterSize.base]: classNames('text-xs', { 'px-2': pill }),
-    [SfCounterSize.lg]: classNames('text-sm', { 'px-2.5': pill }),
-    [SfCounterSize.xl]: classNames('text-base', { 'px-3': pill }),
-    [SfCounterSize['2xl']]: classNames('text-lg', { 'px-3': pill }),
+    [SfCounterSize['3xs']]: classNames('text-3xs', { 'px-1': pill }),
+    [SfCounterSize['2xs']]: classNames('text-2xs', { 'px-1.5': pill }),
+    [SfCounterSize.xs]: classNames('text-xs', { 'px-2': pill }),
+    [SfCounterSize.sm]: classNames('text-sm', { 'px-2.5': pill }),
+    [SfCounterSize.base]: classNames('text-base', { 'px-3': pill }),
+    [SfCounterSize.lg]: classNames('text-lg', { 'px-3.5': pill }),
   };
 
   const classes = classNames([

@@ -36,11 +36,11 @@
     ],
     "homepage": "https://docs.storefrontui.io/v2/",
     "repository": {
-      "type": "git",
-      "url": "git+https://github.com/vuestorefront/sfui2.git",
-      "directory": "packages/sfui/typography"
+        "type": "git",
+        "url": "git+https://github.com/vuestorefront/sfui2.git",
+        "directory": "packages/sfui/typography"
     },
     "bugs": {
-      "url": "https://github.com/vuestorefront/sfui2/issues"
+        "url": "https://github.com/vuestorefront/sfui2/issues"
     }
 }
