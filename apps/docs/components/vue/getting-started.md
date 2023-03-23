@@ -77,7 +77,6 @@ module.exports = {
 
 ```
 
-
 ### Add Tailwind to Your CSS
 
 Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
@@ -94,15 +93,11 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/st
 
 Now, you can import Storefront UI components in your app and all the Tailwind utilities from the `@storefront-ui/vue` library will be available in your project.
 
-```vue
-<template>
-  <SfButton type="button" class="w-full"> Hello </SfButton>
-</template>
+<SourceCode>
 
-<script lang="ts" setup>
-import { SfButton } from '@storefront-ui/vue';
-</script>
-```
+<<<../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
+
+</SourceCode>
 
 <Showcase showcase-name="Button/ButtonBlock" :show-source="false"/>
 
@@ -133,7 +128,7 @@ pnpm add -D @nuxtjs/tailwindcss @storefront-ui/vue
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-    modules: ['@nuxtjs/tailwindcss']
+  modules: ['@nuxtjs/tailwindcss']
 })
 ```
 
@@ -161,15 +156,11 @@ export default <Config>{
 
 Now, you can import Storefront UI components in your app and all the Tailwind utilities from the `@storefront-ui/vue` library will be available in your project.
 
-```vue
-<template>
-  <SfButton type="button" class="w-full"> Hello </SfButton>
-</template>
+<SourceCode>
 
-<script lang="ts" setup>
-import { SfButton } from '@storefront-ui/vue';
-</script>
-```
+<<<../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
+
+</SourceCode>
 
 <Showcase showcase-name="Button/ButtonBlock" :show-source="false"/>
 
@@ -241,25 +232,23 @@ module.exports = {
 
 You can now import Storefront UI components inside your Astro project! You can either use them directly in your Astro components or import them into your Vue components.
 
-```vue
-<!-- Foo.vue -->
-<template>
-  <SfButton type="button" class="w-full"> Hello </SfButton>
-</template>
+<SourceCode>
 
-<script lang="ts" setup>
-import { SfButton } from '@storefront-ui/vue';
-</script>
-```
+<<<../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
+
+</SourceCode>
+
+<SourceCode>
 
 ```md
-// Foo.astro
 ---
 import { SfButton } from '@storefront-ui/vue';
 ---
 
 <SfButton> Hello </SfButton>
 ```
+
+</SourceCode>
 
 ::: tip Need interaction?
 If you need interaction, you can create your own Vue components that use Storefront UI components under the hood. You can then import these components into your Astro components and use them as you would any other Vue component. Read more about Vue components in Astro in Astro's [Framework Components guide](https://docs.astro.build/en/core-concepts/framework-components/).
