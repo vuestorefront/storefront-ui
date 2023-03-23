@@ -1,9 +1,8 @@
 <template>
   <article class="w-full p-4 border rounded-md">
     <p class="pb-2 font-medium">I love them</p>
-    <header class="flex flex-col pb-6 space-y-2 md:flex-row md:justify-between md:space-y-0">
+    <header class="flex flex-col pb-2 md:flex-row md:justify-between">
       <div class="flex flex-col items-start">
-        <span class="text-sm text-neutral-900">Karla</span>
         <span class="flex items-center pr-2 text-xs text-neutral-500">
           <SfRating :value="5" :max="5" size="xs" class="mr-2" />
           2 days ago

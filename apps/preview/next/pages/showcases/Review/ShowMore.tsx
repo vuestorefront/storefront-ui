@@ -15,9 +15,8 @@ export default function Review() {
   return (
     <article className="w-full p-4 border rounded-md">
       <p className="pb-2 font-medium">I love them</p>
-      <header className="flex flex-col pb-6 space-y-2 md:flex-row md:justify-between md:space-y-0">
+      <header className="flex flex-col pb-2 md:flex-row md:justify-between">
         <div className="flex flex-col items-start">
-          <span className="text-sm text-neutral-900">Karla</span>
           <span className="flex items-center pr-2 text-xs text-neutral-500">
             <SfRating value={5} max={5} size="xs" className="mr-2" />2 days ago
           </span>
