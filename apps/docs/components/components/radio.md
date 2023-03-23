@@ -15,45 +15,45 @@ description: A radio is a checkable input always appears in a group of elements 
 - [ARIA - radio role:](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radio_role) The radio role is one of a group of checkable buttons, in a radiogroup, where no more than one of the buttons can be checked at a time.
 - A radio element is a checkable input in a group of role elements, of which only one of which can be checked at a time. The radio elements must be grouped together in a [`radiogroup`](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radiogroup_role) to indicate which ones affect the same value.
 
-## Radio with label
+## Radio without label
 
-It's a good practice to have label for inputs elements.
+Radio input component without a label.
 
-<Showcase showcase-name="Radio/RadioWithLabel">
+<Showcase showcase-name="Radio/RadioWithoutLabel">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Radio/RadioWithLabel.vue
+<<<../../preview/nuxt/pages/showcases/Radio/RadioWithoutLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Radio/RadioWithLabel.tsx#source
+<<<../../preview/next/pages/showcases/Radio/RadioWithoutLabel.tsx#source
 <!-- end react -->
 </Showcase>
 
-## Radio with small label
+## Radio with control on left
 
-Label can be smaller than an input.
+Radio base component with input control aligned to the left.
 
-<Showcase showcase-name="Radio/RadioWithLabelSmall">
+<Showcase showcase-name="Radio/RadioLeading">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Radio/RadioWithLabelSmall.vue
+<<<../../preview/nuxt/pages/showcases/Radio/RadioLeading.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Radio/RadioWithLabelSmall.tsx#source
+<<<../../preview/next/pages/showcases/Radio/RadioLeading.tsx#source
 <!-- end react -->
 </Showcase>
 
-## Alignment
+## Radio with control on right
 
-Label can be either on the right side of an input or on the left side.
+Radio base component with input control aligned to the right.
 
-<Showcase showcase-name="Radio/RadioAlignment">
+<Showcase showcase-name="Radio/RadioTrailing">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Radio/RadioAlignment.vue
+<<<../../preview/nuxt/pages/showcases/Radio/RadioTrailing.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Radio/RadioAlignment.tsx#source
+<<<../../preview/next/pages/showcases/Radio/RadioTrailing.tsx#source
 <!-- end react -->
 </Showcase>
 

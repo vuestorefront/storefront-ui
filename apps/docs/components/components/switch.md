@@ -15,17 +15,47 @@ Switch component is build using `input` tag with `type='checkbox'`.
 
 In forms, it might be a better choice to use a Checkbox component.
 
-## Alignment
+## Switch without label
 
-Switch component can have a leading or trailing alignment.
+Switch base component without a label.
 
-<Showcase showcase-name="Switch/SwitchAlignment">
+<Showcase showcase-name="Switch/SwitchWithoutLabel">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Switch/SwitchAlignment.vue
+<<<../../preview/nuxt/pages/showcases/Switch/SwitchWithoutLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Switch/SwitchAlignment.tsx#source
+<<<../../preview/next/pages/showcases/Switch/SwitchWithoutLabel.tsx#source
+<!-- end react -->
+
+</Showcase>
+
+## Switch with control on the left
+
+Switch component with a label on the right.
+
+<Showcase showcase-name="Switch/SwitchLeading">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Switch/SwitchLeading.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Switch/SwitchLeading.tsx#source
+<!-- end react -->
+
+</Showcase>
+
+## Switch with control on the right
+
+Switch component with a label align on the left.
+
+<Showcase showcase-name="Switch/SwitchTrailing">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Switch/SwitchTrailing.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Switch/SwitchTrailing.tsx#source
 <!-- end react -->
 
 </Showcase>

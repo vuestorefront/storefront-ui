@@ -4,7 +4,7 @@ import { ShowcasePageLayout } from '../../showcases';
 import { SfSwitch } from '@storefront-ui/react';
 import { useState } from 'react';
 
-export default function SwitchWithLabel() {
+export default function SwitchAlignment() {
   const [checkedState, setCheckedState] = useState(false);
   return (
     <>
@@ -16,7 +16,7 @@ export default function SwitchWithLabel() {
             setCheckedState(event.target.checked);
           }}
         />
-        <span className="ml-3 text-base text-gray-900 cursor-pointer font-body">Label</span>
+        <span className="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Label</span>
       </label>
       <span className="text-xs mt-0.5 ml-12 block text-gray-500">Help text</span>
     </>
@@ -24,4 +24,4 @@ export default function SwitchWithLabel() {
 }
 
 // #endregion source
-SwitchWithLabel.getLayout = ShowcasePageLayout;
+SwitchAlignment.getLayout = ShowcasePageLayout;

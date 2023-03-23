@@ -22,13 +22,13 @@ Pressing the Space key triggers checkbox.
 
 The simple checkbox input without additional elements. 
 
-<Showcase showcase-name="Checkbox/CheckboxNoLabel">
+<Showcase showcase-name="Checkbox/CheckboxWithoutLabel">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Checkbox/CheckboxNoLabel.vue
+<<<../../preview/nuxt/pages/showcases/Checkbox/CheckboxWithoutLabel.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Checkbox/CheckboxNoLabel.tsx#source
+<<<../../preview/next/pages/showcases/Checkbox/CheckboxWithoutLabel.tsx#source
 <!-- end react -->
 </Showcase>
 
