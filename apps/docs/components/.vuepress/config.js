@@ -41,7 +41,15 @@ const reactMenu = [
   {
     title: 'Blocks',
     collapsable: true,
-    children: convertComponentPathsToLinks(showcases.react, 'react', 'blocks'),
+    children: [['/react/blocks', 'Overview'], ...convertComponentPathsToLinks(showcases.react, 'react', 'blocks')],
+  },
+  {
+    title: 'Community',
+    collapsable: true,
+    children: [
+      ['https://github.com/vuestorefront/sfui2/blob/main/CONTRIBUTING.md', 'Contributing'],
+      ['https://github.com/vuestorefront/sfui2/blob/main/CHANGELOG.md', 'Changelog'],
+    ],
   },
 ];
 
@@ -74,7 +82,15 @@ const vueMenu = [
   {
     title: 'Blocks',
     collapsable: true,
-    children: convertComponentPathsToLinks(showcases.vue, 'vue', 'blocks'),
+    children: [['/vue/blocks', 'Overview'], ...convertComponentPathsToLinks(showcases.vue, 'vue', 'blocks')],
+  },
+  {
+    title: 'Community',
+    collapsable: true,
+    children: [
+      ['https://github.com/vuestorefront/sfui2/blob/main/CONTRIBUTING.md', 'Contributing'],
+      ['https://github.com/vuestorefront/sfui2/blob/main/CHANGELOG.md', 'Changelog'],
+    ],
   },
 ];
 
@@ -142,20 +158,6 @@ module.exports = {
       },
     ],
     sidebar: {
-      '/react/blocks': [
-        {
-          title: 'Blocks',
-          collapsable: false,
-          children: convertComponentPathsToLinks(showcases.react, 'react', 'blocks'),
-        },
-      ],
-      '/vue/blocks': [
-        {
-          title: 'Blocks',
-          collapsable: false,
-          children: convertComponentPathsToLinks(showcases.vue, 'vue', 'blocks'),
-        },
-      ],
       '/react/': reactMenu,
       '/vue/': vueMenu,
     },
