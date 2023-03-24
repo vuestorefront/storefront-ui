@@ -56,7 +56,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
         <div className={`sidebar ${isOpen ? '' : 'sidebar-collapsed'}`}>
           <header className="sidebar-heading">
             <h2>StorefrontUI v2</h2>
-            <h3>React showcases</h3>
+            <h3>React Blocks</h3>
           </header>
           <SfButton
             className="sidebar-toggle"

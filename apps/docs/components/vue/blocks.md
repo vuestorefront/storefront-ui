@@ -9,7 +9,7 @@ layout: DefaultLayout
 # Vue Blocks
 
 ::: subheader
-Fully accessible UI showcases, designed to integrate beautifully with Tailwind CSS and Vue.
+Fully accessible UI blocks, designed to integrate beautifully with Tailwind CSS and Vue.
 :::
 
 <ComponentList framework="vue"  type="blocks" hide-description/>
