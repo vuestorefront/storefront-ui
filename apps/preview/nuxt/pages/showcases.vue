@@ -3,7 +3,7 @@
     <div v-if="!isDocs" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
       <header class="sidebar-heading">
         <h2>StorefrontUI v2</h2>
-        <h3>Vue showcases</h3>
+        <h3>Vue Blocks</h3>
       </header>
       <SfButton
         class="sidebar-toggle"
