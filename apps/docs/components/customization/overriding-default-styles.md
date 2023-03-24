@@ -36,7 +36,7 @@ For global changes, you can customize the Tailwind configuration to make changes
 The most common use case for this is to change the default color palette to better match your design. Storefront UI adds additional colors to your Tailwind configuration, which can help you build out multiple themes for your site.
 
 :::read-more
-Learn all about Storefront UI's color palette and how to customize it in our [Theming](/components/customization/theming) guide.
+Learn all about Storefront UI's color palette and how to customize it in our <!-- react -->[Theming](/react/customization/theming)<!-- end react --><!-- vue -->[Theming](/vue/customization/theming)<!-- end vue -->  guide.
 :::
 
 
