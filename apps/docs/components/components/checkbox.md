@@ -74,7 +74,7 @@ It's focusable and can be toggled with `Space`.
 | Prop name    | Type                     | Default value | Possible values                        |
 | ------------ | ------------------------ | ------------- | -------------------------------------- |
 <!-- vue -->
-| `modelValue`   | `boolean` | `string[]`       | `undefined`     |                                        |
+| `modelValue`   | `boolean | string[]`       | `undefined`     |                                        |
 <!-- end vue -->
 <!-- react -->
 | `className`    | `string`                   |               |                                        |
