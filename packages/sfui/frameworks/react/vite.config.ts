@@ -21,15 +21,21 @@ export default defineConfig({
         'tailwind-config': path.resolve(__dirname, 'tailwind-config.ts'),
       },
       name: 'storefront-ui-react',
-      fileName: (format, entryName) => `${entryName}.${format}.js`,
+      fileName: (format, entryName) => format === 'es'
+        ? `${entryName}.mjs`
+        : `${entryName}.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
-      external: ['react', '@storefront-ui/shared'].concat(
+      external: ['react', 'react-dom', 'react/jsx-runtime', '@storefront-ui/shared'].concat(
         Object.keys(pkg.peerDependencies || {}),
         Object.keys(pkg.devDependencies || {}),
         Object.keys(pkg.dependencies || {}),
       ),
+      output: {
+        preserveModules: true,
+        preserveModulesRoot: './',
+      },
     },
   },
 });

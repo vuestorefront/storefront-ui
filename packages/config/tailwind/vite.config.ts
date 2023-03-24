@@ -14,7 +14,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'index.ts'),
       name: 'storefront-ui-tailwind-config',
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format) => format === 'es' ? `index.mjs` : `index.${format}.js`,
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library

@@ -16,7 +16,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'index.ts'),
       name: 'storefront-ui-typography',
-      fileName: (format) => `index.${format}.js`,
+      fileName: (format) => format === 'es' ? `index.mjs` : `index.${format}.js`,
     },
   },
 });

@@ -1,16 +1,18 @@
 {
   "name": "@storefront-ui/tailwind-config",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.4",
   "license": "MIT",
+  "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.umd.js"
     },
     "./*": "./*"
   },
   "source": "index.ts",
-  "main": "dist/index.es.js",
+  "main": "dist/index.mjs",
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -35,6 +37,9 @@
   "dependencies": {
     "@mertasan/tailwindcss-variables": "^2.5.2",
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "files": [
     "dist"

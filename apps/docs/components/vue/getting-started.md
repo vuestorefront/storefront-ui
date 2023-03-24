@@ -68,7 +68,7 @@ const { tailwindConfig } = require('@storefront-ui/vue/tailwind-config');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [tailwindConfig],
-  content: ['./index.html', './**/*.vue', './node_modules/@storefront-ui/vue/**/*.js'],
+  content: ['./index.html', './**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
   theme: {
     extend: {},
   },
@@ -148,7 +148,7 @@ import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
 export default <Config>{
   presets: [tailwindConfig],
-  content: ['./**/*.vue', './node_modules/@storefront-ui/vue/**/*.js'],
+  content: ['./**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
 };
 ```
 
@@ -220,7 +220,7 @@ const { tailwindConfig } = require('@storefront-ui/vue/tailwind-config');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [tailwindConfig],
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './node_modules/@storefront-ui/vue/**/*.js'],
+  content: ['./index.html', './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
   theme: {
     extend: {},
   },

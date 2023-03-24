@@ -10,7 +10,7 @@
       </div>
       <div class="flex items-end">
         <p class="flex items-center text-xs truncate text-primary-700">
-          <span class="mr-2 text-xs text-neutral-500">Karla | Black, XS</span>
+          <span class="mr-2 text-xs text-neutral-500">Karla | Red, XS</span>
           <SfIconCheck size="xs" class="mr-1" /> Verified purchase
         </p>
       </div>

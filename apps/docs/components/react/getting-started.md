@@ -67,7 +67,13 @@ const { tailwindConfig } = require('@storefront-ui/react/tailwind-config');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [tailwindConfig],
-  content: ['./index.html', './**/*.{ts,tsx,js,jsx}', './node_modules/@storefront-ui/react/**/*.js'],
+  content: [
+    './app/**/*.{js,ts,jsx,tsx}',
+    './pages/**/*.{js,ts,jsx,tsx}',
+    './components/**/*.{js,ts,jsx,tsx}',
+    "./src/**/*.{js,ts,jsx,tsx}",
+    './node_modules/@storefront-ui/react/**/*.{js,mjs}',
+  ],
   theme: {
     extend: {},
   },
@@ -166,7 +172,7 @@ const { tailwindConfig } = require('@storefront-ui/react/tailwind-config');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [tailwindConfig],
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './node_modules/@storefront-ui/react/**/*.js'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './node_modules/@storefront-ui/react/**/*.{js,mjs}'],
   theme: {
     extend: {},
   },
@@ -260,7 +266,7 @@ const { tailwindConfig } = require('@storefront-ui/react/tailwind-config');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [tailwindConfig],
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './node_modules/@storefront-ui/react/**/*.js'],
+  content: ['./index.html', './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/@storefront-ui/react/**/*.{js,mjs}'],
   theme: {
     extend: {},
   },

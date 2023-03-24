@@ -1,17 +1,27 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "2.0.0-rc.3",
+  "version": "2.0.0-rc.4",
   "license": "MIT",
+  "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs.js"
     },
     "./tailwind-config": {
-      "import": "./dist/tailwind-config.es.js",
+      "types": "./dist/tailwind-config.d.ts",
+      "import": "./dist/tailwind-config.mjs",
       "require": "./dist/tailwind-config.cjs.js"
     },
     "./*": "./*"
+  },
+  "typesVersions": {
+    "*": {
+      "tailwind-config": [
+        "dist/tailwind-config"
+      ]
+    }
   },
   "source": "index.ts",
   "main": "dist/index.cjs.js",

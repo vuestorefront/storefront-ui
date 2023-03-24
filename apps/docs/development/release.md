@@ -9,7 +9,7 @@ Currently the release process is manual.
     - packages/sfui/shared,
     - packages/sfui/typography,
     - packages/sfui/tw-plugin-peer-next,
-    - packages/sfui/tailwind,
+    - packages/config/tailwind,
     - packages/sfui/frameworks/vue,
     - packages/sfui/frameworks/react.
 3. Create a PR with title: "chore(release): [NUMBER OF RELEASE]"
