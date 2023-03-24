@@ -1,5 +1,5 @@
 ---
-layout: ComponentLayout
+layout: DefaultLayout
 hideBreadcrumbs: true
 description: The NavbarTop block is used as navigation. Usually it's at the top of a page and has elements like company logo, links to main categories or a menu button, search input and action buttons that can open a cart, wishlist or login modal. 
 ---
