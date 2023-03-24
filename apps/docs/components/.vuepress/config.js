@@ -47,6 +47,7 @@ const reactMenu = [
     title: 'Community',
     collapsable: true,
     children: [
+      ['/react/migration', 'Migration'],
       ['https://github.com/vuestorefront/sfui2/blob/main/CONTRIBUTING.md', 'Contributing'],
       ['https://github.com/vuestorefront/sfui2/blob/main/CHANGELOG.md', 'Changelog'],
     ],
@@ -88,6 +89,7 @@ const vueMenu = [
     title: 'Community',
     collapsable: true,
     children: [
+      ['/vue/migration', 'Migration'],
       ['https://github.com/vuestorefront/sfui2/blob/main/CONTRIBUTING.md', 'Contributing'],
       ['https://github.com/vuestorefront/sfui2/blob/main/CHANGELOG.md', 'Changelog'],
     ],
