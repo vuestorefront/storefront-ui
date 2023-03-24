@@ -24,7 +24,7 @@ hideBreadcrumbs: true
 
 ### Radio with leading control
 
-It's a best practice to use label with your `SfRadio` component so users can understand what the input is for. 
+It's a best practice to use label with your `SfRadio` component so users can understand what the input is for.
 
 <Showcase showcase-name="Radio/RadioLeading">
 
@@ -79,6 +79,7 @@ Radio components can be aligned inside RadioGroup in a `column` or in a `row`.
 </Showcase>
 
 <!-- react -->
+
 ### Uncontrolled Group
 
 <Showcase showcase-name="RadioGroup/RadioGroupUncontrolled" >
@@ -86,6 +87,8 @@ Radio components can be aligned inside RadioGroup in a `column` or in a `row`.
 <<<../../preview/next/pages/showcases/RadioGroup/RadioGroupUncontrolled.tsx
 
 </Showcase>
+
+<!-- end react -->
 
 ## Accessibility notes
 
@@ -95,7 +98,6 @@ When multiple radio elements are grouped together, one of their parent elements 
 
 If you have an element that is not an `<input type="radio">`, you should set the [role="radio"](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radio_role) so that it is recognized as a radio button.
 
-
 ## Playground
 
 <Generate />
@@ -103,6 +105,7 @@ If you have an element that is not an `<input type="radio">`, you should set the
 :::
 
 ::: slot api
+
 ## Props
 
 | Prop name  | Type                          | Default value | Possible values       |
