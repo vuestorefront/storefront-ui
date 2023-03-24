@@ -1,17 +1,27 @@
 {
   "name": "@storefront-ui/react",
-  "version": "2.0.0-rc.3",
+  "version": "2.0.0-rc.4",
   "license": "MIT",
+  "sideEffects": false,
   "exports": {
     ".": {
-      "import": "./dist/index.es.js",
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs.js"
     },
     "./tailwind-config": {
-      "import": "./dist/tailwind-config.es.js",
+      "types": "./dist/tailwind-config.d.ts",
+      "import": "./dist/tailwind-config.mjs",
       "require": "./dist/tailwind-config.cjs.js"
     },
     "./*": "./*"
+  },
+  "typesVersions": {
+    "*": {
+      "tailwind-config": [
+        "dist/tailwind-config"
+      ]
+    }
   },
   "source": "index.ts",
   "main": "dist/index.cjs.js",
@@ -33,6 +43,7 @@
     "@storefront-ui/tailwind-config": "workspace:*",
     "classnames": "^2.3.2",
     "jw-paginate": "^1.0.4",
+    "merge-refs": "^1.1.2",
     "react-polymorphed": "^2.1.0",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.4.0",
@@ -43,7 +54,6 @@
     "@storefront-ui/tests-shared": "workspace:*",
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.34.0",
-    "merge-refs": "^1.1.2",
     "vite": "^4.1.2",
     "vite-plugin-dts": "^2.0.0-beta.1",
     "vite-tsconfig-paths": "^4.0.5"

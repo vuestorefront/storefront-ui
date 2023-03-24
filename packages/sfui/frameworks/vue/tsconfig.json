@@ -15,7 +15,7 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "types": [
-      "vite/client",
+      "vite/client"
     ],
     "paths": {
       "@storefront-ui/vue": ["./index.ts"]
@@ -24,8 +24,5 @@
   "include": [
     "**/*.ts",
     "**/*.vue"
-  ],
-  "exclude": [
-    "tailwind-config.ts"
   ]
 }

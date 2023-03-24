@@ -23,7 +23,7 @@ export default function Review() {
         </div>
         <div className="flex items-end">
           <p className="flex items-center text-xs truncate text-primary-700">
-            <span className="mr-2 text-xs text-neutral-500">Karla | Black, XS</span>
+            <span className="mr-2 text-xs text-neutral-500">Karla | Red, XS</span>
             <SfIconCheck size="xs" className="mr-1" /> Verified purchase
           </p>
         </div>
