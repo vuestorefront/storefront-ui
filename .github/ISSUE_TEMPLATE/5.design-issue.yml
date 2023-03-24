@@ -1,0 +1,31 @@
+name: "🎨 Design Issue"
+description: |
+  Report issues about Figma file and SFUI design
+labels:
+  - design
+title: '[Design]: '
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for contributing by creating an issue! ❤️ Please make sure to [search for existing issues](https://github.com/vuestorefront/sfui2/issues) before filing a new one!
+  - type: textarea
+    attributes:
+      label: Describe the issue
+      description: Can you provide a clear and concise description of the issue
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: What version of Storefront UI Design Kit are you using?
+      description: "For example: v2.0.0 (it's on the thumbnail)"
+    validations:
+      required: true
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Code of Conduct
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/vuestorefront/sfui2/blob/main/.github/CODE_OF_CONDUCT.md)
+      options:
+        - label: I agree to follow this project's Code of Conduct
+          required: true
