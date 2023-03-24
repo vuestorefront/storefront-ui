@@ -59,7 +59,7 @@ The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}
 }
 ```
 
-<details open>
+<details>
 <summary>Full List of CSS Variables</summary>
 
 <SourceCode>
@@ -67,88 +67,88 @@ The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}
 ```css
 :root {
   /* Primary */
-  --color-primary-50: 240 253 244;
-  --color-primary-100: 220 252 231;
-  --color-primary-200: 187 247 208;
-  --color-primary-300: 134 239 172;
-  --color-primary-400: 74 222 128;
-  --color-primary-500: 2 198 82;
-  --color-primary-600: 10 171 69;
-  --color-primary-700: 1 137 55;
-  --color-primary-800: 22 101 52;
-  --color-primary-900: 20 83 45;
+  --colors-primary-50: 240 253 244;
+  --colors-primary-100: 220 252 231;
+  --colors-primary-200: 187 247 208;
+  --colors-primary-300: 134 239 172;
+  --colors-primary-400: 74 222 128;
+  --colors-primary-500: 2 198 82;
+  --colors-primary-600: 10 171 69;
+  --colors-primary-700: 1 137 55;
+  --colors-primary-800: 22 101 52;
+  --colors-primary-900: 20 83 45;
 
   /* Secondary */
-  --color-secondary-50: 245 243 255;
-  --color-secondary-100: 237 233 254;
-  --color-secondary-200: 221 214 254;
-  --color-secondary-300: 196 181 253;
-  --color-secondary-400: 167 139 250;
-  --color-secondary-500: 135 92 246;
-  --color-secondary-600: 111 64 236;
-  --color-secondary-700: 97 49 221;
-  --color-secondary-800: 83 30 211;
-  --color-secondary-900: 68 21 178;
+  --colors-secondary-50: 245 243 255;
+  --colors-secondary-100: 237 233 254;
+  --colors-secondary-200: 221 214 254;
+  --colors-secondary-300: 196 181 253;
+  --colors-secondary-400: 167 139 250;
+  --colors-secondary-500: 135 92 246;
+  --colors-secondary-600: 111 64 236;
+  --colors-secondary-700: 97 49 221;
+  --colors-secondary-800: 83 30 211;
+  --colors-secondary-900: 68 21 178;
 
   /* Positive */
-  --color-positive-50: 240 253 244;
-  --color-positive-100: 220 252 231;
-  --color-positive-200: 187 247 208;
-  --color-positive-300: 134 239 172;
-  --color-positive-400: 74 222 128;
-  --color-positive-500: 2 198 82;
-  --color-positive-600: 10 171 69;
-  --color-positive-700: 1 137 55;
-  --color-positive-800: 22 101 52;
-  --color-positive-900: 20 83 45;
+  --colors-positive-50: 240 253 244;
+  --colors-positive-100: 220 252 231;
+  --colors-positive-200: 187 247 208;
+  --colors-positive-300: 134 239 172;
+  --colors-positive-400: 74 222 128;
+  --colors-positive-500: 2 198 82;
+  --colors-positive-600: 10 171 69;
+  --colors-positive-700: 1 137 55;
+  --colors-positive-800: 22 101 52;
+  --colors-positive-900: 20 83 45;
 
   /* Negative */
-  --color-negative-50: 255 241 242;
-  --color-negative-100: 255 228 230;
-  --color-negative-200: 254 205 211;
-  --color-negative-300: 253 164 175;
-  --color-negative-400: 251 113 133;
-  --color-negative-500: 244 63 94;
-  --color-negative-600: 225 29 72;
-  --color-negative-700: 190 18 60;
-  --color-negative-800: 159 18 57;
-  --color-negative-900: 136 19 55 1;
+  --colors-negative-50: 255 241 242;
+  --colors-negative-100: 255 228 230;
+  --colors-negative-200: 254 205 211;
+  --colors-negative-300: 253 164 175;
+  --colors-negative-400: 251 113 133;
+  --colors-negative-500: 244 63 94;
+  --colors-negative-600: 225 29 72;
+  --colors-negative-700: 190 18 60;
+  --colors-negative-800: 159 18 57;
+  --colors-negative-900: 136 19 55 1;
 
   /* Warning */
-  --color-warning-50: 254 252 232;
-  --color-warning-100: 254 249 195;
-  --color-warning-200: 254 240 138;
-  --color-warning-300: 253 224 71;
-  --color-warning-400: 250 204 21;
-  --color-warning-500: 234 179 8;
-  --color-warning-600: 202 138 4;
-  --color-warning-700: 161 98 7;
-  --color-warning-800: 133 77 14;
-  --color-warning-900: 113 63 18;
+  --colors-warning-50: 254 252 232;
+  --colors-warning-100: 254 249 195;
+  --colors-warning-200: 254 240 138;
+  --colors-warning-300: 253 224 71;
+  --colors-warning-400: 250 204 21;
+  --colors-warning-500: 234 179 8;
+  --colors-warning-600: 202 138 4;
+  --colors-warning-700: 161 98 7;
+  --colors-warning-800: 133 77 14;
+  --colors-warning-900: 113 63 18;
 
-  // Neutral
-  --color-neutral-50: 250 250 250;
-  --color-neutral-100: 244 244 245;
-  --color-neutral-200: 228 228 231;
-  --color-neutral-300: 212 212 216;
-  --color-neutral-400: 161 161 170;
-  --color-neutral-500: 113 113 122;
-  --color-neutral-600: 82 82 91;
-  --color-neutral-700: 63 63 70;
-  --color-neutral-800: 39 39 42;
-  --color-neutral-900: 24 24 27;
+  /* Neutral */
+  --colors-neutral-50: 250 250 250;
+  --colors-neutral-100: 244 244 245;
+  --colors-neutral-200: 228 228 231;
+  --colors-neutral-300: 212 212 216;
+  --colors-neutral-400: 161 161 170;
+  --colors-neutral-500: 113 113 122;
+  --colors-neutral-600: 82 82 91;
+  --colors-neutral-700: 63 63 70;
+  --colors-neutral-800: 39 39 42;
+  --colors-neutral-900: 24 24 27;
 
   /* Disabled */
-  --color-disabled-50: 250 250 250;
-  --color-disabled-100: 244 244 245;
-  --color-disabled-200: 228 228 231;
-  --color-disabled-300: 212 212 216;
-  --color-disabled-400: 161 161 170;
-  --color-disabled-500: 113 113 122;
-  --color-disabled-600: 82 82 91;
-  --color-disabled-700: 63 63 70;
-  --color-disabled-800: 39 39 42;
-  --color-disabled-900: 24 24 27;
+  --colors-disabled-50: 250 250 250;
+  --colors-disabled-100: 244 244 245;
+  --colors-disabled-200: 228 228 231;
+  --colors-disabled-300: 212 212 216;
+  --colors-disabled-400: 161 161 170;
+  --colors-disabled-500: 113 113 122;
+  --colors-disabled-600: 82 82 91;
+  --colors-disabled-700: 63 63 70;
+  --colors-disabled-800: 39 39 42;
+  --colors-disabled-900: 24 24 27;
 }
 ```
 </SourceCode>
