@@ -74,7 +74,7 @@ By default, it comes with a `role="switch"` attribute. This is useful for screen
 | Prop name    | Type                     | Default value | Possible values                        |
 | ------------ | ------------------------ | ------------- | -------------------------------------- |
 <!-- vue -->
-| `modelValue`   | `boolean` | `string[]`       | `undefined`     |                                        |
+| `modelValue`   | `boolean | string[]`       | `undefined`     |                                        |
 <!-- end vue -->
 | `value`        | `string`                   |             |                                        |
 <!-- react -->
