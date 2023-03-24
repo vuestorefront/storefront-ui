@@ -38,6 +38,11 @@ const reactMenu = [
     collapsable: true,
     children: convertComponentPathsToLinks(hooks.react, 'react', 'hooks'),
   },
+  {
+    title: 'Blocks',
+    collapsable: true,
+    children: convertComponentPathsToLinks(showcases.react, 'react', 'blocks'),
+  },
 ];
 
 const vueMenu = [
@@ -65,6 +70,11 @@ const vueMenu = [
     title: 'Composables',
     collapsable: true,
     children: convertComponentPathsToLinks(hooks.vue, 'vue', 'hooks'),
+  },
+  {
+    title: 'Blocks',
+    collapsable: true,
+    children: convertComponentPathsToLinks(showcases.vue, 'vue', 'blocks'),
   },
 ];
 
