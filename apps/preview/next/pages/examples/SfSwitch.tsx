@@ -4,12 +4,12 @@ import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
-  const { state, controls } = prepareControls<Omit<SfSwitchProps, 'onChange'> & { checkedValue: string[] }>(
+  const { state, controls } = prepareControls<Omit<SfSwitchProps, 'onChange'> & { checked: boolean }>(
     [
       {
-        type: 'text',
-        modelName: 'checkedValue',
-        propType: 'string',
+        type: 'boolean',
+        modelName: 'checked',
+        propType: 'boolean',
         description: 'Example of getting values from group of Switches',
       },
       {
@@ -27,22 +27,20 @@ function Example() {
     {
       value: 'value',
       disabled: false,
-      checkedValue: [],
+      checked: false,
     },
   );
 
   function onChange(event: React.ChangeEvent<HTMLInputElement>) {
-    const { value } = event.target;
-    state.set((currentState) =>
-      currentState.checkedValue.indexOf(value) > -1
-        ? { ...currentState, checkedValue: currentState.checkedValue.filter((val) => val !== value) }
-        : { ...currentState, checkedValue: [...currentState.checkedValue, value] },
-    );
+    const { checked } = event.target;
+    state.set({
+      checked,
+    });
   }
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <SfSwitch value={state.get.value} disabled={state.get.disabled} onChange={onChange} />
+      <SfSwitch {...state.get} onChange={onChange} />
     </ComponentExample>
   );
 }

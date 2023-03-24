@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <SfSwitch v-model="modelCheck" :value="value" :disabled="disabled" />
+    <SfSwitch v-model="modelValue" :value="value" :disabled="disabled" />
   </ComponentExample>
 </template>
 
@@ -21,10 +21,10 @@ export default {
       ...prepareControls(
         [
           {
-            type: 'text',
-            modelName: 'modelCheck',
-            propDefaultValue: '',
-            propType: 'string',
+            type: 'boolean',
+            modelName: 'modelValue',
+            propDefaultValue: 'false',
+            propType: 'boolean',
           },
           {
             type: 'text',
@@ -41,7 +41,7 @@ export default {
         {
           value: ref('value'),
           disabled: ref(false),
-          modelCheck: ref([]),
+          modelValue: ref(),
         },
       ),
     };
