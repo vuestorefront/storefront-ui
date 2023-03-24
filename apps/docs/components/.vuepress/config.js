@@ -6,7 +6,7 @@ const { generateComponentPath } = require('./utils/path.util');
 const DOCS_EXAMPLES_REACT_PATH = process.env.VITE_DOCS_EXAMPLES_REACT_PATH;
 const DOCS_EXAMPLES_VUE_PATH = process.env.VITE_DOCS_EXAMPLES_VUE_PATH;
 const FIGMA_URL = 'https://www.figma.com/file/ko7VoZYxnInYeJJmsnILHU/SFUI-2-%7C-Design-System-(public-RC)';
-
+const GTAG = 'G-BL2CYW4NJ5';
 const convertComponentPathsToLinks = (paths, slug, type) =>
   paths.map((c) => [generateComponentPath(slug, c, type), c.replace('Sf', '')]);
 
@@ -82,7 +82,17 @@ module.exports = {
   title: `Storefront UI`,
   base: process.env.VITE_DOCS_BASEPATH ?? '/',
   description: `Documentation for the Storefront UI`,
-  head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+  head: [
+    ['link', { rel: 'icon', href: '/favicon.ico' }],
+    ['script', { async: true, src: `https://www.googletagmanager.com/gtag/js?id=G-${GTAG}` }],
+    [
+      'script',
+      {},
+      [
+        `window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', '${GTAG}');`,
+      ],
+    ],
+  ],
   patterns: ['**/*.md', '**/*.vue', '!components/**/*.md', '!blocks/**/*.md', '!hooks/**/*.md'], // ignore components folder
   patterns: [
     '**/*.md',
