@@ -1,7 +1,7 @@
 {
     "name": "@storefront-ui/tw-plugin-peer-next",
     "description": "SFUI peer-next plugin for Tailwind",
-    "version": "2.0.0-rc.4",
+    "version": "2.0.0-rc.5",
     "license": "MIT",
     "sideEffects": false,
     "exports": {
