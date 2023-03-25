@@ -64,7 +64,7 @@ function Example() {
 
   useEffect(() => {
     if (checkboxRef.current === null) return;
-    if (state.get.invalid || state.get.disabled) {
+    if (state.get.invalid) {
       checkboxRef.current.indeterminate = false;
     } else {
       checkboxRef.current.indeterminate = state.get.indeterminate;

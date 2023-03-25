@@ -10,7 +10,7 @@
     </label>
   </div>
   <div class="flex justify-between mt-2">
-    <p class="text-xs text-neutral-500">helpText</p>
+    <p class="text-xs text-neutral-500">Help text</p>
   </div>
 </template>
 

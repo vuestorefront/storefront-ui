@@ -1,5 +1,5 @@
 <template>
-  <div className="flex">
+  <div class="flex">
     <SfCheckbox v-model="modelValue" value="value" />
   </div>
 </template>

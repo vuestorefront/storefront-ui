@@ -5,7 +5,7 @@
     <SfModal v-bind="state" v-model="state.modelValue" class="max-w-sm">
       <template v-if="state.SlotDefault">{{ state.SlotDefault }}</template>
       <template v-else>
-        <p className="mb-2">
+        <p class="mb-2">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam consequatur repellat, odit voluptatibus
           deserunt eligendi nemo perspiciatis tenetur vero repellendus facere? Dolores sit maiores ut labore facilis
           minima debitis dolore.
