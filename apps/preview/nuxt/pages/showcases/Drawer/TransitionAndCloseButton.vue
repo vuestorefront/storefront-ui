@@ -20,14 +20,14 @@
         { 'max-w-[370px]': placement === SfDrawerPlacement.left || placement === SfDrawerPlacement.right },
       ]"
     >
-      <header className="bg-primary-700 flex justify-between py-6 px-10 items-center">
-        <div className="flex items-center text-white"><SfIconFavorite class="mr-2" /> Your favorite items</div>
+      <header class="flex items-center justify-between px-10 py-6 bg-primary-700">
+        <div class="flex items-center text-white"><SfIconFavorite class="mr-2" /> Your favorite items</div>
         <SfButton square variant="tertiary" class="text-white" @click="open = false">
           <SfIconClose />
         </SfButton>
       </header>
       <div class="p-5 px-10">
-        <p className="mb-2">
+        <p class="mb-2">
           Focus is trapped inside this Drawer and <strong>tab</strong> button cycle through
           <a href="#" class="underline text-primary-700"> Focusable Element </a> and another
           <a href="#" class="underline text-primary-700"> Focusable Element </a>

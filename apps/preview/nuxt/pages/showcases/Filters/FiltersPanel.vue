@@ -61,7 +61,7 @@
                 /></span>
               </template>
               <p>
-                <span className="typography-text-sm mr-2">{{ label }}</span>
+                <span class="mr-2 typography-text-sm">{{ label }}</span>
                 <SfCounter size="sm">{{ counter }}</SfCounter>
               </p>
             </SfListItem>

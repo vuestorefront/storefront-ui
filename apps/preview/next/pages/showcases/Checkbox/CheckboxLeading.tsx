@@ -15,7 +15,7 @@ export default function CheckboxLeading() {
         </label>
       </div>
       <div className="flex justify-between ml-8">
-        <p className="text-xs mt-0.5 text-neutral-500">helpText</p>
+        <p className="text-xs mt-0.5 text-neutral-500">Help text</p>
       </div>
     </>
   );

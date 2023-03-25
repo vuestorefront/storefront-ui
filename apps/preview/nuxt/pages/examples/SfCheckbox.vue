@@ -36,10 +36,9 @@ export default defineComponent({
     const indeterminate = ref(false);
     const invalid = ref(false);
     const disabled = ref(false);
-    watch([indeterminate, invalid, disabled], ([newIndeterminate, newInvalid, newDisabled]) => {
+    watch([indeterminate, invalid], ([newIndeterminate, newInvalid]) => {
       if (unrefElement(checkboxRef)) {
-        (unrefElement(checkboxRef) as HTMLInputElement).indeterminate =
-          newInvalid || newDisabled ? false : newIndeterminate;
+        (unrefElement(checkboxRef) as HTMLInputElement).indeterminate = newInvalid ? false : newIndeterminate;
       }
     });
     return {

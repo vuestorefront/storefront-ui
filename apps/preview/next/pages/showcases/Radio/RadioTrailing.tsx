@@ -35,7 +35,7 @@ export default function RadioWithLabelSmall() {
         ))}
       </div>
       <div className="flex justify-between mt-2 ml-2">
-        <p className="text-xs text-neutral-500">helpText</p>
+        <p className="text-xs text-neutral-500">Help text</p>
       </div>
     </>
   );
