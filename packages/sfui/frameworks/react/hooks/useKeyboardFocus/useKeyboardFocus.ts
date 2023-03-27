@@ -193,7 +193,7 @@ export function useFocusVisibleListener(
 /**
  * Manages focus visible state for the page, and subscribes individual components for updates.
  */
-export function useFocusVisible(props: FocusVisibleProps = {}): FocusVisibleResult {
+export function useKeyboardFocus(props: FocusVisibleProps = {}): FocusVisibleResult {
   const { isTextInput, autoFocus } = props;
   const [isFocusVisibleState, setFocusVisible] = useState(autoFocus || isFocusVisible());
   useFocusVisibleListener(
