@@ -76,7 +76,7 @@ If you're using a custom icon, you need to specify either the `viewBox` or `widt
 
 ## Notes
 
-Storefront UI icons are generated with use of [`createIcons.js`](https://github.com/vuestorefront/sfui2/blob/main/createIcons.js) script and they are based on `IconBase` component.
+Storefront UI icons are generated with use of [`createIcons.js`](https://github.com/vuestorefront/storefront-ui/blob/v2/createIcons.js) script and they are based on `IconBase` component.
 
 ## Accessibility notes
 
