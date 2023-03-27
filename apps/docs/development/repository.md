@@ -91,7 +91,7 @@ List of useful commands that could be used by developers. Execution in the comma
     - next (Next/React preview application)
     - shared (shared utils for preview application)
 - packages (packages folder - reusable, static packages like configs and types)
-  - sfui (reusable components, described in detail [here](https://github.com/vuestorefront/sfui2/blob/main/packages/sfui/README.md)).
+  - sfui (reusable components, described in detail [here](https://github.com/vuestorefront/storefront-ui/blob/v2/packages/sfui/README.md)).
   - config (all the configs)
     - eslint (shared eslint config)
     - example-style (styles created specifically for example pages)
