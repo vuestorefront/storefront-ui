@@ -7,14 +7,10 @@ hideBreadcrumbs: true
 <div class="grid grid-cols-2 custom-block mt-16 gap-8">
   <div class="col-span-2 lg:col-span-1 flex justify-center flex-col order-2 lg:order-1">
     <div class="flex flex-wrap mb-2">
-      <p
-        class="flex items-center gap-1 p-2 text-xs font-medium text-green-800 bg-green-500 rounded bg-opacity-20 dark:bg-green-500 dark:bg-opacity-20 dark:text-green-50"
-      >
-        <iconify-icon icon="ri:open-source-fill" height="16" />
-        <span> Open Source </span>
-      </p>
+        <!-- Place this tag where you want the button to render. -->
+        <a class="github-button" href="https://github.com/vuestorefront/storefront-ui" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star buttons/github-buttons on GitHub">Star the Project</a>
     </div>
-    <h1 class="text-5xl font-extrabold">Storefront UI</h1>
+    <h1 class="text-5xl font-extrabold mt-4">Storefront UI</h1>
     <p class="text-xl mt-4">Fast, accessible, and fully customizable components built for e-commerce.</p>
     <div class="mt-8 flex items-center">
       <RouterLink to="/vue/getting-started.html" class=" px-4  py-2 rounded-lg  font-medium bg-green text-white  flex items-center filter hover:brightness-110 transition-all">
