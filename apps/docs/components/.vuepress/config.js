@@ -128,8 +128,8 @@ module.exports = {
     DOCS_EXAMPLES_VUE_PATH,
     FIGMA_URL,
     title: 'Storefront UI',
-    repo: 'https://github.com/vuestorefront/sfui2',
-    docsRepoPath: 'https://github.com/vuestorefront/sfui2/tree/main/apps/docs/components/', // used to generate direct edit links on docs pages.
+    repo: 'https://github.com/vuestorefront/storefront-ui',
+    docsRepoPath: 'https://github.com/vuestorefront/storefront-ui/tree/main/apps/docs/components', // used to generate direct edit links on docs pages.
     secondaryNav: {
       '/react/': [
         { text: 'Getting Started', link: '/react/getting-started' },
