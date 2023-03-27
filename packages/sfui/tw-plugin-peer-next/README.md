@@ -8,7 +8,7 @@
 </h3>
 
 <p align="center">
-  <img alt="GitHub Repository Stars Count" src="https://img.shields.io/github/stars/vuestorefront/sfui2?style=social" />
+  <img alt="GitHub Repository Stars Count" src="https://img.shields.io/github/stars/vuestorefront/storefront-ui?style=social" />
   <a href="https://twitter.com/storefrontui">
     <img alt="Follow Us on Twitter" src="https://img.shields.io/twitter/follow/storefrontui?style=social" />
   </a>
@@ -24,8 +24,8 @@
   <a href="http://commitizen.github.io/cz-cli/">
     <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
   </a>
-  <a href="https://github.com/vuestorefront/sfui2">
-    <img alt="License" src="https://img.shields.io/github/license/vuestorefront/sfui2" />
+  <a href="https://github.com/vuestorefront/storefront-ui">
+    <img alt="License" src="https://img.shields.io/github/license/vuestorefront/storefront-ui" />
   </a>
   <a href="https://github.com/vuestorefront/storefront-ui/pulls">
     <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />

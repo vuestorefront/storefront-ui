@@ -2,14 +2,14 @@
 
 Hello! 👋 We'd like to kindly welcome you to our development guide. See table of content below to learn more about our repository and how we build code at SFUI:
 
-1. [Repository setup & structure](https://github.com/vuestorefront/sfui2/blob/main/apps/docs/development/repository.md).
-2. [Coding rules](https://github.com/vuestorefront/sfui2/blob/main/apps/docs/development/rules.md).
-  a. [Vue rules](https://github.com/vuestorefront/sfui2/blob/main/apps/docs/development/vue/rules.md).
-  a. [React rules](https://github.com/vuestorefront/sfui2/blob/main/apps/docs/development/react/rules.md).
-3. [Component generator tool](https://github.com/vuestorefront/sfui2/blob/main/apps/docs/development/component_generator.md).
-4. [Testing](https://github.com/vuestorefront/sfui2/blob/main/apps/docs/development/testing.md).
-5. [How docs are deployed?](https://github.com/vuestorefront/sfui2/blob/main/apps/docs/development/docs-deployment.md)
-6. [Releasing packages](https://github.com/vuestorefront/sfui2/blob/main/apps/docs/development/release.md).
+1. [Repository setup & structure](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/repository.md).
+2. [Coding rules](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/rules.md).
+  a. [Vue rules](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/vue/rules.md).
+  a. [React rules](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/react/rules.md).
+3. [Component generator tool](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/component_generator.md).
+4. [Testing](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/testing.md).
+5. [How docs are deployed?](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/docs-deployment.md)
+6. [Releasing packages](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/release.md).
 
 ## Q&A
 
