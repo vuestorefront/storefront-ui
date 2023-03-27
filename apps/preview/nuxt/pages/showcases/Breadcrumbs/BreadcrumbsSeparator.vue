@@ -2,7 +2,7 @@
   <nav class="inline-flex items-center text-sm font-normal font-body">
     <ol class="flex w-auto leading-none group md:flex-wrap">
       <li class="flex items-center sm:hidden text-neutral-500">
-        <SfDropdown v-model="dropdownOpened" strategy="fixed" placement="bottom-start" @update:model-value="close">
+        <SfDropdown v-model="dropdownOpened" strategy="absolute" placement="bottom-start" @update:model-value="close">
           <template #trigger>
             <SfButton
               class="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
@@ -10,7 +10,7 @@
               type="button"
               variant="tertiary"
               square
-              @click="handleClick"
+              @click="toggle"
             >
               <template #prefix>
                 <SfIconMoreHoriz
@@ -21,7 +21,7 @@
             </SfButton>
           </template>
           <div class="px-4 py-2 rounded-md shadow-md border-neutral-100">
-            <li v-for="item in breadcrumbs" :key="item.name" class="py-2 last-of-type:hidden" :aria-label="item.name">
+            <li v-for="item in breadcrumbs" :key="item.name" class="py-2 last-of-type:hidden">
               <SfLink
                 :href="item.link"
                 variant="secondary"
@@ -70,7 +70,7 @@ const dropdownOpened = ref(false);
 const close = () => {
   dropdownOpened.value = false;
 };
-const handleClick = () => {
+const toggle = () => {
   dropdownOpened.value = !dropdownOpened.value;
 };
 </script>

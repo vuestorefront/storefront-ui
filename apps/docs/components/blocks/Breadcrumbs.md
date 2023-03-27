@@ -13,7 +13,7 @@ description: A breadcrumb trail consists of a list of links to the parent pages 
 <<<../../preview/nuxt/pages/showcases/Breadcrumbs/Breadcrumbs.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Breadcrumbs/Breadcrumbs.tsx
+<<<../../preview/next/pages/showcases/Breadcrumbs/Breadcrumbs.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -27,7 +27,7 @@ Breadcrumbs block with icons as a item separator.
 <<<../../preview/nuxt/pages/showcases/Breadcrumbs/BreadcrumbsSeparator.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Breadcrumbs/BreadcrumbsSeparator.tsx
+<<<../../preview/next/pages/showcases/Breadcrumbs/BreadcrumbsSeparator.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -40,7 +40,7 @@ Breadrcrumbs block with home icon as the first item.
 <<<../../preview/nuxt/pages/showcases/Breadcrumbs/BreadcrumbsWithIcon.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Breadcrumbs/BreadcrumbsWithIcon.tsx
+<<<../../preview/next/pages/showcases/Breadcrumbs/BreadcrumbsWithIcon.tsx#source
 <!-- end react -->
 </Showcase>
 

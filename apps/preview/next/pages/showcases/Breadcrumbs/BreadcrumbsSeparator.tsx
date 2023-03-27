@@ -20,8 +20,12 @@ export function Showcase() {
     setDropdownOpened(false);
   };
 
+  const toggle = () => {
+    setDropdownOpened(!dropdownOpened);
+  };
+
   return (
-    <nav className="inline-flex items-center text-sm font-normal font-body">
+    <nav className="flex items-center text-sm font-normal font-body">
       <ol className="flex w-auto leading-none group md:flex-wrap">
         <li className="flex items-center sm:hidden text-neutral-500">
           <SfDropdown
@@ -38,17 +42,17 @@ export function Showcase() {
                   />
                 }
                 square
-                onClick={() => setDropdownOpened(!dropdownOpened)}
+                onClick={toggle}
               />
             }
             open={dropdownOpened}
-            strategy="fixed"
+            strategy="absolute"
             placement="bottom-start"
             onClose={close}
           >
             <div className="px-4 py-2 rounded-md shadow-md border-neutral-100">
               {breadcrumbs.map(({ name, link }) => (
-                <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
+                <li className="py-2 last-of-type:hidden" key={name}>
                   <SfLink
                     href={link}
                     variant="secondary"
@@ -61,15 +65,13 @@ export function Showcase() {
             </div>
           </SfDropdown>
         </li>
-        {breadcrumbs.map((item) => (
+        {breadcrumbs.map((item, index) => (
           <li
             data-icon="url('@assets/chevron_right.svg')"
             className="hidden peer sm:flex text-neutral-500 last-of-type:flex last-of-type:text-neutral-900 last-of-type:font-medium"
             key={item.name}
           >
-            {breadcrumbs.indexOf(item) === 0 ? null : (
-              <SfIconChevronRight size="sm" className="mx-0.5 text-disabled-500" />
-            )}
+            {index !== 0 ? <SfIconChevronRight size="sm" className="mx-0.5 text-disabled-500" /> : null}
             <SfLink
               href={item.link}
               variant="secondary"

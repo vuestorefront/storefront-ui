@@ -20,8 +20,12 @@ export function Showcase() {
     setDropdownOpened(false);
   };
 
+  const toggle = () => {
+    setDropdownOpened(!dropdownOpened);
+  };
+
   return (
-    <nav className="inline-flex text-sm font-normal font-body">
+    <nav className="inline-flex font-normal font-body typography-text-sm">
       <ol className="flex items-center w-auto leading-none group md:flex-wrap">
         <li className="flex items-center sm:hidden text-neutral-500">
           <SfDropdown
@@ -38,17 +42,17 @@ export function Showcase() {
                   />
                 }
                 square
-                onClick={() => setDropdownOpened(!dropdownOpened)}
+                onClick={toggle}
               />
             }
             open={dropdownOpened}
-            strategy="fixed"
+            strategy="absolute"
             placement="bottom-start"
             onClose={close}
           >
             <div className="px-4 py-2 rounded-md shadow-md border-neutral-100">
               {breadcrumbs.map(({ name, link }) => (
-                <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
+                <li className="py-2 last-of-type:hidden" key={name}>
                   <SfLink
                     href={link}
                     variant="secondary"
@@ -63,7 +67,7 @@ export function Showcase() {
         </li>
         {breadcrumbs.map((item) => (
           <li
-            className="peer hidden sm:block peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
+            className="peer hidden sm:flex peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
             key={item.name}
           >
             <SfLink

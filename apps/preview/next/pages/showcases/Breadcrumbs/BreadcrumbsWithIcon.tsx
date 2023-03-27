@@ -20,6 +20,10 @@ export function Showcase() {
     setDropdownOpened(false);
   };
 
+  const toggle = () => {
+    setDropdownOpened(!dropdownOpened);
+  };
+
   return (
     <nav className="inline-flex text-sm font-normal font-body">
       <ol className="flex items-center w-auto leading-none group md:flex-wrap">
@@ -38,17 +42,17 @@ export function Showcase() {
                   />
                 }
                 square
-                onClick={() => setDropdownOpened(!dropdownOpened)}
+                onClick={toggle}
               />
             }
             open={dropdownOpened}
-            strategy="fixed"
+            strategy="absolute"
             placement="bottom-start"
             onClose={close}
           >
             <div className="px-4 py-2 rounded-md shadow-md border-neutral-100">
               {breadcrumbs.map(({ name, link }) => (
-                <li className="py-2 last-of-type:hidden" aria-label={name} key={name}>
+                <li className="py-2 last-of-type:hidden" key={name}>
                   <SfLink
                     href={link}
                     variant="secondary"
