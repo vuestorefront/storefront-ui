@@ -25,7 +25,7 @@ export default function ModalTransition() {
         unmountOnExit
         classNames={{
           enter: 'opacity-0',
-          enterDone: 'opacity-1 transition duration-200 ease-out',
+          enterDone: 'opacity-100 transition duration-200 ease-out',
           exitActive: 'opacity-0 transition duration-200 ease-out',
         }}
       >
