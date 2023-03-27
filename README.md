@@ -62,20 +62,21 @@ In addition, Storefront UI fits perfectly complex UI setups where one library is
 - **Typography** package simplifying usage of 3rd party fonts
 - **Figma** file with pixel-perfect representation of SFUI components based on tailwind properties
 
-<a href=""><img src="./_readme/figma_included.png"></a>
+<a href="https://www.figma.com/file/Y9mMfUVXAfH3qvUWrOAZa2/Storefront-UI-%7C-Design-Kit?node-id=20697-75059&t=cfzx4cpxb16BsXE8-0"><img src="./_readme/figma_included.png"></a>
 
 ## Contributing
 
 We believe that the best software is made when a lot of people with different views collaborate on it. We welcome all contributions to Storefrotn UI.
 
 You can become contributor not only by writing code:
+
 - Contribute to documentation
 - Write an article or tutorial
 - Help others on our [Discord server](https://discord.vuestorefront.io) 
 - Report a bug
 - Do a talk about Storefront UI at your local meetup
 
-We are grateful for all kind of contributions. If you don't know where to start check out our [contribution guide](./CONTRIBUTING.md) or ask for help on [Discord](https://discord.vuestorefront.io) 
+We are grateful for all kind of contributions. If you don't know where to start check out our [contribution guide](./CONTRIBUTING.md) or ask for help on [Discord](https://discord.vuestorefront.io)
 
 ## Links
 

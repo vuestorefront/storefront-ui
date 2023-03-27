@@ -5,7 +5,8 @@ const { generateComponentPath } = require('./utils/path.util');
 
 const DOCS_EXAMPLES_REACT_PATH = process.env.VITE_DOCS_EXAMPLES_REACT_PATH;
 const DOCS_EXAMPLES_VUE_PATH = process.env.VITE_DOCS_EXAMPLES_VUE_PATH;
-const FIGMA_URL = 'https://www.figma.com/file/ko7VoZYxnInYeJJmsnILHU/SFUI-2-%7C-Design-System-(public-RC)';
+const FIGMA_URL =
+  'https://www.figma.com/file/Y9mMfUVXAfH3qvUWrOAZa2/Storefront-UI-%7C-Design-Kit?node-id=20697-75059&t=cfzx4cpxb16BsXE8-0';
 const GTAG = 'G-BL2CYW4NJ5';
 const convertComponentPathsToLinks = (paths, slug, type) =>
   paths.map((c) => [generateComponentPath(slug, c, type), c.replace('Sf', '')]);
@@ -48,8 +49,8 @@ const reactMenu = [
     collapsable: true,
     children: [
       ['/react/migration', 'Migration'],
-      ['https://github.com/vuestorefront/sfui2/blob/main/CONTRIBUTING.md', 'Contributing'],
-      ['https://github.com/vuestorefront/sfui2/blob/main/CHANGELOG.md', 'Changelog'],
+      ['https://github.com/vuestorefront/storefront-ui/blob/v2/CONTRIBUTING.md', 'Contributing'],
+      ['https://github.com/vuestorefront/storefront-ui/blob/v2/CHANGELOG.md', 'Changelog'],
     ],
   },
 ];
@@ -90,8 +91,8 @@ const vueMenu = [
     collapsable: true,
     children: [
       ['/vue/migration', 'Migration'],
-      ['https://github.com/vuestorefront/sfui2/blob/main/CONTRIBUTING.md', 'Contributing'],
-      ['https://github.com/vuestorefront/sfui2/blob/main/CHANGELOG.md', 'Changelog'],
+      ['https://github.com/vuestorefront/storefront-ui/blob/v2/CONTRIBUTING.md', 'Contributing'],
+      ['https://github.com/vuestorefront/storefront-ui/blob/v2/CHANGELOG.md', 'Changelog'],
     ],
   },
 ];
@@ -129,7 +130,7 @@ module.exports = {
     FIGMA_URL,
     title: 'Storefront UI',
     repo: 'https://github.com/vuestorefront/storefront-ui',
-    docsRepoPath: 'https://github.com/vuestorefront/storefront-ui/tree/main/apps/docs/components', // used to generate direct edit links on docs pages.
+    docsRepoPath: 'https://github.com/vuestorefront/storefront-ui/tree/v2/apps/docs/components/', // used to generate direct edit links on docs pages.
     secondaryNav: {
       '/react/': [
         { text: 'Getting Started', link: '/react/getting-started' },

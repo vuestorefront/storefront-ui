@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-    <img alt="GitHub Repository Stars Count" src="https://img.shields.io/github/stars/vuestorefront/sfui2?style=social" />
+    <img alt="GitHub Repository Stars Count" src="https://img.shields.io/github/stars/vuestorefront/storefront-ui?style=social" />
     <a href="https://twitter.com/storefrontui">
         <img alt="Follow Us on Twitter" src="https://img.shields.io/twitter/follow/storefrontui?style=social" />
     </a>
@@ -27,8 +27,8 @@
     <a href="http://commitizen.github.io/cz-cli/">
         <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
     </a>
-    <a href="https://github.com/vuestorefront/sfui2">
-        <img alt="License" src="https://img.shields.io/github/license/vuestorefront/sfui2" />
+    <a href="https://github.com/vuestorefront/storefront-ui">
+        <img alt="License" src="https://img.shields.io/github/license/vuestorefront/storefront-ui" />
     </a>
     <a href="https://github.com/vuestorefront/storefront-ui/pulls">
         <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
@@ -97,7 +97,7 @@ export default {
 };
 ```
 
-And get ready to use default StorefrontUI typography classes [that are based on SFUI designs](https://www.figma.com/file/CWOkbpne0tDpSenT4ZEUTQ/%F0%9F%9B%A0-SFUI-2-%7C-Design-System-(development)?node-id=11332%3A15785&t=xa0GJAmZdWTLqzhi-1).
+And get ready to use default StorefrontUI typography classes [that are based on SFUI designs](https://www.figma.com/file/Y9mMfUVXAfH3qvUWrOAZa2/Storefront-UI-%7C-Design-Kit-(public)?node-id=11332%3A15785&t=3ozBryMhTh1sOMNc-1).
 
 ## How to use it
 
