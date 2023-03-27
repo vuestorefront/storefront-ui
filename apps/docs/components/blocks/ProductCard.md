@@ -43,12 +43,12 @@ ProductCard details can be used in product details page or to build component us
 
 <Showcase showcase-name="ProductCard/Details" style="min-height:600px">
 
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/ProductCard/Details.vue
+<!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/ProductCard/Details.tsx#source
 <!-- end react -->
-<!-- vue -->
-<<<../../preview/next/pages/showcases/ProductCard/Details.tsx#source
-<!-- end vue -->
 
 </Showcase>
 
