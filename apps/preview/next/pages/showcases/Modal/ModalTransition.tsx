@@ -4,7 +4,7 @@ import { useId, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { SfModal, SfButton, SfIconClose, useDisclosure } from '@storefront-ui/react';
 
-export default function ModalDemo() {
+export default function ModalTransition() {
   const { isOpen, open, close } = useDisclosure({ initialValue: false });
   const headingId = useId();
   const descriptionId = useId();
@@ -81,4 +81,4 @@ export default function ModalDemo() {
 }
 
 // #endregion source
-ModalDemo.getLayout = ShowcasePageLayout;
+ModalTransition.getLayout = ShowcasePageLayout;
