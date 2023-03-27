@@ -20,25 +20,25 @@
           <p v-if="!hideDescription" class="mt-2 text-sm">{{ componentDescription(componentName) }}</p>
         </div>
       </RouterLink>
-    </div>
-    <div v-if="type === 'blocks'" class="grid grid-cols-12 gap-8 relative mt-8">
-      <div
-        v-for="componentName in futureBlocks"
-        :key="componentName"
-        class="overflow-hidden opacity-50 transition-all border rounded-lg col-span-12 md:col-span-6 lg:col-span-4 dark:border-zinc-700"
-      >
-        <div v-if="!hideThumbnail" class="w-full flex items-center justify-center bg-gray-100">
-          <!-- <img
-            :src="$withBase(`/thumbnails/${type}/${componentName.replace('Sf', '')}.png`)"
-            class="w-full h-full object-cover"
-            :alt="componentName"
-          /> -->
+      <template v-if="type === 'blocks'">
+        <div
+          v-for="componentName in futureBlocks"
+          :key="componentName"
+          class="overflow-hidden opacity-60 transition-all border rounded-lg col-span-12 md:col-span-6 lg:col-span-4 dark:border-zinc-700"
+        >
+          <div v-if="!hideThumbnail" class="w-full flex items-center justify-center bg-gray-100">
+            <img
+              :src="$withBase(`/thumbnails/${type}/${componentName.replace('Sf', '')}.png`)"
+              class="w-full h-full object-cover"
+              :alt="componentName"
+            />
+          </div>
+          <div class="p-4">
+            <h4 class="font-bold">{{ componentName.replace('Sf', '') }}</h4>
+            <p class="mt-2 text-sm">Coming Soon</p>
+          </div>
         </div>
-        <div class="p-4">
-          <h4 class="font-bold">{{ componentName.replace('Sf', '') }}</h4>
-          <p class="mt-2 text-sm">Coming Soon</p>
-        </div>
-      </div>
+      </template>
     </div>
   </div>
 </template>
