@@ -5,7 +5,7 @@ export default {
 </script>
 <script lang="ts" setup>
 import { ref, type PropType } from 'vue';
-import { SfSelectSize, SfIconExpandMore } from '@storefront-ui/vue';
+import { SfSelectSize, SfIconExpandMore, useKeyboardFocus } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -42,22 +42,25 @@ const selected = ref(props.value);
 const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
+const selectWrapperRef = ref();
 
 const changedValue = (event: Event) => {
   selected.value = (event.target as HTMLSelectElement).value;
   emit('update:modelValue', (event.target as HTMLSelectElement).value);
 };
+
+useKeyboardFocus(selectWrapperRef);
 </script>
 
 <template>
-  <div :class="['relative flex flex-col', wrapperClassName]" data-testid="select">
+  <div ref="selectWrapperRef" :class="['relative flex flex-col rounded-md', wrapperClassName]" data-testid="select">
     <select
       v-bind="$attrs"
       :value="value"
       :required="required"
       :disabled="disabled"
       :class="[
-        'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 bg-transparent focus:outline-primary-700 rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200 peer',
+        'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 bg-transparent focus-visible:outline-primary-700 rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200 peer',
         {
           'py-1.5': size === SfSelectSize.sm,
           'py-2': size === SfSelectSize.base,

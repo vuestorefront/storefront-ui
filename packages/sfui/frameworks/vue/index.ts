@@ -4,7 +4,7 @@ export * from './composables/useDropdown';
 export * from './composables/usePopover';
 export * from './composables/useTooltip';
 export * from './composables/useTrapFocus';
-
+export * from './composables/useKeyboardFocus';
 // Shared
 export * from './shared';
 

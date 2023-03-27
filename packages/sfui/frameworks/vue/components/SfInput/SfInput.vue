@@ -11,9 +11,9 @@ const getSizeClasses = {
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { toRefs } from 'vue';
+import { toRefs, ref } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { SfInputSize } from '@storefront-ui/vue';
+import { SfInputSize, useKeyboardFocus } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
@@ -38,12 +38,15 @@ const emit = defineEmits<{
   (event: 'focus'): void;
 }>();
 const { invalid } = toRefs(props);
+const inputWrapperRef = ref();
+useKeyboardFocus(inputWrapperRef);
 
 const inputValue = useVModel(props, 'modelValue', emit);
 </script>
 
 <template>
   <div
+    ref="inputWrapperRef"
     :class="[
       'flex items-center bg-white rounded-md ring-inset text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
       getSizeClasses[size],
