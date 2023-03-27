@@ -37,10 +37,10 @@
   "homepage": "https://docs.storefrontui.io/v2/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuestorefront/sfui2.git",
+    "url": "git+https://github.com/vuestorefront/storefront-ui.git",
     "directory": "packages/sfui/shared"
   },
   "bugs": {
-    "url": "https://github.com/vuestorefront/sfui2/issues"
+    "url": "https://github.com/vuestorefront/storefront-ui/issues"
   }
 }
