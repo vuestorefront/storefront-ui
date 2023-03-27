@@ -14,6 +14,7 @@ import {
   SfIconAdd,
   SfIconWarehouse,
   SfIconSafetyCheck,
+  SfIconShoppingCartCheckout,
 } from '@storefront-ui/react';
 import { useCounter } from 'react-use';
 import { useId, ChangeEvent } from 'react';
@@ -22,7 +23,7 @@ import { clamp } from '@storefront-ui/shared';
 export default function ProductDetails() {
   const inputId = useId();
   const min = 1;
-  const max = 10;
+  const max = 999;
   const [value, { inc, dec, set }] = useCounter(min);
   function handleOnChange(event: ChangeEvent<HTMLInputElement>) {
     const { value: currentValue } = event.target;
@@ -31,70 +32,81 @@ export default function ProductDetails() {
   }
   return (
     <section className="md:max-w-[640px]">
-      <div className="inline-flex items-center justify-center text-sm font-medium text-white bg-secondary-600 py-1.5 px-2 mb-2">
+      <div className="inline-flex items-center justify-center text-sm font-medium text-white bg-secondary-600 py-1.5 px-3 mb-4">
         <SfIconSell size="sm" className="mr-1.5" />
         Sale
       </div>
-      <h1 className="font-bold typography-headline-3">Athletic Mens Walking Sneakers Athletic Shoes Breathable Knit</h1>
-      <div className="flex items-baseline py-2">
-        <strong className="font-bold typography-headline-3 text-secondary-600">$2,345.99</strong>
-        <span className="ml-2 text-base font-normal leading-4 line-through text-neutral-500">$3,129.99</span>
-      </div>
-      <div className="inline-flex items-end mb-2">
+      <h1 className="mb-1 font-bold typography-headline-4">
+        Mini Foldable Drone with HD Camera FPV Wifi RC Quadcopter
+      </h1>
+      <strong className="block font-bold typography-headline-3">$2,345.99</strong>
+      <div className="inline-flex items-center mt-4 mb-2">
         <SfRating size="xs" value={3} max={5} />
         <SfCounter className="ml-1" size="xs">
           123
         </SfCounter>
-        <SfLink href="#" variant="secondary" className="ml-2 text-xs">
+        <SfLink href="#" variant="secondary" className="ml-2 text-xs text-neutral-500">
           123 reviews
         </SfLink>
       </div>
-      <div className="mb-4 text-sm">
-        <p>Stretch mesh upper for breathability. Lightweight.</p>
-        <p> Non slip.</p> <p>Flexible outsole.</p>
-        <p>Easy to wear on and off.</p>
-      </div>
-      <div className="border-y border-gray-200 py-4 mb-4">
-        <div className="flex border border-neutral-300 rounded-md mb-4">
-          <SfButton
-            type="button"
-            variant="tertiary"
-            square
-            className="rounded-r-none"
-            disabled={value <= min}
-            aria-controls={inputId}
-            aria-label="Decrease value"
-            onClick={() => dec()}
-          >
-            <SfIconRemove />
-          </SfButton>
-          <input
-            id={inputId}
-            type="number"
-            role="spinbutton"
-            className="appearance-none w-full mx-2 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
-            min={min}
-            max={max}
-            value={value}
-            onChange={handleOnChange}
-          />
-          <SfButton
-            type="button"
-            variant="tertiary"
-            square
-            className="rounded-l-none"
-            disabled={value >= max}
-            aria-controls={inputId}
-            aria-label="Increase value"
-            onClick={() => inc()}
-          >
-            <SfIconAdd />
+      <ul className="mb-4 font-normal typography-text-sm">
+        <li>HD Pictures & Videos and FPV Function</li>
+        <li>Intelligent Voice Control</li>
+        <li>Multiple Fun Flights</li>
+        <li>Easy to Use</li>
+        <li>Foldable Design & Double Flight Time</li>
+      </ul>
+      <div className="py-4 mb-4 border-gray-200 border-y">
+        <div className="bg-primary-100 text-primary-700 flex justify-center gap-1.5 py-1.5 typography-text-sm items-center mb-4 rounded-md">
+          <SfIconShoppingCartCheckout />1 in cart
+        </div>
+        <div className="items-start xs:flex">
+          <div className="flex flex-col items-stretch xs:items-center xs:inline-flex">
+            <div className="flex border border-neutral-300 rounded-md">
+              <SfButton
+                type="button"
+                variant="tertiary"
+                square
+                className="rounded-r-none p-3"
+                disabled={value <= min}
+                aria-controls={inputId}
+                aria-label="Decrease value"
+                onClick={() => dec()}
+              >
+                <SfIconRemove />
+              </SfButton>
+              <input
+                id={inputId}
+                type="number"
+                role="spinbutton"
+                className="appearance-none grow mx-2 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+                min={min}
+                max={max}
+                value={value}
+                onChange={handleOnChange}
+              />
+              <SfButton
+                type="button"
+                variant="tertiary"
+                square
+                className="rounded-l-none p-3"
+                disabled={value >= max}
+                aria-controls={inputId}
+                aria-label="Increase value"
+                onClick={() => inc()}
+              >
+                <SfIconAdd />
+              </SfButton>
+            </div>
+            <p className="self-center mt-1 mb-4 text-xs text-neutral-500 xs:mb-0">
+              <strong className="text-neutral-900">{max}</strong> in stock
+            </p>
+          </div>
+          <SfButton type="button" size="lg" className="w-full xs:ml-4" slotPrefix={<SfIconShoppingCart size="sm" />}>
+            Add to cart
           </SfButton>
         </div>
-        <SfButton type="button" size="lg" className="w-full" slotPrefix={<SfIconShoppingCart size="sm" />}>
-          Add to cart
-        </SfButton>
-        <div className="flex justify-center mt-4">
+        <div className="flex justify-center mt-4 gap-x-4">
           <SfButton type="button" size="sm" variant="tertiary" slotPrefix={<SfIconCompareArrows size="sm" />}>
             Compare
           </SfButton>
