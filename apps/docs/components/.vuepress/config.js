@@ -133,17 +133,17 @@ module.exports = {
     secondaryNav: {
       '/react/': [
         { text: 'Getting Started', link: '/react/getting-started' },
-        { text: 'Docs', link: '/react/components' },
+        { text: 'Base Components', link: '/react/components' },
         { text: 'Blocks', link: '/react/blocks' },
       ],
       '/vue/': [
         { text: 'Getting Started', link: '/vue/getting-started' },
-        { text: 'Docs', link: '/vue/components' },
+        { text: 'Base Components', link: '/vue/components' },
         { text: 'Blocks', link: '/vue/blocks' },
       ],
       '/': [
         { text: 'Getting Started', link: '/vue/getting-started' },
-        { text: 'Docs', link: '/vue/components' },
+        { text: 'Base Components', link: '/vue/components' },
         { text: 'Blocks', link: '/vue/blocks' },
       ],
     },
