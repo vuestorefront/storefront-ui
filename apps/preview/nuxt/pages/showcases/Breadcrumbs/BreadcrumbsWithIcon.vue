@@ -34,12 +34,12 @@
         </SfDropdown>
       </li>
       <li
-        v-for="item in breadcrumbs"
+        v-for="(item, index) in breadcrumbs"
         :key="item.name"
         class="peer hidden sm:flex peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
       >
         <SfLink
-          v-if="breadcrumbs.indexOf(item) === 0"
+          v-if="index === 0"
           :href="item.link"
           variant="secondary"
           class-name="inline-flex leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-neutral-500"
