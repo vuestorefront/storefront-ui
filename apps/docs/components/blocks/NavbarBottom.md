@@ -15,7 +15,7 @@ description: NavbarBottom block is the navigation element used in mobile view.
 <<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottom.tsx#source
 <!-- end react -->
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/NavbarBottom/NavbarBottom.vue#source
+<<<../../preview/nuxt/pages/showcases/NavbarBottom/NavbarBottom.vue
 <!-- end vue -->
 
 </Showcase>
@@ -28,7 +28,7 @@ description: NavbarBottom block is the navigation element used in mobile view.
 <<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottomFilled.tsx#source
 <!-- end react -->
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/NavbarBottom/NavbarBottomFilled.vue#source
+<<<../../preview/nuxt/pages/showcases/NavbarBottom/NavbarBottomFilled.vue
 <!-- end vue -->
 
 </Showcase>
