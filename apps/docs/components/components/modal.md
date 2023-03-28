@@ -35,7 +35,7 @@ This example also uses the [`useDisclosure`](../hooks/useDisclosure.html) functi
 
 </Showcase>
 
-### Animation
+### Animated
 
 You can make smooth transitions when the modal pops up.
 
