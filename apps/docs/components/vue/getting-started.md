@@ -7,6 +7,16 @@ tabOptions: [nuxt,vite,astro]
 
 Since Storefront UI is designed to fit seamlessly into your Tailwind CSS workflow, there will be different installation steps depending on your environment.
 
+## Playground
+
+You can try out Storefront UI in your browser with our online playground.
+
+<div class="custom-block mt-8">
+<a href="http://play-vue.vuestorefront.io/" target="_blank" rel="noopener noreferrer" class="custom-block dark:text-white font-medium px-4 py-2 border-green border-2 rounded-lg hover:bg-green transition-colors hover:text-white">Stackblitz playground</a>
+</div>
+
+
+
 :::::: slot vite
 
 ## Vite + Vue 3

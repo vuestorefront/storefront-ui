@@ -16,7 +16,7 @@ In opposition to running them simultaneously, framework test suites can also be 
 
 ## How to write tests
 
-We have developed some specialized tools to write tests for multiple frameworks at the same time. Documentation about those you can find [here](https://github.com/vuestorefront/sfui2/blob/main/packages/tests/README.md).
+We have developed some specialized tools to write tests for multiple frameworks at the same time. Documentation about those you can find [here](https://github.com/vuestorefront/storefront-ui/blob/v2/packages/tests/README.md).
 
 ### PageObjects
 

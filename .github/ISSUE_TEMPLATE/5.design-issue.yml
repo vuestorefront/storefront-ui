@@ -8,7 +8,7 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for contributing by creating an issue! ❤️ Please make sure to [search for existing issues](https://github.com/vuestorefront/sfui2/issues) before filing a new one!
+        Thanks for contributing by creating an issue! ❤️ Please make sure to [search for existing issues](https://github.com/vuestorefront/storefront-ui/issues) before filing a new one!
   - type: textarea
     attributes:
       label: Describe the issue
@@ -25,7 +25,7 @@ body:
     id: terms
     attributes:
       label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/vuestorefront/sfui2/blob/main/.github/CODE_OF_CONDUCT.md)
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/vuestorefront/storefront-ui/blob/v2/.github/CODE_OF_CONDUCT.md)
       options:
         - label: I agree to follow this project's Code of Conduct
           required: true
