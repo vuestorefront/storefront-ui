@@ -133,19 +133,19 @@ module.exports = {
     docsRepoPath: 'https://github.com/vuestorefront/storefront-ui/tree/v2/apps/docs/components/', // used to generate direct edit links on docs pages.
     secondaryNav: {
       '/react/': [
-        { text: 'Getting Started', link: '/react/getting-started' },
-        { text: 'Base Components', link: '/react/components' },
-        { text: 'Blocks', link: '/react/blocks' },
+        { text: 'Getting Started', link: '/react/getting-started.html' },
+        { text: 'Base Components', link: '/react/components.html' },
+        { text: 'Blocks', link: '/react/blocks.html' },
       ],
       '/vue/': [
-        { text: 'Getting Started', link: '/vue/getting-started' },
-        { text: 'Base Components', link: '/vue/components' },
-        { text: 'Blocks', link: '/vue/blocks' },
+        { text: 'Getting Started', link: '/vue/getting-started.html' },
+        { text: 'Base Components', link: '/vue/components.html' },
+        { text: 'Blocks', link: '/vue/blocks.html' },
       ],
       '/': [
-        { text: 'Getting Started', link: '/vue/getting-started' },
-        { text: 'Base Components', link: '/vue/components' },
-        { text: 'Blocks', link: '/vue/blocks' },
+        { text: 'Getting Started', link: '/vue/getting-started.html' },
+        { text: 'Base Components', link: '/vue/components.html' },
+        { text: 'Blocks', link: '/vue/blocks.html' },
       ],
     },
     mobileMenu: [

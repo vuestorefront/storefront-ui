@@ -81,6 +81,7 @@ We are grateful for all kind of contributions. If you don't know where to start 
 ## Links
 
 - [Documentation](https://docs.storefrontui.io/v2/)
-- [Playground]()
+- [Playground Vue](https://play-vue.vuestorefront.io)
+- [Playground React](https://play-react.vuestorefront.io)
 - [Discord](https://discord.vuestorefront.io)
 - [Vue Storefront](https://vuestorefront.io)
