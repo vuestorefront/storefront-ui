@@ -11,7 +11,7 @@
     <a href="https://discord.gg/vuestorefront">
         <img alt="Chat with us on Discord" src="https://img.shields.io/discord/770285988244750366?label=join%20discord&logo=Discord&logoColor=white" />
     </a>
-    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue/alpha">
+    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue">
     <a href="http://commitizen.github.io/cz-cli/">
         <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
     </a>
