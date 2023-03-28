@@ -1,3 +1,4 @@
+require('dotenv').config()
 const components = require('../utils/components.json');
 const showcases = require('../utils/blocks.json');
 const hooks = require('../utils/hooks.json');
