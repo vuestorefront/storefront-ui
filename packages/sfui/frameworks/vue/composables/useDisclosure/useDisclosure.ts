@@ -10,7 +10,6 @@ export function useDisclosure({ initialValue = false }: UseDisclosureOptions = {
 } {
   const isOpen: Ref<boolean> = ref<boolean>(unref(initialValue));
   const toggle: (value?: boolean | undefined) => boolean = (value?: boolean) => (isOpen.value = value ?? !isOpen.value);
-  console.log(isOpen.value)
 
   if (isRef(initialValue)) syncRefs(initialValue, isOpen);
 
