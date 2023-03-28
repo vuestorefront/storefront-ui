@@ -40,13 +40,16 @@ Next, you'll need to install Tailwind CSS and PostCSS, as well as the Storefront
 
 ```bash
 # npm
-npm i -D tailwindcss postcss autoprefixer @storefront-ui/react
+npm i @storefront-ui/react
+npm i -D tailwindcss postcss autoprefixer
 
 # yarn
-yarn add -D tailwindcss postcss autoprefixer @storefront-ui/react
+yarn add @storefront-ui/react
+yarn add -D tailwindcss postcss autoprefixer
 
 # pnpm
-pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/react
+pnpm add @storefront-ui/react
+pnpm add -D tailwindcss postcss autoprefixer
 ```
 
 ### Initialize Tailwind
@@ -91,7 +94,6 @@ module.exports = {
 
 </SourceCode>
 
-
 ### Add Tailwind to Your CSS
 
 Finally, you'll need to add CSS directives to add each Tailwind layer to `src/app/globals.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
@@ -109,16 +111,28 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/ap
 
 ### You're Ready to Go!
 
-::: tip
-Storefront UI components are [client components](https://beta.nextjs.org/docs/rendering/server-and-client-components#client-components). To use them, you need to add `'use client'` at the top of your file!
-:::
-
 <SourceCode>
 
 <<<../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
 
 </SourceCode>
 
+::: tip
+In the Next.js environments that are not using [App Router](https://beta.nextjs.org/docs/api-reference/next-config#appdir) there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
+
+To overcome it, you need to add `transpilePackages: ['@storefront-ui/react']` to your `next.config.js` configuration file:
+
+```js
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  transpilePackages: ['@storefront-ui/react']
+}
+
+module.exports = nextConfig
+```
+
+:::
 ::::::
 
 :::::: slot vite
