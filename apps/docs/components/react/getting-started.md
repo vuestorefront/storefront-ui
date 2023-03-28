@@ -118,9 +118,9 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/ap
 </SourceCode>
 
 ::: tip
-In the Next.js environments that are not using [App Router](https://beta.nextjs.org/docs/api-reference/next-config#appdir) there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
+In Next.js 13 environments that are not using [App Router](https://beta.nextjs.org/docs/api-reference/next-config#appdir) there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
 
-To overcome it, you need to add `transpilePackages: ['@storefront-ui/react']` to your `next.config.js` configuration file:
+As a workaround, you can add `transpilePackages: ['@storefront-ui/react']` to your `next.config.js` configuration file:
 
 ```js
 // next.config.js
