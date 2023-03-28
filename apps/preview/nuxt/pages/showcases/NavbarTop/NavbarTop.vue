@@ -3,8 +3,8 @@
     <header class="flex justify-center w-full bg-white border-b h-14 md:h-20 border-neutral-200">
       <div class="flex items-center flex-row flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <a aria-label="SF Homepage" class="inline-block text-primary-700">
-          <img :src="brandLogo" alt="SF Logo" class="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
-          <img :src="brandLogoSign" alt="Sf Logo" class="block w-8 h-8 mr-4 md:w-10 md:h-10 lg:hidden" />
+          <img src="/vsf_logo.svg" alt="SF Logo" class="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
+          <img src="/vsf_logo_sign.svg" alt="Sf Logo" class="block w-8 h-8 mr-4 md:w-10 md:h-10 lg:hidden" />
         </a>
         <SfButton class="block !px-2 mr-auto" type="button" variant="tertiary">
           <template #prefix>
@@ -47,8 +47,6 @@
 </template>
 <script lang="ts" setup>
 import { SfButton, SfIconShoppingCart, SfIconFavorite, SfIconPerson, SfIconMenu } from '@storefront-ui/vue';
-import brandLogo from '@assets/vsf_logo.svg';
-import brandLogoSign from '@assets/vsf_logo_sign.svg';
 
 const actionItems = [
   {

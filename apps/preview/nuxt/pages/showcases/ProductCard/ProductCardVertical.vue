@@ -3,7 +3,7 @@
     <div class="relative">
       <SfLink href="#">
         <img
-          :src="productImage"
+          src="/sneakers.png"
           alt="Great product"
           class="block object-cover h-auto rounded-md aspect-square"
           :width="300"
@@ -46,6 +46,4 @@
 
 <script lang="ts" setup>
 import { SfRating, SfCounter, SfLink, SfButton, SfIconShoppingCart, SfIconFavorite } from '@storefront-ui/vue';
-
-import productImage from '@assets/sneakers.png';
 </script>

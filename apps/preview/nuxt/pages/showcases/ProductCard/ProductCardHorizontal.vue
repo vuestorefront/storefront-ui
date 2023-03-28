@@ -4,7 +4,7 @@
       <SfLink href="#">
         <img
           class="w-full h-auto border rounded-md border-neutral-200"
-          :src="card"
+          src="/smartwatch.png"
           alt="Smartwatch Fitness Tracker"
           :width="176"
           :height="176"
@@ -87,7 +87,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 import { SfLink, SfButton, SfIconSell, SfIconAdd, SfIconRemove, SfIconDelete, useId } from '@storefront-ui/vue';
-import card from '@assets/smartwatch.png';
 import { clamp } from '@storefront-ui/shared';
 import { useCounter } from '@vueuse/core';
 

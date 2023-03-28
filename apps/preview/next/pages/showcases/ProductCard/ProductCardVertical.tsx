@@ -1,16 +1,14 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfButton, SfRating, SfCounter, SfLink, SfIconShoppingCart, SfIconFavorite } from '@storefront-ui/react';
-import productImage from '@assets/sneakers.png';
-import Image from 'next/image';
 
 export default function ProductCardVertical() {
   return (
     <div className="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
       <div className="relative">
         <SfLink href="#">
-          <Image
-            src={productImage.src}
+          <img
+            src="/sneakers.png"
             alt="Great product"
             className="object-cover h-auto rounded-md aspect-square"
             width={300}
