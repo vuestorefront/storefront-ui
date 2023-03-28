@@ -25,13 +25,13 @@ If you don't already have a Next app, you can use the `create-next-app` command 
 
 ```bash
 # npm
-npx create-next-app@latest
+npx create-next-app@latest --experimental-app
 
 # yarn
-yarn create next-app
+yarn create next-app --experimental-app
 
 # pnpm
-pnpm create next-app
+pnpm create next-app --experimental-app
 ```
 
 ### Install Tailwind and Storefront UI Dependencies
@@ -94,7 +94,7 @@ module.exports = {
 
 ### Add Tailwind to Your CSS
 
-Finally, you'll need to add CSS directives to add each Tailwind layer to `src/styles/globals.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
+Finally, you'll need to add CSS directives to add each Tailwind layer to `src/app/globals.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
 
 <SourceCode>
 
@@ -108,6 +108,10 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/st
 </SourceCode>
 
 ### You're Ready to Go!
+
+::: tip
+Storefront UI components are [client components](https://beta.nextjs.org/docs/rendering/server-and-client-components#client-components). To use them, you need to add `'use client'` at the top of your file!
+:::
 
 <SourceCode>
 
