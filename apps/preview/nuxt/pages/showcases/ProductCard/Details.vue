@@ -1,71 +1,82 @@
 <template>
   <section class="md:max-w-[640px]">
     <div
-      class="inline-flex items-center justify-center text-sm font-medium text-white bg-secondary-600 py-1.5 px-2 mb-2"
+      class="inline-flex items-center justify-center text-sm font-medium text-white bg-secondary-600 py-1.5 px-3 mb-4"
     >
       <SfIconSell size="sm" class="mr-1.5" />
       Sale
     </div>
-    <h1 class="font-bold typography-headline-3">Athletic Mens Walking Sneakers Athletic Shoes Breathable Knit</h1>
-    <div class="flex items-baseline py-2">
-      <strong class="font-bold typography-headline-3 text-secondary-600">$2,345.99</strong>
-      <span class="ml-2 text-base font-normal leading-4 line-through text-neutral-500">$3,129.99</span>
-    </div>
-    <div class="inline-flex items-end mb-2">
+    <h1 class="mb-1 font-bold typography-headline-4">Mini Foldable Drone with HD Camera FPV Wifi RC Quadcopter</h1>
+    <strong class="block font-bold typography-headline-3">$2,345.99</strong>
+    <div class="inline-flex items-center mt-4 mb-2">
       <SfRating size="xs" :value="3" :max="5" />
       <SfCounter class="ml-1" size="xs">123</SfCounter>
-      <SfLink href="#" variant="secondary" class="ml-2 text-xs"> 123 reviews </SfLink>
+      <SfLink href="#" variant="secondary" class="ml-2 text-xs text-neutral-500"> 123 reviews </SfLink>
     </div>
-    <div class="mb-4 text-sm">
-      <p>Stretch mesh upper for breathability. Lightweight.</p>
-      <p>Non slip.</p>
-      <p>Flexible outsole.</p>
-      <p>Easy to wear on and off.</p>
-    </div>
+    <ul class="mb-4 font-normal typography-text-sm">
+      <li>HD Pictures & Videos and FPV Function</li>
+      <li>Intelligent Voice Control</li>
+      <li>Multiple Fun Flights</li>
+      <li>Easy to Use</li>
+      <li>Foldable Design & Double Flight Time</li>
+    </ul>
     <div class="py-4 mb-4 border-gray-200 border-y">
-      <div class="flex border border-neutral-300 rounded-md mb-4">
-        <SfButton
-          type="button"
-          variant="tertiary"
-          :disabled="count <= min"
-          square
-          class="rounded-r-none"
-          :aria-controls="useId"
-          aria-label="Decrease value"
-          @click="dec()"
-        >
-          <SfIconRemove />
-        </SfButton>
-        <input
-          :id="useId"
-          v-model="count"
-          type="number"
-          role="spinbutton"
-          class="appearance-none w-full mx-2 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
-          :min="min"
-          :max="max"
-          @input="handleOnChange"
-        />
-        <SfButton
-          type="button"
-          variant="tertiary"
-          :disabled="count >= max"
-          square
-          class="rounded-l-none"
-          :aria-controls="useId"
-          aria-label="Increase value"
-          @click="inc()"
-        >
-          <SfIconAdd />
+      <div
+        class="bg-primary-100 text-primary-700 flex justify-center gap-1.5 py-1.5 typography-text-sm items-center mb-4 rounded-md"
+      >
+        <SfIconShoppingCartCheckout />
+        1 in cart
+      </div>
+      <div class="items-start xs:flex">
+        <div class="flex flex-col items-stretch xs:items-center xs:inline-flex">
+          <div class="flex border border-neutral-300 rounded-md">
+            <SfButton
+              type="button"
+              variant="tertiary"
+              :disabled="count <= min"
+              square
+              class="rounded-r-none p-3"
+              :aria-controls="inputId"
+              aria-label="Decrease value"
+              @click="dec()"
+            >
+              <SfIconRemove />
+            </SfButton>
+            <input
+              :id="inputId"
+              v-model="count"
+              type="number"
+              role="spinbutton"
+              class="grow appearance-none mx-2 text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+              :min="min"
+              :max="max"
+              @input="handleOnChange"
+            />
+            <SfButton
+              type="button"
+              variant="tertiary"
+              :disabled="count >= max"
+              square
+              class="rounded-l-none p-3"
+              :aria-controls="inputId"
+              aria-label="Increase value"
+              @click="inc()"
+            >
+              <SfIconAdd />
+            </SfButton>
+          </div>
+          <p class="self-center mt-1 mb-4 text-xs text-neutral-500 xs:mb-0">
+            <strong class="text-neutral-900">{{ max }}</strong> in stock
+          </p>
+        </div>
+        <SfButton type="button" size="lg" class="w-full xs:ml-4">
+          <template #prefix>
+            <SfIconShoppingCart size="sm" />
+          </template>
+          Add to cart
         </SfButton>
       </div>
-      <SfButton type="button" size="lg" class="w-full">
-        <template #prefix>
-          <SfIconShoppingCart size="sm" />
-        </template>
-        Add to cart
-      </SfButton>
-      <div class="flex justify-center mt-4">
+      <div class="flex justify-center mt-4 gap-x-4">
         <SfButton type="button" size="sm" variant="tertiary">
           <template #prefix>
             <SfIconCompareArrows size="sm" />
@@ -104,6 +115,7 @@
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
 import {
   SfButton,
   SfCounter,
@@ -119,13 +131,14 @@ import {
   SfIconAdd,
   SfIconRemove,
   useId,
+  SfIconShoppingCartCheckout,
 } from '@storefront-ui/vue';
-import { ref } from 'vue';
 import { clamp } from '@storefront-ui/shared';
 import { useCounter } from '@vueuse/core';
 
+const inputId = useId();
 const min = ref(1);
-const max = ref(10);
+const max = ref(999);
 const { count, inc, dec, set } = useCounter(1, { min: min.value, max: max.value });
 function handleOnChange(event: Event) {
   const currentValue = (event.target as HTMLInputElement)?.value;
