@@ -51,12 +51,12 @@ export default function ProductCardHorizontal() {
         <div className="items-center sm:mt-auto sm:flex">
           <span className="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99</span>
           <div className="flex items-center justify-between mt-4 sm:mt-0">
-            <div className="flex mr-auto sm:mr-4">
+            <div className="flex border border-neutral-300 rounded-md">
               <SfButton
                 type="button"
                 variant="tertiary"
                 square
-                className="border-l rounded-r-none border-y border-neutral-300"
+                className="rounded-r-none"
                 disabled={value <= min}
                 aria-controls={inputId}
                 aria-label="Decrease value"
@@ -68,7 +68,7 @@ export default function ProductCardHorizontal() {
                 id={inputId}
                 type="number"
                 role="spinbutton"
-                className="appearance-none px-2 border-y border-neutral-300 rounded-none text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+                className="appearance-none mx-2 w-8 text-center bg-transparent font-medium [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-inner-spin-button]:display-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:display-none [&::-webkit-outer-spin-button]:m-0 [-moz-appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none disabled:placeholder-disabled-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
                 min={min}
                 max={max}
                 value={value}
@@ -78,7 +78,7 @@ export default function ProductCardHorizontal() {
                 type="button"
                 variant="tertiary"
                 square
-                className="border-r rounded-l-none border-y border-neutral-300"
+                className="rounded-l-none"
                 disabled={value >= max}
                 aria-controls={inputId}
                 aria-label="Increase value"

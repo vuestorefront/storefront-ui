@@ -1,0 +1,58 @@
+name: Configure deployment enviroment
+on:
+  workflow_call:
+    outputs:
+      environment:
+        value: ${{ jobs.configure.outputs.environment }}
+      docker-namespace:
+        value: ${{ jobs.configure.outputs.docker-namespace }}
+      farmer-instance-name:
+        value: ${{ jobs.configure.outputs.farmer-instance-name }}
+      target-domain:
+        value: ${{ jobs.configure.outputs.target-domain }}
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    outputs:
+      environment: ${{ steps.resolve-env.outputs.env }}
+      docker-namespace: ${{ steps.resolve-env.outputs.docker-namespace }}
+      farmer-instance-name: ${{ steps.resolve-env.outputs.farmer-instance-name }}
+      target-domain: ${{ steps.resolve-env.outputs.target-domain }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v1
+      - name: Determine environment
+        shell: bash
+        id: resolve-env
+        run: |
+          REF=${{ github.ref }}
+
+          if [ $REF = 'refs/heads/v2' ]; then
+            ENV=production
+            DOCKER_NAMESPACE=sfui-storefrontcloud-io
+            FARMER_INSTANCE_NAME=sfui-europe-west1-gcp-storefrontcloud-io
+            TARGET_DOMAIN=https://docs.storefrontui.io
+          elif [[ $REF = 'refs/heads/v2-patch/*' ]]; then
+            ENV=Stage
+            DOCKER_NAMESPACE=sfui-stg-storefrontcloud-io
+            FARMER_INSTANCE_NAME=sfui-stg-europe-west1-gcp-storefrontcloud-io
+            TARGET_DOMAIN=https://docs-stg.storefrontui.io
+          elif [ $REF = 'refs/heads/v2-develop' ]; then
+            ENV=develop
+            DOCKER_NAMESPACE=sfui-dev-storefrontcloud-io
+            FARMER_INSTANCE_NAME=sfui-dev-europe-west1-gcp-storefrontcloud-io
+            TARGET_DOMAIN=https://docs-dev.storefrontui.io
+          else
+            exit 1
+          fi
+
+          echo "env=$ENV" >> $GITHUB_OUTPUT
+          echo "docker-namespace=$DOCKER_NAMESPACE" >> $GITHUB_OUTPUT
+          echo "farmer-instance-name=$FARMER_INSTANCE_NAME" >> $GITHUB_OUTPUT
+          echo "target-domain=$TARGET_DOMAIN" >> $GITHUB_OUTPUT
+          echo "Selected environment" $ENV
+          echo "Selected environment" $DOCKER_NAMESPACE
+          echo "Selected environment" $FARMER_INSTANCE_NAME
+          echo "Selected environment" $TARGET_DOMAIN
+

@@ -34,25 +34,25 @@
       <div class="items-center sm:mt-auto sm:flex">
         <span class="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99 </span>
         <div class="flex items-center justify-between mt-4 sm:mt-0">
-          <div class="flex mr-auto sm:mr-4">
+          <div class="flex border border-neutral-300 rounded-md">
             <SfButton
               type="button"
               variant="tertiary"
               :disabled="count <= min"
               square
-              class="border-l rounded-r-none border-y border-neutral-300"
-              :aria-controls="useId"
+              class="rounded-r-none"
+              :aria-controls="inputId"
               aria-label="Decrease value"
               @click="dec()"
             >
               <SfIconRemove />
             </SfButton>
             <input
-              :id="useId"
+              :id="inputId"
               v-model="count"
               type="number"
               role="spinbutton"
-              class="appearance-none px-2 border-y border-neutral-300 rounded-none text-center [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none"
+              class="appearance-none mx-2 w-8 text-center bg-transparent font-medium [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-inner-spin-button]:display-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:display-none [&::-webkit-outer-spin-button]:m-0 [-moz-appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none disabled:placeholder-disabled-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
               :min="min"
               :max="max"
               @input="handleOnChange"
@@ -62,8 +62,8 @@
               variant="tertiary"
               :disabled="count >= max"
               square
-              class="border-r rounded-l-none border-y border-neutral-300"
-              :aria-controls="useId"
+              class="rounded-l-none"
+              :aria-controls="inputId"
               aria-label="Increase value"
               @click="inc()"
             >
@@ -92,6 +92,7 @@ import { useCounter } from '@vueuse/core';
 
 const min = ref(1);
 const max = ref(10);
+const inputId = useId();
 const { count, inc, dec, set } = useCounter(1, { min: min.value, max: max.value });
 function handleOnChange(event: Event) {
   const currentValue = (event.target as HTMLInputElement)?.value;
