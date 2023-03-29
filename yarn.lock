@@ -3705,7 +3705,7 @@ __metadata:
     vue-multiselect: ^2.1.6
     vuepress: ^1.9.8
     vuepress-plugin-clean-urls: ^1.1.2
-    vuepress-theme-vsf-docs: ^1.2.16
+    vuepress-theme-vsf-docs: ^1.2.19
   languageName: unknown
   linkType: soft
 
@@ -26194,9 +26194,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vuepress-theme-vsf-docs@npm:^1.2.16":
-  version: 1.2.16
-  resolution: "vuepress-theme-vsf-docs@npm:1.2.16"
+"vuepress-theme-vsf-docs@npm:^1.2.19":
+  version: 1.2.19
+  resolution: "vuepress-theme-vsf-docs@npm:1.2.19"
   dependencies:
     "@vuepress/plugin-active-header-links": 1.9.7
     "@vuepress/plugin-nprogress": 1.9.7
@@ -26204,7 +26204,7 @@ __metadata:
     iconify-icon: ^1.0.1
     markdown-it-anchor: ^8.6.5
     vuepress-plugin-container: ^2.0.2
-  checksum: 980d7123f87185728da010a09d8fd3d26d720da977c842075a3ab468362714859f6b572b92286d4513226d207a25e226354da8e1f6dff6aaa47735579a8dab0b
+  checksum: 6271785097bba030791c7e9878b6ef840a4f16e6df74340bdb0e535bc6c1d0c7a727f4a5440e87bbfa86349d366aa3e7c4ad25a2fa6ff987e7d31e1ac1a2aae6
   languageName: node
   linkType: hard
 
