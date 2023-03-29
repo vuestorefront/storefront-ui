@@ -1,12 +1,17 @@
-import { defineNuxtModule, addComponent, addImports } from '@nuxt/kit';
+import { defineNuxtModule, addComponent, addImports, logger } from '@nuxt/kit';
 import * as storefrontUi from '@storefront-ui/vue';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
-console.log(storefrontUi);
 
-const components = Object.keys(storefrontUi).filter((key) => key.startsWith('Sf'));
-const composables = Object.keys(storefrontUi).filter(
-  (key) => key.startsWith('use') && !['useSlotsRef', 'useAttrsRef'].includes(key),
-);
+const components: string[] = [];
+const composables: string[] = [];
+
+Object.keys(storefrontUi).forEach((key) => {
+  if (key.startsWith('Sf')) {
+    components.push(key);
+  } else if (key.startsWith('use')) {
+    composables.push(key);
+  }
+});
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {
@@ -28,8 +33,9 @@ export default defineNuxtModule<ModuleOptions>({
   setup(options, nuxt) {
     const { contentPath } = options;
     if (!nuxt.options.modules.includes('@nuxtjs/tailwindcss')) {
-      nuxt.options.modules.push('@nuxtjs/tailwindcss');
-      console.warn('You need to add @nuxtjs/tailwindcss to your modules list in nuxt.config.js');
+      logger.warn(
+        'Missing module @nuxtjs/tailwindcss in the modules list in Nuxt Configuration. Please add this module.',
+      );
     }
     // @ts-ignore
     nuxt.options.tailwindcss = {
