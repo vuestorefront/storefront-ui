@@ -1,4 +1,4 @@
-import { defineNuxtModule, addComponent, addImports, installModule } from '@nuxt/kit';
+import { defineNuxtModule, addComponent, addImportsSources, installModule } from '@nuxt/kit';
 import * as storefrontUi from '@storefront-ui/vue';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
@@ -56,11 +56,10 @@ export default defineNuxtModule<ModuleOptions>({
         filePath: `@storefront-ui/vue`,
       });
     });
-    composables.forEach((key) => {
-      addImports({
-        name: key,
-        from: '@storefront-ui/vue',
-      });
+
+    addImportsSources({
+      imports: composables,
+      from: '@storefront-ui/vue',
     });
   },
 });
