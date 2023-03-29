@@ -1,0 +1,45 @@
+{
+  "name": "@storefront-ui/nuxt",
+  "version": "1.0.0",
+  "homepage": "https://docs.storefrontui.io/v2/#vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuestorefront/storefront-ui.git",
+    "directory": "packages/sfui/frameworks/nuxt"
+  },
+  "bugs": {
+    "url": "https://github.com/vuestorefront/storefront-ui/issues"
+  },
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/types.d.ts",
+      "import": "./dist/module.mjs",
+      "require": "./dist/module.cjs"
+    }
+  },
+  "main": "./dist/module.cjs",
+  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "prepack": "nuxt-module-build",
+    "dev": "nuxi dev playground",
+    "dev:build": "nuxi build playground",
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "release": "npm run lint && npm run test && npm run prepack && changelogen --release && npm publish && git push --follow-tags"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.3.2",
+    "@nuxtjs/tailwindcss": "^6.6.4",
+    "@storefront-ui/vue": "workspace:*"
+  },
+  "devDependencies": {
+    "@nuxt/eslint-config": "^0.1.1",
+    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/schema": "^3.3.2",
+    "nuxt": "^3.2.0"
+  }
+}

@@ -4,7 +4,7 @@ import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
 export default <Config>{
   presets: [tailwindConfig],
-  content: ['./**/*.vue', '../../../packages/sfui/frameworks/vue/**/*.vue'],
+  content: ['./**/*.vue', './..../../../packages/sfui/frameworks/vue/**/*.vue'],
   theme: {
     extend: {
       fontFamily: {
