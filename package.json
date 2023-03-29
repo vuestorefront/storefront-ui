@@ -28,6 +28,7 @@
     "build:docs": "turbo run build:docs",
     "build:next": "turbo run build:next",
     "build:nuxt": "turbo run build:nuxt",
+    "build:nuxt-module": "turbo run build:nuxt-module",
     "build:react": "turbo run build:react",
     "build:vue": "turbo run build:vue",
     "build:release": "turbo run build:release",
