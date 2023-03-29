@@ -9,11 +9,11 @@ on:
 jobs:
   configure-enviroment:
     name: Setup enviroment
-    uses: vuestorefront/sfui2/.github/workflows/configure-environment.yml@v2
+    uses: vuestorefront/storefront-ui/.github/workflows/configure-environment.yml@v2-develop
 
   build:
     needs: configure-enviroment
-    uses: vuestorefront/sfui2/.github/workflows/image-build-vue-storefront-cloud.yml@v2
+    uses: vuestorefront/storefront-ui/.github/workflows/image-build-vue-storefront-cloud.yml@v2-develop
     secrets: inherit
     with:
       DOCKER_NAMESPACE: ${{ needs.configure-enviroment.outputs.docker-namespace }}
@@ -23,7 +23,7 @@ jobs:
 
   deploy:
     needs: [ build, configure-enviroment ]
-    uses: vuestorefront/sfui2/.github/workflows/deploy-docker-image-vue-storefront-cloud.yml@v2
+    uses: vuestorefront/storefront-ui/.github/workflows/deploy-docker-image-vue-storefront-cloud.yml@v2-develop
     secrets: inherit
     permissions:
       deployments: write
