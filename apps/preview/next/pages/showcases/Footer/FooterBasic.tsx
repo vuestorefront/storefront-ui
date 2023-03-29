@@ -10,7 +10,7 @@ import {
   SfIconTwitter,
   SfIconYoutube,
   SfButton,
-  SfLink
+  SfLink,
 } from '@storefront-ui/react';
 import classNames from 'classnames';
 
@@ -24,19 +24,19 @@ const categories = [
       },
       {
         label: 'Order pickup',
-        link: '/',
+        link: '/order',
       },
       {
         label: 'Purchase status',
-        link: '/',
+        link: '/purchase',
       },
       {
         label: 'Track orders',
-        link: '/',
+        link: '/track',
       },
       {
         label: 'Returns',
-        link: '/',
+        link: '/returns',
       },
     ],
   },
@@ -45,19 +45,19 @@ const categories = [
     subcategories: [
       {
         label: 'Help centers',
-        link: '/',
+        link: '/help',
       },
       {
         label: 'Security & fraud',
-        link: '/',
+        link: '/security',
       },
       {
         label: 'Feedback',
-        link: '/',
+        link: '/feedback',
       },
       {
         label: 'Contact',
-        link: '/',
+        link: '/contact',
       },
     ],
   },
@@ -66,19 +66,19 @@ const categories = [
     subcategories: [
       {
         label: 'Gift cards',
-        link: '/',
+        link: '/gift',
       },
       {
         label: 'Order pickup',
-        link: '/',
+        link: '/order',
       },
       {
         label: 'Purchase status',
-        link: '/',
+        link: '/purchase',
       },
       {
         label: 'Track orders',
-        link: '/',
+        link: '/track',
       },
     ],
   },
@@ -87,23 +87,23 @@ const categories = [
     subcategories: [
       {
         label: 'About us',
-        link: '/',
+        link: '/about',
       },
       {
         label: 'Order pickup',
-        link: '/',
+        link: '/order',
       },
       {
         label: 'Purchase status',
-        link: '/',
+        link: '/purchase',
       },
       {
         label: 'Track orders',
-        link: '/',
+        link: '/track',
       },
       {
         label: 'Returns',
-        link: '/',
+        link: '/returns',
       },
     ],
   },
@@ -111,46 +111,46 @@ const categories = [
 const socialMedia = [
   {
     label: 'Facebook',
-    link: '/',
+    link: '/facebook',
     icon: 'SfIconFacebook',
   },
   {
     label: 'Twitter',
-    link: '/',
+    link: '/twitter',
     icon: 'SfIconTwitter',
   },
   {
     label: 'Instagram',
-    link: '/',
+    link: '/instagram',
     icon: 'SfIconInstagram',
   },
   {
     label: 'Pinterest',
-    link: '/',
+    link: '/pinterest',
     icon: 'SfIconPinterest',
   },
   {
     label: 'Youtube',
-    link: '/',
+    link: '/youtube',
     icon: 'SfIconYoutube',
   },
 ];
 const contactOptions = [
   {
     label: 'Help center',
-    link: '/',
+    link: '/help',
     details: ['Find answers online anytime'],
     icon: 'SfIconHelp',
   },
   {
     label: 'Live chat',
-    link: '/',
+    link: '/live',
     details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
     icon: 'SfIconContactSupport',
   },
   {
     label: '1 234 567 8901',
-    link: '/',
+    link: '/tel',
     details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
     icon: 'SfIconCall',
   },
@@ -158,11 +158,11 @@ const contactOptions = [
 const bottomLinks = [
   {
     label: 'Terms',
-    link: '/',
+    link: '/terms',
   },
   {
     label: 'Privacy policy',
-    link: '/',
+    link: '/privacy',
   },
 ];
 
@@ -180,35 +180,43 @@ const iconsMap: {
 };
 export default function FooterBasic() {
   return (
-    <div className="pt-10 bg-gray-100">
-      <div className="grid justify-center grid-cols-[1fr_1fr] medium:grid-cols-[repeat(4,1fr)] px-4 medium:px-6 pb-10 max-w-[1536px] mx-auto">
+    <div className="pt-10 bg-neutral-100">
+      <div className="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-[1536px] mx-auto">
         {categories.map((category) => (
-          <p className="min-w-[25%] extra-small:min-w-[50%] extra-small:pb-4" key={category.label}>
-            <div className="text-lg font-medium leading-7 text-gray-900 font-body">{category.label}</div>
+          <div className="min-w-[25%] xs:min-w-[50%] xs:pb-4" key={category.label}>
+            <div className="text-lg font-medium leading-7 text-neutral-900 font-body">{category.label}</div>
             {category.subcategories?.map((subcategory) => (
-              <p className="py-2 text-gray-600 font-body" key={subcategory.label}>
-                <SfLink href={subcategory.link}>
-                  <a>{subcategory.label}</a>
+              <p className="py-2 typography-text-sm font-body" key={subcategory.label}>
+                <SfLink
+                  className="no-underline text-neutral-600 hover:underline hover:text-neutral-900 active:underline active:text-neutral-900"
+                  variant="secondary"
+                  href={subcategory.link}
+                >
+                  {subcategory.label}
                 </SfLink>
               </p>
             ))}
-          </p>
+          </div>
         ))}
       </div>
       <hr />
-      <div className="py-10 large:flex large:mx-auto max-w-[1536px]">
+      <div className="py-10 lg:flex lg:mx-auto max-w-[1536px]">
         {contactOptions.map((contactOption) => {
           const Icon = iconsMap[contactOption.icon];
           return (
             <div className="mx-auto my-4 text-center" key={contactOption.label}>
               <Icon size="lg" />
-              <p className="py-1 my-2 text-lg font-medium leading-7 text-gray-900 font-body">
-                <SfLink href={contactOption.link}>
-                  <a>{contactOption.label}</a>
+              <p className="py-1 my-2 font-medium typography-text-lg font-body">
+                <SfLink
+                  variant="secondary"
+                  className="no-underline text-neutral-600 hover:underline hover:text-neutral-900 active:underline active:text-neutral-900"
+                  href={contactOption.link}
+                >
+                  {contactOption.label}
                 </SfLink>
               </p>
               {contactOption.details?.map((option) => (
-                <p className="text-sm leading-5 text-gray-600 font-body" key={option}>
+                <p className="text-sm leading-5 text-neutral-600 font-body" key={option}>
                   {option}
                 </p>
               ))}
@@ -216,31 +224,39 @@ export default function FooterBasic() {
           );
         })}
       </div>
-      <div className="bg-gray-900 justify-end px-4 py-10 large:flex large:py-6 max-w-[1536px] mx-auto">
-        <div className="flex justify-center py-2 large:self-start">
+      <div className="bg-neutral-900 justify-end px-4 py-10 lg:flex lg:py-6 max-w-[1536px] mx-auto">
+        <div className="flex justify-center py-2 lg:self-start">
           {socialMedia.map((social) => {
             const Icon = iconsMap[social.icon];
             return (
-              <p className="mr-4 text-white" key={social.label}>
-                <SfLink href={social.link}>
-                  <a aria-label={`Go to ${social.label} page`}>
-                    <Icon />
-                  </a>
-                </SfLink>
+              <p className="mr-4" key={social.label}>
+                <SfButton
+                  as="a"
+                  variant="tertiary"
+                  className="text-white active:text-white hover:text-white hover:bg-neutral-500 active:bg-transparent"
+                  href={social.link}
+                  aria-label={`Go to ${social.label} page`}
+                >
+                  <Icon />
+                </SfButton>
               </p>
             );
           })}
         </div>
-        <div className="flex justify-center gap-6 py-2 my-4 large:ml-auto large:my-0">
+        <div className="flex justify-center gap-6 py-2 my-4 lg:ml-auto lg:my-0">
           {bottomLinks.map((bottomLink) => (
-            <p className="text-white font-body" key={bottomLink.label}>
-              <SfLink href={bottomLink.link}>
-                <a>{bottomLink.label}</a>
+            <p className="flex items-center font-body" key={bottomLink.label}>
+              <SfLink
+                variant="secondary"
+                className="text-white no-underline active:text-white active:underline hover:text-white hover:underline"
+                href={bottomLink.link}
+              >
+                {bottomLink.label}
               </SfLink>
             </p>
           ))}
         </div>
-        <p className="py-2 text-sm leading-5 text-center text-white/50 font-body large:ml-6">Vue Storefront</p>
+        <p className="flex items-center justify-center py-2 text-sm leading-5 text-center text-white/50 font-body lg:ml-6">@2023 Vue Storefront</p>
       </div>
     </div>
   );
