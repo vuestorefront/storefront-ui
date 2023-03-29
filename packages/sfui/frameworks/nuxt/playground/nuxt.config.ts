@@ -1,8 +1,7 @@
 // @ts-nocheck
 
 export default defineNuxtConfig({
-  modules: ['../src/module', '@nuxtjs/tailwindcss'],
-  tailwindcss: {},
+  modules: ['../src/module'],
   storefrontUi: {
     contentPath: './../../../../node_modules/@storefront-ui/vue/dist/**/*.mjs',
   },

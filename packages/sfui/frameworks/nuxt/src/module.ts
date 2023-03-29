@@ -1,17 +1,6 @@
-import { defineNuxtModule, addComponent, addImports, logger } from '@nuxt/kit';
+import { defineNuxtModule, addComponent, addImports, installModule } from '@nuxt/kit';
 import * as storefrontUi from '@storefront-ui/vue';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
-
-const components: string[] = [];
-const composables: string[] = [];
-
-Object.keys(storefrontUi).forEach((key) => {
-  if (key.startsWith('Sf')) {
-    components.push(key);
-  } else if (key.startsWith('use')) {
-    composables.push(key);
-  }
-});
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {
@@ -30,13 +19,9 @@ export default defineNuxtModule<ModuleOptions>({
   defaults: {
     contentPath: './node_modules/@storefront-ui/vue/**/*.mjs',
   },
-  setup(options, nuxt) {
+  async setup(options, nuxt) {
     const { contentPath } = options;
-    if (!nuxt.options.modules.includes('@nuxtjs/tailwindcss')) {
-      logger.warn(
-        'Missing module @nuxtjs/tailwindcss in the modules list in Nuxt Configuration. Please add this module.',
-      );
-    }
+
     // @ts-ignore
     nuxt.options.tailwindcss = {
       // @ts-ignore
@@ -48,6 +33,21 @@ export default defineNuxtModule<ModuleOptions>({
         ...nuxt.options.tailwindcss?.config,
       },
     };
+
+    if (!nuxt.options.modules.includes('@nuxtjs/tailwindcss')) {
+      await installModule('@nuxtjs/tailwindcss');
+    }
+
+    const components: string[] = [];
+    const composables: string[] = [];
+
+    Object.keys(storefrontUi).forEach((key) => {
+      if (key.startsWith('Sf')) {
+        components.push(key);
+      } else if (key.startsWith('use')) {
+        composables.push(key);
+      }
+    });
 
     components.forEach((key) => {
       addComponent({
