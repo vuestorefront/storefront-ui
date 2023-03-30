@@ -10,8 +10,6 @@ description: The Footer block is used as navigation. Usually it's at the bottom 
 
 ## Footer basic block
 
-The basic footer block.
-
 <Showcase showcase-name="Footer/FooterBasic" style="min-height: 750px;">
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Footer/FooterBasic.vue
