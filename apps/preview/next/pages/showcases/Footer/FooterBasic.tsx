@@ -200,7 +200,7 @@ export default function FooterBasic() {
         ))}
       </div>
       <hr />
-      <div className="py-10 lg:flex lg:mx-auto max-w-[1536px]">
+      <div className="py-10 md:flex md:mx-auto max-w-[1536px]">
         {contactOptions.map((contactOption) => {
           const Icon = iconsMap[contactOption.icon];
           return (
@@ -224,8 +224,8 @@ export default function FooterBasic() {
           );
         })}
       </div>
-      <div className="bg-neutral-900 justify-end px-4 py-10 lg:flex lg:py-6 max-w-[1536px] mx-auto">
-        <div className="flex justify-center py-2 lg:self-start">
+      <div className="bg-neutral-900 justify-end px-4 py-10 md:flex md:py-6 max-w-[1536px] mx-auto">
+        <div className="flex justify-center py-2 md:self-start">
           {socialMedia.map((social) => {
             const Icon = iconsMap[social.icon];
             return (
@@ -233,7 +233,7 @@ export default function FooterBasic() {
                 <SfButton
                   as="a"
                   variant="tertiary"
-                  className="text-white active:text-white hover:text-white hover:bg-neutral-500 active:bg-transparent"
+                  className="text-white active:text-white hover:text-white hover:!bg-neutral-500 active:bg-transparent"
                   href={social.link}
                   aria-label={`Go to ${social.label} page`}
                 >
@@ -243,7 +243,7 @@ export default function FooterBasic() {
             );
           })}
         </div>
-        <div className="flex justify-center gap-6 py-2 my-4 lg:ml-auto lg:my-0">
+        <div className="flex justify-center gap-6 py-2 my-4 md:ml-auto md:my-0">
           {bottomLinks.map((bottomLink) => (
             <p className="flex items-center font-body" key={bottomLink.label}>
               <SfLink
@@ -256,7 +256,7 @@ export default function FooterBasic() {
             </p>
           ))}
         </div>
-        <p className="flex items-center justify-center py-2 text-sm leading-5 text-center text-white/50 font-body lg:ml-6">@2023 Vue Storefront</p>
+        <p className="flex items-center justify-center py-2 text-sm leading-5 text-center text-white/50 font-body md:ml-6">@2023 Vue Storefront</p>
       </div>
     </div>
   );
