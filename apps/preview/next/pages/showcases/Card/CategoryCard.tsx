@@ -25,16 +25,16 @@ export default function CategoryCard() {
     <div className="flex flex-wrap gap-4 lg:gap-6 lg:flex-no-wrap">
       {categories.map(({ title, image }) => (
         <div
-          className="relative first-letter:flex flex-col w-max-[280px] justify-center overflow-hidden group"
+          className="relative min-w-[180px] first-letter:flex flex-col max-w-[240px] justify-center group"
           key={title}
         >
-          <SfLink className="absolute w-full h-full z-1" href="/" aria-label={title} />
+          <SfLink className="absolute w-full h-full z-1 focus-visible:rounded-md" href="/" aria-label={title} />
           <img
-            className="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none focus:outline focus:outline-offset focus:rounded-md"
+            className="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none"
             src={image}
             alt={title}
-            width={280}
-            height={280}
+            width={240}
+            height={240}
           />
           <div className="flex justify-center">
             <SfLink
