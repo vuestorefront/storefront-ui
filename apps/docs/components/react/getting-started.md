@@ -117,8 +117,30 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/ap
 
 </SourceCode>
 
-::: tip
-In Next.js 13 environments that are not using [App Router](https://beta.nextjs.org/docs/api-reference/next-config#appdir) there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
+### Next.js 13 Notes
+
+#### With App Directory
+
+Next.js 13 introduces a new [`app/`](https://beta.nextjs.org/docs/api-reference/next-config#appdir) directory. When using the App Directory, your project will default to using Server Components. However, components from Storefront UI need to be used in [client components](https://beta.nextjs.org/docs/rendering/server-and-client-components#client-components).
+
+This means that you'll have to add the [`"use client"`](https://beta.nextjs.org/docs/rendering/server-and-client-components#convention) directive at the top of any file that imports Storefront UI components.
+
+```jsx
+'use client';
+import { SfButton } from '@storefront-ui/react';
+
+export default function ButtonDemo() {
+  return (
+    <>
+      <SfButton>Click me!</SfButton>
+    </>
+  );
+}
+```
+
+#### Without App Directory
+
+In Next.js 13 environments that are not using the [`/app`](https://beta.nextjs.org/docs/api-reference/next-config#appdir) directory, there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
 
 As a workaround, you can add `transpilePackages: ['@storefront-ui/react']` to your `next.config.js` configuration file:
 
@@ -132,7 +154,6 @@ const nextConfig = {
 module.exports = nextConfig
 ```
 
-:::
 ::::::
 
 :::::: slot vite
