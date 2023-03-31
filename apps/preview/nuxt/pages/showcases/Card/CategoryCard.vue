@@ -3,11 +3,11 @@
     <div
       v-for="{ title, image } in categories"
       :key="title"
-      class="relative first-letter:flex flex-col w-[280px] justify-center overflow-hidden group focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
+      class="relative first-letter:flex flex-col w-[280px] justify-center overflow-hidden group"
     >
       <SfLink class="absolute w-full h-full z-1" href="/" :aria-label="title" />
       <img
-        class="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none"
+        class="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
         :src="image"
         :alt="title"
         :width="280"

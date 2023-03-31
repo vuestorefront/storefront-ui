@@ -2,7 +2,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfLink } from '@storefront-ui/react';
-import Image from 'next/image';
 import men from '@assets/men_category.png';
 import women from '@assets/women_category.png';
 import kid from '@assets/kid_category.png';
@@ -30,8 +29,8 @@ export default function CategoryCard() {
           key={title}
         >
           <SfLink className="absolute w-full h-full z-1" href="/" aria-label={title} />
-          <Image
-            className="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none"
+          <img
+            className="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none focus:outline focus:outline-offset focus:rounded-md"
             src={image}
             alt={title}
             width={280}
