@@ -3,30 +3,32 @@
     <div
       v-for="{ title, image } in categories"
       :key="title"
-      class="relative first-letter:flex flex-col min-w-[140px] max-w-[240px] justify-center group"
+      class="relative flex-col min-w-[140px] max-w-[240px] justify-center group"
     >
-      <SfLink class="absolute w-full h-full z-1 focus-visible:rounded-md" href="/" :aria-label="title" />
+      <a
+        class="absolute w-full h-full z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
+        href="/"
+        :aria-label="title"
+      />
       <img
-        class="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
+        class="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none"
         :src="image"
         :alt="title"
         :width="240"
         :height="240"
       />
       <div class="flex justify-center">
-        <SfLink
-          variant="secondary"
-          class="mt-4 font-semibold no-underline !text-normal-900 typography-text-base group-hover:underline group-hover:text-primary-800 group-hover:font-normal group-active:text-primary-800 group-active:font-normal"
+        <a
+          class="mt-4 font-semibold no-underline text-normal-900 typography-text-base group-hover:underline group-hover:text-primary-800 group-hover:font-normal group-active:text-primary-800 group-active:font-normal"
         >
           {{ title }}
-        </SfLink>
+        </a>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { SfLink } from '@storefront-ui/vue';
 import men from '@assets/men_category.png';
 import women from '@assets/women_category.png';
 import kid from '@assets/kid_category.png';
