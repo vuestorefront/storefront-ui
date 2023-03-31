@@ -4,6 +4,9 @@ hideBreadcrumbs: true
 ---
 # Chip
 
+::: warning This is an experimental component
+This component is shipped in our NPM package, but its API might change based on user feedback.
+:::
 ::: slot usage
 `SfChip` is a toggleable input element. It can be a good alternative to toggle buttons, radio buttons, and single select menus. 
 

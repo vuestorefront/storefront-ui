@@ -22,3 +22,17 @@ The default card view with a rectangle shaped image, a title, a description and 
 
 </Showcase>
 
+## Card Feature
+
+This type of card has only button to interact.
+
+<Showcase showcase-name="Card/CardFeature" style="min-height: 600px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Card/CardFeature.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Card/CardFeature.tsx#source
+<!-- end react -->
+
+</Showcase>

@@ -1,3 +1,4 @@
+require('dotenv').config()
 const components = require('../utils/components.json');
 const showcases = require('../utils/blocks.json');
 const hooks = require('../utils/hooks.json');
@@ -6,7 +7,7 @@ const { generateComponentPath } = require('./utils/path.util');
 const DOCS_EXAMPLES_REACT_PATH = process.env.VITE_DOCS_EXAMPLES_REACT_PATH;
 const DOCS_EXAMPLES_VUE_PATH = process.env.VITE_DOCS_EXAMPLES_VUE_PATH;
 const FIGMA_URL =
-  'https://www.figma.com/file/Y9mMfUVXAfH3qvUWrOAZa2/Storefront-UI-%7C-Design-Kit?node-id=20697-75059&t=cfzx4cpxb16BsXE8-0';
+  'https://www.figma.com/file/Y9mMfUVXAfH3qvUWrOAZa2/Storefront-UI-%7C-Design-Kit-(public)?t=DE1wWHucnUn4WG6I-6';
 const GTAG = 'G-BL2CYW4NJ5';
 const convertComponentPathsToLinks = (paths, slug, type) =>
   paths.map((c) => [generateComponentPath(slug, c, type), c.replace('Sf', '')]);
@@ -128,24 +129,25 @@ module.exports = {
     DOCS_EXAMPLES_REACT_PATH,
     DOCS_EXAMPLES_VUE_PATH,
     FIGMA_URL,
+    coreDocs: false,
     title: 'Storefront UI',
     repo: 'https://github.com/vuestorefront/storefront-ui',
     docsRepoPath: 'https://github.com/vuestorefront/storefront-ui/tree/v2/apps/docs/components/', // used to generate direct edit links on docs pages.
     secondaryNav: {
       '/react/': [
-        { text: 'Getting Started', link: '/react/getting-started' },
-        { text: 'Base Components', link: '/react/components' },
-        { text: 'Blocks', link: '/react/blocks' },
+        { text: 'Getting Started', link: '/react/getting-started.html' },
+        { text: 'Base Components', link: '/react/components.html' },
+        { text: 'Blocks', link: '/react/blocks.html' },
       ],
       '/vue/': [
-        { text: 'Getting Started', link: '/vue/getting-started' },
-        { text: 'Base Components', link: '/vue/components' },
-        { text: 'Blocks', link: '/vue/blocks' },
+        { text: 'Getting Started', link: '/vue/getting-started.html' },
+        { text: 'Base Components', link: '/vue/components.html' },
+        { text: 'Blocks', link: '/vue/blocks.html' },
       ],
       '/': [
-        { text: 'Getting Started', link: '/vue/getting-started' },
-        { text: 'Base Components', link: '/vue/components' },
-        { text: 'Blocks', link: '/vue/blocks' },
+        { text: 'Getting Started', link: '/vue/getting-started.html' },
+        { text: 'Base Components', link: '/vue/components.html' },
+        { text: 'Blocks', link: '/vue/blocks.html' },
       ],
     },
     mobileMenu: [
