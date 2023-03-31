@@ -43,7 +43,7 @@ export default function CardDefault() {
             href="/"
             aria-label={title}
           />
-          <img src={image.src} alt="Card alt" className="object-cover h-auto rounded-t-md aspect-video" />
+          <img src={image.src} alt={title} className="object-cover h-auto rounded-t-md aspect-video" />
           <div className="flex flex-col items-start p-4 grow">
             <p className="font-medium typography-text-base">{title}</p>
             <p className="mt-1 mb-4 font-normal typography-text-sm text-neutral-700">{description}</p>
