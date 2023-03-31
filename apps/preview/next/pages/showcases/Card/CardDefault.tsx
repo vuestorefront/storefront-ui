@@ -30,7 +30,7 @@ const cardDetails = [
   },
 ];
 
-export default function CardFeature() {
+export default function CardDefault() {
   return (
     <div className="flex flex-wrap gap-4 lg:gap-6 lg:flex-nowrap">
       {cardDetails.map(({ image, title, description, button }) => (
@@ -57,4 +57,4 @@ export default function CardFeature() {
   );
 }
 // #endregion source
-CardFeature.getLayout = ShowcasePageLayout;
+CardDefault.getLayout = ShowcasePageLayout;
