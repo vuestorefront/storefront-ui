@@ -33,18 +33,15 @@ export default function CardDefault() {
     <div className="flex flex-wrap gap-4 lg:gap-6 lg:flex-nowrap">
       {cardDetails.map(({ icon, title, description, buttonText, isDisabled }) => (
         <div key={title} className="flex flex-col min-w-[325px] w-[375px] lg:w-[496px] items-center">
-          <span className={classNames(isDisabled && 'text-disabled-900')}>
-            {icon}
-          </span>
+          <span className={classNames(isDisabled && 'text-disabled-900')}>{icon}</span>
           <div className="p-4 flex flex-col items-center">
             <p className={classNames('font-medium typography-text-base', { 'text-disabled-900': isDisabled })}>
               {title}
             </p>
             <p
-              className={classNames(
-            'mt-1 mb-4 font-normal typography-text-sm text-neutral-700 text-center',
-            { 'text-disabled-700': isDisabled },
-              )}
+              className={classNames('mt-1 mb-4 font-normal typography-text-sm text-neutral-700 text-center', {
+                'text-disabled-700': isDisabled,
+              })}
             >
               {description}
             </p>
