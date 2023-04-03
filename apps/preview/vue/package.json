@@ -46,7 +46,7 @@
     "chokidar-cli": "^3.0.0",
     "concurrently": "^7.6.0",
     "cpy-cli": "^4.2.0",
-    "cypress": "^11.0.1",
+    "cypress": "^12.9.0",
     "eslint": "^8.34.0",
     "eslint-plugin-cypress": "^2.12.1",
     "eslint-plugin-vue": "^9.9.0",

@@ -20,6 +20,20 @@ Learn more about `useTooltip` composable in the [Composables > useTooltip docs](
 <!-- end vue -->
 :::
 
+## Examples
+
+### Basic Usage
+
+<Showcase showcase-name="Tooltip/BasicTooltip">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Tooltip/BasicTooltip.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Tooltip/BasicTooltip.tsx#source
+<!-- end react -->
+</Showcase>
+
 ## Accessibility notes
 
 By default, this component sets `role="tooltip"`.
