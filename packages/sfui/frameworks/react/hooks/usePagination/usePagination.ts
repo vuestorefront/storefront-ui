@@ -29,8 +29,8 @@ export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxP
     selectedPage,
     endPage: pagination.endPage,
     startPage: pagination.startPage,
-    next: setSelectedPage((pagination.currentPage += 1)),
-    prev: setSelectedPage((pagination.currentPage -= 1)),
-    onPageChange: setSelectedPage((pagination.currentPage -= 1)),
+    next: () => setSelectedPage((pagination.currentPage += 1)),
+    prev: () => setSelectedPage((pagination.currentPage -= 1)),
+    onPageChange: (newPage: number) => setSelectedPage((pagination.currentPage = newPage)),
   };
 }
