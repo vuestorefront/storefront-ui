@@ -1,3 +1,4 @@
+/* eslint-disable no-return-assign */
 import { useState, useEffect } from 'react';
 import paginate from 'jw-paginate';
 
@@ -20,18 +21,6 @@ export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxP
     setPagination(paginate(totalItems, selectedPage, pageSize, maxPages));
   }, [totalItems, selectedPage, pageSize, maxPages]);
 
-  const onPageChange = (page: number) => {
-    setSelectedPage(page);
-  };
-
-  const next = () => {
-    setSelectedPage((pagination.currentPage += 1));
-  };
-
-  const prev = () => {
-    setSelectedPage((pagination.currentPage -= 1));
-  };
-
   return {
     totalPages: pagination.totalPages,
     maxVisiblePages: maxPages,
@@ -40,8 +29,8 @@ export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxP
     selectedPage,
     endPage: pagination.endPage,
     startPage: pagination.startPage,
-    next,
-    prev,
-    onPageChange,
+    next: setSelectedPage((pagination.currentPage += 1)),
+    prev: setSelectedPage((pagination.currentPage -= 1)),
+    onPageChange: setSelectedPage((pagination.currentPage -= 1)),
   };
 }
