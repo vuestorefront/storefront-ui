@@ -1,7 +1,14 @@
 import { useState, useEffect } from 'react';
 import paginate from 'jw-paginate';
 
-export function usePagination(totalItems: number, currentPage = 1, pageSize = 10, maxPages = 1) {
+interface UsePaginationParameters {
+  totalItems: number;
+  currentPage?: number;
+  pageSize?: number;
+  maxPages?: number;
+}
+
+export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxPages = 1 }: UsePaginationParameters) {
   const [pagination, setPagination] = useState(paginate(totalItems, currentPage, pageSize, maxPages));
   const [selectedPage, setSelectedPage] = useState(currentPage);
 

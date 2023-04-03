@@ -17,7 +17,7 @@
       <li v-if="!pages.find((page) => page === 1)">
         <div
           :class="[
-            'flex pt-1  border-t-4 border-transparent',
+            'flex pt-1 border-t-4 border-transparent',
             { 'font-medium border-t-4 !border-primary-500': selectedPage === 1 },
           ]"
         >
@@ -51,14 +51,14 @@
       <li v-for="page in pages" :key="`page-${page}`">
         <div
           :class="[
-            'flex pt-1 border-t-4 border-transparent ',
+            'flex pt-1 border-t-4 border-transparent',
             { 'font-medium border-t-4 !border-primary-500': selectedPage === page },
           ]"
         >
           <button
             type="button"
             :class="[
-              ' px-4 py-3 text-neutral-500 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ',
+              'px-4 py-3 text-neutral-500 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
               { '!text-neutral-900 hover:!text-primary-800 active:!text-primary-900': selectedPage === page },
             ]"
             :aria-label="`Page ${page} of ${totalPages}`"
@@ -89,7 +89,7 @@
       <li v-if="!pages.find((page) => page === totalPages)">
         <div
           :class="[
-            'flex pt-1 border-t-4 border-transparent ',
+            'flex pt-1 border-t-4 border-transparent',
             { 'font-medium border-t-4 !border-primary-500': selectedPage === totalPages },
           ]"
         >
@@ -124,5 +124,10 @@
 import { SfButton, SfIconChevronLeft, SfIconChevronRight, usePagination } from '@storefront-ui/vue';
 
 const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } =
-  usePagination(150);
+  usePagination({
+    totalItems: 150,
+    currentPage: 2,
+    pageSize: 10,
+    maxPages: 1,
+  });
 </script>

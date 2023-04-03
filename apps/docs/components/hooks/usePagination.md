@@ -18,7 +18,9 @@ The `usePagination` allows you to add logic to your pagination UI. With this <!-
 import { usePagination, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 
 function CustomPagination() {
-   const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } = usePagination(150);
+   const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } = usePagination({
+    totalItems: 150
+  });
 
   return (
     <nav className="flex justify-between border-t border-neutral-200" role="navigation" aria-label="pagination">
@@ -34,7 +36,7 @@ function CustomPagination() {
         {!pages.find((page: number) => page === 1) && (
           <li>
             <div
-              className={classNames('flex pt-1  border-t-4 border-transparent', {
+              className={classNames('flex pt-1 border-t-4 border-transparent', {
                 'font-medium border-t-4 !border-primary-500': selectedPage === 1,
               })}
             >
@@ -88,7 +90,7 @@ function CustomPagination() {
                 <button
                   type="button"
                   className={classNames(
-                    ' px-4 py-3 text-neutral-500 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ',
+                    'px-4 py-3 text-neutral-500 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
                     { '!text-neutral-900 hover:!text-primary-800 active:!text-primary-900': selectedPage === page },
                   )}
                   aria-label={`Page ${page} of ${totalPages}`}
@@ -163,7 +165,9 @@ function CustomPagination() {
 <script lang="ts" setup>
 import { usePagination, SfIconChevronRight, SfIconChevronLeft, SfButton } from '@storefront-ui/vue';
 
-const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } = usePagination(150);
+const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } = usePagination({
+  totalItems: 150
+});
 </script>
 
 <template>
@@ -184,7 +188,7 @@ const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageC
       <li v-if="!pages.find((page) => page === 1)">
         <div
           :class="[
-            'flex pt-1  border-t-4 border-transparent',
+            'flex pt-1 border-t-4 border-transparent',
             { 'font-medium border-t-4 !border-primary-500': selectedPage === 1 },
           ]"
         >
@@ -293,30 +297,32 @@ const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageC
 
 ## Parameters
 
+Listed parameters should be passed as object.
+
 | Name        | Type                  | Default value | Description                                  |
 | ---------   | --------------------- | ------------- | -------------------------------------------  |
-| totalItems  | number                |               | total number of items to be be displayed     |
-| currentPage | number                |  1            | current active page                          |
-| pageSize    | number                |  10           | number of items per page                     |
-| maxPages    | number                |  1            | maximum number of pages to display*          |
+| totalItems\*  | `number`            |               | total number of items to be be displayed    |
+| currentPage   | `number`            |  `1`          | current active page                       |
+| pageSize      | `number`            |  `10`         | number of items per page                  |
+| maxPages      | `number`            |  `1`          | maximum number of pages to display**       |
 
-*there is an additional page displayed when the default number (`1`) is passed. When the current number is `1` then page `2` and the last pages are visible. When the penultimate page is the current one then pages `1` and the last one are visible.
+**there is an additional page displayed when the default number (`1`) is passed. When the current number is `1` then page `2` and the last pages are visible. When the penultimate page is the current one then pages `1` and the last one are visible.
  
 
 ## Return value
 
 | Name            | Type              | Default value | Description                                        |
 | ---------        | --------------   | ------------- | -------------------------------------------        |
-| totalPages       | number           |               | total number of pages                              |
-| maxVisiblePages  | number           |               | total number of pages                              |
-| itemsPerPage     | number           |               | total number of pages                              |
-| pages            | number[]         |               | array of displayed pages                           |
-| selectedPage     | number           |               | current page                                       |
-| endPage          | number           |               | number of the last page from displayed pages       |
-| startPage        | number           |               | number of the first page from displayed pages      |
-| next             | function         |               | triggers jump to next page                         |
-| prev             | function         |               | triggers jump to previous page                     |
-| onPageChange     | function         |               | triggers jump to page number passed as parameter   |
+| totalPages       | `number`           |               | total number of pages                              |
+| maxVisiblePages  | `number`           |               | total number of pages                              |
+| itemsPerPage     | `number`           |               | total number of pages                              |
+| pages            | `number[]`         |               | array of displayed pages                           |
+| selectedPage     | `number`           |               | current page                                       |
+| endPage          | `number`           |               | number of the last page from displayed pages       |
+| startPage        | `number`           |               | number of the first page from displayed pages      |
+| next             | `function`         |               | triggers jump to next page                         |
+| prev             | `function`         |               | triggers jump to previous page                     |
+| onPageChange     | `function`         |               | triggers jump to page number passed as parameter   |
 
 :::
 

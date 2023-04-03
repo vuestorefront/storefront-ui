@@ -5,7 +5,12 @@ import classNames from 'classnames';
 
 export function Showcase() {
   const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } =
-    usePagination(150, 2, 6, 4);
+    usePagination({
+      totalItems: 150,
+      currentPage: 2,
+      pageSize: 10,
+      maxPages: 1,
+    });
 
   return (
     <nav className="flex justify-between border-t border-neutral-200" role="navigation" aria-label="pagination">
@@ -24,7 +29,7 @@ export function Showcase() {
         {!pages.find((page: number) => page === 1) && (
           <li>
             <div
-              className={classNames('flex pt-1  border-t-4 border-transparent', {
+              className={classNames('flex pt-1 border-t-4 border-transparent', {
                 'font-medium border-t-4 !border-primary-500': selectedPage === 1,
               })}
             >
@@ -71,14 +76,14 @@ export function Showcase() {
             )}
             <li key={`page-${page}`}>
               <div
-                className={classNames('flex pt-1 border-t-4 border-transparent ', {
+                className={classNames('flex pt-1 border-t-4 border-transparent', {
                   'font-medium border-t-4 !border-primary-500': selectedPage === page,
                 })}
               >
                 <button
                   type="button"
                   className={classNames(
-                    ' px-4 py-3 text-neutral-500 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ',
+                    'px-4 py-3 text-neutral-500 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
                     { '!text-neutral-900 hover:!text-primary-800 active:!text-primary-900': selectedPage === page },
                   )}
                   aria-label={`Page ${page} of ${totalPages}`}
@@ -117,7 +122,7 @@ export function Showcase() {
         {!pages.find((page: number) => page === totalPages) && (
           <li>
             <div
-              className={classNames('flex pt-1 border-t-4 border-transparent ', {
+              className={classNames('flex pt-1 border-t-4 border-transparent', {
                 'font-medium border-t-4 !border-primary-500': selectedPage === totalPages,
               })}
             >
