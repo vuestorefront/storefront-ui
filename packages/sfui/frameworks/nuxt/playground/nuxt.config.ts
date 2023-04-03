@@ -1,7 +1,5 @@
-// @ts-nocheck
-
 export default defineNuxtConfig({
-  modules: ['../src/module'],
+  modules: ['../src/module.ts'],
   storefrontUi: {
     contentPath: './../../../../node_modules/@storefront-ui/vue/dist/**/*.mjs',
   },
@@ -12,4 +10,17 @@ export default defineNuxtConfig({
       exclude: [/.*dist\/index\.mjs/],
     },
   },
-});
+  tailwindcss: {
+    config: {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              700: '#1e1e1e',
+            },
+          },
+        },
+      },
+    },
+  },
+} as any);

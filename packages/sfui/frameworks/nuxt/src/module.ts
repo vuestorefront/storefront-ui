@@ -1,7 +1,7 @@
 import { defineNuxtModule, addComponent, addImportsSources, installModule } from '@nuxt/kit';
 import * as storefrontUi from '@storefront-ui/vue';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
-
+import { NuxtConfig } from '@nuxt/schema';
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   contentPath?: string;
@@ -22,15 +22,15 @@ export default defineNuxtModule<ModuleOptions>({
   async setup(options, nuxt) {
     const { contentPath } = options;
 
-    // @ts-ignore
-    nuxt.options.tailwindcss = {
-      // @ts-ignore
-      ...nuxt.options.tailwindcss,
+    const nuxtOptions = nuxt.options as unknown as NuxtConfig;
+
+    nuxtOptions.tailwindcss = {
+      ...nuxtOptions.tailwindcss,
       config: {
         presets: [tailwindConfig],
         content: [contentPath],
-        // @ts-ignore
-        ...nuxt.options.tailwindcss?.config,
+
+        ...nuxtOptions.tailwindcss?.config,
       },
     };
 
