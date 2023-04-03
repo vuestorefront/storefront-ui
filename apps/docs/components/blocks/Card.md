@@ -1,13 +1,13 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: The Card component contains content and actions that inform about a single subject.
+description: The Card component contains content and actions that inform about a single subject. 
 ---
 # Card
 
 {{ $frontmatter.description }}
 
-## Card
+## Default Card
 
 The default card view with a rectangle shaped image, a title, a description and a button for some additional actions.
 
@@ -18,6 +18,21 @@ The default card view with a rectangle shaped image, a title, a description and 
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Card/CardDefault.tsx#source
+<!-- end react -->
+
+</Showcase>
+
+## Category Card 
+
+The category card view with a circle shaped image, and category title, clickable as the one element.
+
+<Showcase showcase-name="Card/CategoryCard" style="min-height: 400px;">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Card/CategoryCard.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Card/CategoryCard.tsx#source
 <!-- end react -->
 
 </Showcase>
