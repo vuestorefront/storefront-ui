@@ -28,7 +28,7 @@ const cardDetails = [
   },
 ];
 
-export default function CardDefault() {
+export default function CardFeature() {
   return (
     <div className="flex flex-wrap gap-4 lg:gap-6 lg:flex-nowrap">
       {cardDetails.map(({ icon, title, description, buttonText, isDisabled }) => (
@@ -55,4 +55,4 @@ export default function CardDefault() {
   );
 }
 // #endregion source
-CardDefault.getLayout = ShowcasePageLayout;
+CardFeature.getLayout = ShowcasePageLayout;
