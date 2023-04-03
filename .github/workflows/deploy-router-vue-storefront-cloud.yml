@@ -2,60 +2,43 @@ name: Deploy nginx router
 on:
   push:
     branches:
-      - main
+      - v2
+      - v2-patch/**
+      - v2-develop
 
 jobs:
+  configure-enviroment:
+    name: Setup enviroment
+    uses: vuestorefront/storefront-ui/.github/workflows/configure-environment.yml@v2-develop
+
   build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
-      - shell: bash
-        run: |
-          echo "1.0.`date +%s`" > version.txt
-      - name: Upload version artifact
-        uses: actions/upload-artifact@v3
-        with:
-          name: version
-          path: version.txt
-      - name: Get the version
-        id: get_version
-        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_OUTPUT
-      - name: Build and publish docker image
-        uses: elgohr/Publish-Docker-Github-Action@v5
-        with:
-          name: sfui-storefrontcloud-io/vue-storefront:${{ steps.get_version.outputs.VERSION }}
-          registry: registry.storefrontcloud.io
-          username: ${{ secrets.CLOUD_USERNAME }}
-          password: ${{ secrets.CLOUD_PASSWORD }}
-          dockerfile: .vuestorefrontcloud/router/docker/Dockerfile
-          buildoptions: "--compress"
+    needs: configure-enviroment
+    uses: vuestorefront/storefront-ui/.github/workflows/image-build-vue-storefront-cloud.yml@v2-develop
+    secrets: inherit
+    with:
+      DOCKER_NAMESPACE: ${{ needs.configure-enviroment.outputs.docker-namespace }}
+      ARTIFACT_TYPE: "vue-storefront"
+      DOCKERFILE_PATH: ".vuestorefrontcloud/router/docker/Dockerfile"
+      ENVIRONMENT: ${{ needs.configure-enviroment.outputs.environment }}
+
   deploy:
     runs-on: ubuntu-latest
-    needs: build
-
+    needs: [configure-enviroment, build]
     permissions:
       deployments: write
 
     steps:
-      - name: Download version artifact
-        uses: actions/download-artifact@v3
-        with:
-          name: version
-      - name: Get the version
-        id: get_version
-        run: echo "VERSION=$(cat version.txt)" >> $GITHUB_OUTPUT
       - uses: chrnorm/deployment-action@releases/v1
         name: Create GitHub deployment
         id: deployment
         with:
           token: ${{ github.token }}
           target_url: https://docs.storefrontui.io
-          environment: router
+          environment: ${{ needs.configure-enviroment.outputs.environment }}
           initial_status: in_progress
       - name: Deploy to demo.storefrontui.io
         run: |
-          if curl -s -H 'X-User-Id: ${{ secrets.CLOUD_USERNAME }}'  -H 'X-Api-Key: ${{ secrets.CLOUD_PASSWORD }}' -H 'Content-Type: application/json' -X PATCH -d '{"front_version":"${{ steps.get_version.outputs.VERSION }}"}' https://farmer.vuestorefront.cloud/instance/sfui-europe-west1-gcp-storefrontcloud-io | grep -q '"code":200'; then
+          if curl -s -H 'X-User-Id: ${{ secrets.CLOUD_USERNAME }}'  -H 'X-Api-Key: ${{ secrets.CLOUD_PASSWORD }}' -H 'Content-Type: application/json' -X PATCH -d '{"front_version":"${{ github.sha }}"}' https://farmer.vuestorefront.cloud/instance/${{ needs.configure-enviroment.outputs.farmer-instance-name }} | grep -q '"code":200'; then
             echo "Instance updated"
           else
             echo "Something went wrong during the update process..."
@@ -66,7 +49,7 @@ jobs:
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: "${{ github.token }}"
-          target_url: https://docs.storefrontui.io
+          target_url: ${{ needs.configure-enviroment.outputs.target-domain }}
           state: "success"
           description: Congratulations! The deploy is done.
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
@@ -75,7 +58,7 @@ jobs:
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: "${{ github.token }}"
-          target_url: https://docs.storefrontui.io
+          target_url: ${{ needs.configure-enviroment.outputs.target-domain }}
           description: Unfortunately, the instance hasn't been updated.
           state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}

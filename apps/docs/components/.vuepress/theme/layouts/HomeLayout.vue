@@ -38,6 +38,14 @@ export default {
   created() {
     this.loadTabs();
   },
+  mounted() {
+    let githubScript = document.createElement('script');
+    githubScript.setAttribute('src', 'https://buttons.github.io/buttons.js');
+    githubScript.setAttribute('async', 'true');
+    githubScript.setAttribute('defer', 'true');
+
+    document.head.appendChild(githubScript);
+  },
   data() {
     return {
       tabOptions: [],

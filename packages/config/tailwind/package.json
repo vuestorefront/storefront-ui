@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/tailwind-config",
-  "version": "2.0.0-rc.5",
+  "version": "2.0.0",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -22,14 +22,13 @@
   "homepage": "https://docs.storefrontui.io/v2/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vuestorefront/sfui2.git",
+    "url": "git+https://github.com/vuestorefront/storefront-ui.git",
     "directory": "packages/config/tailwind"
   },
   "bugs": {
-    "url": "https://github.com/vuestorefront/sfui2/issues"
+    "url": "https://github.com/vuestorefront/storefront-ui/issues"
   },
   "devDependencies": {
-    "tailwind": "^4.0.0",
     "typescript": "^4.9.5",
     "vite": "^4.1.2",
     "vite-plugin-dts": "^2.0.0-beta.1"

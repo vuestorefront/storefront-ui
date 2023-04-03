@@ -5,7 +5,7 @@ Currently the release process is manual.
 ## How to release packages?
 
 1. In repository root run command `yarn build:release`.
-2. Bump version in package.json files and run `yarn npm publish --tag alpha` in directories:
+2. Bump version in package.json files and run `yarn npm publish` in directories:
     - packages/sfui/shared,
     - packages/sfui/typography,
     - packages/sfui/tw-plugin-peer-next,

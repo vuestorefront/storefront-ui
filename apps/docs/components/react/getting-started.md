@@ -7,6 +7,14 @@ tabOptions: [next.js,vite,astro]
 
 Since Storefront UI is designed to fit seamlessly into your Tailwind CSS workflow, there will be different installation steps depending on your environment.
 
+## Playground
+
+You can try out Storefront UI in your browser with our online playground.
+
+<div class="custom-block mt-8">
+<a href="http://play-react.vuestorefront.io/" target="_blank" rel="noopener noreferrer" class="custom-block dark:text-white font-medium px-4 py-2 border-green border-2 rounded-lg hover:bg-green transition-colors hover:text-white">Stackblitz playground</a>
+</div>
+
 :::::: slot next.js
 
 ## Next.js
@@ -17,13 +25,13 @@ If you don't already have a Next app, you can use the `create-next-app` command 
 
 ```bash
 # npm
-npx create-next-app@latest
+npx create-next-app@latest --experimental-app
 
 # yarn
-yarn create next-app
+yarn create next-app --experimental-app
 
 # pnpm
-pnpm create next-app
+pnpm create next-app --experimental-app
 ```
 
 ### Install Tailwind and Storefront UI Dependencies
@@ -32,13 +40,16 @@ Next, you'll need to install Tailwind CSS and PostCSS, as well as the Storefront
 
 ```bash
 # npm
-npm i -D tailwindcss postcss autoprefixer @storefront-ui/react
+npm i @storefront-ui/react
+npm i -D tailwindcss postcss autoprefixer
 
 # yarn
-yarn add -D tailwindcss postcss autoprefixer @storefront-ui/react
+yarn add @storefront-ui/react
+yarn add -D tailwindcss postcss autoprefixer
 
 # pnpm
-pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/react
+pnpm add @storefront-ui/react
+pnpm add -D tailwindcss postcss autoprefixer
 ```
 
 ### Initialize Tailwind
@@ -83,10 +94,9 @@ module.exports = {
 
 </SourceCode>
 
-
 ### Add Tailwind to Your CSS
 
-Finally, you'll need to add CSS directives to add each Tailwind layer to `src/styles/globals.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
+Finally, you'll need to add CSS directives to add each Tailwind layer to `src/app/globals.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
 
 <SourceCode>
 
@@ -107,6 +117,22 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/st
 
 </SourceCode>
 
+::: tip
+In Next.js 13 environments that are not using [App Router](https://beta.nextjs.org/docs/api-reference/next-config#appdir) there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
+
+As a workaround, you can add `transpilePackages: ['@storefront-ui/react']` to your `next.config.js` configuration file:
+
+```js
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  transpilePackages: ['@storefront-ui/react']
+}
+
+module.exports = nextConfig
+```
+
+:::
 ::::::
 
 :::::: slot vite

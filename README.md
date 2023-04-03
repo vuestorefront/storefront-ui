@@ -11,7 +11,7 @@
     <a href="https://discord.gg/vuestorefront">
         <img alt="Chat with us on Discord" src="https://img.shields.io/discord/770285988244750366?label=join%20discord&logo=Discord&logoColor=white" />
     </a>
-    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue/alpha">
+    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue">
     <a href="http://commitizen.github.io/cz-cli/">
         <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
     </a>
@@ -62,24 +62,26 @@ In addition, Storefront UI fits perfectly complex UI setups where one library is
 - **Typography** package simplifying usage of 3rd party fonts
 - **Figma** file with pixel-perfect representation of SFUI components based on tailwind properties
 
-<a href=""><img src="./_readme/figma_included.png"></a>
+<a href="https://www.figma.com/file/Y9mMfUVXAfH3qvUWrOAZa2/Storefront-UI-%7C-Design-Kit-(public)?t=DE1wWHucnUn4WG6I-6"><img src="./_readme/figma_included.png"></a>
 
 ## Contributing
 
 We believe that the best software is made when a lot of people with different views collaborate on it. We welcome all contributions to Storefrotn UI.
 
 You can become contributor not only by writing code:
+
 - Contribute to documentation
 - Write an article or tutorial
 - Help others on our [Discord server](https://discord.vuestorefront.io) 
 - Report a bug
 - Do a talk about Storefront UI at your local meetup
 
-We are grateful for all kind of contributions. If you don't know where to start check out our [contribution guide](./CONTRIBUTING.md) or ask for help on [Discord](https://discord.vuestorefront.io) 
+We are grateful for all kind of contributions. If you don't know where to start check out our [contribution guide](./CONTRIBUTING.md) or ask for help on [Discord](https://discord.vuestorefront.io)
 
 ## Links
 
 - [Documentation](https://docs.storefrontui.io/v2/)
-- [Playground]()
+- [Playground Vue](https://play-vue.vuestorefront.io)
+- [Playground React](https://play-react.vuestorefront.io)
 - [Discord](https://discord.vuestorefront.io)
 - [Vue Storefront](https://vuestorefront.io)

@@ -1,9 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 
-function addRepoPathToFrontmatter(content, fileName) {
+function addRepoPathToFrontmatter(content, fileName, type) {
   const frontmatterStartIndex = content.indexOf('---') + '---'.length;
-  const link = `/components/${fileName}`;
+  const link = `/${type}/${fileName}`;
 
   return content.slice(0, frontmatterStartIndex) + `\nrepoPath: ${link}` + content.slice(frontmatterStartIndex);
 }
@@ -20,7 +20,7 @@ function addNumberOfBlocksToFrontmatter(content) {
 }
 
 function updateFrontmatter(content, fileName, type) {
-  let docContent = addRepoPathToFrontmatter(content, fileName);
+  let docContent = addRepoPathToFrontmatter(content, fileName, type);
   if (type === 'blocks') {
     docContent = addNumberOfBlocksToFrontmatter(docContent);
   }

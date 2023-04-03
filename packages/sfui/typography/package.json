@@ -1,7 +1,7 @@
 {
     "name": "@storefront-ui/typography",
     "description": "SFUI typography plugin for Tailwind",
-    "version": "2.0.0-rc.5",
+    "version": "2.0.0",
     "sideEffects": false,
     "license": "MIT",
     "exports": {
@@ -21,7 +21,6 @@
         "build:typography": "vite build"
     },
     "devDependencies": {
-        "tailwind": "^4.0.0",
         "typescript": "^4.9.5",
         "vite": "^4.1.2",
         "vite-plugin-dts": "^2.0.0-beta.1"
@@ -38,10 +37,10 @@
     "homepage": "https://docs.storefrontui.io/v2/",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/vuestorefront/sfui2.git",
+        "url": "git+https://github.com/vuestorefront/storefront-ui.git",
         "directory": "packages/sfui/typography"
     },
     "bugs": {
-        "url": "https://github.com/vuestorefront/sfui2/issues"
+        "url": "https://github.com/vuestorefront/storefront-ui/issues"
     }
 }
