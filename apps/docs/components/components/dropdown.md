@@ -18,6 +18,23 @@ Learn more about `useDropdown` composable in the [Composables > useDropdown docs
 <!-- end vue -->
 :::
 
+## Examples
+
+### Basic Usage
+
+By default, the floating content of `SfDropdown` will be placed below your trigger element.
+
+<Showcase showcase-name="Dropdown/BasicDropdown" style="min-height:400px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Dropdown/BasicDropdown.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Dropdown/BasicDropdown.tsx#source
+<!-- end react -->
+
+</Showcase>
+
 ## Playground
 
 <Generate />

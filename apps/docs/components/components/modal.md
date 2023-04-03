@@ -6,11 +6,11 @@ hideBreadcrumbs: true
 
 ::: slot usage
 
-`SfModal` creates a modal window that opens on top of the main window. This component can be used to display important information that requires user interaction. 
+`SfModal` creates a modal window that opens on top of the main window. This component can be used to display important information that requires user interaction.
 
 In addition to the UI aspect, `SfModal` adds additional functionality that implements several best practices:
 
-1. Traps focus within the modal using the [`useTrapFocus`](../hooks/useTrapFocus.html) function 
+1. Traps focus within the modal using the [`useTrapFocus`](../hooks/useTrapFocus.html) function
 2. Allows the user to close the modal by pressing the `Escape` key.
 3. Allows the user to close the modal by clicking outside of it.
 
@@ -35,6 +35,20 @@ This example also uses the [`useDisclosure`](../hooks/useDisclosure.html) functi
 
 </Showcase>
 
+### Animated
+
+You can make smooth transitions when the modal pops up.
+
+<Showcase showcase-name="Modal/ModalTransition" style="min-height:400px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Modal/ModalTransition.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Modal/ModalTransition.tsx#source
+<!-- end react -->
+
+</Showcase>
 
 ## Accessibility notes
 
@@ -45,10 +59,9 @@ Since you may need to use this component in different contexts, there is no `rol
 - `role="alertdialog"` for dialogs where immediate user response is required. [See details.](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/alertdialog_role)
 - `role="dialog"` for generic dialogs. [See details.](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/dialog_role)
 
-You should add `aria-labelledby` or `aria-label` attributes to provide an accessible label for your modal - usually this value can be the title of the modal. To add more context, you should use the `aria-describedby` or `aria-description` attributes. 
+You should add `aria-labelledby` or `aria-label` attributes to provide an accessible label for your modal - usually this value can be the title of the modal. To add more context, you should use the `aria-describedby` or `aria-description` attributes.
 
 Both techniques can be seen in the code examples above.
-
 
 ## Playground
 
