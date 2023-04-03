@@ -6,7 +6,7 @@
       class="flex flex-col min-w-[325px] max-w-[375px] lg:w-[496px] relative border border-neutral-200 rounded-md hover:shadow-xl"
     >
       <a
-        class="absolute w-full h-full z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
+        class="absolute inset-0 z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
         href="/"
       />
       <img :src="image" :alt="title" class="object-cover h-auto rounded-t-md aspect-video" />
