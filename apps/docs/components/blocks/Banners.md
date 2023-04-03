@@ -22,9 +22,9 @@ description: A breadcrumb trail consists of a list of links to the parent pages 
 
 ## Vertical banner
 
-Breadcrumbs block with icons as a item separator.
+Vertical banner block with image and content below or above it.
 
-<Showcase showcase-name="Banners/VerticalBanner" style="min-height: 300px;">
+<Showcase showcase-name="Banners/VerticalBanner" style="min-height: 800px;">
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Banners/VerticalBanner.vue
 <!-- end vue -->
@@ -33,3 +33,15 @@ Breadcrumbs block with icons as a item separator.
 <!-- end react -->
 </Showcase>
 
+## Multiple vertical banners
+
+Four Vertical banners in row on desktop.
+
+<Showcase showcase-name="Banners/MultipleVerticalBanner" style="min-height: 750px;">
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Banners/MultipleVerticalBanner.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Banners/MultipleVerticalBanner.tsx#source
+<!-- end react -->
+</Showcase>
