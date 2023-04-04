@@ -11,7 +11,7 @@
     <a href="https://discord.gg/vuestorefront">
         <img alt="Chat with us on Discord" src="https://img.shields.io/discord/770285988244750366?label=join%20discord&logo=Discord&logoColor=white" />
     </a>
-    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue/alpha">
+    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue">
     <a href="http://commitizen.github.io/cz-cli/">
         <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
     </a>
@@ -62,7 +62,7 @@ In addition, Storefront UI fits perfectly complex UI setups where one library is
 - **Typography** package simplifying usage of 3rd party fonts
 - **Figma** file with pixel-perfect representation of SFUI components based on tailwind properties
 
-<a href="https://www.figma.com/file/Y9mMfUVXAfH3qvUWrOAZa2/Storefront-UI-%7C-Design-Kit?node-id=20697-75059&t=cfzx4cpxb16BsXE8-0"><img src="./_readme/figma_included.png"></a>
+<a href="https://www.figma.com/file/Y9mMfUVXAfH3qvUWrOAZa2/Storefront-UI-%7C-Design-Kit-(public)?t=DE1wWHucnUn4WG6I-6"><img src="./_readme/figma_included.png"></a>
 
 ## Contributing
 
