@@ -1,7 +1,7 @@
 import { defineNuxtModule, addComponent, addImportsSources, installModule } from '@nuxt/kit';
 import * as storefrontUi from '@storefront-ui/vue';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
-import { NuxtConfig } from '@nuxt/schema';
+import { NuxtConfig } from 'nuxt/schema';
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   contentPath?: string;
