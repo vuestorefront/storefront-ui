@@ -6,7 +6,7 @@ import sunglasses from '@assets/display.png';
 import backpack from '@assets/display-2.png';
 import classNames from 'classnames';
 
-const bannerDetails = [
+const displayDetails = [
   {
     title: 'Pack it Up',
     subtitle: 'Be active',
@@ -26,10 +26,10 @@ const bannerDetails = [
     reverse: true,
   },
 ];
-export default function VerticalBanner() {
+export default function VerticalDisplay() {
   return (
     <div className="flex flex-col gap-6 md:flex-row">
-      {bannerDetails.map(({ title, subtitle, description, callToAction, image, backgroundColor, reverse }, index) => (
+      {displayDetails.map(({ title, subtitle, description, callToAction, image, backgroundColor, reverse }, index) => (
         <div
           key={title}
           className={classNames(
@@ -54,4 +54,4 @@ export default function VerticalBanner() {
 
 // #endregion source
 
-VerticalBanner.getLayout = ShowcasePageLayout;
+VerticalDisplay.getLayout = ShowcasePageLayout;

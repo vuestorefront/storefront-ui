@@ -9,7 +9,7 @@
           { 'flex-col-reverse': reverse },
         ]"
       >
-        <div class="flex flex-col items-center p-4 text-center md:p-10">
+        <div class="flex flex-col p-4 text-center md:p-10">
           <p class="mb-2 font-bold tracking-widest uppercase typography-headline-6">{{ subtitle }}</p>
           <p class="mb-4 font-bold typography-headline-2">{{ title }}</p>
           <p class="mb-4 typography-text-lg">{{ description }}</p>

@@ -1,7 +1,8 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: A breadcrumb trail consists of a list of links to the parent pages of the current page in hierarchical order. It helps users find their place.
+description: Banners are components that deliver main image and content in various configurations.
+
 ---
 # Banners
 
