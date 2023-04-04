@@ -23,7 +23,7 @@
         :aria-label="title"
         href="/"
       />
-      <div :class="['flex items-center justify-between overflow-hidden grow', { 'flex-row-reverse': reverse }]">
+      <div :class="['flex justify-between overflow-hidden grow', { 'flex-row-reverse': reverse }]">
         <div class="flex flex-col justify-center items-start p-6 lg:p-10 max-w-1/2">
           <p :class="['uppercase typography-text-xs block font-bold tracking-widest', subtitleClass]">
             {{ subtitle }}

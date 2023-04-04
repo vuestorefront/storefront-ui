@@ -58,7 +58,7 @@ export default function DisplayHorizontalBlock() {
               href="/"
             />
             <div
-              className={classNames('flex items-center justify-between overflow-hidden grow', {
+              className={classNames('flex justify-between overflow-hidden grow', {
                 'flex-row-reverse': reverse,
               })}
             >
