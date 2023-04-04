@@ -10,6 +10,10 @@ description: An easy to use function for creating pagination.
 
 The `usePagination` allows you to add logic to your pagination UI. With this <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue -->  you can add methods for moving to the next/previous page or to the exact page by passing its number. To calculate how many pages are needed to be displayed the only required parameter is the total number of items. There can be also passed additional parameters to adjust pagination according to your needs.
 
+::: read-more
+Under the hood, this <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue --> uses `jw-paginate`. To learn more about this specific implementation visit the [jw-paginate docs](https://jasonwatmore.com/post/2018/08/07/javascript-pure-pagination-logic-in-vanilla-js-typescript).
+:::
+
 ## Usage
 
 <!-- react -->
