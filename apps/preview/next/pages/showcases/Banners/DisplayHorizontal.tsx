@@ -3,9 +3,9 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfButton } from '@storefront-ui/react';
 import classNames from 'classnames';
-import sunglasses from '@assets/display-horizontal.png';
-import backpack from '@assets/display-horizontal-2.png';
-import winterHat from '@assets/display-horizontal-3.png';
+import sunglasses from '@assets/display.png';
+import backpack from '@assets/display-2.png';
+import winterHat from '@assets/display-3.png';
 
 const displayDetails = [
   {

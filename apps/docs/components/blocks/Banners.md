@@ -11,13 +11,13 @@ description: Display component acts like a layout for your banners. You can prov
 
 Example of layout for 3 horizontal displays.
 
-<Showcase showcase-name="Display/DisplayHorizontal" style="min-height:800px">
+<Showcase showcase-name="Banners/DisplayHorizontal" style="min-height:800px">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Display/DisplayHorizontal.vue
+<<<../../preview/nuxt/pages/showcases/Banners/DisplayHorizontal.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Display/DisplayHorizontal.tsx#source
+<<<../../preview/next/pages/showcases/Banners/DisplayHorizontal.tsx#source
 <!-- end react -->
 
 </Showcase>

@@ -44,9 +44,9 @@
 
 <script lang="ts" setup>
 import { SfButton } from '@storefront-ui/vue';
-import sunglasses from '@assets/display-horizontal.png';
-import backpack from '@assets/display-horizontal-2.png';
-import winterHat from '@assets/display-horizontal-3.png';
+import sunglasses from '@assets/display.png';
+import backpack from '@assets/display-2.png';
+import winterHat from '@assets/display-3.png';
 
 const displayDetails = [
   {
