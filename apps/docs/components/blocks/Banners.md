@@ -7,7 +7,7 @@ description: A breadcrumb trail consists of a list of links to the parent pages 
 
 {{ $frontmatter.description }}
 
-## Horizontal banner
+## Horizontal Display
 
 <!-- <Showcase showcase-name="Banners/HorizontalBanner" style="min-height:200px">
 
@@ -20,28 +20,28 @@ description: A breadcrumb trail consists of a list of links to the parent pages 
 
 </Showcase> -->
 
-## Vertical banner
+## Vertical Display
 
-Vertical banner block with image and content below or above it.
+Vertical display block with image and content below or above it.
 
-<Showcase showcase-name="Banners/VerticalBanner" style="min-height: 800px;">
+<Showcase showcase-name="Banners/VerticalDisplay" style="min-height: 800px;">
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Banners/VerticalBanner.vue
+<<<../../preview/nuxt/pages/showcases/Banners/VerticalDisplay.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Banners/VerticalBanner.tsx#source
+<<<../../preview/next/pages/showcases/Banners/VerticalDisplay.tsx#source
 <!-- end react -->
 </Showcase>
 
-## Multiple vertical banners
+## Multiple vertical Displays
 
-Four Vertical banners in row on desktop.
+Four vertical displays in row on desktop.
 
-<Showcase showcase-name="Banners/MultipleVerticalBanner" style="min-height: 750px;">
+<Showcase showcase-name="Banners/MultipleVerticalDisplay" style="min-height: 750px;">
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Banners/MultipleVerticalBanner.vue
+<<<../../preview/nuxt/pages/showcases/Banners/MultipleVerticalDisplay.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Banners/MultipleVerticalBanner.tsx#source
+<<<../../preview/next/pages/showcases/Banners/MultipleVerticalDisplay.tsx#source
 <!-- end react -->
 </Showcase>
