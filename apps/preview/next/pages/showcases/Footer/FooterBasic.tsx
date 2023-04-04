@@ -12,7 +12,6 @@ import {
   SfButton,
   SfLink,
 } from '@storefront-ui/react';
-import classNames from 'classnames';
 
 const categories = [
   {
