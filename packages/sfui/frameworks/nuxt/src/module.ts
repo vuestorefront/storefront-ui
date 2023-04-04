@@ -21,16 +21,16 @@ export default defineNuxtModule<ModuleOptions>({
   },
   async setup(options, nuxt) {
     const { contentPath } = options;
-
     const nuxtOptions = nuxt.options as unknown as NuxtConfig;
-
     nuxtOptions.tailwindcss = {
       ...nuxtOptions.tailwindcss,
       config: {
         presets: [tailwindConfig],
-        content: [contentPath],
-
+        content: [contentPath ?? ''],
         ...nuxtOptions.tailwindcss?.config,
+        ...(Array.isArray(nuxtOptions.tailwindcss?.config?.content) && contentPath
+          ? { content: [...nuxtOptions.tailwindcss?.config?.content!, contentPath] }
+          : {}),
       },
     };
 
