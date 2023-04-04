@@ -14,7 +14,7 @@ const props = defineProps({
   },
   tag: {
     type: String,
-    default: 'aside',
+    default: '',
   },
   disableClickAway: {
     type: Boolean,
@@ -53,7 +53,7 @@ const placementClasses = computed(() => ({
 
 <template>
   <component
-    :is="tag"
+    :is="tag || 'aside'"
     v-if="modelValue"
     ref="drawerRef"
     class="fixed"
