@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-y-6 font-body">
     <label>
       <span class="pb-1 text-sm font-medium text-neutral-900"> Label </span>
-      <SfSelect size="sm">
+      <SfSelect size="sm" placeholder="-- Select --">
         <option v-for="{ value, label } in options" :key="value" :value="value">
           {{ label }}
         </option>
@@ -10,7 +10,7 @@
     </label>
     <label>
       <span class="pb-1 text-sm font-medium text-neutral-900"> Label </span>
-      <SfSelect size="base">
+      <SfSelect size="base" placeholder="-- Select --">
         <option v-for="{ value, label } in options" :key="value" :value="value">
           {{ label }}
         </option>
@@ -18,7 +18,7 @@
     </label>
     <label>
       <span class="pb-1 text-sm font-medium text-neutral-900"> Label </span>
-      <SfSelect size="lg">
+      <SfSelect size="lg" placeholder="-- Select --">
         <option v-for="{ value, label } in options" :key="value" :value="value">
           {{ label }}
         </option>
