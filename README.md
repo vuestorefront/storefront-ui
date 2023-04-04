@@ -66,7 +66,7 @@ In addition, Storefront UI fits perfectly complex UI setups where one library is
 
 ## Contributing
 
-We believe that the best software is made when a lot of people with different views collaborate on it. We welcome all contributions to Storefrotn UI.
+We believe that the best software is made when a lot of people with different views collaborate on it. We welcome all contributions to Storefront UI.
 
 You can become contributor not only by writing code:
 
