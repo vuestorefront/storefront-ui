@@ -1,8 +1,7 @@
+import { defineNuxtConfig } from 'nuxt/config';
+
 export default defineNuxtConfig({
   modules: ['../src/module.ts'],
-  storefrontUi: {
-    contentPath: './../../../../node_modules/@storefront-ui/vue/dist/**/*.mjs',
-  },
   imports: {
     transform: {
       // you could also add the path of your built library to prevent this happening
@@ -12,6 +11,7 @@ export default defineNuxtConfig({
   },
   tailwindcss: {
     config: {
+      content: [],
       theme: {
         extend: {
           colors: {
