@@ -29,7 +29,7 @@ const displayDetails = [
 export default function VerticalDisplay() {
   return (
     <div className="flex flex-col gap-6 md:flex-row">
-      {displayDetails.map(({ title, subtitle, description, callToAction, image, backgroundColor, reverse }, index) => (
+      {displayDetails.map(({ title, subtitle, description, callToAction, image, backgroundColor, reverse }) => (
         <div
           key={title}
           className={classNames(
