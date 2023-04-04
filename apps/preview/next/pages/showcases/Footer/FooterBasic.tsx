@@ -224,38 +224,38 @@ export default function FooterBasic() {
         })}
       </div>
       <div className="bg-neutral-900 justify-end px-4 py-10 md:flex md:py-6 max-w-[1536px] mx-auto">
-        <div className="flex justify-center py-2 md:self-start">
-          {socialMedia.map((social) => {
-            const Icon = iconsMap[social.icon];
+        <div className="flex justify-center py-2 gap-x-4 md:self-start">
+          {socialMedia.map(({ icon, label, link }) => {
+            const Icon = iconsMap[icon];
             return (
-              <p className="mr-4" key={social.label}>
-                <SfButton
-                  as="a"
-                  variant="tertiary"
-                  className="text-white active:text-white hover:text-white hover:!bg-neutral-500 active:bg-transparent"
-                  href={social.link}
-                  aria-label={`Go to ${social.label} page`}
-                >
-                  <Icon />
-                </SfButton>
-              </p>
+              <SfButton
+                key={label}
+                as="a"
+                variant="tertiary"
+                className="text-white active:text-white hover:text-white hover:!bg-neutral-500 active:bg-transparent"
+                href={link}
+                aria-label={`Go to ${label} page`}
+              >
+                <Icon />
+              </SfButton>
             );
           })}
         </div>
-        <div className="flex justify-center gap-6 py-2 my-4 md:ml-auto md:my-0">
-          {bottomLinks.map((bottomLink) => (
-            <p className="flex items-center font-body" key={bottomLink.label}>
-              <SfLink
-                variant="secondary"
-                className="text-white no-underline active:text-white active:underline hover:text-white hover:underline"
-                href={bottomLink.link}
-              >
-                {bottomLink.label}
-              </SfLink>
-            </p>
+        <div className="flex items-center justify-center gap-6 py-2 my-4 md:ml-auto md:my-0">
+          {bottomLinks.map(({ label, link }) => (
+            <SfLink
+              key={label}
+              variant="secondary"
+              className="text-white no-underline active:text-white active:underline hover:text-white hover:underline"
+              href={link}
+            >
+              {label}
+            </SfLink>
           ))}
         </div>
-        <p className="flex items-center justify-center py-2 text-sm leading-5 text-center text-white/50 font-body md:ml-6">@2023 Vue Storefront</p>
+        <p className="flex items-center justify-center py-2 text-sm leading-5 text-center text-white/50 font-body md:ml-6">
+          @2023 Vue Storefront
+        </p>
       </div>
     </div>
   );

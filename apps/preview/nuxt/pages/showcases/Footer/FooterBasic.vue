@@ -39,29 +39,29 @@
       </div>
     </div>
     <div class="bg-neutral-900 justify-end px-4 py-10 md:flex md:py-6 max-w-[1536px] mx-auto">
-      <div class="flex justify-center py-2 md:self-start">
-        <p v-for="social in socialMedia" :key="social.label" class="mr-4">
-          <SfButton
-            as="a"
-            variant="tertiary"
-            class="text-white active:text-white hover:text-white hover:!bg-neutral-500 active:!bg-transparent"
-            :href="social.link"
-            :aria-label="`Go to ${social.label} page`"
-          >
-            <component :is="social.icon" />
-          </SfButton>
-        </p>
+      <div class="flex justify-center py-2 gap-x-4 md:self-start">
+        <SfButton
+          v-for="{ label, link, icon } in socialMedia"
+          :key="label"
+          as="a"
+          variant="tertiary"
+          class="text-white active:text-white hover:text-white hover:!bg-neutral-500 active:!bg-transparent"
+          :href="link"
+          :aria-label="`Go to ${label} page`"
+        >
+          <component :is="icon" />
+        </SfButton>
       </div>
-      <div class="flex justify-center gap-6 py-2 my-4 md:ml-auto md:my-0">
-        <p v-for="bottomLink in bottomLinks" :key="bottomLink.label" class="flex items-center font-body">
-          <SfLink
-            variant="secondary"
-            class="text-white no-underline active:text-white active:underline hover:text-white hover:underline"
-            :href="bottomLink.link"
-          >
-            {{ bottomLink.label }}
-          </SfLink>
-        </p>
+      <div class="flex items-center justify-center gap-6 py-2 my-4 md:ml-auto md:my-0">
+        <SfLink
+          v-for="{ label, link } in bottomLinks"
+          :key="label"
+          variant="secondary"
+          class="text-white no-underline active:text-white active:underline hover:text-white hover:underline"
+          :href="link"
+        >
+          {{ label }}
+        </SfLink>
       </div>
       <p class="flex items-center justify-center py-2 text-sm leading-5 text-center text-white/50 font-body md:ml-6">
         @2023 Vue Storefront
