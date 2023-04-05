@@ -2,6 +2,7 @@
 export * from './hooks/useDisclosure';
 export * from './hooks/useDropdown';
 export * from './hooks/usePopover';
+export * from './hooks/useScrollable';
 export * from './hooks/useTooltip';
 export * from './hooks/useTrapFocus';
 
@@ -30,5 +31,6 @@ export * from './components/SfRadio';
 export * from './components/SfRating';
 export * from './components/SfSelect';
 export * from './components/SfSwitch';
+export * from './components/SfScrollable';
 export * from './components/SfTooltip';
 export * from './components/SfThumbnail';
