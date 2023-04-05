@@ -1,3 +1,5 @@
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable jsx-a11y/anchor-has-content */
 import { ShowcasePageLayout } from '../../showcases';
 
 // #region source
@@ -52,13 +54,17 @@ export default function MultipleVerticalDisplay() {
         {displayDetails.map(
           ({ title, subtitle, description, callToAction, image, backgroundColor, reverse }, index) => (
             <div
-              // eslint-disable-next-line react/no-array-index-key
               key={`${title}-${index}`}
               className={classNames(
-                `flex flex-col justify-between rounded-md md:items-center md:basis-1/2 ${backgroundColor}`,
+                `relative flex flex-col justify-between rounded-md md:items-center md:basis-1/2 ${backgroundColor}`,
                 { 'flex-col-reverse': reverse },
               )}
             >
+              <a
+                className="absolute w-full h-full z-1 focus-visible:outline focus-visible:rounded-lg"
+                aria-label={title}
+                href="/"
+              />
               <div className="flex flex-col items-center p-4 text-center md:p-10">
                 <p className="mb-2 font-bold tracking-widest uppercase typography-headline-6">{subtitle}</p>
                 <p className="mb-4 font-bold typography-headline-2">{title}</p>

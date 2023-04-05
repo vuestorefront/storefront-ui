@@ -26,12 +26,12 @@ description: Banners are components that deliver main image and content in vario
 
 Vertical display block with image and content below or above it.
 
-<Showcase showcase-name="Banners/VerticalDisplay" style="min-height: 800px;">
+<Showcase showcase-name="Banners/DisplayVertical" style="min-height: 800px;">
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Banners/VerticalDisplay.vue
+<<<../../preview/nuxt/pages/showcases/Banners/DisplayVertical.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Banners/VerticalDisplay.tsx#source
+<<<../../preview/next/pages/showcases/Banners/DisplayVertical.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -39,12 +39,12 @@ Vertical display block with image and content below or above it.
 
 Four vertical displays in row on desktop.
 
-<Showcase showcase-name="Banners/MultipleVerticalDisplay" style="min-height: 750px;">
+<Showcase showcase-name="Banners/DisplayVerticalMultiple" style="min-height: 750px;">
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Banners/MultipleVerticalDisplay.vue
+<<<../../preview/nuxt/pages/showcases/Banners/DisplayVerticalMultiple.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Banners/MultipleVerticalDisplay.tsx#source
+<<<../../preview/next/pages/showcases/Banners/DisplayVerticalMultiple.tsx#source
 <!-- end react -->
 </Showcase>
 description: Display component acts like a layout for your banners. You can provide main image and any content.
