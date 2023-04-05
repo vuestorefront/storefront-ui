@@ -1,10 +1,19 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { SfIconShoppingCart, SfIconFavorite, SfIconPerson, SfIconMenu, SfButton, SfDrawer } from '@storefront-ui/react';
+import {
+  SfIconShoppingCart,
+  SfIconFavorite,
+  SfIconPerson,
+  SfIconMenu,
+  SfButton,
+  SfDrawer,
+  SfListItem,
+} from '@storefront-ui/react';
 import { useState } from 'react';
 import classNames from 'classnames';
 import brandLogo from '@assets/vsf_logo.svg';
 import brandLogoSign from '@assets/vsf_logo_sign.svg';
+import smartwatch from '@assets/smartwatch-2.png';
 
 export default function OpenOnClick() {
   const [open, setOpen] = useState(false);
@@ -23,6 +32,14 @@ export default function OpenOnClick() {
       ariaLabel: 'Log in',
     },
   ];
+
+  const bannerDetails = {
+    image: smartwatch,
+    title: 'Hot Deals. No sweat.',
+    subtitle: 'Special offer',
+    description: 'Stay connected. Stay ahead and stay stylish.',
+    buttonText: 'Browse offers.',
+  };
 
   const categoriesContent = [
     {
@@ -126,20 +143,39 @@ export default function OpenOnClick() {
                   open={open}
                   onClose={() => setOpen(false)}
                   placement="top"
-                  className="flex bg-white shadow-lg p-8"
+                  className="flex flex-col gap-6 lg:flex-row bg-white shadow-lg p-8"
                 >
-                  {categoriesContent.map(({ heading, items }) => (
-                    <section className="flex-1">
-                      <span className="typography-text-xs font-bold tracking-widest mb-3.5">{heading}</span>
-                      <ul>
-                        {items.map((item) => (
-                          <li>
-                            <a className="typography-text-sm font-normal mb-2">{item.title}</a>
-                          </li>
-                        ))}
-                      </ul>
-                    </section>
-                  ))}
+                  <div className="flex flex-col gap-6 flex-1 lg:flex-row">
+                    {categoriesContent.map(({ heading, items }) => (
+                      <section>
+                        <p className="typography-text-xs font-bold text-neutral-900 tracking-widest mb-3.5 px-4">
+                          {heading}
+                        </p>
+                        <ul>
+                          {items.map((item) => (
+                            <SfListItem size="sm">
+                              <a href={item.link}>{item.title}</a>
+                            </SfListItem>
+                          ))}
+                        </ul>
+                      </section>
+                    ))}
+                  </div>
+                  <div className="flex bg-neutral-100 rounded-md border-neutral-300 justify-between overflow-hidden grow">
+                    <img
+                      src={bannerDetails.image.src}
+                      alt={bannerDetails.title}
+                      className="w-1/2 self-end object-contain"
+                    />
+                    <div className="flex flex-col justify-center items-start p-6 lg:p-10 max-w-1/2">
+                      <p className="uppercase typography-text-xs block font-bold tracking-widest">
+                        {bannerDetails.subtitle}
+                      </p>
+                      <h2 className="mb-4 mt-2 font-bold typography-headline-3">{bannerDetails.title}</h2>
+                      <p className="typography-text-base hidden lg:block mb-4">{bannerDetails.description}</p>
+                      <SfButton className="hidden lg:inline-flex">{bannerDetails.buttonText}</SfButton>
+                    </div>
+                  </div>
                 </SfDrawer>
               </li>
             </ul>
