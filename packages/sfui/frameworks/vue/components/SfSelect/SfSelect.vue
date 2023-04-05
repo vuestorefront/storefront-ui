@@ -6,6 +6,7 @@ export default {
 <script lang="ts" setup>
 import { ref, type PropType } from 'vue';
 import { SfSelectSize, SfIconExpandMore } from '@storefront-ui/vue';
+import { onClickOutside } from '@vueuse/core';
 
 const props = defineProps({
   size: {
@@ -39,12 +40,19 @@ const props = defineProps({
 });
 
 const selected = ref(props.value);
+const chevronRotated = ref(false);
+const selectRef = ref();
 const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
 
+const onClickSelect = () => (chevronRotated.value = true);
+
+onClickOutside(selectRef, () => (chevronRotated.value = false));
+
 const changedValue = (event: Event) => {
   selected.value = (event.target as HTMLSelectElement).value;
+  chevronRotated.value = false;
   emit('update:modelValue', (event.target as HTMLSelectElement).value);
 };
 </script>
@@ -53,6 +61,7 @@ const changedValue = (event: Event) => {
   <div :class="['relative flex flex-col', wrapperClassName]" data-testid="select">
     <select
       v-bind="$attrs"
+      ref="selectRef"
       :value="value"
       :required="required"
       :disabled="disabled"
@@ -66,6 +75,7 @@ const changedValue = (event: Event) => {
         },
       ]"
       data-testid="select-input"
+      @click="onClickSelect"
       @change="changedValue"
     >
       <option
@@ -87,8 +97,9 @@ const changedValue = (event: Event) => {
     <slot name="chevron">
       <SfIconExpandMore
         :class="[
-          'absolute -translate-y-1 pointer-events-none top-1/3 right-4 peer-focus:rotate-180 transition easy-in-out duration-0.5',
+          'absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
           disabled ? 'text-disabled-500' : 'text-neutral-500',
+          chevronRotated ? 'rotate-180' : '',
         ]"
       />
     </slot>
