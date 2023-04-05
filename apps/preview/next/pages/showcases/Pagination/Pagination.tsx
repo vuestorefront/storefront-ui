@@ -75,7 +75,7 @@ export function Showcase() {
                 </div>
               </li>
             )}
-            <li key={`page-${page}`}>
+            <li>
               <div
                 className={classNames('flex pt-1 border-t-4 border-transparent', {
                   'font-medium border-t-4 !border-primary-500': selectedPage === page,
