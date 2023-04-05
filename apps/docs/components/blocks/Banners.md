@@ -10,16 +10,17 @@ description: Banners are components that deliver main image and content in vario
 
 ## Horizontal Display
 
-<!-- <Showcase showcase-name="Banners/HorizontalBanner" style="min-height:200px">
+
+<Showcase showcase-name="Banners/DisplayHorizontal" style="min-height:800px">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Banners/HorizontalBanner.vue
+<<<../../preview/nuxt/pages/showcases/Banners/DisplayHorizontal.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Banners/HorizontalBanner.tsx#source
+<<<../../preview/next/pages/showcases/Banners/DisplayHorizontal.tsx#source
 <!-- end react -->
 
-</Showcase> -->
+</Showcase>
 
 ## Vertical Display
 
@@ -46,3 +47,8 @@ Four vertical displays in row on desktop.
 <<<../../preview/next/pages/showcases/Banners/MultipleVerticalDisplay.tsx#source
 <!-- end react -->
 </Showcase>
+description: Display component acts like a layout for your banners. You can provide main image and any content.
+---
+# Display
+
+{{ $frontmatter.description }}

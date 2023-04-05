@@ -8,7 +8,7 @@ hideBreadcrumbs: true
 
 `SfListItem` is a component that can be used in all sorts of menus. It comes with styles for common data states like `disabled` and `selected`.
 
-For a great example of the `SfListItem` in action, check out the [Colors Filter](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/blocks/Filters) Block.
+For a great example of the `SfListItem` in action, check out the [Colors Filter](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/blocks/filters.html) block.
 
 ## Examples
 
