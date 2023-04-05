@@ -25,7 +25,7 @@
             type="button"
             class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-current="selectedPage === 1"
-            @click="onPageChange(1)"
+            @click="setPage(1)"
           >
             1
           </button>
@@ -42,7 +42,7 @@
             type="button"
             class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-current="endPage - 1 === selectedPage"
-            @click="onPageChange(endPage - 1)"
+            @click="setPage(endPage - 1)"
           >
             {{ endPage - 1 }}
           </button>
@@ -63,7 +63,7 @@
             ]"
             :aria-label="`Page ${page} of ${totalPages}`"
             :aria-current="selectedPage === page"
-            @click="onPageChange(page)"
+            @click="setPage(page)"
           >
             {{ page }}
           </button>
@@ -75,7 +75,7 @@
             type="button"
             class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-label="`Page 2 of ${totalPages}`"
-            @click="onPageChange(2)"
+            @click="setPage(2)"
           >
             2
           </button>
@@ -97,7 +97,7 @@
             type="button"
             class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-current="totalPages === selectedPage"
-            @click="onPageChange(totalPages)"
+            @click="setPage(totalPages)"
           >
             {{ totalPages }}
           </button>
@@ -123,7 +123,7 @@
 <script lang="ts" setup>
 import { SfButton, SfIconChevronLeft, SfIconChevronRight, usePagination } from '@storefront-ui/vue';
 
-const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } =
+const { totalPages, pages, selectedPage, startPage, endPage, next, prev, setPage, maxVisiblePages } =
   usePagination({
     totalItems: 150,
     currentPage: 2,

@@ -1,16 +1,17 @@
+/* eslint-disable react/jsx-fragments */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
+import { Fragment } from 'react';
 import { SfButton, SfIconChevronLeft, SfIconChevronRight, usePagination } from '@storefront-ui/react';
 import classNames from 'classnames';
 
 export function Showcase() {
-  const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } =
-    usePagination({
-      totalItems: 150,
-      currentPage: 2,
-      pageSize: 10,
-      maxPages: 1,
-    });
+  const { totalPages, pages, selectedPage, startPage, endPage, next, prev, setPage, maxVisiblePages } = usePagination({
+    totalItems: 150,
+    currentPage: 2,
+    pageSize: 10,
+    maxPages: 1,
+  });
 
   return (
     <nav className="flex justify-between border-t border-neutral-200" role="navigation" aria-label="pagination">
@@ -37,7 +38,7 @@ export function Showcase() {
                 type="button"
                 className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
                 aria-current={selectedPage === 1}
-                onClick={() => onPageChange(1)}
+                onClick={() => setPage(1)}
               >
                 1
               </button>
@@ -59,7 +60,7 @@ export function Showcase() {
           </li>
         )}
         {pages.map((page: number) => (
-          <>
+          <Fragment key={page}>
             {maxVisiblePages === 1 && selectedPage === totalPages && (
               <li>
                 <div className="flex pt-1 border-t-4 border-transparent">
@@ -67,7 +68,7 @@ export function Showcase() {
                     type="button"
                     className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                     aria-current={endPage - 1 === selectedPage}
-                    onClick={() => onPageChange(endPage - 1)}
+                    onClick={() => setPage(endPage - 1)}
                   >
                     {endPage - 1}
                   </button>
@@ -88,7 +89,7 @@ export function Showcase() {
                   )}
                   aria-label={`Page ${page} of ${totalPages}`}
                   aria-current={selectedPage === page}
-                  onClick={() => onPageChange(page)}
+                  onClick={() => setPage(page)}
                 >
                   {page}
                 </button>
@@ -101,14 +102,14 @@ export function Showcase() {
                     type="button"
                     className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                     aria-current={selectedPage === 1}
-                    onClick={() => onPageChange(2)}
+                    onClick={() => setPage(2)}
                   >
                     2
                   </button>
                 </div>
               </li>
             )}
-          </>
+          </Fragment>
         ))}
         {endPage < totalPages - 1 && (
           <li>
@@ -130,7 +131,7 @@ export function Showcase() {
                 type="button"
                 className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                 aria-current={totalPages === selectedPage}
-                onClick={() => onPageChange(totalPages)}
+                onClick={() => setPage(totalPages)}
               >
                 {totalPages}
               </button>

@@ -22,7 +22,7 @@ Under the hood, this <!-- react -->hook<!-- end react --><!-- vue -->composable<
 import { usePagination, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 
 function CustomPagination() {
-   const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } = usePagination({
+   const { totalPages, pages, selectedPage, startPage, endPage, next, prev, setPage, maxVisiblePages } = usePagination({
     totalItems: 150
   });
 
@@ -48,7 +48,7 @@ function CustomPagination() {
                 type="button"
                 className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
                 aria-current={selectedPage === 1}
-                onClick={() => onPageChange(1)}
+                onClick={() => setPage(1)}
               >
                 1
               </button>
@@ -78,7 +78,7 @@ function CustomPagination() {
                     type="button"
                     className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                     aria-current={endPage - 1 === selectedPage}
-                    onClick={() => onPageChange(endPage - 1)}
+                    onClick={() => setPage(endPage - 1)}
                   >
                     {endPage - 1}
                   </button>
@@ -99,7 +99,7 @@ function CustomPagination() {
                   )}
                   aria-label={`Page ${page} of ${totalPages}`}
                   aria-current={selectedPage === page}
-                  onClick={() => onPageChange(page)}
+                  onClick={() => setPage(page)}
                 >
                   {page}
                 </button>
@@ -112,7 +112,7 @@ function CustomPagination() {
                     type="button"
                     className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                     aria-current={selectedPage === 1}
-                    onClick={() => onPageChange(2)}
+                    onClick={() => setPage(2)}
                   >
                     2
                   </button>
@@ -141,7 +141,7 @@ function CustomPagination() {
                 type="button"
                 className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                 aria-current={totalPages === selectedPage}
-                onClick={() => onPageChange(totalPages)}
+                onClick={() => setPage(totalPages)}
               >
                 {totalPages}
               </button>
@@ -169,7 +169,7 @@ function CustomPagination() {
 <script lang="ts" setup>
 import { usePagination, SfIconChevronRight, SfIconChevronLeft, SfButton } from '@storefront-ui/vue';
 
-const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageChange, maxVisiblePages } = usePagination({
+const { totalPages, pages, selectedPage, startPage, endPage, next, prev, setPage, maxVisiblePages } = usePagination({
   totalItems: 150
 });
 </script>
@@ -200,7 +200,7 @@ const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageC
             type="button"
             class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-current="selectedPage === 1"
-            @click="onPageChange(1)"
+            @click="setPage(1)"
           >
             1
           </button>
@@ -217,7 +217,7 @@ const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageC
             type="button"
             class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-current="endPage - 1 === selectedPage"
-            @click="onPageChange(endPage - 1)"
+            @click="setPage(endPage - 1)"
           >
             {{ endPage - 1 }}
           </button>
@@ -238,7 +238,7 @@ const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageC
             ]"
             :aria-label="`Page ${page} of ${totalPages}`"
             :aria-current="selectedPage === page"
-            @click="onPageChange(page)"
+            @click="setPage(page)"
           >
             {{ page }}
           </button>
@@ -250,7 +250,7 @@ const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageC
             type="button"
             class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-label="`Page 2 of ${totalPages}`"
-            @click="onPageChange(2)"
+            @click="setPage(2)"
           >
             2
           </button>
@@ -272,7 +272,7 @@ const { totalPages, pages, selectedPage, startPage, endPage, next, prev, onPageC
             type="button"
             class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-current="totalPages === selectedPage"
-            @click="onPageChange(totalPages)"
+            @click="setPage(totalPages)"
           >
             {{ totalPages }}
           </button>
@@ -326,7 +326,7 @@ Listed parameters should be passed as object.
 | startPage        | `number`           |               | number of the first page from displayed pages      |
 | next             | `function`         |               | triggers jump to next page                         |
 | prev             | `function`         |               | triggers jump to previous page                     |
-| onPageChange     | `function`         |               | triggers jump to page number passed as parameter   |
+| setPage     | `function`         |               | triggers jump to page number passed as parameter   |
 
 :::
 

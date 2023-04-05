@@ -24,6 +24,6 @@ export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxP
     maxVisiblePages: maxPages,
     next: () => (activePage.value += 1),
     prev: () => (activePage.value -= 1),
-    onPageChange: (newPage: number) => (activePage.value = newPage),
+    setPage: (newPage: number) => (activePage.value = newPage),
   };
 }
