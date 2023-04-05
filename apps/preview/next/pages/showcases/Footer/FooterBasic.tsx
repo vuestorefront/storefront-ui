@@ -18,23 +18,23 @@ const categories = [
     label: 'How to buy',
     subcategories: [
       {
-        label: 'Payment methods',
-        link: '/payment',
+        subcategoryLabel: 'Payment methods',
+        link: '/payment-methods',
       },
       {
-        label: 'Order pickup',
+        subcategoryLabel: 'Order pickup',
         link: '/order',
       },
       {
-        label: 'Purchase status',
+        subcategoryLabel: 'Purchase status',
         link: '/purchase',
       },
       {
-        label: 'Track orders',
+        subcategoryLabel: 'Track orders',
         link: '/track',
       },
       {
-        label: 'Returns',
+        subcategoryLabel: 'Returns',
         link: '/returns',
       },
     ],
@@ -43,19 +43,19 @@ const categories = [
     label: 'Help',
     subcategories: [
       {
-        label: 'Help centers',
+        subcategoryLabel: 'Help centers',
         link: '/help',
       },
       {
-        label: 'Security & fraud',
+        subcategoryLabel: 'Security & fraud',
         link: '/security',
       },
       {
-        label: 'Feedback',
+        subcategoryLabel: 'Feedback',
         link: '/feedback',
       },
       {
-        label: 'Contact',
+        subcategoryLabel: 'Contact',
         link: '/contact',
       },
     ],
@@ -64,19 +64,19 @@ const categories = [
     label: 'Services',
     subcategories: [
       {
-        label: 'Gift cards',
+        subcategoryLabel: 'Gift cards',
         link: '/gift',
       },
       {
-        label: 'Order pickup',
+        subcategoryLabel: 'Order pickup',
         link: '/order',
       },
       {
-        label: 'Purchase status',
+        subcategoryLabel: 'Purchase status',
         link: '/purchase',
       },
       {
-        label: 'Track orders',
+        subcategoryLabel: 'Track orders',
         link: '/track',
       },
     ],
@@ -85,23 +85,23 @@ const categories = [
     label: 'About',
     subcategories: [
       {
-        label: 'About us',
+        subcategoryLabel: 'About us',
         link: '/about',
       },
       {
-        label: 'Order pickup',
+        subcategoryLabel: 'Order pickup',
         link: '/order',
       },
       {
-        label: 'Purchase status',
+        subcategoryLabel: 'Purchase status',
         link: '/purchase',
       },
       {
-        label: 'Track orders',
+        subcategoryLabel: 'Track orders',
         link: '/track',
       },
       {
-        label: 'Returns',
+        subcategoryLabel: 'Returns',
         link: '/returns',
       },
     ],
@@ -181,17 +181,17 @@ export default function FooterBasic() {
   return (
     <div className="pt-10 bg-neutral-100">
       <div className="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-[1536px] mx-auto">
-        {categories.map((category) => (
-          <div className="min-w-[25%] xs:min-w-[50%] xs:pb-4" key={category.label}>
-            <div className="text-lg font-medium leading-7 text-neutral-900 font-body">{category.label}</div>
-            {category.subcategories?.map((subcategory) => (
-              <p className="py-2 typography-text-sm font-body" key={subcategory.label}>
+        {categories.map(({ label, subcategories }) => (
+          <div className="min-w-[25%] xs:min-w-[50%] xs:pb-4" key={label}>
+            <div className="text-lg font-medium leading-7 text-neutral-900 font-body">{label}</div>
+            {subcategories?.map(({ subcategoryLabel, link }) => (
+              <p className="py-2 typography-text-sm font-body" key={subcategoryLabel}>
                 <SfLink
-                  className="no-underline text-neutral-600 hover:underline hover:text-neutral-900 active:underline active:text-neutral-900"
+                  className="no-underline text-neutral-600 hover:underline hover:!text-neutral-900 active:underline active:!text-neutral-900"
                   variant="secondary"
-                  href={subcategory.link}
+                  href={link}
                 >
-                  {subcategory.label}
+                  {subcategoryLabel}
                 </SfLink>
               </p>
             ))}
@@ -200,21 +200,21 @@ export default function FooterBasic() {
       </div>
       <hr />
       <div className="py-10 md:flex md:mx-auto max-w-[1536px]">
-        {contactOptions.map((contactOption) => {
-          const Icon = iconsMap[contactOption.icon];
+        {contactOptions.map(({ label, icon, link, details }) => {
+          const Icon = iconsMap[icon];
           return (
-            <div className="mx-auto my-4 text-center" key={contactOption.label}>
+            <div className="mx-auto my-4 text-center" key={label}>
               <Icon size="lg" />
               <p className="py-1 my-2 font-medium typography-text-lg font-body">
                 <SfLink
                   variant="secondary"
-                  className="no-underline text-neutral-600 hover:underline hover:text-neutral-900 active:underline active:text-neutral-900"
-                  href={contactOption.link}
+                  className="no-underline text-neutral-600 hover:underline hover:!text-neutral-900 active:underline active:!text-neutral-900"
+                  href={link}
                 >
-                  {contactOption.label}
+                  {label}
                 </SfLink>
               </p>
-              {contactOption.details?.map((option) => (
+              {details?.map((option) => (
                 <p className="text-sm leading-5 text-neutral-600 font-body" key={option}>
                   {option}
                 </p>

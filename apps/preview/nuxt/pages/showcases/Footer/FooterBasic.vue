@@ -3,37 +3,37 @@
     <div
       class="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-[1536px] mx-auto"
     >
-      <div v-for="category in categories" :key="category.label" class="min-w-[25%] xs:min-w-[50%] xs:pb-4">
-        <div class="text-lg font-medium leading-7 text-neutral-900 font-body">{{ category.label }}</div>
+      <div v-for="{ label, subcategories } in categories" :key="label" class="min-w-[25%] xs:min-w-[50%] xs:pb-4">
+        <div class="text-lg font-medium leading-7 text-neutral-900 font-body">{{ label }}</div>
         <p
-          v-for="subcategory in category.subcategories"
-          :key="subcategory.label"
+          v-for="{ subcategoryLabel, link } in subcategories"
+          :key="subcategoryLabel"
           class="py-2 typography-text-sm font-body"
         >
           <SfLink
-            class="no-underline text-neutral-600 hover:underline hover:text-neutral-900 active:underline active:text-neutral-900"
+            class="no-underline text-neutral-600 hover:underline hover:!text-neutral-900 active:underline active:!text-neutral-900"
             variant="secondary"
-            :href="subcategory.link"
+            :href="link"
           >
-            {{ subcategory.label }}
+            {{ subcategoryLabel }}
           </SfLink>
         </p>
       </div>
     </div>
     <hr />
     <div class="py-10 md:flex md:mx-auto max-w-[1536px]">
-      <div v-for="contactOption in contactOptions" :key="contactOption.label" class="mx-auto my-4 text-center">
-        <component :is="contactOption.icon" size="lg" />
+      <div v-for="{ label, icon, link, details } in contactOptions" :key="label" class="mx-auto my-4 text-center">
+        <component :is="icon" size="lg" />
         <p class="py-1 my-2 font-medium typography-text-lg font-body">
           <SfLink
             variant="secondary"
-            class="no-underline text-neutral-600 hover:underline hover:text-neutral-900 active:underline active:text-neutral-900"
-            :href="contactOption.link"
+            class="no-underline text-neutral-600 hover:underline hover:!text-neutral-900 active:underline active:!text-neutral-900"
+            :href="link"
           >
-            {{ contactOption.label }}
+            {{ label }}
           </SfLink>
         </p>
-        <p v-for="option in contactOption.details" :key="option" class="text-sm leading-5 text-neutral-600 font-body">
+        <p v-for="option in details" :key="option" class="text-sm leading-5 text-neutral-600 font-body">
           {{ option }}
         </p>
       </div>
@@ -87,23 +87,23 @@ const categories = [
     label: 'How to buy',
     subcategories: [
       {
-        label: 'Payment methods',
-        link: '/payment',
+        subcategoryLabel: 'Payment methods',
+        link: '/payment-methods',
       },
       {
-        label: 'Order pickup',
+        subcategoryLabel: 'Order pickup',
         link: '/order',
       },
       {
-        label: 'Purchase status',
+        subcategoryLabel: 'Purchase status',
         link: '/purchase',
       },
       {
-        label: 'Track orders',
+        subcategoryLabel: 'Track orders',
         link: '/track',
       },
       {
-        label: 'Returns',
+        subcategoryLabel: 'Returns',
         link: '/returns',
       },
     ],
@@ -112,19 +112,19 @@ const categories = [
     label: 'Help',
     subcategories: [
       {
-        label: 'Help centers',
+        subcategoryLabel: 'Help centers',
         link: '/help',
       },
       {
-        label: 'Security & fraud',
+        subcategoryLabel: 'Security & fraud',
         link: '/security',
       },
       {
-        label: 'Feedback',
+        subcategoryLabel: 'Feedback',
         link: '/feedback',
       },
       {
-        label: 'Contact',
+        subcategoryLabel: 'Contact',
         link: '/contact',
       },
     ],
@@ -133,19 +133,19 @@ const categories = [
     label: 'Services',
     subcategories: [
       {
-        label: 'Gift cards',
+        subcategoryLabel: 'Gift cards',
         link: '/gift',
       },
       {
-        label: 'Order pickup',
+        subcategoryLabel: 'Order pickup',
         link: '/order',
       },
       {
-        label: 'Purchase status',
+        subcategoryLabel: 'Purchase status',
         link: '/purchase',
       },
       {
-        label: 'Track orders',
+        subcategoryLabel: 'Track orders',
         link: '/track',
       },
     ],
@@ -154,23 +154,23 @@ const categories = [
     label: 'About',
     subcategories: [
       {
-        label: 'About us',
+        subcategoryLabel: 'About us',
         link: '/about',
       },
       {
-        label: 'Order pickup',
+        subcategoryLabel: 'Order pickup',
         link: '/order',
       },
       {
-        label: 'Purchase status',
+        subcategoryLabel: 'Purchase status',
         link: '/purchase',
       },
       {
-        label: 'Track orders',
+        subcategoryLabel: 'Track orders',
         link: '/track',
       },
       {
-        label: 'Returns',
+        subcategoryLabel: 'Returns',
         link: '/returns',
       },
     ],
