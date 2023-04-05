@@ -27,7 +27,7 @@ const displayDetails = [
     reverse: true,
   },
 ];
-export default function VerticalDisplay() {
+export default function DisplayVertical() {
   return (
     <div className="flex flex-col gap-6 md:flex-row">
       {displayDetails.map(({ title, subtitle, description, callToAction, image, backgroundColor, reverse }) => (
@@ -60,4 +60,4 @@ export default function VerticalDisplay() {
 
 // #endregion source
 
-VerticalDisplay.getLayout = ShowcasePageLayout;
+DisplayVertical.getLayout = ShowcasePageLayout;
