@@ -123,11 +123,10 @@
 <script lang="ts" setup>
 import { SfButton, SfIconChevronLeft, SfIconChevronRight, usePagination } from '@storefront-ui/vue';
 
-const { totalPages, pages, selectedPage, startPage, endPage, next, prev, setPage, maxVisiblePages } =
-  usePagination({
-    totalItems: 150,
-    currentPage: 2,
-    pageSize: 10,
-    maxPages: 1,
-  });
+const { totalPages, pages, selectedPage, startPage, endPage, next, prev, setPage, maxVisiblePages } = usePagination({
+  totalItems: 150,
+  currentPage: 2,
+  pageSize: 10,
+  maxPages: 1,
+});
 </script>
