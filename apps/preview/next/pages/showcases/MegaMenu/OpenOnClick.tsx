@@ -123,8 +123,8 @@ export default function OpenOnClick() {
   return (
     <div className="w-full h-full">
       {open && <div className="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />}
-      <header className="md:relative flex justify-center w-full border-0 bg-primary-700 h-14 md:h-20 border-neutral-200 md:z-10">
-        <div className="flex items-center flex-row flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+      <header className="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10">
+        <div className="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <a href="/" aria-label="SF Homepage" className="inline-block text-white mr-2 lg:mr-10">
             <img src={brandLogo.src} alt="Sf Logo" className="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
             <img src={brandLogoSign.src} alt="Sf Logo" className="hidden w-10 h-10 mr-4 md:block lg:hidden" />
@@ -134,7 +134,7 @@ export default function OpenOnClick() {
             <ul role="menubar">
               <li role="none">
                 <SfButton
-                  className="block !px-2 mr-auto text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white font-body"
+                  className="block !px-2 mr-auto text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                   type="button"
                   role="menuitem"
                   aria-haspopup="true"
@@ -168,7 +168,7 @@ export default function OpenOnClick() {
                     open={open}
                     onClose={() => setOpen(false)}
                     placement="top"
-                    className="grid grid-cols-1 gap-6 md:grid-cols-4 !fixed md:!absolute md:!top-[5rem] bg-white max-w-xs md:max-w-full shadow-lg p-0 md:p-8"
+                    className="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
                   >
                     <div className="flex items-center justify-between p-4 bg-primary-700 md:hidden">
                       <div className="flex items-center typography-text-lg font-medium text-white">
@@ -187,14 +187,14 @@ export default function OpenOnClick() {
                       </SfButton>
                     </div>
                     {categoriesContent.map(({ heading, items }) => (
-                      <section className="flex-1/4">
+                      <section className="flex-1/4" key={heading}>
                         <h2 className="typography-text-xs font-bold text-neutral-900 tracking-widest whitespace-nowrap px-4 py-2">
                           {heading}
                         </h2>
                         <hr className="mb-3.5" />
                         <ul role="menu">
                           {items.map((item) => (
-                            <SfListItem size="sm" role="none">
+                            <SfListItem size="sm" role="none" key={item.title}>
                               <a
                                 role="menuitem"
                                 className="focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
