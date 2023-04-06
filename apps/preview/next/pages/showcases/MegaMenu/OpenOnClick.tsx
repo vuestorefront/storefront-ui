@@ -129,12 +129,15 @@ export default function OpenOnClick() {
             <img src={brandLogoSign.src} alt="Sf Logo" className="hidden w-10 h-10 mr-4 md:block lg:hidden" />
             <img src={brandLogoSign.src} alt="Sf Logo" className="block w-8 h-8 mr-4 min-w-8 md:hidden" />
           </a>
-          <nav className="flex w-full justify-between flex-nowrap">
-            <ul>
-              <li>
+          <nav className="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
+            <ul role="menubar">
+              <li role="none">
                 <SfButton
                   className="block !px-2 mr-auto text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white font-body"
                   type="button"
+                  role="menuitem"
+                  aria-haspopup="true"
+                  aria-expanded={open}
                   slotSuffix={
                     <>
                       <SfIconChevronRight className="hidden rotate-90 md:inline-flex" />
@@ -143,7 +146,7 @@ export default function OpenOnClick() {
                   }
                   variant="tertiary"
                   onClick={() => {
-                    setOpen(!open);
+                    setOpen(true);
                   }}
                 >
                   <span className="hidden md:inline-flex">Browse all products</span>
@@ -173,6 +176,7 @@ export default function OpenOnClick() {
                       <SfButton
                         square
                         variant="tertiary"
+                        aria-label="Close drawer"
                         onClick={() => {
                           setOpen(!open);
                         }}
@@ -183,14 +187,15 @@ export default function OpenOnClick() {
                     </div>
                     {categoriesContent.map(({ heading, items }) => (
                       <section className="flex-1/4">
-                        <p className="typography-text-xs font-bold text-neutral-900 tracking-widest whitespace-nowrap px-4 py-2">
+                        <h2 className="typography-text-xs font-bold text-neutral-900 tracking-widest whitespace-nowrap px-4 py-2">
                           {heading}
-                        </p>
+                        </h2>
                         <hr className="mb-3.5" />
-                        <ul>
+                        <ul role="menu">
                           {items.map((item) => (
-                            <SfListItem size="sm">
+                            <SfListItem size="sm" role="none">
                               <a
+                                role="menuitem"
                                 className="focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
                                 href={item.link}
                               >
@@ -207,6 +212,18 @@ export default function OpenOnClick() {
                         {bannerDetails.title}
                       </p>
                     </div>
+                    <SfButton
+                      square
+                      size="sm"
+                      variant="tertiary"
+                      aria-label="Close drawer"
+                      onClick={() => {
+                        setOpen(!open);
+                      }}
+                      className="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
+                    >
+                      <SfIconClose className="text-neutral-500" />
+                    </SfButton>
                   </SfDrawer>
                 </CSSTransition>
               </li>
