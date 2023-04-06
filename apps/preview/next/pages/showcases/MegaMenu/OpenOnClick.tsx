@@ -158,10 +158,10 @@ export default function OpenOnClick() {
                   timeout={500}
                   unmountOnExit
                   classNames={{
-                    enter: '-translate-x-full md:translate-y-0 md:translate-x-0',
-                    enterActive: 'translate-x-0 md:translate-y-0 transition duration-500 ease-in-out',
-                    exitDone: 'translate-x-0',
-                    exitActive: '-translate-x-full transition duration-500 ease-in-out',
+                    enter: '-translate-x-full md:opacity-0 md:translate-x-0',
+                    enterActive: 'translate-x-0 md:opacity-100 transition duration-500 ease-in-out',
+                    exitDone: 'translate-x-0 md:opacity-100',
+                    exitActive: '-translate-x-full md:opacity-0 transition duration-500 ease-in-out',
                   }}
                 >
                   <SfDrawer

@@ -17,7 +17,7 @@ description: Mega menu is a type of website navigation menu that typically displ
 <<<../../preview/next/pages/showcases/MegaMenu/OpenOnClick.tsx#source
 <!-- end react -->
 <!-- vue -->
-<!-- <<<../../preview/nuxt/pages/showcases/NavbarBottom/NavbarBottom.vue -->
+<<<../../preview/nuxt/pages/showcases/MegaMenu/OpenOnClick.vue
 <!-- end vue -->
 
 </Showcase>

@@ -1,7 +1,7 @@
 <template>
   <label>
     Placement
-    <select class="p-2 mx-2 border border-2 rounded border-primary-700" @change="chagePlacement">
+    <select class="p-2 mx-2 border-2 rounded border-primary-700" @change="chagePlacement">
       <option value="top">top</option>
       <option value="right">right</option>
       <option value="bottom">bottom</option>
