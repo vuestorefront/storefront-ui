@@ -2,7 +2,6 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfButton, SfIconRemove, SfLink, SfIconAdd, SfIconSell, SfIconDelete } from '@storefront-ui/react';
 import card from '@assets/smartwatch.png';
-import Image from 'next/image';
 import { useCounter } from 'react-use';
 import { useId, ChangeEvent } from 'react';
 import { clamp } from '@storefront-ui/shared';
@@ -21,7 +20,7 @@ export default function ProductCardHorizontal() {
     <div className="relative flex border-b-[1px] border-neutral-200 hover:shadow-lg min-w-[320px] max-w-[640px] p-4">
       <div className="relative overflow-hidden rounded-md w-[100px] sm:w-[176px]">
         <SfLink href="#">
-          <Image
+          <img
             className="w-full h-auto border rounded-md border-neutral-200"
             src={card.src}
             alt="alt"
