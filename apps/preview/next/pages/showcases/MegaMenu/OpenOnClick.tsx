@@ -185,7 +185,7 @@ export default function OpenOnClick() {
                       </SfButton>
                     </div>
                     {categoriesContent.map(({ heading, items }) => (
-                      <section className="flex-1/4" key={heading}>
+                      <div className="flex-1/4" key={heading}>
                         <h2 className="typography-text-xs font-bold text-neutral-900 tracking-widest whitespace-nowrap px-4 py-2">
                           {heading}
                         </h2>
@@ -203,7 +203,7 @@ export default function OpenOnClick() {
                             </SfListItem>
                           ))}
                         </ul>
-                      </section>
+                      </div>
                     ))}
                     <div className="flex flex-col items-center justify-center bg-neutral-100 rounded-md border-neutral-300 overflow-hidden grow">
                       <img src={bannerDetails.image.src} alt={bannerDetails.title} className="object-contain" />
