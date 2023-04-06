@@ -6,7 +6,6 @@ export default {
 <script lang="ts" setup>
 import { ref, type PropType } from 'vue';
 import { SfSelectSize, SfIconExpandMore } from '@storefront-ui/vue';
-import { onClickOutside } from '@vueuse/core';
 
 const props = defineProps({
   size: {
@@ -41,14 +40,13 @@ const props = defineProps({
 
 const selected = ref(props.value);
 const chevronRotated = ref(false);
-const selectRef = ref();
 const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
 
 const onClickSelect = () => (chevronRotated.value = true);
 
-onClickOutside(selectRef, () => (chevronRotated.value = false));
+const onBlurSelect = () => (chevronRotated.value = false);
 
 const changedValue = (event: Event) => {
   selected.value = (event.target as HTMLSelectElement).value;
@@ -61,7 +59,6 @@ const changedValue = (event: Event) => {
   <div :class="['relative flex flex-col', wrapperClassName]" data-testid="select">
     <select
       v-bind="$attrs"
-      ref="selectRef"
       :value="value"
       :required="required"
       :disabled="disabled"
@@ -75,6 +72,7 @@ const changedValue = (event: Event) => {
         },
       ]"
       data-testid="select-input"
+      @blur="onBlurSelect"
       @click="onClickSelect"
       @change="changedValue"
     >
