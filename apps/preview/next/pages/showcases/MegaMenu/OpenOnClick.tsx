@@ -150,7 +150,7 @@ export default function OpenOnClick() {
                     setOpen(true);
                   }}
                 >
-                  <span className="hidden md:inline-flex">Browse all products</span>
+                  <span className="hidden md:inline-flex">Categories</span>
                 </SfButton>
                 <CSSTransition
                   ref={nodeRef}
@@ -171,9 +171,7 @@ export default function OpenOnClick() {
                     className="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
                   >
                     <div className="flex items-center justify-between p-4 bg-primary-700 md:hidden">
-                      <div className="flex items-center typography-text-lg font-medium text-white">
-                        Browse all products
-                      </div>
+                      <div className="flex items-center typography-text-lg font-medium text-white">Categories</div>
                       <SfButton
                         square
                         variant="tertiary"
