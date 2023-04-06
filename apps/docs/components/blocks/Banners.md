@@ -1,15 +1,15 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: Display component acts like a layout for your banners. You can provide main image and any content.
+description: Banners are components that deliver main image and content in various configurations.
+
 ---
-# Display
+# Banners
 
 {{ $frontmatter.description }}
 
-## Display horizontal
+## Horizontal Display
 
-Example of layout for 3 horizontal displays.
 
 <Showcase showcase-name="Banners/DisplayHorizontal" style="min-height:800px">
 
@@ -20,6 +20,32 @@ Example of layout for 3 horizontal displays.
 <<<../../preview/next/pages/showcases/Banners/DisplayHorizontal.tsx#source
 <!-- end react -->
 
+</Showcase>
+
+## Vertical Display
+
+Vertical display block with image and content below or above it.
+
+<Showcase showcase-name="Banners/DisplayVertical" style="min-height: 800px;">
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Banners/DisplayVertical.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Banners/DisplayVertical.tsx#source
+<!-- end react -->
+</Showcase>
+
+## Multiple vertical Displays
+
+Four vertical displays in row on desktop.
+
+<Showcase showcase-name="Banners/DisplayVerticalMultiple" style="min-height: 750px;">
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Banners/DisplayVerticalMultiple.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Banners/DisplayVerticalMultiple.tsx#source
+<!-- end react -->
 </Showcase>
 
 ## Hero
