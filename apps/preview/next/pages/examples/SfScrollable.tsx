@@ -1,11 +1,5 @@
 import classNames from 'classnames';
-import {
-  SfScrollable,
-  SfScrollableDirection,
-  SfButton,
-  SfIconChevronLeft,
-  SfIconChevronRight,
-} from '@storefront-ui/react';
+import { SfScrollable, SfScrollableDirection, SfScrollableButtonsPlacement } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
@@ -16,13 +10,7 @@ function Example() {
       {
         type: 'text',
         modelName: 'children',
-        description: 'Only for demonstration purposes. Default slot, replaces example drawer content',
-      },
-      {
-        type: 'text',
-        modelName: 'activeIndex',
-        propDefaultValue: '0',
-        description: 'Controls index of active item',
+        description: 'Only for demonstration purposes. Default slot, replaces example scrollable content',
       },
       {
         type: 'select',
@@ -31,6 +19,14 @@ function Example() {
         propType: 'enum',
         propDefaultValue: SfScrollableDirection.horizontal,
         description: 'Direction of scrollable',
+      },
+      {
+        type: 'select',
+        modelName: 'buttonsPlacement',
+        options: Object.keys(SfScrollableButtonsPlacement),
+        propType: 'SfScrollableButtonsPlacement',
+        propDefaultValue: SfScrollableButtonsPlacement.blocked,
+        description: 'Change position of next/previous buttons',
       },
       {
         type: 'text',
@@ -51,7 +47,7 @@ function Example() {
         modelName: 'snap',
         propType: 'boolean',
         propDefaultValue: false,
-        description: 'Only for demonstration purposes. Enables item snapping',
+        description: 'Only for demonstration purposes. Enables item snapping, works only if `drag=true`',
       },
       {
         type: 'boolean',
@@ -59,14 +55,6 @@ function Example() {
         propType: 'boolean',
         propDefaultValue: false,
         description: 'Only for demonstration purposes. Hides scrollbar',
-      },
-      {
-        type: 'select',
-        modelName: 'buttons',
-        options: ['floating', 'blocked', 'none'],
-        propType: 'enum',
-        propDefaultValue: 'none',
-        description: 'Only for demonstration purposes. Type of prev/next buttons',
       },
       {
         type: 'text',
@@ -78,83 +66,39 @@ function Example() {
     {
       children: undefined,
       direction: SfScrollableDirection.horizontal,
-      activeIndex: '0',
+      buttonsPlacement: SfScrollableButtonsPlacement.blocked,
       as: undefined,
       drag: undefined,
       snap: undefined,
       hideScrollbar: false,
-      buttons: 'floating',
-      totalItems: '10',
+      totalItems: '20',
     },
   );
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <div className="flex items-center">
-        {state.get.buttons === 'blocked' && (
-          <SfButton
-            variant="secondary"
-            size="lg"
-            className="!rounded-full mr-4"
-            disabled={Number(state.get.activeIndex) === 0}
-            square
-            slotPrefix={<SfIconChevronLeft />}
-            onClick={() => state.set({ activeIndex: String(Number(state.get.activeIndex) - 1) })}
-          />
-        )}
-        <SfScrollable
-          {...state.get}
-          activeIndex={Number(state.get.activeIndex || '0')}
-          className={classNames('w-full items-center', {
-            'snap-x snap-mandatory': state.get.snap,
-            'scrollbar-hide': state.get.hideScrollbar,
-            'px-16': state.get.buttons === 'floating-with-snap-padding',
-          })}
-        >
-          {state.get.buttons === 'floating' && (
-            <SfButton
-              variant="secondary"
-              size="lg"
-              className="absolute left-4 !rounded-full"
-              disabled={Number(state.get.activeIndex) === 0}
-              square
-              slotPrefix={<SfIconChevronLeft />}
-              onClick={() => state.set({ activeIndex: String(Number(state.get.activeIndex) - 1) })}
-            />
-          )}
-          {state.get.children ||
-            Array.from({ length: Number(state.get.totalItems || 10) }, (_, i) => (
-              <div
-                key={i}
-                className={classNames('w-36 h-36 shrink-0 bg-neutral-100 border border-negative-300 border-dashed', {
-                  'snap-center': state.get.snap,
-                })}
-              />
-            ))}
-          {state.get.buttons === 'floating' && (
-            <SfButton
-              variant="secondary"
-              size="lg"
-              square
-              disabled={Number(state.get.activeIndex) === Number(state.get.totalItems) - 1}
-              className="absolute right-4 !rounded-full"
-              slotPrefix={<SfIconChevronRight />}
-              onClick={() => state.set({ activeIndex: String(Number(state.get.activeIndex) + 1) })}
-            />
-          )}
-        </SfScrollable>
-        {state.get.buttons === 'blocked' && (
-          <SfButton
-            variant="secondary"
-            size="lg"
-            square
-            disabled={Number(state.get.activeIndex) === Number(state.get.totalItems) - 1}
-            className="!rounded-full ml-4"
-            slotPrefix={<SfIconChevronRight />}
-            onClick={() => state.set({ activeIndex: String(Number(state.get.activeIndex) + 1) })}
-          />
-        )}
-      </div>
+      <SfScrollable
+        drag={state.get.drag}
+        direction={state.get.direction}
+        buttonsPlacement={state.get.buttonsPlacement}
+        className={classNames('w-full items-center', {
+          'snap-x snap-mandatory': state.get.snap,
+          'scrollbar-hide': state.get.hideScrollbar,
+        })}
+      >
+        {state.get.children ||
+          Array.from({ length: Number(state.get.totalItems || 10) }, (_, i) => (
+            <div
+              key={i}
+              className={classNames(
+                'w-36 h-36 shrink-0 bg-neutral-100 border border-negative-300 border-dashed flex items-center justify-center text-gray-500',
+                { 'snap-center': state.get.snap },
+              )}
+            >
+              {i + 1}
+            </div>
+          ))}
+      </SfScrollable>
     </ComponentExample>
   );
 }

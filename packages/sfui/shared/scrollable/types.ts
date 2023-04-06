@@ -1,7 +1,13 @@
 export enum SfScrollableDirection {
   vertical = 'vertical',
   horizontal = 'horizontal',
-};
+}
+
+export enum SfScrollableButtonsPlacement {
+  none = 'none',
+  floating = 'floating',
+  blocked = 'blocked',
+}
 
 export type SfScrollableOnDragChangeData = {
   isDragged: boolean;
@@ -19,7 +25,7 @@ export type ScrollableOptions = {
   reduceMotion?: boolean;
   drag?: { sensitivity: number } | boolean;
   direction?: `${SfScrollableDirection}`;
-  onDragChange?: (data: SfScrollableOnDragChangeData) => void; 
+  onDragChange?: (data: SfScrollableOnDragChangeData) => void;
   onScroll?: (data: SfScrollableOnScrollData) => void;
   onPrev?: () => void;
   onNext?: () => void;

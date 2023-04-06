@@ -23,6 +23,7 @@ export function useScrollable<TElement extends HTMLElement>(options?: Partial<Us
       },
     });
     const unregister = scrollable.current.register();
+
     if (options?.activeIndex) scrollable.current.scrollToIndex(options?.activeIndex);
 
     return unregister;
@@ -31,8 +32,6 @@ export function useScrollable<TElement extends HTMLElement>(options?: Partial<Us
   const getPrevButtonProps = <TProps>(props?: TProps) => {
     const onClick = () => {
       scrollable.current?.prev();
-      // props?.onClick?.();
-      // TODO: typing of passed through additional props (for all props getters)
     };
     return {
       onClick,
@@ -44,7 +43,6 @@ export function useScrollable<TElement extends HTMLElement>(options?: Partial<Us
   const getNextButtonProps = <TProps>(props?: TProps) => {
     const onClick = () => {
       scrollable.current?.next();
-      // props?.onClick?.();
     };
     return {
       onClick,

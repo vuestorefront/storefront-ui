@@ -1,4 +1,10 @@
-import { type ScrollableOptions, Scrollable, SfScrollableDirection, type Prettify } from '@storefront-ui/shared';
+import {
+  type ScrollableOptions,
+  Scrollable,
+  SfScrollableDirection,
+  SfScrollableButtonsPlacement,
+  type Prettify,
+} from '@storefront-ui/shared';
 
 export type UseScrollableOptions = Prettify<
   ScrollableOptions & {
@@ -6,4 +12,4 @@ export type UseScrollableOptions = Prettify<
   }
 >;
 
-export { type ScrollableOptions, Scrollable, SfScrollableDirection };
+export { type ScrollableOptions, Scrollable, SfScrollableDirection, SfScrollableButtonsPlacement };

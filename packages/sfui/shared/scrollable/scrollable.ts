@@ -15,12 +15,14 @@ export default class Scrollable {
   private dragScrollY: number;
   private dragScrollTop: number;
 
-  #isDragged: boolean = false;
-  private get isDragged() { return this.#isDragged; }
-  private set isDragged(newValue: boolean) {
-    if (newValue === this.#isDragged) return;
-    this.#isDragged = newValue;
-    this.options.onDragChange?.({ isDragged: this.#isDragged });
+  private isDraggedData: boolean = false;
+  public get isDragged() {
+    return this.isDraggedData;
+  }
+  public set isDragged(newValue: boolean) {
+    if (newValue === this.isDraggedData) return;
+    this.isDraggedData = newValue;
+    this.options.onDragChange?.({ isDragged: this.isDraggedData });
   }
 
   constructor(container: Element, ScrollableOptions?: Partial<ScrollableOptions>) {
@@ -79,13 +81,15 @@ export default class Scrollable {
 
   public prev(): void {
     const { container, options } = this;
-    if (options.direction === SfScrollableDirection.vertical) this.scrollTo({ top: container.scrollTop - container.clientHeight });
+    if (options.direction === SfScrollableDirection.vertical)
+      this.scrollTo({ top: container.scrollTop - container.clientHeight });
     else this.scrollTo({ left: container.scrollLeft - container.clientWidth });
   }
 
   public next(): void {
     const { container, options } = this;
-    if (options.direction === SfScrollableDirection.vertical) this.scrollTo({ top: container.scrollTop + container.clientHeight });
+    if (options.direction === SfScrollableDirection.vertical)
+      this.scrollTo({ top: container.scrollTop + container.clientHeight });
     else this.scrollTo({ left: container.scrollLeft + container.clientWidth });
   }
 
@@ -94,7 +98,12 @@ export default class Scrollable {
     if (children[index]) {
       const { container } = this;
       const { top: containerTop, left: containerLeft } = container.getBoundingClientRect();
-      const { top: childTop, left: childLeft, width: childWidth, height: childHeight } = children[index].getBoundingClientRect();
+      const {
+        top: childTop,
+        left: childLeft,
+        width: childWidth,
+        height: childHeight,
+      } = children[index].getBoundingClientRect();
 
       if (this.options.direction === SfScrollableDirection.vertical) {
         const top = childTop - containerTop;
@@ -181,19 +190,19 @@ export default class Scrollable {
     this.refresh(this.options.onScroll);
   }
 
-  private get hasNext()  {
+  private get hasNext() {
     if (this.options.direction === SfScrollableDirection.vertical) {
       return this.container.scrollHeight > this.container.scrollTop + this.container.clientHeight;
     }
     return this.container.scrollWidth > this.container.scrollLeft + this.container.clientWidth;
-  };
+  }
 
   private get hasPrev() {
     if (this.options.direction === SfScrollableDirection.vertical) {
       return !!this.container.scrollTop;
     }
     return !!this.container.scrollLeft;
-  };
+  }
 
   private calculate(): SfScrollableOnScrollData {
     return {
