@@ -164,7 +164,7 @@ export default function OpenOnClick() {
                     open={open}
                     onClose={() => setOpen(false)}
                     placement="top"
-                    className="grid grid-cols-1 gap-6 lg:grid-cols-4 !fixed md:!absolute md:!top-[5rem] bg-white max-w-xs md:max-w-full shadow-lg p-0 md:p-8"
+                    className="grid grid-cols-1 gap-6 md:grid-cols-4 !fixed md:!absolute md:!top-[5rem] bg-white max-w-xs md:max-w-full shadow-lg p-0 md:p-8"
                   >
                     <div className="flex items-center justify-between p-4 bg-primary-700 md:hidden">
                       <div className="flex items-center typography-text-lg font-medium text-white">
