@@ -1,14 +1,14 @@
 <template>
-  <div class="pt-10 bg-neutral-100">
+  <footer class="pt-10 bg-neutral-100">
     <div
       class="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-[1536px] mx-auto"
     >
-      <div v-for="{ label, subcategories } in categories" :key="label" class="min-w-[25%] xs:min-w-[50%] xs:pb-4">
-        <div class="text-lg font-medium leading-7 text-neutral-900 font-body">{{ label }}</div>
-        <p
+      <div v-for="{ label, subcategories } in categories" :key="label" class="grid grid-cols xs:pb-4">
+        <div class="ml-4 text-lg font-medium leading-7 text-neutral-900 font-body">{{ label }}</div>
+        <SfListItem
           v-for="{ subcategoryLabel, link } in subcategories"
           :key="subcategoryLabel"
-          class="py-2 typography-text-sm font-body"
+          class="py-2 !bg-transparent typography-text-sm font-body"
         >
           <SfLink
             class="no-underline text-neutral-600 hover:underline hover:!text-neutral-900 active:underline active:!text-neutral-900"
@@ -17,7 +17,7 @@
           >
             {{ subcategoryLabel }}
           </SfLink>
-        </p>
+        </SfListItem>
       </div>
     </div>
     <hr />
@@ -44,6 +44,7 @@
           v-for="{ label, link, icon } in socialMedia"
           :key="label"
           as="a"
+          square
           variant="tertiary"
           class="text-white active:text-white hover:text-white hover:!bg-neutral-500 active:!bg-transparent"
           :href="link"
@@ -57,7 +58,7 @@
           v-for="{ label, link } in bottomLinks"
           :key="label"
           variant="secondary"
-          class="text-white no-underline active:text-white active:underline hover:text-white hover:underline"
+          class="text-white no-underline typography-text-sm active:text-white active:underline hover:text-white hover:underline"
           :href="link"
         >
           {{ label }}
@@ -67,7 +68,7 @@
         @2023 Vue Storefront
       </p>
     </div>
-  </div>
+  </footer>
 </template>
 <script lang="ts" setup>
 import {
@@ -81,6 +82,7 @@ import {
   SfIconYoutube,
   SfButton,
   SfLink,
+  SfListItem,
 } from '@storefront-ui/vue';
 const categories = [
   {

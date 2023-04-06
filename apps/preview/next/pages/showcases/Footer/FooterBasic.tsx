@@ -11,6 +11,7 @@ import {
   SfIconYoutube,
   SfButton,
   SfLink,
+  SfListItem,
 } from '@storefront-ui/react';
 
 const categories = [
@@ -179,13 +180,13 @@ const iconsMap: {
 };
 export default function FooterBasic() {
   return (
-    <div className="pt-10 bg-neutral-100">
+    <footer className="pt-10 bg-neutral-100">
       <div className="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-[1536px] mx-auto">
         {categories.map(({ label, subcategories }) => (
-          <div className="min-w-[25%] xs:min-w-[50%] xs:pb-4" key={label}>
-            <div className="text-lg font-medium leading-7 text-neutral-900 font-body">{label}</div>
+          <div className="grid grid-cols xs:pb-4" key={label}>
+            <div className="ml-4 text-lg font-medium leading-7 text-neutral-900 font-body">{label}</div>
             {subcategories?.map(({ subcategoryLabel, link }) => (
-              <p className="py-2 typography-text-sm font-body" key={subcategoryLabel}>
+              <SfListItem className="py-2 !bg-transparent typography-text-sm font-body" key={subcategoryLabel}>
                 <SfLink
                   className="no-underline text-neutral-600 hover:underline hover:!text-neutral-900 active:underline active:!text-neutral-900"
                   variant="secondary"
@@ -193,7 +194,7 @@ export default function FooterBasic() {
                 >
                   {subcategoryLabel}
                 </SfLink>
-              </p>
+              </SfListItem>
             ))}
           </div>
         ))}
@@ -230,6 +231,7 @@ export default function FooterBasic() {
             return (
               <SfButton
                 key={label}
+                square
                 as="a"
                 variant="tertiary"
                 className="text-white active:text-white hover:text-white hover:!bg-neutral-500 active:bg-transparent"
@@ -246,7 +248,7 @@ export default function FooterBasic() {
             <SfLink
               key={label}
               variant="secondary"
-              className="text-white no-underline active:text-white active:underline hover:text-white hover:underline"
+              className="text-white no-underline typography-text-sm active:text-white active:underline hover:text-white hover:underline"
               href={link}
             >
               {label}
@@ -257,7 +259,7 @@ export default function FooterBasic() {
           @2023 Vue Storefront
         </p>
       </div>
-    </div>
+    </footer>
   );
 }
 
