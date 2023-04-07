@@ -33,7 +33,7 @@
             {{ label }}
           </SfLink>
         </p>
-        <p v-for="option in details" :key="option" class="text-sm leading-5 text-neutral-600 font-body">
+        <p v-for="option in details" :key="option" class="leading-5 typography-text-sm text-neutral-600 font-body">
           {{ option }}
         </p>
       </div>
@@ -43,7 +43,7 @@
         <SfButton
           v-for="{ label, link, icon } in socialMedia"
           :key="label"
-          as="a"
+          tag="a"
           square
           variant="tertiary"
           class="text-white active:text-white hover:text-white hover:!bg-neutral-500 active:!bg-transparent"
@@ -64,7 +64,9 @@
           {{ label }}
         </SfLink>
       </div>
-      <p class="flex items-center justify-center py-2 text-sm leading-5 text-center text-white/50 font-body md:ml-6">
+      <p
+        class="flex items-center justify-center py-2 leading-5 text-center typography-text-sm text-white/50 font-body md:ml-6"
+      >
         @2023 Vue Storefront
       </p>
     </div>
