@@ -48,7 +48,7 @@
                       variant="tertiary"
                       aria-label="Close drawer"
                       class="text-white"
-                      @click="open = true"
+                      @click="open = false"
                     >
                       <SfIconClose />
                     </SfButton>
