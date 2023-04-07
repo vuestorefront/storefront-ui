@@ -47,7 +47,7 @@ function Example() {
         modelName: 'snap',
         propType: 'boolean',
         propDefaultValue: false,
-        description: 'Only for demonstration purposes. Enables item snapping, works only if `drag=true`',
+        description: 'Only for demonstration purposes. Enables item snapping',
       },
       {
         type: 'boolean',
