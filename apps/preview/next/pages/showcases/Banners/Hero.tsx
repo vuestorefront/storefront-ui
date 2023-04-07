@@ -22,9 +22,9 @@ export default function Hero() {
           <p className="typography-text-xs md:typography-text-sm font-bold tracking-widest text-neutral-500 uppercase">
             Feel the music
           </p>
-          <h2 className="typography-headline-2 md:typography-headline-1 md:leading-[67.5px] font-bold mt-2 mb-4">
+          <h1 className="typography-headline-2 md:typography-headline-1 md:leading-[67.5px] font-bold mt-2 mb-4">
             New Wireless Pro
-          </h2>
+          </h1>
           <p className="typography-text-base md:typography-text-lg">
             Spatial audio. Adjustable ear cups. On-device controls. All-day battery.
           </p>
