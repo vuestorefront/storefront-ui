@@ -38,3 +38,18 @@ Changing an image is delivered by click on the thumbnail or dragging the main im
 
 </Showcase>
 
+## Product Gallery with bullets
+
+Changing an image is delivered by click on the buttons which are visible after hovering on the main image. 
+
+<Showcase showcase-name="Gallery/GalleryHorizontal" style="min-height:800px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontal.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Gallery/GalleryHorizontal.tsx#source
+<!-- end react -->
+
+</Showcase>
+
