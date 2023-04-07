@@ -94,11 +94,11 @@ export default function GalleryHorizontal() {
               aria-label={alt}
               key={`${alt}-${index}-thumbnail`}
               className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
-                activeIndex === index ? 'border-primary-700' : 'border-gray-200 md:border-transparent'
+                activeIndex === index ? 'border-primary-700' : 'border-transparent'
               }`}
               onClick={() => setActiveIndex(index)}
             >
-              <img alt={alt} className="object-contain" width="78" height="78" src={image} />
+              <img alt={alt} className="object-contain border border-neutral-200" width="78" height="78" src={image} />
             </button>
           ))}
         </div>
