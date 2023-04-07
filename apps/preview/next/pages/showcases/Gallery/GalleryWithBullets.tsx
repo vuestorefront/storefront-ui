@@ -31,7 +31,7 @@ const images = [
   { image: gallery11.src, alt: 'backpack' },
 ];
 
-export default function GalleryHorizontal() {
+export default function GalleryWithBullets() {
   const draggableRef = useRef<HTMLDivElement>(null);
   const [offsetPosition, setOffsetPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
@@ -67,7 +67,7 @@ export default function GalleryHorizontal() {
   }, [isDragging, offsetPosition, imgPosition]);
 
   return (
-    <div className="relative flex flex-col h-full gap-4 scroll-smooth">
+    <div className="relative flex flex-col h-full gap-1 scroll-smooth">
       <div
         className="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
         ref={draggableRef}
@@ -87,19 +87,15 @@ export default function GalleryHorizontal() {
         </div>
       </div>
       <div className="flex-shrink-0 overflow-hidden basis-auto">
-        <div className="flex-row w-full snap-both snap-mandatory flex gap-0.5 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-          {images.map(({ image, alt }, index) => (
-            <button
-              type="button"
+        <div className="flex-row w-full snap-both snap-mandatory flex gap-0.5 mt overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+          {images.map(({ alt }, index) => (
+            <div
               aria-label={alt}
-              key={`${alt}-${index}-thumbnail`}
-              className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
-                activeIndex === index ? 'border-primary-700' : 'border-gray-200 md:border-transparent'
+              key={`${index}-bullet`}
+              className={`w-[78px] relative pb-1 border-b-4 snap-start cursor-pointer transition-colors  ${
+                activeIndex === index ? 'border-primary-700' : 'border-gray-200'
               }`}
-              onClick={() => setActiveIndex(index)}
-            >
-              <img alt={alt} className="object-contain" width="78" height="78" src={image} />
-            </button>
+            />
           ))}
         </div>
       </div>
@@ -109,4 +105,4 @@ export default function GalleryHorizontal() {
 
 // #endregion source
 
-GalleryHorizontal.getLayout = ShowcasePageLayout;
+GalleryWithBullets.getLayout = ShowcasePageLayout;
