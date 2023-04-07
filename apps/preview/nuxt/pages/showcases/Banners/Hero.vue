@@ -4,7 +4,7 @@
     class="md:flex md:flex-row-reverse min-h-[600px] max-w-[1536px] mx-auto bg-[url:var(--sf-img-mobile)] md:bg-[url:var(--sf-img-desktop)] bg-center bg-cover bg-no-repeat"
   >
     <div class="flex flex-col md:basis-2/4 md:items-stretch md:overflow-hidden">
-      <img :src="headphones" alt="Headphones alt" class="h-full object-cover object-left" />
+      <img :src="headphones" alt="Headphones" class="h-full object-cover object-left" />
     </div>
     <div class="p-4 md:p-10 md:flex md:flex-col md:justify-center md:items-start md:basis-2/4">
       <p class="typography-text-xs md:typography-text-sm font-bold tracking-widest text-neutral-500">Feel the music</p>

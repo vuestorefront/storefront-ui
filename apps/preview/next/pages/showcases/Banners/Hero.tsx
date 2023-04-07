@@ -17,7 +17,7 @@ export default function Hero() {
       className="md:flex md:flex-row-reverse min-h-[600px] max-w-[1536px] mx-auto bg-[url:var(--sf-img-mobile)] md:bg-[url:var(--sf-img-desktop)] bg-center bg-cover bg-no-repeat"
     >
       <div className="flex flex-col md:basis-2/4 md:items-stretch md:overflow-hidden">
-        <img src={headphones.src} alt="Headphones alt" className="h-full object-cover object-left" />
+        <img src={headphones.src} alt="Headphones" className="h-full object-cover object-left" />
       </div>
       <div className="p-4 md:p-10 md:flex md:flex-col md:justify-center md:items-start md:basis-2/4">
         <p className="typography-text-xs md:typography-text-sm font-bold tracking-widest text-neutral-500">
