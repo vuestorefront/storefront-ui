@@ -10,9 +10,8 @@ export default function Hero() {
   return (
     <div className="relative min-h-[600px]">
       <picture>
-        <source srcSet={mobileBackground.src} media="(max-width: 767px)" />
         <source srcSet={desktopBackground.src} media="(min-width: 768px)" />
-        <img src={desktopBackground.src} className="absolute w-full h-full z-[-1] md:object-cover" />
+        <img src={mobileBackground.src} className="absolute w-full h-full z-[-1] md:object-cover" />
       </picture>
       <div className="md:flex md:flex-row-reverse md:justify-center min-h-[600px] max-w-[1536px] mx-auto">
         <div className="flex flex-col md:basis-2/4 md:items-stretch md:overflow-hidden">
