@@ -56,6 +56,7 @@
                   </div>
                   <div v-for="{ heading, items } in categoriesContent" :key="heading" class="flex-1/4">
                     <h2
+                      role="presentation"
                       class="typography-text-xs font-bold text-neutral-900 tracking-widest whitespace-nowrap px-4 py-2"
                     >
                       {{ heading }}

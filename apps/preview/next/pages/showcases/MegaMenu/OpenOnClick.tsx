@@ -186,7 +186,10 @@ export default function OpenOnClick() {
                     </div>
                     {categoriesContent.map(({ heading, items }) => (
                       <div className="flex-1/4" key={heading}>
-                        <h2 className="typography-text-xs font-bold text-neutral-900 tracking-widest whitespace-nowrap px-4 py-2">
+                        <h2
+                          role="presentation"
+                          className="typography-text-xs font-bold text-neutral-900 tracking-widest whitespace-nowrap px-4 py-2"
+                        >
                           {heading}
                         </h2>
                         <hr className="mb-3.5" />
