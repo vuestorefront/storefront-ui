@@ -11,9 +11,9 @@ const getSizeClasses = {
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { toRefs, ref } from 'vue';
+import { toRefs } from 'vue';
 import { useVModel } from '@vueuse/core';
-import { SfInputSize, useKeyboardFocus } from '@storefront-ui/vue';
+import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
@@ -38,19 +38,21 @@ const emit = defineEmits<{
   (event: 'focus'): void;
 }>();
 const { invalid } = toRefs(props);
-const inputWrapperRef = ref();
-useKeyboardFocus(inputWrapperRef);
+const { isFocusVisible } = useFocusVisible();
 
 const inputValue = useVModel(props, 'modelValue', emit);
 </script>
 
 <template>
   <div
-    ref="inputWrapperRef"
     :class="[
       'flex items-center bg-white rounded-md ring-inset text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
+      {
+        'ring-2 ring-negative-700': invalid,
+        'ring-1 ring-neutral-200': !invalid,
+        'focus-within:outline focus-within:outline-offset': isFocusVisible,
+      },
       getSizeClasses[size],
-      invalid ? 'ring-2 ring-negative-700' : 'ring-1 ring-neutral-200',
       wrapperClass,
     ]"
     data-testid="input"

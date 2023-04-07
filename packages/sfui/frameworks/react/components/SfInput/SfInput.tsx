@@ -1,6 +1,7 @@
-import classNames from 'classnames';
 import { forwardRef } from 'react';
-import { SfInputSize, useKeyboardFocus } from '@storefront-ui/react';
+import classNames from 'classnames';
+import mergeRefs from 'merge-refs';
+import { SfInputSize, useFocusVisible } from '@storefront-ui/react';
 import type { SfInputProps } from '@storefront-ui/react';
 
 const sizeClasses = {
@@ -11,14 +12,18 @@ const sizeClasses = {
 
 const SfInput = forwardRef<HTMLInputElement, SfInputProps>(
   ({ size = SfInputSize.base, slotPrefix, slotSuffix, invalid, className, wrapperClassName, ...attributes }, ref) => {
-    const { isFocusVisible } = useKeyboardFocus({ isTextInput: true });
+    const { isFocusVisible } = useFocusVisible({ isTextInput: true });
+
     return (
       <div
         className={classNames([
           'flex items-center bg-white rounded-md ring-inset text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
+          {
+            'ring-2 ring-negative-700': invalid,
+            'ring-1 ring-neutral-200': !invalid,
+            'focus-within:outline focus-within:outline-offset': isFocusVisible,
+          },
           sizeClasses[size],
-          invalid ? 'ring-2 ring-negative-700' : 'ring-1 ring-neutral-200',
-          isFocusVisible ? 'outline outline-offset' : '',
           wrapperClassName,
         ])}
         data-testid="input"
@@ -32,7 +37,7 @@ const SfInput = forwardRef<HTMLInputElement, SfInputProps>(
           type="text"
           data-testid="input-field"
           size={1}
-          ref={ref}
+          ref={mergeRefs(ref)}
           {...attributes}
         />
         {slotSuffix && <span className="pl-2">{slotSuffix}</span>}
