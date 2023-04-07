@@ -22,3 +22,19 @@ Changing an image is delivered by hover on the thumbnail or dragging the main im
 <!-- end react -->
 
 </Showcase>
+
+## Product Gallery with horizontal thumbnails
+
+Changing an image is delivered by click on the thumbnail or dragging the main image.  
+
+<Showcase showcase-name="Gallery/GalleryHorizontal" style="min-height:800px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontal.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Gallery/GalleryHorizontal.tsx#source
+<!-- end react -->
+
+</Showcase>
+

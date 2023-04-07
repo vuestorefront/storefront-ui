@@ -5,20 +5,30 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { useEffect, useRef, useState } from 'react';
 import { clamp } from '@storefront-ui/shared';
-import smartwatch from '@assets/smartwatch.png';
-import sneakers from '@assets/sneakers.png';
+import gallery1 from '@assets/gallery_1.png';
+import gallery2 from '@assets/gallery_2.png';
+import gallery3 from '@assets/gallery_3.png';
+import gallery4 from '@assets/gallery_4.png';
+import gallery5 from '@assets/gallery_5.png';
+import gallery6 from '@assets/gallery_6.png';
+import gallery7 from '@assets/gallery_7.png';
+import gallery8 from '@assets/gallery_8.png';
+import gallery9 from '@assets/gallery_9.png';
+import gallery10 from '@assets/gallery_10.png';
+import gallery11 from '@assets/gallery_11.png';
 
 const images = [
-  { image: smartwatch.src, alt: 'smartwatch' },
-  { image: sneakers.src, alt: 'sneakers' },
-  { image: smartwatch.src, alt: 'smartwatch' },
-  { image: sneakers.src, alt: 'sneakers' },
-  { image: smartwatch.src, alt: 'smartwatch' },
-  { image: sneakers.src, alt: 'sneakers' },
-  { image: smartwatch.src, alt: 'smartwatch' },
-  { image: sneakers.src, alt: 'sneakers' },
-  { image: smartwatch.src, alt: 'smartwatch' },
-  { image: sneakers.src, alt: 'sneakers' },
+  { image: gallery1.src, alt: 'backpack' },
+  { image: gallery2.src, alt: 'backpack' },
+  { image: gallery3.src, alt: 'backpack' },
+  { image: gallery4.src, alt: 'backpack' },
+  { image: gallery5.src, alt: 'backpack' },
+  { image: gallery6.src, alt: 'backpack' },
+  { image: gallery7.src, alt: 'backpack' },
+  { image: gallery8.src, alt: 'backpack' },
+  { image: gallery9.src, alt: 'backpack' },
+  { image: gallery10.src, alt: 'backpack' },
+  { image: gallery11.src, alt: 'backpack' },
 ];
 
 export default function GalleryVertical() {
