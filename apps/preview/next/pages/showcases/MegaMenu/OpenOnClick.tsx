@@ -131,12 +131,11 @@ export default function OpenOnClick() {
             <img src={brandLogoSign.src} alt="Sf Logo" className="block w-8 h-8 mr-4 min-w-8 md:hidden" />
           </a>
           <nav className="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
-            <ul role="menubar">
+            <ul>
               <li role="none">
                 <SfButton
                   className="block !px-2 mr-auto text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                   type="button"
-                  role="menuitem"
                   aria-haspopup="true"
                   aria-expanded={open}
                   slotSuffix={
@@ -193,11 +192,10 @@ export default function OpenOnClick() {
                           {heading}
                         </h2>
                         <hr className="mb-3.5" />
-                        <ul role="menu">
+                        <ul>
                           {items.map((item) => (
                             <SfListItem size="sm" role="none" key={item.title}>
                               <a
-                                role="menuitem"
                                 className="focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
                                 href={item.link}
                               >

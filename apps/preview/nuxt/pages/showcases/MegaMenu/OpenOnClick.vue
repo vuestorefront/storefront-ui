@@ -11,12 +11,11 @@
           <img :src="brandLogoSign" alt="Sf Logo" class="block w-8 h-8 mr-4 min-w-8 md:hidden" />
         </a>
         <nav class="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
-          <ul role="menubar">
+          <ul>
             <li role="none">
               <SfButton
                 class="block !px-2 mr-auto text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                 type="button"
-                role="menuitem"
                 :aria-haspopup="true"
                 :aria-expanded="open"
                 variant="tertiary"
@@ -62,10 +61,9 @@
                       {{ heading }}
                     </h2>
                     <hr class="mb-3.5" />
-                    <ul role="menu">
+                    <ul>
                       <SfListItem v-for="item in items" :key="item.title" size="sm" role="none">
                         <a
-                          role="menuitem"
                           class="focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
                           :href="item.link"
                         >
