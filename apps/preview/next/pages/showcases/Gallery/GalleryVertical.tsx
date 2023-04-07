@@ -30,6 +30,7 @@ export default function GalleryVertical() {
   const imgPosition = activeIndex + offsetPosition;
 
   function pointerHandler(e: React.PointerEvent<HTMLDivElement>) {
+    e.preventDefault();
     if (!draggableRef.current) {
       return;
     }
@@ -41,16 +42,10 @@ export default function GalleryVertical() {
       setOffsetPosition((pointerDownOffset - event.offsetX) / rect.width / 5);
     };
     draggableRef.current.addEventListener('pointermove', pointerEventMethod, { passive: false });
-    draggableRef.current.addEventListener(
-      'pointerup',
-      () => {
-        setIsDragging(false);
-        draggableRef.current?.removeEventListener('pointermove', pointerEventMethod);
-      },
-      {
-        once: true,
-      },
-    );
+    draggableRef.current.addEventListener('pointerup', () => {
+      setIsDragging(false);
+      draggableRef.current?.removeEventListener('pointermove', pointerEventMethod);
+    });
   }
 
   useEffect(() => {
@@ -69,29 +64,30 @@ export default function GalleryVertical() {
         onPointerDown={pointerHandler}
       >
         <div
-          className="absolute top-0 left-0 flex w-full h-full transition-transform  snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
+          className="absolute top-0 left-0 flex w-full h-full transition-transform snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
           style={{
             transform: `translate3d(${imgPosition * -100}%,0,0)`,
           }}
         >
           {images.map(({ image, alt }, index) => (
             <div className="relative snap-center snap-always basis-full shrink-0 grow" key={`${alt}-${index}`}>
-              <img className="object-fit" alt={alt} src={image} width="100%" height="auto" />
+              <img className="object-contain" alt={alt} src={image} draggable="false" />
             </div>
           ))}
         </div>
       </div>
       <div className="flex-shrink-0 overflow-hidden md:-order-1 basis-auto">
-        <div className="flex-row w-full md:flex-col md:h-full md:px-0 md:scroll-pl-4 snap-both snap-mandatory flex gap-0.5 md:gap-2 overflow-auto scrollbar-hidden">
+        <div className="flex-row w-full md:flex-col md:h-full md:px-0 md:scroll-pl-4 snap-both snap-mandatory flex gap-0.5 md:gap-2 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
           {images.map(({ image, alt }, index) => (
             <button
               type="button"
-              aria-label="thumbnail image"
+              aria-label={alt}
               key={`${alt}-${index}-thumbnail`}
               className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
                 activeIndex === index ? 'border-primary-700' : 'border-gray-200 md:border-transparent'
               }`}
-              onClick={() => setActiveIndex(index)}
+              onMouseOver={() => setActiveIndex(index)}
+              onFocus={() => setActiveIndex(index)}
             >
               <img alt={alt} className="object-contain" width="78" height="78" src={image} />
             </button>
