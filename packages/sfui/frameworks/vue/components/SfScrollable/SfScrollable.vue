@@ -67,6 +67,8 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
   })),
 );
 
+const changeDisabledClass = (isDisabled: boolean) =>
+  isDisabled ? '!ring-gray-200 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
 const isHorizontal = computed(() => props.direction === SfScrollableDirection.horizontal);
 </script>
 
@@ -78,7 +80,11 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       variant="secondary"
       size="lg"
       square
-      :class="['!rounded-full bg-white !ring-gray-200 !text-gray-500', isHorizontal ? 'mr-4' : 'mb-4 rotate-90']"
+      :class="[
+        '!rounded-full bg-white',
+        isHorizontal ? 'mr-4' : 'mb-4 rotate-90',
+        changeDisabledClass(getPrevButtonProps.disabled),
+      ]"
       v-bind="getPrevButtonProps"
     >
       <SfIconChevronLeft />
@@ -103,8 +109,9 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         size="lg"
         square
         :class="[
-          'absolute !rounded-full bg-white !ring-gray-200 !text-gray-500',
+          'absolute !rounded-full bg-white',
           isHorizontal ? 'left-4' : 'top-4 rotate-90',
+          changeDisabledClass(getPrevButtonProps.disabled),
         ]"
         v-bind="getPrevButtonProps"
       >
@@ -118,8 +125,9 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         size="lg"
         square
         :class="[
-          'absolute !rounded-full bg-white !ring-gray-200 !text-gray-500',
+          'absolute !rounded-full bg-white',
           isHorizontal ? 'right-4' : 'bottom-4 rotate-90',
+          changeDisabledClass(getNextButtonProps.disabled),
         ]"
         v-bind="getNextButtonProps"
       >
@@ -132,7 +140,11 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       variant="secondary"
       size="lg"
       square
-      :class="['!rounded-full bg-white !ring-gray-200 !text-gray-500', isHorizontal ? 'ml-4' : 'mt-4 rotate-90']"
+      :class="[
+        '!rounded-full bg-white',
+        isHorizontal ? 'ml-4' : 'mt-4 rotate-90',
+        changeDisabledClass(getNextButtonProps.disabled),
+      ]"
       v-bind="getNextButtonProps"
     >
       <SfIconChevronRight />

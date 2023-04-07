@@ -55,12 +55,14 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
 
     const { getContainerProps, state, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
 
+    const changeDisabledClass = (isDisabled: boolean) =>
+      isDisabled ? '!ring-gray-200 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
     const previousButton = (...buttonClassName: Parameters<typeof classNames>) =>
       (slotPreviousButton && <div {...getPrevButtonProps()}>{slotPreviousButton}</div>) || (
         <SfButton
           variant="secondary"
           size="lg"
-          className={classNames(buttonClassName)}
+          className={classNames(buttonClassName, changeDisabledClass(getPrevButtonProps().disabled))}
           square
           slotPrefix={<SfIconChevronLeft />}
           {...getPrevButtonProps()}
@@ -73,7 +75,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           variant="secondary"
           size="lg"
           square
-          className={classNames(buttonClassName)}
+          className={classNames(buttonClassName, changeDisabledClass(getNextButtonProps().disabled))}
           slotPrefix={<SfIconChevronRight />}
           {...getNextButtonProps()}
         />
@@ -90,10 +92,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         )}
       >
         {buttonsPlacement === SfScrollableButtonsPlacement.blocked &&
-          previousButton(
-            '!rounded-full bg-white !ring-gray-200 !text-gray-500',
-            isHorizontal ? 'mr-4' : 'mb-4 rotate-90',
-          )}
+          previousButton('!rounded-full bg-white', isHorizontal ? 'mr-4' : 'mb-4 rotate-90')}
         <Tag
           {...getContainerProps({
             className: classNames(className, 'motion-safe:scroll-smooth', {
@@ -105,19 +104,13 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           {...attributes}
         >
           {buttonsPlacement === SfScrollableButtonsPlacement.floating &&
-            previousButton(
-              'absolute !rounded-full bg-white !ring-gray-200 !text-gray-500',
-              isHorizontal ? 'left-4' : 'top-4 rotate-90',
-            )}
+            previousButton('absolute !rounded-full bg-white', isHorizontal ? 'left-4' : 'top-4 rotate-90')}
           {children}
           {buttonsPlacement === SfScrollableButtonsPlacement.floating &&
-            nextButton(
-              'absolute !rounded-full bg-white !ring-gray-200 !text-gray-500',
-              isHorizontal ? 'right-4' : 'bottom-4 rotate-90',
-            )}
+            nextButton('absolute !rounded-full bg-white', isHorizontal ? 'right-4' : 'bottom-4 rotate-90')}
         </Tag>
         {buttonsPlacement === SfScrollableButtonsPlacement.blocked &&
-          nextButton('!rounded-full bg-white !ring-gray-200 !text-gray-500', isHorizontal ? 'ml-4' : 'mt-4 rotate-90')}
+          nextButton('!rounded-full bg-white', isHorizontal ? 'ml-4' : 'mt-4 rotate-90')}
       </div>
     );
   },
