@@ -1,3 +1,4 @@
+import { ChangeEventHandler, FocusEventHandler, KeyboardEventHandler, MouseEventHandler, useState } from 'react';
 import classNames from 'classnames';
 import { SfSelectSize, SfIconExpandMore } from '@storefront-ui/react';
 
@@ -14,8 +15,37 @@ export default function SfSelect(props: SfSelectProps) {
     disabled,
     className,
     placeholder,
+    onBlur,
+    onChange,
+    onClick,
+    onKeyDown,
     ...attributes
   } = props;
+
+  const [chevronRotated, setChevronRotated] = useState(false);
+
+  const blurSelect: FocusEventHandler<HTMLSelectElement> = (value) => {
+    setChevronRotated(false);
+    return onBlur ? onBlur(value) : undefined;
+  };
+
+  const changedValue: ChangeEventHandler<HTMLSelectElement> = (value) => {
+    setChevronRotated(false);
+    return onChange ? onChange(value) : undefined;
+  };
+
+  const clickSelect: MouseEventHandler<HTMLSelectElement> = (value) => {
+    setChevronRotated(true);
+    return onClick ? onClick(value) : undefined;
+  };
+
+  const keyDownSelect: KeyboardEventHandler<HTMLSelectElement> = (value) => {
+    if (value.code === 'Space') {
+      setChevronRotated(true);
+    }
+
+    return onKeyDown ? onKeyDown(value) : undefined;
+  };
 
   return (
     <div className={classNames('relative flex flex-col', wrapperClassName)} data-testid="select">
@@ -33,6 +63,10 @@ export default function SfSelect(props: SfSelectProps) {
           className,
         )}
         data-testid="select-input"
+        onBlur={blurSelect}
+        onChange={changedValue}
+        onClick={clickSelect}
+        onKeyDown={keyDownSelect}
         {...attributes}
       >
         {placeholder && (
@@ -51,8 +85,9 @@ export default function SfSelect(props: SfSelectProps) {
       {slotChevron || (
         <SfIconExpandMore
           className={classNames(
-            'box-border absolute -translate-y-1 pointer-events-none top-1/3 right-4 peer-focus:rotate-180 transition easy-in-out duration-0.5',
+            'box-border absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
             disabled ? 'text-disabled-500' : 'text-neutral-500',
+            { 'rotate-180': chevronRotated },
           )}
         />
       )}
