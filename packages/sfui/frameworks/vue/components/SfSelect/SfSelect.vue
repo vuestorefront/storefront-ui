@@ -48,6 +48,12 @@ const onClickSelect = () => (chevronRotated.value = true);
 
 const onBlurSelect = () => (chevronRotated.value = false);
 
+const onKeydownSelect = (payload: KeyboardEvent) => {
+  if (payload.code === 'Space') {
+    chevronRotated.value = true;
+  }
+};
+
 const changedValue = (event: Event) => {
   selected.value = (event.target as HTMLSelectElement).value;
   chevronRotated.value = false;
@@ -75,6 +81,7 @@ const changedValue = (event: Event) => {
       @blur="onBlurSelect"
       @click="onClickSelect"
       @change="changedValue"
+      @keydown="onKeydownSelect"
     >
       <option
         v-if="placeholder"
