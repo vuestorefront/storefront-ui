@@ -27,7 +27,6 @@ Learn more about `useScrollable` composable in the [Composables > useScrollable 
 Can be setup that will be without scrollbar
 
 ::: read-more
-<!-- react -->
 Css class `scrollbar-hide` comes from [tailwind-scrollbar-hide](https://www.npmjs.com/package/tailwind-scrollbar-hide) npm package, however this package is already in our preset.
 :::
 
@@ -88,6 +87,8 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `activeIndex` | `number`  |  |       |
 | `reduceMotion` | `boolean`  |  |       |
 | `drag` | `{ sensitivity: number; } | boolean`  |  |       |
+| `previousDisabled` | `boolean`  |  |       |
+| `nextDisabled` | `boolean`  |  |       |
 <!-- vue -->
 | `tag`       | `string`              | `'div'`        |                                    |
 <!-- end vue -->

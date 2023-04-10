@@ -80,6 +80,9 @@ export default class Scrollable {
   }
 
   public prev(): void {
+    let preventDefault = false;
+    this.options?.onPrev?.({ preventDefault: () => (preventDefault = true) });
+    if (preventDefault) return;
     const { container, options } = this;
     if (options.direction === SfScrollableDirection.vertical)
       this.scrollTo({ top: container.scrollTop - container.clientHeight });
@@ -87,6 +90,9 @@ export default class Scrollable {
   }
 
   public next(): void {
+    let preventDefault = false;
+    this.options?.onNext?.({ preventDefault: () => (preventDefault = true) });
+    if (preventDefault) return;
     const { container, options } = this;
     if (options.direction === SfScrollableDirection.vertical)
       this.scrollTo({ top: container.scrollTop + container.clientHeight });

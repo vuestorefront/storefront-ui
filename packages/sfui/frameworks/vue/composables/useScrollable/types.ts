@@ -6,6 +6,8 @@ import {
   type Prettify,
   type SfScrollableOnDragChangeData,
   type SfScrollableOnScrollData,
+  type SfScrollableOnPrevData,
+  type SfScrollableOnNextData,
 } from '@storefront-ui/shared';
 
 export type UseScrollableOptions = Prettify<
@@ -18,6 +20,8 @@ export {
   type ScrollableOptions,
   type SfScrollableOnDragChangeData,
   type SfScrollableOnScrollData,
+  type SfScrollableOnPrevData,
+  type SfScrollableOnNextData,
   Scrollable,
   SfScrollableDirection,
   SfScrollableButtonsPlacement,

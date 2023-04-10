@@ -6,5 +6,7 @@ export interface SfScrollableProps extends UseScrollableOptions, PropsWithChildr
   wrapperClassNames?: string;
   slotPreviousButton?: ReactNode;
   slotNextButton?: ReactNode;
+  previousDisabled?: boolean;
+  nextDisabled?: boolean;
   buttonsPlacement?: `${SfScrollableButtonsPlacement}`;
 }

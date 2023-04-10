@@ -28,6 +28,8 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       onNext,
       className,
       wrapperClassNames,
+      previousDisabled,
+      nextDisabled,
       style,
       children,
       slotPreviousButton,
@@ -62,10 +64,16 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         <SfButton
           variant="secondary"
           size="lg"
-          className={classNames(buttonClassName, changeDisabledClass(getPrevButtonProps().disabled))}
+          className={classNames(
+            buttonClassName,
+            changeDisabledClass(
+              typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps().disabled,
+            ),
+          )}
           square
           slotPrefix={<SfIconChevronLeft />}
           {...getPrevButtonProps()}
+          disabled={previousDisabled}
         />
       );
 
@@ -75,9 +83,13 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           variant="secondary"
           size="lg"
           square
-          className={classNames(buttonClassName, changeDisabledClass(getNextButtonProps().disabled))}
+          className={classNames(
+            buttonClassName,
+            changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps().disabled),
+          )}
           slotPrefix={<SfIconChevronRight />}
           {...getNextButtonProps()}
+          disabled={nextDisabled}
         />
       );
 

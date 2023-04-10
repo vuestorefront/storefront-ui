@@ -21,12 +21,17 @@ export type SfScrollableOnScrollData = {
   hasNext: boolean;
 };
 
+export type SfScrollableOnPrevData = {
+  preventDefault: () => void;
+};
+export type SfScrollableOnNextData = SfScrollableOnPrevData;
+
 export type ScrollableOptions = {
   reduceMotion?: boolean;
   drag?: { sensitivity: number } | boolean;
   direction?: `${SfScrollableDirection}`;
   onDragChange?: (data: SfScrollableOnDragChangeData) => void;
   onScroll?: (data: SfScrollableOnScrollData) => void;
-  onPrev?: () => void;
-  onNext?: () => void;
+  onPrev?: (data: SfScrollableOnPrevData) => void;
+  onNext?: (data: SfScrollableOnNextData) => void;
 };

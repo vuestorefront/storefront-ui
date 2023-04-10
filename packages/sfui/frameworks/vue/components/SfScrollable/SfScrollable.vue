@@ -14,6 +14,8 @@ import {
   SfButton,
   type SfScrollableOnDragChangeData,
   type SfScrollableOnScrollData,
+  type SfScrollableOnPrevData,
+  type SfScrollableOnNextData,
   ClassProp,
 } from '@storefront-ui/vue';
 
@@ -43,12 +45,20 @@ const props = defineProps({
     type: Boolean,
     default: undefined,
   },
+  previousDisabled: {
+    type: Boolean,
+    default: undefined,
+  },
+  nextDisabled: {
+    type: Boolean,
+    default: undefined,
+  },
 });
 const emit = defineEmits<{
   (e: 'onDragChange', data: SfScrollableOnDragChangeData): void;
   (e: 'onScroll', data: SfScrollableOnScrollData): void;
-  (e: 'onPrev'): void;
-  (e: 'onNext'): void;
+  (e: 'onPrev', data: SfScrollableOnPrevData): void;
+  (e: 'onNext', data: SfScrollableOnNextData): void;
 }>();
 const { direction, activeIndex, reduceMotion, drag } = toRefs(props);
 
@@ -62,8 +72,8 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
     }),
     onDragChange: (data) => emit('onDragChange', data),
     onScroll: (data) => emit('onScroll', data),
-    onPrev: () => emit('onPrev'),
-    onNext: () => emit('onPrev'),
+    onPrev: (data) => emit('onPrev', data),
+    onNext: (data) => emit('onNext', data),
   })),
 );
 
@@ -83,9 +93,10 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       :class="[
         '!rounded-full bg-white',
         isHorizontal ? 'mr-4' : 'mb-4 rotate-90',
-        changeDisabledClass(getPrevButtonProps.disabled),
+        changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
       ]"
       v-bind="getPrevButtonProps"
+      :disabled="previousDisabled"
     >
       <SfIconChevronLeft />
     </SfButton>
@@ -101,6 +112,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         },
       ]"
       v-bind="{ ...$attrs, ...props }"
+      :disabled="previousDisabled"
     >
       <div v-if="$slots.previouButton" v-bind="getPrevButtonProps"><slot name="previouButton" /></div>
       <SfButton
@@ -111,7 +123,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         :class="[
           'absolute !rounded-full bg-white',
           isHorizontal ? 'left-4' : 'top-4 rotate-90',
-          changeDisabledClass(getPrevButtonProps.disabled),
+          changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
         ]"
         v-bind="getPrevButtonProps"
       >
@@ -127,9 +139,10 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         :class="[
           'absolute !rounded-full bg-white',
           isHorizontal ? 'right-4' : 'bottom-4 rotate-90',
-          changeDisabledClass(getNextButtonProps.disabled),
+          changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps.disabled),
         ]"
         v-bind="getNextButtonProps"
+        :disabled="nextDisabled"
       >
         <SfIconChevronRight />
       </SfButton>
@@ -143,9 +156,10 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       :class="[
         '!rounded-full bg-white',
         isHorizontal ? 'ml-4' : 'mt-4 rotate-90',
-        changeDisabledClass(getNextButtonProps.disabled),
+        changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps.disabled),
       ]"
       v-bind="getNextButtonProps"
+      :disabled="nextDisabled"
     >
       <SfIconChevronRight />
     </SfButton>
