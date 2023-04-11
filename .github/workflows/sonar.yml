@@ -1,0 +1,25 @@
+name: Code quality - sonar
+on:
+  push:
+    branches:
+      - v2
+      - v2-develop
+jobs:
+  sonar:
+    steps:
+      - name: SonarCloud Scan Vue Package
+        if: success() || failure()
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: packages/sfui/frameworks/vue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_VUE }}
+      - name: SonarCloud Scan React Package
+        if: success() || failure()
+        uses: SonarSource/sonarcloud-github-action@master
+        with:
+          projectBaseDir: packages/sfui/frameworks/react
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_REACT }}

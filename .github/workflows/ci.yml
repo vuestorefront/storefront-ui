@@ -114,14 +114,6 @@ jobs:
         uses: cypress-io/github-action@v5.5.0
         with:
           command: yarn test:ci:vue
-      - name: SonarCloud Scan
-        if: success() || failure()
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: packages/sfui/frameworks/vue
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_VUE }}
 
   cypress-react:
     name: Run cypress tests(react)
@@ -141,11 +133,3 @@ jobs:
         uses: cypress-io/github-action@v5.5.0
         with:
           command: yarn test:ci:react
-      - name: SonarCloud Scan
-        if: success() || failure()
-        uses: SonarSource/sonarcloud-github-action@master
-        with:
-          projectBaseDir: packages/sfui/frameworks/react
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_REACT }}
