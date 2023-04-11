@@ -95,7 +95,6 @@ List of useful commands that could be used by developers. Execution in the comma
   - config (all the configs)
     - eslint (shared eslint config)
     - example-style (styles created specifically for example pages)
-    - stylelint (stylelint config)
     - tailwind (tailwind config and default styles)
     - tests (test apps configuration & utils)
     - typescript (base typescript config)
