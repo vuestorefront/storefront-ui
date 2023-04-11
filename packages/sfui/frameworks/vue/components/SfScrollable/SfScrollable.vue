@@ -78,7 +78,7 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
 );
 
 const changeDisabledClass = (isDisabled: boolean) =>
-  isDisabled ? '!ring-gray-200 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
+  isDisabled ? '!ring-disabled-300 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
 const isHorizontal = computed(() => props.direction === SfScrollableDirection.horizontal);
 </script>
 

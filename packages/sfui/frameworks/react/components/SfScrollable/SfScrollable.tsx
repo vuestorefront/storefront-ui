@@ -58,7 +58,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
     const { getContainerProps, state, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
 
     const changeDisabledClass = (isDisabled: boolean) =>
-      isDisabled ? '!ring-gray-200 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
+      isDisabled ? '!ring-disabled-300 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
     const previousButton = (...buttonClassName: Parameters<typeof classNames>) =>
       (slotPreviousButton && cloneElement(slotPreviousButton, getPrevButtonProps())) || (
         <SfButton
