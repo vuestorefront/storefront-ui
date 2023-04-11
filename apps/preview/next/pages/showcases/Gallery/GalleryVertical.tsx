@@ -15,7 +15,16 @@ import gallery7 from '@assets/gallery_7.png';
 import gallery8 from '@assets/gallery_8.png';
 import gallery9 from '@assets/gallery_9.png';
 import gallery10 from '@assets/gallery_10.png';
-import gallery11 from '@assets/gallery_11.png';
+import gallery1_thumb from '@assets/gallery_1_thumb.png';
+import gallery2_thumb from '@assets/gallery_2_thumb.png';
+import gallery3_thumb from '@assets/gallery_3_thumb.png';
+import gallery4_thumb from '@assets/gallery_4_thumb.png';
+import gallery5_thumb from '@assets/gallery_5_thumb.png';
+import gallery6_thumb from '@assets/gallery_6_thumb.png';
+import gallery7_thumb from '@assets/gallery_7_thumb.png';
+import gallery8_thumb from '@assets/gallery_8_thumb.png';
+import gallery9_thumb from '@assets/gallery_9_thumb.png';
+import gallery10_thumb from '@assets/gallery_10_thumb.png';
 
 const images = [
   { image: gallery1.src, alt: 'backpack' },
@@ -28,7 +37,19 @@ const images = [
   { image: gallery8.src, alt: 'backpack' },
   { image: gallery9.src, alt: 'backpack' },
   { image: gallery10.src, alt: 'backpack' },
-  { image: gallery11.src, alt: 'backpack' },
+];
+
+const thumbImages = [
+  { image: gallery1_thumb.src, alt: 'backpack' },
+  { image: gallery2_thumb.src, alt: 'backpack' },
+  { image: gallery3_thumb.src, alt: 'backpack' },
+  { image: gallery4_thumb.src, alt: 'backpack' },
+  { image: gallery5_thumb.src, alt: 'backpack' },
+  { image: gallery6_thumb.src, alt: 'backpack' },
+  { image: gallery7_thumb.src, alt: 'backpack' },
+  { image: gallery8_thumb.src, alt: 'backpack' },
+  { image: gallery9_thumb.src, alt: 'backpack' },
+  { image: gallery10_thumb.src, alt: 'backpack' },
 ];
 
 export default function GalleryVertical() {
@@ -88,7 +109,7 @@ export default function GalleryVertical() {
       </div>
       <div className="flex-shrink-0 overflow-hidden md:-order-1 basis-auto">
         <div className="flex-row w-full md:flex-col md:h-full md:px-0 md:scroll-pl-4 snap-both snap-mandatory flex gap-0.5 md:gap-2 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-          {images.map(({ image, alt }, index) => (
+          {thumbImages.map(({ image, alt }, index) => (
             <button
               type="button"
               aria-label={alt}
