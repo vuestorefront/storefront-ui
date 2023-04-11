@@ -1,7 +1,7 @@
 <template>
   <div class="md:shadow-lg md:rounded-md md:border md:border-neutral-100">
     <div class="flex justify-between items-end bg-neutral-100 md:bg-transparent py-2 px-4 md:px-6 md:pt-6 md:pb-4">
-      <p class="typography-headline-4 font-bold">Order summary</p>
+      <p class="typography-headline-4 font-bold md:typography-headline-3">Order summary</p>
       <p class="typography-text-base font-semibold">(Items: {{ orderDetails.items }})</p>
     </div>
     <div class="px-4 pb-4 mt-3 md:px-6 md:pb-6 md:mt-0">
@@ -28,21 +28,21 @@
       </div>
       <div class="flex gap-x-2 py-4 border-y border-neutral-200 mb-4">
         <SfInput v-model="inputValue" placeholder="Enter promo code" wrapper-class="grow" />
-        <SfButton variant="secondary" @click.prevent="checkPromoCode">Apply</SfButton>
+        <SfButton variant="secondary" @click="checkPromoCode">Apply</SfButton>
       </div>
       <p class="px-3 py-1.5 bg-secondary-100 text-secondary-700 typography-text-sm rounded-md text-center mb-4">
         You are saving ${{ Math.abs(orderDetails.savings).toFixed(2) }} on your order today!
       </p>
-      <div class="flex justify-between typography-headline-4 font-bold pb-4 mb-4 border-b border-neutral-200">
+      <div
+        class="flex justify-between typography-headline-4 md:typography-headline-3 font-bold pb-4 mb-4 border-b border-neutral-200"
+      >
         <p>Total</p>
         <p>{{ formatPrice(totalPrice) }}</p>
       </div>
-      <SfButton class="w-full"> Place order and pay </SfButton>
+      <SfButton size="lg" class="w-full"> Place order and pay </SfButton>
       <div class="typography-text-sm mt-4 text-center">
-        <span>By placing my order, you agree to our </span>
-        <SfLink href="/"> Terms and Conditions </SfLink>
-        <span>and our</span>
-        <SfLink href="/"> Privacy Policy. </SfLink>
+        By placing my order, you agree to our <SfLink href="/">Terms and Conditions</SfLink> and our
+        <SfLink href="/">Privacy Policy.</SfLink>
       </div>
     </div>
   </div>
@@ -73,7 +73,7 @@ const totalPrice = computed(() => itemsSubtotal.value + promoCode.value);
 const checkPromoCode = () => {
   return inputValue.value.toUpperCase() === 'VSF2020'
     ? (promoCode.value = -100)
-    : console.log('Your promo code is not valid');
+    : alert('Your promo code is not valid');
 };
 
 const removePromoCode = () => (promoCode.value = 0);
