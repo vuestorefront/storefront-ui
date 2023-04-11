@@ -15,14 +15,14 @@ export default class Scrollable {
   private dragScrollY: number;
   private dragScrollTop: number;
 
-  private isDraggedData: boolean = false;
+  private isDraggedPreviously: boolean = false;
   public get isDragged() {
-    return this.isDraggedData;
+    return this.isDraggedPreviously;
   }
   public set isDragged(newValue: boolean) {
-    if (newValue === this.isDraggedData) return;
-    this.isDraggedData = newValue;
-    this.options.onDragChange?.({ isDragged: this.isDraggedData });
+    if (newValue === this.isDraggedPreviously) return;
+    this.isDraggedPreviously = newValue;
+    this.options.onDragChange?.({ isDragged: this.isDraggedPreviously });
   }
 
   constructor(container: Element, ScrollableOptions?: Partial<ScrollableOptions>) {
