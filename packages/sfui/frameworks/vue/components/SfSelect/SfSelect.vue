@@ -44,13 +44,11 @@ const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
 
-const onClickSelect = () => (chevronRotated.value = true);
+const clickHandler = () => (chevronRotated.value = true);
 
-const onBlurSelect = () => (chevronRotated.value = false);
+const blurHandler = () => (chevronRotated.value = false);
 
-const onKeydownSelect = () => {
-  chevronRotated.value = true;
-};
+const keydownHandler = () => (chevronRotated.value = true);
 
 const changedValue = (event: Event) => {
   selected.value = (event.target as HTMLSelectElement).value;
@@ -76,10 +74,10 @@ const changedValue = (event: Event) => {
         },
       ]"
       data-testid="select-input"
-      @blur="onBlurSelect"
-      @click="onClickSelect"
+      @blur="blurHandler"
+      @click="clickHandler"
       @change="changedValue"
-      @keydown.space="onKeydownSelect"
+      @keydown.space="keydownHandler"
     >
       <option
         v-if="placeholder"
