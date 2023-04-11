@@ -1,7 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { type UseScrollableOptions, Scrollable, composeHandlers } from '@storefront-ui/react';
 
-export function useScrollable<TElement extends HTMLElement>(options?: Partial<UseScrollableOptions>) {
+export function useScrollable<TElement extends HTMLElement>({
+  activeIndex,
+  direction,
+  drag,
+  reduceMotion,
+  onDragChange,
+  onScroll,
+  onPrev,
+  onNext,
+}: Partial<UseScrollableOptions> = {}) {
   const containerElement = useRef<TElement>(null);
   const scrollable = useRef<Scrollable | null>(null);
   const [state, setState] = useState({ hasPrev: false, hasNext: false, isDragged: false });
@@ -12,22 +21,26 @@ export function useScrollable<TElement extends HTMLElement>(options?: Partial<Us
       return () => {};
     }
     scrollable.current = new Scrollable(container, {
-      ...options,
+      direction,
+      drag,
+      reduceMotion,
+      onPrev,
+      onNext,
       onScroll: (data) => {
         setState((currentState) => ({ ...currentState, hasNext: data.hasNext, hasPrev: data.hasPrev }));
-        options?.onScroll?.(data);
+        onScroll?.(data);
       },
       onDragChange: (data) => {
         setState((currentState) => ({ ...currentState, isDragged: data.isDragged }));
-        options?.onDragChange?.(data);
+        onDragChange?.(data);
       },
     });
     const unregister = scrollable.current.register();
 
-    if (options?.activeIndex) scrollable.current.scrollToIndex(options?.activeIndex);
+    if (activeIndex) scrollable.current.scrollToIndex(activeIndex);
 
     return unregister;
-  }, [containerElement, options]);
+  }, [containerElement, activeIndex, direction, drag, reduceMotion, onDragChange, onScroll, onPrev, onNext]);
 
   const getPrevButtonProps = <TProps extends { onClick: () => void }>(props?: TProps) => {
     const onClick = () => {
