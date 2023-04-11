@@ -10,8 +10,9 @@ import {
   SfButton,
   SfDrawer,
   SfListItem,
+  useDisclosure,
 } from '@storefront-ui/react';
-import { useState, useRef } from 'react';
+import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
 import brandLogo from '@assets/vsf_logo_white.svg';
@@ -19,7 +20,7 @@ import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 import sneakers from '@assets/sneakers-2.png';
 
 export default function OpenOnClick() {
-  const [open, setOpen] = useState(false);
+  const { open, close, isOpen } = useDisclosure({ initialValue: false });
   const nodeRef = useRef(null);
   const actionItems = [
     {
@@ -122,7 +123,7 @@ export default function OpenOnClick() {
 
   return (
     <div className="w-full h-full">
-      {open && <div className="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />}
+      {isOpen && <div className="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />}
       <header className="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10">
         <div className="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <a href="/" aria-label="SF Homepage" className="inline-block text-white mr-2 lg:mr-10">
@@ -145,15 +146,13 @@ export default function OpenOnClick() {
                     </>
                   }
                   variant="tertiary"
-                  onClick={() => {
-                    setOpen(true);
-                  }}
+                  onClick={open}
                 >
                   <span className="hidden md:inline-flex">Categories</span>
                 </SfButton>
                 <CSSTransition
                   ref={nodeRef}
-                  in={open}
+                  in={isOpen}
                   timeout={500}
                   unmountOnExit
                   classNames={{
@@ -164,8 +163,8 @@ export default function OpenOnClick() {
                   }}
                 >
                   <SfDrawer
-                    open={open}
-                    onClose={() => setOpen(false)}
+                    open={isOpen}
+                    onClose={close}
                     placement="top"
                     className="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
                   >
@@ -175,9 +174,7 @@ export default function OpenOnClick() {
                         square
                         variant="tertiary"
                         aria-label="Close drawer"
-                        onClick={() => {
-                          setOpen(!open);
-                        }}
+                        onClick={isOpen ? close : open}
                         className="text-white"
                       >
                         <SfIconClose />
@@ -217,9 +214,7 @@ export default function OpenOnClick() {
                       size="sm"
                       variant="tertiary"
                       aria-label="Close drawer"
-                      onClick={() => {
-                        setOpen(!open);
-                      }}
+                      onClick={isOpen ? close : open}
                       className="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
                     >
                       <SfIconClose className="text-neutral-500" />
