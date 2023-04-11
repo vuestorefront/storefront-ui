@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { ReactElement, ReactNode, cloneElement, useMemo } from 'react';
 import classNames from 'classnames';
 import {
   polymorphicForwardRef,
@@ -60,7 +60,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
     const changeDisabledClass = (isDisabled: boolean) =>
       isDisabled ? '!ring-gray-200 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
     const previousButton = (...buttonClassName: Parameters<typeof classNames>) =>
-      (slotPreviousButton && <div {...getPrevButtonProps()}>{slotPreviousButton}</div>) || (
+      (slotPreviousButton && cloneElement(slotPreviousButton, getPrevButtonProps())) || (
         <SfButton
           variant="secondary"
           size="lg"
@@ -78,7 +78,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       );
 
     const nextButton = (...buttonClassName: Parameters<typeof classNames>) =>
-      (slotNextButton && <div {...getNextButtonProps()}>{slotNextButton}</div>) || (
+      (slotNextButton && cloneElement(slotNextButton, getNextButtonProps())) || (
         <SfButton
           variant="secondary"
           size="lg"
