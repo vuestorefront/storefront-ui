@@ -181,7 +181,7 @@ export default function OpenOnClick() {
                       </SfButton>
                     </div>
                     {categoriesContent.map(({ heading, items }) => (
-                      <div className="flex-1/4" key={heading}>
+                      <div key={heading}>
                         <h2
                           role="presentation"
                           className="typography-text-xs font-bold text-neutral-900 tracking-widest whitespace-nowrap px-4 py-2"
