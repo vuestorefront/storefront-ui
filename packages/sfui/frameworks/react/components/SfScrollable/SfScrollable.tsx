@@ -18,7 +18,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
     {
       as,
       direction = SfScrollableDirection.horizontal,
-      buttonsPlacement = SfScrollableButtonsPlacement.blocked,
+      buttonsPlacement = SfScrollableButtonsPlacement.block,
       activeIndex,
       reduceMotion,
       drag,
@@ -103,7 +103,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           wrapperClassNames,
         )}
       >
-        {buttonsPlacement === SfScrollableButtonsPlacement.blocked &&
+        {buttonsPlacement === SfScrollableButtonsPlacement.block &&
           previousButton('!rounded-full bg-white z-10', isHorizontal ? 'mr-4' : 'mb-4 rotate-90')}
         <Tag
           {...getContainerProps({
@@ -121,7 +121,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           {buttonsPlacement === SfScrollableButtonsPlacement.floating &&
             nextButton('absolute !rounded-full bg-white', isHorizontal ? 'right-4' : 'bottom-4 rotate-90')}
         </Tag>
-        {buttonsPlacement === SfScrollableButtonsPlacement.blocked &&
+        {buttonsPlacement === SfScrollableButtonsPlacement.block &&
           nextButton('!rounded-full bg-white z-10', isHorizontal ? 'ml-4' : 'mt-4 rotate-90')}
       </div>
     );

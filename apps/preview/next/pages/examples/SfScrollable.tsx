@@ -25,7 +25,7 @@ function Example() {
         modelName: 'buttonsPlacement',
         options: Object.keys(SfScrollableButtonsPlacement),
         propType: 'SfScrollableButtonsPlacement',
-        propDefaultValue: SfScrollableButtonsPlacement.blocked,
+        propDefaultValue: SfScrollableButtonsPlacement.block,
         description: 'Change position of next/previous buttons',
       },
       {
@@ -66,7 +66,7 @@ function Example() {
     {
       children: undefined,
       direction: SfScrollableDirection.horizontal,
-      buttonsPlacement: SfScrollableButtonsPlacement.blocked,
+      buttonsPlacement: SfScrollableButtonsPlacement.block,
       as: undefined,
       drag: undefined,
       snap: undefined,

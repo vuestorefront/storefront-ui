@@ -6,7 +6,7 @@ export enum SfScrollableDirection {
 export enum SfScrollableButtonsPlacement {
   none = 'none',
   floating = 'floating',
-  blocked = 'blocked',
+  block = 'block',
 }
 
 export type SfScrollableOnDragChangeData = {

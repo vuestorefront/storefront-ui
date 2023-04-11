@@ -52,7 +52,7 @@ const { controlsAttrs, state } = prepareControls(
       modelName: 'buttonsPlacement',
       options: Object.keys(SfScrollableButtonsPlacement),
       propType: 'SfScrollableButtonsPlacement',
-      propDefaultValue: SfScrollableButtonsPlacement.blocked,
+      propDefaultValue: SfScrollableButtonsPlacement.block,
       description: 'Change position of next/previous buttons',
     },
     {
@@ -93,7 +93,7 @@ const { controlsAttrs, state } = prepareControls(
   {
     children: ref(),
     direction: ref(SfScrollableDirection.horizontal),
-    buttonsPlacement: ref(SfScrollableButtonsPlacement.blocked),
+    buttonsPlacement: ref(SfScrollableButtonsPlacement.block),
     as: ref(),
     drag: ref(),
     snap: ref(),

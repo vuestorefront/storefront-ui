@@ -30,7 +30,7 @@ const props = defineProps({
   },
   buttonsPlacement: {
     type: String as PropType<`${SfScrollableButtonsPlacement}`>,
-    default: SfScrollableButtonsPlacement.blocked,
+    default: SfScrollableButtonsPlacement.block,
   },
   wrapperClass: ClassProp,
   activeIndex: {
@@ -86,7 +86,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
   <div :class="['items-center', 'relative', isHorizontal ? 'flex' : 'flex-col h-full inline-flex', wrapperClass]">
     <div v-if="$slots.previouButton" v-bind="getPrevButtonProps"><slot name="previouButton" /></div>
     <SfButton
-      v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.blocked"
+      v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.block"
       variant="secondary"
       size="lg"
       square
@@ -149,7 +149,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
     </component>
     <div v-if="$slots.nextButton" v-bind="getNextButtonProps"><slot name="nextButton" /></div>
     <SfButton
-      v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.blocked"
+      v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.block"
       variant="secondary"
       size="lg"
       square

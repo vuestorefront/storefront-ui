@@ -83,7 +83,7 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | Prop name | Type      | Default value | Possible values   |
 |-----------|-----------|---------------|-------------------|
 | `direction` | `SfScrollableDirection`  | `'horizontal'`        | `'horizontal'`, `'vertical'`      |
-| `buttonsPlacement` | `SfScrollableButtonsPlacement`  | `'blocked'` | `'blocked'`, `'floating'`, `'none'`      |
+| `buttonsPlacement` | `SfScrollableButtonsPlacement`  | `'block'` | `'block'`, `'floating'`, `'none'`      |
 | `activeIndex` | `number`  |  |       |
 | `reduceMotion` | `boolean`  |  |       |
 | `drag` | `{ sensitivity: number; } | boolean`  |  |       |
