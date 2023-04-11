@@ -1,4 +1,4 @@
-import { ChangeEventHandler, FocusEventHandler, KeyboardEventHandler, MouseEventHandler, useState } from 'react';
+import { ChangeEvent, FocusEvent, KeyboardEvent, MouseEvent, useState } from 'react';
 import classNames from 'classnames';
 import { SfSelectSize, SfIconExpandMore } from '@storefront-ui/react';
 
@@ -24,22 +24,22 @@ export default function SfSelect(props: SfSelectProps) {
 
   const [chevronRotated, setChevronRotated] = useState(false);
 
-  const blurHandler: FocusEventHandler<HTMLSelectElement> = (event) => {
+  const blurHandler = (event: FocusEvent<HTMLSelectElement>) => {
     setChevronRotated(false);
     return onBlur ? onBlur(event) : undefined;
   };
 
-  const changedValue: ChangeEventHandler<HTMLSelectElement> = (event) => {
+  const changedValue = (event: ChangeEvent<HTMLSelectElement>) => {
     setChevronRotated(false);
     return onChange ? onChange(event) : undefined;
   };
 
-  const clickHandler: MouseEventHandler<HTMLSelectElement> = (event) => {
+  const clickHandler = (event: MouseEvent<HTMLSelectElement>) => {
     setChevronRotated(true);
     return onClick ? onClick(event) : undefined;
   };
 
-  const keydownHandler: KeyboardEventHandler<HTMLSelectElement> = (event) => {
+  const keydownHandler = (event: KeyboardEvent<HTMLSelectElement>) => {
     if (event.code === 'Space') {
       setChevronRotated(true);
     }
