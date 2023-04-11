@@ -65,6 +65,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           variant="secondary"
           size="lg"
           className={classNames(
+            'hidden md:block',
             buttonClassName,
             changeDisabledClass(
               typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps().disabled,
@@ -84,6 +85,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           size="lg"
           square
           className={classNames(
+            'hidden md:block',
             buttonClassName,
             changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps().disabled),
           )}
