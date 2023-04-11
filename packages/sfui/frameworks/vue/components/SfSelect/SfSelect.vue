@@ -48,7 +48,7 @@ const onClickSelect = () => (chevronRotated.value = true);
 
 const onBlurSelect = () => (chevronRotated.value = false);
 
-const onKeydownSelect = (payload: KeyboardEvent) => {
+const onKeydownSelect = () => {
   chevronRotated.value = true;
 };
 
