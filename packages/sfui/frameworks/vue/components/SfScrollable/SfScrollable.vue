@@ -91,7 +91,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       size="lg"
       square
       :class="[
-        '!rounded-full bg-white',
+        '!rounded-full bg-white z-10',
         isHorizontal ? 'mr-4' : 'mb-4 rotate-90',
         changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
       ]"
@@ -154,7 +154,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       size="lg"
       square
       :class="[
-        '!rounded-full bg-white',
+        '!rounded-full bg-white z-10',
         isHorizontal ? 'ml-4' : 'mt-4 rotate-90',
         changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps.disabled),
       ]"
