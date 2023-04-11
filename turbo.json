@@ -26,8 +26,16 @@
       "cache": false,
       "dependsOn": ["^build:vue", "^build:typography", "build:tailwind-config"]
     },
+    "build:qwik-city": {
+      "cache": false,
+      "dependsOn": ["^build:qwik", "^build:typography", "build:tailwind-config"]
+    },
     "build:docs": {
       "dependsOn": ["^build:tailwind-config"],
+      "cache": false
+    },
+    "build:qwik": {
+      "dependsOn": ["^build:shared"],
       "cache": false
     },
     "build:react": {
