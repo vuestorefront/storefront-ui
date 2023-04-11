@@ -98,7 +98,9 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `onScroll`           | `Function` |   |  |
 | `onPrev`           | `Function` |    |  |
 | `onNext`           | `Function` |    |  |
+<!-- end react -->
 
+<!-- vue -->
 ## Slots
 
 | Slot name | Description                  |
@@ -115,8 +117,8 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `onScroll` | triggers when any scroll happens |
 | `onPrev` | triggers when previous button is clicked |
 | `onNext` | triggers when next button is clicked |
-
 <!-- end vue -->
+
 ::::::
 
 :::::: slot source

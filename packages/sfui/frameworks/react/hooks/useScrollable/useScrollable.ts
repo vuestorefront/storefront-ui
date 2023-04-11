@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { type UseScrollableOptions, Scrollable, composeHandlers } from '@storefront-ui/react';
+import { type UseScrollableOptions, Scrollable, composeHandlers, createPropsGetter } from '@storefront-ui/react';
 
 export function useScrollable<TElement extends HTMLElement>({
   activeIndex,
@@ -42,7 +42,7 @@ export function useScrollable<TElement extends HTMLElement>({
     return unregister;
   }, [containerElement, activeIndex, direction, drag, reduceMotion, onDragChange, onScroll, onPrev, onNext]);
 
-  const getPrevButtonProps = <TProps extends { onClick: () => void }>(props?: TProps) => {
+  const getPrevButtonProps = createPropsGetter((props) => {
     const onClick = () => {
       scrollable.current?.prev();
     };
@@ -51,9 +51,9 @@ export function useScrollable<TElement extends HTMLElement>({
       onClick: composeHandlers(onClick, props?.onClick),
       disabled: !state.hasPrev,
     };
-  };
+  });
 
-  const getNextButtonProps = <TProps extends { onClick: () => void }>(props?: TProps) => {
+  const getNextButtonProps = createPropsGetter((props) => {
     const onClick = () => {
       scrollable.current?.next();
     };
@@ -62,12 +62,12 @@ export function useScrollable<TElement extends HTMLElement>({
       onClick: composeHandlers(onClick, props?.onClick),
       disabled: !state.hasNext,
     };
-  };
+  });
 
-  const getContainerProps = <TProps>(props?: TProps) => ({
+  const getContainerProps = createPropsGetter((props) => ({
     ref: containerElement,
     ...props,
-  });
+  }));
 
   return {
     getContainerProps,

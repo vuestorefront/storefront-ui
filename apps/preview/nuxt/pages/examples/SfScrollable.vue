@@ -35,11 +35,6 @@ import ComponentExample from '../../components/utils/ComponentExample.vue';
 const { controlsAttrs, state } = prepareControls(
   [
     {
-      type: 'text',
-      modelName: 'children',
-      description: 'Only for demonstration purposes. Default slot, replaces example scrollable content',
-    },
-    {
       type: 'select',
       modelName: 'direction',
       options: Object.keys(SfScrollableDirection),
@@ -54,13 +49,6 @@ const { controlsAttrs, state } = prepareControls(
       propType: 'SfScrollableButtonsPlacement',
       propDefaultValue: SfScrollableButtonsPlacement.block,
       description: 'Change position of next/previous buttons',
-    },
-    {
-      type: 'text',
-      modelName: 'as',
-      propType: 'string',
-      propDefaultValue: 'div',
-      description: 'Tag of scrollable HTML element',
     },
     {
       type: 'boolean',
@@ -91,10 +79,8 @@ const { controlsAttrs, state } = prepareControls(
     },
   ],
   {
-    children: ref(),
     direction: ref(SfScrollableDirection.horizontal),
     buttonsPlacement: ref(SfScrollableButtonsPlacement.block),
-    as: ref(),
     drag: ref(),
     snap: ref(),
     hideScrollbar: ref(false),

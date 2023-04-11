@@ -8,11 +8,6 @@ function Example() {
   const { state, controls } = prepareControls(
     [
       {
-        type: 'text',
-        modelName: 'children',
-        description: 'Only for demonstration purposes. Default slot, replaces example scrollable content',
-      },
-      {
         type: 'select',
         modelName: 'direction',
         options: Object.keys(SfScrollableDirection),
@@ -27,13 +22,6 @@ function Example() {
         propType: 'SfScrollableButtonsPlacement',
         propDefaultValue: SfScrollableButtonsPlacement.block,
         description: 'Change position of next/previous buttons',
-      },
-      {
-        type: 'text',
-        modelName: 'as',
-        propType: 'string',
-        propDefaultValue: 'div',
-        description: 'Tag of scrollable HTML element',
       },
       {
         type: 'boolean',
@@ -64,10 +52,8 @@ function Example() {
       },
     ],
     {
-      children: undefined,
       direction: SfScrollableDirection.horizontal,
       buttonsPlacement: SfScrollableButtonsPlacement.block,
-      as: undefined,
       drag: undefined,
       snap: undefined,
       hideScrollbar: false,
@@ -86,18 +72,17 @@ function Example() {
           "[&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']": state.get.hideScrollbar,
         })}
       >
-        {state.get.children ||
-          Array.from({ length: Number(state.get.totalItems || 10) }, (_, i) => (
-            <div
-              key={i}
-              className={classNames(
-                'w-36 h-36 shrink-0 bg-neutral-100 border border-negative-300 border-dashed flex items-center justify-center text-gray-500',
-                { 'snap-center': state.get.snap },
-              )}
-            >
-              {i + 1}
-            </div>
-          ))}
+        {Array.from({ length: Number(state.get.totalItems || 10) }, (_, i) => (
+          <div
+            key={i}
+            className={classNames(
+              'w-36 h-36 shrink-0 bg-neutral-100 border border-negative-300 border-dashed flex items-center justify-center text-gray-500',
+              { 'snap-center': state.get.snap },
+            )}
+          >
+            {i + 1}
+          </div>
+        ))}
       </SfScrollable>
     </ComponentExample>
   );
