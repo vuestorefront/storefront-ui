@@ -1,4 +1,4 @@
-import { ref, watchEffect, unref } from 'vue';
+import { ref, watchEffect, onMounted, unref } from 'vue';
 import { focusVisibleManager, FocusHandlerEvent, FocusModality } from '@storefront-ui/shared';
 import { MaybeRef } from '@vueuse/core';
 
@@ -17,10 +17,13 @@ export interface FocusVisibleResult {
 const manager = focusVisibleManager();
 
 export const useFocusVisible = (props: FocusVisibleProps = {}): FocusVisibleResult => {
-  manager.setupGlobalFocusEvents();
   const isTextInput = ref<boolean | undefined>(unref(props.isTextInput));
   const autoFocus = ref<boolean | undefined>(unref(props.autoFocus));
   const isFocusVisible = ref(autoFocus.value || manager.isFocusVisible());
+
+  onMounted(() => {
+    manager.setupGlobalFocusEvents();
+  });
 
   watchEffect((onCleanup) => {
     const handler = (modality: FocusModality, e: FocusHandlerEvent) => {
