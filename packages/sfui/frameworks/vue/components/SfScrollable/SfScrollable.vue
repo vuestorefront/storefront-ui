@@ -91,7 +91,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       size="lg"
       square
       :class="[
-        '!rounded-full bg-white z-10',
+        '!rounded-full bg-white',
         isHorizontal ? 'mr-4' : 'mb-4 rotate-90',
         changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
       ]"
@@ -121,7 +121,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         size="lg"
         square
         :class="[
-          'absolute !rounded-full bg-white',
+          'absolute !rounded-full bg-white z-10',
           isHorizontal ? 'left-4' : 'top-4 rotate-90',
           changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
         ]"
@@ -137,7 +137,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         size="lg"
         square
         :class="[
-          'absolute !rounded-full bg-white',
+          'absolute !rounded-full bg-white z-10',
           isHorizontal ? 'right-4' : 'bottom-4 rotate-90',
           changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps.disabled),
         ]"
@@ -154,7 +154,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       size="lg"
       square
       :class="[
-        '!rounded-full bg-white z-10',
+        '!rounded-full bg-white',
         isHorizontal ? 'ml-4' : 'mt-4 rotate-90',
         changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps.disabled),
       ]"
