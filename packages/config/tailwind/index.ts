@@ -1,7 +1,6 @@
 import { Config } from 'tailwindcss';
 import tailwindCssVariables from '@mertasan/tailwindcss-variables';
 import peerNextPlugin from '@storefront-ui/tw-plugin-peer-next';
-import tailwindScrollbarHide from 'tailwind-scrollbar-hide';
 
 export const tailwindConfig: Config = {
   content: [],
@@ -242,5 +241,5 @@ export const tailwindConfig: Config = {
       },
     },
   },
-  plugins: [tailwindScrollbarHide, tailwindCssVariables, peerNextPlugin],
+  plugins: [tailwindCssVariables, peerNextPlugin],
 };

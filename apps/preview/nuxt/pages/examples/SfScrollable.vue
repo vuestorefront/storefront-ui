@@ -8,7 +8,7 @@
         'w-full items-center',
         {
           'snap-x snap-mandatory': state.snap,
-          'scrollbar-hide': state.hideScrollbar,
+          '[&::-webkit-scrollbar]:hidden [-ms-overflow-style:\'none\'] [scrollbar-width:\'none\']': state.hideScrollbar,
         },
       ]"
     >

@@ -35,8 +35,7 @@
   },
   "dependencies": {
     "@mertasan/tailwindcss-variables": "^2.5.2",
-    "@storefront-ui/tw-plugin-peer-next": "workspace:*",
-    "tailwind-scrollbar-hide": "^1.1.7"
+    "@storefront-ui/tw-plugin-peer-next": "workspace:*"
   },
   "publishConfig": {
     "access": "public"

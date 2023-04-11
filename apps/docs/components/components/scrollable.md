@@ -26,10 +26,6 @@ Learn more about `useScrollable` composable in the [Composables > useScrollable 
 
 Can be setup that will be without scrollbar
 
-::: read-more
-Css class `scrollbar-hide` comes from [tailwind-scrollbar-hide](https://www.npmjs.com/package/tailwind-scrollbar-hide) npm package, however this package is already in our preset.
-:::
-
 <Showcase showcase-name="Scrollable/HideScrollbar" style="min-height:240px">
 
 <!-- vue -->

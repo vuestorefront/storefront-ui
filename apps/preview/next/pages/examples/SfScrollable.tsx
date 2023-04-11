@@ -83,7 +83,7 @@ function Example() {
         buttonsPlacement={state.get.buttonsPlacement}
         className={classNames('w-full items-center', {
           'snap-x snap-mandatory': state.get.snap,
-          'scrollbar-hide': state.get.hideScrollbar,
+          "[&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']": state.get.hideScrollbar,
         })}
       >
         {state.get.children ||
