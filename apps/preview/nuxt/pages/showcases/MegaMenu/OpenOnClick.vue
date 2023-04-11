@@ -43,7 +43,13 @@
                 >
                   <div class="flex items-center justify-between p-4 bg-primary-700 md:hidden">
                     <div class="flex items-center typography-text-lg font-medium text-white">Categories</div>
-                    <SfButton square variant="tertiary" aria-label="Close drawer" class="text-white" @click="close()">
+                    <SfButton
+                      square
+                      variant="tertiary"
+                      aria-label="Close navigation menu"
+                      class="text-white"
+                      @click="close()"
+                    >
                       <SfIconClose />
                     </SfButton>
                   </div>
@@ -76,7 +82,7 @@
                     square
                     size="sm"
                     variant="tertiary"
-                    aria-label="Close drawer"
+                    aria-label="Close navigation menu"
                     class="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
                     @click="close()"
                   >

@@ -21,7 +21,7 @@ import sneakers from '@assets/sneakers-2.png';
 
 export default function OpenOnClick() {
   const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
-  const nodeRef = useRef(null);
+  const drawerRef = useRef(null);
   const actionItems = [
     {
       icon: <SfIconShoppingCart />,
@@ -151,7 +151,7 @@ export default function OpenOnClick() {
                   <span className="hidden md:inline-flex">Categories</span>
                 </SfButton>
                 <CSSTransition
-                  ref={nodeRef}
+                  ref={drawerRef}
                   in={isOpen}
                   timeout={500}
                   unmountOnExit
@@ -173,7 +173,7 @@ export default function OpenOnClick() {
                       <SfButton
                         square
                         variant="tertiary"
-                        aria-label="Close drawer"
+                        aria-label="Close navigation menu"
                         onClick={toggle}
                         className="text-white"
                       >
@@ -213,7 +213,7 @@ export default function OpenOnClick() {
                       square
                       size="sm"
                       variant="tertiary"
-                      aria-label="Close drawer"
+                      aria-label="Close navigation menu"
                       onClick={toggle}
                       className="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
                     >
