@@ -1,7 +1,7 @@
 <template>
   <label>
     <span class="pb-1 text-sm font-medium text-neutral-900 font-body"> Label </span>
-    <SfSelect>
+    <SfSelect placeholder="-- Select --">
       <template #chevron>
         <SfIconUnfoldMore class="absolute pointer-events-none top-2 right-4 text-neutral-500" />
       </template>

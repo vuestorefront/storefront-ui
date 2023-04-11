@@ -12,5 +12,7 @@ Currently the release process is manual.
     - packages/config/tailwind,
     - packages/sfui/frameworks/vue,
     - packages/sfui/frameworks/react.
-3. Create a PR with title: "chore(release): [NUMBER OF RELEASE]"
-4. After PR is merged tag it with `v[NUMBER OF RELEASE]` git tag.
+3. Make sure to update CHANGELOG.md with latest changes (for now manually).
+4. Create a PR with title: "chore(release): [NUMBER OF RELEASE]"
+5. After PR is merged tag it with `v[NUMBER OF RELEASE]` git tag.
+6. Create [a Github release](https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository) in [storefront-ui repo release section](https://github.com/vuestorefront/storefront-ui/releases) with information from `CHANGELOG.md` and referencing git tag you've just added.
