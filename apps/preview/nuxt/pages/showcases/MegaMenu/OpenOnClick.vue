@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <div v-if="open" class="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
+    <div v-if="isOpen" class="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
     <header
       class="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
     >
@@ -17,9 +17,9 @@
                 class="block !px-2 mr-auto text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                 type="button"
                 :aria-haspopup="true"
-                :aria-expanded="open"
+                :aria-expanded="isOpen"
                 variant="tertiary"
-                @click="open = true"
+                @click="toggle()"
               >
                 <template #suffix>
                   <SfIconChevronRight class="hidden rotate-90 md:inline-flex" />
@@ -36,20 +36,14 @@
                 leave-to-class="-translate-x-full md:translate-x-0 md:opacity-0"
               >
                 <SfDrawer
-                  v-model="open"
+                  v-model="isOpen"
                   placement="top"
                   class="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
-                  @click="open = false"
+                  @click="close()"
                 >
                   <div class="flex items-center justify-between p-4 bg-primary-700 md:hidden">
                     <div class="flex items-center typography-text-lg font-medium text-white">Categories</div>
-                    <SfButton
-                      square
-                      variant="tertiary"
-                      aria-label="Close drawer"
-                      class="text-white"
-                      @click="open = false"
-                    >
+                    <SfButton square variant="tertiary" aria-label="Close drawer" class="text-white" @click="close()">
                       <SfIconClose />
                     </SfButton>
                   </div>
@@ -84,7 +78,7 @@
                     variant="tertiary"
                     aria-label="Close drawer"
                     class="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
-                    @click="open = true"
+                    @click="close()"
                   >
                     <SfIconClose class="text-neutral-500" />
                   </SfButton>
@@ -135,13 +129,13 @@ import {
   SfIconClose,
   SfIconChevronRight,
   SfListItem,
+  useDisclosure,
 } from '@storefront-ui/vue';
 import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 import sneakers from '@assets/sneakers-2.png';
-import { ref } from 'vue';
 
-const open = ref(false);
+const { isOpen, toggle, close } = useDisclosure();
 
 const actionItems = [
   {

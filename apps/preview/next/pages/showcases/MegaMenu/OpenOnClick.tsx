@@ -20,7 +20,7 @@ import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 import sneakers from '@assets/sneakers-2.png';
 
 export default function OpenOnClick() {
-  const { open, close, isOpen } = useDisclosure({ initialValue: false });
+  const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
   const nodeRef = useRef(null);
   const actionItems = [
     {
@@ -138,7 +138,7 @@ export default function OpenOnClick() {
                   className="block !px-2 mr-auto text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                   type="button"
                   aria-haspopup="true"
-                  aria-expanded={open}
+                  aria-expanded={isOpen}
                   slotSuffix={
                     <>
                       <SfIconChevronRight className="hidden rotate-90 md:inline-flex" />
@@ -146,7 +146,7 @@ export default function OpenOnClick() {
                     </>
                   }
                   variant="tertiary"
-                  onClick={open}
+                  onClick={toggle}
                 >
                   <span className="hidden md:inline-flex">Categories</span>
                 </SfButton>
@@ -174,7 +174,7 @@ export default function OpenOnClick() {
                         square
                         variant="tertiary"
                         aria-label="Close drawer"
-                        onClick={isOpen ? close : open}
+                        onClick={toggle}
                         className="text-white"
                       >
                         <SfIconClose />
@@ -214,7 +214,7 @@ export default function OpenOnClick() {
                       size="sm"
                       variant="tertiary"
                       aria-label="Close drawer"
-                      onClick={isOpen ? close : open}
+                      onClick={toggle}
                       className="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
                     >
                       <SfIconClose className="text-neutral-500" />
