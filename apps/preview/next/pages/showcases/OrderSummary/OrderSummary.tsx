@@ -79,8 +79,7 @@ export default function OrderSummary() {
           <p>{formatPrice(totalPrice())}</p>
         </div>
         <SfButton size="lg" className="w-full">
-          {' '}
-          Place order and pay{' '}
+          Place order and pay
         </SfButton>
         <div className="typography-text-sm mt-4 text-center">
           By placing my order, you agree to our <SfLink href="/">Terms and Conditions</SfLink> and our{' '}
