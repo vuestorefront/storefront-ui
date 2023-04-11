@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { type UseScrollableOptions, Scrollable } from '@storefront-ui/react';
+import { type UseScrollableOptions, Scrollable, composeHandlers } from '@storefront-ui/react';
 
 export function useScrollable<TElement extends HTMLElement>(options?: Partial<UseScrollableOptions>) {
   const containerElement = useRef<TElement>(null);
@@ -29,24 +29,24 @@ export function useScrollable<TElement extends HTMLElement>(options?: Partial<Us
     return unregister;
   }, [containerElement, options]);
 
-  const getPrevButtonProps = <TProps>(props?: TProps) => {
+  const getPrevButtonProps = <TProps extends { onClick: () => void }>(props?: TProps) => {
     const onClick = () => {
       scrollable.current?.prev();
     };
     return {
-      onClick,
       ...props,
+      onClick: composeHandlers(onClick, props?.onClick),
       disabled: !state.hasPrev,
     };
   };
 
-  const getNextButtonProps = <TProps>(props?: TProps) => {
+  const getNextButtonProps = <TProps extends { onClick: () => void }>(props?: TProps) => {
     const onClick = () => {
       scrollable.current?.next();
     };
     return {
-      onClick,
       ...props,
+      onClick: composeHandlers(onClick, props?.onClick),
       disabled: !state.hasNext,
     };
   };
