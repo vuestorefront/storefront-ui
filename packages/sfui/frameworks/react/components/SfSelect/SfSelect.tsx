@@ -24,27 +24,27 @@ export default function SfSelect(props: SfSelectProps) {
 
   const [chevronRotated, setChevronRotated] = useState(false);
 
-  const blurSelect: FocusEventHandler<HTMLSelectElement> = (value) => {
+  const blurSelect: FocusEventHandler<HTMLSelectElement> = (event) => {
     setChevronRotated(false);
-    return onBlur ? onBlur(value) : undefined;
+    return onBlur ? onBlur(event) : undefined;
   };
 
-  const changedValue: ChangeEventHandler<HTMLSelectElement> = (value) => {
+  const changedValue: ChangeEventHandler<HTMLSelectElement> = (event) => {
     setChevronRotated(false);
-    return onChange ? onChange(value) : undefined;
+    return onChange ? onChange(event) : undefined;
   };
 
-  const clickSelect: MouseEventHandler<HTMLSelectElement> = (value) => {
+  const clickSelect: MouseEventHandler<HTMLSelectElement> = (event) => {
     setChevronRotated(true);
-    return onClick ? onClick(value) : undefined;
+    return onClick ? onClick(event) : undefined;
   };
 
-  const keyDownSelect: KeyboardEventHandler<HTMLSelectElement> = (value) => {
-    if (value.code === 'Space') {
+  const keyDownSelect: KeyboardEventHandler<HTMLSelectElement> = (event) => {
+    if (event.code === 'Space') {
       setChevronRotated(true);
     }
 
-    return onKeyDown ? onKeyDown(value) : undefined;
+    return onKeyDown ? onKeyDown(event) : undefined;
   };
 
   return (
