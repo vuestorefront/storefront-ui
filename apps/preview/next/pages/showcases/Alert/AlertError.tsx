@@ -6,7 +6,7 @@ export default function AlertError() {
   return (
     <div
       role="alert"
-      className="flex items-start md:items-center bg-negative-100 pr-2 pl-4 ring-1 ring-negative-300 typography-text-sm md:typography-text-base py-1 rounded-md"
+      className="flex items-start md:items-center max-w-[600px] bg-negative-100 pr-2 pl-4 ring-1 ring-negative-300 typography-text-sm md:typography-text-base py-1 rounded-md"
     >
       <p className="py-2 mr-2">The password change was failed.</p>
       <button

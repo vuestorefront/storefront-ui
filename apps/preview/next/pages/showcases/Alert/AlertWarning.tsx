@@ -6,7 +6,7 @@ export default function AlertWarning() {
   return (
     <div
       role="alert"
-      className="flex items-start bg-warning-100 pr-2 pl-4 ring-1 ring-warning-200 typography-text-sm md:typography-text-base py-1 rounded-md"
+      className="flex items-start max-w-[600px] bg-warning-100 pr-2 pl-4 ring-1 ring-warning-200 typography-text-sm md:typography-text-base py-1 rounded-md"
     >
       <SfIconWarning className="mr-2 mt-2 text-warning-700" />
       <div className="mr-2 py-2">
