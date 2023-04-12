@@ -1,4 +1,4 @@
-import SFScrollable from './scrollable';
+import Scrollable from './scrollable';
 
 export * from './types';
-export { SFScrollable };
+export { Scrollable };

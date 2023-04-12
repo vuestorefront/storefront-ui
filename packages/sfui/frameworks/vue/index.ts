@@ -2,6 +2,7 @@
 export * from './composables/useDisclosure';
 export * from './composables/useDropdown';
 export * from './composables/usePopover';
+export * from './composables/useScrollable';
 export * from './composables/useTooltip';
 export * from './composables/useTrapFocus';
 export * from './composables/usePagination';
@@ -29,6 +30,7 @@ export * from './components/SfProgressCircular';
 export * from './components/SfProgressLinear';
 export * from './components/SfRadio';
 export * from './components/SfRating';
+export * from './components/SfScrollable';
 export * from './components/SfSelect';
 export * from './components/SfSwitch';
 export * from './components/SfTooltip';
