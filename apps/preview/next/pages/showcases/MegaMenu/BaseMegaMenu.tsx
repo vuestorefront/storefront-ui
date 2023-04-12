@@ -18,112 +18,113 @@ import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 import sneakers from '@assets/sneakers-2.png';
 
+const actionItems = [
+  {
+    icon: <SfIconShoppingCart />,
+    label: '',
+    ariaLabel: 'Cart',
+    role: 'button',
+  },
+  {
+    icon: <SfIconFavorite />,
+    label: '',
+    ariaLabel: 'Wishlist',
+    role: 'button',
+  },
+  {
+    icon: <SfIconPerson />,
+    label: 'Log in',
+    ariaLabel: 'Log in',
+    role: 'login',
+  },
+];
+
+const bannerDetails = {
+  image: sneakers,
+  title: 'Hot Deals. No sweat.',
+};
+
+const categoriesContent = [
+  {
+    heading: 'Activities',
+    items: [
+      {
+        title: 'Fitness',
+        link: '/',
+      },
+      {
+        title: 'Pilates',
+        link: '/',
+      },
+      {
+        title: 'Training',
+        link: '/',
+      },
+      {
+        title: 'Cardio workout',
+        link: '/',
+      },
+      {
+        title: 'Yoga',
+        link: '/',
+      },
+      {
+        title: 'All activities',
+        link: '/',
+      },
+    ],
+  },
+  {
+    heading: 'Categories',
+    items: [
+      {
+        title: 'Clothing',
+        link: '/',
+      },
+      {
+        title: 'Shoes',
+        link: '/',
+      },
+      {
+        title: 'Accessories',
+        link: '/',
+      },
+      {
+        title: 'Wearables',
+        link: '/',
+      },
+      {
+        title: 'Food & Drinks',
+        link: '/',
+      },
+      {
+        title: 'All categories',
+        link: '/',
+      },
+    ],
+  },
+  {
+    heading: 'Womens Deals',
+    items: [
+      {
+        title: 'Fitness Gear',
+        link: '/',
+      },
+      {
+        title: 'Outlet',
+        link: '/',
+      },
+      {
+        title: 'All Womens Deals',
+        link: '/',
+      },
+    ],
+  },
+];
+
 export default function BaseMegaMenu() {
   const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
   const drawerRef = useRef(null);
-  const actionItems = [
-    {
-      icon: <SfIconShoppingCart />,
-      label: '',
-      ariaLabel: 'Cart',
-      role: 'button',
-    },
-    {
-      icon: <SfIconFavorite />,
-      label: '',
-      ariaLabel: 'Wishlist',
-      role: 'button',
-    },
-    {
-      icon: <SfIconPerson />,
-      label: 'Log in',
-      ariaLabel: 'Log in',
-      role: 'login',
-    },
-  ];
-
-  const bannerDetails = {
-    image: sneakers,
-    title: 'Hot Deals. No sweat.',
-  };
-
-  const categoriesContent = [
-    {
-      heading: 'Activities',
-      items: [
-        {
-          title: 'Fitness',
-          link: '/',
-        },
-        {
-          title: 'Pilates',
-          link: '/',
-        },
-        {
-          title: 'Training',
-          link: '/',
-        },
-        {
-          title: 'Cardio workout',
-          link: '/',
-        },
-        {
-          title: 'Yoga',
-          link: '/',
-        },
-        {
-          title: 'All activities',
-          link: '/',
-        },
-      ],
-    },
-    {
-      heading: 'Categories',
-      items: [
-        {
-          title: 'Clothing',
-          link: '/',
-        },
-        {
-          title: 'Shoes',
-          link: '/',
-        },
-        {
-          title: 'Accessories',
-          link: '/',
-        },
-        {
-          title: 'Wearables',
-          link: '/',
-        },
-        {
-          title: 'Food & Drinks',
-          link: '/',
-        },
-        {
-          title: 'All categories',
-          link: '/',
-        },
-      ],
-    },
-    {
-      heading: 'Womens Deals',
-      items: [
-        {
-          title: 'Fitness Gear',
-          link: '/',
-        },
-        {
-          title: 'Outlet',
-          link: '/',
-        },
-        {
-          title: 'All Womens Deals',
-          link: '/',
-        },
-      ],
-    },
-  ];
 
   return (
     <div className="w-full h-full">
@@ -131,9 +132,10 @@ export default function BaseMegaMenu() {
       <header className="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10">
         <div className="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <a href="/" aria-label="SF Homepage" className="inline-block text-white mr-2 lg:mr-10">
-            <img src={brandLogo.src} alt="Sf Logo" className="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
-            <img src={brandLogoSign.src} alt="Sf Logo" className="hidden w-10 h-10 mr-4 md:block lg:hidden" />
-            <img src={brandLogoSign.src} alt="Sf Logo" className="block w-8 h-8 mr-4 min-w-8 md:hidden" />
+            <picture>
+              <source srcSet={brandLogo} media="(min-width: 748px)" />
+              <img src={brandLogoSign} alt="Sf Logo" className="w-8 h-8 mr-4 md:w-[12.5rem] md:h-[1.75rem]" />
+            </picture>
           </a>
           <nav className="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
             <ul>

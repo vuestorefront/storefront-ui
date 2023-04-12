@@ -6,9 +6,10 @@
     >
       <div class="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <a href="/" aria-label="SF Homepage" class="inline-block text-white mr-2 lg:mr-10">
-          <img :src="brandLogo" alt="Sf Logo" class="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
-          <img :src="brandLogoSign" alt="Sf Logo" class="hidden w-10 h-10 mr-4 md:block lg:hidden" />
-          <img :src="brandLogoSign" alt="Sf Logo" class="block w-8 h-8 mr-4 min-w-8 md:hidden" />
+          <picture>
+            <source :srcset="brandLogo" media="(min-width: 748px)" />
+            <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 mr-4 md:w-[12.5rem] md:h-[1.75rem]" />
+          </picture>
         </a>
         <nav class="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
           <ul>
