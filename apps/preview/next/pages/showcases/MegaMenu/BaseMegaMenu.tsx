@@ -19,7 +19,7 @@ import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 import sneakers from '@assets/sneakers-2.png';
 
-export default function OpenOnClick() {
+export default function BaseMegaMenu() {
   const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
   const drawerRef = useRef(null);
   const actionItems = [
@@ -255,4 +255,4 @@ export default function OpenOnClick() {
 }
 
 // #endregion source
-OpenOnClick.getLayout = ShowcasePageLayout;
+BaseMegaMenu.getLayout = ShowcasePageLayout;

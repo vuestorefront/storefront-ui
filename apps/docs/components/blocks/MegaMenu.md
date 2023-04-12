@@ -11,17 +11,17 @@ description: Mega menu is a type of website navigation menu that typically displ
 
 MegaMenu follows the accessibility guidelines for menus and menubars by WCAG [Read more](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/).
 
- ## Opening on click
+ ## Base Mega Menu
 
  When the user clicks on the trigger element (such as one of the menu items), the mega menu opens. On mobile screens, clicking on hamburger button will trigger a drawer opening from the left side with menu content.
 
-<Showcase showcase-name="MegaMenu/OpenOnClick" style="min-height: 500px;">
+<Showcase showcase-name="MegaMenu/BaseMegaMenu" style="min-height: 500px;">
 
 <!-- react -->
-<<<../../preview/next/pages/showcases/MegaMenu/OpenOnClick.tsx#source
+<<<../../preview/next/pages/showcases/MegaMenu/BaseMegaMenu.tsx#source
 <!-- end react -->
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/MegaMenu/OpenOnClick.vue
+<<<../../preview/nuxt/pages/showcases/MegaMenu/BaseMegaMenu.vue
 <!-- end vue -->
 
 </Showcase>
