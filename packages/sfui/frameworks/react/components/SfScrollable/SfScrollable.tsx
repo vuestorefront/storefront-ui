@@ -60,7 +60,8 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
     const changeDisabledClass = (isDisabled: boolean) =>
       isDisabled ? '!ring-disabled-300 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
     const previousButton = (...buttonClassName: Parameters<typeof classNames>) =>
-      (slotPreviousButton && cloneElement(slotPreviousButton, getPrevButtonProps())) || (
+      (slotPreviousButton &&
+        cloneElement(slotPreviousButton, getPrevButtonProps({ disabled: previousDisabled, onClick: onPrev }))) || (
         <SfButton
           variant="secondary"
           size="lg"
@@ -79,7 +80,8 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       );
 
     const nextButton = (...buttonClassName: Parameters<typeof classNames>) =>
-      (slotNextButton && cloneElement(slotNextButton, getNextButtonProps())) || (
+      (slotNextButton &&
+        cloneElement(slotNextButton, getNextButtonProps({ disabled: nextDisabled, onClick: onNext }))) || (
         <SfButton
           variant="secondary"
           size="lg"

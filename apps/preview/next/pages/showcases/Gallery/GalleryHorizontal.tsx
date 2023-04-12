@@ -5,7 +5,7 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { useEffect, useRef, useState } from 'react';
 import { clamp } from '@storefront-ui/shared';
-import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight, useScrollable } from '@storefront-ui/react';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
 import gallery3 from '@assets/gallery_3.png';
@@ -60,6 +60,7 @@ export default function GalleryHorizontal() {
   const [isDragging, setIsDragging] = useState(false);
   const itemsLength = thumbImages.length;
   const imgPosition = activeIndex + offsetPosition;
+  const { getContainerProps, state, getNextButtonProps, getPrevButtonProps } = useScrollable();
 
   function pointerHandler(e: React.PointerEvent<HTMLDivElement>) {
     e.preventDefault();
@@ -114,31 +115,56 @@ export default function GalleryHorizontal() {
           activeIndex={activeIndex}
           previousDisabled={activeIndex === 0}
           nextDisabled={activeIndex === itemsLength - 1}
-          buttonsPlacement="floating"
-          onPrev={({ preventDefault }) => {
-            preventDefault();
-            setActiveIndex((currentValue) => currentValue - 1);
+          onPrev={() => {
+            setActiveIndex(() => activeIndex - 1);
           }}
-          onNext={({ preventDefault }) => {
-            preventDefault();
-            setActiveIndex((currentValue) => currentValue + 1);
+          onNext={() => {
+            setActiveIndex(() => activeIndex + 1);
           }}
-          slotPreviousButton={<SfButton variant="secondary" size="sm" square slotPrefix={<SfIconChevronLeft />} />}
-          slotNextButton={<SfButton variant="secondary" size="sm" square slotPrefix={<SfIconChevronRight />} />}
+          slotPreviousButton={
+            <SfButton
+              className="absolute !rounded-full z-10 left-4"
+              variant="secondary"
+              size="sm"
+              square
+              slotPrefix={<SfIconChevronLeft />}
+            />
+          }
+          slotNextButton={
+            <SfButton
+              className="absolute !rounded-full z-10 right-4"
+              variant="secondary"
+              size="sm"
+              square
+              slotPrefix={<SfIconChevronRight />}
+              onClick={({ preventDefault }) => {
+                preventDefault();
+                setActiveIndex(() => activeIndex + 1);
+              }}
+            />
+          }
         >
-          {thumbImages.map(({ image, alt }, index) => (
-            <button
-              type="button"
-              aria-label={alt}
-              key={`${alt}-${index}-thumbnail`}
-              className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
-                activeIndex === index ? 'border-primary-700' : 'border-transparent'
-              }`}
-              onClick={() => setActiveIndex(index)}
-            >
-              <img alt={alt} className="object-contain border border-neutral-200" width="78" height="78" src={image} />
-            </button>
-          ))}
+          <div {...getContainerProps()}>
+            {thumbImages.map(({ image, alt }, index) => (
+              <button
+                type="button"
+                aria-label={alt}
+                key={`${alt}-${index}-thumbnail`}
+                className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
+                  activeIndex === index ? 'border-primary-700' : 'border-transparent'
+                }`}
+                onClick={() => setActiveIndex(index)}
+              >
+                <img
+                  alt={alt}
+                  className="object-contain border border-neutral-200"
+                  width="78"
+                  height="78"
+                  src={image}
+                />
+              </button>
+            ))}
+          </div>
         </SfScrollable>
       </div>
     </div>

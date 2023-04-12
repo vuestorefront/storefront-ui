@@ -47,9 +47,9 @@ export function useScrollable<TElement extends HTMLElement>({
       scrollable.current?.prev();
     };
     return {
-      ...props,
       onClick: composeHandlers(onClick, props?.onClick),
       disabled: !state.hasPrev,
+      ...props,
     };
   });
 
@@ -58,9 +58,9 @@ export function useScrollable<TElement extends HTMLElement>({
       scrollable.current?.next();
     };
     return {
-      ...props,
       onClick: composeHandlers(onClick, props?.onClick),
       disabled: !state.hasNext,
+      ...props,
     };
   });
 
