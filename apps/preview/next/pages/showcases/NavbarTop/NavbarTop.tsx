@@ -31,8 +31,10 @@ export default function TopNav() {
       <header className="flex justify-center w-full bg-white border-b h-14 md:h-20 border-neutral-200">
         <div className="flex items-center flex-row flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <a href="/" aria-label="SF Homepage" className="inline-block text-primary-700">
-            <img src={brandLogo.src} alt="Sf Logo" className="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
-            <img src={brandLogoSign.src} alt="Sf Logo" className="block w-8 h-8 mr-4 md:w-10 md:h-10 lg:hidden" />
+            <picture>
+              <source srcSet={brandLogo.src} media="(min-width: 748px)" />
+              <img src={brandLogoSign.src} alt="Sf Logo" className="w-8 h-8 mr-4 md:w-[12.5rem] md:h-[1.75rem]" />
+            </picture>
           </a>
           <SfButton className="block !px-2 mr-auto" type="button" slotPrefix={<SfIconMenu />} variant="tertiary">
             <span className="hidden md:inline-flex">Categories</span>

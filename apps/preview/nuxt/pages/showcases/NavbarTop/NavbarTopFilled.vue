@@ -3,8 +3,10 @@
     <header class="flex justify-center w-full text-white border-0 bg-primary-700 h-14 md:h-20 border-neutral-200">
       <div class="flex items-center flex-row flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <a aria-label="SF Homepage" class="inline-block text-white md:h-10 lg:h-7">
-          <img :src="brandLogo" alt="SF Logo" class="hidden lg:block mr-10 w-[12.5rem] h-[1.75rem]" />
-          <img :src="brandLogoSign" alt="Sf Logo" class="block w-8 h-8 mr-4 md:w-10 md:h-10 lg:hidden" />
+          <picture>
+            <source :srcset="brandLogo" media="(min-width: 748px)" />
+            <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 mr-4 md:w-[12.5rem] md:h-[1.75rem]" />
+          </picture>
         </a>
         <SfButton
           class="block !px-2 mr-auto text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white font-body"
