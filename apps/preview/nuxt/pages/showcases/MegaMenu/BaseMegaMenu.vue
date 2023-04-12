@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <div v-if="isOpen" class="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
+    <div v-if="isOpen" class="fixed w-screen h-screen inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
     <header
       class="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
     >
@@ -40,7 +40,6 @@
                   v-model="isOpen"
                   placement="top"
                   class="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
-                  @click="close()"
                 >
                   <div class="flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden">
                     <div class="flex items-center typography-text-lg font-medium text-white">Browse products</div>
@@ -128,7 +127,7 @@ import {
 } from '@storefront-ui/vue';
 import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
-import sneakers from '@assets/sneakers-2.png';
+import watch from '@assets/watch.png';
 
 const { isOpen, toggle, close } = useDisclosure();
 
@@ -153,8 +152,8 @@ const actionItems = [
   },
 ];
 const bannerDetails = {
-  image: sneakers,
-  title: 'Hot Deals. No sweat.',
+  image: watch,
+  title: 'New in desiger watches.',
 };
 
 const categoriesContent = [

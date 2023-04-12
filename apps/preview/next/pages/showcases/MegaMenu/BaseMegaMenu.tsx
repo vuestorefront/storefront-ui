@@ -16,7 +16,7 @@ import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
-import sneakers from '@assets/sneakers-2.png';
+import watch from '@assets/watch.png';
 
 const actionItems = [
   {
@@ -40,8 +40,8 @@ const actionItems = [
 ];
 
 const bannerDetails = {
-  image: sneakers,
-  title: 'Hot Deals. No sweat.',
+  image: watch,
+  title: 'New in designer watches.',
 };
 
 const categoriesContent = [
@@ -170,7 +170,6 @@ export default function BaseMegaMenu() {
                 >
                   <SfDrawer
                     open={isOpen}
-                    onClose={close}
                     placement="top"
                     className="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
                   >
