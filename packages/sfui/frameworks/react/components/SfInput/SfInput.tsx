@@ -1,6 +1,5 @@
 import { forwardRef } from 'react';
 import classNames from 'classnames';
-import mergeRefs from 'merge-refs';
 import { SfInputSize, useFocusVisible } from '@storefront-ui/react';
 import type { SfInputProps } from '@storefront-ui/react';
 
@@ -37,7 +36,7 @@ const SfInput = forwardRef<HTMLInputElement, SfInputProps>(
           type="text"
           data-testid="input-field"
           size={1}
-          ref={mergeRefs(ref)}
+          ref={ref}
           {...attributes}
         />
         {slotSuffix && <span className="pl-2">{slotSuffix}</span>}
