@@ -5,6 +5,7 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { useEffect, useRef, useState } from 'react';
 import { clamp } from '@storefront-ui/shared';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
 import gallery3 from '@assets/gallery_3.png';
@@ -57,7 +58,7 @@ export default function GalleryHorizontal() {
   const [offsetPosition, setOffsetPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-
+  const itemsLength = thumbImages.length;
   const imgPosition = activeIndex + offsetPosition;
 
   function pointerHandler(e: React.PointerEvent<HTMLDivElement>) {
@@ -108,7 +109,23 @@ export default function GalleryHorizontal() {
         </div>
       </div>
       <div className="flex-shrink-0 overflow-hidden basis-auto">
-        <div className="flex-row w-full snap-both snap-mandatory flex gap-0.5 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+        <SfScrollable
+          className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+          activeIndex={activeIndex}
+          previousDisabled={activeIndex === 0}
+          nextDisabled={activeIndex === itemsLength - 1}
+          buttonsPlacement="floating"
+          onPrev={({ preventDefault }) => {
+            preventDefault();
+            setActiveIndex((currentValue) => currentValue - 1);
+          }}
+          onNext={({ preventDefault }) => {
+            preventDefault();
+            setActiveIndex((currentValue) => currentValue + 1);
+          }}
+          slotPreviousButton={<SfButton variant="secondary" size="sm" square slotPrefix={<SfIconChevronLeft />} />}
+          slotNextButton={<SfButton variant="secondary" size="sm" square slotPrefix={<SfIconChevronRight />} />}
+        >
           {thumbImages.map(({ image, alt }, index) => (
             <button
               type="button"
@@ -122,7 +139,7 @@ export default function GalleryHorizontal() {
               <img alt={alt} className="object-contain border border-neutral-200" width="78" height="78" src={image} />
             </button>
           ))}
-        </div>
+        </SfScrollable>
       </div>
     </div>
   );
