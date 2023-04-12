@@ -28,7 +28,7 @@
     "build:docs": "turbo run build:docs",
     "build:next": "turbo run build:next",
     "build:nuxt": "turbo run build:nuxt",
-    "build:qwik-city": "turbo run build:nuxt",
+    "build:qwik-city": "turbo run build:qwik-city",
     "build:qwik": "turbo run build:qwik",
     "build:react": "turbo run build:react",
     "build:vue": "turbo run build:vue",
