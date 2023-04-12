@@ -13,7 +13,7 @@ export default function AlertPositive() {
       <button
         type="button"
         className="p-1.5 md:p-2 ml-auto rounded-md text-positive-700 hover:bg-positive-200 active:bg-positive-300 hover:text-positive-800 active:text-positive-900"
-        aria-label="Close alert"
+        aria-label="Close positive alert"
       >
         <SfIconClose className="hidden md:block" />
         <SfIconClose size="sm" className="md:hidden block" />

@@ -10,7 +10,7 @@ description: Alert is a notification that keeps people informed of the status of
 
 ## Alert neutral
 
-Simply version of alert that has neutral grey color.
+Simple version of alert that has neutral grey color.
 
 <Showcase showcase-name="Alert/AlertNeutral" >
 

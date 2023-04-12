@@ -18,7 +18,7 @@ export default function AlertError() {
       <button
         type="button"
         className="p-1.5 md:p-2 ml-2 rounded-md text-negative-700 hover:bg-negative-200 active:bg-negative-300 hover:text-negative-800 active:text-negative-900"
-        aria-label="Close alert"
+        aria-label="Close error alert"
       >
         <SfIconClose className="hidden md:block" />
         <SfIconClose size="sm" className="md:hidden block" />

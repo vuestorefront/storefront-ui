@@ -8,7 +8,7 @@
     <button
       type="button"
       class="p-1.5 md:p-2 ml-auto rounded-md text-positive-700 hover:bg-positive-200 active:bg-positive-300 hover:text-positive-800 active:text-positive-900"
-      aria-label="Close alert"
+      aria-label="Close positive alert"
     >
       <SfIconClose class="hidden md:block" />
       <SfIconClose size="sm" class="md:hidden block" />
