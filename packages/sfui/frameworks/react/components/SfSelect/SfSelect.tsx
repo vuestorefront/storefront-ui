@@ -1,6 +1,6 @@
-import { ChangeEvent, FocusEvent, KeyboardEvent, MouseEvent, useState } from 'react';
+import { KeyboardEvent, useState } from 'react';
 import classNames from 'classnames';
-import { SfSelectSize, SfIconExpandMore } from '@storefront-ui/react';
+import { SfSelectSize, SfIconExpandMore, composeHandlers } from '@storefront-ui/react';
 
 import type { SfSelectProps } from './types';
 
@@ -24,27 +24,14 @@ export default function SfSelect(props: SfSelectProps) {
 
   const [chevronRotated, setChevronRotated] = useState(false);
 
-  const blurHandler = (event: FocusEvent<HTMLSelectElement>) => {
-    setChevronRotated(false);
-    return onBlur ? onBlur(event) : undefined;
-  };
+  const rotateUp = () => setChevronRotated(true);
 
-  const changedValue = (event: ChangeEvent<HTMLSelectElement>) => {
-    setChevronRotated(false);
-    return onChange ? onChange(event) : undefined;
-  };
-
-  const clickHandler = (event: MouseEvent<HTMLSelectElement>) => {
-    setChevronRotated(true);
-    return onClick ? onClick(event) : undefined;
-  };
+  const rotateDown = () => setChevronRotated(false);
 
   const keydownHandler = (event: KeyboardEvent<HTMLSelectElement>) => {
     if (event.code === 'Space') {
-      setChevronRotated(true);
+      rotateUp();
     }
-
-    return onKeyDown ? onKeyDown(event) : undefined;
   };
 
   return (
@@ -63,10 +50,10 @@ export default function SfSelect(props: SfSelectProps) {
           className,
         )}
         data-testid="select-input"
-        onBlur={blurHandler}
-        onChange={changedValue}
-        onClick={clickHandler}
-        onKeyDown={keydownHandler}
+        onBlur={composeHandlers(rotateDown, onBlur)}
+        onChange={composeHandlers(rotateDown, onChange)}
+        onClick={composeHandlers(rotateUp, onClick)}
+        onKeyDown={composeHandlers(keydownHandler, onKeyDown)}
         {...attributes}
       >
         {placeholder && (
