@@ -37,18 +37,16 @@ const props = defineProps({
     default: '',
   },
 });
-
-const selected = ref(props.value);
 const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
+const selected = ref(props.value);
+const { isFocusVisible } = useFocusVisible();
 
 const changedValue = (event: Event) => {
   selected.value = (event.target as HTMLSelectElement).value;
   emit('update:modelValue', (event.target as HTMLSelectElement).value);
 };
-
-const { isFocusVisible } = useFocusVisible();
 </script>
 
 <template>
@@ -64,11 +62,11 @@ const { isFocusVisible } = useFocusVisible();
   >
     <select
       v-bind="$attrs"
-      :value="value"
+      :value="value || selected"
       :required="required"
       :disabled="disabled"
       :class="[
-        'peer appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 ring-inset focus:ring-primary-700 focus:ring-2 outline-none bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
+        'peer appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 ring-inset focus:ring-primary-700 focus:ring-2 outline-none bg-transparent rounded-md ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
         {
           'py-1.5': size === SfSelectSize.sm,
           'py-2': size === SfSelectSize.base,

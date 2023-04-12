@@ -11,8 +11,7 @@ const getSizeClasses = {
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { toRefs } from 'vue';
-import { useVModel } from '@vueuse/core';
+import { computed, ref, toRefs } from 'vue';
 import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
 
 const props = defineProps({
@@ -37,10 +36,17 @@ const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void;
   (event: 'focus'): void;
 }>();
-const { invalid } = toRefs(props);
-const { isFocusVisible } = useFocusVisible();
+const { modelValue, invalid } = toRefs(props);
+const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 
-const inputValue = useVModel(props, 'modelValue', emit);
+const internalState = ref();
+const inputValue = computed({
+  get: () => modelValue.value || internalState.value,
+  set: (value) => {
+    emit('update:modelValue', value);
+    internalState.value = value;
+  },
+});
 </script>
 
 <template>

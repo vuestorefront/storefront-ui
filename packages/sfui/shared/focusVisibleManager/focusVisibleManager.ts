@@ -56,7 +56,6 @@ export const focusVisibleManager = () => {
     for (const handler of changeHandlers) {
       handler(modality, e);
     }
-    console.log('TRIGGER:', { modality, isFocusVisible: isFocusVisible() });
   };
 
   const handleKeyboardEvent = (e: KeyboardEvent) => {
