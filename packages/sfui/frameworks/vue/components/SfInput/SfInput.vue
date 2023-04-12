@@ -39,6 +39,11 @@ const emit = defineEmits<{
 const { modelValue, invalid } = toRefs(props);
 const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 
+/*
+Internal state has been implemented due to useFocusVisible and how it works. Main reason is that
+it captures native HTMLElement.prototype.focus method. It makes value disappear under certain circumstances,
+so it's importatnt to keep it here, or to always pass modelValue to the component.
+*/
 const internalState = ref();
 const inputValue = computed({
   get: () => modelValue.value || internalState.value,
