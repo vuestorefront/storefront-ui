@@ -21,10 +21,7 @@
             <SfButton
               v-for="actionItem in actionItems"
               :key="actionItem.ariaLabel"
-              :class="[
-                'mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white',
-                { 'lg:hidden': actionItem.label === 'Log in' },
-              ]"
+              class="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
               :aria-label="actionItem.ariaLabel"
               variant="tertiary"
               square
@@ -32,6 +29,7 @@
               <template #prefix>
                 <Component :is="actionItem.icon" />
               </template>
+              <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
             </SfButton>
             <SfButton
               class="hidden lg:inline-flex mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
@@ -58,15 +56,20 @@ const actionItems = [
   {
     icon: SfIconShoppingCart,
     ariaLabel: 'Cart',
+    role: 'button',
+    label: '',
   },
   {
     icon: SfIconFavorite,
     ariaLabel: 'Wishlist',
+    role: 'button',
+    label: '',
   },
   {
     label: 'Log in',
     icon: SfIconPerson,
     ariaLabel: 'Log in',
+    role: 'login',
   },
 ];
 </script>

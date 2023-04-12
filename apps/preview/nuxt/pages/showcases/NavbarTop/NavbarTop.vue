@@ -17,10 +17,7 @@
             <SfButton
               v-for="actionItem in actionItems"
               :key="actionItem.ariaLabel"
-              :class="[
-                'mr-2 -ml-0.5 rounded-md text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700',
-                { 'lg:hidden': actionItem.label === 'Log in' },
-              ]"
+              class="mr-2 -ml-0.5 rounded-md text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
               :aria-label="actionItem.ariaLabel"
               variant="tertiary"
               square
@@ -28,16 +25,7 @@
               <template #prefix>
                 <Component :is="actionItem.icon" />
               </template>
-            </SfButton>
-            <SfButton
-              class="hidden lg:inline-flex mr-2 -ml-0.5 text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
-              :aria-label="actionItems[2].ariaLabel"
-              variant="tertiary"
-            >
-              <template #prefix>
-                <Component :is="actionItems[2].icon" />
-              </template>
-              Log in
+              <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
             </SfButton>
           </div>
         </nav>
@@ -54,15 +42,20 @@ const actionItems = [
   {
     icon: SfIconShoppingCart,
     ariaLabel: 'Cart',
+    role: 'button',
+    label: '',
   },
   {
     icon: SfIconFavorite,
     ariaLabel: 'Wishlist',
+    role: 'button',
+    label: '',
   },
   {
     label: 'Log in',
     icon: SfIconPerson,
     ariaLabel: 'Log in',
+    role: 'login',
   },
 ];
 </script>

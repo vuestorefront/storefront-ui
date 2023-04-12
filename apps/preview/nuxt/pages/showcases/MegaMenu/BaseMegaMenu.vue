@@ -25,7 +25,7 @@
                   <SfIconChevronRight class="hidden rotate-90 md:inline-flex" />
                   <SfIconMenu class="inline-flex md:hidden" />
                 </template>
-                <span class="hidden md:inline-flex">Categories</span>
+                <span class="hidden md:inline-flex">Browse products</span>
               </SfButton>
               <transition
                 enter-active-class="transform transition duration-500 ease-in-out"
@@ -42,7 +42,7 @@
                   @click="close()"
                 >
                   <div class="flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden">
-                    <div class="flex items-center typography-text-lg font-medium text-white">Categories</div>
+                    <div class="flex items-center typography-text-lg font-medium text-white">Browse products</div>
                     <SfButton
                       square
                       variant="tertiary"
@@ -96,10 +96,7 @@
             <SfButton
               v-for="actionItem in actionItems"
               :key="actionItem.ariaLabel"
-              :class="[
-                'mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white',
-                { 'lg:hidden': actionItem.label === 'Log in' },
-              ]"
+              class="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
               :aria-label="actionItem.ariaLabel"
               variant="tertiary"
               square
@@ -107,16 +104,7 @@
               <template #prefix>
                 <Component :is="actionItem.icon" />
               </template>
-            </SfButton>
-            <SfButton
-              class="hidden lg:inline-flex mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-              :aria-label="actionItems[2].ariaLabel"
-              variant="tertiary"
-            >
-              <template #prefix>
-                <Component :is="actionItems[2].icon" />
-              </template>
-              Log in
+              <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
             </SfButton>
           </div>
         </nav>
@@ -146,16 +134,21 @@ const { isOpen, toggle, close } = useDisclosure();
 const actionItems = [
   {
     icon: SfIconShoppingCart,
+    label: '',
     ariaLabel: 'Cart',
+    role: 'button',
   },
   {
     icon: SfIconFavorite,
+    label: '',
     ariaLabel: 'Wishlist',
+    role: 'button',
   },
   {
-    label: 'Log in',
     icon: SfIconPerson,
+    label: 'Log in',
     ariaLabel: 'Log in',
+    role: 'login',
   },
 ];
 const bannerDetails = {

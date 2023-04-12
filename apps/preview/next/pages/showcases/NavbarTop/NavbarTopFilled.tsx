@@ -9,16 +9,21 @@ export default function TopNavFilled() {
   const actionItems = [
     {
       icon: <SfIconShoppingCart />,
+      label: '',
       ariaLabel: 'Cart',
+      role: 'button',
     },
     {
       icon: <SfIconFavorite />,
+      label: '',
       ariaLabel: 'Wishlist',
+      role: 'button',
     },
     {
       label: 'Log in',
       icon: <SfIconPerson />,
       ariaLabel: 'Log in',
+      role: 'login',
     },
   ];
 
@@ -42,26 +47,16 @@ export default function TopNavFilled() {
           <nav className="flex flex-row flex-nowrap">
             {actionItems.map((actionItem) => (
               <SfButton
-                className={classNames(
-                  'mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white',
-                  actionItem.label === 'Log in' ? 'lg:hidden' : null,
-                )}
+                className="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                 key={actionItem.ariaLabel}
                 aria-label={actionItem.ariaLabel}
                 variant="tertiary"
                 slotPrefix={actionItem.icon}
                 square
-              />
+              >
+                {actionItem.role === 'login' && <p className="hidden md:inline-flex">Log In</p>}
+              </SfButton>
             ))}
-            <SfButton
-              className="hidden lg:inline-flex mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-              key={actionItems[2].ariaLabel}
-              aria-label={actionItems[2].ariaLabel}
-              variant="tertiary"
-              slotPrefix={actionItems[2].icon}
-            >
-              Log In
-            </SfButton>
           </nav>
         </div>
       </header>

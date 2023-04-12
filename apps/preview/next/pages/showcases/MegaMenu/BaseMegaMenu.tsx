@@ -14,7 +14,6 @@ import {
 } from '@storefront-ui/react';
 import { useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import classNames from 'classnames';
 import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 import sneakers from '@assets/sneakers-2.png';
@@ -25,16 +24,21 @@ export default function BaseMegaMenu() {
   const actionItems = [
     {
       icon: <SfIconShoppingCart />,
+      label: '',
       ariaLabel: 'Cart',
+      role: 'button',
     },
     {
       icon: <SfIconFavorite />,
+      label: '',
       ariaLabel: 'Wishlist',
+      role: 'button',
     },
     {
-      label: 'Log in',
       icon: <SfIconPerson />,
+      label: 'Log in',
       ariaLabel: 'Log in',
+      role: 'login',
     },
   ];
 
@@ -148,7 +152,7 @@ export default function BaseMegaMenu() {
                   variant="tertiary"
                   onClick={toggle}
                 >
-                  <span className="hidden md:inline-flex">Categories</span>
+                  <span className="hidden md:inline-flex">Browse products</span>
                 </SfButton>
                 <CSSTransition
                   ref={drawerRef}
@@ -169,7 +173,7 @@ export default function BaseMegaMenu() {
                     className="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
                   >
                     <div className="flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden">
-                      <div className="flex items-center typography-text-lg font-medium text-white">Categories</div>
+                      <div className="flex items-center typography-text-lg font-medium text-white">Browse products</div>
                       <SfButton
                         square
                         variant="tertiary"
@@ -226,26 +230,16 @@ export default function BaseMegaMenu() {
             <div>
               {actionItems.map((actionItem) => (
                 <SfButton
-                  className={classNames(
-                    'mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white',
-                    actionItem.label === 'Log in' ? 'md:hidden' : null,
-                  )}
+                  className="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                   key={actionItem.ariaLabel}
                   aria-label={actionItem.ariaLabel}
                   variant="tertiary"
                   slotPrefix={actionItem.icon}
                   square
-                />
+                >
+                  {actionItem.role === 'login' && <p className="hidden md:inline-flex">Log In</p>}
+                </SfButton>
               ))}
-              <SfButton
-                className="hidden md:inline-flex mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-                key={actionItems[2].ariaLabel}
-                aria-label={actionItems[2].ariaLabel}
-                variant="tertiary"
-                slotPrefix={actionItems[2].icon}
-              >
-                Log In
-              </SfButton>
             </div>
           </nav>
         </div>

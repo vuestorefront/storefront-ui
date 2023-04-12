@@ -1,7 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfIconShoppingCart, SfIconFavorite, SfIconPerson, SfIconMenu, SfButton } from '@storefront-ui/react';
-import classNames from 'classnames';
 import brandLogo from '@assets/vsf_logo.svg';
 import brandLogoSign from '@assets/vsf_logo_sign.svg';
 
@@ -9,16 +8,21 @@ export default function TopNav() {
   const actionItems = [
     {
       icon: <SfIconShoppingCart />,
+      label: '',
       ariaLabel: 'Cart',
+      role: 'button',
     },
     {
       icon: <SfIconFavorite />,
+      label: '',
       ariaLabel: 'Wishlist',
+      role: 'button',
     },
     {
       label: 'Log in',
       icon: <SfIconPerson />,
       ariaLabel: 'Log in',
+      role: 'login',
     },
   ];
 
@@ -36,26 +40,16 @@ export default function TopNav() {
           <nav className="flex flex-row flex-nowrap">
             {actionItems.map((actionItem) => (
               <SfButton
-                className={classNames(
-                  'mr-2 -ml-0.5 text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700',
-                  actionItem.label === 'Log in' ? 'lg:hidden' : null,
-                )}
+                className="mr-2 -ml-0.5 text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
                 key={actionItem.ariaLabel}
                 aria-label={actionItem.ariaLabel}
                 variant="tertiary"
                 slotPrefix={actionItem.icon}
                 square
-              />
+              >
+                {actionItem.role === 'login' && <p className="hidden md:inline-flex">Log In</p>}
+              </SfButton>
             ))}
-            <SfButton
-              className="hidden lg:inline-flex mr-2 -ml-0.5 text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
-              key={actionItems[2].ariaLabel}
-              aria-label={actionItems[2].ariaLabel}
-              variant="tertiary"
-              slotPrefix={actionItems[2].icon}
-            >
-              Log In
-            </SfButton>
           </nav>
         </div>
       </header>
