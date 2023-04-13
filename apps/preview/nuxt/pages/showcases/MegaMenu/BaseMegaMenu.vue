@@ -41,7 +41,7 @@
                   v-model="isOpen"
                   disable-click-away
                   placement="top"
-                  class="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-scroll md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
+                  class="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
                 >
                   <div class="flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden">
                     <div class="flex items-center typography-text-lg font-medium text-white">Browse products</div>
