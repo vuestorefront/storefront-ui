@@ -239,7 +239,7 @@ export default function BaseMegaMenu() {
                   slotPrefix={actionItem.icon}
                   square
                 >
-                  {actionItem.role === 'login' && <p className="hidden md:inline-flex">Log In</p>}
+                  {actionItem.role === 'login' && <p className="hidden md:inline-flex">{actionItem.label}</p>}
                 </SfButton>
               ))}
             </div>
