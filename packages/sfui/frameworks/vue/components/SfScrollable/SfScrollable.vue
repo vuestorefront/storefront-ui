@@ -84,7 +84,11 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
 
 <template>
   <div :class="['items-center', 'relative', isHorizontal ? 'flex' : 'flex-col h-full inline-flex', wrapperClass]">
-    <div v-if="$slots.previousButton" v-bind="getPrevButtonProps"><slot name="previousButton" /></div>
+    <slot
+      v-if="$slots.previousButton && buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-bind="getPrevButtonProps"
+      name="previousButton"
+    />
     <SfButton
       v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.block"
       variant="secondary"
@@ -114,7 +118,11 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       v-bind="{ ...$attrs, ...props }"
       :disabled="previousDisabled"
     >
-      <div v-if="$slots.previousButton" v-bind="getPrevButtonProps"><slot name="previousButton" /></div>
+      <slot
+        v-if="$slots.previousButton && buttonsPlacement === SfScrollableButtonsPlacement.floating"
+        v-bind="getPrevButtonProps"
+        name="previousButton"
+      />
       <SfButton
         v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.floating"
         variant="secondary"
@@ -130,7 +138,11 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         <SfIconChevronLeft />
       </SfButton>
       <slot />
-      <div v-if="$slots.nextButton" v-bind="getNextButtonProps"><slot name="nextButton" /></div>
+      <slot
+        v-if="$slots.nextButton && buttonsPlacement === SfScrollableButtonsPlacement.floating"
+        v-bind="getNextButtonProps"
+        name="nextButton"
+      />
       <SfButton
         v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.floating"
         variant="secondary"
@@ -147,7 +159,11 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         <SfIconChevronRight />
       </SfButton>
     </component>
-    <div v-if="$slots.nextButton" v-bind="getNextButtonProps"><slot name="nextButton" /></div>
+    <slot
+      v-if="$slots.nextButton && buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-bind="getNextButtonProps"
+      name="nextButton"
+    />
     <SfButton
       v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.block"
       variant="secondary"
