@@ -1,7 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfIconShoppingCart, SfIconFavorite, SfIconPerson, SfIconMenu, SfButton } from '@storefront-ui/react';
-import classNames from 'classnames';
 import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 

@@ -55,7 +55,7 @@ export default function TopNav() {
           </nav>
         </div>
       </header>
-    </div>x
+    </div>
   );
 }
 
