@@ -4,7 +4,7 @@
       <div class="flex items-center flex-row flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <a aria-label="SF Homepage" class="inline-block text-white md:h-10 lg:h-7">
           <picture>
-            <source :srcset="brandLogo" media="(min-width: 748px)" />
+            <source :srcset="brandLogo" media="(min-width: 767px)" />
             <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 mr-4 md:w-[12.5rem] md:h-[1.75rem]" />
           </picture>
         </a>
