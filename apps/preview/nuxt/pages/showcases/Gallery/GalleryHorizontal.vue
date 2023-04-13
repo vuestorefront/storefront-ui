@@ -20,9 +20,25 @@
       </div>
     </div>
     <div class="flex-shrink-0 overflow-hidden basis-auto">
-      <div
-        class="flex-row w-full snap-both snap-mandatory flex gap-0.5 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+      <SfScrollable
+        class="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        :active-index="activeIndex"
+        :previous-disabled="activeIndex === 0"
+        :next-disabled="activeIndex === itemsLength - 1"
+        buttons-placement="floating"
       >
+        <template #previousButton>
+          <SfButton
+            :disabled="activeIndex === 0"
+            class="absolute !rounded-full z-10 left-4"
+            variant="secondary"
+            size="sm"
+            square
+            @click="activeIndex = activeIndex - 1"
+          >
+            <SfIconChevronLeft />
+          </SfButton>
+        </template>
         <button
           v-for="({ image, alt }, index) in thumbImages"
           :key="`${alt}-${index}-thumbnail`"
@@ -36,7 +52,19 @@
         >
           <img :alt="alt" class="object-contain border border-neutral-200" width="78" height="78" :src="image" />
         </button>
-      </div>
+        <template #nextButton>
+          <SfButton
+            :disabled="activeIndex === itemsLength - 1"
+            class="absolute !rounded-full z-10 right-4"
+            variant="secondary"
+            size="sm"
+            square
+            @click="activeIndex = activeIndex + 1"
+          >
+            <SfIconChevronRight />
+          </SfButton>
+        </template>
+      </SfScrollable>
     </div>
   </div>
 </template>
@@ -45,6 +73,7 @@
 import { ref, computed, watch } from 'vue';
 import { useSwipe } from '@vueuse/core';
 import { clamp } from '@storefront-ui/shared';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/vue';
 
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
@@ -97,7 +126,7 @@ const draggableRef = ref<HTMLElement>();
 const { isSwiping } = useSwipe(draggableRef);
 const offsetPosition = ref(0);
 const activeIndex = ref(0);
-
+const itemsLength = ref(thumbImages.length);
 const imgPosition = computed(() => activeIndex.value + offsetPosition.value);
 
 const pointerHandler = (e) => {
