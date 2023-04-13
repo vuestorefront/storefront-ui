@@ -133,7 +133,7 @@ export default function BaseMegaMenu() {
         <div className="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <a href="/" aria-label="SF Homepage" className="inline-block text-white mr-2 lg:mr-10">
             <picture>
-              <source srcSet={brandLogo.src} media="(min-width: 748px)" />
+              <source srcSet={brandLogo.src} media="(min-width: 767px)" />
               <img src={brandLogoSign.src} alt="Sf Logo" className="w-8 h-8 mr-4 md:w-[12.5rem] md:h-[1.75rem]" />
             </picture>
           </a>
@@ -196,15 +196,15 @@ export default function BaseMegaMenu() {
                         <hr className="mb-3.5" />
                         <ul>
                           {items.map((item) => (
-                            <a
-                              key={item.title}
-                              className="focus-visible:outline focus-visible:rounded-sm"
-                              href={item.link}
-                            >
-                              <SfListItem size="sm" role="none">
+                            <SfListItem size="sm" role="none">
+                              <a
+                                key={item.title}
+                                className="focus-visible:outline focus-visible:rounded-sm"
+                                href={item.link}
+                              >
                                 {item.title}
-                              </SfListItem>
-                            </a>
+                              </a>
+                            </SfListItem>
                           ))}
                         </ul>
                       </div>

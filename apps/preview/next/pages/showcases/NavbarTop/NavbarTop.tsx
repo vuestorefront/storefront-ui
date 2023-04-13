@@ -49,13 +49,13 @@ export default function TopNav() {
                 slotPrefix={actionItem.icon}
                 square
               >
-                {actionItem.role === 'login' && <p className="hidden md:inline-flex">Log In</p>}
+                {actionItem.role === 'login' && <p className="hidden md:inline-flex">{actionItem.label}</p>}
               </SfButton>
             ))}
           </nav>
         </div>
       </header>
-    </div>
+    </div>x
   );
 }
 

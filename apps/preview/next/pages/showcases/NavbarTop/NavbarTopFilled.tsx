@@ -55,7 +55,7 @@ export default function TopNavFilled() {
                 slotPrefix={actionItem.icon}
                 square
               >
-                {actionItem.role === 'login' && <p className="hidden md:inline-flex">Log In</p>}
+                {actionItem.role === 'login' && <p className="hidden md:inline-flex">{actionItem.label}</p>}
               </SfButton>
             ))}
           </nav>
