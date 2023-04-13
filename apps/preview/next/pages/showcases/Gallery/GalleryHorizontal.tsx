@@ -5,7 +5,7 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { useEffect, useRef, useState } from 'react';
 import { clamp } from '@storefront-ui/shared';
-import { SfScrollable } from '@storefront-ui/react';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
 import gallery3 from '@assets/gallery_3.png';
@@ -120,6 +120,28 @@ export default function GalleryHorizontal() {
           onNext={() => {
             setActiveIndex(() => activeIndex + 1);
           }}
+          slotPreviousButton={
+            <SfButton
+              className="absolute !rounded-full z-10 left-4"
+              variant="secondary"
+              size="sm"
+              square
+              slotPrefix={<SfIconChevronLeft />}
+            />
+          }
+          slotNextButton={
+            <SfButton
+              className="absolute !rounded-full z-10 right-4"
+              variant="secondary"
+              size="sm"
+              square
+              slotPrefix={<SfIconChevronRight />}
+              onClick={({ preventDefault }) => {
+                preventDefault();
+                setActiveIndex(() => activeIndex + 1);
+              }}
+            />
+          }
         >
           {thumbImages.map(({ image, alt }, index) => (
             <button
