@@ -60,7 +60,6 @@ export default function GalleryHorizontal() {
   const [isDragging, setIsDragging] = useState(false);
   const itemsLength = thumbImages.length;
   const imgPosition = activeIndex + offsetPosition;
-  const { getContainerProps, state, getNextButtonProps, getPrevButtonProps } = useScrollable();
 
   function pointerHandler(e: React.PointerEvent<HTMLDivElement>) {
     e.preventDefault();
