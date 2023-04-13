@@ -2,6 +2,7 @@
   <div class="w-full h-full">
     <div v-if="isOpen" class="fixed w-screen h-screen inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
     <header
+      ref="menuRef"
       class="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
     >
       <div class="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
@@ -38,6 +39,7 @@
               >
                 <SfDrawer
                   v-model="isOpen"
+                  disable-click-away
                   placement="top"
                   class="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-scroll md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
                 >
@@ -125,11 +127,18 @@ import {
   SfListItem,
   useDisclosure,
 } from '@storefront-ui/vue';
+import { ref } from 'vue';
+import { onClickOutside } from '@vueuse/core';
 import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 import watch from '@assets/watch.png';
 
 const { isOpen, toggle, close } = useDisclosure();
+const menuRef = ref();
+
+onClickOutside(menuRef, () => {
+  close();
+});
 
 const actionItems = [
   {

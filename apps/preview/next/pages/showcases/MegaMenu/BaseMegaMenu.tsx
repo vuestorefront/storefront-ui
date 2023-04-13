@@ -13,6 +13,7 @@ import {
   useDisclosure,
 } from '@storefront-ui/react';
 import { useRef } from 'react';
+import { useClickAway } from 'react-use';
 import { CSSTransition } from 'react-transition-group';
 import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
@@ -125,11 +126,18 @@ const categoriesContent = [
 export default function BaseMegaMenu() {
   const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
   const drawerRef = useRef(null);
+  const menuRef = useRef(null);
+  useClickAway(menuRef, () => {
+    close();
+  });
 
   return (
     <div className="w-full h-full">
       {isOpen && <div className="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />}
-      <header className="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10">
+      <header
+        ref={menuRef}
+        className="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
+      >
         <div className="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <a href="/" aria-label="SF Homepage" className="inline-block text-white mr-2 lg:mr-10">
             <picture>
@@ -170,6 +178,7 @@ export default function BaseMegaMenu() {
                 >
                   <SfDrawer
                     open={isOpen}
+                    disableClickAway
                     placement="top"
                     className="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
                   >
