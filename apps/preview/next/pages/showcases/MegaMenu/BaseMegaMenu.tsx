@@ -179,7 +179,7 @@ export default function BaseMegaMenu() {
                         square
                         variant="tertiary"
                         aria-label="Close navigation menu"
-                        onClick={toggle}
+                        onClick={close}
                         className="text-white"
                       >
                         <SfIconClose />
@@ -219,7 +219,7 @@ export default function BaseMegaMenu() {
                       size="sm"
                       variant="tertiary"
                       aria-label="Close navigation menu"
-                      onClick={toggle}
+                      onClick={close}
                       className="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
                     >
                       <SfIconClose className="text-neutral-500" />
