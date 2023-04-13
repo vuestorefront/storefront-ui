@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: Pagination component is a common element to navigate through pages containing many items like products in lists.
+hideToc: true
 ---
 # Pagination
 

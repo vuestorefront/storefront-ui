@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: Product Card usage blocks.
+hideToc: true
 ---
 # ProductCard
 

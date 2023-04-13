@@ -1,5 +1,6 @@
 ---
 layout: DefaultLayout
+hideToc: true
 hideBreadcrumbs: true
 description: Product filters are a valuable tool for online shoppers to quickly and easily find the products they are looking for on e-commerce websites.
 ---
@@ -10,7 +11,7 @@ description: Product filters are a valuable tool for online shoppers to quickly 
 ## Colors
 Color filters are a type of product filter that allow online shoppers to narrow down their search results based on the color or colors of the products they are interested in.
 
-<Showcase showcase-name="Filters/Color">
+<Showcase showcase-name="Filters/Color" style="min-height:500px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Filters/Color.vue
@@ -23,7 +24,7 @@ Color filters are a type of product filter that allow online shoppers to narrow 
 ## Sizes
 Sizes in category pages are a feature that allows online shoppers to filter their search results based on specific sizes of products they are interested in.
 
-<Showcase showcase-name="Filters/Sizes">
+<Showcase showcase-name="Filters/Sizes" >
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Filters/Sizes.vue
