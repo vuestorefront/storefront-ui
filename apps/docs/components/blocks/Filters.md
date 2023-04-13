@@ -24,7 +24,7 @@ Color filters are a type of product filter that allow online shoppers to narrow 
 ## Sizes
 Sizes in category pages are a feature that allows online shoppers to filter their search results based on specific sizes of products they are interested in.
 
-<Showcase showcase-name="Filters/Sizes" >
+<Showcase showcase-name="Filters/Sizes">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Filters/Sizes.vue
