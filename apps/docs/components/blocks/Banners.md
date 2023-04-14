@@ -2,7 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: Banners are components that deliver main image and content in various configurations.
-
+hideToc: true
 ---
 # Banners
 

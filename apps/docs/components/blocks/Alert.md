@@ -2,7 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: Alert is a notification that keeps people informed of the status of the system and which may or not require the user respond.
-
+hideToc: true
 ---
 # Alert
 
