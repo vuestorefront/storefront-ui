@@ -26,6 +26,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       onScroll,
       onPrev,
       onNext,
+      isActiveIndexCentered,
       className,
       wrapperClassNames,
       previousDisabled,
@@ -51,8 +52,9 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         onScroll,
         onPrev,
         onNext,
+        isActiveIndexCentered,
       }),
-      [direction, activeIndex, reduceMotion, drag, onDragChange, onScroll, onPrev, onNext],
+      [direction, activeIndex, reduceMotion, drag, isActiveIndexCentered, onDragChange, onScroll, onPrev, onNext],
     );
 
     const { getContainerProps, state, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);

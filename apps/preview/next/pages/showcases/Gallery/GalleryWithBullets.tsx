@@ -4,6 +4,7 @@ import { ShowcasePageLayout } from '../../showcases';
 
 // #region source
 import { useEffect, useRef, useState } from 'react';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import { clamp } from '@storefront-ui/shared';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
@@ -53,60 +54,58 @@ const thumbImages = [
 ];
 
 export default function GalleryWithBullets() {
-  const draggableRef = useRef<HTMLDivElement>(null);
-  const [offsetPosition, setOffsetPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-
-  const imgPosition = activeIndex + offsetPosition;
-
-  function pointerHandler(e: React.PointerEvent<HTMLDivElement>) {
-    e.preventDefault();
-    if (!draggableRef.current) {
-      return;
-    }
-    draggableRef.current.setPointerCapture(e.pointerId);
-    const pointerDownOffset = e.nativeEvent.offsetX;
-    setIsDragging(true);
-    const rect = draggableRef.current.getBoundingClientRect();
-    const pointerEventMethod = (event: PointerEvent) => {
-      setOffsetPosition((pointerDownOffset - event.offsetX) / rect.width / 5);
-    };
-    draggableRef.current.addEventListener('pointermove', pointerEventMethod, { passive: false });
-    draggableRef.current.addEventListener('pointerup', () => {
-      setIsDragging(false);
-      draggableRef.current?.removeEventListener('pointermove', pointerEventMethod);
-    });
-  }
-
-  useEffect(() => {
-    if (!isDragging) {
-      const stopVal = offsetPosition > 0 ? Math.ceil(imgPosition) : Math.floor(imgPosition);
-      setActiveIndex(clamp(stopVal, 0, images.length - 1));
-      setOffsetPosition(0);
-    }
-  }, [isDragging, offsetPosition, imgPosition]);
-
+  const itemsLength = thumbImages.length;
   return (
     <div className="relative flex flex-col h-full gap-1 scroll-smooth">
-      <div
-        className="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
-        ref={draggableRef}
-        onPointerDown={pointerHandler}
+      <SfScrollable
+        className="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        activeIndex={activeIndex}
+        previousDisabled={activeIndex === 0}
+        nextDisabled={activeIndex === itemsLength - 1}
+        drag
+        onPrev={() => {
+          setActiveIndex(() => activeIndex - 1);
+        }}
+        onNext={() => {
+          setActiveIndex(() => activeIndex + 1);
+        }}
+        slotPreviousButton={
+          <SfButton
+            className="hidden group-hover:flex absolute !rounded-full z-10 left-4"
+            variant="secondary"
+            size="sm"
+            square
+            slotPrefix={<SfIconChevronLeft />}
+          />
+        }
+        slotNextButton={
+          <SfButton
+            className="hidden group-hover:flex absolute !rounded-full z-10 right-4"
+            variant="secondary"
+            size="sm"
+            square
+            slotPrefix={<SfIconChevronRight />}
+            onClick={({ preventDefault }) => {
+              preventDefault();
+              setActiveIndex(() => activeIndex + 1);
+            }}
+          />
+        }
       >
-        <div
+        {/* <div
           className="absolute top-0 left-0 flex w-full h-full transition-transform snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
           style={{
             transform: `translate3d(${imgPosition * -100}%,0,0)`,
           }}
-        >
-          {images.map(({ image, alt }, index) => (
-            <div className="relative snap-center snap-always basis-full shrink-0 grow" key={`${alt}-${index}`}>
-              <img className="object-contain" alt={alt} src={image} draggable="false" />
-            </div>
-          ))}
-        </div>
-      </div>
+        > */}
+        {images.map(({ image, alt }, index) => (
+          <div className="relative snap-center snap-always basis-full shrink-0 grow" key={`${alt}-${index}`}>
+            <img className="object-contain" alt={alt} src={image} draggable="false" />
+          </div>
+        ))}
+        {/* </div> */}
+      </SfScrollable>
       <div className="flex-shrink-0 overflow-hidden basis-auto">
         <div className="flex-row w-full snap-both snap-mandatory flex gap-0.5 mt overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
           {thumbImages.map(({ alt }, index) => (

@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex flex-col h-full md:flex-row scroll-smooth md:gap-4">
+  <div class="relative max-h-[700px] flex flex-col h-full md:flex-row scroll-smooth md:gap-4">
     <div
       ref="draggableRef"
       class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
@@ -19,9 +19,26 @@
       </div>
     </div>
     <div class="flex-shrink-0 overflow-hidden md:-order-1 basis-auto">
-      <div
-        class="flex-row w-full md:flex-col md:h-full md:px-0 md:scroll-pl-4 snap-both snap-mandatory flex gap-0.5 md:gap-2 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+      <SfScrollable
+        class="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        direction="vertical"
+        :active-index="activeIndex"
+        :previous-disabled="activeIndex === 0"
+        :next-disabled="activeIndex === itemsLength - 1"
+        buttons-placement="floating"
       >
+        <template #previousButton>
+          <SfButton
+            :disabled="activeIndex === 0"
+            class="absolute !rounded-full z-10 left-4"
+            variant="secondary"
+            size="sm"
+            square
+            @click="activeIndex = activeIndex - 1"
+          >
+            <SfIconChevronLeft />
+          </SfButton>
+        </template>
         <button
           v-for="({ image, alt }, index) in thumbImages"
           :key="`${alt}-${index}-thumbnail`"
@@ -35,7 +52,19 @@
         >
           <img :alt="alt" class="object-contain border border-neutral-200" width="78" height="78" :src="image" />
         </button>
-      </div>
+        <template #nextButton>
+          <SfButton
+            :disabled="activeIndex === itemsLength - 1"
+            class="absolute !rounded-full z-10 right-4"
+            variant="secondary"
+            size="sm"
+            square
+            @click="activeIndex = activeIndex + 1"
+          >
+            <SfIconChevronRight />
+          </SfButton>
+        </template>
+      </SfScrollable>
     </div>
   </div>
 </template>
@@ -43,7 +72,7 @@
 <script lang="ts" setup>
 import { ref, computed, watch } from 'vue';
 import { clamp } from '@storefront-ui/shared';
-
+import { SfScrollable } from '@storefront-ui/vue';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
 import gallery3 from '@assets/gallery_3.png';
@@ -95,6 +124,7 @@ const draggableRef = ref<HTMLElement>();
 const offsetPosition = ref(0);
 const activeIndex = ref(0);
 const isDragging = ref(false);
+const itemsLength = thumbImages.length;
 
 const imgPosition = activeIndex.value + offsetPosition.value;
 

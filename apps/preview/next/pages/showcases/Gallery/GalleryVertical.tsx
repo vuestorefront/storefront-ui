@@ -4,6 +4,8 @@ import { ShowcasePageLayout } from '../../showcases';
 
 // #region source
 import { useEffect, useRef, useState } from 'react';
+import { useIntersection } from 'react-use';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import { clamp } from '@storefront-ui/shared';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
@@ -25,6 +27,7 @@ import gallery7_thumb from '@assets/gallery_7_thumb.png';
 import gallery8_thumb from '@assets/gallery_8_thumb.png';
 import gallery9_thumb from '@assets/gallery_9_thumb.png';
 import gallery10_thumb from '@assets/gallery_10_thumb.png';
+import classNames from 'classnames';
 
 const images = [
   { image: gallery1.src, alt: 'backpack' },
@@ -54,11 +57,26 @@ const thumbImages = [
 
 export default function GalleryVertical() {
   const draggableRef = useRef<HTMLDivElement>(null);
+  const lastThumbRef = useRef<HTMLButtonElement>(null);
+  const firstThumbRef = useRef<HTMLButtonElement>(null);
+  const thumbsRef = useRef<HTMLElement>(null);
   const [offsetPosition, setOffsetPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const itemsLength = thumbImages.length;
 
   const imgPosition = activeIndex + offsetPosition;
+  const firstThumbVisible = useIntersection(firstThumbRef, {
+    root: thumbsRef.current,
+    rootMargin: '0px',
+    threshold: 1,
+  });
+
+  const lastThumbVisible = useIntersection(lastThumbRef, {
+    root: thumbsRef.current,
+    rootMargin: '0px',
+    threshold: 1,
+  });
 
   function pointerHandler(e: React.PointerEvent<HTMLDivElement>) {
     e.preventDefault();
@@ -86,9 +104,8 @@ export default function GalleryVertical() {
       setOffsetPosition(0);
     }
   }, [isDragging, offsetPosition, imgPosition]);
-
   return (
-    <div className="relative flex flex-col h-full md:flex-row scroll-smooth md:gap-4">
+    <div className="relative max-h-[700px] flex flex-col h-full md:flex-row scroll-smooth md:gap-4">
       <div
         className="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
         ref={draggableRef}
@@ -108,9 +125,50 @@ export default function GalleryVertical() {
         </div>
       </div>
       <div className="flex-shrink-0 overflow-hidden md:-order-1 basis-auto">
-        <div className="flex-row w-full md:flex-col md:h-full md:px-0 md:scroll-pl-4 snap-both snap-mandatory flex gap-0.5 md:gap-2 overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-          {thumbImages.map(({ image, alt }, index) => (
+        <SfScrollable
+          ref={thumbsRef}
+          className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+          direction="vertical"
+          activeIndex={activeIndex}
+          previousDisabled={activeIndex === 0}
+          nextDisabled={activeIndex === itemsLength - 1}
+          isActiveIndexCentered={false}
+          onPrev={() => {
+            setActiveIndex(() => activeIndex - 1);
+          }}
+          onNext={() => {
+            setActiveIndex(() => activeIndex + 1);
+          }}
+          slotPreviousButton={
+            <SfButton
+              className={classNames('absolute !rounded-full z-10 top-4 rotate-90', firstThumbVisible ? 'hidden' : null)}
+              variant="secondary"
+              size="sm"
+              square
+              slotPrefix={<SfIconChevronLeft />}
+            />
+          }
+          slotNextButton={
+            <SfButton
+              className={classNames(
+                'absolute !rounded-full z-10 bottom-4 rotate-90',
+                lastThumbVisible ? 'hidden' : null,
+              )}
+              variant="secondary"
+              size="sm"
+              square
+              slotPrefix={<SfIconChevronRight />}
+              onClick={({ preventDefault }) => {
+                preventDefault();
+                setActiveIndex(() => activeIndex + 1);
+              }}
+            />
+          }
+        >
+          {thumbImages.map(({ image, alt }, index, thumbsArray) => (
             <button
+              // eslint-disable-next-line no-nested-ternary
+              ref={index === thumbsArray.length - 1 ? lastThumbRef : index === 0 ? firstThumbRef : null}
               type="button"
               aria-label={alt}
               key={`${alt}-${index}-thumbnail`}
@@ -123,7 +181,7 @@ export default function GalleryVertical() {
               <img alt={alt} className="object-contain border border-neutral-200" width="78" height="78" src={image} />
             </button>
           ))}
-        </div>
+        </SfScrollable>
       </div>
     </div>
   );
