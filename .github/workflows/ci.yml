@@ -30,14 +30,14 @@ jobs:
     name: Verify collaborator
     needs: [cache]
     runs-on: ubuntu-latest
-    setps:
+    steps:
       - name: Authenticate user
         uses: actions/github-script@v4
         with:
-        script: |
-          const token = process.env.GITHUB_TOKEN;
-          const octokit = new Octokit({ auth: token });
-          const user = await octokit.users.getByUsername({ username: context.actor });
+          script: |
+            const token = process.env.GITHUB_TOKEN;
+            const octokit = new Octokit({ auth: token });
+            const user = await octokit.users.getByUsername({ username: context.actor });
       - name: Check if user is a collaborator
         uses: actions/github-script@v4
         with:
