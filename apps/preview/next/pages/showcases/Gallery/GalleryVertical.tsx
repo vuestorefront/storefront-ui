@@ -127,18 +127,13 @@ export default function GalleryVertical() {
       <div className="flex-shrink-0 overflow-hidden md:-order-1 basis-auto">
         <SfScrollable
           ref={thumbsRef}
-          className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+          className="items-center w-full snap-y snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
           direction="vertical"
           activeIndex={activeIndex}
           previousDisabled={activeIndex === 0}
           nextDisabled={activeIndex === itemsLength - 1}
           isActiveIndexCentered={false}
-          onPrev={() => {
-            setActiveIndex(() => activeIndex - 1);
-          }}
-          onNext={() => {
-            setActiveIndex(() => activeIndex + 1);
-          }}
+          drag
           slotPreviousButton={
             <SfButton
               className={classNames(
@@ -161,10 +156,6 @@ export default function GalleryVertical() {
               size="sm"
               square
               slotPrefix={<SfIconChevronRight />}
-              onClick={({ preventDefault }) => {
-                preventDefault();
-                setActiveIndex(() => activeIndex + 1);
-              }}
             />
           }
         >
@@ -175,7 +166,7 @@ export default function GalleryVertical() {
               type="button"
               aria-label={alt}
               key={`${alt}-${index}-thumbnail`}
-              className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
+              className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-center cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
                 activeIndex === index ? 'border-primary-700' : 'border-transparent'
               }`}
               onMouseOver={() => setActiveIndex(index)}
