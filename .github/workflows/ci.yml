@@ -26,6 +26,33 @@ jobs:
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
 
+  verify-collaborator:
+    name: Verify collaborator
+    needs: [cache]
+    runs-on: ubuntu-latest
+    setps:
+      - name: Authenticate user
+        uses: actions/github-script@v4
+        with:
+        script: |
+          const token = process.env.GITHUB_TOKEN;
+          const octokit = new Octokit({ auth: token });
+          const user = await octokit.users.getByUsername({ username: context.actor });
+      - name: Check if user is a collaborator
+        uses: actions/github-script@v4
+        with:
+          script: |
+            const token = process.env.GITHUB_TOKEN;
+            const octokit = new Octokit({ auth: token });
+            const { data: isCollaborator } = await octokit.repos.checkCollaborator({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              username: user.login,
+            });
+            if (!isCollaborator) {
+              core.setFailed(`User \${user.login} is not a collaborator in the SFUI repository`)
+            }
+
   commit-lint:
     name: Validate PR Title (conventional-commit)
     needs: [cache]
@@ -116,7 +143,7 @@ jobs:
         with:
           command: yarn test:ci:vue
       - name: SonarCloud Scan
-        if: success() || failure()
+        if: jobs.verify-collaborator.result == 'success' && (success() || failure())
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: packages/sfui/frameworks/vue
@@ -143,7 +170,7 @@ jobs:
         with:
           command: yarn test:ci:react
       - name: SonarCloud Scan
-        if: success() || failure()
+        if: jobs.verify-collaborator.result == 'success' && (success() || failure())
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: packages/sfui/frameworks/react
