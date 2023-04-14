@@ -172,7 +172,7 @@ export default function BaseMegaMenu() {
                     enter: '-translate-x-full md:opacity-0 md:translate-x-0',
                     enterActive: 'translate-x-0 md:opacity-100 transition duration-500 ease-in-out',
                     exitDone: 'translate-x-0 md:opacity-100',
-                    exitActive: '-translate-x-full md:opacity-0 transition duration-500 ease-in-out',
+                    exitActive: '-translate-x-full md:opacity-0 md:translate-x-0 transition duration-500 ease-in-out',
                   }}
                 >
                   <SfDrawer
