@@ -52,9 +52,9 @@ const SfButton = component$<SfButtonProps>((props) => {
       disabled={props.disabled}
       {...attributes}
     >
-      {slotPrefix}
+      <Slot name="prefix" />
       <Slot/>
-      {slotSuffix}
+      <Slot name="suffix" />
     </Tag>
   );
 });
