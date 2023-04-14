@@ -171,7 +171,6 @@ export default function BaseMegaMenu() {
                   classNames={{
                     enter: '-translate-x-full md:opacity-0 md:translate-x-0',
                     enterActive: 'translate-x-0 md:opacity-100 transition duration-500 ease-in-out',
-                    exitDone: 'translate-x-0 md:opacity-100',
                     exitActive: '-translate-x-full md:opacity-0 md:translate-x-0 transition duration-500 ease-in-out',
                   }}
                 >
