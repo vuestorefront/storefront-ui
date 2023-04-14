@@ -39,8 +39,8 @@ jobs:
           curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
                "https://api.github.com/repos/${{ github.repository }}/collaborators/${{ github.actor }}" \
                | grep -q "Collaborator not found" \
-               && echo "isCollaborator=false" >> $GITHUB_OUTPUT \
-               || echo "isCollaborator=true" >> $GITHUB_OUTPUT
+               && echo "isCollaborator=true" >> $GITHUB_OUTPUT \
+               || echo "isCollaborator=false" >> $GITHUB_OUTPUT
 
   commit-lint:
     name: Validate PR Title (conventional-commit)
