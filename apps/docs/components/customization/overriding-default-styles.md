@@ -9,6 +9,10 @@ By default, Storefront UI comes equipped with some styles that can help accelera
 
 ## Customization Methods
 
+<!-- vue -->
+<iframe src="https://www.youtube-nocookie.com/embed/WkOHltQGDas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded aspect-video relative mt-8 custom-block"></iframe>
+<!-- end vue -->
+
 ### Important Classes
 
 The fastest way to override default styles is to pass additional Tailwind utilities with the important (`!`) modifier. This will override any default styles and ensure that your styles are applied.
