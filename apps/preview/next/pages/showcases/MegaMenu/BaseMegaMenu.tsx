@@ -165,7 +165,6 @@ export default function BaseMegaMenu() {
                   <span className="hidden md:inline-flex">Browse products</span>
                 </SfButton>
                 <CSSTransition
-                  ref={drawerRef}
                   in={isOpen}
                   timeout={500}
                   unmountOnExit
@@ -177,7 +176,8 @@ export default function BaseMegaMenu() {
                   }}
                 >
                   <SfDrawer
-                    open={isOpen}
+                    ref={drawerRef}
+                    open
                     disableClickAway
                     placement="top"
                     className="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
