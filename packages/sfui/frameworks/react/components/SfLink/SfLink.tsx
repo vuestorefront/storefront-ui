@@ -6,8 +6,7 @@ const defaultLinkTag = 'a';
 
 const SfLink = polymorphicForwardRef<typeof defaultLinkTag, SfLinkProps>((props, ref) => {
   const variantClasses = {
-    [SfLinkVariant.primary]:
-      'text-primary-700 underline hover:text-primary-800 active:text-primary-900',
+    [SfLinkVariant.primary]: 'text-primary-700 underline hover:text-primary-800 active:text-primary-900',
     [SfLinkVariant.secondary]: 'underline hover:text-primary-800 active:text-primary-900',
   };
 

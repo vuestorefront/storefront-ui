@@ -16,11 +16,7 @@ export default function DrawerDemo() {
     <>
       <label>
         Placement
-        <select
-          onChange={changePlacement}
-          className="border border-2 border-primary-700 mx-2 p-2 rounded"
-          defaultValue="left"
-        >
+        <select onChange={changePlacement} className="border-2 border-primary-700 mx-2 p-2 rounded" defaultValue="left">
           <option value="top">top</option>
           <option value="right">right</option>
           <option value="bottom">bottom</option>

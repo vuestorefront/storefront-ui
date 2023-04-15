@@ -1,4 +1,3 @@
-import type { ElementType } from 'react';
 import { SfLink, SfLinkVariant } from '@storefront-ui/react';
 import { prepareControls } from '../../components/utils/Controls';
 import { ExamplePageLayout } from '../examples';
@@ -12,13 +11,6 @@ function Example() {
         modelName: 'href',
         propType: 'string',
         description: 'Only for demonstration purposes. Component href attribute',
-      },
-      {
-        type: 'text',
-        modelName: 'as',
-        propType: 'React.ElementType',
-        description: 'Change element tag',
-        propDefaultValue: 'a',
       },
       {
         type: 'select',
@@ -35,10 +27,9 @@ function Example() {
       },
     ],
     {
-      href: '/examples/SfLink#',
+      href: '#',
       variant: SfLinkVariant.primary,
       children: 'Link',
-      as: '' as ElementType<any>,
     },
   );
 

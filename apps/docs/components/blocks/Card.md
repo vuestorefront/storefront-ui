@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: The Card component contains content and actions that inform about a single subject. 
+hideToc: true
 ---
 # Card
 

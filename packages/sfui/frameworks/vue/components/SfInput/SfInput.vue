@@ -59,8 +59,8 @@ const inputValue = useVModel(props, 'modelValue', emit);
       v-model="inputValue"
       v-bind="$attrs"
       class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
+      :size="1"
       data-testid="input-field"
-      size="1"
     />
     <span v-if="$slots.suffix" class="pl-2">
       <slot name="suffix" />
