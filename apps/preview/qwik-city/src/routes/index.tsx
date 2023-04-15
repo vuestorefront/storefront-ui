@@ -1,4 +1,4 @@
-import { Slot, component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
+import { Slot, component$, useSignal } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { SfButton } from '@storefront-ui/qwik';
 
