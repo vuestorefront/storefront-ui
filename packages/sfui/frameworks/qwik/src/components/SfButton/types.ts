@@ -6,7 +6,7 @@ export { SfButtonSize, SfButtonVariant };
 
 export type SfButtonProps = QwikIntrinsicElements['button'] & {
   as?: any;
-  ref?: Signal<Element>
+  elRef?: Signal<Element |undefined>
   slotPrefix?: JSXChildren;
   slotSuffix?: JSXChildren;
   size?: `${SfButtonSize}`;

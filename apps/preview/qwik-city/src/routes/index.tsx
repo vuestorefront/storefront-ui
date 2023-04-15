@@ -1,11 +1,13 @@
-import { Slot, component$ } from '@builder.io/qwik';
+import { Slot, component$, useSignal, useVisibleTask$ } from '@builder.io/qwik';
 import type { DocumentHead } from '@builder.io/qwik-city';
 import { SfButton } from '@storefront-ui/qwik';
 
 export default component$(() => {
+  const refSignal = useSignal<Element>();
+
   return (
     <>
-      <SfButton size="lg" class="m-2">
+      <SfButton size="lg" class="m-2" ref={refSignal}>
         <div q:slot="prefix">prefixxx</div>
         foo
         <div q:slot="suffix">sufixxxxx</div>

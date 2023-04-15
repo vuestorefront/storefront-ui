@@ -1,4 +1,4 @@
-import { Slot, component$ } from '@builder.io/qwik';
+import { Slot, component$, useSignal } from '@builder.io/qwik';
 import { SfButtonSize, SfButtonVariant } from '@storefront-ui/shared';
 import { SfButtonProps } from './types';
 
@@ -41,6 +41,7 @@ const SfButton = component$<SfButtonProps>((props) => {
 
   return (
     <Tag
+      {...(ref ? { ref } : {})}
       type={typeof Tag === 'string' && Tag.toLowerCase() === 'button' ? 'button' : undefined}
       class={[
         'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
@@ -53,7 +54,7 @@ const SfButton = component$<SfButtonProps>((props) => {
       {...attributes}
     >
       <Slot name="prefix" />
-      <Slot/>
+      <Slot />
       <Slot name="suffix" />
     </Tag>
   );
