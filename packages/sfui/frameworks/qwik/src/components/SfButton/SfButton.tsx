@@ -1,4 +1,4 @@
-import { Slot, component$, useSignal } from '@builder.io/qwik';
+import { Slot, component$ } from '@builder.io/qwik';
 import { SfButtonSize, SfButtonVariant } from '@storefront-ui/shared';
 import { SfButtonProps } from './types';
 
