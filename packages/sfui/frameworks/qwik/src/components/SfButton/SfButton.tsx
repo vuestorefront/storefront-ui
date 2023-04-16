@@ -24,8 +24,8 @@ export const getSizeClasses = (size: SfButtonProps['size'], square: SfButtonProp
   }
 };
 
-export const SfButton = component$<SfButtonProps>((props) => {
-  const {
+export const SfButton = component$<SfButtonProps>(
+  ({
     as,
     ref,
     class: className,
@@ -35,27 +35,29 @@ export const SfButton = component$<SfButtonProps>((props) => {
     children,
     slotPrefix,
     slotSuffix,
+    disabled,
     ...attributes
-  } = props;
-  const Tag = as || defaultButtonTag;
+  }) => {
+    const Tag = as || defaultButtonTag;
 
-  return (
-    <Tag
-      {...(ref ? { ref } : {})}
-      type={typeof Tag === 'string' && Tag.toLowerCase() === 'button' ? 'button' : undefined}
-      class={[
-        'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
-        getSizeClasses(size, square),
-        variantClasses[variant],
-        className,
-      ]}
-      data-testid="button"
-      disabled={props.disabled}
-      {...attributes}
-    >
-      <Slot name="prefix" />
-      <Slot />
-      <Slot name="suffix" />
-    </Tag>
-  );
-});
+    return (
+      <Tag
+        {...(ref ? { ref } : {})}
+        type={typeof Tag === 'string' && Tag.toLowerCase() === 'button' ? 'button' : undefined}
+        class={[
+          'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
+          getSizeClasses(size, square),
+          variantClasses[variant],
+          className,
+        ]}
+        data-testid="button"
+        disabled={disabled}
+        {...attributes}
+      >
+        <Slot name="prefix" />
+        <Slot />
+        <Slot name="suffix" />
+      </Tag>
+    );
+  },
+);
