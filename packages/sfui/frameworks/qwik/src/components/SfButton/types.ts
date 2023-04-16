@@ -4,7 +4,7 @@ import { SfButtonSize, SfButtonVariant } from '@storefront-ui/shared';
 
 export { SfButtonSize, SfButtonVariant };
 
-export type SfButtonProps = QwikIntrinsicElements['button'] & {
+export type SfButtonProps = QwikIntrinsicElements['button'] & QwikIntrinsicElements['a'] & {
   as?: any;
   elRef?: Signal<Element |undefined>
   slotPrefix?: JSXChildren;

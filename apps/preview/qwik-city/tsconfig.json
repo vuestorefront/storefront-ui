@@ -19,7 +19,7 @@
     "types": ["node", "vite/client"],
     "paths": {
       "~/*": ["./src/*"],
-      "@storefront-ui/qwik": ["../../../packages/sfui/frameworks/qwik/src/root"]
+      "@storefront-ui/qwik": ["../../../packages/sfui/frameworks/qwik/src/index"]
     }
   },
   "files": ["./.eslintrc.cjs"],

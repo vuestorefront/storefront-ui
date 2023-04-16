@@ -24,7 +24,7 @@ export const getSizeClasses = (size: SfButtonProps['size'], square: SfButtonProp
   }
 };
 
-const SfButton = component$<SfButtonProps>((props) => {
+export const SfButton = component$<SfButtonProps>((props) => {
   const {
     as,
     ref,
@@ -59,5 +59,3 @@ const SfButton = component$<SfButtonProps>((props) => {
     </Tag>
   );
 });
-
-export default SfButton;

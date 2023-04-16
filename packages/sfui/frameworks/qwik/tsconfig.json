@@ -27,9 +27,6 @@
     "preserveConstEnums": true,
     "sourceMap": true,
     "baseUrl": ".",
-    "paths": {
-      "@storefront-ui/qwik": ["src/index.ts"]
-    },
     "jsxImportSource": "@builder.io/qwik",
     "declarationDir": "lib-types",
     "types": ["vite/client"]

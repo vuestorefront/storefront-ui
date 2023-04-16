@@ -1,3 +1,3 @@
 export * from './types';
 
-export { default as SfButton } from './SfButton';
+export { SfButton } from './SfButton';
