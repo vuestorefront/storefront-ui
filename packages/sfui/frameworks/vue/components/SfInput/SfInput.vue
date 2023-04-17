@@ -11,9 +11,8 @@ const getSizeClasses = {
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { toRefs } from 'vue';
-import { useVModel } from '@vueuse/core';
-import { SfInputSize } from '@storefront-ui/vue';
+import { computed, ref, toRefs } from 'vue';
+import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
@@ -37,17 +36,34 @@ const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void;
   (event: 'focus'): void;
 }>();
-const { invalid } = toRefs(props);
+const { modelValue, invalid } = toRefs(props);
+const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 
-const inputValue = useVModel(props, 'modelValue', emit);
+/*
+Internal state has been implemented due to useFocusVisible and how it works. Main reason is that
+it captures native HTMLElement.prototype.focus method. It makes value disappear under certain circumstances,
+so it's importatnt to keep it here, or to always pass modelValue to the component.
+*/
+const internalState = ref();
+const inputValue = computed({
+  get: () => modelValue.value || internalState.value,
+  set: (value) => {
+    emit('update:modelValue', value);
+    internalState.value = value;
+  },
+});
 </script>
 
 <template>
   <div
     :class="[
       'flex items-center bg-white rounded-md ring-inset text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
+      {
+        'ring-2 ring-negative-700': invalid,
+        'ring-1 ring-neutral-200': !invalid,
+        'focus-within:outline focus-within:outline-offset': isFocusVisible,
+      },
       getSizeClasses[size],
-      invalid ? 'ring-2 ring-negative-700' : 'ring-1 ring-neutral-200',
       wrapperClass,
     ]"
     data-testid="input"

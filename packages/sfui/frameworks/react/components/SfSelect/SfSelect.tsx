@@ -1,6 +1,6 @@
 import { KeyboardEvent, useState } from 'react';
 import classNames from 'classnames';
-import { SfSelectSize, SfIconExpandMore, composeHandlers } from '@storefront-ui/react';
+import { SfSelectSize, SfIconExpandMore, composeHandlers, useFocusVisible } from '@storefront-ui/react';
 
 import type { SfSelectProps } from './types';
 
@@ -21,6 +21,7 @@ export default function SfSelect(props: SfSelectProps) {
     onKeyDown,
     ...attributes
   } = props;
+  const { isFocusVisible } = useFocusVisible();
 
   const [chevronRotated, setChevronRotated] = useState(false);
 
@@ -35,12 +36,21 @@ export default function SfSelect(props: SfSelectProps) {
   };
 
   return (
-    <div className={classNames('relative flex flex-col', wrapperClassName)} data-testid="select">
+    <div
+      className={classNames(
+        'relative flex flex-col rounded-md',
+        {
+          'focus-within:outline focus-within:outline-offset': isFocusVisible,
+        },
+        wrapperClassName,
+      )}
+      data-testid="select"
+    >
       <select
         required={required}
         disabled={disabled}
         className={classNames(
-          'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 focus:outline-primary-700 bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
+          'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 focus:ring-primary-700 focus:ring-2 outline-none bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
           {
             'py-1.5': size === SfSelectSize.sm,
             'py-2': size === SfSelectSize.base,
