@@ -15,7 +15,7 @@ export * from './components/SfAccordionItem';
 export * from './components/SfButton';
 export * from './components/SfCheckbox';
 export * from './components/SfChip';
-// export * from './components/SfCounter';
+export * from './components/SfCounter';
 // export * from './components/SfDrawer';
 // export * from './components/SfDropdown';
 export * from './components/SfIconBase';

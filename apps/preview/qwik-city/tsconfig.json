@@ -23,5 +23,5 @@
     }
   },
   "files": ["./.eslintrc.cjs"],
-  "include": ["src"]
+  "include": ["src", "../../../packages/sfui/frameworks/qwik/src/components/SfCounter"]
 }
