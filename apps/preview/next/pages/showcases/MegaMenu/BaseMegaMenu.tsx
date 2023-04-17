@@ -11,7 +11,7 @@ import {
   SfDrawer,
   SfListItem,
   useDisclosure,
-  useTrapFocus
+  useTrapFocus,
 } from '@storefront-ui/react';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
@@ -128,7 +128,7 @@ export default function BaseMegaMenu() {
   const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
   const drawerRef = useRef(null);
   const menuRef = useRef(null);
-  useTrapFocus(drawerRef, { activeState: isOpen });
+  useTrapFocus(drawerRef, { activeState: isOpen, arrowKeysOn: true, arrowFocusGroupSelector: '.list-item' });
   useClickAway(menuRef, () => {
     close();
   });
@@ -206,7 +206,7 @@ export default function BaseMegaMenu() {
                         <hr className="mb-3.5" />
                         <ul>
                           {items.map((item) => (
-                            <SfListItem size="sm" role="none">
+                            <SfListItem size="sm" role="none" className="list-item">
                               <a
                                 key={item.title}
                                 className="focus-visible:outline focus-visible:rounded-sm"

@@ -65,7 +65,7 @@
                     </h2>
                     <hr class="mb-3.5" />
                     <ul>
-                      <SfListItem v-for="item in items" :key="item.title" size="sm" role="none">
+                      <SfListItem v-for="item in items" :key="item.title" class="list-item" size="sm" role="none">
                         <a
                           class="focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
                           :href="item.link"
@@ -143,7 +143,7 @@ onClickOutside(menuRef, () => {
   close();
 });
 
-useTrapFocus(drawerRef, { activeState: isOpen });
+useTrapFocus(drawerRef, { activeState: isOpen, arrowKeysOn: true, arrowFocusGroupSelector: '.list-item' });
 
 const actionItems = [
   {
