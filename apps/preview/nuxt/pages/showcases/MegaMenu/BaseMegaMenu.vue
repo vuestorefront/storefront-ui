@@ -94,7 +94,7 @@
               </transition>
             </li>
           </ul>
-          <div>
+          <div class="flex flex-nowrap">
             <SfButton
               v-for="actionItem in actionItems"
               :key="actionItem.ariaLabel"

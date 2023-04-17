@@ -237,7 +237,7 @@ export default function BaseMegaMenu() {
                 </CSSTransition>
               </li>
             </ul>
-            <div>
+            <div className="flex flex-nowrap">
               {actionItems.map((actionItem) => (
                 <SfButton
                   className="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
