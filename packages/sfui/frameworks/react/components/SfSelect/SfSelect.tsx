@@ -1,5 +1,6 @@
+import { KeyboardEvent, useState } from 'react';
 import classNames from 'classnames';
-import { SfSelectSize, SfIconExpandMore } from '@storefront-ui/react';
+import { SfSelectSize, SfIconExpandMore, composeHandlers } from '@storefront-ui/react';
 
 import type { SfSelectProps } from './types';
 
@@ -14,8 +15,24 @@ export default function SfSelect(props: SfSelectProps) {
     disabled,
     className,
     placeholder,
+    onBlur,
+    onChange,
+    onClick,
+    onKeyDown,
     ...attributes
   } = props;
+
+  const [chevronRotated, setChevronRotated] = useState(false);
+
+  const rotateUp = () => setChevronRotated(true);
+
+  const rotateDown = () => setChevronRotated(false);
+
+  const keydownHandler = (event: KeyboardEvent<HTMLSelectElement>) => {
+    if (event.code === 'Space') {
+      rotateUp();
+    }
+  };
 
   return (
     <div className={classNames('relative flex flex-col', wrapperClassName)} data-testid="select">
@@ -23,7 +40,7 @@ export default function SfSelect(props: SfSelectProps) {
         required={required}
         disabled={disabled}
         className={classNames(
-          'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 focus:outline-primary-700 bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200 peer',
+          'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 focus:outline-primary-700 bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
           {
             'py-1.5': size === SfSelectSize.sm,
             'py-2': size === SfSelectSize.base,
@@ -33,6 +50,10 @@ export default function SfSelect(props: SfSelectProps) {
           className,
         )}
         data-testid="select-input"
+        onBlur={composeHandlers(rotateDown, onBlur)}
+        onChange={composeHandlers(rotateDown, onChange)}
+        onClick={composeHandlers(rotateUp, onClick)}
+        onKeyDown={composeHandlers(keydownHandler, onKeyDown)}
         {...attributes}
       >
         {placeholder && (
@@ -51,8 +72,9 @@ export default function SfSelect(props: SfSelectProps) {
       {slotChevron || (
         <SfIconExpandMore
           className={classNames(
-            'box-border absolute -translate-y-1 pointer-events-none top-1/3 right-4 peer-focus:rotate-180 transition easy-in-out duration-0.5',
+            'box-border absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
             disabled ? 'text-disabled-500' : 'text-neutral-500',
+            { 'rotate-180': chevronRotated },
           )}
         />
       )}
