@@ -11,6 +11,7 @@ import {
   SfDrawer,
   SfListItem,
   useDisclosure,
+  useTrapFocus,
 } from '@storefront-ui/react';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
@@ -127,6 +128,7 @@ export default function BaseMegaMenu() {
   const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
   const drawerRef = useRef(null);
   const menuRef = useRef(null);
+  useTrapFocus(drawerRef, { activeState: isOpen, arrowKeysOn: true });
   useClickAway(menuRef, () => {
     close();
   });

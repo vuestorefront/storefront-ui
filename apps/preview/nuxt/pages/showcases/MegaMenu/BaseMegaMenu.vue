@@ -38,6 +38,7 @@
                 leave-to-class="-translate-x-full md:translate-x-0 md:opacity-0"
               >
                 <SfDrawer
+                  ref="drawerRef"
                   v-model="isOpen"
                   disable-click-away
                   placement="top"
@@ -126,6 +127,7 @@ import {
   SfIconChevronRight,
   SfListItem,
   useDisclosure,
+  useTrapFocus,
 } from '@storefront-ui/vue';
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
@@ -135,10 +137,13 @@ import watch from '@assets/watch.png';
 
 const { isOpen, toggle, close } = useDisclosure();
 const menuRef = ref();
+const drawerRef = ref();
 
 onClickOutside(menuRef, () => {
   close();
 });
+
+useTrapFocus(drawerRef, { activeState: isOpen, arrowKeysOn: true });
 
 const actionItems = [
   {
