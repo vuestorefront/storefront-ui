@@ -86,5 +86,7 @@ export function useScrollable<TElement extends HTMLElement>({
     getPrevButtonProps,
     getNextButtonProps,
     state,
+    scrollToNext: (item: number) => scrollable.current?.scrollToNext(item),
+    scrollToPrev: (item: number) => scrollable.current?.scrollToPrev(item),
   };
 }

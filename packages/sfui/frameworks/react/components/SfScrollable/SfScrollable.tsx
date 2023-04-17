@@ -58,7 +58,6 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
     );
 
     const { getContainerProps, state, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
-
     const changeDisabledClass = (isDisabled: boolean) =>
       isDisabled ? '!ring-disabled-300 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
     const previousButton = (...buttonClassName: Parameters<typeof classNames>) =>
@@ -120,6 +119,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             }),
           })}
           {...attributes}
+          ref={ref}
         >
           {buttonsPlacement === SfScrollableButtonsPlacement.floating &&
             previousButton('absolute !rounded-full bg-white z-10', isHorizontal ? 'left-4' : 'top-4 rotate-90')}
