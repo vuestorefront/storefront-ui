@@ -35,4 +35,4 @@ export type ScrollableOptions = {
   onPrev?: (data: SfScrollableOnPrevData) => void;
   onNext?: (data: SfScrollableOnNextData) => void;
   isActiveIndexCentered?: boolean;
-};
+}; 

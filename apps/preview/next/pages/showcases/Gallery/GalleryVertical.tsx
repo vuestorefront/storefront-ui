@@ -5,7 +5,7 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { useEffect, useRef, useState } from 'react';
 import { useIntersection } from 'react-use';
-import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight, useScrollable } from '@storefront-ui/react';
 import { clamp } from '@storefront-ui/shared';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
@@ -63,7 +63,9 @@ export default function GalleryVertical() {
   const [offsetPosition, setOffsetPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
+  const [itemInCenter, setItemInCenter] = useState(0);
   const itemsLength = thumbImages.length;
+  const { scrollToNext, scrollToPrev } = useScrollable();
 
   const imgPosition = activeIndex + offsetPosition;
   const firstThumbVisible = useIntersection(firstThumbRef, {
@@ -104,6 +106,27 @@ export default function GalleryVertical() {
       setOffsetPosition(0);
     }
   }, [isDragging, offsetPosition, imgPosition]);
+
+  const centeredItem = () => {
+    const centerVerticalPoint = thumbsRef.current?.clientHeight / 2;
+    setItemInCenter(
+      Array.from(thumbsRef.current?.children).findIndex(
+        (item) =>
+          item.getBoundingClientRect().top < centerVerticalPoint &&
+          centerVerticalPoint < item.getBoundingClientRect().bottom,
+      ),
+    );
+  };
+
+  const onClickNext = () => {
+    centeredItem();
+    scrollToNext(itemInCenter);
+  };
+
+  const onClickPrev = () => {
+    centeredItem();
+    scrollToPrev(itemInCenter);
+  };
   return (
     <div className="relative max-h-[700px] flex flex-col h-full md:flex-row scroll-smooth md:gap-4">
       <div
@@ -118,7 +141,7 @@ export default function GalleryVertical() {
           }}
         >
           {images.map(({ image, alt }, index) => (
-            <div className="relative snap-center snap-always basis-full shrink-0 grow" key={`${alt}-${index}`}>
+            <div className="relative snap-always basis-full shrink-0 grow" key={`${alt}-${index}`}>
               <img className="object-contain" alt={alt} src={image} draggable="false" />
             </div>
           ))}
@@ -133,6 +156,8 @@ export default function GalleryVertical() {
           previousDisabled={activeIndex === 0}
           nextDisabled={activeIndex === itemsLength - 1}
           isActiveIndexCentered={false}
+          onNext={onClickNext}
+          onPrev={onClickPrev}
           drag
           slotPreviousButton={
             <SfButton
@@ -156,6 +181,7 @@ export default function GalleryVertical() {
               size="sm"
               square
               slotPrefix={<SfIconChevronRight />}
+              onClick={onClickPrev}
             />
           }
         >
