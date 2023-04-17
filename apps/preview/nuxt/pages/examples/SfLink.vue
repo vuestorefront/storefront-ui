@@ -23,13 +23,6 @@ const { controlsAttrs, state } = prepareControls(
       description: 'Only for demonstration purposes. Component href attribute',
     },
     {
-      type: 'text',
-      modelName: 'tag',
-      propType: 'string | ConcreteComponent',
-      description: 'Change element tag',
-      propDefaultValue: 'a',
-    },
-    {
       type: 'select',
       modelName: 'variant',
       propType: 'SfLinkVariant',
@@ -44,9 +37,8 @@ const { controlsAttrs, state } = prepareControls(
   ],
   {
     SlotDefault: ref('Link'),
-    href: ref('/examples/SfLink#'),
+    href: ref('#'),
     variant: ref(SfLinkVariant.primary),
-    tag: ref(),
   },
 );
 </script>

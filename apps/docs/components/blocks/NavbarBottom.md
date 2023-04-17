@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: NavbarBottom block is the navigation element used in mobile view.
+hideToc: true
 ---
 # NavbarBottom
 

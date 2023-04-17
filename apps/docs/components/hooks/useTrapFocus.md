@@ -8,7 +8,7 @@ description: An easy to use function for creating trapping focus within an eleme
 
 :::::: slot usage
 
-`useTrapFocus` allows you to trap focus inside a specific DOM element. Focus traps are especially useful for modals, dropdown menus, and other elements that should keep focus within the element when it is open. 
+`useTrapFocus` allows you to trap focus inside a specific DOM element. Focus traps are especially useful for modals, dropdown menus, and other elements that should keep focus within the element when it is open.
 
 This is a great way to improve the accessibility of your application because with focus traps, you can ensure that users navigating your site using only a keyboard won't accidentally interact with elements outside the focus trap.
 
@@ -79,7 +79,7 @@ useTrapFocus(focusTrapElementRef)
 <!-- vue -->
 | options  | `UseTrapFocusOptions` | `{}`              | Object with multiple options  |
 
-## UseTrapFocusOptions
+## UseTrapFocus Options
 
 | Name      | Type                  | Default value | Description |
 | --------- | --------------------- | ------------- | ----------- |
