@@ -51,7 +51,6 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
   const onKeyDownListener = (event: KeyboardEvent) => {
     const isAnyGroupElement = arrowFocusGroupSelector && containeHTMLElement?.querySelector(arrowFocusGroupSelector);
     if (arrowKeysOn) {
-      console.log(arrowFocusGroupSelector);
       if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
         focusNext({
           current: currentlyFocused.value,
