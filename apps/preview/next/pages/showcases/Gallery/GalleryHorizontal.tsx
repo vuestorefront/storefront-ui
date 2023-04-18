@@ -136,10 +136,6 @@ export default function GalleryHorizontal() {
               size="sm"
               square
               slotPrefix={<SfIconChevronRight />}
-              onClick={({ preventDefault }) => {
-                preventDefault();
-                setActiveIndex(() => activeIndex + 1);
-              }}
             />
           }
         >
