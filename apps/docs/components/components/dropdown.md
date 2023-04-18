@@ -7,7 +7,7 @@ hideBreadcrumbs: true
 
 :::::: slot usage
 
-The `SfDropdown` component is built on top of the `useDropdown` hook and accepts all its params.
+The `SfDropdown` component is built on top of the `useDropdown` <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue --> and accepts all its params.
 
 ::: read-more
 <!-- react -->

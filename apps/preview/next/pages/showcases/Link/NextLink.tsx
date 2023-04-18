@@ -8,7 +8,7 @@ export default function NextLinkDemo() {
   return (
     <div className="space-x-4">
       <Link href="#" passHref legacyBehavior>
-        <SfLink> NextLink </SfLink>
+        <SfLink>NextLink</SfLink>
       </Link>
     </div>
   );

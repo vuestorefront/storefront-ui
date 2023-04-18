@@ -1,3 +1,4 @@
+require('dotenv').config();
 const components = require('../utils/components.json');
 const showcases = require('../utils/blocks.json');
 const hooks = require('../utils/hooks.json');
@@ -5,8 +6,7 @@ const { generateComponentPath } = require('./utils/path.util');
 
 const DOCS_EXAMPLES_REACT_PATH = process.env.VITE_DOCS_EXAMPLES_REACT_PATH;
 const DOCS_EXAMPLES_VUE_PATH = process.env.VITE_DOCS_EXAMPLES_VUE_PATH;
-const FIGMA_URL =
-  'https://www.figma.com/file/Y9mMfUVXAfH3qvUWrOAZa2/Storefront-UI-%7C-Design-Kit-(public)?t=DE1wWHucnUn4WG6I-6';
+const FIGMA_URL = 'https://www.figma.com/file/7pRNATsiFwYmveafXzjhSV/SFUI-2-%7C-Design-Kit-(public)';
 const GTAG = 'G-BL2CYW4NJ5';
 const convertComponentPathsToLinks = (paths, slug, type) =>
   paths.map((c) => [generateComponentPath(slug, c, type), c.replace('Sf', '')]);

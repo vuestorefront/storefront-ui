@@ -9,7 +9,7 @@ const props = defineProps({
     default: false,
   },
   placement: {
-    type: String as PropType<SfPopoverPlacement | undefined>,
+    type: String as PropType<`${SfPopoverPlacement}` | undefined>,
     default: undefined,
   },
   middleware: {
@@ -17,7 +17,7 @@ const props = defineProps({
     default: undefined,
   },
   strategy: {
-    type: String as PropType<SfPopoverStrategy | undefined>,
+    type: String as PropType<`${SfPopoverStrategy}` | undefined>,
     default: undefined,
   },
 });

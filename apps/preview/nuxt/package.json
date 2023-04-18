@@ -24,7 +24,7 @@
     "autoprefixer": "^10.4.13",
     "eslint": "^8.34.0",
     "eslint-plugin-nuxt": "^4.0.0",
-    "nuxt": "^3.2.0",
+    "nuxt": "^3.3.2",
     "postcss": "^8.4.21",
     "sass": "^1.58.2",
     "sass-loader": "^13.2.0",

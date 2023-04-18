@@ -1,0 +1,3 @@
+VITE_DOCS_BASEPATH=/v2/
+VITE_DOCS_EXAMPLES_REACT_PATH=https://docs.storefrontui.io/v2-react
+VITE_DOCS_EXAMPLES_VUE_PATH=https://docs.storefrontui.io/v2-vue

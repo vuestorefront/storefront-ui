@@ -31,6 +31,10 @@
       "groupName": "definitelyTyped",
       "matchPackagePrefixes": ["@types/"],
       "automerge": true
+    },
+    {
+      "matchPackageNames": ["swc-plugin-coverage-instrument"],
+      "enabled": false
     }
   ]
 }

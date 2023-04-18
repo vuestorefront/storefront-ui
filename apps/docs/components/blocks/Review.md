@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: Block for displaying user opinion.
+hideToc: true
 ---
 # Review
 

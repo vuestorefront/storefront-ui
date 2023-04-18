@@ -1,0 +1,38 @@
+name: Docker registry image build job
+on:
+  workflow_call:
+    inputs:
+      DOCKER_NAMESPACE:
+        required: true
+        type: string
+      ARTIFACT_TYPE:
+        required: true
+        type: string
+      DOCKERFILE_PATH:
+        required: true
+        type: string
+      ENVIRONMENT:
+        required: true
+        type: string
+
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Setup deployment environments variables
+        shell: bash
+        run: |
+          cat .github/workflows/public_env_info/${{ inputs.ENVIRONMENT }}_docs.txt >> $GITHUB_ENV
+      - name: Build and publish docker image
+        uses: elgohr/Publish-Docker-Github-Action@v5
+        with:
+          name: ${{ inputs.DOCKER_NAMESPACE }}/${{ inputs.ARTIFACT_TYPE }}:${{ github.sha }}
+          registry: registry.storefrontcloud.io
+          username: ${{ secrets.CLOUD_USERNAME }}
+          password: ${{ secrets.CLOUD_PASSWORD }}
+          dockerfile: ${{ inputs.DOCKERFILE_PATH }}
+          buildoptions: "--compress"
+          buildargs: VITE_DOCS_BASEPATH,VITE_DOCS_EXAMPLES_REACT_PATH,VITE_DOCS_EXAMPLES_VUE_PATH

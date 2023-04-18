@@ -1,16 +1,16 @@
 <template>
-  <div class="custom-block mt-16">
-    <div class="grid grid-cols-12 gap-8 relative">
+  <div class="mt-16 custom-block">
+    <div class="relative grid grid-cols-12 gap-8">
       <RouterLink
         v-for="componentName in components"
         :key="componentName"
-        class="overflow-hidden hover:-translate-y-1 hover:shadow-md transition-all border rounded-lg col-span-12 md:col-span-6 lg:col-span-4 hover:border-black dark:hover:border-white dark:border-zinc-700"
+        class="col-span-12 overflow-hidden transition-all border rounded-lg hover:-translate-y-1 hover:shadow-md md:col-span-6 lg:col-span-4 hover:border-black dark:hover:border-white dark:border-zinc-700"
         :to="generateComponentPath(framework, componentName, type)"
       >
-        <div v-if="!hideThumbnail" class="w-full flex items-center justify-center bg-gray-100">
+        <div v-if="!hideThumbnail" class="flex items-center justify-center w-full bg-gray-100">
           <img
             :src="$withBase(`/thumbnails/${type}/${componentName.replace('Sf', '')}.png`)"
-            class="w-full h-full object-cover"
+            class="object-cover w-full h-full"
             :alt="componentName"
           />
         </div>
@@ -24,12 +24,12 @@
         <div
           v-for="componentName in futureBlocks"
           :key="componentName"
-          class="overflow-hidden opacity-60 transition-all border rounded-lg col-span-12 md:col-span-6 lg:col-span-4 dark:border-zinc-700"
+          class="col-span-12 overflow-hidden transition-all border rounded-lg opacity-60 md:col-span-6 lg:col-span-4 dark:border-zinc-700"
         >
-          <div v-if="!hideThumbnail" class="w-full flex items-center justify-center bg-gray-100">
+          <div v-if="!hideThumbnail" class="flex items-center justify-center w-full bg-gray-100">
             <img
               :src="$withBase(`/thumbnails/${type}/${componentName.replace('Sf', '')}.png`)"
-              class="w-full h-full object-cover"
+              class="object-cover w-full h-full"
               :alt="componentName"
             />
           </div>
@@ -83,7 +83,7 @@ export default {
       return this.$site.pages.find((page) => page.path.toLowerCase() === componentPath)?.frontmatter?.description;
     },
     blockCount(componentName) {
-      const componentPath = `/${this.framework}/${this.type}/${componentName.replace('Vsf', '').toLowerCase()}.html`;
+      const componentPath = `/${this.framework}/${this.type}/${componentName.replace('Sf', '').toLowerCase()}.html`;
 
       return this.$site.pages.find((page) => page.path.toLowerCase() === componentPath)?.frontmatter?.blockCount;
     },

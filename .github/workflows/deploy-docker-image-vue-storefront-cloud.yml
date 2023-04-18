@@ -1,0 +1,77 @@
+name: Deploy docker image to storefront cloud
+on:
+  workflow_call:
+    inputs:
+      ENVIRONMENT:
+        required: true
+        type: string
+      TARGET_URL:
+        required: true
+        type: string
+      FARMER_NAMESPACE_NAME:
+        required: true
+        type: string
+      DOCS_NAME:
+        required: true
+        type: string
+      DOCS_IMAGE:
+        required: true
+        type: string
+      DOCS_SUBPATH:
+        required: true
+        type: string
+      DOCS_PORT:
+        required: true
+        type: string
+      HAS_BASE_PATH:
+        required: false
+        type: string
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.ENVIRONMENT }}
+    permissions:
+      deployments: write
+    steps:
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: ${{ github.token }}
+          target_url: ${{ inputs.TARGET_URL }}
+          environment: ${{ inputs.ENVIRONMENT }}
+          initial_status: in_progress
+      - name: Deploy on ${{ inputs.TARGET_URL }}
+        id: publish
+        # Not using the vuestorefront/* package because of:
+        # https://github.com/vuestorefront/publish-docs-action/compare/main...Mateuszpietrusinski:publish-docs-action:main
+        uses: Mateuszpietrusinski/publish-docs-action@v1.0.3
+        with:
+          user-id: ${{ secrets.CLOUD_USERNAME }}
+          api-key: ${{ secrets.CLOUD_PASSWORD }}
+          name: ${{ inputs.DOCS_NAME }}
+          tag: ${{ github.sha }}
+          image: ${{ inputs.DOCS_IMAGE }}
+          path: ${{ inputs.DOCS_SUBPATH }}
+          port: ${{ inputs.DOCS_PORT}}
+          has-base-path: ${{ inputs.HAS_BASE_PATH}}
+          farmer-namespace-name: ${{ inputs.FARMER_NAMESPACE_NAME }}
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ github.token }}
+          target_url: ${{ inputs.TARGET_URL }}
+          state: "success"
+          description: Congratulations! The deploy is done.
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: ${{ github.token }}
+          target_url: ${{ inputs.TARGET_URL }}
+          description: Unfortunately, the instance hasn't been updated.
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
