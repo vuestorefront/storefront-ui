@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: Checkout page in one of the most important pages in e-commerce. Usually it contains information about delivery destination, shipping options and payment methods.
+hideToc: true
 ---
 # Checkout page
 

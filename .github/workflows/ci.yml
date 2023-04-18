@@ -26,6 +26,22 @@ jobs:
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
 
+  verify-collaborator:
+    name: Verify collaborator
+    needs: [cache]
+    runs-on: ubuntu-latest
+    outputs:
+      isCollaborator: ${{ steps.collaborator.outputs.isCollaborator }}
+    steps:
+      - id: collaborator
+        name: Check if user is a collaborator
+        run: |
+          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+               "https://api.github.com/repos/${{ github.repository }}/collaborators/${{ github.actor }}" \
+               | grep -q "Collaborator not found" \
+               && echo "isCollaborator=false" >> $GITHUB_OUTPUT \
+               || echo "isCollaborator=true" >> $GITHUB_OUTPUT
+
   commit-lint:
     name: Validate PR Title (conventional-commit)
     needs: [cache]
@@ -97,7 +113,7 @@ jobs:
 
   cypress-vue:
     name: Run cypress tests(Vue)
-    needs: [cache, lint]
+    needs: [cache, lint, verify-collaborator]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -116,7 +132,7 @@ jobs:
         with:
           command: yarn test:ci:vue
       - name: SonarCloud Scan
-        if: success() || failure()
+        if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: packages/sfui/frameworks/vue
@@ -126,7 +142,7 @@ jobs:
 
   cypress-react:
     name: Run cypress tests(react)
-    needs: [cache, lint]
+    needs: [cache, lint, verify-collaborator]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -143,7 +159,7 @@ jobs:
         with:
           command: yarn test:ci:react
       - name: SonarCloud Scan
-        if: success() || failure()
+        if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
         uses: SonarSource/sonarcloud-github-action@master
         with:
           projectBaseDir: packages/sfui/frameworks/react

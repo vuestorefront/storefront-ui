@@ -1,5 +1,6 @@
 ---
 layout: DefaultLayout
+hideToc: true
 ---
 
 <FigmaLink />

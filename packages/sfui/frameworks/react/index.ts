@@ -5,6 +5,7 @@ export * from './hooks/usePopover';
 export * from './hooks/useScrollable';
 export * from './hooks/useTooltip';
 export * from './hooks/useTrapFocus';
+export * from './hooks/useFocusVisible';
 export * from './hooks/usePagination';
 
 // Shared

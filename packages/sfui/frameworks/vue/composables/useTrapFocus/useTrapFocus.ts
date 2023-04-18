@@ -51,13 +51,13 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
   const onKeyDownListener = (event: KeyboardEvent) => {
     const isAnyGroupElement = arrowFocusGroupSelector && containeHTMLElement?.querySelector(arrowFocusGroupSelector);
     if (arrowKeysOn) {
-      if (event.key === 'ArrowRight') {
+      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
         focusNext({
           current: currentlyFocused.value,
           focusables: focusableElements.value,
           ...(isAnyGroupElement && { arrowFocusGroupSelector }),
         });
-      } else if (event.key === 'ArrowLeft') {
+      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
         focusPrev({
           current: currentlyFocused.value,
           focusables: focusableElements.value,
