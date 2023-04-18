@@ -27,6 +27,7 @@ All new blocks and UI elements are listed below.
 - useScrollable
 ## Improvements
 - Modal - added animated block.
+
 # 2.0.0 (2023-03-23)
 
 ## Features
