@@ -6,6 +6,7 @@ The following release contains new blocks and UI elements alongside bugfixes rep
 ## Features
 
 All new blocks and UI elements are listed below.
+
 ### Base UI Elements Vue.js and React.js
 
 - SfScrollable 
@@ -25,7 +26,9 @@ All new blocks and UI elements are listed below.
 ### Composables / Hooks
 
 - useScrollable
+
 ## Improvements
+
 - Modal - added animated block.
 
 # 2.0.0 (2023-03-23)
