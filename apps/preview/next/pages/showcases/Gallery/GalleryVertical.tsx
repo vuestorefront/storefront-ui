@@ -107,26 +107,6 @@ export default function GalleryVertical() {
     }
   }, [isDragging, offsetPosition, imgPosition]);
 
-  const centeredItem = () => {
-    const centerVerticalPoint = thumbsRef.current?.clientHeight / 2;
-    setItemInCenter(
-      Array.from(thumbsRef.current?.children).findIndex(
-        (item) =>
-          item.getBoundingClientRect().top < centerVerticalPoint &&
-          centerVerticalPoint < item.getBoundingClientRect().bottom,
-      ),
-    );
-  };
-
-  const onClickNext = () => {
-    centeredItem();
-    scrollToNext(itemInCenter);
-  };
-
-  const onClickPrev = () => {
-    centeredItem();
-    scrollToPrev(itemInCenter);
-  };
   return (
     <div className="relative max-h-[700px] flex flex-col h-full md:flex-row scroll-smooth md:gap-4">
       <div
@@ -156,8 +136,6 @@ export default function GalleryVertical() {
           previousDisabled={activeIndex === 0}
           nextDisabled={activeIndex === itemsLength - 1}
           isActiveIndexCentered={false}
-          onNext={onClickNext}
-          onPrev={onClickPrev}
           drag
           slotPreviousButton={
             <SfButton
@@ -181,7 +159,6 @@ export default function GalleryVertical() {
               size="sm"
               square
               slotPrefix={<SfIconChevronRight />}
-              onClick={onClickPrev}
             />
           }
         >

@@ -32,11 +32,13 @@ const images = [
 export default function GalleryWithBullets() {
   const [activeIndex, setActiveIndex] = useState(0);
   const itemsLength = images.length;
+  console.log(activeIndex);
   return (
     <div className="relative flex flex-col gap-1 scroll-smooth">
       <SfScrollable
         className="items-center w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
         activeIndex={activeIndex}
+        isActiveIndexCentered
         previousDisabled={activeIndex === 0}
         nextDisabled={activeIndex === itemsLength - 1}
         onPrev={() => {
@@ -70,9 +72,8 @@ export default function GalleryWithBullets() {
       </SfScrollable>
       <div className="flex-shrink-0 overflow-hidden basis-auto">
         <div className="flex-row w-full flex gap-0.5 mt overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-          {images.map(({ alt }, index) => (
+          {images.map((item, index) => (
             <div
-              aria-label={alt}
               key={`${index}-bullet`}
               className={`w-[78px] relative pb-1 border-b-4 cursor-pointer transition-colors  ${
                 activeIndex === index ? 'border-primary-700' : 'border-gray-200'

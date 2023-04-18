@@ -124,15 +124,6 @@ export default class Scrollable {
       }
     }
   }
-  
-  public scrollToNext(itemInCenter: number) {
-    console.log(itemInCenter)
-    this.scrollToIndex(itemInCenter + 1);
-  };
-
-  public scrollToPrev(itemInCenter: number) {
-    this.scrollToIndex(itemInCenter - 1);
-  };
 
   public refresh(callback?: (data: SfScrollableOnScrollData) => void) {
     if (callback) {
