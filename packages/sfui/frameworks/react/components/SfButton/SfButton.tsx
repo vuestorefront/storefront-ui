@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-import { SfButtonSize, SfButtonVariant, polymorphicForwardRef } from '@storefront-ui/react';
-import type { SfButtonProps } from '@storefront-ui/react';
+import { type SfButtonProps, SfButtonSize, SfButtonVariant, polymorphicForwardRef } from '@storefront-ui/react';
 
 const defaultButtonTag = 'button';
 
