@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { type UseScrollableOptions, Scrollable, composeHandlers, createPropsGetter } from '@storefront-ui/react';
+import mergeRefs from 'merge-refs';
 
 export function useScrollable<TElement extends HTMLElement>({
   activeIndex,
@@ -77,8 +78,7 @@ export function useScrollable<TElement extends HTMLElement>({
   });
 
   const getContainerProps = createPropsGetter((props) => ({
-    ref: containerElement,
-    ...props,
+    ref: mergeRefs(containerElement, props.ref),
   }));
 
   return {
@@ -86,10 +86,5 @@ export function useScrollable<TElement extends HTMLElement>({
     getPrevButtonProps,
     getNextButtonProps,
     state,
-    scrollToNext: (item: number) => {
-      console.log('useScrollable', item);
-      scrollable.current?.scrollToNext(item);
-    },
-    scrollToPrev: (item: number) => scrollable.current?.scrollToPrev(item),
   };
 }

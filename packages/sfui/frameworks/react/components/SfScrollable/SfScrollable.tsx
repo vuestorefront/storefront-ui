@@ -117,9 +117,9 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
               'overflow-y-auto flex flex-col gap-4': !isHorizontal,
               'cursor-grab': state.isDragged,
             }),
+            ...attributes,
+            ref,
           })}
-          {...attributes}
-          ref={ref}
         >
           {buttonsPlacement === SfScrollableButtonsPlacement.floating &&
             previousButton('absolute !rounded-full bg-white z-10', isHorizontal ? 'left-4' : 'top-4 rotate-90')}
