@@ -1,4 +1,5 @@
 # 2.1.0 (2023-04-18)
+
 ## Overview
 
 The following release contains new blocks and UI elements alongside bugfixes reported after 2.0.0 release.
