@@ -15,7 +15,7 @@ export default component$(() => {
   return (
     <ul class="flex flex-wrap gap-4 sm:flex-row">
       {chipListSignal.value.map(({ label, value }) => (
-        <li>
+        <li key={value}>
           <SfChip
             key={value}
             class="mr-2"

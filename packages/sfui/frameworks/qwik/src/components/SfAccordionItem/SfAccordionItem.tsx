@@ -2,9 +2,9 @@ import { $, Slot, component$ } from '@builder.io/qwik';
 import { SfAccordionItemProps } from './types';
 
 export const SfAccordionItem = component$<SfAccordionItemProps>(
-  ({ ref, open, onToggle, summaryClass, ...attributes }) => {
+  ({ ref, open, onToggle$, summaryClass, ...attributes }) => {
     const handleClick = $(() => {
-      onToggle?.(!open);
+      onToggle$?.(!open);
     });
 
     return (

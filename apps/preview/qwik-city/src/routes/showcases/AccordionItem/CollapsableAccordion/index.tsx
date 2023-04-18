@@ -32,7 +32,7 @@ export default component$(() => {
   return (
     <div class="border border-neutral-200 rounded-md divide-y text-neutral-900">
       {accordionItems.map(({ id, summary, details }) => (
-        <SfAccordionItem key={id} onToggle={$((open: boolean) => handleToggle(id, open))} open={isOpen(id)}>
+        <SfAccordionItem key={id} onToggle$={(open: boolean) => handleToggle(id, open)} open={isOpen(id)}>
           <div class="flex justify-between p-4 font-medium hover:bg-neutral-100 active:neutral-100">
             <p>{summary}</p>
             <SfIconChevronLeft
