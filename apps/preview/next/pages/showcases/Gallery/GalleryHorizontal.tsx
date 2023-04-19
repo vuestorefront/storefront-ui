@@ -88,7 +88,6 @@ export default function GalleryHorizontal() {
     }
   }, [isDragging, offsetPosition, imgPosition]);
 
-  console.log(activeIndex);
   return (
     <div className="relative flex flex-col h-full gap-4 scroll-smooth">
       <div
