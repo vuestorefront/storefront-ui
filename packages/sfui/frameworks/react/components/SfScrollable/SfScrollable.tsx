@@ -1,3 +1,4 @@
+/* eslint-disable react/require-default-props */
 import { cloneElement, useMemo } from 'react';
 import classNames from 'classnames';
 import {
@@ -27,7 +28,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       onPrev,
       onNext,
       className,
-      wrapperClassNames,
+      wrapperClassName,
       previousDisabled,
       nextDisabled,
       style,
@@ -36,10 +37,12 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       slotNextButton,
       ...attributes
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ref,
   ) => {
     const Tag = as || defaultScrollableTag;
+    const isHorizontal = direction === SfScrollableDirection.horizontal;
+    const isBlock = buttonsPlacement === SfScrollableButtonsPlacement.block;
+    const isFloating = buttonsPlacement === SfScrollableButtonsPlacement.floating;
 
     const sliderOptions = useMemo(
       () => ({
@@ -55,76 +58,103 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       [direction, activeIndex, reduceMotion, drag, onDragChange, onScroll, onPrev, onNext],
     );
 
-    const { getContainerProps, state, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
+    const { state, getContainerProps, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
 
-    const changeDisabledClass = (isDisabled: boolean) =>
-      isDisabled ? '!ring-disabled-300 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
-    const previousButton = (...buttonClassName: Parameters<typeof classNames>) =>
-      (slotPreviousButton && cloneElement(slotPreviousButton, getPrevButtonProps())) || (
+    function PreviousButton({ classNameButton }: { classNameButton?: string }) {
+      if (slotPreviousButton) {
+        return cloneElement(slotPreviousButton, getPrevButtonProps({ disabled: previousDisabled, onClick: onPrev }));
+      }
+      return (
         <SfButton
-          variant="secondary"
-          size="lg"
-          className={classNames(
-            'hidden md:block',
-            buttonClassName,
-            changeDisabledClass(
-              typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps().disabled,
+          {...getPrevButtonProps({
+            square: true,
+            variant: 'secondary',
+            size: 'lg',
+            disabled: previousDisabled,
+            slotPrefix: <SfIconChevronLeft />,
+            className: classNames(
+              'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',
+              classNameButton,
             ),
-          )}
-          square
-          slotPrefix={<SfIconChevronLeft />}
-          {...getPrevButtonProps()}
-          disabled={previousDisabled}
+          })}
         />
       );
+    }
 
-    const nextButton = (...buttonClassName: Parameters<typeof classNames>) =>
-      (slotNextButton && cloneElement(slotNextButton, getNextButtonProps())) || (
+    function NextButton({ classNameButton }: { classNameButton?: string }) {
+      if (slotNextButton) {
+        return cloneElement(slotNextButton, getNextButtonProps({ disabled: nextDisabled, onClick: onNext }));
+      }
+      return (
         <SfButton
-          variant="secondary"
-          size="lg"
-          square
-          className={classNames(
-            'hidden md:block',
-            buttonClassName,
-            changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps().disabled),
-          )}
-          slotPrefix={<SfIconChevronRight />}
-          {...getNextButtonProps()}
-          disabled={nextDisabled}
+          {...getNextButtonProps({
+            square: true,
+            variant: 'secondary',
+            size: 'lg',
+            disabled: nextDisabled,
+            slotPrefix: <SfIconChevronRight />,
+            className: classNames(
+              'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',
+              classNameButton,
+            ),
+          })}
         />
       );
-
-    const isHorizontal = direction === SfScrollableDirection.horizontal;
+    }
 
     return (
       <div
         className={classNames(
           'items-center relative',
           isHorizontal ? 'flex' : 'flex-col h-full inline-flex',
-          wrapperClassNames,
+          wrapperClassName,
         )}
       >
-        {buttonsPlacement === SfScrollableButtonsPlacement.block &&
-          previousButton('!rounded-full bg-white', isHorizontal ? 'mr-4' : 'mb-4 rotate-90')}
+        {isBlock && (
+          <PreviousButton
+            classNameButton={classNames('!rounded-full bg-white', {
+              'mr-4': isHorizontal,
+              'mb-4 rotate-90': !isHorizontal,
+            })}
+          />
+        )}
         <Tag
           {...getContainerProps({
-            className: classNames(className, 'motion-safe:scroll-smooth', {
+            className: classNames(className, {
               'overflow-x-auto flex gap-4': isHorizontal,
               'overflow-y-auto flex flex-col gap-4': !isHorizontal,
               'cursor-grab': state.isDragged,
             }),
+            ...attributes,
+            ref,
           })}
-          {...attributes}
         >
-          {buttonsPlacement === SfScrollableButtonsPlacement.floating &&
-            previousButton('absolute !rounded-full bg-white z-10', isHorizontal ? 'left-4' : 'top-4 rotate-90')}
+          {isFloating && (
+            <PreviousButton
+              classNameButton={classNames('absolute !rounded-full bg-white z-10', {
+                'left-4': isHorizontal,
+                'top-4 rotate-90': !isHorizontal,
+              })}
+            />
+          )}
           {children}
-          {buttonsPlacement === SfScrollableButtonsPlacement.floating &&
-            nextButton('absolute !rounded-full bg-white z-10', isHorizontal ? 'right-4' : 'bottom-4 rotate-90')}
+          {isFloating && (
+            <NextButton
+              classNameButton={classNames('absolute !rounded-full bg-white z-10', {
+                'right-4': isHorizontal,
+                'bottom-4 rotate-90': !isHorizontal,
+              })}
+            />
+          )}
         </Tag>
-        {buttonsPlacement === SfScrollableButtonsPlacement.block &&
-          nextButton('!rounded-full bg-white', isHorizontal ? 'ml-4' : 'mt-4 rotate-90')}
+        {isBlock && (
+          <NextButton
+            classNameButton={classNames('!rounded-full bg-white', {
+              'ml-4': isHorizontal,
+              'mt-4 rotate-90': !isHorizontal,
+            })}
+          />
+        )}
       </div>
     );
   },
