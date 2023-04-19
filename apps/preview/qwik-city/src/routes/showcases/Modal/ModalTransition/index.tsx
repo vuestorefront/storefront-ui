@@ -8,7 +8,7 @@ export default component$(() => {
   const headingId = useId();
   const descriptionId = useId();
   // const modalRef = useSignal<Element>();
-  const backdropRef = useSignal<Element>();
+  // const backdropRef = useSignal<Element>();
 
   return (
     <>
