@@ -21,6 +21,7 @@ export function Showcase() {
     >
       <SfButton
         type="button"
+        size="lg"
         className="gap-3"
         aria-label="Go to previous page"
         disabled={selectedPage <= 1}
@@ -145,6 +146,7 @@ export function Showcase() {
       </ul>
       <SfButton
         type="button"
+        size="lg"
         aria-label="Go to next page"
         disabled={selectedPage >= totalPages}
         variant="tertiary"
