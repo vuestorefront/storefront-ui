@@ -1,5 +1,5 @@
-import { useEffect, useRef, useState } from 'react';
-import mergeRefs from 'merge-refs';
+import { Ref, useEffect, useRef, useState } from 'react';
+import { mergeRefs } from 'react-merge-refs';
 import { type UseScrollableOptions, Scrollable, composeHandlers, createPropsGetter } from '@storefront-ui/react';
 
 export function useScrollable<TElement extends HTMLElement>({
@@ -64,7 +64,7 @@ export function useScrollable<TElement extends HTMLElement>({
   });
 
   const getContainerProps = createPropsGetter((userProps) => ({
-    ref: mergeRefs(containerElement, userProps.ref),
+    ref: mergeRefs([containerElement, userProps.ref].filter(Boolean) as Ref<HTMLElement>[]),
   }));
 
   return {
