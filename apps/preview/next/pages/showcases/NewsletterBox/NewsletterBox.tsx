@@ -51,8 +51,15 @@ export default function NewsletterBox() {
           </SfButton>
         </form>
         <div className="typography-text-xs text-neutral-600">
-          To learn how we process your data, visit our <SfLink className="text-neutral-600">Privacy Notice</SfLink>. You
-          can <SfLink className="text-neutral-600">unsubscribe</SfLink> at any time without costs.
+          To learn how we process your data, visit our{' '}
+          <SfLink href="#" className="!text-neutral-600">
+            Privacy Notice
+          </SfLink>
+          . You can{' '}
+          <SfLink href="#" className="!text-neutral-600">
+            unsubscribe
+          </SfLink>{' '}
+          at any time without costs.
         </div>
       </div>
       <div className="absolute top-0 right-0 mx-2 mt-2 sm:mr-6">
