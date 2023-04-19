@@ -63,6 +63,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         <SfButton
           {...getPrevButtonProps({
             variant: 'secondary',
+            square: true,
             size: 'lg',
             className: classNames(
               'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',

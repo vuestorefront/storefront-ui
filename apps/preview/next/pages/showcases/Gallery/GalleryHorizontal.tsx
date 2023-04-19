@@ -88,6 +88,7 @@ export default function GalleryHorizontal() {
     }
   }, [isDragging, offsetPosition, imgPosition]);
 
+  console.log(activeIndex);
   return (
     <div className="relative flex flex-col h-full gap-4 scroll-smooth">
       <div
@@ -114,6 +115,14 @@ export default function GalleryHorizontal() {
           activeIndex={activeIndex}
           previousDisabled={activeIndex === 0}
           nextDisabled={activeIndex === itemsLength - 1}
+          onPrev={({ preventDefault }) => {
+            preventDefault();
+            setActiveIndex((currentValue) => currentValue - 1);
+          }}
+          onNext={({ preventDefault }) => {
+            preventDefault();
+            setActiveIndex((currentValue) => currentValue + 1);
+          }}
           slotPreviousButton={
             <SfButton
               className="absolute !rounded-full z-10 left-4"

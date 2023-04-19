@@ -61,7 +61,7 @@ export function useScrollable<TElement extends HTMLElement>({
     };
     return {
       onClick: composeHandlers(onClick, props?.onClick),
-      disabled: props.disabled || !state.hasPrev,
+      disabled: props.disabled === undefined ? !state.hasPrev : props.disabled,
     };
   });
 
@@ -71,7 +71,7 @@ export function useScrollable<TElement extends HTMLElement>({
     };
     return {
       onClick: composeHandlers(onClick, props?.onClick),
-      disabled: props.disabled || !state.hasNext,
+      disabled: props.disabled === undefined ? !state.hasNext : props.disabled,
     };
   });
 
