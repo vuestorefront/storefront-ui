@@ -32,7 +32,6 @@ const images = [
 export default function GalleryWithBullets() {
   const [activeIndex, setActiveIndex] = useState(0);
   const itemsLength = images.length;
-  console.log(activeIndex);
   return (
     <div className="relative flex flex-col gap-1 scroll-smooth">
       <SfScrollable
