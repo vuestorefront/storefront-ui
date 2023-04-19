@@ -24,7 +24,7 @@ export * from './components/SfInput';
 export * from './components/SfLink';
 export * from './components/SfListItem';
 export * from './components/SfLoaderCircular';
-// export * from './components/SfLoaderLinear';
+export * from './components/SfLoaderLinear';
 // export * from './components/SfModal';
 // export * from './components/SfProgressCircular';
 // export * from './components/SfProgressLinear';
