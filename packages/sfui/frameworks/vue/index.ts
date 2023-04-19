@@ -5,6 +5,7 @@ export * from './composables/usePopover';
 export * from './composables/useScrollable';
 export * from './composables/useTooltip';
 export * from './composables/useTrapFocus';
+export * from './composables/useFocusVisible';
 export * from './composables/usePagination';
 
 // Shared
