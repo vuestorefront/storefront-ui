@@ -22,7 +22,7 @@
     <hr class="my-4" />
     <p class="px-2 mb-2 font-medium typography-headline-5">Sort by:</p>
     <div class="px-2">
-      <SfSelect aria-label="Sort by">
+      <SfSelect v-model="sortModel" aria-label="Sort by">
         <option v-for="{ id, label, value } in sortOptions" :key="id" :value="value">{{ label }}</option>
       </SfSelect>
     </div>
@@ -92,12 +92,7 @@
               class="px-1.5 bg-transparent hover:bg-transparent"
             >
               <template #prefix>
-                <SfRadio
-                  v-model="radioModel"
-                  name="radio-price"
-                  :value="value"
-                  @update:model-value="handleRadioSelection(value)"
-                />
+                <SfRadio v-model="radioModel" name="radio-price" :value="value" />
               </template>
               <p>
                 <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
@@ -234,11 +229,12 @@ const sortOptions = ref([
 const selectedFilters = ref<string[]>([]);
 const opened = ref<boolean[]>(filtersData.value.map(() => true));
 const radioModel = ref('');
+const sortModel = ref();
 
 const isItemActive = (val: string) => {
   return selectedFilters.value?.includes(val);
 };
-const handleRadioSelection = (val: string) => {
+const handleSingleSelection = (val: string) => {
   const newSelectedFilters = selectedFilters.value.filter((selectedFilter) => !isItemActive(selectedFilter));
   newSelectedFilters.push(val);
   selectedFilters.value = newSelectedFilters;
