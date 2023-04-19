@@ -31,7 +31,7 @@ export * from './components/SfProgressLinear';
 export * from './components/SfRadio';
 export * from './components/SfRating';
 export * from './components/SfSelect';
-// export * from './components/SfSwitch';
+export * from './components/SfSwitch';
 // export * from './components/SfScrollable';
 // export * from './components/SfTooltip';
 export * from './components/SfThumbnail';
