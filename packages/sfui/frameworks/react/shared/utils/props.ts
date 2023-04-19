@@ -1,5 +1,5 @@
 import type { AllHTMLAttributes, RefAttributes } from 'react';
-import { Prettify } from '@storefront-ui/shared';
+import type { Prettify } from '@storefront-ui/shared';
 
 export const composeHandlers =
   (...callbacks: (Function | null | undefined)[]) =>
