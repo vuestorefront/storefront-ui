@@ -53,6 +53,10 @@ const props = defineProps({
     type: Boolean,
     default: undefined,
   },
+  isActiveIndexCentered: {
+    type: Boolean,
+    default: true,
+  },
 });
 const emit = defineEmits<{
   (e: 'onDragChange', data: SfScrollableOnDragChangeData): void;
@@ -60,7 +64,7 @@ const emit = defineEmits<{
   (e: 'onPrev', data: SfScrollableOnPrevData): void;
   (e: 'onNext', data: SfScrollableOnNextData): void;
 }>();
-const { direction, activeIndex, reduceMotion, drag } = toRefs(props);
+const { direction, activeIndex, reduceMotion, drag, isActiveIndexCentered } = toRefs(props);
 
 const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useScrollable(
   computed(() => ({
@@ -69,6 +73,7 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
       activeIndex,
       reduceMotion,
       drag,
+      isActiveIndexCentered,
     }),
     onDragChange: (data) => emit('onDragChange', data),
     onScroll: (data) => emit('onScroll', data),

@@ -3,8 +3,7 @@
     <div
       ref="draggableRef"
       class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
-      @mousedown="pointerHandler"
-      @touchmove="pointerHandler"
+      @pointerdown="pointerHandler"
     >
       <div
         class="absolute top-0 left-0 flex w-full h-full transition-transform snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
@@ -135,11 +134,12 @@ const pointerHandler = (e) => {
     return;
   }
   draggableRef.value.setPointerCapture(e.pointerId);
-  const pointerDownOffset = computed(() => e.nativeEvent.offsetX);
+  console.log(e);
+  const pointerDownOffset = computed(() => e.offsetX);
   isSwiping.value = true;
   const rect = draggableRef.value.getBoundingClientRect();
   const pointerEventMethod = (event) => {
-    offsetPosition.value = pointerDownOffset.value - event.offsetX / rect.width / 5;
+    offsetPosition.value = (pointerDownOffset.value - event.offsetX) / rect.width / 5;
   };
   draggableRef.value.addEventListener('pointermove', pointerEventMethod, { passive: false });
   draggableRef.value.addEventListener('pointerup', () => {

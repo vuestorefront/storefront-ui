@@ -23,6 +23,7 @@
         class="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
         direction="vertical"
         :active-index="activeIndex"
+        :is-active-index-centered="false"
         :previous-disabled="activeIndex === 0"
         :next-disabled="activeIndex === itemsLength - 1"
         buttons-placement="floating"
@@ -30,11 +31,11 @@
         <template #previousButton>
           <SfButton
             :disabled="activeIndex === 0"
-            class="absolute !rounded-full z-10 left-4"
+            class="absolute !rounded-full z-10 top-4 rotate-90"
             variant="secondary"
             size="sm"
             square
-            @click="activeIndex = activeIndex - 1"
+            @click="getPrevButtonProps.onClick"
           >
             <SfIconChevronLeft />
           </SfButton>
@@ -55,11 +56,11 @@
         <template #nextButton>
           <SfButton
             :disabled="activeIndex === itemsLength - 1"
-            class="absolute !rounded-full z-10 right-4"
+            class="absolute !rounded-full z-10 bottom-4 rotate-90"
             variant="secondary"
             size="sm"
             square
-            @click="activeIndex = activeIndex + 1"
+            @click="getNextButtonProps.onClick"
           >
             <SfIconChevronRight />
           </SfButton>
@@ -72,7 +73,7 @@
 <script lang="ts" setup>
 import { ref, computed, watch } from 'vue';
 import { clamp } from '@storefront-ui/shared';
-import { SfScrollable } from '@storefront-ui/vue';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight, useScrollable } from '@storefront-ui/vue';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
 import gallery3 from '@assets/gallery_3.png';
@@ -127,6 +128,7 @@ const isDragging = ref(false);
 const itemsLength = thumbImages.length;
 
 const imgPosition = activeIndex.value + offsetPosition.value;
+const { getNextButtonProps, getPrevButtonProps } = useScrollable();
 
 const pointerHandler = (e: PointerEvent<HTMLDivElement>) => {
   e.preventDefault();
