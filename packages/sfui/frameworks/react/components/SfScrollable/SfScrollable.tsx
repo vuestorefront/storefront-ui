@@ -62,7 +62,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
 
     function PreviousButton({ classNameButton }: { classNameButton?: string }) {
       if (slotPreviousButton) {
-        return cloneElement(slotPreviousButton, getPrevButtonProps());
+        return cloneElement(slotPreviousButton, getPrevButtonProps({ disabled: previousDisabled, onClick: onPrev }));
       }
       return (
         <SfButton
@@ -83,7 +83,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
 
     function NextButton({ classNameButton }: { classNameButton?: string }) {
       if (slotNextButton) {
-        return cloneElement(slotNextButton, getNextButtonProps());
+        return cloneElement(slotNextButton, getNextButtonProps({ disabled: nextDisabled, onClick: onNext }));
       }
       return (
         <SfButton
