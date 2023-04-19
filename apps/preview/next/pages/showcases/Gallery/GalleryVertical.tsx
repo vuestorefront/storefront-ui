@@ -63,9 +63,7 @@ export default function GalleryVertical() {
   const [offsetPosition, setOffsetPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const [itemInCenter, setItemInCenter] = useState(0);
   const itemsLength = thumbImages.length;
-  const { scrollToNext, scrollToPrev } = useScrollable();
 
   const imgPosition = activeIndex + offsetPosition;
   const firstThumbVisible = useIntersection(firstThumbRef, {
