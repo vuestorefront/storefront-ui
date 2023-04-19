@@ -27,7 +27,7 @@ export * from './components/SfLoaderCircular';
 export * from './components/SfLoaderLinear';
 export * from './components/SfModal';
 export * from './components/SfProgressCircular';
-// export * from './components/SfProgressLinear';
+export * from './components/SfProgressLinear';
 // export * from './components/SfRadio';
 // export * from './components/SfRating';
 // export * from './components/SfSelect';
