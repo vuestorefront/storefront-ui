@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, type Ref } from 'react';
 import { type UseScrollableOptions, Scrollable, composeHandlers, createPropsGetter } from '@storefront-ui/react';
-import mergeRefs from 'merge-refs';
+import { mergeRefs } from 'react-merge-refs';
 
 export function useScrollable<TElement extends HTMLElement>({
   activeIndex,
@@ -61,8 +61,7 @@ export function useScrollable<TElement extends HTMLElement>({
     };
     return {
       onClick: composeHandlers(onClick, props?.onClick),
-      disabled: !state.hasPrev,
-      ...props,
+      disabled: props.disabled || !state.hasPrev,
     };
   });
 
@@ -72,13 +71,12 @@ export function useScrollable<TElement extends HTMLElement>({
     };
     return {
       onClick: composeHandlers(onClick, props?.onClick),
-      disabled: !state.hasNext,
-      ...props,
+      disabled: props.disabled || !state.hasNext,
     };
   });
 
   const getContainerProps = createPropsGetter((props) => ({
-    ref: mergeRefs(containerElement, props.ref),
+    ref: mergeRefs([containerElement, props.ref as Ref<HTMLElement>]),
   }));
 
   return {

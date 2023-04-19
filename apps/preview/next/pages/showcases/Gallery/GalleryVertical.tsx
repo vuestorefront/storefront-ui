@@ -5,7 +5,7 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { useEffect, useRef, useState } from 'react';
 import { useIntersection } from 'react-use';
-import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight, useScrollable } from '@storefront-ui/react';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import { clamp } from '@storefront-ui/shared';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
@@ -59,7 +59,7 @@ export default function GalleryVertical() {
   const draggableRef = useRef<HTMLDivElement>(null);
   const lastThumbRef = useRef<HTMLButtonElement>(null);
   const firstThumbRef = useRef<HTMLButtonElement>(null);
-  const thumbsRef = useRef<HTMLElement>(null);
+  const thumbsRef = useRef<HTMLDivElement>(null);
   const [offsetPosition, setOffsetPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);

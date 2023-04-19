@@ -114,12 +114,6 @@ export default function GalleryHorizontal() {
           activeIndex={activeIndex}
           previousDisabled={activeIndex === 0}
           nextDisabled={activeIndex === itemsLength - 1}
-          onPrev={() => {
-            setActiveIndex(() => activeIndex - 1);
-          }}
-          onNext={() => {
-            setActiveIndex(() => activeIndex + 1);
-          }}
           slotPreviousButton={
             <SfButton
               className="absolute !rounded-full z-10 left-4"

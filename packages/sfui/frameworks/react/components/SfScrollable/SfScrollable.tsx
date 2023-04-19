@@ -37,7 +37,6 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       slotNextButton,
       ...attributes
     },
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     ref,
   ) => {
     const Tag = as || defaultScrollableTag;
@@ -58,43 +57,38 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
     );
 
     const { getContainerProps, state, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
-    const changeDisabledClass = (isDisabled: boolean) =>
-      isDisabled ? '!ring-disabled-300 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
-    const previousButton = (...buttonClassName: Parameters<typeof classNames>) =>
+    const previousButton = (...classNameButton: Parameters<typeof classNames>) =>
       (slotPreviousButton &&
         cloneElement(slotPreviousButton, getPrevButtonProps({ disabled: previousDisabled, onClick: onPrev }))) || (
         <SfButton
-          variant="secondary"
-          size="lg"
-          className={classNames(
-            'hidden md:block',
-            buttonClassName,
-            changeDisabledClass(
-              typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps().disabled,
+          {...getPrevButtonProps({
+            variant: 'secondary',
+            size: 'lg',
+            className: classNames(
+              'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',
+              classNameButton,
             ),
-          )}
-          square
-          slotPrefix={<SfIconChevronLeft />}
-          {...getPrevButtonProps()}
-          disabled={previousDisabled}
+            slotPrefix: <SfIconChevronLeft />,
+            disabled: previousDisabled,
+          })}
         />
       );
 
-    const nextButton = (...buttonClassName: Parameters<typeof classNames>) =>
+    const nextButton = (...classNameButton: Parameters<typeof classNames>) =>
       (slotNextButton &&
         cloneElement(slotNextButton, getNextButtonProps({ disabled: nextDisabled, onClick: onNext }))) || (
         <SfButton
-          variant="secondary"
-          size="lg"
-          square
-          className={classNames(
-            'hidden md:block',
-            buttonClassName,
-            changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps().disabled),
-          )}
-          slotPrefix={<SfIconChevronRight />}
-          {...getNextButtonProps()}
-          disabled={nextDisabled}
+          {...getNextButtonProps({
+            square: true,
+            variant: 'secondary',
+            size: 'lg',
+            disabled: nextDisabled,
+            slotPrefix: <SfIconChevronRight />,
+            className: classNames(
+              'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',
+              classNameButton,
+            ),
+          })}
         />
       );
 
