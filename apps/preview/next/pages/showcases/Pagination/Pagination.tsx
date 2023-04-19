@@ -14,7 +14,11 @@ export function Showcase() {
   });
 
   return (
-    <nav className="flex justify-between border-t border-neutral-200" role="navigation" aria-label="pagination">
+    <nav
+      className="flex justify-between items-center border-t border-neutral-200"
+      role="navigation"
+      aria-label="pagination"
+    >
       <SfButton
         type="button"
         className="gap-3"
@@ -31,7 +35,7 @@ export function Showcase() {
           <li>
             <div
               className={classNames('flex pt-1 border-t-4 border-transparent', {
-                'font-medium border-t-4 !border-primary-500': selectedPage === 1,
+                'font-medium border-t-4 !border-primary-700': selectedPage === 1,
               })}
             >
               <button
