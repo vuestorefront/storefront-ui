@@ -3,7 +3,7 @@ import { cloneElement, useMemo } from 'react';
 import classNames from 'classnames';
 import {
   polymorphicForwardRef,
-  // SfButton,
+  SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
   useScrollable,
@@ -11,7 +11,6 @@ import {
   SfScrollableButtonsPlacement,
   type SfScrollableProps,
 } from '@storefront-ui/react';
-import SfButton from '../SfButton/SfButton';
 
 const defaultScrollableTag = 'div';
 
