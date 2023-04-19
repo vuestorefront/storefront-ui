@@ -15,8 +15,9 @@ export default component$(() => {
   const checkedStateSignal = useSignal('');
   return (
     <>
-      {radioOptions.map(({ name, value }) => (
+      {radioOptions.map(({ name, value }, index) => (
         <SfRadio
+          key={index}
           name={name}
           value={value}
           class="block mb-4"
