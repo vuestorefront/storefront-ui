@@ -3,7 +3,7 @@
     <div
       ref="draggableRef"
       class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
-      @pointerDown="pointerHandler"
+      @pointerdown="pointerHandler"
     >
       <div
         class="absolute top-0 left-0 flex w-full h-full transition-transform snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
@@ -74,6 +74,8 @@
 import { ref, computed, watch } from 'vue';
 import { clamp } from '@storefront-ui/shared';
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight, useScrollable } from '@storefront-ui/vue';
+import { useSwipe } from '@vueuse/core';
+
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
 import gallery3 from '@assets/gallery_3.png';
@@ -122,35 +124,34 @@ const thumbImages = [
 ];
 
 const draggableRef = ref<HTMLElement>();
+const { isSwiping } = useSwipe(draggableRef);
 const offsetPosition = ref(0);
 const activeIndex = ref(0);
-const isDragging = ref(false);
 const itemsLength = thumbImages.length;
+const imgPosition = computed(() => activeIndex.value + offsetPosition.value);
 
-const imgPosition = activeIndex.value + offsetPosition.value;
-
-const pointerHandler = (e: PointerEvent<HTMLDivElement>) => {
+const pointerHandler = (e: PointerEvent) => {
   e.preventDefault();
   if (!draggableRef.value) {
     return;
   }
   draggableRef.value.setPointerCapture(e.pointerId);
-  const pointerDownOffset = computed(() => e.nativeEvent.offsetX);
-  isDragging.value = true;
+  const pointerDownOffset = computed(() => e.offsetX);
+  isSwiping.value = true;
   const rect = draggableRef.value.getBoundingClientRect();
   const pointerEventMethod = (event: PointerEvent) => {
-    offsetPosition.value = pointerDownOffset.value - event.offsetX / rect.width / 5;
+    offsetPosition.value = (pointerDownOffset.value - event.offsetX) / rect.width / 5;
   };
   draggableRef.value.addEventListener('pointermove', pointerEventMethod, { passive: false });
   draggableRef.value.addEventListener('pointerup', () => {
-    isDragging.value = false;
+    isSwiping.value = false;
     draggableRef.value?.removeEventListener('pointermove', pointerEventMethod);
   });
 };
 
-watch(isDragging, () => {
-  if (!isDragging.value) {
-    const stopVal = offsetPosition.value > 0 ? Math.ceil(imgPosition) : Math.floor(imgPosition);
+watch(isSwiping, () => {
+  if (!isSwiping.value) {
+    const stopVal = offsetPosition.value > 0 ? Math.ceil(imgPosition.value) : Math.floor(imgPosition);
     activeIndex.value = clamp(stopVal, 0, images.length - 1);
     offsetPosition.value = 0;
   }

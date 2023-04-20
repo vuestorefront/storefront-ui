@@ -128,7 +128,7 @@ const activeIndex = ref(0);
 const itemsLength = ref(thumbImages.length);
 const imgPosition = computed(() => activeIndex.value + offsetPosition.value);
 
-const pointerHandler = (e) => {
+const pointerHandler = (e: PointerEvent) => {
   e.preventDefault();
   if (!draggableRef.value) {
     return;
@@ -138,7 +138,7 @@ const pointerHandler = (e) => {
   const pointerDownOffset = computed(() => e.offsetX);
   isSwiping.value = true;
   const rect = draggableRef.value.getBoundingClientRect();
-  const pointerEventMethod = (event) => {
+  const pointerEventMethod = (event: PointerEvent) => {
     offsetPosition.value = (pointerDownOffset.value - event.offsetX) / rect.width / 5;
   };
   draggableRef.value.addEventListener('pointermove', pointerEventMethod, { passive: false });
