@@ -35,11 +35,12 @@ export default function GalleryWithBullets() {
   return (
     <div className="relative flex flex-col gap-1 scroll-smooth">
       <SfScrollable
-        className="items-center w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        className="group/scrollable items-center w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
         activeIndex={activeIndex}
         isActiveIndexCentered
         previousDisabled={activeIndex === 0}
         nextDisabled={activeIndex === itemsLength - 1}
+        buttonsPlacement="floating"
         onPrev={() => {
           setActiveIndex(() => activeIndex - 1);
         }}
@@ -48,7 +49,7 @@ export default function GalleryWithBullets() {
         }}
         slotPreviousButton={
           <SfButton
-            className="absolute !rounded-full !px-3 z-10 top-1/2 left-4"
+            className="hidden group-hover/scrollable:block absolute !rounded-full !px-3 z-10 top-1/2 left-4"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronLeft />}
@@ -56,7 +57,7 @@ export default function GalleryWithBullets() {
         }
         slotNextButton={
           <SfButton
-            className="absolute !rounded-full !px-3 z-10 top-1/2 right-4"
+            className="hidden group-hover/scrollable:block absolute !rounded-full !px-3 z-10 top-1/2 right-4"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronRight />}

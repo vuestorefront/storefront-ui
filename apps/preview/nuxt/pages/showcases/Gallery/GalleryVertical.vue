@@ -28,14 +28,14 @@
         :next-disabled="activeIndex === itemsLength - 1"
         buttons-placement="floating"
       >
-        <template #previousButton>
+        <template #previousButton="defaultProps">
           <SfButton
+            v-bind="defaultProps"
             :disabled="activeIndex === 0"
             class="absolute !rounded-full z-10 top-4 rotate-90"
             variant="secondary"
             size="sm"
             square
-            @click="getPrevButtonProps.onClick"
           >
             <SfIconChevronLeft />
           </SfButton>
@@ -53,14 +53,14 @@
         >
           <img :alt="alt" class="object-contain border border-neutral-200" width="78" height="78" :src="image" />
         </button>
-        <template #nextButton>
+        <template #nextButton="defaultProps">
           <SfButton
+            v-bind="defaultProps"
             :disabled="activeIndex === itemsLength - 1"
             class="absolute !rounded-full z-10 bottom-4 rotate-90"
             variant="secondary"
             size="sm"
             square
-            @click="getNextButtonProps.onClick"
           >
             <SfIconChevronRight />
           </SfButton>
@@ -128,7 +128,6 @@ const isDragging = ref(false);
 const itemsLength = thumbImages.length;
 
 const imgPosition = activeIndex.value + offsetPosition.value;
-const { getNextButtonProps, getPrevButtonProps } = useScrollable();
 
 const pointerHandler = (e: PointerEvent<HTMLDivElement>) => {
   e.preventDefault();
