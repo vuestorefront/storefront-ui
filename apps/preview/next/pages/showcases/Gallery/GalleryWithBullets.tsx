@@ -49,7 +49,7 @@ export default function GalleryWithBullets() {
         }}
         slotPreviousButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !px-3 z-10 top-1/2 left-4"
+            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 left-4"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronLeft />}
@@ -57,25 +57,27 @@ export default function GalleryWithBullets() {
         }
         slotNextButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !px-3 z-10 top-1/2 right-4"
+            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 right-4"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronRight />}
           />
         }
       >
-        {images.map(({ image, alt }, index) => (
-          <div className="relative snap-center snap-always shrink-0 " key={`${alt}-${index}`}>
-            <img className="object-contain" alt={alt} src={image} draggable="false" />
-          </div>
-        ))}
+        <div className="flex w-full h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform">
+          {images.map(({ image, alt }, index) => (
+            <div className="relative basis-full shrink-0 grow" key={`${alt}-${index}`}>
+              <img className="object-contain" alt={alt} src={image} draggable="false" />
+            </div>
+          ))}
+        </div>
       </SfScrollable>
       <div className="flex-shrink-0 overflow-hidden basis-auto">
         <div className="flex-row w-full flex gap-0.5 mt overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
           {images.map((item, index) => (
             <div
               key={`${index}-bullet`}
-              className={`w-[78px] relative pb-1 border-b-4 cursor-pointer transition-colors  ${
+              className={`w-[78px] relative pb-1 border-b-4 transition-colors  ${
                 activeIndex === index ? 'border-primary-700' : 'border-gray-200'
               }`}
             />
