@@ -28,8 +28,9 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
       });
 
       unregister = scrollable.value?.register();
-      if (options?.value?.activeIndex && options?.value?.isActiveIndexCentered)
-        scrollable.value.scrollToIndex(options?.value?.activeIndex);
+      if (typeof options?.value?.activeIndex !== undefined && options?.value?.isActiveIndexCentered) {
+        scrollable.value.scrollToIndex(options?.value?.activeIndex as number);
+      }
     },
     { immediate: true, deep: true },
   );
