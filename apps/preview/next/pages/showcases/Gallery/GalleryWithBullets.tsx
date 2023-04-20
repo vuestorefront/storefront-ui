@@ -49,7 +49,7 @@ export default function GalleryWithBullets() {
         }}
         slotPreviousButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 left-4"
+            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronLeft />}
@@ -57,7 +57,7 @@ export default function GalleryWithBullets() {
         }
         slotNextButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 right-4"
+            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronRight />}
@@ -67,7 +67,7 @@ export default function GalleryWithBullets() {
         <div className="flex w-full h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform">
           {images.map(({ image, alt }, index) => (
             <div className="relative basis-full shrink-0 grow" key={`${alt}-${index}`}>
-              <img className="object-contain" alt={alt} src={image} draggable="false" />
+              <img className="object-contain w-full h-full" alt={alt} src={image} draggable="false" />
             </div>
           ))}
         </div>

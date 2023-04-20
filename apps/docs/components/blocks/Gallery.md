@@ -10,7 +10,7 @@ description: Gallery is the component that allows to scroll through multiple ima
 
 ## Product Gallery with vertical thumbnails
 
-Changing an image is delivered by hover on the thumbnail or dragging the main image.  
+Changing an image is provided by hover on the thumbnail or dragging the main image. There are buttons to scroll thumbnails up and down.
 
 <Showcase showcase-name="Gallery/GalleryVertical" style="min-height:800px">
 
@@ -25,7 +25,7 @@ Changing an image is delivered by hover on the thumbnail or dragging the main im
 
 ## Product Gallery with horizontal thumbnails
 
-Changing an image is delivered by click on the thumbnail or dragging the main image.  
+Changing an image is provided by click on the thumbnail or dragging the main image. You can scroll thumbnails by click on the button.
 
 <Showcase showcase-name="Gallery/GalleryHorizontal" style="min-height:800px">
 
@@ -40,15 +40,15 @@ Changing an image is delivered by click on the thumbnail or dragging the main im
 
 ## Product Gallery with bullets
 
-Changing an image is delivered by click on the buttons which are visible after hovering on the main image. 
+Changing an image is provided by click on the buttons which are visible after hovering on the main image. Currently displayed image is highlighted by the bullets below the main image. 
 
-<Showcase showcase-name="Gallery/GalleryHorizontal" style="min-height:800px">
+<Showcase showcase-name="Gallery/GalleryWithBullets" style="min-height:800px">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontal.vue
+<<<../../preview/nuxt/pages/showcases/Gallery/GalleryWithBullets.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Gallery/GalleryHorizontal.tsx#source
+<<<../../preview/next/pages/showcases/Gallery/GalleryWithBullets.tsx#source
 <!-- end react -->
 
 </Showcase>

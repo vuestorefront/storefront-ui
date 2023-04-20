@@ -138,7 +138,7 @@ export default function GalleryVertical() {
           slotPreviousButton={
             <SfButton
               className={classNames(
-                'absolute !rounded-full z-10 top-4 rotate-90',
+                'absolute !rounded-full z-10 top-4 rotate-90 bg-white',
                 firstThumbVisible?.isIntersecting ? 'hidden' : null,
               )}
               variant="secondary"
@@ -150,7 +150,7 @@ export default function GalleryVertical() {
           slotNextButton={
             <SfButton
               className={classNames(
-                'absolute !rounded-full z-10 bottom-4 rotate-90',
+                'absolute !rounded-full z-10 bottom-4 rotate-90 bg-white',
                 lastThumbVisible?.isIntersecting ? 'hidden' : null,
               )}
               variant="secondary"

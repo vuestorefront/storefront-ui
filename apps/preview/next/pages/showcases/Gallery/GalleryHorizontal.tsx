@@ -58,7 +58,6 @@ export default function GalleryHorizontal() {
   const [offsetPosition, setOffsetPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
-  const itemsLength = thumbImages.length;
   const imgPosition = activeIndex + offsetPosition;
 
   function pointerHandler(e: React.PointerEvent<HTMLDivElement>) {
@@ -112,19 +111,10 @@ export default function GalleryHorizontal() {
         <SfScrollable
           className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
           activeIndex={activeIndex}
-          previousDisabled={activeIndex === 0}
-          nextDisabled={activeIndex === itemsLength - 1}
-          onPrev={({ preventDefault }) => {
-            preventDefault();
-            setActiveIndex((currentValue) => currentValue - 1);
-          }}
-          onNext={({ preventDefault }) => {
-            preventDefault();
-            setActiveIndex((currentValue) => currentValue + 1);
-          }}
+          buttons-placement="floating"
           slotPreviousButton={
             <SfButton
-              className="absolute !rounded-full z-10 left-4"
+              className="absolute disabled:hidden !rounded-full z-10 left-4 bg-white"
               variant="secondary"
               size="sm"
               square
@@ -133,7 +123,7 @@ export default function GalleryHorizontal() {
           }
           slotNextButton={
             <SfButton
-              className="absolute !rounded-full z-10 right-4"
+              className="absolute disabled:hidden !rounded-full z-10 right-4 bg-white"
               variant="secondary"
               size="sm"
               square
