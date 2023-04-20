@@ -18,7 +18,7 @@
       'p-3',
       'border',
       'border-gray-300',
-      { 'max-w-[370px]': placement === SfDrawerPlacement.left || placement === SfDrawerPlacement.right },
+      { 'max-w-[370px]': placement === 'left' || placement === 'right' },
     ]"
   >
     <div>
