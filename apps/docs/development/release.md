@@ -11,7 +11,8 @@ Currently the release process is manual.
     - packages/sfui/tw-plugin-peer-next,
     - packages/config/tailwind,
     - packages/sfui/frameworks/vue,
-    - packages/sfui/frameworks/react.
+    - packages/sfui/frameworks/react,
+    - packages/sfui/frameworks/qwik.
 3. Make sure to update CHANGELOG.md with latest changes (for now manually).
 4. Create a PR with title: "chore(release): [NUMBER OF RELEASE]"
 5. After PR is merged tag it with `v[NUMBER OF RELEASE]` git tag.

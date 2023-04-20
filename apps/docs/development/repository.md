@@ -89,6 +89,7 @@ List of useful commands that could be used by developers. Execution in the comma
     - nuxt (Nuxt/Vue preview application)
     - vue (Vue preview application)
     - next (Next/React preview application)
+    - qwik-city (Qwik-City/Qwik preview application)
     - shared (shared utils for preview application)
 - packages (packages folder - reusable, static packages like configs and types)
   - sfui (reusable components, described in detail [here](https://github.com/vuestorefront/storefront-ui/blob/v2/packages/sfui/README.md)).
