@@ -71,7 +71,7 @@
                           :href="item.link"
                           size="sm"
                           role="none"
-                          class="focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
+                          class="focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
                         >
                           {{ item.title }}
                         </SfListItem>
