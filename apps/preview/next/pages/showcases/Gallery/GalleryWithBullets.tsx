@@ -64,13 +64,13 @@ export default function GalleryWithBullets() {
           />
         }
       >
-        <div className="flex w-full h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform">
+        {/* <div className="flex w-full h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"> */}
           {images.map(({ image, alt }, index) => (
             <div className="relative basis-full shrink-0 grow" key={`${alt}-${index}`}>
               <img className="object-contain w-full h-full" alt={alt} src={image} draggable="false" />
             </div>
           ))}
-        </div>
+        {/* </div> */}
       </SfScrollable>
       <div className="flex-shrink-0 overflow-hidden basis-auto">
         <div className="flex-row w-full flex gap-0.5 mt overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">

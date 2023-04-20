@@ -32,17 +32,17 @@
           <SfIconChevronLeft />
         </SfButton>
       </template>
-      <div
+      <!-- <div
         class="flex w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
+      > -->
+      <div
+        v-for="({ image, alt }, index) in images"
+        :key="`${alt}-${index}`"
+        class="relative basis-full snap-center snap-always shrink-0 grow"
       >
-        <div
-          v-for="({ image, alt }, index) in images"
-          :key="`${alt}-${index}`"
-          class="relative basis-full snap-center snap-always shrink-0 grow"
-        >
-          <img class="object-contain w-full h-full" :alt="alt" :src="image" draggable="false" />
-        </div>
+        <img class="object-contain w-full h-full" :alt="alt" :src="image" draggable="false" />
       </div>
+      <!-- </div> -->
       <template #nextButton="defaultProps">
         <SfButton
           v-bind="defaultProps"
