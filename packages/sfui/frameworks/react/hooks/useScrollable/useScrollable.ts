@@ -61,7 +61,7 @@ export function useScrollable<TElement extends HTMLElement>({
     };
     return {
       onClick: composeHandlers(handlePrev, userProps?.onClick),
-      disabled: userProps.disabled === undefined ? !state.hasPrev : userProps.disabled,
+      disabled: userProps.disabled || !state.hasPrev,
     };
   });
 

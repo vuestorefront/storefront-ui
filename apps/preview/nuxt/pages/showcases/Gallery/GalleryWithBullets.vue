@@ -2,17 +2,30 @@
   <div class="relative flex flex-col h-full gap-1 scroll-smooth">
     <SfScrollable
       class="group/scrollable items-center w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+      wrapper-class-names="!absolute top-0 left-0 w-full h-full"
       :active-index="activeIndex"
       is-active-index-centered
       :previous-disabled="activeIndex === 0"
       :next-disabled="activeIndex === itemsLength - 1"
       buttons-placement="floating"
+      @on-prev="
+        ({ preventDefault }) => {
+          preventDefault();
+          activeIndex -= 1;
+        }
+      "
+      @on-next="
+        ({ preventDefault }) => {
+          preventDefault();
+          activeIndex += 1;
+        }
+      "
     >
       <template #previousButton="defaultProps">
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === 0"
-          class="absolute !rounded-full !p-3 z-10 top-1/2 left-4"
+          class="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -26,16 +39,16 @@
         <div
           v-for="({ image, alt }, index) in images"
           :key="`${alt}-${index}`"
-          class="relative basis-full shrink-0 grow"
+          class="relative basis-full snap-center snap-always shrink-0 grow"
         >
-          <img class="object-contain" :alt="alt" :src="image" draggable="false" />
+          <img class="object-contain w-full h-full snap-center" :alt="alt" :src="image" draggable="false" />
         </div>
       </div>
       <template #nextButton="defaultProps">
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === itemsLength - 1"
-          class="absolute !rounded-full !p-3 z-10 top-1/2 right-4"
+          class="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
           variant="secondary"
           size="lg"
           square

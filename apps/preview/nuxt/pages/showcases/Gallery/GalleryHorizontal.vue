@@ -22,18 +22,15 @@
       <SfScrollable
         class="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
         :active-index="activeIndex"
-        :previous-disabled="activeIndex === 0"
-        :next-disabled="activeIndex === itemsLength - 1"
         buttons-placement="floating"
       >
-        <template #previousButton>
+        <template #previousButton="defaultProps">
           <SfButton
-            :disabled="activeIndex === 0"
-            class="absolute !rounded-full z-10 left-4"
+            v-bind="defaultProps"
+            class="absolute disabled:hidden !rounded-full z-10 left-4 bg-white"
             variant="secondary"
             size="sm"
             square
-            @click="activeIndex = activeIndex - 1"
           >
             <SfIconChevronLeft />
           </SfButton>
@@ -51,14 +48,13 @@
         >
           <img :alt="alt" class="object-contain border border-neutral-200" width="78" height="78" :src="image" />
         </button>
-        <template #nextButton>
+        <template #nextButton="defaultProps">
           <SfButton
-            :disabled="activeIndex === itemsLength - 1"
-            class="absolute !rounded-full z-10 right-4"
+            v-bind="defaultProps"
+            class="absolute disabled:hidden !rounded-full z-10 right-4 bg-white"
             variant="secondary"
             size="sm"
             square
-            @click="activeIndex = activeIndex + 1"
           >
             <SfIconChevronRight />
           </SfButton>
@@ -125,7 +121,6 @@ const draggableRef = ref<HTMLElement>();
 const { isSwiping } = useSwipe(draggableRef);
 const offsetPosition = ref(0);
 const activeIndex = ref(0);
-const itemsLength = ref(thumbImages.length);
 const imgPosition = computed(() => activeIndex.value + offsetPosition.value);
 
 const pointerHandler = (e: PointerEvent) => {
@@ -134,7 +129,6 @@ const pointerHandler = (e: PointerEvent) => {
     return;
   }
   draggableRef.value.setPointerCapture(e.pointerId);
-  console.log(e);
   const pointerDownOffset = computed(() => e.offsetX);
   isSwiping.value = true;
   const rect = draggableRef.value.getBoundingClientRect();

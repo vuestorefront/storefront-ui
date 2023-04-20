@@ -32,7 +32,7 @@
           <SfButton
             v-bind="defaultProps"
             :disabled="activeIndex === 0"
-            class="absolute !rounded-full z-10 top-4 rotate-90"
+            class="absolute !rounded-full z-10 top-4 rotate-90 bg-white"
             variant="secondary"
             size="sm"
             square
@@ -57,7 +57,7 @@
           <SfButton
             v-bind="defaultProps"
             :disabled="activeIndex === itemsLength - 1"
-            class="absolute !rounded-full z-10 bottom-4 rotate-90"
+            class="absolute !rounded-full z-10 bottom-4 rotate-90 bg-white"
             variant="secondary"
             size="sm"
             square
@@ -73,7 +73,7 @@
 <script lang="ts" setup>
 import { ref, computed, watch } from 'vue';
 import { clamp } from '@storefront-ui/shared';
-import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight, useScrollable } from '@storefront-ui/vue';
+import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/vue';
 import { useSwipe } from '@vueuse/core';
 
 import gallery1 from '@assets/gallery_1.png';
@@ -151,7 +151,7 @@ const pointerHandler = (e: PointerEvent) => {
 
 watch(isSwiping, () => {
   if (!isSwiping.value) {
-    const stopVal = offsetPosition.value > 0 ? Math.ceil(imgPosition.value) : Math.floor(imgPosition);
+    const stopVal = offsetPosition.value > 0 ? Math.ceil(imgPosition.value) : Math.floor(imgPosition.value);
     activeIndex.value = clamp(stopVal, 0, images.length - 1);
     offsetPosition.value = 0;
   }
