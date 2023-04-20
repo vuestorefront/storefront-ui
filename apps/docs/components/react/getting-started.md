@@ -133,6 +133,20 @@ module.exports = nextConfig
 ```
 
 :::
+
+::: tip Server/client components error
+Using Next 13 you may encounter issues with server/client components as Storefront UI doesn not support them yet. To resolve this issue we recommend to reexport problematic components with `"use client"` directive.
+
+```js
+'use client';
+import { SfTooltip } from '@storefront-ui/react';
+export default SfTooltip;
+
+```
+
+:::
+
+
 ::::::
 
 :::::: slot vite
