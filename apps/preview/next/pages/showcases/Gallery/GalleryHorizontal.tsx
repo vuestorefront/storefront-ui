@@ -102,7 +102,14 @@ export default function GalleryHorizontal() {
         >
           {images.map(({ image, alt }, index) => (
             <div className="relative snap-center snap-always basis-full shrink-0 grow" key={`${alt}-${index}`}>
-              <img className="object-contain" alt={alt} src={image} draggable="false" />
+              <img
+                aria-label={alt}
+                aria-hidden={activeIndex !== index}
+                className="object-contain"
+                alt={alt}
+                src={image}
+                draggable="false"
+              />
             </div>
           ))}
         </div>
@@ -135,6 +142,7 @@ export default function GalleryHorizontal() {
             <button
               type="button"
               aria-label={alt}
+              aria-current={activeIndex === index}
               key={`${alt}-${index}-thumbnail`}
               className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
                 activeIndex === index ? 'border-primary-700' : 'border-transparent'

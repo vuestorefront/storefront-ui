@@ -3,7 +3,7 @@
 import { ShowcasePageLayout } from '../../showcases';
 
 // #region source
-import { useState } from 'react';
+import { KeyboardEventHandler, useState } from 'react';
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
@@ -32,15 +32,20 @@ const images = [
 export default function GalleryWithBullets() {
   const [activeIndex, setActiveIndex] = useState(0);
   const itemsLength = images.length;
+  const keyDownHandler: KeyboardEventHandler = (e) => {
+    if (e.key === 'Tab') setActiveIndex(activeIndex + 1);
+    if (e.key === 'Tab' && e.shiftKey) setActiveIndex(activeIndex - 1);
+  };
   return (
     <div className="relative flex flex-col gap-1 scroll-smooth">
       <SfScrollable
-        className="group/scrollable items-center w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        className="w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        wrapperClassName="group/scrollable"
         activeIndex={activeIndex}
         isActiveIndexCentered
         previousDisabled={activeIndex === 0}
         nextDisabled={activeIndex === itemsLength - 1}
-        buttonsPlacement="floating"
+        buttonsPlacement="block"
         onPrev={() => {
           setActiveIndex(() => activeIndex - 1);
         }}
@@ -64,22 +69,34 @@ export default function GalleryWithBullets() {
           />
         }
       >
-        {/* <div className="flex w-full h-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"> */}
-          {images.map(({ image, alt }, index) => (
-            <div className="relative basis-full shrink-0 grow" key={`${alt}-${index}`}>
-              <img className="object-contain w-full h-full" alt={alt} src={image} draggable="false" />
-            </div>
-          ))}
-        {/* </div> */}
+        {images.map(({ image, alt }, index) => (
+          <div
+            className="relative flex justify-center basis-full snap-center snap-always shrink-0 grow"
+            key={`${alt}-${index}`}
+          >
+            <img
+              aria-label={alt}
+              aria-hidden={activeIndex !== index}
+              className="object-contain w-auto h-full"
+              alt={alt}
+              src={image}
+              draggable="false"
+            />
+          </div>
+        ))}
       </SfScrollable>
       <div className="flex-shrink-0 overflow-hidden basis-auto">
         <div className="flex-row w-full flex gap-0.5 mt overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-          {images.map((item, index) => (
-            <div
+          {images.map(({ alt }, index) => (
+            <button
               key={`${index}-bullet`}
+              aria-label={alt}
+              aria-current={activeIndex === index}
+              type="button"
               className={`w-[78px] relative pb-1 border-b-4 transition-colors  ${
                 activeIndex === index ? 'border-primary-700' : 'border-gray-200'
               }`}
+              onKeyDown={keyDownHandler}
             />
           ))}
         </div>

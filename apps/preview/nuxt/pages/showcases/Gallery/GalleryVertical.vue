@@ -14,7 +14,14 @@
           :key="`${alt}-${index}`"
           class="relative snap-center snap-always basis-full shrink-0 grow"
         >
-          <img class="object-contain" :alt="alt" :src="image" draggable="false" />
+          <img
+            :aria-label="alt"
+            :aria-hidden="activeIndex !== index"
+            class="object-contain"
+            :alt="alt"
+            :src="image"
+            draggable="false"
+          />
         </div>
       </div>
     </div>
@@ -45,6 +52,7 @@
           :key="`${alt}-${index}-thumbnail`"
           type="button"
           :aria-label="alt"
+          :aria-current="activeIndex === index"
           :class="`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
             activeIndex === index ? 'border-primary-700' : 'border-transparent'
           }`"

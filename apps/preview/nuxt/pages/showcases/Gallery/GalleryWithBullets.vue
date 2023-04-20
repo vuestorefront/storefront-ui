@@ -1,12 +1,13 @@
 <template>
   <div class="relative flex flex-col h-full gap-1 scroll-smooth">
     <SfScrollable
-      class="group/scrollable items-center w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+      class="w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
       :active-index="activeIndex"
+      wrapper-class="group/scrollable"
       is-active-index-centered
       :previous-disabled="activeIndex === 0"
       :next-disabled="activeIndex === itemsLength - 1"
-      buttons-placement="floating"
+      buttons-placement="block"
       @on-prev="
         ({ preventDefault }) => {
           preventDefault();
@@ -24,7 +25,7 @@
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === 0"
-          class="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
+          class="peer absolute hidden group-hover/scrollable:block group-focus/scrollable:block focus:block !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -32,22 +33,25 @@
           <SfIconChevronLeft />
         </SfButton>
       </template>
-      <!-- <div
-        class="flex w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
-      > -->
       <div
         v-for="({ image, alt }, index) in images"
         :key="`${alt}-${index}`"
-        class="relative basis-full snap-center snap-always shrink-0 grow"
+        class="relative flex justify-center basis-full snap-center snap-always shrink-0 grow"
       >
-        <img class="object-contain w-full h-full" :alt="alt" :src="image" draggable="false" />
+        <img
+          class="object-cover w-auto h-full"
+          :aria-label="alt"
+          :aria-hidden="activeIndex !== index"
+          :alt="alt"
+          :src="image"
+          draggable="false"
+        />
       </div>
-      <!-- </div> -->
       <template #nextButton="defaultProps">
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === itemsLength - 1"
-          class="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
+          class="absolute hidden group-hover/scrollable:block group-focus/scrollable:block focus:block peer-focus:block !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -60,13 +64,17 @@
       <div
         class="flex-row w-full flex gap-0.5 mt overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
       >
-        <div
-          v-for="(item, index) in images"
+        <button
+          v-for="({ alt }, index) in images"
           :key="`${index}-bullet`"
+          :aria-current="activeIndex === index"
+          :aria-label="alt"
           :class="[
             'w-[78px] relative pb-1 border-b-4 snap-start transition-colors',
             activeIndex === index ? 'border-primary-700' : 'border-gray-200',
           ]"
+          @keydown.tab.exact="activeIndex = index + 1"
+          @keydown.tab.shift="activeIndex = index - 1"
         />
       </div>
     </div>
