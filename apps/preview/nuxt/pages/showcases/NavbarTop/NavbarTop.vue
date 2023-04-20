@@ -14,22 +14,20 @@
           </template>
           <span class="hidden md:inline-flex">Categories</span>
         </SfButton>
-        <nav>
-          <div class="flex flex-row flex-nowrap">
-            <SfButton
-              v-for="actionItem in actionItems"
-              :key="actionItem.ariaLabel"
-              class="mr-2 -ml-0.5 rounded-md text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
-              :aria-label="actionItem.ariaLabel"
-              variant="tertiary"
-              square
-            >
-              <template #prefix>
-                <Component :is="actionItem.icon" />
-              </template>
-              <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
-            </SfButton>
-          </div>
+        <nav class="flex flex-row flex-nowrap">
+          <SfButton
+            v-for="actionItem in actionItems"
+            :key="actionItem.ariaLabel"
+            class="mr-2 -ml-0.5 rounded-md text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
+            :aria-label="actionItem.ariaLabel"
+            variant="tertiary"
+            square
+          >
+            <template #prefix>
+              <Component :is="actionItem.icon" />
+            </template>
+            <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
+          </SfButton>
         </nav>
       </div>
     </header>
