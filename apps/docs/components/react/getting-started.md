@@ -141,7 +141,6 @@ Using Next 13 you may encounter issues with server/client components as Storefro
 'use client';
 import { SfTooltip } from '@storefront-ui/react';
 export default SfTooltip;
-
 ```
 
 :::
