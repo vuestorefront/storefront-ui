@@ -145,8 +145,8 @@ export default function FiltersPanel() {
 
   return (
     <aside>
-      <div className="flex items-center justify-between">
-        <h4 className="px-2 font-bold typography-headline-4 mb-4">List settings</h4>
+      <div className="flex items-center justify-between mb-4">
+        <h4 className="px-2 font-bold typography-headline-4">List settings</h4>
         {selectedFilters.length ? (
           <SfButton
             type="reset"
