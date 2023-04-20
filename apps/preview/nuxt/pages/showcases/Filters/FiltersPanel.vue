@@ -1,32 +1,26 @@
 <template>
   <aside>
     <div class="flex justify-between">
-      <h4 class="px-2 font-bold typography-headline-4">Filters</h4>
-      <SfButton
-        v-if="selectedFilters.length"
-        type="reset"
-        size="sm"
-        variant="tertiary"
-        class="hidden md:flex text-neutral-500"
-        @click="clearSelection()"
-      >
-        Clear all
-        <template #suffix>
-          <SfIconCancel size="sm" />
-        </template>
-      </SfButton>
-      <button type="button" class="md:hidden text-neutral-500">
+      <h4 class="px-2 font-bold typography-headline-4 mb-4">List settings</h4>
+      <button type="button" class="sm:hidden text-neutral-500" aria-label="Close filters panel">
         <SfIconClose />
       </button>
     </div>
-    <hr class="my-4" />
-    <p class="px-2 mb-2 font-medium typography-headline-5">Sort by:</p>
+    <h5
+      class="py-2 px-4 mb-6 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md"
+    >
+      Sort by
+    </h5>
     <div class="px-2">
       <SfSelect v-model="sortModel" aria-label="Sort by">
         <option v-for="{ id, label, value } in sortOptions" :key="id" :value="value">{{ label }}</option>
       </SfSelect>
     </div>
-    <hr class="my-4" />
+    <h5
+      class="py-2 px-4 mt-6 mb-4 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md"
+    >
+      Filters
+    </h5>
     <ul>
       <!-- eslint-disable-next-line prettier/prettier -->
       <li v-for="{ id: filterDataId, type, summary, details }, index in filtersData" :key="filterDataId">
@@ -92,7 +86,12 @@
               class="px-1.5 bg-transparent hover:bg-transparent"
             >
               <template #prefix>
-                <SfRadio v-model="radioModel" name="radio-price" :value="value" />
+                <SfRadio
+                  v-model="radioModel"
+                  name="radio-price"
+                  :value="value"
+                  @update:model-value="handleSingleSelection(value)"
+                />
               </template>
               <p>
                 <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
@@ -105,9 +104,7 @@
       </li>
     </ul>
     <div class="flex justify-between">
-      <SfButton variant="secondary" class="w-full mr-3 md:hidden" @click="clearSelection()">
-        Clear all filters
-      </SfButton>
+      <SfButton variant="secondary" class="w-full mr-3" @click="clearSelection()"> Clear all filters </SfButton>
       <SfButton class="w-full">Show products</SfButton>
     </div>
   </aside>
@@ -122,7 +119,6 @@ import {
   SfCheckbox,
   SfCounter,
   SfIconChevronLeft,
-  SfIconCancel,
   SfIconClose,
   SfListItem,
   SfRadio,
