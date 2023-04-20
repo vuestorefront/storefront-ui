@@ -1,7 +1,8 @@
 <template>
-  <nav class="flex justify-between border-t border-neutral-200" role="navigation" aria-label="pagination">
+  <nav class="flex justify-between items-center border-t border-neutral-200" role="navigation" aria-label="pagination">
     <SfButton
       type="button"
+      size="lg"
       aria-label="Go to previous page"
       :disabled="selectedPage <= 1"
       variant="tertiary"
@@ -52,7 +53,7 @@
         <div
           :class="[
             'flex pt-1 border-t-4 border-transparent',
-            { 'font-medium border-t-4 !border-primary-500': selectedPage === page },
+            { 'font-medium border-t-4 !border-primary-700': selectedPage === page },
           ]"
         >
           <button
@@ -106,6 +107,7 @@
     </ul>
     <SfButton
       type="button"
+      size="lg"
       aria-label="Go to next page"
       :disabled="selectedPage >= totalPages"
       variant="tertiary"
