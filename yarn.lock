@@ -4043,7 +4043,6 @@ __metadata:
     classnames: ^2.3.2
     eslint: ^8.34.0
     jw-paginate: ^1.0.4
-    merge-refs: ^1.1.2
     react-polymorphed: ^2.1.0
     react-transition-group: ^4.4.5
     react-use: ^17.4.0
@@ -16940,15 +16939,6 @@ __metadata:
   version: 1.0.1
   resolution: "merge-descriptors@npm:1.0.1"
   checksum: 5abc259d2ae25bb06d19ce2b94a21632583c74e2a9109ee1ba7fd147aa7362b380d971e0251069f8b3eb7d48c21ac839e21fa177b335e82c76ec172e30c31a26
-  languageName: node
-  linkType: hard
-
-"merge-refs@npm:^1.1.2":
-  version: 1.1.3
-  resolution: "merge-refs@npm:1.1.3"
-  dependencies:
-    "@types/react": "*"
-  checksum: beb413608e307866fb1b44cbb3bc6b2d2b9c117a416f85513716c5ab4701abfa03f2b4ab77c6ce7ece5b724d4b88a440479591be23d06d546cd2ceddc84997af
   languageName: node
   linkType: hard
 
