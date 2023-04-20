@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState, type Ref } from 'react';
-import { type UseScrollableOptions, Scrollable, composeHandlers, createPropsGetter } from '@storefront-ui/react';
+import { type Ref, useEffect, useRef, useState } from 'react';
 import { mergeRefs } from 'react-merge-refs';
+import { type UseScrollableOptions, Scrollable, composeHandlers, createPropsGetter } from '@storefront-ui/react';
 
 export function useScrollable<TElement extends HTMLElement>({
   activeIndex,
@@ -55,28 +55,28 @@ export function useScrollable<TElement extends HTMLElement>({
     isActiveIndexCentered,
   ]);
 
-  const getPrevButtonProps = createPropsGetter((props) => {
-    const onClick = () => {
+  const getPrevButtonProps = createPropsGetter((userProps) => {
+    const handlePrev = () => {
       scrollable.current?.prev();
     };
     return {
-      onClick: composeHandlers(onClick, props?.onClick),
-      disabled: props.disabled === undefined ? !state.hasPrev : props.disabled,
+      onClick: composeHandlers(handlePrev, userProps?.onClick),
+      disabled: userProps.disabled === undefined ? !state.hasPrev : userProps.disabled,
     };
   });
 
-  const getNextButtonProps = createPropsGetter((props) => {
-    const onClick = () => {
+  const getNextButtonProps = createPropsGetter((userProps) => {
+    const handleNext = () => {
       scrollable.current?.next();
     };
     return {
-      onClick: composeHandlers(onClick, props?.onClick),
-      disabled: props.disabled === undefined ? !state.hasNext : props.disabled,
+      onClick: composeHandlers(handleNext, userProps?.onClick),
+      disabled: userProps.disabled || !state.hasNext,
     };
   });
 
-  const getContainerProps = createPropsGetter((props) => ({
-    ref: mergeRefs([containerElement, props.ref as Ref<HTMLElement>]),
+  const getContainerProps = createPropsGetter((userProps) => ({
+    ref: mergeRefs([containerElement, userProps.ref].filter(Boolean) as Ref<HTMLElement>[]),
   }));
 
   return {

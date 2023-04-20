@@ -3,7 +3,7 @@ import type { UseScrollableOptions, PropsWithStyle } from '@storefront-ui/react'
 import { SfScrollableButtonsPlacement } from '@storefront-ui/react';
 
 export interface SfScrollableProps extends UseScrollableOptions, PropsWithChildren, PropsWithStyle {
-  wrapperClassNames?: string;
+  wrapperClassName?: string;
   slotPreviousButton?: ReactElement;
   slotNextButton?: ReactElement;
   previousDisabled?: boolean;

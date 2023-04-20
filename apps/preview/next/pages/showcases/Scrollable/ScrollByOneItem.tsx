@@ -10,7 +10,7 @@ export default function ScrollableMoveByOne() {
 
   return (
     <SfScrollable
-      wrapperClassNames="min-w-0"
+      wrapperClassName="min-w-0"
       className="items-center w-full"
       activeIndex={activeIndex}
       previousDisabled={activeIndex === 0}
