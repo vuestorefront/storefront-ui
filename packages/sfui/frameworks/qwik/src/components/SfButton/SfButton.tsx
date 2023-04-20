@@ -33,8 +33,6 @@ export const SfButton = component$<SfButtonProps>(
     variant = SfButtonVariant.primary,
     square,
     children,
-    slotPrefix,
-    slotSuffix,
     disabled,
     ...attributes
   }) => {
