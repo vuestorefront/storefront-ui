@@ -25,7 +25,7 @@
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === 0"
-          class="peer absolute hidden group-hover/scrollable:block group-focus/scrollable:block focus:block !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
+          class="peer absolute hidden group-hover/scrollable:block !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -51,7 +51,7 @@
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === itemsLength - 1"
-          class="absolute hidden group-hover/scrollable:block group-focus/scrollable:block focus:block peer-focus:block !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
+          class="absolute hidden group-hover/scrollable:block !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -70,7 +70,7 @@
           :aria-current="activeIndex === index"
           :aria-label="alt"
           :class="[
-            'w-[78px] relative pb-1 border-b-4 snap-start transition-colors',
+            'w-[78px] relative mt-1 border-b-4 snap-start transition-colors focus-visible:outline focus-visible:outline-offset-0 pointer-events-none',
             activeIndex === index ? 'border-primary-700' : 'border-gray-200',
           ]"
           @keydown.tab.exact="activeIndex = index + 1"

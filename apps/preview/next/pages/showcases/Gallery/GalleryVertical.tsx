@@ -108,7 +108,7 @@ export default function GalleryVertical() {
   return (
     <div className="relative max-h-[700px] flex flex-col h-full md:flex-row scroll-smooth md:gap-4">
       <div
-        className="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
+        className="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y"
         ref={draggableRef}
         onPointerDown={pointerHandler}
       >
@@ -119,11 +119,11 @@ export default function GalleryVertical() {
           }}
         >
           {images.map(({ image, alt }, index) => (
-            <div className="relative snap-always basis-full shrink-0 grow" key={`${alt}-${index}`}>
+            <div className="relative flex justify-center snap-always basis-full shrink-0 grow" key={`${alt}-${index}`}>
               <img
                 aria-label={alt}
                 aria-hidden={activeIndex !== index}
-                className="object-contain"
+                className="object-cover w-auto h-full"
                 alt={alt}
                 src={image}
                 draggable="false"
@@ -175,7 +175,7 @@ export default function GalleryVertical() {
               aria-label={alt}
               aria-current={activeIndex === index}
               key={`${alt}-${index}-thumbnail`}
-              className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-center cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
+              className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 border-b-4 snap-center cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
                 activeIndex === index ? 'border-primary-700' : 'border-transparent'
               }`}
               onMouseOver={() => setActiveIndex(index)}
