@@ -207,12 +207,7 @@ export default function BaseMegaMenu() {
                         <ul>
                           {items.map((item) => (
                             <li key={item.title}>
-                              <SfListItem
-                                as="a"
-                                size="sm"
-                                role="none"
-                                href={item.link}
-                              >
+                              <SfListItem as="a" size="sm" role="none" href={item.link}>
                                 {item.title}
                               </SfListItem>
                             </li>
