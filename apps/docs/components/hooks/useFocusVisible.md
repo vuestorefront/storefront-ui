@@ -6,6 +6,10 @@ description: Determine whether keyboard focus is visible globally
 
 # useFocusVisible
 
+::: warning This is an experimental component
+This component is shipped in our NPM package, but its API might change based on user feedback.
+:::
+
 ::: slot usage
 
 `useFocusVisible` helps you determine whether keyboard focus is visible globally. Sometimes standard `:focus-visible` pseudo-class is not enough. In some cases, you may want to style a wrapper element based on nested input. You can't fully rely on `:has()` pseudo-class yet, as it is still not fully [supported](https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility).
