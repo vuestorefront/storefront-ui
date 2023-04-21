@@ -32,8 +32,6 @@ export const SfButton = component$<SfButtonProps>(
     size = SfButtonSize.base,
     variant = SfButtonVariant.primary,
     square,
-    children,
-    disabled,
     ...attributes
   }) => {
     const Tag = as || defaultButtonTag;
@@ -49,7 +47,6 @@ export const SfButton = component$<SfButtonProps>(
           className,
         ]}
         data-testid="button"
-        disabled={disabled}
         {...attributes}
       >
         <Slot name="prefix" />

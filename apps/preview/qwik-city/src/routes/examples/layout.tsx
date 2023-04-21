@@ -1,4 +1,4 @@
-import { component$, Slot, useSignal } from '@builder.io/qwik';
+import { component$, createContextId, Slot, useContextProvider, useSignal, useStore } from '@builder.io/qwik';
 import { Link, useLocation } from '@builder.io/qwik-city';
 import {
   SfButton,
@@ -6,9 +6,11 @@ import {
   SfButtonVariant,
   SfIconChevronLeft,
   SfIconChevronRight,
-  SfIconExpandMore,
   SfListItem,
 } from '@storefront-ui/qwik';
+import { ControlsType } from '~/components/utils/types';
+
+export const EXAMPLES_STATE = createContextId<{data: {controls: ControlsType, state: any}}>('EXAMPLES_STATE');
 
 const files = import.meta.glob('./**');
 const paths = Object.keys(files);
@@ -26,11 +28,11 @@ const groups = paths.reduce((prev: Record<string, { showcases: string[] }>, curr
 
 export default component$(() => {
   const isOpenSignal = useSignal(true);
-  const groupsOpenSignal = useSignal();
-
   const location = useLocation();
-
-  const groupItemHref = (groupName: string, showcaseName: string) => `/showcases/${groupName}/${showcaseName}`;
+  const groupItemHref = (groupName: string, showcaseName: string) => `/examples/${groupName}/${showcaseName}`;
+  
+  const state = useStore({data: {}}, {deep: true});
+  useContextProvider(EXAMPLES_STATE, state);
 
   const isDocsRoute = location.url.searchParams.get('doc');
   return (
@@ -52,38 +54,23 @@ export default component$(() => {
           >
             <div q:slot="prefix">{isOpenSignal.value ? <SfIconChevronLeft /> : <SfIconChevronRight />}</div>
           </SfButton>
-          <ul class="sidebar-list">
+          <ul class="sidebar-list flex flex-col">
             {Object.keys(groups).map((group) => (
-              <div key={group}>
-                <li
-                  class="flex justify-between px-2 py-1 bg-gray-200 cursor-pointer select-none"
-                  onClick$={() => {
-                    // groupsOpenSignal.value = group;
-                  }}
-                >
-                  {group}
-                  <SfIconExpandMore class={`${!groupsOpenSignal.value ? 'rotate-180' : ''}`} />
-                </li>
-                {!groupsOpenSignal.value ? (
-                  <li>
-                    <ul>
-                      {groups[group].showcases.map((showcaseName) => (
-                        <li key={showcaseName} data-sidebar-component={showcaseName}>
-                          <Link href={groupItemHref(group, showcaseName)}>
-                            <SfListItem
-                              selected={location.url.pathname === groupItemHref(group, showcaseName)}
-                              class={location.url.pathname === groupItemHref(group, showcaseName) ? 'font-medium' : ''}
-                              as="span"
-                            >
-                              {showcaseName}
-                            </SfListItem>
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
+              <>
+                {groups[group].showcases.map((showcaseName) => (
+                  <li key={showcaseName} data-sidebar-component={showcaseName}>
+                    <Link href={groupItemHref(group, showcaseName)}>
+                      <SfListItem
+                        selected={location.url.pathname === groupItemHref(group, showcaseName)}
+                        class={location.url.pathname === groupItemHref(group, showcaseName) ? 'font-medium' : ''}
+                        as="span"
+                      >
+                        {showcaseName}
+                      </SfListItem>
+                    </Link>
                   </li>
-                ) : undefined}
-              </div>
+                ))}
+              </>
             ))}
           </ul>
         </div>

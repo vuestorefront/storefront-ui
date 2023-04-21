@@ -1,5 +1,5 @@
-import { component$, useSignal } from "@builder.io/qwik";
-import { SfButton, SfIconClose, SfModal } from "@storefront-ui/qwik";
+import { component$, useSignal } from '@builder.io/qwik';
+import { SfButton, SfIconClose, SfModal } from '@storefront-ui/qwik';
 
 export default component$(() => {
   const openSignal = useSignal(false);
@@ -9,13 +9,20 @@ export default component$(() => {
 
   return (
     <>
-      <SfButton type="button" onClick$={()=> openSignal.value = true}>
+      <SfButton
+        type="button"
+        onClick$={() => {
+          openSignal.value = true;
+        }}
+      >
         To Checkout
       </SfButton>
 
       <SfModal
         open={openSignal.value}
-        onClose$={()=> {openSignal.value = false}}
+        onClose$={() => {
+          openSignal.value = false;
+        }}
         class="max-w-[90%] md:max-w-lg"
         as="section"
         role="alertdialog"
@@ -23,7 +30,14 @@ export default component$(() => {
         aria-describedby="promoModalDesc"
       >
         <header>
-          <SfButton square variant="tertiary" class="absolute right-2 top-2" onClick$={()=> {openSignal.value = false}}>
+          <SfButton
+            square
+            variant="tertiary"
+            class="absolute right-2 top-2"
+            onClick$={() => {
+              openSignal.value = false;
+            }}
+          >
             <SfIconClose />
           </SfButton>
           <h3 id="promoModalTitle" class="font-bold typography-headline-4 md:typography-headline-3">
@@ -35,10 +49,21 @@ export default component$(() => {
           proceeding to checkout page?
         </p>
         <footer class="flex justify-end gap-4 mt-4">
-          <SfButton type="button" variant="secondary" onClick$={()=> {openSignal.value = false}}>
+          <SfButton
+            type="button"
+            variant="secondary"
+            onClick$={() => {
+              openSignal.value = false;
+            }}
+          >
             Skip
           </SfButton>
-          <SfButton type="button" onClick$={()=> {openSignal.value = false}}>
+          <SfButton
+            type="button"
+            onClick$={() => {
+              openSignal.value = false;
+            }}
+          >
             Yes!
           </SfButton>
         </footer>

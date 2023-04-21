@@ -14,7 +14,13 @@ export default component$(() => {
       }}
     >
       <div q:slot="trigger">
-        <SfButton onClick$={() => (openSignal.value = !openSignal.value)}>Toggle</SfButton>
+        <SfButton
+          onClick$={() => {
+            openSignal.value = !openSignal.value;
+          }}
+        >
+          Toggle
+        </SfButton>
       </div>
       <ul class="p-2 rounded bg-gray-100">
         <li>More</li>

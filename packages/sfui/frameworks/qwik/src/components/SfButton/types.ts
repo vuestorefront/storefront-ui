@@ -1,4 +1,4 @@
-import { Signal } from '@builder.io/qwik';
+import { PropFunction, QwikMouseEvent, Signal } from '@builder.io/qwik';
 import { QwikIntrinsicElements, JSXChildren } from '@builder.io/qwik';
 import { SfButtonSize, SfButtonVariant } from '@storefront-ui/shared';
 
@@ -10,4 +10,5 @@ export type SfButtonProps = QwikIntrinsicElements['button'] & QwikIntrinsicEleme
   size?: `${SfButtonSize}`;
   variant?: `${SfButtonVariant}`;
   square?: boolean;
+  onClick$?: PropFunction<(event: QwikMouseEvent<HTMLButtonElement, MouseEvent>) => void>
 };

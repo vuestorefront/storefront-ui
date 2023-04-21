@@ -20,7 +20,12 @@ export default component$(() => {
           <option value="left">left</option>
         </select>
       </label>
-      <SfButton onClick$={() => (openSignal.value = true)} type="button">
+      <SfButton
+        onClick$={() => {
+          openSignal.value = true;
+        }}
+        type="button"
+      >
         Open Drawer
       </SfButton>
 

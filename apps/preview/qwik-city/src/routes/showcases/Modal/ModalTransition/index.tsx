@@ -12,12 +12,17 @@ export default component$(() => {
 
   return (
     <>
-      <SfButton type="button" onClick$={()=> openSignal.value = true}>
+      <SfButton
+        type="button"
+        onClick$={() => {
+          openSignal.value = true;
+        }}
+      >
         To Checkout
       </SfButton>
 
       {/* Backdrop */}
-      
+
       {/* TODO */}
       {/* <transition
         enter-active-class="transition duration-200 ease-out"
@@ -41,7 +46,9 @@ export default component$(() => {
       >
         <SfModal
           open={openSignal.value}
-          onClose$={()=> {openSignal.value = false}}
+          onClose$={() => {
+            openSignal.value = false;
+          }}
           // TODO
           // {...(modalRef ? { ref: modalRef } : {})}
           as="section"
@@ -55,7 +62,9 @@ export default component$(() => {
               square
               variant="tertiary"
               class="absolute right-2 top-2"
-              onClick$={() => (openSignal.value = false)}
+              onClick$={() => {
+                openSignal.value = false;
+              }}
             >
               <SfIconClose />
             </SfButton>
@@ -68,10 +77,21 @@ export default component$(() => {
             proceeding to checkout page?
           </p>
           <footer class="flex justify-end gap-4 mt-4">
-            <SfButton type="button" variant="secondary" onClick$={() => (openSignal.value = false)}>
+            <SfButton
+              type="button"
+              variant="secondary"
+              onClick$={() => {
+                openSignal.value = false;
+              }}
+            >
               Skip
             </SfButton>
-            <SfButton type="button" onClick$={() => (openSignal.value = false)}>
+            <SfButton
+              type="button"
+              onClick$={() => {
+                openSignal.value = false;
+              }}
+            >
               Yes!
             </SfButton>
           </footer>

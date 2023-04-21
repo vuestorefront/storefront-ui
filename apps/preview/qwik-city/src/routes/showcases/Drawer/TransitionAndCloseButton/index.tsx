@@ -10,7 +10,12 @@ export default component$(() => {
 
   return (
     <>
-      <SfButton onClick$={() => (openSignal.value = true)} type="button">
+      <SfButton
+        onClick$={() => {
+          openSignal.value = true;
+        }}
+        type="button"
+      >
         Open Drawer
       </SfButton>
 
