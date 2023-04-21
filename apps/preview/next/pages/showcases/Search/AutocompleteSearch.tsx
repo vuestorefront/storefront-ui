@@ -1,17 +1,18 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { type ChangeEvent, type FormEvent, useState, useEffect, useRef } from 'react';
+import { useDebounce } from 'react-use';
 import {
   SfInput,
   SfIconSearch,
   SfIconCancel,
   SfButton,
-  SfDropdown,
   useDisclosure,
   SfListItem,
   SfLoaderCircular,
+  useTrapFocus,
+  useDropdown,
 } from '@storefront-ui/react';
-import { useDebounce } from 'react-use';
 
 interface Product {
   id: string;
@@ -73,7 +74,7 @@ const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const mockSearchRequest = async (phrase: string) => {
   console.log('SEARCH WITH PHRASE:', phrase);
-  alert(`Searching phrase: ${phrase}`);
+  // alert(`Searching phrase: ${phrase}`);
 };
 
 const mockAutocompleteRequest = async (phrase: string) => {
@@ -90,12 +91,13 @@ const mockAutocompleteRequest = async (phrase: string) => {
 };
 
 export default function AutocompleteSearch() {
-  useRef();
   const [searchValue, setSearchValue] = useState('');
   const [debouncedSearchValue, setDebouncedSearchValue] = useState('');
   const [snippets, setSnippets] = useState<[string, string, Product][]>([]);
   const { isOpen, close, open } = useDisclosure();
+  const { refs, style } = useDropdown({ onClose: close, placement: 'bottom-start' });
   const [isLoadingSnippets, setIsLoadingSnippets] = useState(false);
+  useTrapFocus(refs.floating, { arrowKeysOn: true, activeState: isOpen });
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -156,55 +158,54 @@ export default function AutocompleteSearch() {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <SfDropdown
-          open={isOpen}
-          onClose={close}
-          className="!w-full"
-          placement="bottom-start"
-          trigger={
-            <label>
-              <SfInput
-                value={searchValue}
-                onChange={handleChange}
-                onFocus={open}
-                placeholder="Search"
-                slotPrefix={<SfIconSearch />}
-                slotSuffix={
-                  <SfButton onClick={handleReset} square variant="tertiary" aria-label="Reset search">
-                    <SfIconCancel />
-                  </SfButton>
-                }
-              />
-            </label>
-          }
-        >
-          {isLoadingSnippets ? (
-            <div className="w-full h-20 flex justify-center items-center border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2">
-              <SfLoaderCircular />
-            </div>
-          ) : (
-            snippets.length > 0 && (
-              <ul className="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2">
-                {snippets.map(([highlight, rest, product]) => (
-                  <li key={product.id}>
-                    <SfListItem
-                      as="button"
-                      type="button"
-                      onClick={handleSelect(product.name)}
-                      className="flex justify-start"
-                    >
-                      <p className="text-left">
-                        <span>{highlight}</span>
-                        <span className="font-semibold">{rest}</span>
-                      </p>
-                    </SfListItem>
-                  </li>
-                ))}
-              </ul>
-            )
-          )}
-        </SfDropdown>
+      <form onSubmit={handleSubmit} ref={refs.setReference} className="relative">
+        <label>
+          <SfInput
+            value={searchValue}
+            onChange={handleChange}
+            onFocus={open}
+            placeholder="Search"
+            slotPrefix={<SfIconSearch />}
+            slotSuffix={
+              <SfButton onClick={handleReset} square variant="tertiary" aria-label="Reset search">
+                <SfIconCancel />
+              </SfButton>
+            }
+          />
+        </label>
+        {isOpen && (
+          <div
+            ref={refs.setFloating}
+            style={style}
+            className="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2 right-0 left-0"
+          >
+            {isLoadingSnippets ? (
+              <div className="w-full h-20 flex justify-center items-center">
+                <SfLoaderCircular />
+              </div>
+            ) : (
+              snippets.length > 0 && (
+                <ul>
+                  {snippets.map(([highlight, rest, product]) => (
+                    <li key={product.id}>
+                      <SfListItem
+                        as="button"
+                        type="button"
+                        onClick={handleSelect(product.name)}
+                        className="flex justify-start"
+                      >
+                        <p className="text-left">
+                          <span>{highlight}</span>
+                          <span className="font-semibold">{rest}</span>
+                        </p>
+                      </SfListItem>
+                    </li>
+                  ))}
+                </ul>
+              )
+            )}
+          </div>
+        )}
       </form>
     </>
   );
