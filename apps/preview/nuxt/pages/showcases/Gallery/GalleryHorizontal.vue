@@ -1,8 +1,8 @@
 <template>
-  <div class="relative flex flex-col h-full gap-4 scroll-smooth">
+  <div class="relative flex flex-col h-full scroll-smooth">
     <div
       ref="draggableRef"
-      class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
+      class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y"
       @pointerdown="pointerHandler"
     >
       <div
@@ -12,12 +12,12 @@
         <div
           v-for="({ image, alt }, index) in images"
           :key="`${alt}-${index}`"
-          class="relative snap-center snap-always basis-full shrink-0 grow"
+          class="relative flex justify-center snap-center snap-always basis-full shrink-0 grow"
         >
           <img
             :aria-label="alt"
             :aria-hidden="activeIndex !== index"
-            class="object-contain"
+            class="object-cover w-auto h-full"
             :alt="alt"
             :src="image"
             draggable="false"
@@ -49,7 +49,7 @@
           :aria-label="alt"
           :aria-current="activeIndex === index"
           :class="[
-            'md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0',
+            'md:w-[78px] md:h-auto relative shrink-0 pb-1 my-4 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0',
             activeIndex === index ? 'border-primary-700' : 'border-transparent',
           ]"
           @click="activeIndex = index"

@@ -88,24 +88,27 @@ export default function GalleryHorizontal() {
   }, [isDragging, offsetPosition, imgPosition]);
 
   return (
-    <div className="relative flex flex-col h-full gap-4 scroll-smooth">
+    <div className="relative max-h-[700px] flex flex-col h-full scroll-smooth">
       <div
-        className="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
+        className="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y"
         ref={draggableRef}
         onPointerDown={pointerHandler}
       >
         <div
-          className="absolute top-0 left-0 flex w-full h-full transition-transform snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
+          className="flex w-full h-full transition-transform snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
           style={{
             transform: `translate3d(${imgPosition * -100}%,0,0)`,
           }}
         >
           {images.map(({ image, alt }, index) => (
-            <div className="relative snap-center snap-always basis-full shrink-0 grow" key={`${alt}-${index}`}>
+            <div
+              className="relative flex justify-center snap-center snap-always basis-full shrink-0 grow"
+              key={`${alt}-${index}`}
+            >
               <img
                 aria-label={alt}
                 aria-hidden={activeIndex !== index}
-                className="object-contain"
+                className="object-cover w-auto h-full"
                 alt={alt}
                 src={image}
                 draggable="false"
@@ -144,7 +147,7 @@ export default function GalleryHorizontal() {
               aria-label={alt}
               aria-current={activeIndex === index}
               key={`${alt}-${index}-thumbnail`}
-              className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
+              className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 my-4 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
                 activeIndex === index ? 'border-primary-700' : 'border-transparent'
               }`}
               onClick={() => setActiveIndex(index)}

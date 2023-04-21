@@ -3,7 +3,7 @@
 import { ShowcasePageLayout } from '../../showcases';
 
 // #region source
-import { KeyboardEventHandler, useState } from 'react';
+import { type KeyboardEvent, useState } from 'react';
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import gallery1 from '@assets/gallery_1.png';
 import gallery2 from '@assets/gallery_2.png';
@@ -32,9 +32,9 @@ const images = [
 export default function GalleryWithBullets() {
   const [activeIndex, setActiveIndex] = useState(0);
   const itemsLength = images.length;
-  const keyDownHandler: KeyboardEventHandler = (e) => {
-    if (e.key === 'Tab') setActiveIndex(activeIndex + 1);
-    if (e.key === 'Tab' && e.shiftKey) setActiveIndex(activeIndex - 1);
+  const keyDownHandler = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {
+    if (e.key === 'Tab') setActiveIndex(index + 1);
+    if (e.key === 'Tab' && e.shiftKey) setActiveIndex(index - 1);
   };
   return (
     <div className="relative flex flex-col gap-1 scroll-smooth">
@@ -93,10 +93,10 @@ export default function GalleryWithBullets() {
               aria-label={alt}
               aria-current={activeIndex === index}
               type="button"
-              className={`w-[78px] relative pb-1 border-b-4 transition-colors  ${
+              className={`w-[78px] relative mt-1 border-b-4 transition-colors focus-visible:outline focus-visible:outline-offset-0 pointer-events-none ${
                 activeIndex === index ? 'border-primary-700' : 'border-gray-200'
               }`}
-              onKeyDown={keyDownHandler}
+              onKeyDown={(e) => keyDownHandler(e, index)}
             />
           ))}
         </div>

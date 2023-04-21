@@ -2,7 +2,7 @@
   <div class="relative max-h-[700px] flex flex-col h-full md:flex-row scroll-smooth md:gap-4">
     <div
       ref="draggableRef"
-      class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y max-h-[600px]"
+      class="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y"
       @pointerdown="pointerHandler"
     >
       <div
@@ -12,12 +12,12 @@
         <div
           v-for="({ image, alt }, index) in images"
           :key="`${alt}-${index}`"
-          class="relative snap-center snap-always basis-full shrink-0 grow"
+          class="relative flex justify-center snap-center snap-always basis-full shrink-0 grow"
         >
           <img
             :aria-label="alt"
             :aria-hidden="activeIndex !== index"
-            class="object-contain"
+            class="object-cover w-auto h-full"
             :alt="alt"
             :src="image"
             draggable="false"
@@ -53,7 +53,7 @@
           type="button"
           :aria-label="alt"
           :aria-current="activeIndex === index"
-          :class="`md:w-[78px] md:h-auto relative shrink-0 pb-1 border-b-4 snap-start cursor-pointer transition-colors flex-grow md:flex-grow-0  ${
+          :class="`md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
             activeIndex === index ? 'border-primary-700' : 'border-transparent'
           }`"
           @mouseover="activeIndex = index"
