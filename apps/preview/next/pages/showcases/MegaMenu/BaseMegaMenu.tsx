@@ -212,7 +212,6 @@ export default function BaseMegaMenu() {
                                 size="sm"
                                 role="none"
                                 href={item.link}
-                                className="focus-visible:outline focus-visible:rounded-sm"
                               >
                                 {item.title}
                               </SfListItem>
