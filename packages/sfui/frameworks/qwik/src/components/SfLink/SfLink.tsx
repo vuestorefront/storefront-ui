@@ -14,7 +14,7 @@ export const SfLink = component$<SfLinkProps>(
     return (
       <Tag
         {...(ref ? { ref } : {})}
-        className={[
+        class={[
           'focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm',
           variantClasses[variant],
           _class,
