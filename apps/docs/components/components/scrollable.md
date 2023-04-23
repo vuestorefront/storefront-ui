@@ -91,7 +91,7 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 <!-- react -->
 | `as`         | `ReactElement`       | `'div'`        | any tag name                       |
 | `children`   | `ReactNode`          |               | Default slotted content            |
-| `wrapperClassNames`   | `string`      |               |    |
+| `wrapperClassName`   | `string`      |               |    |
 | `slotPreviousButton` | `ReactNode`          |               | Previous button         |
 | `slotNextButton` | `ReactNode`          |               | Next button         |
 | `onDragChange`           | `Function` |    |  |

@@ -206,15 +206,11 @@ export default function BaseMegaMenu() {
                         <hr className="mb-3.5" />
                         <ul>
                           {items.map((item) => (
-                            <SfListItem size="sm" role="none">
-                              <a
-                                key={item.title}
-                                className="focus-visible:outline focus-visible:rounded-sm"
-                                href={item.link}
-                              >
+                            <li key={item.title}>
+                              <SfListItem as="a" size="sm" role="none" href={item.link}>
                                 {item.title}
-                              </a>
-                            </SfListItem>
+                              </SfListItem>
+                            </li>
                           ))}
                         </ul>
                       </div>

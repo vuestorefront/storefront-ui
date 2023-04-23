@@ -1,12 +1,12 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { SfDrawer, SfDrawerPlacement, type SfDrawerProps, SfButton } from '@storefront-ui/react';
+import { SfDrawer, type SfDrawerProps, SfButton } from '@storefront-ui/react';
 import { ChangeEventHandler, useState } from 'react';
 import classNames from 'classnames';
 
 export default function DrawerDemo() {
   const [open, setOpen] = useState(false);
-  const [placementState, setPlacement] = useState<SfDrawerProps['placement']>(SfDrawerPlacement.left);
+  const [placementState, setPlacement] = useState<SfDrawerProps['placement']>('left');
 
   const changePlacement: ChangeEventHandler<HTMLSelectElement> = (event) => {
     setPlacement((event.target as HTMLSelectElement).value as SfDrawerProps['placement']);
@@ -32,7 +32,7 @@ export default function DrawerDemo() {
         onClose={() => setOpen(false)}
         placement={placementState}
         className={classNames('bg-neutral-50 p-3 border border-gray-300', {
-          'max-w-[370px]': placementState === SfDrawerPlacement.left || placementState === SfDrawerPlacement.right,
+          'max-w-[370px]': placementState === 'left' || placementState === 'right',
         })}
       >
         <div>
