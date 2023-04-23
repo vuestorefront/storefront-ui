@@ -49,9 +49,9 @@ export const SfChip = component$<SfChipProps>(
           data-testid="chip"
           {...attributes}
         >
-          <Slot name="prefix" />
+          {showSlotPrefix && <Slot name="prefix" />}
           <Slot />
-          <Slot name="suffix" />
+          {showSlotSuffix && <Slot name="suffix" />}
         </label>
       </>
     );
