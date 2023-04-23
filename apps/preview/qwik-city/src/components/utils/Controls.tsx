@@ -95,7 +95,7 @@ export const Controls = component$<any>(() => {
                         />
                         <span class="slider" />
                       </label>
-                      <span class="ml-2">{examplesState.data.state[control.modelName].toString()}</span>
+                      <span class="ml-2">{examplesState.data.state[control.modelName]?.toString()}</span>
                     </div>
                   ) : control.type === 'select' ? (
                     <select
