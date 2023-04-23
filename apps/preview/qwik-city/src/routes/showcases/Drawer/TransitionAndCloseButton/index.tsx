@@ -30,7 +30,7 @@ export default component$(() => {
         <SfDrawer
           ref={drawerRef}
           open={openSignal.value}
-          onClose={$(() => (openSignal.value = false))}
+          onClose$={$(() => (openSignal.value = false))}
           class="bg-neutral-50 border border-gray-300 max-w-[370px]"
         >
           <header class="flex items-center justify-between px-10 py-6 bg-primary-700">

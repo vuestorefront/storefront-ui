@@ -18,7 +18,7 @@ export const SfDrawer = component$<SfDrawerProps>(
     placement = SfDrawerPlacement.left,
     disableClickAway,
     disableEsc,
-    onClose,
+    onClose$,
     class: _class,
     ...attributes
   }) => {
@@ -34,7 +34,7 @@ export const SfDrawer = component$<SfDrawerProps>(
     const onKeyDown = $((event: KeyboardEvent) => {
       if (disableEsc) return;
       if (event.key === 'Escape') {
-        onClose?.();
+        onClose$?.();
       }
     });
 

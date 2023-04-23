@@ -31,7 +31,7 @@ export default component$(() => {
 
       <SfDrawer
         open={openSignal.value}
-        onClose={$(() => (openSignal.value = false))}
+        onClose$={$(() => (openSignal.value = false))}
         placement={placementSignal.value}
         class={`bg-neutral-50 p-3 border border-gray-300 
         ${

@@ -9,7 +9,7 @@ export type SfDrawerProps = {
   placement?: `${SfDrawerPlacement}`;
   disableClickAway?: boolean;
   disableEsc?: boolean;
-  onClose?: () => void;
+  onClose$?: () => void;
 };
 
 export { SfDrawerPlacement };
