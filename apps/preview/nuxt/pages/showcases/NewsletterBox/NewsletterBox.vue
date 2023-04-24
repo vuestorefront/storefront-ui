@@ -15,8 +15,9 @@
         <SfButton type="submit" size="lg"> Subscribe to Newsletter </SfButton>
       </form>
       <div class="typography-text-xs text-neutral-600">
-        To learn how we process your data, visit our <SfLink href="#" class="!text-neutral-600">Privacy Notice</SfLink>.
-        You can <SfLink href="#" class="!text-neutral-600">unsubscribe</SfLink> at any time without costs.
+        To learn how we process your data, visit our
+        <SfLink href="#" class="cursor-pointer !text-neutral-600">Privacy Notice</SfLink>. You can
+        <SfLink href="#" class="cursor-pointer !text-neutral-600">unsubscribe</SfLink> at any time without costs.
       </div>
     </div>
     <div class="absolute top-0 right-0 mx-2 mt-2 sm:mr-6">
