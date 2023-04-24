@@ -54,7 +54,7 @@ export default function SearchBasic() {
   const [isLoadingSnippets, setIsLoadingSnippets] = useState(false);
   const [snippets, setSnippets] = useState<{ highlight: string; rest: string; product: Product }[]>([]);
   const { isOpen, close, open } = useDisclosure();
-  const { refs, style } = useDropdown({ onClose: close, placement: 'bottom-start', middleware: [offset(4)] });
+  const { refs, style } = useDropdown({ isOpen, onClose: close, placement: 'bottom-start', middleware: [offset(4)] });
   useTrapFocus(refs.floating, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
 
   const handleSubmit = (event: FormEvent) => {

@@ -34,7 +34,6 @@ const props = defineProps({
 });
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void;
-  (event: 'focus'): void;
 }>();
 const { modelValue, invalid } = toRefs(props);
 const { isFocusVisible } = useFocusVisible({ isTextInput: true });
