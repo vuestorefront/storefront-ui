@@ -1,10 +1,10 @@
 import { component$ } from '@builder.io/qwik';
-import { DocumentHead, Link } from '@builder.io/qwik-city';
+import { DocumentHead } from '@builder.io/qwik-city';
 
 export default component$(() => {
   return (
     <>
-      <Link href="/showcases/Button/ButtonAsLink">aaaa</Link>
+      Qwik implementation
     </>
   );
 });
