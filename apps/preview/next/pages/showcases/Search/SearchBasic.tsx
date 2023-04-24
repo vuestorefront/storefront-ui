@@ -48,7 +48,7 @@ const mockAutocompleteRequest = async (phrase: string) => {
   return results;
 };
 
-export default function AutocompleteSearch() {
+export default function SearchBasic() {
   const inputRef = useRef<HTMLInputElement>(null);
   const [searchValue, setSearchValue] = useState('');
   const [isLoadingSnippets, setIsLoadingSnippets] = useState(false);
@@ -165,4 +165,4 @@ export default function AutocompleteSearch() {
 }
 
 // #endregion source
-AutocompleteSearch.getLayout = ShowcasePageLayout;
+SearchBasic.getLayout = ShowcasePageLayout;
