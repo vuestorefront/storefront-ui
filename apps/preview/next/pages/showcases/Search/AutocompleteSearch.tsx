@@ -1,12 +1,12 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { type ChangeEvent, type FormEvent, useState, useEffect, useRef } from 'react';
+import { type ChangeEvent, type FormEvent, useState, useRef } from 'react';
 import { useDebounce } from 'react-use';
+import { offset } from '@floating-ui/react-dom';
 import {
   SfInput,
   SfIconSearch,
   SfIconCancel,
-  SfButton,
   useDisclosure,
   SfListItem,
   SfLoaderCircular,
@@ -20,96 +20,58 @@ interface Product {
 }
 
 const mockProducts: Product[] = [
-  {
-    id: 'ip-14',
-    name: 'iPhone 14',
-  },
-  {
-    id: 'ip-14-p',
-    name: 'iPhone 14 Pro',
-  },
-  {
-    id: 'ip-14-pm',
-    name: 'iPhone 14 Pro Max',
-  },
-  {
-    id: 'ip-14-p',
-    name: 'iPhone 14 Plus',
-  },
-  {
-    id: 'ip-13',
-    name: 'iPhone 13',
-  },
-  {
-    id: 'ip-13-m',
-    name: 'iPhone 13 mini',
-  },
-  {
-    id: 'ip-12',
-    name: 'iPhone 12',
-  },
-  {
-    id: 'ip-11',
-    name: 'iPhone 11',
-  },
-  {
-    id: 'mb-a',
-    name: 'MacBook Air',
-  },
-  {
-    id: 'mb-p-13',
-    name: 'MacBook Pro 13"',
-  },
-  {
-    id: 'mb-p-14',
-    name: 'MacBook Pro 14"',
-  },
-  {
-    id: 'mb-p-16',
-    name: 'MacBook Pro 16"',
-  },
+  { id: 'ip-14', name: 'iPhone 14' },
+  { id: 'ip-14-pro', name: 'iPhone 14 Pro' },
+  { id: 'ip-14-pro-max', name: 'iPhone 14 Pro Max' },
+  { id: 'ip-14-plus', name: 'iPhone 14 Plus' },
+  { id: 'ip-13', name: 'iPhone 13' },
+  { id: 'ip-13-mini', name: 'iPhone 13 mini' },
+  { id: 'ip-12', name: 'iPhone 12' },
+  { id: 'ip-11', name: 'iPhone 11' },
+  { id: 'mb-air', name: 'MacBook Air' },
+  { id: 'mb-pro-13', name: 'MacBook Pro 13"' },
+  { id: 'mb-pro-14', name: 'MacBook Pro 14"' },
+  { id: 'mb-pro-16', name: 'MacBook Pro 16"' },
 ];
 
-const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
-
-const mockSearchRequest = async (phrase: string) => {
-  console.log('SEARCH WITH PHRASE:', phrase);
-  // alert(`Searching phrase: ${phrase}`);
-};
-
+// Just for presentation purposes. Replace mock request with the actual API call.
+const delay = () => new Promise((resolve) => setTimeout(resolve, Math.random() * 1000));
 const mockAutocompleteRequest = async (phrase: string) => {
-  // Just for presentation purposes. Replace it with the actual API call.
-  await delay(1000);
+  await delay();
   const results = mockProducts
     .filter((product) => product.name.toLowerCase().startsWith(phrase.toLowerCase()))
     .map((product) => {
       const highlight = product.name.substring(0, phrase.length);
       const rest = product.name.substring(phrase.length);
-      return [highlight, rest, product] as [string, string, Product];
+      return { highlight, rest, product };
     });
   return results;
 };
 
 export default function AutocompleteSearch() {
+  const inputRef = useRef<HTMLInputElement>(null);
   const [searchValue, setSearchValue] = useState('');
-  const [debouncedSearchValue, setDebouncedSearchValue] = useState('');
-  const [snippets, setSnippets] = useState<[string, string, Product][]>([]);
-  const { isOpen, close, open } = useDisclosure();
-  const { refs, style } = useDropdown({ onClose: close, placement: 'bottom-start' });
   const [isLoadingSnippets, setIsLoadingSnippets] = useState(false);
-  useTrapFocus(refs.floating, { arrowKeysOn: true, activeState: isOpen });
+  const [snippets, setSnippets] = useState<{ highlight: string; rest: string; product: Product }[]>([]);
+  const { isOpen, close, open } = useDisclosure();
+  const { refs, style } = useDropdown({ onClose: close, placement: 'bottom-start', middleware: [offset(4)] });
+  useTrapFocus(refs.floating, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    mockSearchRequest(searchValue);
     close();
+    alert(`Search for phrase: ${searchValue}`);
+  };
+
+  const handleFocusInput = () => {
+    inputRef.current?.focus();
   };
 
   const handleReset = () => {
     setSearchValue('');
-    setDebouncedSearchValue('');
-    close();
     setSnippets([]);
+    close();
+    handleFocusInput();
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -123,91 +85,82 @@ export default function AutocompleteSearch() {
 
   const handleSelect = (phrase: string) => () => {
     setSearchValue(phrase);
-    setDebouncedSearchValue(phrase);
-    mockSearchRequest(phrase);
     close();
+    handleFocusInput();
   };
 
   useDebounce(
     () => {
-      setDebouncedSearchValue(searchValue);
+      if (searchValue) {
+        const getSnippets = async () => {
+          open();
+          setIsLoadingSnippets(true);
+          try {
+            const data = await mockAutocompleteRequest(searchValue);
+            setSnippets(data);
+          } catch (error) {
+            console.error(error);
+          }
+          setIsLoadingSnippets(false);
+        };
+
+        getSnippets();
+      }
     },
-    1000,
+    500,
     [searchValue],
   );
 
-  useEffect(() => {
-    if (debouncedSearchValue) {
-      const getSnippets = async () => {
-        open();
-        setIsLoadingSnippets(true);
-
-        try {
-          const data = await mockAutocompleteRequest(debouncedSearchValue);
-          setSnippets(data);
-        } catch (error) {
-          console.error(error);
-        }
-
-        setIsLoadingSnippets(false);
-      };
-
-      getSnippets();
-    }
-  }, [debouncedSearchValue]);
-
   return (
-    <>
-      <form onSubmit={handleSubmit} ref={refs.setReference} className="relative">
-        <label>
-          <SfInput
-            value={searchValue}
-            onChange={handleChange}
-            onFocus={open}
-            placeholder="Search"
-            slotPrefix={<SfIconSearch />}
-            slotSuffix={
-              <SfButton onClick={handleReset} square variant="tertiary" aria-label="Reset search">
-                <SfIconCancel />
-              </SfButton>
-            }
-          />
-        </label>
-        {isOpen && (
-          <div
-            ref={refs.setFloating}
-            style={style}
-            className="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2 right-0 left-0"
-          >
-            {isLoadingSnippets ? (
-              <div className="w-full h-20 flex justify-center items-center">
-                <SfLoaderCircular />
-              </div>
-            ) : (
-              snippets.length > 0 && (
-                <ul>
-                  {snippets.map(([highlight, rest, product]) => (
-                    <li key={product.id}>
-                      <SfListItem
-                        as="button"
-                        type="button"
-                        onClick={handleSelect(product.name)}
-                        className="flex justify-start"
-                      >
-                        <p className="text-left">
-                          <span>{highlight}</span>
-                          <span className="font-semibold">{rest}</span>
-                        </p>
-                      </SfListItem>
-                    </li>
-                  ))}
-                </ul>
-              )
-            )}
-          </div>
-        )}
-      </form>
-    </>
+    <form onSubmit={handleSubmit} ref={refs.setReference} className="relative">
+      <label>
+        <SfInput
+          ref={inputRef}
+          value={searchValue}
+          onChange={handleChange}
+          onFocus={open}
+          placeholder="Search"
+          slotPrefix={<SfIconSearch />}
+          slotSuffix={
+            <button
+              type="button"
+              onClick={handleReset}
+              aria-label="Reset search"
+              className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+            >
+              <SfIconCancel />
+            </button>
+          }
+        />
+      </label>
+      {isOpen && (
+        <div ref={refs.setFloating} style={style} className="right-0 left-0">
+          {isLoadingSnippets ? (
+            <div className="w-full h-20 flex justify-center items-center border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2">
+              <SfLoaderCircular />
+            </div>
+          ) : snippets.length > 0 ? (
+            <ul className="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2">
+              {snippets.map(({ highlight, rest, product }) => (
+                <li key={product.id}>
+                  <SfListItem
+                    as="button"
+                    type="button"
+                    onClick={handleSelect(product.name)}
+                    className="flex justify-start"
+                  >
+                    <p className="text-left">
+                      <span>{highlight}</span>
+                      <span className="font-medium">{rest}</span>
+                    </p>
+                  </SfListItem>
+                </li>
+              ))}
+            </ul>
+          ) : null}
+        </div>
+      )}
+    </form>
   );
 }
 
