@@ -133,7 +133,7 @@ jobs:
           command: yarn test:ci:vue
       - name: SonarCloud Scan
         if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@v1.8
         with:
           projectBaseDir: packages/sfui/frameworks/vue
         env:
@@ -160,7 +160,7 @@ jobs:
           command: yarn test:ci:react
       - name: SonarCloud Scan
         if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@v1.8
         with:
           projectBaseDir: packages/sfui/frameworks/react
         env:
