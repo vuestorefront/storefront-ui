@@ -14,7 +14,7 @@ export const SfSelect = component$<SfSelectProps>(
     class: _class,
     placeholder,
     // onBlur,
-    // onChange,
+    onChange$,
     // onClick,
     // onKeyDown,
     ...attributes
@@ -53,6 +53,7 @@ export const SfSelect = component$<SfSelectProps>(
           ${invalid && !disabled ? '!ring-negative-600 ring-2' : ''}
           ${_class}`}
           data-testid="select-input"
+          onChange$={onChange$}
           // TODO
           // onBlur={composeHandlers(rotateDown, onBlur)}
           // onChange={composeHandlers(rotateDown, onChange)}

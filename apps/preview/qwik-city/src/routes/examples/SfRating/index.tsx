@@ -1,4 +1,4 @@
-import { component$, useContext, useSignal, useTask$ } from '@builder.io/qwik';
+import { component$, useContext, useTask$ } from '@builder.io/qwik';
 import { ComponentExample } from '~/components/utils/ComponentExample';
 import { ControlsType } from '~/components/utils/types';
 import { EXAMPLES_STATE } from '../layout';
