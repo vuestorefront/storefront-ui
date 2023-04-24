@@ -52,7 +52,7 @@ export default component$(() => {
   });
 
   return (
-    <ComponentExample componentContainerClassName="space-x-2">
+    <ComponentExample componentContainerClass="space-x-2">
       <SfButton {...examplesState.data.state} class="max-w-[200px]">
         <div q:slot="prefix">
           <SfIconSearch />

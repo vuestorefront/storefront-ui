@@ -7,7 +7,6 @@ import { SfThumbnail, SfThumbnailSize } from '@storefront-ui/qwik';
 export default component$(() => {
   const examplesState = useContext(EXAMPLES_STATE);
 
-  // TODO check value prop
   useTask$(() => {
     examplesState.data = {
       controls: [
