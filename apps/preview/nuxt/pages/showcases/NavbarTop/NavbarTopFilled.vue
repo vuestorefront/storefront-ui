@@ -22,32 +22,20 @@
           </template>
           <span class="hidden md:inline-flex">Browse products</span>
         </SfButton>
-        <nav>
-          <div class="flex flex-row flex-nowrap">
-            <SfButton
-              v-for="actionItem in actionItems"
-              :key="actionItem.ariaLabel"
-              class="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-              :aria-label="actionItem.ariaLabel"
-              variant="tertiary"
-              square
-            >
-              <template #prefix>
-                <Component :is="actionItem.icon" />
-              </template>
-              <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
-            </SfButton>
-            <SfButton
-              class="hidden lg:inline-flex mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-              :aria-label="actionItems[2].ariaLabel"
-              variant="tertiary"
-            >
-              <template #prefix>
-                <Component :is="actionItems[2].icon" />
-              </template>
-              Log in
-            </SfButton>
-          </div>
+        <nav class="flex flex-row flex-nowrap">
+          <SfButton
+            v-for="actionItem in actionItems"
+            :key="actionItem.ariaLabel"
+            class="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            :aria-label="actionItem.ariaLabel"
+            variant="tertiary"
+            square
+          >
+            <template #prefix>
+              <Component :is="actionItem.icon" />
+            </template>
+            <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
+          </SfButton>
         </nav>
       </div>
     </header>
