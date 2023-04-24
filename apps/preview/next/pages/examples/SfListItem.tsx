@@ -115,7 +115,9 @@ function Example() {
     <ComponentExample controls={{ state, controls }}>
       <SfListItem
         className="max-w-sm"
-        {...state.get}
+        label={state.get.label}
+        as={state.get.as}
+        truncate={state.get.truncate}
         slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)?.({
           size: state.get.size === 'sm' ? 'sm' : 'base',
         })}

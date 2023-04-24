@@ -7,6 +7,7 @@ import SfAccordionItemBaseObject from './SfAccordionItem.PageObject';
 const { vue: SfAccordionItemVue, react: SfAccordionItemReact } = useComponent('SfAccordionItem');
 
 describe('SfAccordionItem', () => {
+  console.log(SfAccordionItemReact);
   const page = () => new SfAccordionItemBaseObject('accordion-item');
 
   const initializeComponent = (props?: {
