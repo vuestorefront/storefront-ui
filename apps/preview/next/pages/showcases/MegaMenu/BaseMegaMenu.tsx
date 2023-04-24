@@ -4,8 +4,7 @@ import {
   SfIconShoppingCart,
   SfIconFavorite,
   SfIconPerson,
-  SfIconMenu,
-  SfIconChevronRight,
+  SfIconExpandMore,
   SfIconClose,
   SfButton,
   SfDrawer,
@@ -43,42 +42,17 @@ const actionItems = [
 
 const bannerDetails = {
   image: watch,
-  title: 'New in designer watches.',
+  title: 'New in designer watches',
 };
 
 const categoriesContent = [
   {
-    heading: 'Activities',
+    heading: 'Women',
     items: [
       {
-        title: 'Fitness',
+        title: "All Women's",
         link: '/',
       },
-      {
-        title: 'Pilates',
-        link: '/',
-      },
-      {
-        title: 'Training',
-        link: '/',
-      },
-      {
-        title: 'Cardio workout',
-        link: '/',
-      },
-      {
-        title: 'Yoga',
-        link: '/',
-      },
-      {
-        title: 'All activities',
-        link: '/',
-      },
-    ],
-  },
-  {
-    heading: 'Categories',
-    items: [
       {
         title: 'Clothing',
         link: '/',
@@ -99,25 +73,62 @@ const categoriesContent = [
         title: 'Food & Drinks',
         link: '/',
       },
+    ],
+  },
+  {
+    heading: 'Men',
+    items: [
       {
-        title: 'All categories',
+        title: 'All Men’s',
+        link: '/',
+      },
+      {
+        title: 'Clothing',
+        link: '/',
+      },
+      {
+        title: 'Shoes',
+        link: '/',
+      },
+      {
+        title: 'Accessories',
+        link: '/',
+      },
+      {
+        title: 'Wearables',
+        link: '/',
+      },
+      {
+        title: 'Food & Drinks',
         link: '/',
       },
     ],
   },
   {
-    heading: 'Womens Deals',
+    heading: 'Kids',
     items: [
       {
-        title: 'Fitness Gear',
+        title: 'All Kids',
         link: '/',
       },
       {
-        title: 'Outlet',
+        title: 'Clothing',
         link: '/',
       },
       {
-        title: 'All Womens Deals',
+        title: 'Shoes',
+        link: '/',
+      },
+      {
+        title: 'Accessories',
+        link: '/',
+      },
+      {
+        title: 'Wearables',
+        link: '/',
+      },
+      {
+        title: 'Food & Drinks',
         link: '/',
       },
     ],
@@ -141,26 +152,25 @@ export default function BaseMegaMenu() {
         className="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
       >
         <div className="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
-          <a href="/" aria-label="SF Homepage" className="inline-block text-white mr-2 lg:mr-10">
+          <a
+            href="/"
+            aria-label="SF Homepage"
+            className="inline-block mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          >
             <picture>
-              <source srcSet={brandLogo.src} media="(min-width: 767px)" />
-              <img src={brandLogoSign.src} alt="Sf Logo" className="w-8 h-8 mr-4 md:w-[12.5rem] md:h-[1.75rem]" />
+              <source srcSet={brandLogo.src} media="(min-width: 1024px)" />
+              <img src={brandLogoSign.src} alt="Sf Logo" className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]" />
             </picture>
           </a>
-          <nav className="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
+          <nav className="flex justify-between w-full flex-nowrap" aria-label="SF Navigation">
             <ul>
               <li role="none">
                 <SfButton
-                  className="block !px-2 mr-auto text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+                  className="block mr-auto text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                   type="button"
                   aria-haspopup="true"
                   aria-expanded={isOpen}
-                  slotSuffix={
-                    <>
-                      <SfIconChevronRight className="hidden rotate-90 md:inline-flex" />
-                      <SfIconMenu className="inline-flex md:hidden" />
-                    </>
-                  }
+                  slotSuffix={<SfIconExpandMore />}
                   variant="tertiary"
                   onClick={toggle}
                 >
@@ -181,10 +191,10 @@ export default function BaseMegaMenu() {
                     open
                     disableClickAway
                     placement="top"
-                    className="grid grid-cols-1 gap-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-8"
+                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-6"
                   >
-                    <div className="flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden">
-                      <div className="flex items-center typography-text-lg font-medium text-white">Browse products</div>
+                    <div className="flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
+                      <div className="flex items-center font-medium text-white typography-text-lg">Browse products</div>
                       <SfButton
                         square
                         variant="tertiary"
@@ -196,10 +206,10 @@ export default function BaseMegaMenu() {
                       </SfButton>
                     </div>
                     {categoriesContent.map(({ heading, items }) => (
-                      <div key={heading}>
+                      <div key={heading} className="[&:nth-child(2)]:pt-0 pt-6 md:pt-0">
                         <h2
                           role="presentation"
-                          className="typography-text-xs font-bold text-neutral-900 tracking-widest whitespace-nowrap px-4 py-2"
+                          className="typography-text-base font-medium text-neutral-900 whitespace-nowrap p-4 md:py-1.5"
                         >
                           {heading}
                         </h2>
@@ -207,7 +217,13 @@ export default function BaseMegaMenu() {
                         <ul>
                           {items.map((item) => (
                             <li key={item.title}>
-                              <SfListItem as="a" size="sm" role="none" href={item.link}>
+                              <SfListItem
+                                as="a"
+                                size="sm"
+                                role="none"
+                                href={item.link}
+                                className="typography-text-base md:typography-text-sm py-4 md:py-1.5"
+                              >
                                 {item.title}
                               </SfListItem>
                             </li>
@@ -215,9 +231,9 @@ export default function BaseMegaMenu() {
                         </ul>
                       </div>
                     ))}
-                    <div className="flex flex-col items-center justify-center bg-neutral-100 rounded-md border-neutral-300 overflow-hidden grow">
+                    <div className="flex flex-col items-center justify-center overflow-hidden md:rounded-md bg-neutral-100 border-neutral-300 grow">
                       <img src={bannerDetails.image.src} alt={bannerDetails.title} className="object-contain" />
-                      <p className="mb-4 mt-4 px-4 text-center typography-text-base font-medium">
+                      <p className="px-4 mt-4 mb-4 font-medium text-center typography-text-base">
                         {bannerDetails.title}
                       </p>
                     </div>
