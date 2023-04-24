@@ -72,14 +72,17 @@
                     </h2>
                     <hr class="mb-3.5" />
                     <ul>
-                      <SfListItem v-for="item in items" :key="item.title" size="sm" role="none" class="md:!py-1.5">
-                        <a
-                          class="typography-text-base py-3 md:py-0 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+                      <li v-for="item in items" :key="item.title">
+                        <SfListItem
+                          tag="a"
                           :href="item.link"
+                          size="sm"
+                          role="none"
+                          class="typography-text-base md:typography-text-sm py-4 md:py-1.5"
                         >
                           {{ item.title }}
-                        </a>
-                      </SfListItem>
+                        </SfListItem>
+                      </li>
                     </ul>
                   </div>
                   <div

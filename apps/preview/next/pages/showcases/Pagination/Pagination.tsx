@@ -83,7 +83,7 @@ export function Showcase() {
             <li>
               <div
                 className={classNames('flex pt-1 border-t-4 border-transparent', {
-                  'font-medium border-t-4 !border-primary-500': selectedPage === page,
+                  'font-medium border-t-4 !border-primary-700': selectedPage === page,
                 })}
               >
                 <button
@@ -129,7 +129,7 @@ export function Showcase() {
           <li>
             <div
               className={classNames('flex pt-1 border-t-4 border-transparent', {
-                'font-medium border-t-4 !border-primary-500': selectedPage === totalPages,
+                'font-medium border-t-4 !border-primary-700': selectedPage === totalPages,
               })}
             >
               <button

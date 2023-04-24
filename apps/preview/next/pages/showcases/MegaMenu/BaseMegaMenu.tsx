@@ -216,15 +216,17 @@ export default function BaseMegaMenu() {
                         <hr className="mb-3.5" />
                         <ul>
                           {items.map((item) => (
-                            <SfListItem size="sm" role="none" className="md:!py-1.5">
-                              <a
-                                key={item.title}
-                                className="py-3 typography-text-base md:py-0 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+                            <li key={item.title}>
+                              <SfListItem
+                                as="a"
+                                size="sm"
+                                role="none"
                                 href={item.link}
+                                className="typography-text-base md:typography-text-sm py-4 md:py-1.5"
                               >
                                 {item.title}
-                              </a>
-                            </SfListItem>
+                              </SfListItem>
+                            </li>
                           ))}
                         </ul>
                       </div>
