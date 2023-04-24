@@ -1,13 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import {
-  SfIconShoppingCart,
-  SfIconFavorite,
-  SfIconPerson,
-  SfIconMenu,
-  SfButton,
-  SfIconChevronRight,
-} from '@storefront-ui/react';
+import { SfIconShoppingCart, SfIconFavorite, SfIconPerson, SfIconExpandMore, SfButton } from '@storefront-ui/react';
 import brandLogo from '@assets/vsf_logo_white.svg';
 import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 
@@ -43,19 +36,14 @@ export default function TopNavFilled() {
             className="inline-block mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
-              <source srcSet={brandLogo.src} media="(min-width: 1025px)" />
+              <source srcSet={brandLogo.src} media="(min-width: 1024px)" />
               <img src={brandLogoSign.src} alt="Sf Logo" className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]" />
             </picture>
           </a>
           <SfButton
             className="block !px-2 mr-auto text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white font-body"
             type="button"
-            slotSuffix={
-              <>
-                <SfIconChevronRight className="hidden rotate-90 md:inline-flex" />
-                <SfIconMenu className="inline-flex md:hidden" />
-              </>
-            }
+            slotSuffix={<SfIconExpandMore />}
             variant="tertiary"
           >
             <span className="hidden md:inline-flex">Browse products</span>

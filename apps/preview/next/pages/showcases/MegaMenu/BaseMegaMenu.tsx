@@ -4,8 +4,7 @@ import {
   SfIconShoppingCart,
   SfIconFavorite,
   SfIconPerson,
-  SfIconMenu,
-  SfIconChevronRight,
+  SfIconExpandMore,
   SfIconClose,
   SfButton,
   SfDrawer,
@@ -159,7 +158,7 @@ export default function BaseMegaMenu() {
             className="inline-block mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
-              <source srcSet={brandLogo.src} media="(min-width: 1025px)" />
+              <source srcSet={brandLogo.src} media="(min-width: 1024px)" />
               <img src={brandLogoSign.src} alt="Sf Logo" className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]" />
             </picture>
           </a>
@@ -171,12 +170,7 @@ export default function BaseMegaMenu() {
                   type="button"
                   aria-haspopup="true"
                   aria-expanded={isOpen}
-                  slotSuffix={
-                    <>
-                      <SfIconChevronRight className="hidden rotate-90 md:inline-flex" />
-                      <SfIconMenu className="inline-flex md:hidden" />
-                    </>
-                  }
+                  slotSuffix={<SfIconExpandMore />}
                   variant="tertiary"
                   onClick={toggle}
                 >
@@ -235,7 +229,7 @@ export default function BaseMegaMenu() {
                         </ul>
                       </div>
                     ))}
-                    <div className="flex flex-col items-center justify-center overflow-hidden rounded-md bg-neutral-100 border-neutral-300 grow">
+                    <div className="flex flex-col items-center justify-center overflow-hidden md:rounded-md bg-neutral-100 border-neutral-300 grow">
                       <img src={bannerDetails.image.src} alt={bannerDetails.title} className="object-contain" />
                       <p className="px-4 mt-4 mb-4 font-medium text-center typography-text-base">
                         {bannerDetails.title}

@@ -1,13 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import {
-  SfIconShoppingCart,
-  SfIconFavorite,
-  SfIconPerson,
-  SfIconMenu,
-  SfButton,
-  SfIconChevronRight,
-} from '@storefront-ui/react';
+import { SfIconShoppingCart, SfIconFavorite, SfIconPerson, SfIconExpandMore, SfButton } from '@storefront-ui/react';
 import brandLogo from '@assets/vsf_logo.svg';
 import brandLogoSign from '@assets/vsf_logo_sign.svg';
 
@@ -43,21 +36,11 @@ export default function TopNav() {
             className="inline-block mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
-              <source srcSet={brandLogo.src} media="(min-width: 1025px)" />
+              <source srcSet={brandLogo.src} media="(min-width: 1024px)" />
               <img src={brandLogoSign.src} alt="Sf Logo" className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]" />
             </picture>
           </a>
-          <SfButton
-            className="block mr-auto"
-            type="button"
-            slotSuffix={
-              <>
-                <SfIconChevronRight className="hidden rotate-90 md:inline-flex" />
-                <SfIconMenu className="inline-flex md:hidden" />
-              </>
-            }
-            variant="tertiary"
-          >
+          <SfButton className="block mr-auto" type="button" slotSuffix={<SfIconExpandMore />} variant="tertiary">
             <span className="hidden md:inline-flex">Browse products</span>
           </SfButton>
           <nav className="flex flex-row flex-nowrap">

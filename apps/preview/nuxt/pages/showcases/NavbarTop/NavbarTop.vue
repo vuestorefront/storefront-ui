@@ -8,14 +8,13 @@
           class="inline-block mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >
           <picture>
-            <source :srcset="brandLogo" media="(min-width: 1025px)" />
+            <source :srcset="brandLogo" media="(min-width: 1024px)" />
             <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]" />
           </picture>
         </a>
         <SfButton class="block mr-auto" type="button" variant="tertiary">
           <template #suffix>
-            <SfIconChevronRight class="hidden rotate-90 md:inline-flex" />
-            <SfIconMenu class="inline-flex md:hidden" />
+            <SfIconExpandMore />
           </template>
           <span class="hidden md:inline-flex">Browse products</span>
         </SfButton>
@@ -41,14 +40,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import {
-  SfButton,
-  SfIconShoppingCart,
-  SfIconFavorite,
-  SfIconPerson,
-  SfIconMenu,
-  SfIconChevronRight,
-} from '@storefront-ui/vue';
+import { SfButton, SfIconShoppingCart, SfIconFavorite, SfIconPerson, SfIconExpandMore } from '@storefront-ui/vue';
 import brandLogo from '@assets/vsf_logo.svg';
 import brandLogoSign from '@assets/vsf_logo_sign.svg';
 

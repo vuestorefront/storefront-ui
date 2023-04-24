@@ -12,7 +12,7 @@
           class="inline-block text-white mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >
           <picture>
-            <source :srcset="brandLogo" media="(min-width: 1025px)" />
+            <source :srcset="brandLogo" media="(min-width: 1024px)" />
             <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]" />
           </picture>
         </a>
@@ -28,8 +28,7 @@
                 @click="toggle()"
               >
                 <template #suffix>
-                  <SfIconChevronRight class="hidden rotate-90 md:inline-flex" />
-                  <SfIconMenu class="inline-flex md:hidden" />
+                  <SfIconExpandMore />
                 </template>
                 <span class="hidden md:inline-flex">Browse products</span>
               </SfButton>
@@ -84,7 +83,7 @@
                     </ul>
                   </div>
                   <div
-                    class="flex flex-col items-center justify-center bg-neutral-100 rounded-md border-neutral-300 overflow-hidden grow"
+                    class="flex flex-col items-center justify-center bg-neutral-100 md:rounded-md border-neutral-300 overflow-hidden grow"
                   >
                     <img :src="bannerDetails.image" :alt="bannerDetails.title" class="object-contain" />
                     <p class="mb-4 mt-4 px-4 text-center typography-text-base font-medium">{{ bannerDetails.title }}</p>
@@ -130,9 +129,8 @@ import {
   SfIconShoppingCart,
   SfIconFavorite,
   SfIconPerson,
-  SfIconMenu,
   SfIconClose,
-  SfIconChevronRight,
+  SfIconExpandMore,
   SfListItem,
   useDisclosure,
   useTrapFocus,
