@@ -33,7 +33,10 @@ export default component$(() => {
           wrapperClass={`${
             disabled || readonly ? 'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500' : ''
           }`}
-          value={valueSignal}
+          value={valueSignal.value}
+          onChange$={(event) => {
+            valueSignal.value = event.target.value;
+          }}
         />
       </label>
       <div class="flex justify-between">

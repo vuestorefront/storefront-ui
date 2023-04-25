@@ -3,7 +3,7 @@ import { SfInputSize } from '@storefront-ui/shared';
 
 export { SfInputSize };
 
-export type SfInputProps = Omit<QwikIntrinsicElements['input'], 'size' | 'class' | 'value' | 'children'> & {
+export type SfInputProps = Omit<QwikIntrinsicElements['input'], 'size' | 'class'  | 'children' | 'change'> & {
   class?: string;
   size?: `${SfInputSize}`;
   invalid?: boolean;
@@ -11,6 +11,5 @@ export type SfInputProps = Omit<QwikIntrinsicElements['input'], 'size' | 'class'
   showSlotPrefix?: boolean;
   showSlotSuffix?: boolean;
   ref?: Signal<Element | undefined>;
-  value?: any;
-  onChange$?: PropFunction<(event: QwikChangeEvent<HTMLInputElement>)=> void>
+  onChange$?: PropFunction<(event: QwikChangeEvent<HTMLInputElement>) => void>;
 };
