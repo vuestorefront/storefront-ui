@@ -1,7 +1,7 @@
 <template>
-  <form @submit.prevent="submit" ref="referenceRef" class="relative">
+  <form role="search" @submit.prevent="submit" ref="referenceRef" class="relative">
     <label>
-      <SfInput ref="inputRef" v-model="inputModel" @focus="open" placeholder="Search">
+      <SfInput ref="inputRef" v-model="inputModel" @focus="open" placeholder="Search 'MacBook' or 'iPhone'...">
         <template #prefix><SfIconSearch /></template>
         <template #suffix>
           <button

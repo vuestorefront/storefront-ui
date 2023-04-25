@@ -11,7 +11,7 @@ hideToc: true
 
 ## Basic search
 
-Simple search with an autocomplete functionality. Give your users hints of what they may look for.
+Simple search with an autocomplete functionality. Give your users hints of what they may look for. In this example we use mock autocomplete example, make sure you provide real data.
 
 <Showcase showcase-name="Search/SearchBasic" style="min-height: 350px">
 

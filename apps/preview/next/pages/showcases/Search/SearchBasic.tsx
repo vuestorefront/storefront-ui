@@ -35,6 +35,7 @@ const mockProducts: Product[] = [
 ];
 
 // Just for presentation purposes. Replace mock request with the actual API call.
+// eslint-disable-next-line no-promise-executor-return
 const delay = () => new Promise((resolve) => setTimeout(resolve, Math.random() * 1000));
 const mockAutocompleteRequest = async (phrase: string) => {
   await delay();
@@ -113,7 +114,7 @@ export default function SearchBasic() {
   );
 
   return (
-    <form onSubmit={handleSubmit} ref={refs.setReference} className="relative">
+    <form role="search" onSubmit={handleSubmit} ref={refs.setReference} className="relative">
       <label>
         <SfInput
           ref={inputRef}
