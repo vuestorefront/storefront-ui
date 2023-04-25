@@ -99,6 +99,7 @@ export default function SearchBasic() {
             const data = await mockAutocompleteRequest(searchValue);
             setSnippets(data);
           } catch (error) {
+            close();
             console.error(error);
           }
           setIsLoadingSnippets(false);
@@ -119,7 +120,7 @@ export default function SearchBasic() {
           value={searchValue}
           onChange={handleChange}
           onFocus={open}
-          placeholder="Search"
+          placeholder="Search 'MacBook' or 'iPhone'..."
           slotPrefix={<SfIconSearch />}
           slotSuffix={
             <button
@@ -139,25 +140,27 @@ export default function SearchBasic() {
             <div className="w-full h-20 flex justify-center items-center border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2">
               <SfLoaderCircular />
             </div>
-          ) : snippets.length > 0 ? (
-            <ul className="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2">
-              {snippets.map(({ highlight, rest, product }) => (
-                <li key={product.id}>
-                  <SfListItem
-                    as="button"
-                    type="button"
-                    onClick={handleSelect(product.name)}
-                    className="flex justify-start"
-                  >
-                    <p className="text-left">
-                      <span>{highlight}</span>
-                      <span className="font-medium">{rest}</span>
-                    </p>
-                  </SfListItem>
-                </li>
-              ))}
-            </ul>
-          ) : null}
+          ) : (
+            snippets.length > 0 && (
+              <ul className="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2">
+                {snippets.map(({ highlight, rest, product }) => (
+                  <li key={product.id}>
+                    <SfListItem
+                      as="button"
+                      type="button"
+                      onClick={handleSelect(product.name)}
+                      className="flex justify-start"
+                    >
+                      <p className="text-left">
+                        <span>{highlight}</span>
+                        <span className="font-medium">{rest}</span>
+                      </p>
+                    </SfListItem>
+                  </li>
+                ))}
+              </ul>
+            )
+          )}
         </div>
       )}
     </form>

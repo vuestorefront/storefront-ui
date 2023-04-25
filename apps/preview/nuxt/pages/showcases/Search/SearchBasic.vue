@@ -107,6 +107,7 @@ watchDebounced(
           const data = await mockAutocompleteRequest(inputModel.value);
           snippets.value = data;
         } catch (error) {
+          close();
           console.error(error);
         }
         isLoadingSnippets.value = false;
