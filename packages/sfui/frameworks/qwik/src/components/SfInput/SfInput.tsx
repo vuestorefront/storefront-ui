@@ -11,6 +11,7 @@ const sizeClasses = {
 export const SfInput = component$<SfInputProps>(
   ({
     value,
+    onChange$,
     size = SfInputSize.base,
     invalid,
     showSlotPrefix,
@@ -43,7 +44,8 @@ export const SfInput = component$<SfInputProps>(
           type="text"
           data-testid="input-field"
           size={1}
-          bind:value={value}
+          value={value}
+          onChange$={onChange$}
           {...(ref ? { ref } : {})}
           {...attributes}
         />

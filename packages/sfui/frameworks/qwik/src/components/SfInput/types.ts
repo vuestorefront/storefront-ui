@@ -1,4 +1,4 @@
-import { QwikIntrinsicElements, Signal } from '@builder.io/qwik';
+import { PropFunction, QwikChangeEvent, QwikIntrinsicElements, Signal } from '@builder.io/qwik';
 import { SfInputSize } from '@storefront-ui/shared';
 
 export { SfInputSize };
@@ -11,5 +11,6 @@ export type SfInputProps = Omit<QwikIntrinsicElements['input'], 'size' | 'class'
   showSlotPrefix?: boolean;
   showSlotSuffix?: boolean;
   ref?: Signal<Element | undefined>;
-  value?: Signal<any>;
+  value?: any;
+  onChange$?: PropFunction<(event: QwikChangeEvent<HTMLInputElement>)=> void>
 };
