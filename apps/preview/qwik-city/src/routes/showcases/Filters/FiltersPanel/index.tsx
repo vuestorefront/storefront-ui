@@ -191,8 +191,8 @@ export default component$(() => {
             <div q:slot="detail">
               {section.type === 'size' && (
                 <ul class="flex flex-wrap gap-4 px-1.5">
-                  {section.details.map(({ id, label, value, counter }) => (
-                    <li>
+                  {section.details.map(({ id, label, value, counter }, key) => (
+                    <li key={key}>
                       <SfChip
                         key={id}
                         size="sm"
