@@ -1,10 +1,10 @@
 import type { ReactNode, PropsWithChildren } from 'react';
 import type { PropsWithStyle } from '@storefront-ui/react';
 import { SfListItemSize } from '@storefront-ui/shared';
-import { Signal } from '@builder.io/qwik';
+import { QwikIntrinsicElements, Signal } from '@builder.io/qwik';
 
 export { SfListItemSize };
-export type SfListItemProps = {
+export type SfListItemProps = QwikIntrinsicElements['a'] & {
   as?: any;
   ref?: Signal<Element |undefined>
   class?: string;
