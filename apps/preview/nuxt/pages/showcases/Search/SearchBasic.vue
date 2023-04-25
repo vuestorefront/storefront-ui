@@ -1,19 +1,17 @@
 <template>
   <form role="search" @submit.prevent="submit" ref="referenceRef" class="relative">
-    <label>
-      <SfInput ref="inputRef" v-model="inputModel" @focus="open" placeholder="Search 'MacBook' or 'iPhone'...">
-        <template #prefix><SfIconSearch /></template>
-        <template #suffix>
-          <button
-            type="button"
-            @click="reset"
-            aria-label="Reset search"
-            class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
-          >
-            <SfIconCancel /></button
-        ></template>
-      </SfInput>
-    </label>
+    <SfInput ref="inputRef" v-model="inputModel" @focus="open" placeholder="Search 'MacBook' or 'iPhone'...">
+      <template #prefix><SfIconSearch /></template>
+      <template #suffix>
+        <button
+          type="button"
+          @click="reset"
+          aria-label="Reset search"
+          class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+        >
+          <SfIconCancel /></button
+      ></template>
+    </SfInput>
     <div v-if="isOpen" ref="floatingRef" :style="style" class="right-0 left-0">
       <div
         v-if="isLoadingSnippets"

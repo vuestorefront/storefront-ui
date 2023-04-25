@@ -115,26 +115,24 @@ export default function SearchBasic() {
 
   return (
     <form role="search" onSubmit={handleSubmit} ref={refs.setReference} className="relative">
-      <label>
-        <SfInput
-          ref={inputRef}
-          value={searchValue}
-          onChange={handleChange}
-          onFocus={open}
-          placeholder="Search 'MacBook' or 'iPhone'..."
-          slotPrefix={<SfIconSearch />}
-          slotSuffix={
-            <button
-              type="button"
-              onClick={handleReset}
-              aria-label="Reset search"
-              className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
-            >
-              <SfIconCancel />
-            </button>
-          }
-        />
-      </label>
+      <SfInput
+        ref={inputRef}
+        value={searchValue}
+        onChange={handleChange}
+        onFocus={open}
+        placeholder="Search 'MacBook' or 'iPhone'..."
+        slotPrefix={<SfIconSearch />}
+        slotSuffix={
+          <button
+            type="button"
+            onClick={handleReset}
+            aria-label="Reset search"
+            className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+          >
+            <SfIconCancel />
+          </button>
+        }
+      />
       {isOpen && (
         <div ref={refs.setFloating} style={style} className="right-0 left-0">
           {isLoadingSnippets ? (
