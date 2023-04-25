@@ -35,7 +35,9 @@ export default component$(() => {
         <form
           class="mb-4 flex flex-col sm:flex-row gap-4 max-w-[688px] mx-auto"
           preventdefault:submit
-          onSubmit$={() => subscribeNewsletter(inputValueSignal.value)}
+          onSubmit$={() => {
+            subscribeNewsletter(inputValueSignal.value);
+          }}
         >
           <SfInput
             value={inputValueSignal.value}
