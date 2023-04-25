@@ -28,7 +28,7 @@ export const SfListItem = component$<SfListItemProps>(
     return (
       <Tag
         {...(ref ? { ref } : {})}
-        className={`
+        class={`
           inline-flex items-center gap-2 w-full hover:bg-neutral-100 active:bg-neutral-200 cursor-pointer 
           ${disabled ? 'cursor-not-allowed pointer-events-none text-disabled-900' : ''} 
           ${selected ? 'font-medium' : ''} 

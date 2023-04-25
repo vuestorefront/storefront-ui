@@ -32,10 +32,9 @@ export default component$(() => {
 
   const groupItemHref = (groupName: string, showcaseName: string) => `/showcases/${groupName}/${showcaseName}`;
 
-  const isDocsRoute = location.url.searchParams.get('doc');
   return (
     <div class="e-page-examples">
-      {isDocsRoute ? (
+      
         <div class={`sidebar ${isOpenSignal.value ? '' : 'sidebar-collapsed'}`}>
           <header class="sidebar-heading">
             <h2>StorefrontUI v2</h2>
@@ -87,7 +86,6 @@ export default component$(() => {
             ))}
           </ul>
         </div>
-      ) : null}
       <div class="e-page">
         <div class="e-page-component">
           <Slot />
