@@ -31,7 +31,7 @@ Sizes in category pages are a feature that allows online shoppers to filter thei
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Filters/Sizes.tsx#source
-
+<!-- end react -->
 </Showcase>
 
 
