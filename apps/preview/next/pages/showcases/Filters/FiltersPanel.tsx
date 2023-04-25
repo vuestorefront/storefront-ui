@@ -145,8 +145,8 @@ export default function FiltersPanel() {
 
   return (
     <aside>
-      <div className="flex items-center justify-between">
-        <h4 className="px-2 font-bold typography-headline-4">Filters</h4>
+      <div className="flex items-center justify-between mb-4">
+        <h4 className="px-2 font-bold typography-headline-4">List settings</h4>
         {selectedFilters.length ? (
           <SfButton
             type="reset"
@@ -159,12 +159,13 @@ export default function FiltersPanel() {
             Clear all
           </SfButton>
         ) : null}
-        <button type="button" className="md:hidden text-neutral-500">
+        <button type="button" className="sm:hidden text-neutral-500" aria-label="Close filters panel">
           <SfIconClose />
         </button>
       </div>
-      <hr className="my-4" />
-      <p className="px-2 mb-2 font-medium typography-headline-5">Sort by:</p>
+      <h5 className="py-2 px-4 mb-6 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md">
+        Sort by
+      </h5>
       <div className="px-2">
         <SfSelect aria-label="Sort by">
           {sortOptions.map((option) => (
@@ -174,7 +175,9 @@ export default function FiltersPanel() {
           ))}
         </SfSelect>
       </div>
-      <hr className="my-4" />
+      <h5 className="py-2 px-4 mt-6 mb-4 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md">
+        Filters
+      </h5>
       {filtersData.map((section) => (
         <>
           <SfAccordionItem
@@ -306,7 +309,7 @@ export default function FiltersPanel() {
         </>
       ))}
       <div className="flex justify-between">
-        <SfButton variant="secondary" className="w-full mr-3 md:hidden" onClick={() => setSelectedFilters([])}>
+        <SfButton variant="secondary" className="w-full mr-3" onClick={() => setSelectedFilters([])}>
           Clear all filters
         </SfButton>
         <SfButton className="w-full">Show products</SfButton>
