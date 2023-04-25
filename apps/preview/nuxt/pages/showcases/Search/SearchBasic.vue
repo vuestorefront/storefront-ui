@@ -39,8 +39,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, nextTick } from 'vue';
+import { type Ref, ref, watch } from 'vue';
 import { offset } from '@floating-ui/vue';
+import { watchDebounced } from '@vueuse/shared';
+import { unrefElement } from '@vueuse/core';
 import {
   SfIconCancel,
   SfIconSearch,
@@ -51,10 +53,9 @@ import {
   useDropdown,
   useTrapFocus,
 } from '@storefront-ui/vue';
-import { watchDebounced } from '@vueuse/shared';
 
 const inputModel = ref('');
-const inputRef = ref<HTMLInputElement | null>(null);
+const inputRef = ref();
 const isLoadingSnippets = ref(false);
 const snippets = ref<{ highlight: string; rest: string; product: Product }[]>([]);
 const { isOpen, close, open } = useDisclosure();
@@ -64,11 +65,7 @@ const { referenceRef, floatingRef, style } = useDropdown({
   placement: 'bottom-start',
   middleware: [offset(4)],
 });
-useTrapFocus(floatingRef, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
-
-defineExpose({
-  inputRef,
-});
+useTrapFocus(floatingRef as Ref<HTMLElement>, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
 
 const submit = () => {
   close();
@@ -76,7 +73,8 @@ const submit = () => {
 };
 
 const focusInput = () => {
-  inputRef.value?.focus();
+  const inputEl = unrefElement(inputRef)?.querySelector('input');
+  inputEl?.focus();
 };
 
 const reset = () => {
@@ -87,11 +85,16 @@ const reset = () => {
 };
 
 const selectValue = (phrase: string) => {
-  console.log('SELECT: ', { phrase });
   inputModel.value = phrase;
   close();
-  // focusInput();
+  focusInput();
 };
+
+watch(inputModel, () => {
+  if (inputModel.value === '') {
+    reset();
+  }
+});
 
 watchDebounced(
   inputModel,
