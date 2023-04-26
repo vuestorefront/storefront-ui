@@ -3,11 +3,23 @@
   "pipeline": {
     "build": {
       "cache": false,
-      "dependsOn": ["^build:shared", "^build:typography", "build:tailwind-config", "build:release",  "build:next", "build:nuxt", "build:docs"],
-      "outputs": ["dist/**"]
+      "dependsOn": [
+        "^build:shared",
+        "^build:typography",
+        "build:tailwind-config",
+        "build:release",
+        "build:next",
+        "build:nuxt",
+        "build:docs"
+      ],
+      "outputs": [
+        "dist/**"
+      ]
     },
     "lint": {
-      "dependsOn": ["^build:shared"],
+      "dependsOn": [
+        "^build:shared"
+      ],
       "outputs": []
     },
     "lint:fix": {
@@ -20,26 +32,46 @@
     },
     "build:next": {
       "cache": false,
-      "dependsOn": ["^build:react", "^build:typography", "build:tailwind-config"]
+      "dependsOn": [
+        "^build:react",
+        "^build:typography",
+        "build:tailwind-config"
+      ]
     },
     "build:nuxt": {
       "cache": false,
-      "dependsOn": ["^build:vue", "^build:typography", "build:tailwind-config"]
+      "dependsOn": [
+        "^build:vue",
+        "^build:typography",
+        "build:tailwind-config"
+      ]
     },
     "build:docs": {
-      "dependsOn": ["^build:tailwind-config"],
+      "dependsOn": [
+        "^build:tailwind-config"
+      ],
       "cache": false
     },
     "build:react": {
-      "dependsOn": ["^build:shared"],
+      "dependsOn": [
+        "^build:shared"
+      ],
       "cache": false
     },
     "build:vue": {
-      "dependsOn": ["^build:shared"],
+      "dependsOn": [
+        "^build:shared"
+      ],
       "cache": false
     },
     "build:release": {
-      "dependsOn": ["build:react", "build:vue", "build:tailwind-config", "build:typography", "build:peer-next"],
+      "dependsOn": [
+        "build:react",
+        "build:vue",
+        "build:tailwind-config",
+        "build:typography",
+        "build:peer-next"
+      ],
       "cache": false
     },
     "build:shared": {
@@ -62,21 +94,61 @@
     },
     "dev:docs": {
       "cache": false,
-      "dependsOn": ["^build:typography", "build:peer-next", "build:tailwind-config"]
+      "dependsOn": [
+        "^build:typography",
+        "build:peer-next",
+        "build:tailwind-config"
+      ]
     },
     "dev:shared": {
       "cache": false
     },
     "test": {
-      "dependsOn": ["build:test-utils", "dev:shared", "^build:tailwind-config"],
+      "dependsOn": [
+        "build:test-utils",
+        "dev:shared",
+        "^build:tailwind-config"
+      ],
+      "cache": false
+    },
+    "test:ci-pre:vue": {
+      "dependsOn": [
+        "^build:shared",
+        "^build:typography",
+        "build:peer-next",
+        "build:tailwind-config",
+        "build:test-utils"
+      ],
       "cache": false
     },
     "test:ci:vue": {
-      "dependsOn": ["^build:shared", "^build:typography", "build:peer-next", "build:tailwind-config", "build:test-utils"],
+      "dependsOn": [
+        "^build:shared",
+        "^build:typography",
+        "build:peer-next",
+        "build:tailwind-config",
+        "build:test-utils"
+      ],
+      "cache": false
+    },
+    "test:ci-pre:react": {
+      "dependsOn": [
+        "^build:shared",
+        "^build:typography",
+        "build:peer-next",
+        "build:test-utils",
+        "build:tailwind-config"
+      ],
       "cache": false
     },
     "test:ci:react": {
-      "dependsOn": ["^build:shared", "^build:typography", "build:peer-next", "build:test-utils", "build:tailwind-config"],
+      "dependsOn": [
+        "^build:shared",
+        "^build:typography",
+        "build:peer-next",
+        "build:test-utils",
+        "build:tailwind-config"
+      ],
       "cache": false
     }
   }

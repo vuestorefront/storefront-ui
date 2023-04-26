@@ -12,137 +12,145 @@ on:
       - ready_for_review
 
 jobs:
-  # cache:
-  #   name: Create cache for all steps
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v3
-  #     - name: Install Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: '.node-version'
-  #         cache: 'yarn'
-  #     - name: Install dependencies
-  #       run: NOT_GENERATE_ICON=true && yarn --immutable
+  cache:
+    name: Create cache for all steps
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: NOT_GENERATE_ICON=true && yarn --immutable
 
-  # verify-collaborator:
-  #   name: Verify collaborator
-  #   needs: [cache]
-  #   runs-on: ubuntu-latest
-  #   outputs:
-  #     isCollaborator: ${{ steps.collaborator.outputs.isCollaborator }}
-  #   steps:
-  #     - id: collaborator
-  #       name: Check if user is a collaborator
-  #       run: |
-  #         curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-  #              "https://api.github.com/repos/${{ github.repository }}/collaborators/${{ github.actor }}" \
-  #              | grep -q "Collaborator not found" \
-  #              && echo "isCollaborator=false" >> $GITHUB_OUTPUT \
-  #              || echo "isCollaborator=true" >> $GITHUB_OUTPUT
+  verify-collaborator:
+    name: Verify collaborator
+    needs: [cache]
+    runs-on: ubuntu-latest
+    outputs:
+      isCollaborator: ${{ steps.collaborator.outputs.isCollaborator }}
+    steps:
+      - id: collaborator
+        name: Check if user is a collaborator
+        run: |
+          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+               "https://api.github.com/repos/${{ github.repository }}/collaborators/${{ github.actor }}" \
+               | grep -q "Collaborator not found" \
+               && echo "isCollaborator=false" >> $GITHUB_OUTPUT \
+               || echo "isCollaborator=true" >> $GITHUB_OUTPUT
 
-  # commit-lint:
-  #   name: Validate PR Title (conventional-commit)
-  #   needs: [cache]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v3
-  #     - name: Setup node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: '.node-version'
-  #         cache: 'yarn'
-  #     - name: Install dependencies
-  #       run: NOT_GENERATE_ICON=true && yarn --immutable
-  #       env:
-  #         NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-  #     - uses: JulienKode/pull-request-name-linter-action@v0.5.0
+  commit-lint:
+    name: Validate PR Title (conventional-commit)
+    needs: [cache]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: NOT_GENERATE_ICON=true && yarn --immutable
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+      - uses: JulienKode/pull-request-name-linter-action@v0.5.0
 
-  # lint:
-  #   name: Lint
-  #   needs: [cache]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v3
-  #     - name: Install Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: '.node-version'
-  #         cache: 'yarn'
-  #     - name: Install dependencies
-  #       run: yarn --immutable
-  #     - name: Run linters
-  #       run: yarn lint
+  lint:
+    name: Lint
+    needs: [cache]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Run linters
+        run: yarn lint
 
-  # build:
-  #   name: Build Nuxt, Next, Docs
-  #   needs: [cache, lint]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v3
-  #     - name: Install Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: '.node-version'
-  #         cache: 'yarn'
-  #     - name: Install dependencies
-  #       run: yarn --immutable
-  #     - name: Run build
-  #       run: yarn build
+  build:
+    name: Build Nuxt, Next, Docs
+    needs: [cache, lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Run build
+        run: yarn build
 
-  # build-release:
-  #   name: Build packages for release
-  #   needs: [cache, lint]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout repository
-  #       uses: actions/checkout@v3
-  #     - name: Install Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: '.node-version'
-  #         cache: 'yarn'
-  #     - name: Install dependencies
-  #       run: yarn --immutable
-  #     - name: Run build
-  #       run: yarn build:release
+  build-release:
+    name: Build packages for release
+    needs: [cache, lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Run build
+        run: yarn build:release
 
-  # cypress-vue:
-  #   name: Run cypress tests(Vue)
-  #   needs: [cache, lint, verify-collaborator]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v3
-  #       with:
-  #         fetch-depth: 0
-  #     - name: Install Node.js
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version-file: '.node-version'
-  #         cache: 'yarn'
-  #     - name: Install dependencies
-  #       run: yarn --immutable
-  #     - name: Cypress run
-  #       uses: cypress-io/github-action@v5.6.1
-  #       with:
-  #         command: yarn test:ci:vue
-  #     - name: SonarCloud Scan
-  #       if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
-  #       uses: SonarSource/sonarcloud-github-action@v1.8
-  #       with:
-  #         projectBaseDir: packages/sfui/frameworks/vue
-  #       env:
-  #         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_VUE }}
+  cypress-vue:
+    name: Run cypress tests(Vue)
+    needs: [cache, lint, verify-collaborator]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Pre-Cypress (build all dependencies)
+        run: yarn test:ci-pre:vue
+      - name: Cypress run
+        uses: cypress-io/github-action@v5.6.1
+        with:
+          browser: chrome
+          working-directory: apps/test/vue
+          component: true
+        env:
+          CYPRESS_COVERAGE: true
+      - name: Post-Cypress (generate coverage)
+        run: cd apps/test/vue; yarn generate-coverage
+      - name: SonarCloud Scan
+        if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
+        uses: SonarSource/sonarcloud-github-action@v1.8
+        with:
+          projectBaseDir: packages/sfui/frameworks/vue
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_VUE }}
 
   cypress-react:
-    name: Run cypress tests(react)
-    # needs: [cache, lint, verify-collaborator]
+    name: Run cypress tests(React)
+    needs: [cache, lint, verify-collaborator]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -154,10 +162,18 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Pre-Cypress (build all dependencies)
+        run: yarn test:ci-pre:react
       - name: Cypress run
         uses: cypress-io/github-action@v5.6.1
         with:
-          command: yarn test:ci:react
+          browser: chrome
+          working-directory: apps/test/react
+          component: true
+        env:
+          CYPRESS_COVERAGE: true
+      - name: Post-Cypress (generate coverage)
+        run: cd apps/test/react; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
         uses: SonarSource/sonarcloud-github-action@v1.8
