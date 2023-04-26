@@ -84,7 +84,7 @@ export default {
         },
       });
 
-      const reactPackage = resolve(process.cwd(), '..', '..', '..', 'packages', 'sfui', 'frameworks', 'react', 'index.ts');
+      const reactPackage = resolve(process.cwd(), '..', '..', '..', 'packages', 'sfui', 'frameworks', 'react', 'index.ts', '*.tsx');
       config.resolve.alias = {
         ...config.resolve.alias,
         '@storefront-ui/react': reactPackage,
