@@ -54,7 +54,8 @@ export default function OrderSummary() {
 
   const totalPrice = () => itemsSubtotal() + promoCode;
 
-  const checkPromoCode = () => {
+  const checkPromoCode = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
     if ((promoCode === -100 && inputValue.toUpperCase() === 'VSF2020') || !inputValue) return;
     if (inputValue.toUpperCase() === 'VSF2020') {
       setPromoCode(-100);
@@ -102,17 +103,20 @@ export default function OrderSummary() {
               <p>{formatPrice(promoCode)}</p>
             </div>
           ) : (
-            <div className="flex gap-x-2 py-4 border-y border-neutral-200 mb-4">
+            <form
+              className="flex gap-x-2 py-4 border-y border-neutral-200 mb-4"
+              onSubmit={(event) => checkPromoCode(event)}
+            >
               <SfInput
                 value={inputValue}
                 placeholder="Enter promo code"
                 wrapperClassName="grow"
                 onChange={(event) => setInputValue(event.target.value)}
               />
-              <SfButton variant="secondary" onClick={checkPromoCode}>
+              <SfButton type="submit" variant="secondary">
                 Apply
               </SfButton>
-            </div>
+            </form>
           )}
           <p className="px-3 py-1.5 bg-secondary-100 text-secondary-700 typography-text-sm rounded-md text-center mb-4">
             You are saving ${Math.abs(orderDetails.savings).toFixed(2)} on your order today!

@@ -27,10 +27,10 @@
           <SfButton size="sm" variant="tertiary" class="ml-auto mr-2" @click="removePromoCode">Remove</SfButton>
           <p>{{ formatPrice(promoCode) }}</p>
         </div>
-        <div v-else class="flex gap-x-2 py-4 border-y border-neutral-200 mb-4">
+        <form v-else class="flex gap-x-2 py-4 border-y border-neutral-200 mb-4" @submit.prevent="checkPromoCode">
           <SfInput v-model="inputValue" placeholder="Enter Promo Code" wrapper-class="grow" />
-          <SfButton variant="secondary" @click="checkPromoCode">Apply</SfButton>
-        </div>
+          <SfButton type="submit" variant="secondary">Apply</SfButton>
+        </form>
         <p class="px-3 py-1.5 bg-secondary-100 text-secondary-700 typography-text-sm rounded-md text-center mb-4">
           You are saving ${{ Math.abs(orderDetails.savings).toFixed(2) }} on your order today!
         </p>
