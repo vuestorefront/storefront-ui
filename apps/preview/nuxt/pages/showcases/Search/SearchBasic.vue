@@ -1,0 +1,157 @@
+<template>
+  <form role="search" @submit.prevent="submit" ref="referenceRef" class="relative">
+    <SfInput
+      ref="inputRef"
+      v-model="inputModel"
+      @focus="open"
+      aria-label="Search"
+      placeholder="Search 'MacBook' or 'iPhone'..."
+    >
+      <template #prefix><SfIconSearch /></template>
+      <template #suffix>
+        <button
+          type="button"
+          @click="reset"
+          aria-label="Reset search"
+          class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+        >
+          <SfIconCancel /></button
+      ></template>
+    </SfInput>
+    <div v-if="isOpen" ref="floatingRef" :style="style" class="right-0 left-0">
+      <div
+        v-if="isLoadingSnippets"
+        class="w-full h-20 flex justify-center items-center border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2"
+      >
+        <SfLoaderCircular />
+      </div>
+      <ul
+        v-else-if="snippets.length > 0"
+        class="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2"
+      >
+        <li v-for="{ highlight, rest, product } in snippets" :key="product.id">
+          <SfListItem tag="button" type="button" @click="() => selectValue(product.name)" class="flex justify-start">
+            <p class="text-left">
+              <span>{{ highlight }}</span>
+              <span class="font-medium">{{ rest }}</span>
+            </p>
+          </SfListItem>
+        </li>
+      </ul>
+    </div>
+  </form>
+</template>
+
+<script lang="ts" setup>
+import { type Ref, ref, watch } from 'vue';
+import { offset } from '@floating-ui/vue';
+import { watchDebounced } from '@vueuse/shared';
+import { unrefElement } from '@vueuse/core';
+import {
+  SfIconCancel,
+  SfIconSearch,
+  SfInput,
+  SfListItem,
+  SfLoaderCircular,
+  useDisclosure,
+  useDropdown,
+  useTrapFocus,
+} from '@storefront-ui/vue';
+
+const inputModel = ref('');
+const inputRef = ref();
+const isLoadingSnippets = ref(false);
+const snippets = ref<{ highlight: string; rest: string; product: Product }[]>([]);
+const { isOpen, close, open } = useDisclosure();
+const { referenceRef, floatingRef, style } = useDropdown({
+  isOpen,
+  onClose: close,
+  placement: 'bottom-start',
+  middleware: [offset(4)],
+});
+useTrapFocus(floatingRef as Ref<HTMLElement>, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+
+const submit = () => {
+  close();
+  alert(`Search for phrase: ${inputModel.value}`);
+};
+
+const focusInput = () => {
+  const inputEl = unrefElement(inputRef)?.querySelector('input');
+  inputEl?.focus();
+};
+
+const reset = () => {
+  inputModel.value = '';
+  snippets.value = [];
+  close();
+  focusInput();
+};
+
+const selectValue = (phrase: string) => {
+  inputModel.value = phrase;
+  close();
+  focusInput();
+};
+
+watch(inputModel, () => {
+  if (inputModel.value === '') {
+    reset();
+  }
+});
+
+watchDebounced(
+  inputModel,
+  () => {
+    if (inputModel.value) {
+      const getSnippets = async () => {
+        open();
+        isLoadingSnippets.value = true;
+        try {
+          const data = await mockAutocompleteRequest(inputModel.value);
+          snippets.value = data;
+        } catch (error) {
+          close();
+          console.error(error);
+        }
+        isLoadingSnippets.value = false;
+      };
+
+      getSnippets();
+    }
+  },
+  { debounce: 500 },
+);
+
+interface Product {
+  id: string;
+  name: string;
+}
+const mockProducts: Product[] = [
+  { id: 'ip-14', name: 'iPhone 14' },
+  { id: 'ip-14-pro', name: 'iPhone 14 Pro' },
+  { id: 'ip-14-pro-max', name: 'iPhone 14 Pro Max' },
+  { id: 'ip-14-plus', name: 'iPhone 14 Plus' },
+  { id: 'ip-13', name: 'iPhone 13' },
+  { id: 'ip-13-mini', name: 'iPhone 13 mini' },
+  { id: 'ip-12', name: 'iPhone 12' },
+  { id: 'ip-11', name: 'iPhone 11' },
+  { id: 'mb-air', name: 'MacBook Air' },
+  { id: 'mb-pro-13', name: 'MacBook Pro 13"' },
+  { id: 'mb-pro-14', name: 'MacBook Pro 14"' },
+  { id: 'mb-pro-16', name: 'MacBook Pro 16"' },
+];
+// Just for presentation purposes. Replace mock request with the actual API call.
+const delay = () => new Promise((resolve) => setTimeout(resolve, Math.random() * 1000));
+const mockAutocompleteRequest = async (phrase: string) => {
+  await delay();
+  const results = mockProducts
+    .filter((product) => product.name.toLowerCase().startsWith(phrase.toLowerCase()))
+    .map((product) => {
+      const highlight = product.name.substring(0, phrase.length);
+      const rest = product.name.substring(phrase.length);
+      return { highlight, rest, product };
+    });
+  return results;
+};
+</script>
