@@ -120,6 +120,7 @@ export default function SearchBasic() {
         value={searchValue}
         onChange={handleChange}
         onFocus={open}
+        aria-label="Search"
         placeholder="Search 'MacBook' or 'iPhone'..."
         slotPrefix={<SfIconSearch />}
         slotSuffix={
