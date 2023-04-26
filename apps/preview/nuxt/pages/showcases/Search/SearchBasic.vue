@@ -10,7 +10,7 @@
       <template #prefix><SfIconSearch /></template>
       <template #suffix>
         <button
-          v-if="isResetButton"
+          v-if="inputModel"
           type="button"
           aria-label="Reset search"
           class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
@@ -44,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type Ref, ref, watch, computed } from 'vue';
+import { type Ref, ref, watch } from 'vue';
 import { offset } from '@floating-ui/vue';
 import { watchDebounced } from '@vueuse/shared';
 import { unrefElement } from '@vueuse/core';
@@ -71,7 +71,6 @@ const { referenceRef, floatingRef, style } = useDropdown({
   middleware: [offset(4)],
 });
 useTrapFocus(floatingRef as Ref<HTMLElement>, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
-const isResetButton = computed(() => Boolean(inputModel.value));
 
 const submit = () => {
   close();
