@@ -8,12 +8,8 @@ export default defineConfig({
   video: false,
   chromeWebSecurity: false,
   e2e: {
-    // We've imported your old cypress plugins here.
-    // You may want to clean this up later by importing these.
-    setupNodeEvents(on, config) {
-    },
     baseUrl: 'http://localhost:8080/v2/',
     specPattern: '../tests/**/*.cy.{js,jsx,ts,tsx}',
-    supportFile: '../tests/support/index.ts'
-  }
+    supportFile: '../tests/support/index.ts',
+  },
 });
