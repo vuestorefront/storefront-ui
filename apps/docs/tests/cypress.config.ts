@@ -1,6 +1,7 @@
 import { defineConfig } from 'cypress';
 
 export default defineConfig({
+  fixturesFolder: './fixtures',
   viewportHeight: 1080,
   viewportWidth: 1920,
   defaultCommandTimeout: 20000,
@@ -11,7 +12,7 @@ export default defineConfig({
     // You may want to clean this up later by importing these.
     setupNodeEvents(on, config) {
     },
-    baseUrl: 'https://docs.storefrontui.io/v2/vue/customization',
+    baseUrl: 'http://localhost:8080/v2/',
     specPattern: '../tests/**/*.cy.{js,jsx,ts,tsx}',
     supportFile: '../tests/support/index.ts'
   }
