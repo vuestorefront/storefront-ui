@@ -1,6 +1,7 @@
+/* eslint-disable no-nested-ternary */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { SfButton, SfIconCheckCircle, SfIconClose, SfInput, SfLink } from '@storefront-ui/react';
 
 const orderDetails = {
@@ -12,11 +13,38 @@ const orderDetails = {
 };
 
 export default function OrderSummary() {
+  const errorTimer = useRef(0);
+  const positiveTimer = useRef(0);
+  const informationTimer = useRef(0);
   const [inputValue, setInputValue] = useState('');
   const [promoCode, setPromoCode] = useState(0);
-  const [RemovedCodeAlert, setRemovedCodeAlert] = useState(false);
-  const [AddedCodeAlert, setAddedCodeAlert] = useState(false);
+  const [informationAlert, setInformationAlert] = useState(false);
+  const [positiveAlert, setPositiveAlert] = useState(false);
   const [errorAlert, setErrorAlert] = useState(false);
+
+  useEffect(() => {
+    clearTimeout(errorTimer.current);
+    errorTimer.current = window.setTimeout(() => setErrorAlert(false), 5000);
+    return () => {
+      clearTimeout(errorTimer.current);
+    };
+  }, [errorAlert]);
+
+  useEffect(() => {
+    clearTimeout(positiveTimer.current);
+    positiveTimer.current = window.setTimeout(() => setPositiveAlert(false), 5000);
+    return () => {
+      clearTimeout(positiveTimer.current);
+    };
+  }, [positiveAlert]);
+
+  useEffect(() => {
+    clearTimeout(informationTimer.current);
+    informationTimer.current = window.setTimeout(() => setInformationAlert(false), 5000);
+    return () => {
+      clearTimeout(informationTimer.current);
+    };
+  }, [informationAlert]);
 
   const formatPrice = (price: number) =>
     new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD' }).format(price);
@@ -30,18 +58,15 @@ export default function OrderSummary() {
     if ((promoCode === -100 && inputValue.toUpperCase() === 'VSF2020') || !inputValue) return;
     if (inputValue.toUpperCase() === 'VSF2020') {
       setPromoCode(-100);
-      setAddedCodeAlert(true);
-      setTimeout(() => setAddedCodeAlert(false), 5000);
+      setPositiveAlert(true);
     } else {
       setErrorAlert(true);
-      setTimeout(() => setErrorAlert(false), 5000);
     }
   };
 
   const removePromoCode = () => {
     setPromoCode(0);
-    setRemovedCodeAlert(true);
-    setTimeout(() => setRemovedCodeAlert(false), 5000);
+    setInformationAlert(true);
   };
 
   return (
@@ -106,7 +131,7 @@ export default function OrderSummary() {
         </div>
       </div>
       <div className="absolute top-0 right-0 mx-2 mt-2 sm:mr-6">
-        {AddedCodeAlert && (
+        {positiveAlert && (
           <div
             role="alert"
             className="flex items-start md:items-center shadow-md max-w-[600px] bg-positive-100 pr-2 pl-4 mb-2 ring-1 ring-positive-200 typography-text-sm md:typography-text-base py-1 rounded-md"
@@ -117,14 +142,14 @@ export default function OrderSummary() {
               type="button"
               className="p-1.5 md:p-2 ml-auto rounded-md text-positive-700 hover:bg-positive-200 active:bg-positive-300 hover:text-positive-800 active:text-positive-900"
               aria-label="Close positive alert"
-              onClick={() => setAddedCodeAlert(false)}
+              onClick={() => setPositiveAlert(false)}
             >
               <SfIconClose className="hidden md:block" />
               <SfIconClose size="sm" className="md:hidden block" />
             </button>
           </div>
         )}
-        {RemovedCodeAlert && (
+        {informationAlert && (
           <div
             role="alert"
             className="flex items-start md:items-center shadow-md max-w-[600px] bg-positive-100 pr-2 pl-4 mb-2 ring-1 ring-positive-200 typography-text-sm md:typography-text-base py-1 rounded-md"
@@ -135,7 +160,7 @@ export default function OrderSummary() {
               type="button"
               className="p-1.5 md:p-2 ml-auto rounded-md text-positive-700 hover:bg-positive-200 active:bg-positive-300 hover:text-positive-800 active:text-positive-900"
               aria-label="Close positive alert"
-              onClick={() => setRemovedCodeAlert(false)}
+              onClick={() => setInformationAlert(false)}
             >
               <SfIconClose className="hidden md:block" />
               <SfIconClose size="sm" className="md:hidden block" />
