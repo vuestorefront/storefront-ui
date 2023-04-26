@@ -57,6 +57,7 @@ export default function SearchBasic() {
   const { isOpen, close, open } = useDisclosure();
   const { refs, style } = useDropdown({ isOpen, onClose: close, placement: 'bottom-start', middleware: [offset(4)] });
   useTrapFocus(refs.floating, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+  const isResetButton = Boolean(searchValue);
 
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -124,14 +125,16 @@ export default function SearchBasic() {
         placeholder="Search 'MacBook' or 'iPhone'..."
         slotPrefix={<SfIconSearch />}
         slotSuffix={
-          <button
-            type="button"
-            onClick={handleReset}
-            aria-label="Reset search"
-            className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
-          >
-            <SfIconCancel />
-          </button>
+          isResetButton && (
+            <button
+              type="button"
+              onClick={handleReset}
+              aria-label="Reset search"
+              className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+            >
+              <SfIconCancel />
+            </button>
+          )
         }
       />
       {isOpen && (

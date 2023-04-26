@@ -1,19 +1,20 @@
 <template>
-  <form role="search" @submit.prevent="submit" ref="referenceRef" class="relative">
+  <form ref="referenceRef" role="search" class="relative" @submit.prevent="submit">
     <SfInput
       ref="inputRef"
       v-model="inputModel"
-      @focus="open"
       aria-label="Search"
       placeholder="Search 'MacBook' or 'iPhone'..."
+      @focus="open"
     >
       <template #prefix><SfIconSearch /></template>
       <template #suffix>
         <button
+          v-if="isResetButton"
           type="button"
-          @click="reset"
           aria-label="Reset search"
           class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+          @click="reset"
         >
           <SfIconCancel /></button
       ></template>
@@ -30,7 +31,7 @@
         class="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2"
       >
         <li v-for="{ highlight, rest, product } in snippets" :key="product.id">
-          <SfListItem tag="button" type="button" @click="() => selectValue(product.name)" class="flex justify-start">
+          <SfListItem tag="button" type="button" class="flex justify-start" @click="() => selectValue(product.name)">
             <p class="text-left">
               <span>{{ highlight }}</span>
               <span class="font-medium">{{ rest }}</span>
@@ -43,7 +44,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type Ref, ref, watch } from 'vue';
+import { type Ref, ref, watch, computed } from 'vue';
 import { offset } from '@floating-ui/vue';
 import { watchDebounced } from '@vueuse/shared';
 import { unrefElement } from '@vueuse/core';
@@ -70,6 +71,7 @@ const { referenceRef, floatingRef, style } = useDropdown({
   middleware: [offset(4)],
 });
 useTrapFocus(floatingRef as Ref<HTMLElement>, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+const isResetButton = computed(() => Boolean(inputModel.value));
 
 const submit = () => {
   close();
