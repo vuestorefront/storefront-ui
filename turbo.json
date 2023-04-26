@@ -9,8 +9,7 @@
         "build:tailwind-config",
         "build:release",
         "build:next",
-        "build:nuxt",
-        "build:docs"
+        "build:nuxt"
       ],
       "outputs": [
         "dist/**"
