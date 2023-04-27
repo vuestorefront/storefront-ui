@@ -88,10 +88,7 @@ export default function TopNav() {
             ))}
           </div>
         </nav>
-        <form
-          role="search"
-          className="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
-        >
+        <form role="search" className="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0">
           <SfInput
             value={inputValue}
             type="search"
