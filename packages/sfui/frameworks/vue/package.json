@@ -1,0 +1,74 @@
+{
+  "name": "@storefront-ui/vue",
+  "version": "2.1.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs.js"
+    },
+    "./tailwind-config": {
+      "types": "./dist/tailwind-config.d.ts",
+      "import": "./dist/tailwind-config.mjs",
+      "require": "./dist/tailwind-config.cjs.js"
+    },
+    "./*": "./*"
+  },
+  "typesVersions": {
+    "*": {
+      "tailwind-config": [
+        "dist/tailwind-config"
+      ]
+    }
+  },
+  "source": "index.ts",
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build:vue": "vite build",
+    "lint": "yarn dlx browserslist@latest && yarn lint:script",
+    "lint:fix": "yarn lint:script:fix",
+    "lint:fix:sfui": "yarn lint:fix",
+    "lint:script": "concurrently \"eslint --ext .ts,.vue components/** shared/** --max-warnings 0\" \"vue-tsc\"",
+    "lint:script:fix": "eslint --fix --ext .ts,.vue \"components/**\" \"shared/**\""
+  },
+  "files": [
+    "dist"
+  ],
+  "dependencies": {
+    "@floating-ui/vue": "^0.2.1",
+    "@storefront-ui/shared": "workspace:*",
+    "@storefront-ui/tailwind-config": "workspace:*",
+    "@vueuse/core": "^9.12.0",
+    "jw-paginate": "^1.0.4",
+    "tabbable": "^6.1.1"
+  },
+  "devDependencies": {
+    "@storefront-ui/eslint-config": "workspace:*",
+    "@storefront-ui/tests-shared": "workspace:*",
+    "@vitejs/plugin-vue": "^4.0.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.34.0",
+    "vite": "^4.1.2",
+    "vite-plugin-dts": "^2.0.0-beta.1",
+    "vite-tsconfig-paths": "^4.0.5",
+    "vue-tsc": "^1.1.2"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.47"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://docs.storefrontui.io/v2/#vue",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuestorefront/storefront-ui.git",
+    "directory": "packages/sfui/frameworks/vue"
+  },
+  "bugs": {
+    "url": "https://github.com/vuestorefront/storefront-ui/issues"
+  }
+}
