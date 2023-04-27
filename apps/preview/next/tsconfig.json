@@ -23,14 +23,15 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "incremental": true,
     "preserveConstEnums": true,
     "baseUrl": "./",
     "paths": {
       "~/*": [
         "./*"
       ],
-      "@assets/*": ["./assets/fixture/*"]
+      "@assets/*": [
+        "./assets/fixture/*"
+      ]
     }
   },
   "include": [

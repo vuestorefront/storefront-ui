@@ -1,0 +1,14 @@
+{
+  "exclude": [
+    "node_modules",
+    "coverage/",
+    "cypress",
+    "sfui/react/components/SfIcons",
+    "sfui/tests"
+  ],
+  "include": [
+    "src/components/sfui/react"
+  ],
+  "reporter": [],
+  "extension": [".js", ".ts", ".jsx", ".tsx"]
+}

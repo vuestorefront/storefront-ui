@@ -127,10 +127,18 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Pre-Cypress (build all dependencies)
+        run: yarn test:ci-pre:vue
       - name: Cypress run
-        uses: cypress-io/github-action@v5.5.0
+        uses: cypress-io/github-action@v5.6.1
         with:
-          command: yarn test:ci:vue
+          browser: chrome
+          working-directory: apps/test/vue
+          component: true
+        env:
+          CYPRESS_COVERAGE: true
+      - name: Post-Cypress (generate coverage)
+        run: cd apps/test/vue; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
         uses: SonarSource/sonarcloud-github-action@v1.8
@@ -141,7 +149,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_VUE }}
 
   cypress-react:
-    name: Run cypress tests(react)
+    name: Run cypress tests(React)
     needs: [cache, lint, verify-collaborator]
     runs-on: ubuntu-latest
     steps:
@@ -154,10 +162,18 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Pre-Cypress (build all dependencies)
+        run: yarn test:ci-pre:react
       - name: Cypress run
-        uses: cypress-io/github-action@v5.5.0
+        uses: cypress-io/github-action@v5.6.1
         with:
-          command: yarn test:ci:react
+          browser: chrome
+          working-directory: apps/test/react
+          component: true
+        env:
+          CYPRESS_COVERAGE: true
+      - name: Post-Cypress (generate coverage)
+        run: cd apps/test/react; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
         uses: SonarSource/sonarcloud-github-action@v1.8

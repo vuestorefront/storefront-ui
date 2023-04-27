@@ -1,12 +1,6 @@
-import {
-  removeCode,
-  changeFrameworkPathInImports,
-} from "@storefront-ui/tests-shared/index.js";
 import { join, resolve } from 'path';
 import { existsSync } from 'fs';
 
-const isCoverageEnabled = process.env.CYPRESS_COVERAGE === "true";
-const isTest = process.env.TEST === 'true';
 const isProd = process.env.PROD === 'true';
 
 /** @type {import('next').NextConfig} */
@@ -21,38 +15,9 @@ export default {
   swcMinify: true,
   experimental: {
     externalDir: true,
-    topLevelAwait: true,
-    swcPlugins: isCoverageEnabled ? [
-      ["swc-plugin-coverage-instrument", {
-        esModules: true,
-      }]
-    ] : undefined,
   },
   webpack(config) {
-    if(isTest) {
-      config.module.rules.push({
-        test: /\/sfui\/tests\//,
-        loader: 'string-replace-loader',
-        options: {
-          multiple: [
-            {
-              // 1. Remove all `// vue` and `// end vue` from code
-              search: removeCode("vue"),
-              replace: ''
-            },
-            {
-              // 2. Find all imports with `/vue/` files and replace it to `/react/` so we would test correct package
-              search: changeFrameworkPathInImports('vue'),
-              replace: (_match, g1, g2, g3) => {
-                return `${g1}/react/${g3}`;
-              }
-            }
-          ]
-        }
-      });
-    }
-
-    if(!isProd) {
+    if (!isProd) {
       config.module.rules.push({
         test: /\/sfui\/frameworks\/react\/index\.ts/,
         loader: 'string-replace-loader',

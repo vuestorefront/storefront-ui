@@ -8,8 +8,8 @@ node_modules
 # testing
 coverage
 .nyc_output
-apps/preview/next/sfui
-apps/preview/vue/src/components/sfui/
+apps/test/vue/src/components/sfui/
+apps/test/react/src/components/sfui/
 
 # next.js
 .next/
