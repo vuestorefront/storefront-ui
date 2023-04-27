@@ -6,7 +6,6 @@ Hello! 👋 We'd like to kindly welcome you to our development guide. See table 
 2. [Coding rules](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/rules.md).
   a. [Vue rules](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/vue/rules.md).
   a. [React rules](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/react/rules.md).
-  a. [Qwik rules](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/qwik/rules.md).
 3. [Component generator tool](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/component_generator.md).
 4. [Testing](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/testing.md).
 5. [How docs are deployed?](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/docs-deployment.md)

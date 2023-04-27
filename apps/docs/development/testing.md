@@ -5,7 +5,6 @@
 We run every test file against 2 different framework environments:
 
 - `React` - tested within Next.js app environment
-- `Qwik` - tested within Qwik-city app environment
 - `Vue` - tested as a pure `Vue` code due to `Nuxt@3` not being compatible with Cypress component testing at the moment ([see connected issue](https://github.com/nuxt/framework/issues/6496)).
 
 ## Running tests
@@ -13,7 +12,7 @@ We run every test file against 2 different framework environments:
 In the root directory of this repo run `yarn test` command to spin off 2 Cypress instances in parallel.
 
 For each of Cypress instance you need to choose different browser runner (e.g Edge and Chrome). That's because of the because of [Cypress bug](https://github.com/cypress-io/cypress/issues/5613).
-In opposition to running them simultaneously, framework test suites can also be run one-by-one. To do that navigate to either `apps/preview/next` (for `React` test suite), `apps/preview/qwik-city` (for `Qwik` test suite) or `apps/preview/vue` (for `Vue` test suite) and run `yarn test` command.
+In opposition to running them simultaneously, framework test suites can also be run one-by-one. To do that navigate to either `apps/preview/next` (for `React` test suite) or `apps/preview/vue` (for `Vue` test suite) and run `yarn test` command.
 
 ## How to write tests
 
@@ -35,5 +34,4 @@ Important note about PageObjects - they are used only for visual checks/control,
 
 - [Cypress Vue](https://docs.cypress.io/guides/component-testing/quickstart-vue) - basic usage of cypress for Vue.
 - [Cypress React](https://docs.cypress.io/guides/component-testing/quickstart-react) - basic usage of cypress for React.
-- [Cypress Qwik](/)
 - [Cypress API](https://docs.cypress.io/api/table-of-contents) - Cypress API Documentation.
