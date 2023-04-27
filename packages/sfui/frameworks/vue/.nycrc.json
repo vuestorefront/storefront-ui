@@ -1,4 +1,0 @@
-{
-  "extends": "@storefront-ui/tests-shared/.nycrc.json",
-  "extension": [".js", ".ts", ".vue"]
-}
