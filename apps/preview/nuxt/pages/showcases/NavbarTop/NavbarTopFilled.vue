@@ -42,7 +42,9 @@
             <template #prefix>
               <Component :is="actionItem.icon" />
             </template>
-            <span v-if="actionItem.role === 'login'" class="hidden xl:inline-flex whitespace-nowrap">{{ actionItem.label }}</span>
+            <span v-if="actionItem.role === 'login'" class="hidden xl:inline-flex whitespace-nowrap">{{
+              actionItem.label
+            }}</span>
           </SfButton>
         </div>
       </nav>
