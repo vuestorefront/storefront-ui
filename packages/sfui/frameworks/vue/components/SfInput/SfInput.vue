@@ -33,8 +33,7 @@ const props = defineProps({
   },
 });
 const emit = defineEmits<{
-  (event: 'update:modelValue', value: string): void;
-  (event: 'focus'): void;
+  (event: 'update:modelValue', value: string | number): void;
 }>();
 const { modelValue, invalid } = toRefs(props);
 const { isFocusVisible } = useFocusVisible({ isTextInput: true });
@@ -44,9 +43,9 @@ Internal state has been implemented due to useFocusVisible and how it works. Mai
 it captures native HTMLElement.prototype.focus method. It makes value disappear under certain circumstances,
 so it's importatnt to keep it here, or to always pass modelValue to the component.
 */
-const internalState = ref();
+const internalState = ref<string | number>();
 const inputValue = computed({
-  get: () => modelValue.value || internalState.value,
+  get: () => modelValue.value ?? internalState.value,
   set: (value) => {
     emit('update:modelValue', value);
     internalState.value = value;
