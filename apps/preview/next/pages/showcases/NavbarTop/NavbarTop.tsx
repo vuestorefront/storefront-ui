@@ -82,8 +82,9 @@ export default function TopNav() {
                 square
                 slotPrefix={actionItem.icon}
               >
-                {actionItem.role === 'login' && 
-                <p className="hidden xl:inline-flex whitespace-nowrap">{actionItem.label}</p>}
+                {actionItem.role === 'login' && (
+                  <p className="hidden xl:inline-flex whitespace-nowrap">{actionItem.label}</p>
+                )}
               </SfButton>
             ))}
           </div>
