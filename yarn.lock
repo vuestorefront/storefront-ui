@@ -3845,7 +3845,7 @@ __metadata:
     classnames: ^2.3.2
     glob-promise: ^6.0.2
     lodash-es: ^4.17.21
-    next: latest
+    next: ^13.3.1
     react: ^18.2.0
     react-dom: ^18.2.0
     react-transition-group: ^4.4.5
@@ -17765,7 +17765,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"next@npm:latest":
+"next@npm:^13.3.1":
   version: 13.3.1
   resolution: "next@npm:13.3.1"
   dependencies:
