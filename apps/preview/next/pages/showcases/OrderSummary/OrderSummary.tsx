@@ -31,15 +31,15 @@ export default function OrderSummary() {
   return (
     <div className="md:shadow-lg md:rounded-md md:border md:border-neutral-100">
       <div className="flex justify-between items-end bg-neutral-100 md:bg-transparent py-2 px-4 md:px-6 md:pt-6 md:pb-4">
-        <p className="typography-headline-4 font-bold md:typography-headline-3">Order summary</p>
-        <p className="typography-text-base font-semibold">(Items: {orderDetails.items})</p>
+        <p className="typography-headline-4 font-bold md:typography-headline-3">Order Summary</p>
+        <p className="typography-text-base font-medium">(Items: {orderDetails.items})</p>
       </div>
       <div className="px-4 pb-4 mt-3 md:px-6 md:pb-6 md:mt-0">
         <div className="flex justify-between typography-text-base pb-4">
           <div className="flex flex-col grow pr-2">
             <p>Items Subtotal</p>
-            <p className="ml-auto typography-text-xs text-neutral-500">Original Price</p>
-            <p className="ml-auto typography-text-xs text-secondary-700">Savings</p>
+            <p className="typography-text-xs text-neutral-500">Original Price</p>
+            <p className="typography-text-xs text-secondary-700">Savings</p>
             <p className="my-2">Delivery</p>
             <p>Estimated Sales Tax</p>
           </div>
@@ -51,26 +51,27 @@ export default function OrderSummary() {
             <p>{formatPrice(orderDetails.tax)}</p>
           </div>
         </div>
-        {!!promoCode && (
-          <div className="flex items-center py-4 border-t border-neutral-200">
+        {promoCode ? (
+          <div className="flex items-center mb-5 py-5 border-y border-neutral-200">
             <p>PromoCode</p>
             <SfButton size="sm" variant="tertiary" className="ml-auto mr-2" onClick={removePromoCode}>
               Remove
             </SfButton>
             <p>{formatPrice(promoCode)}</p>
           </div>
+        ) : (
+          <div className="flex gap-x-2 py-4 border-y border-neutral-200 mb-4">
+            <SfInput
+              value={inputValue}
+              placeholder="Enter promo code"
+              wrapperClassName="grow"
+              onChange={(event) => setInputValue(event.target.value)}
+            />
+            <SfButton variant="secondary" onClick={checkPromoCode}>
+              Apply
+            </SfButton>
+          </div>
         )}
-        <div className="flex gap-x-2 py-4 border-y border-neutral-200 mb-4">
-          <SfInput
-            value={inputValue}
-            placeholder="Enter promo code"
-            wrapperClassName="grow"
-            onChange={(event) => setInputValue(event.target.value)}
-          />
-          <SfButton variant="secondary" onClick={checkPromoCode}>
-            Apply
-          </SfButton>
-        </div>
         <p className="px-3 py-1.5 bg-secondary-100 text-secondary-700 typography-text-sm rounded-md text-center mb-4">
           You are saving ${Math.abs(orderDetails.savings).toFixed(2)} on your order today!
         </p>
@@ -79,7 +80,7 @@ export default function OrderSummary() {
           <p>{formatPrice(totalPrice())}</p>
         </div>
         <SfButton size="lg" className="w-full">
-          Place order and pay
+          Place Order And Pay
         </SfButton>
         <div className="typography-text-sm mt-4 text-center">
           By placing my order, you agree to our <SfLink href="/">Terms and Conditions</SfLink> and our{' '}
