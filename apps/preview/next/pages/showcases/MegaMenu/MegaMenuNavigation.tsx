@@ -428,7 +428,6 @@ export default function MegaMenuNavigation() {
 
   const handleBlurWithin = (event: FocusEvent) => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
-      console.log('BLUR CLOSE');
       close();
     }
   };
@@ -474,7 +473,7 @@ export default function MegaMenuNavigation() {
           </div>
         </div>
         {/* Desktop dropdown */}
-        <nav>
+        <nav ref={refs.setFloating}>
           <ul
             className="hidden md:flex px-6 py-2 bg-white border-b border-b-neutral-200 border-b-solid"
             onBlur={handleBlurWithin}
@@ -490,10 +489,10 @@ export default function MegaMenuNavigation() {
                   <span>{node.value.label}</span>
                   <SfIconChevronRight className="rotate-90" />
                 </SfButton>
+
                 {isOpen && activeNode.length === 1 && activeNode[0] === node.key && (
                   <div
                     key={activeMenu.key}
-                    ref={refs.setFloating}
                     style={style}
                     className="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0"
                     onMouseLeave={close}
@@ -596,22 +595,26 @@ export default function MegaMenuNavigation() {
                   )}
                   {activeMenu.children.map((node) =>
                     node.isLeaf ? (
-                      <SfListItem key={node.key} size="lg" as="a" href={node.value.link} className="first-of-type:mt-2">
-                        <div className="flex items-center">
-                          <p className="text-left">{node.value.label}</p>
-                          <SfCounter className="ml-2">{node.value.counter}</SfCounter>
-                        </div>
-                      </SfListItem>
-                    ) : (
-                      <SfListItem key={node.key} size="lg" as="button" type="button" onClick={handleNext(node.key)}>
-                        <div className="flex justify-between items-center">
+                      <li key={node.key}>
+                        <SfListItem size="lg" as="a" href={node.value.link} className="first-of-type:mt-2">
                           <div className="flex items-center">
                             <p className="text-left">{node.value.label}</p>
                             <SfCounter className="ml-2">{node.value.counter}</SfCounter>
                           </div>
-                          <SfIconChevronRight className="text-neutral-500" />
-                        </div>
-                      </SfListItem>
+                        </SfListItem>
+                      </li>
+                    ) : (
+                      <li key={node.key}>
+                        <SfListItem size="lg" as="button" type="button" onClick={handleNext(node.key)}>
+                          <div className="flex justify-between items-center">
+                            <div className="flex items-center">
+                              <p className="text-left">{node.value.label}</p>
+                              <SfCounter className="ml-2">{node.value.counter}</SfCounter>
+                            </div>
+                            <SfIconChevronRight className="text-neutral-500" />
+                          </div>
+                        </SfListItem>
+                      </li>
                     ),
                   )}
                 </ul>
