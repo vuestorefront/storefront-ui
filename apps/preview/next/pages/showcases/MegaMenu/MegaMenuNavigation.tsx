@@ -398,9 +398,9 @@ const content: Node = {
 const findNode = (keys: string[], node: Node): Node => {
   if (keys.length > 1) {
     const [currentKey, ...restKeys] = keys;
-    return findNode(restKeys, node.children.find((node) => node.key === currentKey) || node);
+    return findNode(restKeys, node.children.find((child) => child.key === currentKey) || node);
   }
-  return node.children.find((node) => node.key === keys[0]) || node;
+  return node.children.find((child) => child.key === keys[0]) || node;
 };
 
 export default function MegaMenuNavigation() {
