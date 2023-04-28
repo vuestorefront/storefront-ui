@@ -3,164 +3,117 @@
 import { ShowcasePageLayout } from '../../showcases';
 
 // #region source
-import { useEffect, useRef, useState } from 'react';
-import { clamp } from '@storefront-ui/shared';
-import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
-import gallery1 from '@assets/gallery_1.png';
-import gallery2 from '@assets/gallery_2.png';
-import gallery3 from '@assets/gallery_3.png';
-import gallery4 from '@assets/gallery_4.png';
-import gallery5 from '@assets/gallery_5.png';
-import gallery6 from '@assets/gallery_6.png';
-import gallery7 from '@assets/gallery_7.png';
-import gallery8 from '@assets/gallery_8.png';
-import gallery9 from '@assets/gallery_9.png';
-import gallery10 from '@assets/gallery_10.png';
-import gallery1_thumb from '@assets/gallery_1_thumb.png';
-import gallery2_thumb from '@assets/gallery_2_thumb.png';
-import gallery3_thumb from '@assets/gallery_3_thumb.png';
-import gallery4_thumb from '@assets/gallery_4_thumb.png';
-import gallery5_thumb from '@assets/gallery_5_thumb.png';
-import gallery6_thumb from '@assets/gallery_6_thumb.png';
-import gallery7_thumb from '@assets/gallery_7_thumb.png';
-import gallery8_thumb from '@assets/gallery_8_thumb.png';
-import gallery9_thumb from '@assets/gallery_9_thumb.png';
-import gallery10_thumb from '@assets/gallery_10_thumb.png';
+import { useState } from 'react';
+import {
+  SfScrollable,
+  SfButton,
+  SfIconChevronLeft,
+  SfIconChevronRight,
+  type SfScrollableOnDraggedChangeData,
+} from '@storefront-ui/react';
+import * as Images from './images';
 
 const images = [
-  { image: gallery1.src, alt: 'backpack' },
-  { image: gallery2.src, alt: 'backpack' },
-  { image: gallery3.src, alt: 'backpack' },
-  { image: gallery4.src, alt: 'backpack' },
-  { image: gallery5.src, alt: 'backpack' },
-  { image: gallery6.src, alt: 'backpack' },
-  { image: gallery7.src, alt: 'backpack' },
-  { image: gallery8.src, alt: 'backpack' },
-  { image: gallery9.src, alt: 'backpack' },
-  { image: gallery10.src, alt: 'backpack' },
+  { imageSrc: Images.gallery1Src, alt: 'backpack' },
+  { imageSrc: Images.gallery2Src, alt: 'backpack' },
+  { imageSrc: Images.gallery3Src, alt: 'backpack' },
+  { imageSrc: Images.gallery4Src, alt: 'backpack' },
+  { imageSrc: Images.gallery5Src, alt: 'backpack' },
+  { imageSrc: Images.gallery6Src, alt: 'backpack' },
+  { imageSrc: Images.gallery7Src, alt: 'backpack' },
+  { imageSrc: Images.gallery8Src, alt: 'backpack' },
+  { imageSrc: Images.gallery9Src, alt: 'backpack' },
+  { imageSrc: Images.gallery10Src, alt: 'backpack' },
 ];
 
 const thumbImages = [
-  { image: gallery1_thumb.src, alt: 'backpack' },
-  { image: gallery2_thumb.src, alt: 'backpack' },
-  { image: gallery3_thumb.src, alt: 'backpack' },
-  { image: gallery4_thumb.src, alt: 'backpack' },
-  { image: gallery5_thumb.src, alt: 'backpack' },
-  { image: gallery6_thumb.src, alt: 'backpack' },
-  { image: gallery7_thumb.src, alt: 'backpack' },
-  { image: gallery8_thumb.src, alt: 'backpack' },
-  { image: gallery9_thumb.src, alt: 'backpack' },
-  { image: gallery10_thumb.src, alt: 'backpack' },
+  { imageSrc: Images.gallery1ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery2ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery3ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery4ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery5ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery6ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery7ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery8ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery9ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack' },
 ];
 
 export default function GalleryHorizontal() {
-  const draggableRef = useRef<HTMLDivElement>(null);
-  const [offsetPosition, setOffsetPosition] = useState(0);
   const [activeIndex, setActiveIndex] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
-  const imgPosition = activeIndex + offsetPosition;
 
-  function pointerHandler(e: React.PointerEvent<HTMLDivElement>) {
-    e.preventDefault();
-    if (!draggableRef.current) {
-      return;
+  const onDragged = (event: SfScrollableOnDraggedChangeData) => {
+    if (event.swipeRight && activeIndex > 0) {
+      setActiveIndex((currentActiveIndex) => (currentActiveIndex -= 1));
+    } else if (event.swipeLeft && activeIndex < images.length - 1) {
+      setActiveIndex((currentActiveIndex) => (currentActiveIndex += 1));
     }
-    draggableRef.current.setPointerCapture(e.pointerId);
-    const pointerDownOffset = e.nativeEvent.offsetX;
-    setIsDragging(true);
-    const rect = draggableRef.current.getBoundingClientRect();
-    const pointerEventMethod = (event: PointerEvent) => {
-      setOffsetPosition((pointerDownOffset - event.offsetX) / rect.width / 5);
-    };
-    draggableRef.current.addEventListener('pointermove', pointerEventMethod, { passive: false });
-    draggableRef.current.addEventListener('pointerup', () => {
-      setIsDragging(false);
-      draggableRef.current?.removeEventListener('pointermove', pointerEventMethod);
-    });
-  }
-
-  useEffect(() => {
-    if (!isDragging) {
-      const stopVal = offsetPosition > 0 ? Math.ceil(imgPosition) : Math.floor(imgPosition);
-      setActiveIndex(clamp(stopVal, 0, images.length - 1));
-      setOffsetPosition(0);
-    }
-  }, [isDragging, offsetPosition, imgPosition]);
+  };
 
   return (
-    <div className="relative max-h-[700px] flex flex-col h-full scroll-smooth">
-      <div
-        className="after:block after:pt-[100%] flex-1 relative overflow-hidden w-full cursor-grab active:cursor-grabbing touch-pan-y"
-        ref={draggableRef}
-        onPointerDown={pointerHandler}
+    <div className="relative max-h-[600px] flex flex-col h-full">
+      <SfScrollable
+        className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        activeIndex={activeIndex}
+        wrapperClassName="h-full min-h-0"
+        buttonsPlacement="none"
+        isActiveIndexCentered
+        drag={{ containerWidth: true }}
+        onDraggedChange={onDragged}
       >
-        <div
-          className="flex w-full h-full transition-transform snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none'] will-change-transform"
-          style={{
-            transform: `translate3d(${imgPosition * -100}%,0,0)`,
-          }}
-        >
-          {images.map(({ image, alt }, index) => (
-            <div
-              className="relative flex justify-center snap-center snap-always basis-full shrink-0 grow"
-              key={`${alt}-${index}`}
-            >
-              <img
-                aria-label={alt}
-                aria-hidden={activeIndex !== index}
-                className="object-cover w-auto h-full"
-                alt={alt}
-                src={image}
-                draggable="false"
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-      <div className="flex-shrink-0 overflow-hidden basis-auto">
-        <SfScrollable
-          className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
-          activeIndex={activeIndex}
-          buttons-placement="floating"
-          slotPreviousButton={
-            <SfButton
-              className="absolute disabled:hidden !rounded-full z-10 left-4 bg-white"
-              variant="secondary"
-              size="sm"
-              square
-              slotPrefix={<SfIconChevronLeft />}
-            />
-          }
-          slotNextButton={
-            <SfButton
-              className="absolute disabled:hidden !rounded-full z-10 right-4 bg-white"
-              variant="secondary"
-              size="sm"
-              square
-              slotPrefix={<SfIconChevronRight />}
-            />
-          }
-        >
-          {thumbImages.map(({ image, alt }, index) => (
-            <button
-              type="button"
+        {images.map(({ imageSrc, alt }, index) => (
+          <div key={`${alt}-${index}`} className="h-full flex justify-center basis-full shrink-0 grow snap-center">
+            <img
               aria-label={alt}
-              aria-current={activeIndex === index}
-              key={`${alt}-${index}-thumbnail`}
-              className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 my-4 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
-                activeIndex === index ? 'border-primary-700' : 'border-transparent'
-              }`}
-              onClick={() => setActiveIndex(index)}
-            >
-              <img alt={alt} className="object-contain border border-neutral-200" width="78" height="78" src={image} />
-            </button>
-          ))}
-        </SfScrollable>
-      </div>
+              aria-hidden={activeIndex !== index}
+              className="object-cover w-auto h-full"
+              alt={alt}
+              src={imageSrc}
+            />
+          </div>
+        ))}
+      </SfScrollable>
+      <SfScrollable
+        className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        activeIndex={activeIndex}
+        buttons-placement="floating"
+        slotPreviousButton={
+          <SfButton
+            className="absolute disabled:hidden !rounded-full z-10 left-4 bg-white"
+            variant="secondary"
+            size="sm"
+            square
+            slotPrefix={<SfIconChevronLeft />}
+          />
+        }
+        slotNextButton={
+          <SfButton
+            className="absolute disabled:hidden !rounded-full z-10 right-4 bg-white"
+            variant="secondary"
+            size="sm"
+            square
+            slotPrefix={<SfIconChevronRight />}
+          />
+        }
+      >
+        {thumbImages.map(({ imageSrc, alt }, index) => (
+          <button
+            type="button"
+            aria-label={alt}
+            aria-current={activeIndex === index}
+            key={`${alt}-${index}-thumbnail`}
+            className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 my-4 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
+              activeIndex === index ? 'border-primary-700' : 'border-transparent'
+            }`}
+            onClick={() => setActiveIndex(index)}
+          >
+            <img alt={alt} className="object-contain border border-neutral-200" width="78" height="78" src={imageSrc} />
+          </button>
+        ))}
+      </SfScrollable>
     </div>
   );
 }
-
 // #endregion source
 
 GalleryHorizontal.getLayout = ShowcasePageLayout;

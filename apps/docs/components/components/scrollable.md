@@ -82,7 +82,7 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `buttonsPlacement` | `SfScrollableButtonsPlacement`  | `'block'` | `'block'`, `'floating'`, `'none'`      |
 | `activeIndex` | `number`  |  |       |
 | `reduceMotion` | `boolean`  |  |       |
-| `drag` | `{ sensitivity: number; } | boolean`  |  |       |
+| `drag` | `{ sensitivity: number; containerWidth: boolean; } | boolean`  |  |       |
 | `previousDisabled` | `boolean`  |  |       |
 | `nextDisabled` | `boolean`  |  |       |
 | `isActiveIndexCentered` | `boolean`  |  |       |
@@ -96,6 +96,7 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `slotPreviousButton` | `ReactNode`          |               | Previous button         |
 | `slotNextButton` | `ReactNode`          |               | Next button         |
 | `onDragChange`           | `Function` |    |  |
+| `onDraggedChange`           | `Function` |    |  |
 | `onScroll`           | `Function` |   |  |
 | `onPrev`           | `Function` |    |  |
 | `onNext`           | `Function` |    |  |
@@ -114,7 +115,8 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 
 | Event name        | Trigger                       |
 | ----------------- | ----------------------------- |
-| `onDragChange` | triggers when drag has happens |
+| `onDragChange` | triggers when drag has started |
+| `onDraggedChange` | triggers when drag has finished |
 | `onScroll` | triggers when any scroll happens |
 | `onPrev` | triggers when previous button is clicked |
 | `onNext` | triggers when next button is clicked |

@@ -5,46 +5,37 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { type KeyboardEvent, useState } from 'react';
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
-import gallery1 from '@assets/gallery_1.png';
-import gallery2 from '@assets/gallery_2.png';
-import gallery3 from '@assets/gallery_3.png';
-import gallery4 from '@assets/gallery_4.png';
-import gallery5 from '@assets/gallery_5.png';
-import gallery6 from '@assets/gallery_6.png';
-import gallery7 from '@assets/gallery_7.png';
-import gallery8 from '@assets/gallery_8.png';
-import gallery9 from '@assets/gallery_9.png';
-import gallery10 from '@assets/gallery_10.png';
+import * as Images from './images';
 
 const images = [
-  { image: gallery1.src, alt: 'backpack' },
-  { image: gallery2.src, alt: 'backpack' },
-  { image: gallery3.src, alt: 'backpack' },
-  { image: gallery4.src, alt: 'backpack' },
-  { image: gallery5.src, alt: 'backpack' },
-  { image: gallery6.src, alt: 'backpack' },
-  { image: gallery7.src, alt: 'backpack' },
-  { image: gallery8.src, alt: 'backpack' },
-  { image: gallery9.src, alt: 'backpack' },
-  { image: gallery10.src, alt: 'backpack' },
+  { imageSrc: Images.gallery1Src, alt: 'backpack' },
+  { imageSrc: Images.gallery2Src, alt: 'backpack' },
+  { imageSrc: Images.gallery3Src, alt: 'backpack' },
+  { imageSrc: Images.gallery4Src, alt: 'backpack' },
+  { imageSrc: Images.gallery5Src, alt: 'backpack' },
+  { imageSrc: Images.gallery6Src, alt: 'backpack' },
+  { imageSrc: Images.gallery7Src, alt: 'backpack' },
+  { imageSrc: Images.gallery8Src, alt: 'backpack' },
+  { imageSrc: Images.gallery9Src, alt: 'backpack' },
+  { imageSrc: Images.gallery10Src, alt: 'backpack' },
 ];
 
 export default function GalleryWithBullets() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const itemsLength = images.length;
   const keyDownHandler = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {
     if (e.key === 'Tab') setActiveIndex(index + 1);
     if (e.key === 'Tab' && e.shiftKey) setActiveIndex(index - 1);
   };
+
   return (
-    <div className="relative flex flex-col gap-1 scroll-smooth">
+    <div className="relative max-h-[600px] flex flex-col h-full gap-1">
       <SfScrollable
-        className="w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
-        wrapperClassName="group/scrollable"
+        className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        wrapperClassName="group/scrollable h-full"
         activeIndex={activeIndex}
         isActiveIndexCentered
         previousDisabled={activeIndex === 0}
-        nextDisabled={activeIndex === itemsLength - 1}
+        nextDisabled={activeIndex === images.length - 1}
         buttonsPlacement="block"
         onPrev={() => {
           setActiveIndex(() => activeIndex - 1);
@@ -69,7 +60,7 @@ export default function GalleryWithBullets() {
           />
         }
       >
-        {images.map(({ image, alt }, index) => (
+        {images.map(({ imageSrc, alt }, index) => (
           <div
             className="relative flex justify-center basis-full snap-center snap-always shrink-0 grow"
             key={`${alt}-${index}`}
@@ -79,21 +70,21 @@ export default function GalleryWithBullets() {
               aria-hidden={activeIndex !== index}
               className="object-contain w-auto h-full"
               alt={alt}
-              src={image}
+              src={imageSrc}
               draggable="false"
             />
           </div>
         ))}
       </SfScrollable>
-      <div className="flex-shrink-0 overflow-hidden basis-auto">
-        <div className="flex-row w-full flex gap-0.5 mt overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+      <div className="flex-shrink-0 basis-auto">
+        <div className="flex-row w-full flex gap-0.5 mt [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {images.map(({ alt }, index) => (
             <button
               key={`${index}-bullet`}
               aria-label={alt}
               aria-current={activeIndex === index}
               type="button"
-              className={`w-[78px] relative mt-1 border-b-4 transition-colors focus-visible:outline focus-visible:outline-offset-0 pointer-events-none ${
+              className={`w-full relative mt-1 border-b-4 transition-colors focus-visible:outline focus-visible:outline-offset-0 pointer-events-none ${
                 activeIndex === index ? 'border-primary-700' : 'border-gray-200'
               }`}
               onKeyDown={(e) => keyDownHandler(e, index)}
@@ -104,7 +95,6 @@ export default function GalleryWithBullets() {
     </div>
   );
 }
-
 // #endregion source
 
 GalleryWithBullets.getLayout = ShowcasePageLayout;

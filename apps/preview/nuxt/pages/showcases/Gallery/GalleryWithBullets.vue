@@ -1,22 +1,20 @@
 <template>
-  <div class="relative flex flex-col h-full gap-1 scroll-smooth">
+  <div class="relative max-h-[600px] flex flex-col h-full gap-1">
     <SfScrollable
-      class="w-full max-h-[700px] [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+      class="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       :active-index="activeIndex"
-      wrapper-class="group/scrollable"
+      wrapper-class="group/scrollable h-full"
       is-active-index-centered
       :previous-disabled="activeIndex === 0"
-      :next-disabled="activeIndex === itemsLength - 1"
+      :next-disabled="activeIndex === images.length - 1"
       buttons-placement="block"
       @on-prev="
-        ({ preventDefault }) => {
-          preventDefault();
+        () => {
           activeIndex -= 1;
         }
       "
       @on-next="
-        ({ preventDefault }) => {
-          preventDefault();
+        () => {
           activeIndex += 1;
         }
       "
@@ -25,7 +23,7 @@
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === 0"
-          class="peer absolute hidden group-hover/scrollable:block !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
+          class="absolute hidden group-hover/scrollable:block !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -34,7 +32,7 @@
         </SfButton>
       </template>
       <div
-        v-for="({ image, alt }, index) in images"
+        v-for="({ imageSrc, alt }, index) in images"
         :key="`${alt}-${index}`"
         class="relative flex justify-center basis-full snap-center snap-always shrink-0 grow"
       >
@@ -43,14 +41,14 @@
           :aria-label="alt"
           :aria-hidden="activeIndex !== index"
           :alt="alt"
-          :src="image"
+          :src="imageSrc"
           draggable="false"
         />
       </div>
       <template #nextButton="defaultProps">
         <SfButton
           v-bind="defaultProps"
-          :disabled="activeIndex === itemsLength - 1"
+          :disabled="activeIndex === images.length - 1"
           class="absolute hidden group-hover/scrollable:block !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
           variant="secondary"
           size="lg"
@@ -60,9 +58,9 @@
         </SfButton>
       </template>
     </SfScrollable>
-    <div class="flex-shrink-0 overflow-hidden basis-auto">
+    <div class="flex-shrink-0 basis-auto">
       <div
-        class="flex-row w-full flex gap-0.5 mt overflow-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+        class="flex-row w-full flex gap-0.5 mt [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
         <button
           v-for="({ alt }, index) in images"
@@ -70,7 +68,7 @@
           :aria-current="activeIndex === index"
           :aria-label="alt"
           :class="[
-            'w-[78px] relative mt-1 border-b-4 snap-start transition-colors focus-visible:outline focus-visible:outline-offset-0 pointer-events-none',
+            'w-full relative mt-1 border-b-4 transition-colors focus-visible:outline focus-visible:outline-offset-0 pointer-events-none',
             activeIndex === index ? 'border-primary-700' : 'border-gray-200',
           ]"
           @keydown.tab.exact="activeIndex = index + 1"
@@ -83,30 +81,20 @@
 <script lang="ts" setup>
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/vue';
 import { ref } from 'vue';
-import gallery1 from '@assets/gallery_1.png';
-import gallery2 from '@assets/gallery_2.png';
-import gallery3 from '@assets/gallery_3.png';
-import gallery4 from '@assets/gallery_4.png';
-import gallery5 from '@assets/gallery_5.png';
-import gallery6 from '@assets/gallery_6.png';
-import gallery7 from '@assets/gallery_7.png';
-import gallery8 from '@assets/gallery_8.png';
-import gallery9 from '@assets/gallery_9.png';
-import gallery10 from '@assets/gallery_10.png';
+import * as Images from './images';
 
 const images = [
-  { image: gallery1, alt: 'backpack' },
-  { image: gallery2, alt: 'backpack' },
-  { image: gallery3, alt: 'backpack' },
-  { image: gallery4, alt: 'backpack' },
-  { image: gallery5, alt: 'backpack' },
-  { image: gallery6, alt: 'backpack' },
-  { image: gallery7, alt: 'backpack' },
-  { image: gallery8, alt: 'backpack' },
-  { image: gallery9, alt: 'backpack' },
-  { image: gallery10, alt: 'backpack' },
+  { imageSrc: Images.gallery1Src, alt: 'backpack' },
+  { imageSrc: Images.gallery2Src, alt: 'backpack' },
+  { imageSrc: Images.gallery3Src, alt: 'backpack' },
+  { imageSrc: Images.gallery4Src, alt: 'backpack' },
+  { imageSrc: Images.gallery5Src, alt: 'backpack' },
+  { imageSrc: Images.gallery6Src, alt: 'backpack' },
+  { imageSrc: Images.gallery7Src, alt: 'backpack' },
+  { imageSrc: Images.gallery8Src, alt: 'backpack' },
+  { imageSrc: Images.gallery9Src, alt: 'backpack' },
+  { imageSrc: Images.gallery10Src, alt: 'backpack' },
 ];
 
 const activeIndex = ref(0);
-const itemsLength = images.length;
 </script>
