@@ -500,27 +500,22 @@ export default function MegaMenuNavigation() {
                     {activeMenu.children.map((node) =>
                       node.isLeaf ? (
                         <Fragment key={node.key}>
-                          <div className="mb-2">
-                            <SfListItem
-                              as="a"
-                              size="sm"
-                              role="none"
-                              href={node.value.link}
-                              className="typography-text-sm"
-                            >
-                              {node.value.label}
-                            </SfListItem>
-                          </div>
+                          <SfListItem
+                            as="a"
+                            size="sm"
+                            role="none"
+                            href={node.value.link}
+                            className="typography-text-sm mb-2"
+                          >
+                            {node.value.label}
+                          </SfListItem>
                           <div className="col-start-2 col-end-5" />
                         </Fragment>
                       ) : (
                         <div key={node.key}>
-                          <h2
-                            role="presentation"
-                            className="typography-text-base font-medium text-neutral-900 whitespace-nowrap px-4 py-1.5 border-b border-b-neutral-200 border-b-solid"
-                          >
+                          <p className="typography-text-base font-medium text-neutral-900 whitespace-nowrap px-4 py-1.5 border-b border-b-neutral-200 border-b-solid">
                             {node.value.label}
-                          </h2>
+                          </p>
                           <ul className="mt-2">
                             {node.children.map(
                               (node) =>

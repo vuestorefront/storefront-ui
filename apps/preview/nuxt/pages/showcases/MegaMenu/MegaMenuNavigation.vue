@@ -6,11 +6,11 @@
       >
         <div class="flex">
           <SfButton
-            @click="openMenu([])"
             variant="tertiary"
             square
             aria-label="Close menu"
             class="block md:hidden mr-5 bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            @click="openMenu([])"
           >
             <SfIconMenu class="text-white" />
           </SfButton>
@@ -53,42 +53,44 @@
             }
           "
         >
-          <li v-for="node in content.children" key="node.key">
-            <SfButton variant="tertiary" class="mr-2" @mouseenter="openMenu([node.key])" @click="openMenu([node.key])">
-              <span>{{ node.value.label }}</span>
+          <li v-for="menuNode in content.children" :key="menuNode.key">
+            <SfButton
+              variant="tertiary"
+              class="mr-2"
+              @mouseenter="openMenu([menuNode.key])"
+              @click="openMenu([menuNode.key])"
+            >
+              <span>{{ menuNode.value.label }}</span>
               <SfIconChevronRight class="rotate-90" />
             </SfButton>
 
             <div
-              v-if="isOpen && activeNode.length === 1 && activeNode[0] === node.key"
+              v-if="isOpen && activeNode.length === 1 && activeNode[0] === menuNode.key"
               :key="activeMenu.key"
               :style="style"
               class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0"
               @mouseleave="close()"
             >
               <template v-for="node in activeMenu.children" :key="node.key">
-                <div v-if="node.isLeaf" class="mb-2">
-                  <SfListItem tag="a" size="sm" role="none" :href="node.value.link" class="typography-text-sm">
-                    {{ node.value.label }}
-                  </SfListItem>
-                </div>
-                <div v-if="node.isLeaf" class="col-start-2 col-end-5"></div>
+                <SfListItem
+                  v-if="node.isLeaf"
+                  tag="a"
+                  size="sm"
+                  :href="node.value.link"
+                  class="typography-text-sm mb-2"
+                >
+                  {{ node.value.label }}
+                </SfListItem>
+                <div v-if="node.isLeaf" class="col-start-2 col-end-5" />
                 <div v-else>
-                  <h2
-                    role="presentation"
+                  <p
                     class="typography-text-base font-medium text-neutral-900 whitespace-nowrap px-4 py-1.5 border-b border-b-neutral-200 border-b-solid"
                   >
                     {{ node.value.label }}
-                  </h2>
+                  </p>
                   <ul class="mt-2">
                     <li v-for="child in node.children" :key="child.key">
-                      <SfListItem
-                        tag="a"
-                        size="sm"
-                        role="none"
-                        :href="child.value.link"
-                        class="typography-text-sm py-1.5"
-                      >
+                      <SfListItem tag="a" size="sm" :href="child.value.link" class="typography-text-sm py-1.5">
                         {{ child.value.label }}
                       </SfListItem>
                     </li>
@@ -108,12 +110,12 @@
         </ul>
       </nav>
 
-      <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50"></div>
+      <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50" />
       <SfDrawer ref="drawerRef" v-model="isOpen" placement="left" class="md:hidden bg-white w-[320px] overflow-y-auto">
         <nav>
           <div class="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">
             <p class="typography-text-base font-medium">Browse products</p>
-            <SfButton @click="close()" variant="tertiary" square aria-label="Close menu" class="-m-2">
+            <SfButton variant="tertiary" square aria-label="Close menu" class="-m-2" @click="close()">
               <SfIconClose class="text-neutral-500" />
             </SfButton>
           </div>
@@ -123,8 +125,8 @@
                 size="lg"
                 tag="button"
                 type="button"
-                @click="goBack()"
                 class="border-b border-b-neutral-200 border-b-solid"
+                @click="goBack()"
               >
                 <div class="flex items-center">
                   <SfIconArrowBack class="text-neutral-500" />
