@@ -399,9 +399,8 @@ const findNode = (keys: string[], node: Node): Node => {
   if (keys.length > 1) {
     const [currentKey, ...restKeys] = keys;
     return findNode(restKeys, node.children.find((node) => node.key === currentKey) || node);
-  } else {
-    return node.children.find((node) => node.key === keys[0]) || node;
   }
+  return node.children.find((node) => node.key === keys[0]) || node;
 };
 
 export default function MegaMenuNavigation() {
@@ -478,19 +477,19 @@ export default function MegaMenuNavigation() {
             className="hidden md:flex px-6 py-2 bg-white border-b border-b-neutral-200 border-b-solid"
             onBlur={handleBlurWithin}
           >
-            {content.children.map((node) => (
-              <li key={node.key}>
+            {content.children.map((menuNode) => (
+              <li key={menuNode.key}>
                 <SfButton
                   variant="tertiary"
-                  onMouseEnter={handleOpenMenu([node.key])}
-                  onClick={handleOpenMenu([node.key])}
+                  onMouseEnter={handleOpenMenu([menuNode.key])}
+                  onClick={handleOpenMenu([menuNode.key])}
                   className="mr-2"
                 >
-                  <span>{node.value.label}</span>
+                  <span>{menuNode.value.label}</span>
                   <SfIconChevronRight className="rotate-90" />
                 </SfButton>
 
-                {isOpen && activeNode.length === 1 && activeNode[0] === node.key && (
+                {isOpen && activeNode.length === 1 && activeNode[0] === menuNode.key && (
                   <div
                     key={activeMenu.key}
                     style={style}
@@ -518,17 +517,17 @@ export default function MegaMenuNavigation() {
                           </p>
                           <ul className="mt-2">
                             {node.children.map(
-                              (node) =>
-                                node.isLeaf && (
-                                  <li key={node.key}>
+                              (child) =>
+                                child.isLeaf && (
+                                  <li key={child.key}>
                                     <SfListItem
                                       as="a"
                                       size="sm"
                                       role="none"
-                                      href={node.value.link}
+                                      href={child.value.link}
                                       className="typography-text-sm py-1.5"
                                     >
-                                      {node.value.label}
+                                      {child.value.label}
                                     </SfListItem>
                                   </li>
                                 ),
