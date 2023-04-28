@@ -78,7 +78,7 @@ jobs:
         run: yarn lint
 
   build:
-    name: Build Nuxt, Next, Docs
+    name: Build Nuxt, Next
     needs: [cache, lint]
     runs-on: ubuntu-latest
     steps:
@@ -93,6 +93,23 @@ jobs:
         run: yarn --immutable
       - name: Run build
         run: yarn build
+
+  build-docs:
+    name: Build Docs
+    needs: [cache, lint]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Run build
+        run: yarn build:docs
 
   build-release:
     name: Build packages for release
