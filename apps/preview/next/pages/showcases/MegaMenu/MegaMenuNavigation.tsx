@@ -567,7 +567,7 @@ export default function MegaMenuNavigation() {
               open={isOpen}
               onClose={close}
               placement="left"
-              className="md:hidden bg-white w-[320px]"
+              className="md:hidden bg-white w-[320px] overflow-y-auto"
             >
               <nav>
                 <div className="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">

@@ -109,7 +109,7 @@
       </nav>
 
       <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50"></div>
-      <SfDrawer ref="drawerRef" v-model="isOpen" placement="left" class="md:hidden bg-white w-[320px]">
+      <SfDrawer ref="drawerRef" v-model="isOpen" placement="left" class="md:hidden bg-white w-[320px] overflow-y-auto">
         <nav>
           <div class="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">
             <p class="typography-text-base font-medium">Browse products</p>
@@ -133,7 +133,7 @@
               </SfListItem>
             </li>
             <template v-for="node in activeMenu.children">
-              <li v-if="node.isLeaf" :key="node.key">
+              <li v-if="node.isLeaf" :key="node.value.label">
                 <SfListItem size="lg" tag="a" :href="node.value.link" class="first-of-type:mt-2">
                   <div class="flex items-center">
                     <p class="text-left">{{ node.value.label }}</p>
