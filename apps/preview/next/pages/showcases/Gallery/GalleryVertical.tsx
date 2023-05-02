@@ -61,9 +61,9 @@ export default function GalleryVertical() {
 
   const onDragged = (event: SfScrollableOnDraggedChangeData) => {
     if (event.swipeRight && activeIndex > 0) {
-      setActiveIndex((currentActiveIndex) => (currentActiveIndex -= 1));
+      setActiveIndex((currentActiveIndex) => currentActiveIndex - 1);
     } else if (event.swipeLeft && activeIndex < images.length - 1) {
-      setActiveIndex((currentActiveIndex) => (currentActiveIndex += 1));
+      setActiveIndex((currentActiveIndex) => currentActiveIndex + 1);
     }
   };
 

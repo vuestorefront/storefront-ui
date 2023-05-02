@@ -40,4 +40,3 @@ export const gallery7ThumbSrc = gt7.src;
 export const gallery8ThumbSrc = gt8.src;
 export const gallery9ThumbSrc = gt9.src;
 export const gallery10ThumbSrc = gt10.src;
-
