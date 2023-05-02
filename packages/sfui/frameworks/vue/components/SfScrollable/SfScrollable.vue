@@ -44,7 +44,7 @@ const props = defineProps({
     default: undefined,
   },
   drag: {
-    type: [Boolean || Object] as PropType<ScrollableOptions['drag']>,
+    type: [Object || Boolean] as PropType<ScrollableOptions['drag']>,
     default: undefined,
   },
   previousDisabled: {

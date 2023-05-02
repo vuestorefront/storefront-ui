@@ -84,7 +84,6 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           {...getPrevButtonProps({
             square: true,
             variant: 'secondary',
-            square: true,
             size: 'lg',
             disabled: previousDisabled,
             slotPrefix: <SfIconChevronLeft />,
