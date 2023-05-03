@@ -15,7 +15,7 @@ export default function ProductCardVertical() {
   }
 
   return (
-    <div className="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
+    <article className="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
       <div className="relative">
         <SfLink href="#">
           <img
