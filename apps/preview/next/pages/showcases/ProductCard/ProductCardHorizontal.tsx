@@ -16,14 +16,32 @@ export default function ProductCardHorizontal() {
     const nextValue = parseFloat(currentValue);
     set(Number(clamp(nextValue, min, max)));
   }
+
+  const product = {
+    title: 'Smartwatch Fitness Tracker',
+    shortDescription: 'Lightweight • Non slip • Flexible outsole • Easy to wear on and off',
+    price: '2345,99',
+    currency_code: '$',
+    image: card,
+    variants: {
+      color: {
+        label: 'Color',
+        value: 'Red',
+      },
+      size: {
+        label: 'Size',
+        value: '6.5',
+      }
+    },
+  }
   return (
     <div className="relative flex border-b-[1px] border-neutral-200 hover:shadow-lg min-w-[320px] max-w-[640px] p-4">
       <div className="relative overflow-hidden rounded-md w-[100px] sm:w-[176px]">
         <SfLink href="#">
           <img
             className="w-full h-auto border rounded-md border-neutral-200"
-            src={card.src}
-            alt="alt"
+            src={product.image.src}
+            alt={product.title}
             width={300}
             height={300}
           />
@@ -35,22 +53,24 @@ export default function ProductCardHorizontal() {
       </div>
       <div className="flex flex-col pl-4 min-w-[180px] flex-1">
         <SfLink href="#" variant="secondary" className="no-underline typography-text-sm sm:typography-text-lg">
-          Smartwatch Fitness Tracker
+          {product.title}
         </SfLink>
         <div className="my-2 sm:mb-0">
           <ul className="text-xs font-normal leading-5 sm:typography-text-sm text-neutral-700">
             <li>
-              <span className="mr-1">Size:</span>
-              <span className="font-medium">6.5</span>
+              <span className="mr-1">{product.variants.size.label}:</span>
+              <span className="font-medium">{product.variants.size.value}</span>
             </li>
             <li>
-              <span className="mr-1">Color:</span>
-              <span className="font-medium">Red</span>
+              <span className="mr-1">{product.variants.color.label}:</span>
+              <span className="font-medium">{product.variants.color.value}</span>
             </li>
           </ul>
         </div>
         <div className="items-center sm:mt-auto sm:flex">
-          <span className="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99</span>
+          <span className="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">
+            {product.currency_code}{product.price}
+          </span>
           <div className="flex items-center justify-between mt-4 sm:mt-0">
             <div className="flex border border-neutral-300 rounded-md">
               <SfButton

@@ -27,7 +27,7 @@
         <SfRating size="xs" :value="product.ratings" :max="5" />
 
         <SfLink href="#" variant="secondary" class="pl-1 no-underline">
-          <SfCounter size="xs">{{ product.reviews.length}}</SfCounter>
+          <SfCounter size="xs">{{ product.reviews.length }}</SfCounter>
         </SfLink>
       </div>
       <p class="block py-2 font-normal leading-5 typography-text-sm text-neutral-700">
@@ -56,6 +56,5 @@ const product = {
   price: '2345,99',
   currency_code: '$',
   image: productImage,
-}
-
+};
 </script>

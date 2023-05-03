@@ -4,8 +4,8 @@
       <SfLink href="#">
         <img
           class="w-full h-auto border rounded-md border-neutral-200"
-          :src="card"
-          alt="Smartwatch Fitness Tracker"
+          :src="product.image"
+          :alt="product.title"
           :width="176"
           :height="176"
         />
@@ -17,22 +17,24 @@
     </div>
     <div class="flex flex-col pl-4 min-w-[180px] flex-1">
       <SfLink href="#" variant="secondary" class="no-underline typography-text-sm sm:typography-text-lg">
-        Smartwatch Fitness Tracker
+        {{ product.title }}
       </SfLink>
       <div class="my-2 sm:mb-0">
         <ul class="font-normal leading-5 typography-text-xs sm:typography-text-sm text-neutral-700">
           <li>
-            <span class="mr-1">Size:</span>
-            <span class="font-medium">6.5</span>
+            <span class="mr-1">{{ product.variants.size.label }}:</span>
+            <span class="font-medium">{{ product.variants.size.value }}</span>
           </li>
           <li>
-            <span class="mr-1">Color:</span>
-            <span class="font-medium">Red</span>
+            <span class="mr-1">{{ product.variants.color.label }}:</span>
+            <span class="font-medium">{{ product.variants.color.value }}</span>
           </li>
         </ul>
       </div>
       <div class="items-center sm:mt-auto sm:flex">
-        <span class="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99 </span>
+        <span class="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">
+          {{ product.currency_code }}{{ product.price }}
+        </span>
         <div class="flex items-center justify-between mt-4 sm:mt-0">
           <div class="flex border border-neutral-300 rounded-md">
             <SfButton
@@ -91,6 +93,23 @@ import card from '@assets/smartwatch.png';
 import { clamp } from '@storefront-ui/shared';
 import { useCounter } from '@vueuse/core';
 
+const product = {
+  title: 'Smartwatch Fitness Tracker',
+  shortDescription: 'Lightweight • Non slip • Flexible outsole • Easy to wear on and off',
+  price: '2345,99',
+  currency_code: '$',
+  image: card,
+  variants: {
+    color: {
+      label: 'Color',
+      value: 'Red',
+    },
+    size: {
+      label: 'Size',
+      value: '6.5',
+    },
+  },
+};
 const min = ref(1);
 const max = ref(10);
 const inputId = useId();
