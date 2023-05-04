@@ -101,7 +101,6 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         />
       );
     }
-
     return (
       <div
         className={classNames(
@@ -110,14 +109,14 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           wrapperClassName,
         )}
       >
-        {isBlock && (
-          <PreviousButton
-            classNameButton={classNames('!rounded-full bg-white', {
-              'mr-4': isHorizontal,
-              'mb-4 rotate-90': !isHorizontal,
-            })}
-          />
-        )}
+        <PreviousButton
+          classNameButton={classNames('!rounded-full bg-white', {
+            'mr-4': isBlock && isHorizontal,
+            'mb-4 rotate-90': isBlock && !isHorizontal,
+            'absolute left-4 z-10': isFloating && isHorizontal,
+            'absolute top-4 rotate-90 z-10': isFloating && !isHorizontal,
+          })}
+        />
         <Tag
           {...getContainerProps({
             className: classNames(className, {
@@ -129,32 +128,16 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             ref,
           })}
         >
-          {isFloating && (
-            <PreviousButton
-              classNameButton={classNames('absolute !rounded-full bg-white z-10', {
-                'left-4': isHorizontal,
-                'top-4 rotate-90': !isHorizontal,
-              })}
-            />
-          )}
           {children}
-          {isFloating && (
-            <NextButton
-              classNameButton={classNames('absolute !rounded-full bg-white z-10', {
-                'right-4': isHorizontal,
-                'bottom-4 rotate-90': !isHorizontal,
-              })}
-            />
-          )}
         </Tag>
-        {isBlock && (
-          <NextButton
-            classNameButton={classNames('!rounded-full bg-white', {
-              'ml-4': isHorizontal,
-              'mt-4 rotate-90': !isHorizontal,
-            })}
-          />
-        )}
+        <NextButton
+          classNameButton={classNames('!rounded-full bg-white', {
+            'ml-4': isHorizontal,
+            'mt-4 rotate-90': !isHorizontal,
+            'absolute right-4 z-10': isFloating && isHorizontal,
+            'absolute bottom-4 rotate-90 z-10': isFloating && !isHorizontal,
+          })}
+        />
       </div>
     );
   },
