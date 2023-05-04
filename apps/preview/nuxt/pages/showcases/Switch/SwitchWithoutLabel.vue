@@ -6,5 +6,5 @@
 import { ref } from 'vue';
 import { SfSwitch } from '@storefront-ui/vue';
 
-const modelCheck = ref(true);
+const modelCheck = ref(false);
 </script>
