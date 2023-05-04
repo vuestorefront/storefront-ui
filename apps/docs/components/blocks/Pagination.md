@@ -10,7 +10,6 @@ hideToc: true
 
 ## Pagination
 
-
 It is a good idea to use pagination when there are lots of elements to show on the page.
 
 <Showcase showcase-name="Pagination/Pagination">

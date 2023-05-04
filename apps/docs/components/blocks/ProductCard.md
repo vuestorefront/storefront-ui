@@ -40,7 +40,7 @@ Present products in checkout summary in a way that customers can have an easy ac
 
 ## Details
 
-ProductCard details can be used in product details page or to build component used for listing products of many categories. 
+ProductCard details can be used in product details page or to build component used for listing products of many categories.
 
 <Showcase showcase-name="ProductCard/Details" style="min-height:600px">
 
@@ -52,4 +52,3 @@ ProductCard details can be used in product details page or to build component us
 <!-- end react -->
 
 </Showcase>
-

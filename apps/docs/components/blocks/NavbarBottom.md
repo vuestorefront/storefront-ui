@@ -7,8 +7,8 @@ hideToc: true
 # NavbarBottom
 
 {{ $frontmatter.description }}
- 
- ## NavbarBottom with white background
+
+## NavbarBottom with white background
 
 <Showcase showcase-name="NavbarBottom/NavbarBottom" style="min-height:200px">
 
@@ -33,4 +33,3 @@ hideToc: true
 <!-- end vue -->
 
 </Showcase>
-

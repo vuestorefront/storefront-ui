@@ -4,7 +4,7 @@ import { SfScrollable } from '@storefront-ui/react';
 
 export default function ScrollableHideScrollbar() {
   return (
-    <SfScrollable className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+    <SfScrollable className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
       {Array.from({ length: 20 }, (_, i) => (
         <div
           key={i}

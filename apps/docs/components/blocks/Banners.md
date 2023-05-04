@@ -10,7 +10,6 @@ hideToc: true
 
 ## Horizontal Display
 
-
 <Showcase showcase-name="Banners/DisplayHorizontal" style="min-height:800px">
 
 <!-- vue -->

@@ -22,7 +22,6 @@ hideToc: true
 
 ## NavbarTop with filled background
 
-
 <Showcase showcase-name="NavbarTop/NavbarTopFilled" style="min-height: 500px;">
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopFilled.vue
