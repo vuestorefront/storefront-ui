@@ -25,13 +25,13 @@ If you don't already have a Next app, you can use the `create-next-app` command 
 
 ```bash
 # npm
-npx create-next-app@latest --experimental-app
+npx create-next-app@latest
 
 # yarn
-yarn create next-app --experimental-app
+yarn create next-app
 
 # pnpm
-pnpm create next-app --experimental-app
+pnpm create next-app
 ```
 
 ### Install Tailwind and Storefront UI Dependencies
@@ -193,10 +193,10 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 
 ```ts
 // tailwind.config.js
-const { tailwindConfig } = require('@storefront-ui/react/tailwind-config');
+import { tailwindConfig } from '@storefront-ui/react/tailwind-config';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   presets: [tailwindConfig],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './node_modules/@storefront-ui/react/**/*.{js,mjs}'],
   theme: {

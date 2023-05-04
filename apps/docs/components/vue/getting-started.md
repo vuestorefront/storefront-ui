@@ -73,10 +73,10 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 
 ```ts
 // tailwind.config.js
-const { tailwindConfig } = require('@storefront-ui/vue/tailwind-config');
+import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
 /** @type {import('tailwindcss').Config} */
-export default = {
+export default {
   presets: [tailwindConfig],
   content: ['./index.html', './**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
   theme: {
