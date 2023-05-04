@@ -62,7 +62,7 @@ npx tailwindcss init -p
 
 ### Modify Your Tailwind Configuration File
 
-Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.cjs` file.
+Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.js` file.
 
 ::: tip Add a path to your installed package
 
@@ -174,7 +174,7 @@ pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/react
 
 ### Initialize Tailwind
 
-Running Tailwind's `init` command will generate a `tailwind.config.cjs` and `postcss.config.cjs` file in your project's root directory.
+Running Tailwind's `init` command will generate a `tailwind.config.js` and `postcss.config.js` file in your project's root directory.
 
 ```bash
 npx tailwindcss init -p
@@ -182,7 +182,7 @@ npx tailwindcss init -p
 
 ### Modify Your Tailwind Configuration File
 
-Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.cjs` file.
+Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.js` file.
 
 ::: tip Add a path to your installed package
 
@@ -192,7 +192,7 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 <SourceCode>
 
 ```ts
-// tailwind.config.cjs
+// tailwind.config.js
 const { tailwindConfig } = require('@storefront-ui/react/tailwind-config');
 
 /** @type {import('tailwindcss').Config} */
@@ -257,7 +257,7 @@ yarn astro add react tailwind
 pnpm astro add react tailwind
 ```
 
-The `astro add` command will automatically install the necessary dependencies and add the necessary configuration to your project. Also, it will add a `tailwind.config.cjs` file to your project's root directory.
+The `astro add` command will automatically install the necessary dependencies and add the necessary configuration to your project. Also, it will add a `tailwind.config.js` file to your project's root directory.
 
 ### Install Storefront UI Dependencies
 
