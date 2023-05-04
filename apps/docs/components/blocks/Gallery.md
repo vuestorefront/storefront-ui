@@ -1,7 +1,8 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: Gallery is the component that allows to scroll through multiple images. 
+description: Gallery is the component that allows to scroll through multiple images.
+hideToc: true
 
 ---
 # Gallery
@@ -12,7 +13,7 @@ description: Gallery is the component that allows to scroll through multiple ima
 
 Changing an image is provided by hover on the thumbnail or dragging the main image. There are buttons to scroll thumbnails up and down.
 
-<Showcase showcase-name="Gallery/GalleryVertical" style="min-height:800px">
+<Showcase showcase-name="Gallery/GalleryVertical" style="min-height:700px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Gallery/GalleryVertical.vue
@@ -27,7 +28,7 @@ Changing an image is provided by hover on the thumbnail or dragging the main ima
 
 Changing an image is provided by click on the thumbnail or dragging the main image. You can scroll thumbnails by click on the button.
 
-<Showcase showcase-name="Gallery/GalleryHorizontal" style="min-height:800px">
+<Showcase showcase-name="Gallery/GalleryHorizontal" style="min-height:700px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontal.vue
@@ -40,9 +41,9 @@ Changing an image is provided by click on the thumbnail or dragging the main ima
 
 ## Product Gallery with bullets
 
-Changing an image is provided by click on the buttons which are visible after hovering on the main image. Currently displayed image is highlighted by the bullets below the main image. 
+Changing an image is provided by click on the buttons which are visible after hovering on the main image. Currently displayed image is highlighted by the bullets below the main image.
 
-<Showcase showcase-name="Gallery/GalleryWithBullets" style="min-height:800px">
+<Showcase showcase-name="Gallery/GalleryWithBullets" style="min-height:700px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Gallery/GalleryWithBullets.vue
@@ -52,4 +53,3 @@ Changing an image is provided by click on the buttons which are visible after ho
 <!-- end react -->
 
 </Showcase>
-

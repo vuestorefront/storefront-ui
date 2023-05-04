@@ -1,20 +1,19 @@
 {
     "compilerOptions": {
-        "target": "es2020",
-        "module": "commonjs",
-        "declaration": false,
-        "declarationMap": false,
-        "strictPropertyInitialization": false,
-        "allowJs": true,
-        "skipLibCheck": true,
+        "sourceMap": true,
+        "noEmit": true,
+        "target": "ESNext",
+        "module": "ESNext",
         "strict": true,
         "esModuleInterop": true,
         "moduleResolution": "node",
-        "jsx": "preserve",
         "baseUrl": ".",
-        "noImplicitAny": true
+        "noImplicitAny": true,
+        "types": [
+            "vite/client"
+        ]
     },
     "include": [
-        "*.ts"
+        "**/*.ts"
     ]
 }

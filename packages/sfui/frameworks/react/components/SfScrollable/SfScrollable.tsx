@@ -3,10 +3,10 @@ import { cloneElement, useMemo } from 'react';
 import classNames from 'classnames';
 import {
   polymorphicForwardRef,
+  useScrollable,
   SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
-  useScrollable,
   SfScrollableDirection,
   SfScrollableButtonsPlacement,
   type SfScrollableProps,
@@ -24,6 +24,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       reduceMotion,
       drag,
       onDragChange,
+      onDraggedChange,
       onScroll,
       onPrev,
       onNext,
@@ -52,12 +53,24 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         reduceMotion,
         drag,
         onDragChange,
+        onDraggedChange,
         onScroll,
         onPrev,
         onNext,
         isActiveIndexCentered,
       }),
-      [direction, activeIndex, reduceMotion, drag, isActiveIndexCentered, onDragChange, onScroll, onPrev, onNext],
+      [
+        direction,
+        activeIndex,
+        reduceMotion,
+        drag,
+        isActiveIndexCentered,
+        onDragChange,
+        onDraggedChange,
+        onScroll,
+        onPrev,
+        onNext,
+      ],
     );
 
     const { state, getContainerProps, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
@@ -122,7 +135,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         )}
         <Tag
           {...getContainerProps({
-            className: classNames(className, {
+            className: classNames(className, 'motion-safe:scroll-smooth', {
               'overflow-x-auto flex gap-4': isHorizontal,
               'overflow-y-auto flex flex-col gap-4': !isHorizontal,
               'cursor-grab': state.isDragged,

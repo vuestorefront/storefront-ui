@@ -13,6 +13,11 @@ export type SfScrollableOnDragChangeData = {
   isDragged: boolean;
 };
 
+export type SfScrollableOnDraggedChangeData = SfScrollableOnDragChangeData & {
+  swipeLeft: boolean;
+  swipeRight: boolean;
+};
+
 export type SfScrollableOnScrollData = {
   left: number;
   width: number;
@@ -28,9 +33,11 @@ export type SfScrollableOnNextData = SfScrollableOnPrevData;
 
 export type ScrollableOptions = {
   reduceMotion?: boolean;
-  drag?: { sensitivity: number } | boolean;
+  drag?: { sensitivity?: number; containerWidth?: boolean } | boolean;
   direction?: `${SfScrollableDirection}`;
+  isActiveIndexCentered?: boolean;
   onDragChange?: (data: SfScrollableOnDragChangeData) => void;
+  onDraggedChange?: (data: SfScrollableOnDraggedChangeData) => void;
   onScroll?: (data: SfScrollableOnScrollData) => void;
   onPrev?: (data: SfScrollableOnPrevData) => void;
   onNext?: (data: SfScrollableOnNextData) => void;

@@ -6,17 +6,19 @@ export default {
 <script lang="ts" setup>
 import { computed, toRefs, type PropType, reactive } from 'vue';
 import {
+  ClassProp,
   SfScrollableDirection,
   SfScrollableButtonsPlacement,
-  useScrollable,
   SfIconChevronLeft,
   SfIconChevronRight,
   SfButton,
+  useScrollable,
   type SfScrollableOnDragChangeData,
   type SfScrollableOnScrollData,
   type SfScrollableOnPrevData,
   type SfScrollableOnNextData,
-  ClassProp,
+  type SfScrollableOnDraggedChangeData,
+  type ScrollableOptions,
 } from '@storefront-ui/vue';
 
 const props = defineProps({
@@ -42,7 +44,7 @@ const props = defineProps({
     default: undefined,
   },
   drag: {
-    type: Boolean,
+    type: [Object || Boolean] as PropType<ScrollableOptions['drag']>,
     default: undefined,
   },
   previousDisabled: {
@@ -55,11 +57,12 @@ const props = defineProps({
   },
   isActiveIndexCentered: {
     type: Boolean,
-    default: true,
+    default: false,
   },
 });
 const emit = defineEmits<{
   (e: 'onDragChange', data: SfScrollableOnDragChangeData): void;
+  (e: 'onDraggedChange', data: SfScrollableOnDraggedChangeData): void;
   (e: 'onScroll', data: SfScrollableOnScrollData): void;
   (e: 'onPrev', data: SfScrollableOnPrevData): void;
   (e: 'onNext', data: SfScrollableOnNextData): void;
@@ -76,6 +79,7 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
       isActiveIndexCentered,
     }),
     onDragChange: (data) => emit('onDragChange', data),
+    onDraggedChange: (data) => emit('onDraggedChange', data),
     onScroll: (data) => emit('onScroll', data),
     onPrev: (data) => emit('onPrev', data),
     onNext: (data) => emit('onNext', data),

@@ -8,6 +8,7 @@ export function useScrollable<TElement extends HTMLElement>({
   drag,
   reduceMotion,
   onDragChange,
+  onDraggedChange,
   onScroll,
   onPrev,
   onNext,
@@ -36,11 +37,13 @@ export function useScrollable<TElement extends HTMLElement>({
         setState((currentState) => ({ ...currentState, isDragged: data.isDragged }));
         onDragChange?.(data);
       },
+      onDraggedChange,
     });
     const unregister = scrollable.current.register();
 
-    if (typeof activeIndex !== undefined && isActiveIndexCentered)
-      scrollable.current.scrollToIndex(activeIndex as number);
+    if (typeof activeIndex !== 'boolean' && activeIndex && isActiveIndexCentered) {
+      scrollable.current.scrollToIndex(activeIndex);
+    }
 
     return unregister;
   }, [
@@ -50,6 +53,7 @@ export function useScrollable<TElement extends HTMLElement>({
     drag,
     reduceMotion,
     onDragChange,
+    onDraggedChange,
     onScroll,
     onPrev,
     onNext,
