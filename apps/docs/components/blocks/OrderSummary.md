@@ -4,7 +4,7 @@ hideBreadcrumbs: true
 description: An order summary shows all order details into a consolidated view. Your customers can easily add a promo code to their order and the change will be visible immediately after applying a valid code.
 hideToc: true
 ---
-# Order Summary 
+# Order Summary
 
 {{ $frontmatter.description }}
 

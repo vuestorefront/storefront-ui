@@ -9,6 +9,7 @@ description: Product filters are a valuable tool for online shoppers to quickly 
 {{ $frontmatter.description }}
 
 ## Colors
+
 Color filters are a type of product filter that allow online shoppers to narrow down their search results based on the color or colors of the products they are interested in.
 
 <Showcase showcase-name="Filters/Color" style="min-height:500px">
@@ -22,6 +23,7 @@ Color filters are a type of product filter that allow online shoppers to narrow 
 </Showcase>
 
 ## Sizes
+
 Sizes in category pages are a feature that allows online shoppers to filter their search results based on specific sizes of products they are interested in.
 
 <Showcase showcase-name="Filters/Sizes">
@@ -33,7 +35,6 @@ Sizes in category pages are a feature that allows online shoppers to filter thei
 <<<../../preview/next/pages/showcases/Filters/Sizes.tsx#source
 <!-- end react -->
 </Showcase>
-
 
 ## Sort By
 
