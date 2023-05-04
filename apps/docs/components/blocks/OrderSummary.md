@@ -8,6 +8,10 @@ hideToc: true
 
 {{ $frontmatter.description }}
 
+:::tip
+In order to apply valid promo code use: `VSF2020`.
+:::
+
 <Showcase showcase-name="OrderSummary/OrderSummary" style="min-height:600px">
 
 <!-- vue -->
