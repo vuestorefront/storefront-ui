@@ -92,7 +92,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       square
       :class="[
         '!rounded-full bg-white hidden md:block',
-        isHorizontal ? 'mr-4' : 'mb-4 rotate-90',
+        isHorizontal && SfScrollableButtonsPlacement.block ? 'mr-4' : 'mb-4 rotate-90',
         isHorizontal && SfScrollableButtonsPlacement.floating ? 'left-4' : 'top-4 rotate-90',
         { 'absolute z-10': SfScrollableButtonsPlacement.floating },
         changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
