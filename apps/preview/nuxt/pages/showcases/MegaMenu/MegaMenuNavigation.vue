@@ -196,9 +196,9 @@ import toy from '@assets/toy.png';
 const findNode = (keys: string[], node: Node): Node => {
   if (keys.length > 1) {
     const [currentKey, ...restKeys] = keys;
-    return findNode(restKeys, node.children.find((child) => child.key === currentKey) || node);
+    return findNode(restKeys, node.children?.find((child) => child.key === currentKey) || node);
   } else {
-    return node.children.find((child) => child.key === keys[0]) || node;
+    return node.children?.find((child) => child.key === keys[0]) || node;
   }
 };
 
@@ -258,7 +258,7 @@ type Node = {
     banner?: string;
     bannerTitle?: string;
   };
-  children: Node[];
+  children?: Node[];
   isLeaf: boolean;
 };
 
@@ -276,7 +276,6 @@ const content: Node = {
           key: 'ALL_WOMEN',
           value: { label: "All Women's", counter: 515, link: '/' },
           isLeaf: true,
-          children: [],
         },
         {
           key: 'CATEGORIES',
@@ -287,37 +286,31 @@ const content: Node = {
               key: 'ALL_CATEGORIES',
               value: { label: 'All Categories', counter: 178, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'CLOTHING',
               value: { label: 'Clothing', counter: 30, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'SHOES',
               value: { label: 'Shoes', counter: 28, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'ACCESSORIES',
               value: { label: 'Accessories', counter: 56, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'WEARABLES',
               value: { label: 'Wearables', counter: 12, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'FOOD_DRINKS',
               value: { label: 'Food & Drinks', counter: 52, link: '/' },
               isLeaf: true,
-              children: [],
             },
           ],
         },
@@ -330,37 +323,31 @@ const content: Node = {
               key: 'ALL_ACTIVITIES',
               value: { label: 'All Activities', counter: 239, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'FITNESS',
               value: { label: 'Fitness', counter: 83, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'PILATES',
               value: { label: 'Pilates', counter: 65, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'TRAINING',
               value: { label: 'Training', counter: 21, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'CARDIO_WORKOUT',
               value: { label: 'Cardio Workout', counter: 50, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'YOGA',
               value: { label: 'Yoga', counter: 20, link: '/' },
               isLeaf: true,
-              children: [],
             },
           ],
         },
@@ -373,13 +360,11 @@ const content: Node = {
               key: 'ALL_DEALS',
               value: { label: 'All Deals', counter: 98, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'OUTLET',
               value: { label: 'Outlet', counter: 98, link: '/' },
               isLeaf: true,
-              children: [],
             },
           ],
         },
@@ -394,7 +379,6 @@ const content: Node = {
           key: 'ALL_MEN',
           value: { label: "All Men's", counter: 364, link: '/' },
           isLeaf: true,
-          children: [],
         },
         {
           key: 'CATEGORIES',
@@ -405,37 +389,31 @@ const content: Node = {
               key: 'ALL_CATEGORIES',
               value: { label: 'All Categories', counter: 164, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'CLOTHING',
               value: { label: 'Clothing', counter: 41, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'SHOES',
               value: { label: 'Shoes', counter: 20, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'ACCESSORIES',
               value: { label: 'Accessories', counter: 56, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'WEARABLES',
               value: { label: 'Wearables', counter: 32, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'FOOD_DRINKS',
               value: { label: 'Food & Drinks', counter: 15, link: '/' },
               isLeaf: true,
-              children: [],
             },
           ],
         },
@@ -448,31 +426,26 @@ const content: Node = {
               key: 'ALL_ACTIVITIES',
               value: { label: 'All Activities', counter: 132, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'TRAINING',
               value: { label: 'Training', counter: 21, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'WORKOUT',
               value: { label: 'Workout', counter: 43, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'FOOTBALL',
               value: { label: 'Football', counter: 30, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'FITNESS',
               value: { label: 'Fitness', counter: 38, link: '/' },
               isLeaf: true,
-              children: [],
             },
           ],
         },
@@ -485,13 +458,11 @@ const content: Node = {
               key: 'ALL_DEALS',
               value: { label: 'All Deals', counter: 68, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'OUTLET',
               value: { label: 'Outlet', counter: 68, link: '/' },
               isLeaf: true,
-              children: [],
             },
           ],
         },
@@ -506,7 +477,6 @@ const content: Node = {
           key: 'ALL_KIDS',
           value: { label: 'All Kids', counter: 263, link: '/' },
           isLeaf: true,
-          children: [],
         },
         {
           key: 'CATEGORIES',
@@ -517,37 +487,31 @@ const content: Node = {
               key: 'ALL_CATEGORIES',
               value: { label: 'All Categories', counter: 192, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'CLOTHING',
               value: { label: 'Clothing', counter: 29, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'SHOES',
               value: { label: 'Shoes', counter: 60, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'ACCESSORIES',
               value: { label: 'Accessories', counter: 48, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'WEARABLES',
               value: { label: 'Wearables', counter: 22, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'FOOD_DRINKS',
               value: { label: 'Food & Drinks', counter: 33, link: '/' },
               isLeaf: true,
-              children: [],
             },
           ],
         },
@@ -560,19 +524,16 @@ const content: Node = {
               key: 'ALL_ACTIVITIES',
               value: { label: 'All Activities', counter: 40, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'FOOTBALL',
               value: { label: 'Football', counter: 21, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'BASKETBALL',
               value: { label: 'Basketball', counter: 19, link: '/' },
               isLeaf: true,
-              children: [],
             },
           ],
         },
@@ -585,13 +546,11 @@ const content: Node = {
               key: 'ALL_DEALS',
               value: { label: 'All Deals', counter: 31, link: '/' },
               isLeaf: true,
-              children: [],
             },
             {
               key: 'OUTLET',
               value: { label: 'Outlet', counter: 31, link: '/' },
               isLeaf: true,
-              children: [],
             },
           ],
         },
