@@ -25,3 +25,18 @@ MegaMenu follows the accessibility guidelines for menus and menubars by WCAG [Re
 <!-- end vue -->
 
 </Showcase>
+
+## Mega Menu with extended navigation
+
+Additional navigation bar under the main header helps to find general categories. User can easily open Mega Menu for each category. When using on mobile devices side drawer provides a nice way of navigating through nested categories.
+
+<Showcase showcase-name="MegaMenu/MegaMenuNavigation" style="min-height: 600px;">
+
+<!-- react -->
+<<<../../preview/next/pages/showcases/MegaMenu/MegaMenuNavigation.tsx#source
+<!-- end react -->
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/MegaMenu/MegaMenuNavigation.vue
+<!-- end vue -->
+
+</Showcase>
