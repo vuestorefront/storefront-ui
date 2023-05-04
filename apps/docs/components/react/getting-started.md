@@ -52,6 +52,23 @@ pnpm add @storefront-ui/react
 pnpm add -D tailwindcss postcss autoprefixer
 ```
 
+::: tip
+In Next.js 13 environments that are not using [App Router](https://beta.nextjs.org/docs/api-reference/next-config#appdir) there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
+
+As a workaround, you can add `transpilePackages: ['@storefront-ui/react']` to your `next.config.js` configuration file:
+
+```js
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  transpilePackages: ['@storefront-ui/react']
+}
+
+module.exports = nextConfig
+```
+
+:::
+
 ### Initialize Tailwind
 
 Running Tailwind's `init` command will generate a `tailwind.config.js` and `postcss.config.js` file in your project's root directory.
@@ -117,22 +134,7 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/ap
 
 </SourceCode>
 
-::: tip
-In Next.js 13 environments that are not using [App Router](https://beta.nextjs.org/docs/api-reference/next-config#appdir) there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
 
-As a workaround, you can add `transpilePackages: ['@storefront-ui/react']` to your `next.config.js` configuration file:
-
-```js
-// next.config.js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  transpilePackages: ['@storefront-ui/react']
-}
-
-module.exports = nextConfig
-```
-
-:::
 ::::::
 
 :::::: slot vite
