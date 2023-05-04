@@ -4,21 +4,12 @@
       :drag="state.drag"
       :direction="state.direction"
       :buttons-placement="state.buttonsPlacement"
-      :class="[
-        'w-full items-center',
-        {
-          'snap-x snap-mandatory': state.snap,
-          '[&::-webkit-scrollbar]:hidden [-ms-overflow-style:\'none\'] [scrollbar-width:\'none\']': state.hideScrollbar,
-        },
-      ]"
+      class="w-full items-center"
     >
       <div
         v-for="(_, index) in Array.from({ length: Number(state.totalItems || 10) })"
         :key="index"
-        :class="[
-          'w-36 h-36 shrink-0 bg-neutral-100 border border-negative-300 border-dashed flex items-center justify-center text-gray-500',
-          { 'snap-center': state.snap },
-        ]"
+        class="w-36 h-36 shrink-0 bg-neutral-100 border border-negative-300 border-dashed flex items-center justify-center text-gray-500"
       >
         {{ index + 1 }}
       </div>
@@ -58,20 +49,6 @@ const { controlsAttrs, state } = prepareControls(
       description: 'Enables item dragging on desktop',
     },
     {
-      type: 'boolean',
-      modelName: 'snap',
-      propType: 'boolean',
-      propDefaultValue: false,
-      description: 'Only for demonstration purposes. Enables item snapping',
-    },
-    {
-      type: 'boolean',
-      modelName: 'hideScrollbar',
-      propType: 'boolean',
-      propDefaultValue: false,
-      description: 'Only for demonstration purposes. Hides scrollbar',
-    },
-    {
       type: 'text',
       modelName: 'totalItems',
       propDefaultValue: '10',
@@ -82,8 +59,6 @@ const { controlsAttrs, state } = prepareControls(
     direction: ref(SfScrollableDirection.horizontal),
     buttonsPlacement: ref(SfScrollableButtonsPlacement.block),
     drag: ref(),
-    snap: ref(),
-    hideScrollbar: ref(false),
     totalItems: ref('20'),
   },
 );
