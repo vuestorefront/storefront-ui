@@ -4372,9 +4372,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:*, @types/node@npm:^18.13.0":
-  version: 18.15.11
-  resolution: "@types/node@npm:18.15.11"
-  checksum: 977b4ad04708897ff0eb049ecf82246d210939c82461922d20f7d2dcfd81bbc661582ba3af28869210f7e8b1934529dcd46bff7d448551400f9d48b9d3bddec3
+  version: 18.16.3
+  resolution: "@types/node@npm:18.16.3"
+  checksum: 816b39d45b05ebdc6f362b630970df3f6d82f71d418a2555353522f4eeeb078fa201de5299f02c09a09faa975e43b2745fe19c263d44069f87ddf37d6c37b717
   languageName: node
   linkType: hard
 
@@ -4386,9 +4386,9 @@ __metadata:
   linkType: hard
 
 "@types/node@npm:^14.0.0, @types/node@npm:^14.14.31":
-  version: 14.18.42
-  resolution: "@types/node@npm:14.18.42"
-  checksum: 1c92f04a482ab54a21342b3911fc6f0093f04d3314197bc0e2f20012e9efc929c44e2ea41990b9b3cde420d7859c9ed716733f3e65c0cd6c2910a55799465f6b
+  version: 14.18.43
+  resolution: "@types/node@npm:14.18.43"
+  checksum: 3ef43eda265c346597bc5c8329605255550f7a92300a76e9e3c48e07fd685b4a48d47465997bf6f1a68b235c7339e6e583d73515769efcad70e4f8f4c7f47fd4
   languageName: node
   linkType: hard
 
@@ -4442,11 +4442,11 @@ __metadata:
   linkType: hard
 
 "@types/react-dom@npm:^18.0.11":
-  version: 18.0.11
-  resolution: "@types/react-dom@npm:18.0.11"
+  version: 18.2.3
+  resolution: "@types/react-dom@npm:18.2.3"
   dependencies:
     "@types/react": "*"
-  checksum: 579691e4d5ec09688087568037c35edf8cfb1ab3e07f6c60029280733ee7b5c06d66df6fcc90786702c93ac8cb13bc7ff16c79ddfc75d082938fbaa36e1cdbf4
+  checksum: 33520610ee36765dbee62bd7d4a448598f0dec6d3ba94a05ff066e239ae536d739cb3bc2cd5269884f57293a3983ce614182844c4489b6e3350015eb5a08dcc7
   languageName: node
   linkType: hard
 
@@ -4460,13 +4460,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:^18.0.28":
-  version: 18.0.35
-  resolution: "@types/react@npm:18.0.35"
+  version: 18.2.4
+  resolution: "@types/react@npm:18.2.4"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: e65670397216e037b150a509ec08189140b4c20b82b612ac00b2a7133202be2d1def1e7ee69617b2df06ab4c00c43c4ee23e84788ad661aea9664da2f27c518a
+  checksum: d920fc93832fe50d5e8175a0ba233086c97a9e238ff7327c8319b8dec57409618f491d6f71be2374c3132f40a8fc428b3e406c1e2a5f1dc32ccd6d47051786d2
   languageName: node
   linkType: hard
 
