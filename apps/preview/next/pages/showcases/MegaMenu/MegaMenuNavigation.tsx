@@ -499,13 +499,7 @@ export default function MegaMenuNavigation() {
                     {activeMenu.children.map((node) =>
                       node.isLeaf ? (
                         <Fragment key={node.key}>
-                          <SfListItem
-                            as="a"
-                            size="sm"
-                            role="none"
-                            href={node.value.link}
-                            className="typography-text-sm mb-2"
-                          >
+                          <SfListItem as="a" size="sm" href={node.value.link} className="typography-text-sm mb-2">
                             {node.value.label}
                           </SfListItem>
                           <div className="col-start-2 col-end-5" />
@@ -523,7 +517,6 @@ export default function MegaMenuNavigation() {
                                     <SfListItem
                                       as="a"
                                       size="sm"
-                                      role="none"
                                       href={child.value.link}
                                       className="typography-text-sm py-1.5"
                                     >

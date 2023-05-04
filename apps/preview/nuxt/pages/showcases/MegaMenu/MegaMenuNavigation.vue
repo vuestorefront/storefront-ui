@@ -72,16 +72,12 @@
               @mouseleave="close()"
             >
               <template v-for="node in activeMenu.children" :key="node.key">
-                <SfListItem
-                  v-if="node.isLeaf"
-                  tag="a"
-                  size="sm"
-                  :href="node.value.link"
-                  class="typography-text-sm mb-2"
-                >
-                  {{ node.value.label }}
-                </SfListItem>
-                <div v-if="node.isLeaf" class="col-start-2 col-end-5" />
+                <template v-if="node.isLeaf">
+                  <SfListItem tag="a" size="sm" :href="node.value.link" class="typography-text-sm mb-2">
+                    {{ node.value.label }}
+                  </SfListItem>
+                  <div class="col-start-2 col-end-5" />
+                </template>
                 <div v-else>
                   <p
                     class="typography-text-base font-medium text-neutral-900 whitespace-nowrap px-4 py-1.5 border-b border-b-neutral-200 border-b-solid"
