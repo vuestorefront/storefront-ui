@@ -1,16 +1,29 @@
 {
   "name": "@storefront-ui/tests-shared",
-  "main": "index.ts",
   "private": true,
   "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.umd.js"
+    },
+    "./*": "./*"
+  },
+  "source": "index.ts",
+  "main": "dist/index.mjs",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "files": [
-    "index.ts",
-    "index.js"
+    "dist"
   ],
   "scripts": {
-    "build:test-utils": "yarn tsc"
+    "dev-only": "vite build --watch",
+    "build:test-utils": "vite build"
   },
   "devDependencies": {
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "vite": "^4.3.0",
+    "vite-plugin-dts": "^2.0.0-beta.1"
   }
 }

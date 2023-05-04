@@ -19,4 +19,3 @@ hideToc: true
 <<<../../preview/next/pages/showcases/Footer/FooterBasic.tsx#source
 <!-- end react -->
 </Showcase>
-
