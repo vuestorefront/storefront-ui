@@ -1,10 +1,7 @@
 <template>
   <SfDropdown v-model="isOpen" class="relative !w-full" dropdown-class="w-full">
     <template #trigger>
-      <label
-        class="font-medium typography-label-sm"
-        :class="{ 'text-disabled-900': isDisabled }"
-      >
+      <label class="font-medium typography-label-sm" :class="{ 'text-disabled-900': isDisabled }">
         Speed
         <div
           ref="selectDropdownRef"
