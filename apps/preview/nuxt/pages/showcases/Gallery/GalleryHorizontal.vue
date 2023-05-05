@@ -80,29 +80,29 @@ import {
 import * as Images from './images';
 
 const images = [
-  { imageSrc: Images.gallery1Src, alt: 'backpack' },
-  { imageSrc: Images.gallery2Src, alt: 'backpack' },
-  { imageSrc: Images.gallery3Src, alt: 'backpack' },
-  { imageSrc: Images.gallery4Src, alt: 'backpack' },
-  { imageSrc: Images.gallery5Src, alt: 'backpack' },
-  { imageSrc: Images.gallery6Src, alt: 'backpack' },
-  { imageSrc: Images.gallery7Src, alt: 'backpack' },
-  { imageSrc: Images.gallery8Src, alt: 'backpack' },
-  { imageSrc: Images.gallery9Src, alt: 'backpack' },
-  { imageSrc: Images.gallery10Src, alt: 'backpack' },
+  { imageSrc: Images.gallery1Src, alt: 'backpack1' },
+  { imageSrc: Images.gallery2Src, alt: 'backpack2' },
+  { imageSrc: Images.gallery3Src, alt: 'backpack3' },
+  { imageSrc: Images.gallery4Src, alt: 'backpack4' },
+  { imageSrc: Images.gallery5Src, alt: 'backpack5' },
+  { imageSrc: Images.gallery6Src, alt: 'backpack6' },
+  { imageSrc: Images.gallery7Src, alt: 'backpack7' },
+  { imageSrc: Images.gallery8Src, alt: 'backpack8' },
+  { imageSrc: Images.gallery9Src, alt: 'backpack9' },
+  { imageSrc: Images.gallery10Src, alt: 'backpack10' },
 ];
 
 const thumbImages = [
-  { imageSrc: Images.gallery1ThumbSrc, alt: 'backpack' },
-  { imageSrc: Images.gallery2ThumbSrc, alt: 'backpack' },
-  { imageSrc: Images.gallery3ThumbSrc, alt: 'backpack' },
-  { imageSrc: Images.gallery4ThumbSrc, alt: 'backpack' },
-  { imageSrc: Images.gallery5ThumbSrc, alt: 'backpack' },
-  { imageSrc: Images.gallery6ThumbSrc, alt: 'backpack' },
-  { imageSrc: Images.gallery7ThumbSrc, alt: 'backpack' },
-  { imageSrc: Images.gallery8ThumbSrc, alt: 'backpack' },
-  { imageSrc: Images.gallery9ThumbSrc, alt: 'backpack' },
-  { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack' },
+  { imageSrc: Images.gallery1ThumbSrc, alt: 'backpack1' },
+  { imageSrc: Images.gallery2ThumbSrc, alt: 'backpack2' },
+  { imageSrc: Images.gallery3ThumbSrc, alt: 'backpack3' },
+  { imageSrc: Images.gallery4ThumbSrc, alt: 'backpack4' },
+  { imageSrc: Images.gallery5ThumbSrc, alt: 'backpack5' },
+  { imageSrc: Images.gallery6ThumbSrc, alt: 'backpack6' },
+  { imageSrc: Images.gallery7ThumbSrc, alt: 'backpack7' },
+  { imageSrc: Images.gallery8ThumbSrc, alt: 'backpack8' },
+  { imageSrc: Images.gallery9ThumbSrc, alt: 'backpack9' },
+  { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack10' },
 ];
 
 const activeIndex = ref(0);

@@ -3,7 +3,7 @@
     <SfScrollable
       class="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       :active-index="activeIndex"
-      wrapper-class="group/scrollable h-full"
+      wrapper-class="h-full group/scrollable"
       is-active-index-centered
       :previous-disabled="activeIndex === 0"
       :next-disabled="activeIndex === images.length - 1"
@@ -71,8 +71,7 @@
             'w-full relative mt-1 border-b-4 transition-colors focus-visible:outline focus-visible:outline-offset-0 pointer-events-none',
             activeIndex === index ? 'border-primary-700' : 'border-gray-200',
           ]"
-          @keydown.tab.exact="activeIndex = index + 1"
-          @keydown.tab.shift="activeIndex = index - 1"
+          @click="activeIndex = index"
         />
       </div>
     </div>
@@ -84,16 +83,16 @@ import { ref } from 'vue';
 import * as Images from './images';
 
 const images = [
-  { imageSrc: Images.gallery1Src, alt: 'backpack' },
-  { imageSrc: Images.gallery2Src, alt: 'backpack' },
-  { imageSrc: Images.gallery3Src, alt: 'backpack' },
-  { imageSrc: Images.gallery4Src, alt: 'backpack' },
-  { imageSrc: Images.gallery5Src, alt: 'backpack' },
-  { imageSrc: Images.gallery6Src, alt: 'backpack' },
-  { imageSrc: Images.gallery7Src, alt: 'backpack' },
-  { imageSrc: Images.gallery8Src, alt: 'backpack' },
-  { imageSrc: Images.gallery9Src, alt: 'backpack' },
-  { imageSrc: Images.gallery10Src, alt: 'backpack' },
+  { imageSrc: Images.gallery1Src, alt: 'backpack1' },
+  { imageSrc: Images.gallery2Src, alt: 'backpack2' },
+  { imageSrc: Images.gallery3Src, alt: 'backpack3' },
+  { imageSrc: Images.gallery4Src, alt: 'backpack4' },
+  { imageSrc: Images.gallery5Src, alt: 'backpack5' },
+  { imageSrc: Images.gallery6Src, alt: 'backpack6' },
+  { imageSrc: Images.gallery7Src, alt: 'backpack7' },
+  { imageSrc: Images.gallery8Src, alt: 'backpack8' },
+  { imageSrc: Images.gallery9Src, alt: 'backpack9' },
+  { imageSrc: Images.gallery10Src, alt: 'backpack10' },
 ];
 
 const activeIndex = ref(0);

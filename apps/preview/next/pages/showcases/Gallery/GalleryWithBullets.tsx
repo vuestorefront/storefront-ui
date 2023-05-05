@@ -3,29 +3,25 @@
 import { ShowcasePageLayout } from '../../showcases';
 
 // #region source
-import { type KeyboardEvent, useState } from 'react';
+import { useState } from 'react';
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import * as Images from './images';
 
 const images = [
-  { imageSrc: Images.gallery1Src, alt: 'backpack' },
-  { imageSrc: Images.gallery2Src, alt: 'backpack' },
-  { imageSrc: Images.gallery3Src, alt: 'backpack' },
-  { imageSrc: Images.gallery4Src, alt: 'backpack' },
-  { imageSrc: Images.gallery5Src, alt: 'backpack' },
-  { imageSrc: Images.gallery6Src, alt: 'backpack' },
-  { imageSrc: Images.gallery7Src, alt: 'backpack' },
-  { imageSrc: Images.gallery8Src, alt: 'backpack' },
-  { imageSrc: Images.gallery9Src, alt: 'backpack' },
-  { imageSrc: Images.gallery10Src, alt: 'backpack' },
+  { imageSrc: Images.gallery1Src, alt: 'backpack1' },
+  { imageSrc: Images.gallery2Src, alt: 'backpack2' },
+  { imageSrc: Images.gallery3Src, alt: 'backpack3' },
+  { imageSrc: Images.gallery4Src, alt: 'backpack4' },
+  { imageSrc: Images.gallery5Src, alt: 'backpack5' },
+  { imageSrc: Images.gallery6Src, alt: 'backpack6' },
+  { imageSrc: Images.gallery7Src, alt: 'backpack7' },
+  { imageSrc: Images.gallery8Src, alt: 'backpack8' },
+  { imageSrc: Images.gallery9Src, alt: 'backpack9' },
+  { imageSrc: Images.gallery10Src, alt: 'backpack10' },
 ];
 
 export default function GalleryWithBullets() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const keyDownHandler = (e: KeyboardEvent<HTMLButtonElement>, index: number) => {
-    if (e.key === 'Tab') setActiveIndex(index + 1);
-    if (e.key === 'Tab' && e.shiftKey) setActiveIndex(index - 1);
-  };
 
   return (
     <div className="relative max-h-[600px] flex flex-col h-full gap-1">
@@ -84,10 +80,10 @@ export default function GalleryWithBullets() {
               aria-label={alt}
               aria-current={activeIndex === index}
               type="button"
-              className={`w-full relative mt-1 border-b-4 transition-colors focus-visible:outline focus-visible:outline-offset-0 pointer-events-none ${
+              className={`w-full relative mt-1 border-b-4 transition-colors focus-visible:outline focus-visible:outline-offset-0 ${
                 activeIndex === index ? 'border-primary-700' : 'border-gray-200'
               }`}
-              onKeyDown={(e) => keyDownHandler(e, index)}
+              onClick={() => setActiveIndex(index)}
             />
           ))}
         </div>
