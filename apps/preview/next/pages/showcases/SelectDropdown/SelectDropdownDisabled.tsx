@@ -46,7 +46,7 @@ export default function SelectDropdownWithPlaceholder() {
   };
 
   const handleTriggerKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === ' ') setListVisible(isOpen => !isOpen);
+    if (e.key === ' ') setListVisible((isOpen) => !isOpen);
   };
 
   const handleOptionItemKeyDown = (e: KeyboardEvent<HTMLLIElement>, option: OptionType) => {
@@ -60,12 +60,7 @@ export default function SelectDropdownWithPlaceholder() {
       className="relative !w-full"
       dropdownClassName="w-full"
       trigger={
-        <label
-          className={classNames(
-            'font-medium typography-label-sm',
-            { 'text-disabled-900': isDisabled },
-          )}
-        >
+        <label className={classNames('font-medium typography-label-sm', { 'text-disabled-900': isDisabled })}>
           Speed
           <div
             ref={selectDropdownRef}
@@ -79,7 +74,7 @@ export default function SelectDropdownWithPlaceholder() {
               'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-inset rounded-md py-2 px-4',
               isDisabled
                 ? 'bg-disabled-100 ring-disabled-300 cursor-not-allowed'
-                : 'ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 cursor-pointer'
+                : 'ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 cursor-pointer',
             )}
             tabIndex={isDisabled ? -1 : 0}
             onKeyDown={handleTriggerKeyDown}
@@ -101,29 +96,29 @@ export default function SelectDropdownWithPlaceholder() {
         </label>
       }
     >
-    <ul
-      id={listboxId}
-      ref={listboxRef}
-      role="listbox"
-      aria-label="Select one option"
-      className="absolute w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
-    >
-      {options.map((option) => 
-        <SfListItem
-          id={`${listboxId}-${option.value}`}
-          key={option.value}
-          role="option"
-          tabIndex={0}
-          aria-selected={option.value === selectedOption?.value}
-          className="block"
-          onClick={() => selectOption(option)}
-          onKeyDown={(e) => handleOptionItemKeyDown(e, option)}
-          slotSuffix={option.value === selectedOption?.value && <SfIconCheck className="text-primary-700" />}
-        >
-          { option.label }
-        </SfListItem>
-      )}
-    </ul>
+      <ul
+        id={listboxId}
+        ref={listboxRef}
+        role="listbox"
+        aria-label="Select one option"
+        className="absolute w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
+      >
+        {options.map((option) => (
+          <SfListItem
+            id={`${listboxId}-${option.value}`}
+            key={option.value}
+            role="option"
+            tabIndex={0}
+            aria-selected={option.value === selectedOption?.value}
+            className="block"
+            onClick={() => selectOption(option)}
+            onKeyDown={(e) => handleOptionItemKeyDown(e, option)}
+            slotSuffix={option.value === selectedOption?.value && <SfIconCheck className="text-primary-700" />}
+          >
+            {option.label}
+          </SfListItem>
+        ))}
+      </ul>
     </SfDropdown>
   );
 }

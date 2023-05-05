@@ -45,7 +45,7 @@ export default function SelectDropdownWithPlaceholder() {
   };
 
   const handleTriggerKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === ' ') setListVisible(isOpen => !isOpen);
+    if (e.key === ' ') setListVisible((isOpen) => !isOpen);
   };
 
   const handleOptionItemKeyDown = (e: KeyboardEvent<HTMLLIElement>, option: OptionType) => {
@@ -73,41 +73,39 @@ export default function SelectDropdownWithPlaceholder() {
             onKeyDown={handleTriggerKeyDown}
             onClick={() => setListVisible((isOpen) => !isOpen)}
           >
-            {
-              selectedOption
-              ? selectedOption.label
-              : <span className="text-neutral-500">Choose from the list</span>
-            }
+            {selectedOption ? selectedOption.label : <span className="text-neutral-500">Choose from the list</span>}
             <SfIconExpandMore
-              className={classNames('ml-auto text-neutral-500 transition-transform ease-in-out duration-300', { 'rotate-180': listVisible })}
+              className={classNames('ml-auto text-neutral-500 transition-transform ease-in-out duration-300', {
+                'rotate-180': listVisible,
+              })}
             />
           </div>
         </label>
       }
     >
-    <ul
-      id={listboxId}
-      ref={listboxRef}
-      role="listbox"
-      aria-label="Select one option"
-      className="absolute w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
-    >
-      {options.map((option) => 
-        <SfListItem
-          id={`${listboxId}-${option.value}`}
-          key={option.value}
-          role="option"
-          tabIndex={0}
-          aria-selected={option.value === selectedOption?.value}
-          className="block"
-          onClick={() => selectOption(option)}
-          onKeyDown={(e) => handleOptionItemKeyDown(e, option)}
-          slotSuffix={option.value === selectedOption?.value && <SfIconCheck className="text-primary-700" />}
-        >
-          { option.label }
-        </SfListItem>
-      )}
-    </ul>
+      <ul
+        id={listboxId}
+        ref={listboxRef}
+        role="listbox"
+        aria-label="Select one option"
+        className="absolute w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
+      >
+        {options.map((option) => (
+          <SfListItem
+            id={`${listboxId}-${option.value}`}
+            key={option.value}
+            role="option"
+            tabIndex={0}
+            aria-selected={option.value === selectedOption?.value}
+            className="block"
+            onClick={() => selectOption(option)}
+            onKeyDown={(e) => handleOptionItemKeyDown(e, option)}
+            slotSuffix={option.value === selectedOption?.value && <SfIconCheck className="text-primary-700" />}
+          >
+            {option.label}
+          </SfListItem>
+        ))}
+      </ul>
     </SfDropdown>
   );
 }
