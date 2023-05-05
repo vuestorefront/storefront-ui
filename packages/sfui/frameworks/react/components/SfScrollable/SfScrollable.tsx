@@ -109,14 +109,16 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           wrapperClassName,
         )}
       >
-        <PreviousButton
-          classNameButton={classNames('!rounded-full bg-white', {
-            'mr-4': isBlock && isHorizontal,
-            'mb-4 rotate-90': isBlock && !isHorizontal,
-            'absolute left-4 z-10': isFloating && isHorizontal,
-            'absolute top-4 rotate-90 z-10': isFloating && !isHorizontal,
-          })}
-        />
+        {buttonsPlacement !== SfScrollableButtonsPlacement.none && (
+          <PreviousButton
+            classNameButton={classNames('!rounded-full bg-white', {
+              'mr-4': isBlock && isHorizontal,
+              'mb-4 rotate-90': isBlock && !isHorizontal,
+              'absolute left-4 z-10': isFloating && isHorizontal,
+              'absolute top-4 rotate-90 z-10': isFloating && !isHorizontal,
+            })}
+          />
+        )}
         <Tag
           {...getContainerProps({
             className: classNames(className, {
@@ -130,14 +132,16 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         >
           {children}
         </Tag>
-        <NextButton
-          classNameButton={classNames('!rounded-full bg-white', {
-            'ml-4': isHorizontal,
-            'mt-4 rotate-90': !isHorizontal,
-            'absolute right-4 z-10': isFloating && isHorizontal,
-            'absolute bottom-4 rotate-90 z-10': isFloating && !isHorizontal,
-          })}
-        />
+        {buttonsPlacement !== SfScrollableButtonsPlacement.none && (
+          <NextButton
+            classNameButton={classNames('!rounded-full bg-white', {
+              'ml-4': isBlock && isHorizontal,
+              'mt-4 rotate-90': isBlock && !isHorizontal,
+              'absolute right-4 z-10': isFloating && isHorizontal,
+              'absolute bottom-4 rotate-90 z-10': isFloating && !isHorizontal,
+            })}
+          />
+        )}
       </div>
     );
   },

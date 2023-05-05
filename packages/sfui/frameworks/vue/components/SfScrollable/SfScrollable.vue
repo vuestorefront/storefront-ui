@@ -86,15 +86,15 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
   <div :class="['items-center', 'relative', isHorizontal ? 'flex' : 'flex-col h-full inline-flex', wrapperClass]">
     <div v-if="$slots.previousButton" v-bind="getPrevButtonProps"><slot name="previousButton" /></div>
     <SfButton
-      v-else-if="buttonsPlacement"
+      v-else-if="buttonsPlacement !== SfScrollableButtonsPlacement.none"
       variant="secondary"
       size="lg"
       square
       :class="[
         '!rounded-full bg-white hidden md:block',
-        isHorizontal && SfScrollableButtonsPlacement.block ? 'mr-4' : 'mb-4 rotate-90',
-        isHorizontal && SfScrollableButtonsPlacement.floating ? 'left-4' : 'top-4 rotate-90',
-        { 'absolute z-10': SfScrollableButtonsPlacement.floating },
+        buttonsPlacement === SfScrollableButtonsPlacement.block && (isHorizontal ? 'mr-4' : 'mb-4 rotate-90'),
+        buttonsPlacement === SfScrollableButtonsPlacement.floating && (isHorizontal ? 'left-4' : 'top-4 rotate-90'),
+        { 'absolute z-10': buttonsPlacement === SfScrollableButtonsPlacement.floating },
         changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
       ]"
       v-bind="getPrevButtonProps"
@@ -120,15 +120,15 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
     </component>
     <div v-if="$slots.nextButton" v-bind="getNextButtonProps"><slot name="nextButton" /></div>
     <SfButton
-      v-else-if="buttonsPlacement"
+      v-else-if="buttonsPlacement !== SfScrollableButtonsPlacement.none"
       variant="secondary"
       size="lg"
       square
       :class="[
         '!rounded-full bg-white hidden md:block',
-        isHorizontal && SfScrollableButtonsPlacement.block ? 'ml-4' : 'mt-4 rotate-90',
-        isHorizontal && SfScrollableButtonsPlacement.floating ? 'right-4' : 'bottom-4 rotate-90',
-        { 'absolute z-10': SfScrollableButtonsPlacement.floating },
+        buttonsPlacement === SfScrollableButtonsPlacement.block && (isHorizontal ? 'ml-4' : 'mt-4 rotate-90'),
+        buttonsPlacement === SfScrollableButtonsPlacement.floating && (isHorizontal ? 'right-4' : 'bottom-4 rotate-90'),
+        { 'absolute z-10': buttonsPlacement === SfScrollableButtonsPlacement.floating },
         changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps.disabled),
       ]"
       v-bind="getNextButtonProps"
