@@ -86,13 +86,15 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
   <div :class="['items-center', 'relative', isHorizontal ? 'flex' : 'flex-col h-full inline-flex', wrapperClass]">
     <div v-if="$slots.previousButton" v-bind="getPrevButtonProps"><slot name="previousButton" /></div>
     <SfButton
-      v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-else-if="buttonsPlacement !== SfScrollableButtonsPlacement.none"
       variant="secondary"
       size="lg"
       square
       :class="[
         '!rounded-full bg-white hidden md:block',
-        isHorizontal ? 'mr-4' : 'mb-4 rotate-90',
+        buttonsPlacement === SfScrollableButtonsPlacement.block && (isHorizontal ? 'mr-4' : 'mb-4 rotate-90'),
+        buttonsPlacement === SfScrollableButtonsPlacement.floating && (isHorizontal ? 'left-4' : 'top-4 rotate-90'),
+        { 'absolute z-10': buttonsPlacement === SfScrollableButtonsPlacement.floating },
         changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
       ]"
       v-bind="getPrevButtonProps"
@@ -114,48 +116,19 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       v-bind="{ ...$attrs, ...props }"
       :disabled="previousDisabled"
     >
-      <div v-if="$slots.previousButton" v-bind="getPrevButtonProps"><slot name="previousButton" /></div>
-      <SfButton
-        v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.floating"
-        variant="secondary"
-        size="lg"
-        square
-        :class="[
-          'absolute !rounded-full bg-white hidden md:block z-10',
-          isHorizontal ? 'left-4' : 'top-4 rotate-90',
-          changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
-        ]"
-        v-bind="getPrevButtonProps"
-      >
-        <SfIconChevronLeft />
-      </SfButton>
       <slot />
-      <div v-if="$slots.nextButton" v-bind="getNextButtonProps"><slot name="nextButton" /></div>
-      <SfButton
-        v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.floating"
-        variant="secondary"
-        size="lg"
-        square
-        :class="[
-          'absolute !rounded-full bg-white hidden md:block z-10',
-          isHorizontal ? 'right-4' : 'bottom-4 rotate-90',
-          changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps.disabled),
-        ]"
-        v-bind="getNextButtonProps"
-        :disabled="nextDisabled"
-      >
-        <SfIconChevronRight />
-      </SfButton>
     </component>
     <div v-if="$slots.nextButton" v-bind="getNextButtonProps"><slot name="nextButton" /></div>
     <SfButton
-      v-else-if="buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-else-if="buttonsPlacement !== SfScrollableButtonsPlacement.none"
       variant="secondary"
       size="lg"
       square
       :class="[
         '!rounded-full bg-white hidden md:block',
-        isHorizontal ? 'ml-4' : 'mt-4 rotate-90',
+        buttonsPlacement === SfScrollableButtonsPlacement.block && (isHorizontal ? 'ml-4' : 'mt-4 rotate-90'),
+        buttonsPlacement === SfScrollableButtonsPlacement.floating && (isHorizontal ? 'right-4' : 'bottom-4 rotate-90'),
+        { 'absolute z-10': buttonsPlacement === SfScrollableButtonsPlacement.floating },
         changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps.disabled),
       ]"
       v-bind="getNextButtonProps"
