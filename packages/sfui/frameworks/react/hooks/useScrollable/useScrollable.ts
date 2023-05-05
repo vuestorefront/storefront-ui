@@ -7,8 +7,8 @@ export function useScrollable<TElement extends HTMLElement>({
   direction,
   drag,
   reduceMotion,
-  onDragChange,
-  onDraggedChange,
+  onDragStart,
+  onDragEnd,
   onScroll,
   onPrev,
   onNext,
@@ -33,11 +33,11 @@ export function useScrollable<TElement extends HTMLElement>({
         setState((currentState) => ({ ...currentState, hasNext: data.hasNext, hasPrev: data.hasPrev }));
         onScroll?.(data);
       },
-      onDragChange: (data) => {
+      onDragStart: (data) => {
         setState((currentState) => ({ ...currentState, isDragged: data.isDragged }));
-        onDragChange?.(data);
+        onDragStart?.(data);
       },
-      onDraggedChange,
+      onDragEnd,
     });
     const unregister = scrollable.current.register();
 
@@ -52,8 +52,8 @@ export function useScrollable<TElement extends HTMLElement>({
     direction,
     drag,
     reduceMotion,
-    onDragChange,
-    onDraggedChange,
+    onDragStart,
+    onDragEnd,
     onScroll,
     onPrev,
     onNext,

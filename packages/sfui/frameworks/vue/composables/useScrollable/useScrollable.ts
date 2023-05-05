@@ -21,9 +21,9 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
           state.value = { ...state.value, hasNext: data.hasNext, hasPrev: data.hasPrev };
           options?.value?.onScroll?.(data);
         },
-        onDragChange: (data) => {
+        onDragStart: (data) => {
           state.value = { ...state.value, isDragged: data.isDragged };
-          options?.value?.onDragChange?.(data);
+          options?.value?.onDragStart?.(data);
         },
       });
 

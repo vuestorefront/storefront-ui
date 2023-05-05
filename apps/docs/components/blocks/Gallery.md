@@ -1,7 +1,7 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: Gallery is the component that allows to scroll through multiple images.
+description: Gallery is a component that shows multiple images.
 hideToc: true
 
 ---

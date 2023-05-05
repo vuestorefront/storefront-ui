@@ -95,11 +95,11 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `wrapperClassName`   | `string`      |               |    |
 | `slotPreviousButton` | `ReactNode`          |               | Previous button         |
 | `slotNextButton` | `ReactNode`          |               | Next button         |
-| `onDragChange`           | `Function` |    |  |
-| `onDraggedChange`           | `Function` |    |  |
-| `onScroll`           | `Function` |   |  |
-| `onPrev`           | `Function` |    |  |
-| `onNext`           | `Function` |    |  |
+| `onDragStart`           | `(data: SfScrollableOnDragStartData) => void` |    |  |
+| `onDragEnd`           | `(data: SfScrollableOnDragEndData) => void` |    |  |
+| `onScroll`           | `(data: SfScrollableOnScrollData) => void` |   |  |
+| `onPrev`           | `(data: SfScrollableOnPrevData) => void` |    |  |
+| `onNext`           | `(data: SfScrollableOnNextData) => void` |    |  |
 <!-- end react -->
 
 <!-- vue -->
@@ -115,8 +115,8 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 
 | Event name        | Trigger                       |
 | ----------------- | ----------------------------- |
-| `onDragChange` | triggers when drag has started |
-| `onDraggedChange` | triggers when drag has finished |
+| `onDragStart` | triggers when drag has started |
+| `onDragEnd` | triggers when drag has finished |
 | `onScroll` | triggers when any scroll happens |
 | `onPrev` | triggers when previous button is clicked |
 | `onNext` | triggers when next button is clicked |

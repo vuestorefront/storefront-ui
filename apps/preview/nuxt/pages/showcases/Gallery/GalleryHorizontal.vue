@@ -75,7 +75,7 @@ import {
   SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
-  type SfScrollableOnDraggedChangeData,
+  type SfScrollableOnDragEndData,
 } from '@storefront-ui/vue';
 import * as Images from './images';
 
@@ -107,7 +107,7 @@ const thumbImages = [
 
 const activeIndex = ref(0);
 
-const onDragged = (event: SfScrollableOnDraggedChangeData) => {
+const onDragged = (event: SfScrollableOnDragEndData) => {
   if (event.swipeRight && activeIndex.value > 0) {
     activeIndex.value -= 1;
   } else if (event.swipeLeft && activeIndex.value < images.length - 1) {

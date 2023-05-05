@@ -13,11 +13,11 @@ import {
   SfIconChevronRight,
   SfButton,
   useScrollable,
-  type SfScrollableOnDragChangeData,
+  type SfScrollableOnDragStartData,
   type SfScrollableOnScrollData,
   type SfScrollableOnPrevData,
   type SfScrollableOnNextData,
-  type SfScrollableOnDraggedChangeData,
+  type SfScrollableOnDragEndData,
   type ScrollableOptions,
 } from '@storefront-ui/vue';
 
@@ -61,8 +61,8 @@ const props = defineProps({
   },
 });
 const emit = defineEmits<{
-  (e: 'onDragChange', data: SfScrollableOnDragChangeData): void;
-  (e: 'onDraggedChange', data: SfScrollableOnDraggedChangeData): void;
+  (e: 'onDragStart', data: SfScrollableOnDragStartData): void;
+  (e: 'onDragEnd', data: SfScrollableOnDragEndData): void;
   (e: 'onScroll', data: SfScrollableOnScrollData): void;
   (e: 'onPrev', data: SfScrollableOnPrevData): void;
   (e: 'onNext', data: SfScrollableOnNextData): void;
@@ -78,8 +78,8 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
       drag,
       isActiveIndexCentered,
     }),
-    onDragChange: (data) => emit('onDragChange', data),
-    onDraggedChange: (data) => emit('onDraggedChange', data),
+    onDragStart: (data) => emit('onDragStart', data),
+    onDragEnd: (data) => emit('onDragEnd', data),
     onScroll: (data) => emit('onScroll', data),
     onPrev: (data) => emit('onPrev', data),
     onNext: (data) => emit('onNext', data),

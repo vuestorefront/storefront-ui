@@ -25,7 +25,7 @@ export default class Scrollable {
   public set isDragged(newValue: boolean) {
     if (newValue === this.isDraggedPreviously) return;
     this.isDraggedPreviously = newValue;
-    this.options.onDragChange?.({
+    this.options.onDragStart?.({
       isDragged: this.isDraggedPreviously,
     });
   }
@@ -183,7 +183,7 @@ export default class Scrollable {
 
     // TODO: add proper scrolling effect with timing and easings, now we have no idea when animation ends, therefor cant disable double click during animation and weird behavior. With proper scrolling animation we will be able to add real time dragging not only dragging after mouse/touch UP
 
-    this.options.onDraggedChange?.({
+    this.options.onDragEnd?.({
       isDragged: false,
       swipeLeft: this.dragDistance > -10,
       swipeRight: this.dragDistance < 10,

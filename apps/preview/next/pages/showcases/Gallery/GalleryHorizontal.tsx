@@ -9,7 +9,7 @@ import {
   SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
-  type SfScrollableOnDraggedChangeData,
+  type SfScrollableOnDragEndData,
 } from '@storefront-ui/react';
 import * as Images from './images';
 
@@ -42,7 +42,7 @@ const thumbImages = [
 export default function GalleryHorizontal() {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const onDragged = (event: SfScrollableOnDraggedChangeData) => {
+  const onDragged = (event: SfScrollableOnDragEndData) => {
     if (event.swipeRight && activeIndex > 0) {
       setActiveIndex((currentActiveIndex) => currentActiveIndex - 1);
     } else if (event.swipeLeft && activeIndex < images.length - 1) {
@@ -59,7 +59,7 @@ export default function GalleryHorizontal() {
         buttonsPlacement="none"
         isActiveIndexCentered
         drag={{ containerWidth: true }}
-        onDraggedChange={onDragged}
+        onDragEnd={onDragged}
       >
         {images.map(({ imageSrc, alt }, index) => (
           <div key={`${alt}-${index}`} className="flex justify-center h-full basis-full shrink-0 grow snap-center">

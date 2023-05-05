@@ -9,11 +9,11 @@ export enum SfScrollableButtonsPlacement {
   block = 'block',
 }
 
-export type SfScrollableOnDragChangeData = {
+export type SfScrollableOnDragStartData = {
   isDragged: boolean;
 };
 
-export type SfScrollableOnDraggedChangeData = SfScrollableOnDragChangeData & {
+export type SfScrollableOnDragEndData = SfScrollableOnDragStartData & {
   swipeLeft: boolean;
   swipeRight: boolean;
 };
@@ -36,10 +36,9 @@ export type ScrollableOptions = {
   drag?: { sensitivity?: number; containerWidth?: boolean } | boolean;
   direction?: `${SfScrollableDirection}`;
   isActiveIndexCentered?: boolean;
-  onDragChange?: (data: SfScrollableOnDragChangeData) => void;
-  onDraggedChange?: (data: SfScrollableOnDraggedChangeData) => void;
+  onDragStart?: (data: SfScrollableOnDragStartData) => void;
+  onDragEnd?: (data: SfScrollableOnDragEndData) => void;
   onScroll?: (data: SfScrollableOnScrollData) => void;
   onPrev?: (data: SfScrollableOnPrevData) => void;
   onNext?: (data: SfScrollableOnNextData) => void;
-  isActiveIndexCentered?: boolean;
 }; 

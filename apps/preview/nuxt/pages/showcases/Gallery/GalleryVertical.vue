@@ -89,7 +89,7 @@ import {
   SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
-  type SfScrollableOnDraggedChangeData,
+  type SfScrollableOnDragEndData,
 } from '@storefront-ui/vue';
 import { unrefElement, useIntersectionObserver } from '@vueuse/core';
 import { watch } from 'vue';
@@ -167,7 +167,7 @@ watch(
   { immediate: true },
 );
 
-const onDragged = (event: SfScrollableOnDraggedChangeData) => {
+const onDragged = (event: SfScrollableOnDragEndData) => {
   if (event.swipeRight && activeIndex.value > 0) {
     activeIndex.value -= 1;
   } else if (event.swipeLeft && activeIndex.value < images.length - 1) {
