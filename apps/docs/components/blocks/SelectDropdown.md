@@ -1,18 +1,18 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: This component is an alternative option for SfSelect component. It doesn't use native select tag so it can have more options for styling.
+description: This component is an alternative option for SfSelect component. It doesn't use native select tag to allow more styling customizations.
 
 ---
 # Select Dropdown
 
 {{ $frontmatter.description }}
 
-## Select Dropdown 
+## Basic usage
 
 Select Dropdown with preselected option.
 
-<Showcase showcase-name="SelectDropdown/SelectDropdownPreselected" >
+<Showcase showcase-name="SelectDropdown/SelectDropdownPreselected" style="min-height:300px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownPreselected.vue
@@ -23,11 +23,11 @@ Select Dropdown with preselected option.
 
 </Showcase>
 
-## Select Dropdown with placeholder
+## With placeholder
 
-Adding placeholder can be helpful for users to complete it.
+Adding placeholder might be helpful and informative for end users.
 
-<Showcase showcase-name="SelectDropdown/SelectDropdownWithPlaceholder" >
+<Showcase showcase-name="SelectDropdown/SelectDropdownWithPlaceholder" style="min-height:300px">
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.vue
 <!-- end vue -->
@@ -36,11 +36,11 @@ Adding placeholder can be helpful for users to complete it.
 <!-- end react -->
 </Showcase>
 
-## Select Dropdown with required text
+## With required text
 
-A user can easily see if this field is required.
+By adding a sublabel, the user can easily see if this field is required. Remember to add `aria-required` to help users that use assistive technologies.
 
-<Showcase showcase-name="SelectDropdown/SelectDropdownRequired" >
+<Showcase showcase-name="SelectDropdown/SelectDropdownRequired" style="min-height:300px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownRequired.vue
@@ -51,24 +51,11 @@ A user can easily see if this field is required.
 
 </Showcase>
 
-## Select Dropdown with loader
+## Invalid state
 
-You can add a loader to indicate that options will be displayed soon.
+Provide visual cues for end users to indicate occuring error.
 
-<Showcase showcase-name="SelectDropdown/SelectDropdownLoadingState" >
-<!-- vue -->
-<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownLoadingState.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownLoadingState.tsx#source
-<!-- end react -->
-</Showcase>
-
-## Select Dropdown invalid state
-
-Select Dropdown can indicate if there is an error.
-
-<Showcase showcase-name="SelectDropdown/SelectDropdownError" >
+<Showcase showcase-name="SelectDropdown/SelectDropdownError" style="min-height:300px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownError.vue
@@ -79,11 +66,11 @@ Select Dropdown can indicate if there is an error.
 
 </Showcase>
 
-## Select Dropdown disabled state
+## Disabled state
 
-Select Dropdown has also disabled state.
+Differentiate disabled state to smooth UX experience. In such case, keyboard navigation becomes disabled as well and an `aria-disabled="true"` is specified for better accessibility.
 
-<Showcase showcase-name="SelectDropdown/SelectDropdownDisabled" >
+<Showcase showcase-name="SelectDropdown/SelectDropdownDisabled" style="min-height:300px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownDisabled.vue

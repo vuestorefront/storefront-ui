@@ -1,33 +1,50 @@
 <template>
-  <SfDropdown v-model="isOpen" class="!w-full relative" dropdown-class="!w-full">
+  <SfDropdown v-model="isOpen" class="relative !w-full" dropdown-class="w-full">
     <template #trigger>
-      <label class="cursor-pointer w-full font-medium typography-label-sm" @click="isOpen = !isOpen">
+      <label class="font-medium typography-label-sm cursor-pointer" @click="isOpen = !isOpen">
         Product
         <div
-          :aria-controls="`select-dropdown-${listboxId}`"
+          ref="selectDropdownRef"
+          role="combobox"
+          :aria-controls="unrefElement(listboxRef)?.id"
           :aria-expanded="isOpen"
           aria-label="Select one option"
-          class="flex items-center relative font-normal ring-1 ring-gray-200 ring-inset rounded-md py-2 pl-4 pr-3 bg-white hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2"
-          role="combobox"
+          :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
+          class="mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-neutral-300 ring-inset rounded-md py-2 px-4 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2"
           tabindex="0"
           @keydown.space="isOpen = !isOpen"
         >
-          {{ selectedOption }}
-          <div class="ml-auto text-neutral-500">
-            <SfIconExpandMore :class="['transition-transform ease-in-out duration-300', { 'rotate-180': isOpen }]" />
-          </div>
+          <template v-if="selectedOption">{{ selectedOption.label }}</template>
+          <span v-else class="text-neutral-500">Choose from the list</span>
+          <SfIconExpandMore
+            class="ml-auto text-neutral-500 transition-transform ease-in-out duration-300"
+            :class="{ 'rotate-180': isOpen }"
+          />
         </div>
       </label>
     </template>
     <ul
-      v-if="isOpen"
       :id="`select-dropdown-${listboxId}`"
-      class="absolute w-full rounded-md shadow-md border border-neutral-100 bg-white z-1"
+      ref="listboxRef"
+      role="listbox"
+      aria-label="Select one option"
+      class="absolute w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
     >
-      <SfListItem v-for="{ label, value } in options" :key="value" class="block" @click="handleSelect(label)">
-        {{ label }}
+      <SfListItem
+        v-for="option in options"
+        :id="`${listboxId}-${option.value}`"
+        :key="option.value"
+        role="option"
+        tabindex="0"
+        :aria-selected="option.value === selectedOption?.value"
+        class="block"
+        @click="selectOption(option)"
+        @keydown.enter="selectOption(option)"
+        @keydown.space="selectOption(option)"
+      >
+        {{ option.label }}
         <template #suffix>
-          <SfIconCheck v-if="label === selectedOption" class="text-primary-700" />
+          <SfIconCheck v-if="option.value === selectedOption?.value" class="text-primary-700" />
         </template>
       </SfListItem>
     </ul>
@@ -35,17 +52,16 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, type Ref } from 'vue';
-import { SfIconExpandMore, SfListItem, SfDropdown, SfIconCheck, useId } from '@storefront-ui/vue';
+import { ref } from 'vue';
+import { unrefElement } from '@vueuse/core';
+import { SfDropdown, SfIconExpandMore, SfListItem, SfIconCheck, useId, useTrapFocus } from '@storefront-ui/vue';
 
 type OptionType = {
   label: string;
   value: string;
 };
 
-const isOpen = ref(false);
-const listboxId = useId();
-const options: Ref<Array<OptionType>> = ref([
+const options: OptionType[] = [
   {
     label: 'Startup',
     value: 'startup',
@@ -58,11 +74,24 @@ const options: Ref<Array<OptionType>> = ref([
     label: 'Enterprise',
     value: 'enterprise',
   },
-]);
-const selectedOption = ref(options.value[0].label);
+];
 
-const handleSelect = (option: string) => {
+const isOpen = ref(false);
+const selectedOption = ref<OptionType>(options[0]);
+const listboxId = useId();
+
+const selectDropdownRef = ref<HTMLDivElement>();
+const listboxRef = ref<HTMLUListElement>();
+
+useTrapFocus(listboxRef, {
+  arrowKeysOn: true,
+  activeState: isOpen,
+  initialFocusContainerFallback: true,
+});
+
+const selectOption = (option: OptionType) => {
   selectedOption.value = option;
   isOpen.value = false;
+  unrefElement(selectDropdownRef)?.focus();
 };
 </script>
