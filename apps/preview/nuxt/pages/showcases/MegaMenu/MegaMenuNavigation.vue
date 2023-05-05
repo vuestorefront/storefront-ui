@@ -126,7 +126,7 @@
               >
                 <div class="flex items-center">
                   <SfIconArrowBack class="text-neutral-500" />
-                  <p class="ml-5">{{ activeMenu.value.label }}</p>
+                  <p class="ml-5 font-medium">{{ activeMenu.value.label }}</p>
                 </div>
               </SfListItem>
             </li>

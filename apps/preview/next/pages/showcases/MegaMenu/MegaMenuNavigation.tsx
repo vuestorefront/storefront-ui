@@ -534,7 +534,7 @@ export default function MegaMenuNavigation() {
                       >
                         <div className="flex items-center">
                           <SfIconArrowBack className="text-neutral-500" />
-                          <p className="ml-5">{activeMenu.value.label}</p>
+                          <p className="ml-5 font-medium">{activeMenu.value.label}</p>
                         </div>
                       </SfListItem>
                     </li>
