@@ -442,10 +442,10 @@ export default function MegaMenuNavigation() {
                   variant="tertiary"
                   onMouseEnter={handleOpenMenu([menuNode.key])}
                   onClick={handleOpenMenu([menuNode.key])}
-                  className="mr-2"
+                  className="group mr-2 !text-neutral-900 hover:bg-neutral-200 hover:!text-neutral-700 active:!bg-neutral-300 active:!text-neutral-900"
                 >
                   <span>{menuNode.value.label}</span>
-                  <SfIconChevronRight className="rotate-90" />
+                  <SfIconChevronRight className="rotate-90 text-neutral-500 group-hover:text-neutral-700 group-active:text-neutral-900" />
                 </SfButton>
 
                 {isOpen && activeNode.length === 1 && activeNode[0] === menuNode.key && (
@@ -534,7 +534,7 @@ export default function MegaMenuNavigation() {
                       >
                         <div className="flex items-center">
                           <SfIconArrowBack className="text-neutral-500" />
-                          <p className="ml-5">{activeMenu.value.label}</p>
+                          <p className="ml-5 font-medium">{activeMenu.value.label}</p>
                         </div>
                       </SfListItem>
                     </li>
