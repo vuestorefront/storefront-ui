@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: Mega menu is a type of website navigation menu that typically displays a list of links and subcategories in a larger, more complex format than a traditional drop-down or fly-out menu. 
+hideToc: true
 ---
 # MegaMenu
 

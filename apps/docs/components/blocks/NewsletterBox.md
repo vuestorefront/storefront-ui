@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: A NewsletterBox supports a typical e-commerce newsletter subscription process.
+hideToc: true
 ---
 # NewsletterBox
 
