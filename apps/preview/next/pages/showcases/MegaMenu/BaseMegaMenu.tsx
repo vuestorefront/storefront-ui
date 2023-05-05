@@ -155,7 +155,7 @@ export default function BaseMegaMenu() {
           <a
             href="/"
             aria-label="SF Homepage"
-            className="inline-block mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            className="flex shrink-0 mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
               <source srcSet={brandLogo.src} media="(min-width: 1024px)" />

@@ -9,7 +9,7 @@
         <a
           href="/"
           aria-label="SF Homepage"
-          class="inline-block text-white mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          class="flex shrink-0 text-white mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >
           <picture>
             <source :srcset="brandLogo" media="(min-width: 1024px)" />
