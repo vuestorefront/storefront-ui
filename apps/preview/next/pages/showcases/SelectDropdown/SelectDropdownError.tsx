@@ -44,11 +44,11 @@ export default function SelectDropdownWithPlaceholder() {
     selectDropdownRef.current?.focus();
   };
 
-  const handleTriggerKeyDown = (e:  KeyboardEvent<HTMLDivElement>) => {
+  const handleTriggerKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === ' ') setListVisible(isOpen => !isOpen);
   };
 
-  const handleOptionItemKeyDown = (e:  KeyboardEvent<HTMLLIElement>, option: OptionType) => {
+  const handleOptionItemKeyDown = (e: KeyboardEvent<HTMLLIElement>, option: OptionType) => {
     if (e.key === ' ' || e.key === 'Enter') selectOption(option);
   };
 
@@ -59,10 +59,7 @@ export default function SelectDropdownWithPlaceholder() {
       className="relative !w-full"
       dropdownClassName="w-full"
       trigger={
-        <label
-          className="font-medium typography-label-sm cursor-pointer"
-          onClick={() => setListVisible((isOpen) => !isOpen)}
-        >
+        <label className="font-medium typography-label-sm">
           Speed
           <div
             ref={selectDropdownRef}
@@ -72,13 +69,14 @@ export default function SelectDropdownWithPlaceholder() {
             aria-label="Select one option"
             aria-activedescendant={selectedOption ? `${listboxId}-${selectedOption.value}` : undefined}
             className={classNames(
-              'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-inset rounded-md py-2 px-4',
+              'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-inset rounded-md py-2 px-4 cursor-pointer',
               selectedOption
                 ? 'ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2'
                 : 'ring-2 ring-negative-700'
             )}
             tabIndex={0}
             onKeyDown={handleTriggerKeyDown}
+            onClick={() => setListVisible((isOpen) => !isOpen)}
           >
             {
               selectedOption

@@ -3,8 +3,7 @@
     <template #trigger>
       <label
         class="font-medium typography-label-sm"
-        :class="isDisabled ? 'cursor-not-allowed text-disabled-900' : 'cursor-pointer'"
-        @click="!isDisabled && (isOpen = !isOpen)"
+        :class="{ 'text-disabled-900': isDisabled }"
       >
         Speed
         <div
@@ -18,11 +17,12 @@
           class="mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-inset rounded-md py-2 px-4"
           :class="
             isDisabled
-              ? 'bg-disabled-100 ring-disabled-300'
-              : 'ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2'
+              ? 'bg-disabled-100 ring-disabled-300 cursor-not-allowed'
+              : 'ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 cursor-pointer'
           "
           :tabindex="isDisabled ? undefined : 0"
           @keydown.space="isOpen = !isOpen"
+          @click="!isDisabled && (isOpen = !isOpen)"
         >
           <template v-if="selectedOption">{{ selectedOption.label }}</template>
           <span v-else :class="isDisabled ? 'text-disabled-500' : 'text-neutral-500'">Choose from the list</span>

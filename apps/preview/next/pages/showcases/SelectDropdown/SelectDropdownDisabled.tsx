@@ -45,11 +45,11 @@ export default function SelectDropdownWithPlaceholder() {
     selectDropdownRef.current?.focus();
   };
 
-  const handleTriggerKeyDown = (e:  KeyboardEvent<HTMLDivElement>) => {
+  const handleTriggerKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
     if (e.key === ' ') setListVisible(isOpen => !isOpen);
   };
 
-  const handleOptionItemKeyDown = (e:  KeyboardEvent<HTMLLIElement>, option: OptionType) => {
+  const handleOptionItemKeyDown = (e: KeyboardEvent<HTMLLIElement>, option: OptionType) => {
     if (e.key === ' ' || e.key === 'Enter') selectOption(option);
   };
 
@@ -61,8 +61,10 @@ export default function SelectDropdownWithPlaceholder() {
       dropdownClassName="w-full"
       trigger={
         <label
-          className={classNames('font-medium typography-label-sm', isDisabled ? 'cursor-not-allowed text-disabled-900' : 'cursor-pointer')}
-          onClick={() => !isDisabled && setListVisible((isOpen) => !isOpen)}
+          className={classNames(
+            'font-medium typography-label-sm',
+            { 'text-disabled-900': isDisabled },
+          )}
         >
           Speed
           <div
@@ -76,19 +78,24 @@ export default function SelectDropdownWithPlaceholder() {
             className={classNames(
               'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-inset rounded-md py-2 px-4',
               isDisabled
-                ? 'bg-disabled-100 ring-disabled-300'
-                : 'ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2'
+                ? 'bg-disabled-100 ring-disabled-300 cursor-not-allowed'
+                : 'ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 cursor-pointer'
             )}
-            tabIndex={isDisabled ? undefined : 0}
+            tabIndex={isDisabled ? -1 : 0}
             onKeyDown={handleTriggerKeyDown}
+            onClick={() => !isDisabled && setListVisible((isOpen) => !isOpen)}
           >
-            {
-              selectedOption
-              ? selectedOption.label
-              : <span className={isDisabled ? 'text-disabled-500' : 'text-neutral-500'}>Choose from the list</span>
-            }
+            {selectedOption ? (
+              selectedOption.label
+            ) : (
+              <span className={isDisabled ? 'text-disabled-500' : 'text-neutral-500'}>Choose from the list</span>
+            )}
             <SfIconExpandMore
-              className={classNames('ml-auto transition-transform ease-in-out duration-300', { 'rotate-180': listVisible }, isDisabled ? 'text-disabled-500' : 'text-neutral-500')}
+              className={classNames(
+                'ml-auto transition-transform ease-in-out duration-300',
+                { 'rotate-180': listVisible },
+                isDisabled ? 'text-disabled-500' : 'text-neutral-500',
+              )}
             />
           </div>
         </label>

@@ -1,7 +1,7 @@
 <template>
   <SfDropdown v-model="isOpen" class="relative !w-full" dropdown-class="w-full">
     <template #trigger>
-      <label class="font-medium typography-label-sm cursor-pointer" @click="isOpen = !isOpen">
+      <label class="font-medium typography-label-sm">
         Speed
         <div
           ref="selectDropdownRef"
@@ -10,7 +10,7 @@
           :aria-expanded="isOpen"
           aria-label="Select one option"
           :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
-          class="mt-0.5 flex items-center gap-8 relative ring-inset rounded-md py-2 px-4 font-normal typography-text-base focus-within:ring-primary-700 focus-within:ring-2"
+          class="mt-0.5 flex items-center gap-8 relative ring-inset rounded-md py-2 px-4 font-normal typography-text-base focus-within:ring-primary-700 focus-within:ring-2 cursor-pointer"
           :class="
             selectedOption
               ? 'ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2'
@@ -18,6 +18,7 @@
           "
           tabindex="0"
           @keydown.space="isOpen = !isOpen"
+          @click="isOpen = !isOpen"
         >
           <template v-if="selectedOption">{{ selectedOption.label }}</template>
           <span v-else class="text-neutral-500">Choose from the list</span>
