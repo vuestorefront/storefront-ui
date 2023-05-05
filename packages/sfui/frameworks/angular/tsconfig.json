@@ -3,9 +3,6 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "@storefront-ui/angular": ["../../../packages/sfui/frameworks/angular"]
-    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -20,6 +17,11 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
+    "paths": {
+      "storefront-ui": [
+        "dist/storefront-ui"
+      ]
+    },
     "module": "ES2022",
     "useDefineForClassFields": false,
     "lib": [

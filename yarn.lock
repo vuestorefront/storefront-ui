@@ -4678,6 +4678,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rollup/plugin-node-resolve@npm:^15.0.0":
+  version: 15.0.2
+  resolution: "@rollup/plugin-node-resolve@npm:15.0.2"
+  dependencies:
+    "@rollup/pluginutils": ^5.0.1
+    "@types/resolve": 1.20.2
+    deepmerge: ^4.2.2
+    is-builtin-module: ^3.2.1
+    is-module: ^1.0.0
+    resolve: ^1.22.1
+  peerDependencies:
+    rollup: ^2.78.0||^3.0.0
+  peerDependenciesMeta:
+    rollup:
+      optional: true
+  checksum: 328eafee06ff967a36441b55e77fbd0d4f599d256e5d1977800ee71915846c46bc1b6185df35c7b512ad2b4023b05b65a332be77b8b00b9d8a20f87d056b8166
+  languageName: node
+  linkType: hard
+
 "@rollup/plugin-node-resolve@npm:^15.0.1":
   version: 15.0.1
   resolution: "@rollup/plugin-node-resolve@npm:15.0.1"
@@ -4885,6 +4904,36 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@storefront-ui/angular@workspace:*, @storefront-ui/angular@workspace:packages/sfui/frameworks/angular":
+  version: 0.0.0-use.local
+  resolution: "@storefront-ui/angular@workspace:packages/sfui/frameworks/angular"
+  dependencies:
+    "@angular-devkit/build-angular": ^16.0.0
+    "@angular/animations": ^16.0.0
+    "@angular/cli": ~16.0.0
+    "@angular/common": ^16.0.0
+    "@angular/compiler": ^16.0.0
+    "@angular/compiler-cli": ^16.0.0
+    "@angular/core": ^16.0.0
+    "@angular/forms": ^16.0.0
+    "@angular/platform-browser": ^16.0.0
+    "@angular/platform-browser-dynamic": ^16.0.0
+    "@angular/router": ^16.0.0
+    "@types/jasmine": ~4.3.0
+    jasmine-core: ~4.6.0
+    karma: ~6.4.0
+    karma-chrome-launcher: ~3.2.0
+    karma-coverage: ~2.2.0
+    karma-jasmine: ~5.1.0
+    karma-jasmine-html-reporter: ~2.0.0
+    ng-packagr: ^16.0.0
+    rxjs: ~7.8.0
+    tslib: ^2.3.0
+    typescript: ~5.0.2
+    zone.js: ~0.13.0
+  languageName: unknown
+  linkType: soft
+
 "@storefront-ui/docs@workspace:apps/docs/components":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/docs@workspace:apps/docs/components"
@@ -4978,6 +5027,7 @@ __metadata:
     "@angular/platform-browser": ^16.0.0
     "@angular/platform-browser-dynamic": ^16.0.0
     "@angular/router": ^16.0.0
+    "@storefront-ui/angular": "workspace:*"
     "@types/jasmine": ~4.3.0
     jasmine-core: ~4.6.0
     karma: ~6.4.0
@@ -7814,7 +7864,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ansi-colors@npm:4.1.3, ansi-colors@npm:^4.1.1":
+"ansi-colors@npm:4.1.3, ansi-colors@npm:^4.1.1, ansi-colors@npm:^4.1.3":
   version: 4.1.3
   resolution: "ansi-colors@npm:4.1.3"
   checksum: a9c2ec842038a1fabc7db9ece7d3177e2fe1c5dc6f0c51ecfbf5f39911427b89c00b5dc6b8bd95f82a26e9b16aaae2e83d45f060e98070ce4d1333038edceb0e
@@ -8389,7 +8439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:10.4.14, autoprefixer@npm:^10.2.5, autoprefixer@npm:^10.4.13, autoprefixer@npm:^10.4.14":
+"autoprefixer@npm:10.4.14, autoprefixer@npm:^10.2.5, autoprefixer@npm:^10.4.12, autoprefixer@npm:^10.4.13, autoprefixer@npm:^10.4.14":
   version: 10.4.14
   resolution: "autoprefixer@npm:10.4.14"
   dependencies:
@@ -10556,6 +10606,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"commander@npm:^10.0.0":
+  version: 10.0.1
+  resolution: "commander@npm:10.0.1"
+  checksum: 436901d64a818295803c1996cd856621a74f30b9f9e28a588e726b2b1670665bccd7c1a77007ebf328729f0139838a88a19265858a0fa7a8728c4656796db948
+  languageName: node
+  linkType: hard
+
 "commander@npm:^2.11.0, commander@npm:^2.20.0, commander@npm:^2.8.1":
   version: 2.20.3
   resolution: "commander@npm:2.20.3"
@@ -10929,6 +10986,13 @@ __metadata:
   version: 1.9.0
   resolution: "convert-source-map@npm:1.9.0"
   checksum: dc55a1f28ddd0e9485ef13565f8f756b342f9a46c4ae18b843fe3c30c675d058d6a4823eff86d472f187b176f0adf51ea7b69ea38be34be4a63cbbf91b0593c8
+  languageName: node
+  linkType: hard
+
+"convert-source-map@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "convert-source-map@npm:2.0.0"
+  checksum: 63ae9933be5a2b8d4509daca5124e20c14d023c820258e484e32dc324d34c2754e71297c94a05784064ad27615037ef677e3f0c00469fb55f409d2bb21261035
   languageName: node
   linkType: hard
 
@@ -12181,6 +12245,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dependency-graph@npm:^0.11.0":
+  version: 0.11.0
+  resolution: "dependency-graph@npm:0.11.0"
+  checksum: 477204beaa9be69e642bc31ffe7a8c383d0cf48fa27acbc91c5df01431ab913e65c154213d2ef83d034c98d77280743ec85e5da018a97a18dd43d3c0b78b28cd
+  languageName: node
+  linkType: hard
+
 "des.js@npm:^1.0.0":
   version: 1.0.1
   resolution: "des.js@npm:1.0.1"
@@ -13010,7 +13081,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild-wasm@npm:0.17.18":
+"esbuild-wasm@npm:0.17.18, esbuild-wasm@npm:^0.17.0":
   version: 0.17.18
   resolution: "esbuild-wasm@npm:0.17.18"
   bin:
@@ -13102,7 +13173,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:0.17.18":
+"esbuild@npm:0.17.18, esbuild@npm:^0.17.0":
   version: 0.17.18
   resolution: "esbuild@npm:0.17.18"
   dependencies:
@@ -16790,6 +16861,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"injection-js@npm:^2.4.0":
+  version: 2.4.0
+  resolution: "injection-js@npm:2.4.0"
+  dependencies:
+    tslib: ^2.0.0
+  checksum: e8f297a928da1ae26b3d9eaad57f738487e0c4c2f78f8f0f868b239e190940b782cc8dd78b9ba59a64a4fa585d4dae204e7c179ca5f9a09c0acf80189d090f50
+  languageName: node
+  linkType: hard
+
 "inline-style-prefixer@npm:^6.0.0":
   version: 6.0.4
   resolution: "inline-style-prefixer@npm:6.0.4"
@@ -17077,6 +17157,15 @@ __metadata:
   dependencies:
     builtin-modules: ^3.3.0
   checksum: 0315751b898feff0646511c896e88b608a755c5025d0ce9a3ad25783de50be870e47dafb838cebbb06fbb2a948b209ea55348eee267836c9dd40d3a11ec717d3
+  languageName: node
+  linkType: hard
+
+"is-builtin-module@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "is-builtin-module@npm:3.2.1"
+  dependencies:
+    builtin-modules: ^3.3.0
+  checksum: e8f0ffc19a98240bda9c7ada84d846486365af88d14616e737d280d378695c8c448a621dcafc8332dbf0fcd0a17b0763b845400709963fa9151ddffece90ae88
   languageName: node
   linkType: hard
 
@@ -18526,7 +18615,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"less@npm:4.1.3":
+"less@npm:4.1.3, less@npm:^4.1.3":
   version: 4.1.3
   resolution: "less@npm:4.1.3"
   dependencies:
@@ -20310,6 +20399,52 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ng-packagr@npm:^16.0.0":
+  version: 16.0.0
+  resolution: "ng-packagr@npm:16.0.0"
+  dependencies:
+    "@rollup/plugin-json": ^6.0.0
+    "@rollup/plugin-node-resolve": ^15.0.0
+    ajv: ^8.11.0
+    ansi-colors: ^4.1.3
+    autoprefixer: ^10.4.12
+    browserslist: ^4.21.4
+    cacache: ^17.0.0
+    chokidar: ^3.5.3
+    commander: ^10.0.0
+    convert-source-map: ^2.0.0
+    dependency-graph: ^0.11.0
+    esbuild: ^0.17.0
+    esbuild-wasm: ^0.17.0
+    fast-glob: ^3.2.12
+    find-cache-dir: ^3.3.2
+    injection-js: ^2.4.0
+    jsonc-parser: ^3.2.0
+    less: ^4.1.3
+    ora: ^5.1.0
+    piscina: ^3.2.0
+    postcss: ^8.4.16
+    postcss-url: ^10.1.3
+    rollup: ^3.0.0
+    rxjs: ^7.5.6
+    sass: ^1.55.0
+  peerDependencies:
+    "@angular/compiler-cli": ^16.0.0-next.0
+    tailwindcss: ^2.0.0 || ^3.0.0
+    tslib: ^2.3.0
+    typescript: ">=4.9.3 <5.1"
+  dependenciesMeta:
+    esbuild:
+      optional: true
+  peerDependenciesMeta:
+    tailwindcss:
+      optional: true
+  bin:
+    ng-packagr: cli/main.js
+  checksum: e4baac024263817075006a4a30393654a912167c7a5c2d63420d922bf08139f13084ec79da18c0778195c68bc77760e05289c246c39ed7a8c76879d310a1491e
+  languageName: node
+  linkType: hard
+
 "nice-napi@npm:^1.0.2":
   version: 1.0.2
   resolution: "nice-napi@npm:1.0.2"
@@ -21268,7 +21403,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ora@npm:5.4.1, ora@npm:^5.0.0, ora@npm:^5.4.1":
+"ora@npm:5.4.1, ora@npm:^5.0.0, ora@npm:^5.1.0, ora@npm:^5.4.1":
   version: 5.4.1
   resolution: "ora@npm:5.4.1"
   dependencies:
@@ -21981,7 +22116,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"piscina@npm:3.2.0":
+"piscina@npm:3.2.0, piscina@npm:^3.2.0":
   version: 3.2.0
   resolution: "piscina@npm:3.2.0"
   dependencies:
@@ -23025,7 +23160,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.4.23, postcss@npm:^8.0.0, postcss@npm:^8.0.9, postcss@npm:^8.1.10, postcss@npm:^8.2.14, postcss@npm:^8.2.15, postcss@npm:^8.3.5, postcss@npm:^8.3.7, postcss@npm:^8.4.14, postcss@npm:^8.4.18, postcss@npm:^8.4.19, postcss@npm:^8.4.20, postcss@npm:^8.4.21":
+"postcss@npm:8.4.23, postcss@npm:^8.0.0, postcss@npm:^8.0.9, postcss@npm:^8.1.10, postcss@npm:^8.2.14, postcss@npm:^8.2.15, postcss@npm:^8.3.5, postcss@npm:^8.3.7, postcss@npm:^8.4.14, postcss@npm:^8.4.16, postcss@npm:^8.4.18, postcss@npm:^8.4.19, postcss@npm:^8.4.20, postcss@npm:^8.4.21":
   version: 8.4.23
   resolution: "postcss@npm:8.4.23"
   dependencies:
@@ -24523,6 +24658,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"rollup@npm:^3.0.0":
+  version: 3.21.4
+  resolution: "rollup@npm:3.21.4"
+  dependencies:
+    fsevents: ~2.3.2
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  bin:
+    rollup: dist/bin/rollup
+  checksum: ad7dec30ce31b47e32c3daf464b14c25e52f4e07b6ad9fa610b0abcff480b1a1fb01aabdefa6bac30ff1ee23ab16762621cd24810798148cdff74efda1a98874
+  languageName: node
+  linkType: hard
+
 "rollup@npm:^3.18.0, rollup@npm:^3.20.0, rollup@npm:^3.20.2":
   version: 3.20.2
   resolution: "rollup@npm:3.20.2"
@@ -24606,7 +24755,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rxjs@npm:7.8.1, rxjs@npm:~7.8.0":
+"rxjs@npm:7.8.1, rxjs@npm:^7.5.6, rxjs@npm:~7.8.0":
   version: 7.8.1
   resolution: "rxjs@npm:7.8.1"
   dependencies:
@@ -24699,7 +24848,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sass@npm:1.62.1":
+"sass@npm:1.62.1, sass@npm:^1.55.0":
   version: 1.62.1
   resolution: "sass@npm:1.62.1"
   dependencies:
@@ -27017,7 +27166,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:2.5.0, tslib@npm:^2.3.0":
+"tslib@npm:2.5.0, tslib@npm:^2.0.0, tslib@npm:^2.3.0":
   version: 2.5.0
   resolution: "tslib@npm:2.5.0"
   checksum: ae3ed5f9ce29932d049908ebfdf21b3a003a85653a9a140d614da6b767a93ef94f460e52c3d787f0e4f383546981713f165037dc2274df212ea9f8a4541004e1

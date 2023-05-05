@@ -40,6 +40,7 @@ yarn-error.log*
 .output
 .nuxt
 lib/
+!packages/sfui/frameworks/angular/projects/storefront-ui/src/lib/
 dist
 
 # Yarn
