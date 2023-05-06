@@ -1,14 +1,41 @@
 {
   "name": "@storefront-ui/angular",
-  "version": "0.0.0",
+  "version": "2.1.0",
+  "license": "MIT",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs.js"
+    },
+    "./tailwind-config": {
+      "types": "./dist/tailwind-config.d.ts",
+      "import": "./dist/tailwind-config.mjs",
+      "require": "./dist/tailwind-config.cjs.js"
+    },
+    "./*": "./*"
+  },
+  "typesVersions": {
+    "*": {
+      "tailwind-config": [
+        "dist/tailwind-config"
+      ]
+    }
+  },
+  "source": "index.ts",
+  "main": "dist/index.cjs.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build:angular": "ng build storefront-ui",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
-  "private": true,
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@angular/animations": "^16.0.0",
     "@angular/common": "^16.0.0",
@@ -37,5 +64,16 @@
     "karma-jasmine-html-reporter": "~2.0.0",
     "ng-packagr": "^16.0.0",
     "typescript": "~5.0.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vuestorefront/storefront-ui.git",
+    "directory": "packages/sfui/frameworks/angular"
+  },
+  "bugs": {
+    "url": "https://github.com/vuestorefront/storefront-ui/issues"
   }
 }

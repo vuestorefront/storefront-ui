@@ -45,6 +45,14 @@
         "build:tailwind-config"
       ]
     },
+    "build:preview-angular": {
+      "cache": false,
+      "dependsOn": [
+        "^build:angular",
+        "^build:typography",
+        "build:tailwind-config"
+      ]
+    },
     "build:docs": {
       "dependsOn": [
         "^build:tailwind-config"
@@ -58,6 +66,12 @@
       "cache": false
     },
     "build:vue": {
+      "dependsOn": [
+        "^build:shared"
+      ],
+      "cache": false
+    },
+    "build:angular": {
       "dependsOn": [
         "^build:shared"
       ],
