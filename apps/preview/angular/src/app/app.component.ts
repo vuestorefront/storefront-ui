@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { SfButtonComponent } from '@storefront-ui/angular';
+import { SfButtonSize } from '@storefront-ui/shared';
 
 @Component({
   selector: 'app-root',
@@ -12,4 +13,10 @@ import { SfButtonComponent } from '@storefront-ui/angular';
 })
 export class AppComponent {
   title = 'angular';
+
+  buttonSize = signal(SfButtonSize.lg);
+
+  toggleSize() {
+    this.buttonSize.set(SfButtonSize.base);
+  }
 }
