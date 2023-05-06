@@ -39,7 +39,9 @@
       },
       "schematics": {
         "@schematics/angular:component": {
-          "standalone": true
+          "standalone": true,
+          "changeDetection": "OnPush",
+          "path": "projects/storefront-ui/src/components"
         },
         "@schematics/angular:application": {
           "strict": true
