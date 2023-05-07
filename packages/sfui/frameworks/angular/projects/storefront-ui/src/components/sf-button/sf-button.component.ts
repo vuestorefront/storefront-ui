@@ -14,7 +14,7 @@ export class SfButtonComponent {
 
   @Input() size: SfButtonSize = SfButtonSize.base;
 
-  @Input() square: boolean = false;
+  @Input() square = false;
 
   variantClasses = {
     [SfButtonVariant.primary]:
