@@ -5230,7 +5230,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/example-style@workspace:*, @storefront-ui/example-style@workspace:packages/config/example-style":
+"@storefront-ui/example-style@workspace:*, @storefront-ui/example-style@workspace:^, @storefront-ui/example-style@workspace:packages/config/example-style":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/example-style@workspace:packages/config/example-style"
   languageName: unknown
@@ -5279,6 +5279,7 @@ __metadata:
     "@angular/router": ^16.0.0
     "@storefront-ui/angular": "workspace:*"
     "@storefront-ui/eslint-config": "workspace:^"
+    "@storefront-ui/example-style": "workspace:^"
     "@types/jasmine": ~4.3.0
     "@typescript-eslint/eslint-plugin": 5.59.2
     "@typescript-eslint/parser": 5.59.2
