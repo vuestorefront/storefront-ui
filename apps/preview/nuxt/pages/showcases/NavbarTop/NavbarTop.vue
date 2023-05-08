@@ -13,10 +13,10 @@
         </picture>
       </a>
       <SfButton 
-        :tabindex="2" 
-        aria-label="Open categories" 
-        class="lg:hidden order-first lg:order-1 mr-4" 
-        square 
+        :tabindex="2"
+        aria-label="Open categories"
+        class="lg:hidden order-first lg:order-1 mr-4"
+        square
         variant="tertiary"
       >
         <SfIconMenu />
@@ -47,9 +47,9 @@
           </SfButton>
         </div>
       </nav>
-      <form 
-        role="search" 
-        class="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0" 
+      <form
+        role="search"
+        class="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
         @submit.prevent="search(inputValue)"
       >
         <SfInput

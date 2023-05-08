@@ -53,8 +53,8 @@
         </div>
       </nav>
       <form 
-        role="search" 
-        class="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0" 
+        role="search"
+        class="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
         @submit.prevent="search(inputValue)"
       >
         <SfInput
