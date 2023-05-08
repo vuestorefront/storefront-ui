@@ -2,7 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: This component is an alternative option for SfSelect component. It doesn't use native select tag to allow more styling customizations.
-
+hideToc: true
 ---
 # Select Dropdown
 
