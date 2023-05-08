@@ -56,7 +56,7 @@ pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/vue
 
 ### Initialize Tailwind
 
-Running Tailwind's `init` command will generate a `tailwind.config.cjs` and `postcss.config.cjs` file in your project's root directory.
+Running Tailwind's `init` command will generate a `tailwind.config.js` and `postcss.config.js` file in your project's root directory.
 
 ```bash
 npx tailwindcss init -p
@@ -64,7 +64,7 @@ npx tailwindcss init -p
 
 ### Modify Your Tailwind Configuration File
 
-Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.cjs` file.
+Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.js` file.
 
 ::: tip Add a path to your installed package
 
@@ -72,11 +72,11 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 :::
 
 ```ts
-// tailwind.config.cjs
-const { tailwindConfig } = require('@storefront-ui/vue/tailwind-config');
+// tailwind.config.js
+import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   presets: [tailwindConfig],
   content: ['./index.html', './**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
   theme: {

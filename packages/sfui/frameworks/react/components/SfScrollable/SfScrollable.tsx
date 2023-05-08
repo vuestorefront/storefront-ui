@@ -3,10 +3,10 @@ import { cloneElement, useMemo } from 'react';
 import classNames from 'classnames';
 import {
   polymorphicForwardRef,
+  useScrollable,
   SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
-  useScrollable,
   SfScrollableDirection,
   SfScrollableButtonsPlacement,
   type SfScrollableProps,
@@ -23,10 +23,12 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       activeIndex,
       reduceMotion,
       drag,
-      onDragChange,
+      onDragStart,
+      onDragEnd,
       onScroll,
       onPrev,
       onNext,
+      isActiveIndexCentered,
       className,
       wrapperClassName,
       previousDisabled,
@@ -50,12 +52,25 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         activeIndex,
         reduceMotion,
         drag,
-        onDragChange,
+        onDragStart,
+        onDragEnd,
         onScroll,
         onPrev,
         onNext,
+        isActiveIndexCentered,
       }),
-      [direction, activeIndex, reduceMotion, drag, onDragChange, onScroll, onPrev, onNext],
+      [
+        direction,
+        activeIndex,
+        reduceMotion,
+        drag,
+        isActiveIndexCentered,
+        onDragStart,
+        onDragEnd,
+        onScroll,
+        onPrev,
+        onNext,
+      ],
     );
 
     const { state, getContainerProps, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
@@ -101,7 +116,6 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         />
       );
     }
-
     return (
       <div
         className={classNames(
@@ -110,17 +124,19 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           wrapperClassName,
         )}
       >
-        {isBlock && (
+        {buttonsPlacement !== SfScrollableButtonsPlacement.none && (
           <PreviousButton
             classNameButton={classNames('!rounded-full bg-white', {
-              'mr-4': isHorizontal,
-              'mb-4 rotate-90': !isHorizontal,
+              'mr-4': isBlock && isHorizontal,
+              'mb-4 rotate-90': isBlock && !isHorizontal,
+              'absolute left-4 z-10': isFloating && isHorizontal,
+              'absolute top-4 rotate-90 z-10': isFloating && !isHorizontal,
             })}
           />
         )}
         <Tag
           {...getContainerProps({
-            className: classNames(className, {
+            className: classNames(className, 'motion-safe:scroll-smooth', {
               'overflow-x-auto flex gap-4': isHorizontal,
               'overflow-y-auto flex flex-col gap-4': !isHorizontal,
               'cursor-grab': state.isDragged,
@@ -129,29 +145,15 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             ref,
           })}
         >
-          {isFloating && (
-            <PreviousButton
-              classNameButton={classNames('absolute !rounded-full bg-white z-10', {
-                'left-4': isHorizontal,
-                'top-4 rotate-90': !isHorizontal,
-              })}
-            />
-          )}
           {children}
-          {isFloating && (
-            <NextButton
-              classNameButton={classNames('absolute !rounded-full bg-white z-10', {
-                'right-4': isHorizontal,
-                'bottom-4 rotate-90': !isHorizontal,
-              })}
-            />
-          )}
         </Tag>
-        {isBlock && (
+        {buttonsPlacement !== SfScrollableButtonsPlacement.none && (
           <NextButton
             classNameButton={classNames('!rounded-full bg-white', {
-              'ml-4': isHorizontal,
-              'mt-4 rotate-90': !isHorizontal,
+              'ml-4': isBlock && isHorizontal,
+              'mt-4 rotate-90': isBlock && !isHorizontal,
+              'absolute right-4 z-10': isFloating && isHorizontal,
+              'absolute bottom-4 rotate-90 z-10': isFloating && !isHorizontal,
             })}
           />
         )}

@@ -99,10 +99,11 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
 | reduceMotion           | `boolean` |               | Option for [`scrollTo`](https://developer.mozilla.org/en-US/docs/Web/API/Window/scrollTo) behavior, when `true` is `auto`, when `false` is `smooth` |
 | drag           | `{ sensitivity: number; } | boolean` |               |  Gives possibility to specifiy intensity of dragging experience or disabling it |
 | direction           | `SfScrollableDirection` | `horizontal`   | Set orientation of scrollable `vertical` or `horizontal` |
-| onDragChange           | `Function` |    | Callback when drag has happens |
-| onScroll           | `Function` |   | Callback when any scroll happens |
-| onPrev           | `Function` |    | Callback when previous button is clicked |
-| onNext           | `Function` |    | Callback when next button is clicked |
+| onDragStart           | `(data: SfScrollableOnDragStartData) => void` |    | Callback when drag starts |
+| onDragEnd           | `(data: SfScrollableOnDragStartData) => void` |    | Callback when drag ends |
+| onScroll           | `(data: SfScrollableOnScrollData) => void` |   | Callback when any scroll happens |
+| onPrev           | `(data: SfScrollableOnPrevData) => void` |    | Callback when previous button is clicked |
+| onNext           | `(data: SfScrollableOnNextData) => void` |    | Callback when next button is clicked |
 
 ## Return value
 

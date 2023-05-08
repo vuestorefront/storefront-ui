@@ -48,7 +48,6 @@ const SfButton = polymorphicForwardRef<typeof defaultButtonTag, SfButtonProps>((
         className,
       )}
       data-testid="button"
-      disabled={props.disabled}
       {...attributes}
     >
       {slotPrefix}
