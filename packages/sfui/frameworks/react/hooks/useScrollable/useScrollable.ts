@@ -41,8 +41,8 @@ export function useScrollable<TElement extends HTMLElement>({
     });
     const unregister = scrollable.current.register();
 
-    if (typeof activeIndex !== 'boolean' && activeIndex && isActiveIndexCentered) {
-      scrollable.current.scrollToIndex(activeIndex);
+    if (typeof activeIndex !== 'boolean' && (activeIndex as number) >= 0 && isActiveIndexCentered) {
+      scrollable.current.scrollToIndex(activeIndex as number);
     }
 
     return unregister;

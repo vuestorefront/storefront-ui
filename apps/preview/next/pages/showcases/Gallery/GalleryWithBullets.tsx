@@ -6,6 +6,7 @@ import { ShowcasePageLayout } from '../../showcases';
 import { useState } from 'react';
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import * as Images from './images';
+import classNames from 'classnames';
 
 const images = [
   { imageSrc: Images.gallery1Src, alt: 'backpack1' },

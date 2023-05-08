@@ -30,10 +30,10 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
       unregister = scrollable.value?.register();
       if (
         typeof options?.value?.activeIndex !== 'boolean' &&
-        options?.value?.activeIndex &&
+        (options?.value?.activeIndex as number) >= 0 &&
         options?.value?.isActiveIndexCentered
       ) {
-        scrollable.value.scrollToIndex(options?.value?.activeIndex);
+        scrollable.value.scrollToIndex(options?.value?.activeIndex as number);
       }
     },
     { immediate: true, deep: true },
