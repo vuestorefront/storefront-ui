@@ -1,0 +1,267 @@
+[
+  {
+    "url": "/customization/theming.html",
+    "name": "Theming",
+    "className": "theming"
+  },
+  {
+    "url": "/customization/overriding-default-styles.html",
+    "name": "Overriding Default Styles",
+    "className": "overriding-default-styles"
+  },
+  {
+    "url": "/customization/typography.html",
+    "name": "Typography",
+    "className": "typography"
+  },
+  {
+    "url": "/components.html",
+    "name": "Base Components",
+    "className": "base-components"
+  },
+  {
+    "url": "/components/accordionitem.html",
+    "name": "AccordionItem",
+    "className": "accordionitem"
+  },
+  {
+    "url": "/components/button.html",
+    "name": "Button",
+    "className": "button"
+  },
+  {
+    "url": "/components/checkbox.html",
+    "name": "Checkbox",
+    "className": "checkbox"
+  },
+  {
+    "url": "/components/chip.html",
+    "name": "Chip",
+    "className": "chip"
+  },
+  {
+    "url": "/components/counter.html",
+    "name": "Counter",
+    "className": "counter"
+  },
+  {
+    "url": "/components/drawer.html",
+    "name": "Drawer",
+    "className": "drawer"
+  },
+  {
+    "url": "/components/dropdown.html",
+    "name": "Dropdown",
+    "className": "dropdown"
+  },
+  {
+    "url": "/components/iconbase.html",
+    "name": "Icons",
+    "className": "icons"
+  },
+  {
+    "url": "/components/input.html",
+    "name": "Input",
+    "className": "input"
+  },
+  {
+    "url": "/components/link.html",
+    "name": "Link",
+    "className": "link"
+  },
+  {
+    "url": "/components/listitem.html",
+    "name": "ListItem",
+    "className": "listitem"
+  },
+  {
+    "url": "/components/loadercircular.html",
+    "name": "LoaderCircular",
+    "className": "loadercircular"
+  },
+  {
+    "url": "/components/loaderlinear.html",
+    "name": "LoaderLinear",
+    "className": "loaderlinear"
+  },
+  {
+    "url": "/components/modal.html",
+    "name": "Modal",
+    "className": "modal"
+  },
+  {
+    "url": "/components/progresscircular.html",
+    "name": "ProgressCircular",
+    "className": "progresscircular"
+  },
+  {
+    "url": "/components/progresslinear.html",
+    "name": "ProgressLinear",
+    "className": "progresslinear"
+  },
+  {
+    "url": "/components/radio.html",
+    "name": "Radio",
+    "className": "radio"
+  },
+  {
+    "url": "/components/rating.html",
+    "name": "Rating",
+    "className": "rating"
+  },
+  {
+    "url": "/components/scrollable.html",
+    "name": "Scrollable",
+    "className": "scrollable"
+  },
+  {
+    "url": "/components/select.html",
+    "name": "Select",
+    "className": "select"
+  },
+  {
+    "url": "/components/switch.html",
+    "name": "Switch",
+    "className": "switch"
+  },
+  {
+    "url": "/components/thumbnail.html",
+    "name": "Thumbnail",
+    "className": "thumbnail"
+  },
+  {
+    "url": "/components/tooltip.html",
+    "name": "Tooltip",
+    "className": "tooltip"
+  },
+  {
+    "url": "/hooks/useDisclosure.html",
+    "name": "useDisclosure",
+    "className": "usedisclosure"
+  },
+  {
+    "url": "/hooks/useDropdown.html",
+    "name": "useDropdown",
+    "className": "usedropdown"
+  },
+  {
+    "url": "/hooks/useFocusVisible.html",
+    "name": "useFocusVisible",
+    "className": "usefocusvisible"
+  },
+  {
+    "url": "/hooks/usePagination.html",
+    "name": "usePagination",
+    "className": "usepagination"
+  },
+  {
+    "url": "/hooks/usePopover.html",
+    "name": "usePopover",
+    "className": "usepopover"
+  },
+  {
+    "url": "/hooks/useScrollable.html",
+    "name": "useScrollable",
+    "className": "usescrollable"
+  },
+  {
+    "url": "/hooks/useTooltip.html",
+    "name": "useTooltip",
+    "className": "usetooltip"
+  },
+  {
+    "url": "/hooks/useTrapFocus.html",
+    "name": "useTrapFocus",
+    "className": "usetrapfocus"
+  },
+  {
+    "url": "/blocks/Alert.html",
+    "name": "Alert",
+    "className": "alert"
+  },
+  {
+    "url": "/blocks/Banners.html",
+    "name": "Banners",
+    "className": "banners"
+  },
+  {
+    "url": "/blocks/Breadcrumbs.html",
+    "name": "Breadcrumbs page ",
+    "className": "breadcrumbs-page"
+  },
+  {
+    "url": "/blocks/Card.html",
+    "name": "Card",
+    "className": "card"
+  },
+  {
+    "url": "/blocks/Checkout.html",
+    "name": "Checkout page ",
+    "className": "checkout-page"
+  },
+  {
+    "url": "/blocks/Filters.html",
+    "name": "Filters",
+    "className": "filters"
+  },
+  {
+    "url": "/blocks/Footer.html",
+    "name": "Footer",
+    "className": "footer"
+  },
+  {
+    "url": "/blocks/MegaMenu.html",
+    "name": "MegaMenu",
+    "className": "megamenu"
+  },
+  {
+    "url": "/blocks/NavbarBottom.html",
+    "name": "NavbarBottom",
+    "className": "navbarbottom"
+  },
+  {
+    "url": "/blocks/NavbarTop.html",
+    "name": "NavbarTop",
+    "className": "navbartop"
+  },
+  {
+    "url": "/blocks/NewsletterBox.html",
+    "name": "NewsletterBox",
+    "className": "newsletterbox"
+  },
+  {
+    "url": "/blocks/OrderSummary.html",
+    "name": "Order Summary",
+    "className": "order-summary"
+  },
+  {
+    "url": "/blocks/Pagination.html",
+    "name": "Pagination",
+    "className": "pagination"
+  },
+  {
+    "url": "/blocks/ProductCard.html",
+    "name": "ProductCard",
+    "className": "productcard"
+  },
+  {
+    "url": "/blocks/QuantitySelector.html",
+    "name": "QuantitySelector",
+    "className": "quantityselector"
+  },
+  {
+    "url": "/blocks/Review.html",
+    "name": "Review",
+    "className": "review"
+  },
+  {
+    "url": "/migration.html",
+    "name": "Migration Guide",
+    "className": "migration-guide"
+  },
+  {
+    "url": "/migration.html",
+    "name": "Migration Guide",
+    "className": "migration-guide"
+  }
+]
