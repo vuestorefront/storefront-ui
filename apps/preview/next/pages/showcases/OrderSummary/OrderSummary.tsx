@@ -103,10 +103,7 @@ export default function OrderSummary() {
               <p>{formatPrice(promoCode)}</p>
             </div>
           ) : (
-            <form
-              className="flex gap-x-2 py-4 border-y border-neutral-200 mb-4"
-              onSubmit={checkPromoCode}
-            >
+            <form className="flex gap-x-2 py-4 border-y border-neutral-200 mb-4" onSubmit={checkPromoCode}>
               <SfInput
                 value={inputValue}
                 placeholder="Enter promo code"
