@@ -105,7 +105,7 @@ export default function OrderSummary() {
           ) : (
             <form
               className="flex gap-x-2 py-4 border-y border-neutral-200 mb-4"
-              onSubmit={(event) => checkPromoCode(event)}
+              onSubmit={checkPromoCode}
             >
               <SfInput
                 value={inputValue}
