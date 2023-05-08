@@ -63,7 +63,7 @@
       is-active-index-centered
       buttons-placement="none"
       :drag="{ containerWidth: true }"
-      @on-dragged-change="onDragged"
+      @on-drag-end="onDragged"
     >
       <div
         v-for="({ imageSrc, alt }, index) in images"

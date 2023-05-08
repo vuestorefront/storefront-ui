@@ -78,10 +78,9 @@ export default function GalleryVertical() {
         nextDisabled={activeIndex === images.length - 1}
         slotPreviousButton={
           <SfButton
-            className={classNames(
-              'absolute !rounded-full z-10 top-4 rotate-90 bg-white',
-              firstThumbVisible?.isIntersecting ? 'hidden' : null,
-            )}
+            className={classNames('absolute !rounded-full z-10 top-4 rotate-90 bg-white', {
+              hidden: firstThumbVisible?.isIntersecting,
+            })}
             variant="secondary"
             size="sm"
             square
@@ -90,10 +89,9 @@ export default function GalleryVertical() {
         }
         slotNextButton={
           <SfButton
-            className={classNames(
-              'absolute !rounded-full z-10 bottom-4 rotate-90 bg-white',
-              lastThumbVisible?.isIntersecting ? 'hidden' : null,
-            )}
+            className={classNames('absolute !rounded-full z-10 bottom-4 rotate-90 bg-white', {
+              hidden: lastThumbVisible?.isIntersecting,
+            })}
             variant="secondary"
             size="sm"
             square
@@ -109,9 +107,10 @@ export default function GalleryVertical() {
             aria-label={alt}
             aria-current={activeIndex === index}
             key={`${alt}-${index}-thumbnail`}
-            className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 border-b-4 snap-center cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
-              activeIndex === index ? 'border-primary-700' : 'border-transparent'
-            }`}
+            className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 border-b-4 snap-center cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${{
+              'border-primary-700': activeIndex === index,
+              'border-transparent': activeIndex !== index,
+            }}`}
             onMouseOver={() => setActiveIndex(index)}
             onFocus={() => setActiveIndex(index)}
           >

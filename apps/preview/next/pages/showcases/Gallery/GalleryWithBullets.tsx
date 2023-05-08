@@ -80,9 +80,10 @@ export default function GalleryWithBullets() {
               aria-label={alt}
               aria-current={activeIndex === index}
               type="button"
-              className={`w-full relative mt-1 border-b-4 transition-colors focus-visible:outline focus-visible:outline-offset-0 ${
-                activeIndex === index ? 'border-primary-700' : 'border-gray-200'
-              }`}
+              className={classNames(
+                'w-full relative mt-1 border-b-4 transition-colors focus-visible:outline focus-visible:outline-offset-0',
+                { 'border-primary-700': activeIndex === index, 'border-gray-200': activeIndex !== index },
+              )}
               onClick={() => setActiveIndex(index)}
             />
           ))}

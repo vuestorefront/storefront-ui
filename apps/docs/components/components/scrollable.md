@@ -101,6 +101,7 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `onPrev`           | `(data: SfScrollableOnPrevData) => void` |    |  |
 | `onNext`           | `(data: SfScrollableOnNextData) => void` |    |  |
 <!-- end react -->
+`drag` prop is setting whether and how elements in a scrollable element can be dragged. By default is set to `false`, but when passing `object` you can set `sensitivity`  to determine how far it should be dragged in response to mouse movement and `containerWith` to allow it to be moved exactly one container width.
 
 <!-- vue -->
 ## Slots

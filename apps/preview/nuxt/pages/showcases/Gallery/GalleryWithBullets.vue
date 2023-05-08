@@ -8,16 +8,8 @@
       :previous-disabled="activeIndex === 0"
       :next-disabled="activeIndex === images.length - 1"
       buttons-placement="block"
-      @on-prev="
-        () => {
-          activeIndex -= 1;
-        }
-      "
-      @on-next="
-        () => {
-          activeIndex += 1;
-        }
-      "
+      @on-prev="activeIndex -= 1"
+      @on-next="activeIndex += 1"
     >
       <template #previousButton="defaultProps">
         <SfButton

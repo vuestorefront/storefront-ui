@@ -145,7 +145,7 @@ export default class Scrollable {
     const { container, options } = this;
     this.isDragged = false;
 
-    // sensitivy drags by how much you drag from x1 -> x1, then swipe inside container by this ammound
+    // sensitivity drags by how much you drag from x1 -> x2, then swipe inside container by this amount
     const sensitivity =
       typeof this.options.drag === 'object' && this.options.drag.sensitivity ? this.options.drag.sensitivity : 4;
     // container width options define that no matter how hard you drag x1 -> x2 you will swipe by one container width

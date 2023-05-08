@@ -12,6 +12,7 @@ import {
   type SfScrollableOnDragEndData,
 } from '@storefront-ui/react';
 import * as Images from './images';
+import classNames from 'classnames';
 
 const images = [
   { imageSrc: Images.gallery1Src, alt: 'backpack1' },
@@ -76,7 +77,7 @@ export default function GalleryHorizontal() {
       <SfScrollable
         className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
         activeIndex={activeIndex}
-        buttons-placement="floating"
+        buttonsPlacement="floating"
         slotPreviousButton={
           <SfButton
             className="absolute disabled:hidden !rounded-full z-10 left-4 bg-white"
@@ -102,9 +103,10 @@ export default function GalleryHorizontal() {
             aria-label={alt}
             aria-current={activeIndex === index}
             key={`${alt}-${index}-thumbnail`}
-            className={`md:w-[78px] md:h-auto relative shrink-0 pb-1 my-4 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
-              activeIndex === index ? 'border-primary-700' : 'border-transparent'
-            }`}
+            className={classNames(
+              'md:w-[78px] md:h-auto relative shrink-0 pb-1 my-4 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
+              activeIndex === index ? 'border-primary-700' : 'border-transparent',
+            )}
             onClick={() => setActiveIndex(index)}
           >
             <img alt={alt} className="object-contain border border-neutral-200" width="78" height="78" src={imageSrc} />
