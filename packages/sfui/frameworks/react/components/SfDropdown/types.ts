@@ -4,5 +4,4 @@ import type { UseDropdownOptions, PropsWithStyle } from '@storefront-ui/react';
 export interface SfDropdownProps extends Omit<UseDropdownOptions, 'isOpen'>, PropsWithStyle, PropsWithChildren {
   open?: boolean;
   trigger: ReactNode;
-  dropdownClassName?: string;
 }

@@ -3,15 +3,7 @@ import { useDropdown } from '@storefront-ui/react';
 import type { SfDropdownProps } from '@storefront-ui/react';
 
 export default function SfDropdown(props: SfDropdownProps) {
-  const {
-    children,
-    trigger,
-    open: isOpen = false,
-    className,
-    style: containerStyle,
-    dropdownClassName,
-    ...dropdownOptions
-  } = props;
+  const { children, trigger, open: isOpen = false, className, style: containerStyle, ...dropdownOptions } = props;
   const { refs, style: dropdownStyle } = useDropdown({ isOpen, ...dropdownOptions });
 
   return (
@@ -23,13 +15,7 @@ export default function SfDropdown(props: SfDropdownProps) {
     >
       {trigger}
       {isOpen && (
-        <div
-          ref={refs.setFloating}
-          style={dropdownStyle}
-          aria-hidden={!isOpen}
-          className={dropdownClassName}
-          data-testid="dropdown-content"
-        >
+        <div ref={refs.setFloating} style={dropdownStyle} aria-hidden={!isOpen} data-testid="dropdown-content">
           {children}
         </div>
       )}

@@ -20,10 +20,6 @@ const props = defineProps({
     type: String as PropType<`${SfPopoverStrategy}` | undefined>,
     default: undefined,
   },
-  dropdownClass: {
-    type: String || null,
-    default: null,
-  },
 });
 
 const emit = defineEmits<{
@@ -51,7 +47,6 @@ const {
       ref="floatingRef"
       :style="dropdownStyle"
       :aria-hidden="!modelValue || undefined"
-      :class="dropdownClass"
       data-testid="dropdown-content"
     >
       <slot />
