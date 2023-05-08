@@ -52,12 +52,12 @@ export default function SelectDropdownRequired() {
     selectTriggerRef.current?.focus();
   };
 
-  const handleTriggerKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-    if (e.key === ' ') toggle();
+  const handleTriggerKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === ' ') toggle();
   };
 
-  const handleOptionItemKeyDown = (e: KeyboardEvent<HTMLLIElement>, option: SelectOption) => {
-    if (e.key === ' ' || e.key === 'Enter') selectOption(option);
+  const handleOptionItemKeyDown = (event: KeyboardEvent<HTMLLIElement>, option: SelectOption) => {
+    if (event.key === ' ' || event.key === 'Enter') selectOption(option);
   };
 
   return (
@@ -105,7 +105,7 @@ export default function SelectDropdownRequired() {
               aria-selected={option.value === selectedOption?.value}
               className={classNames('block', { 'font-medium': option.value === selectedOption?.value })}
               onClick={() => selectOption(option)}
-              onKeyDown={(e) => handleOptionItemKeyDown(e, option)}
+              onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
               slotSuffix={option.value === selectedOption?.value && <SfIconCheck className="text-primary-700" />}
             >
               {option.label}
