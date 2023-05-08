@@ -12,7 +12,13 @@
           <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]" />
         </picture>
       </a>
-      <SfButton :tabindex="2" aria-label="Open categories" class="lg:hidden order-first lg:order-1 mr-4" square variant="tertiary">
+      <SfButton 
+        :tabindex="2" 
+        aria-label="Open categories" 
+        class="lg:hidden order-first lg:order-1 mr-4" 
+        square 
+        variant="tertiary"
+      >
         <SfIconMenu />
       </SfButton>
       <SfButton :tabindex="2" class="hidden lg:flex lg:mr-4" type="button" variant="tertiary">
@@ -41,7 +47,11 @@
           </SfButton>
         </div>
       </nav>
-      <form role="search" class="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0" @submit.prevent="search(inputValue)">
+      <form 
+        role="search" 
+        class="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0" 
+        @submit.prevent="search(inputValue)"
+      >
         <SfInput
           v-model="inputValue"
           :tabindex="3"
