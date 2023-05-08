@@ -12,7 +12,7 @@
           <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]" />
         </picture>
       </a>
-      <SfButton 
+      <SfButton
         :tabindex="2"
         aria-label="Open categories"
         class="lg:hidden order-first lg:order-1 mr-4"
