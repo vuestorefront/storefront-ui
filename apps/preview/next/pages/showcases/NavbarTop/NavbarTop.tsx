@@ -38,12 +38,18 @@ export default function TopNav() {
     },
   ];
 
+  const search = (event: React.FormEvent<HTMLFormElement>, searchValue: string) => {
+    event.preventDefault();
+    alert(`Successfully found 10 results for ${searchValue}`);
+  };
+
   return (
     <header className="flex justify-center w-full py-2 px-4 lg:py-5 lg:px-6 bg-white border-b border-neutral-200">
       <div className="flex flex-wrap lg:flex-nowrap items-center flex-row justify-start h-full max-w-[1536px] w-full">
         <a
           href="/"
           aria-label="SF Homepage"
+          tabIndex={1}
           className="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
         >
           <picture>
@@ -59,6 +65,7 @@ export default function TopNav() {
           aria-label="Open categories"
           className="lg:hidden order-first lg:order-1 mr-4"
           square
+          tabIndex={2}
           variant="tertiary"
         >
           <SfIconMenu />
@@ -67,19 +74,21 @@ export default function TopNav() {
           className="hidden lg:flex lg:mr-4"
           type="button"
           variant="tertiary"
+          tabIndex={2}
           slotSuffix={<SfIconExpandMore className="hidden lg:block" />}
         >
           <span className="hidden lg:flex whitespace-nowrap">Browse products</span>
         </SfButton>
         <nav className="flex-1 flex justify-end lg:order-last lg:ml-4">
           <div className="flex flex-row flex-nowrap">
-            {actionItems.map((actionItem) => (
+            {actionItems.map((actionItem, index) => (
               <SfButton
                 key={actionItem.ariaLabel}
                 className="mr-2 -ml-0.5 rounded-md text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
                 aria-label={actionItem.ariaLabel}
                 variant="tertiary"
                 square
+                tabIndex={5 + index}
                 slotPrefix={actionItem.icon}
               >
                 {actionItem.role === 'login' && (
@@ -89,10 +98,15 @@ export default function TopNav() {
             ))}
           </div>
         </nav>
-        <form role="search" className="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0">
+        <form 
+          role="search" 
+          className="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
+          onSubmit={(event) => search(event, inputValue)}
+        >
           <SfInput
             value={inputValue}
             type="search"
+            tabIndex={3}
             className="[&::-webkit-search-cancel-button]:appearance-none"
             placeholder="Search"
             wrapperClassName="flex-1 h-10 pr-0"
@@ -102,6 +116,7 @@ export default function TopNav() {
                 <SfButton
                   variant="tertiary"
                   square
+                  tabIndex={4}
                   aria-label="search"
                   type="submit"
                   className="rounded-l-none hover:bg-transparent active:bg-transparent"
