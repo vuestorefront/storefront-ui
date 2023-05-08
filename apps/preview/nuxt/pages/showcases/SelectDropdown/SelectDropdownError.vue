@@ -11,7 +11,7 @@
       :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
       class="mt-0.5 flex items-center gap-8 relative ring-inset rounded-md py-2 px-4 font-normal typography-text-base focus-visible:outline focus-visible:outline-offset cursor-pointer"
       :class="
-        selectedOption
+        isValid
           ? 'ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2'
           : 'ring-2 ring-negative-700'
       "
@@ -55,11 +55,11 @@
       </SfListItem>
     </ul>
   </div>
-  <p v-if="!selectedOption" class="text-negative-700 typography-text-sm font-medium mt-0.5">No option selected</p>
+  <p v-if="!isValid" class="text-negative-700 typography-text-sm font-medium mt-0.5">No option selected</p>
 </template>
 
 <script lang="ts" setup>
-import { ref, type Ref } from 'vue';
+import { ref, computed, type Ref } from 'vue';
 import { unrefElement } from '@vueuse/core';
 import {
   useDropdown,
@@ -95,6 +95,7 @@ const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
 const selectedOption = ref<SelectOption>();
 const id = useId();
 const listboxId = `select-dropdown-${id}`;
+const isValid = computed(() => !!selectedOption.value);
 
 const {
   referenceRef: selectDropdownRef,

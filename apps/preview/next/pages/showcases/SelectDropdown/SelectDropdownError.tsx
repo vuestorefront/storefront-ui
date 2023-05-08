@@ -37,6 +37,7 @@ export default function SelectDropdownError() {
   const id = useId();
   const listboxId = `select-dropdown-${id}`;
   const selectTriggerRef = useRef<HTMLDivElement>(null);
+  const isValid = !!selectedOption;
 
   const { refs, style: dropdownStyle } = useDropdown({ isOpen, onClose: close });
 
@@ -76,7 +77,7 @@ export default function SelectDropdownError() {
           aria-activedescendant={selectedOption ? `${listboxId}-${selectedOption.value}` : undefined}
           className={classNames(
             'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-inset rounded-md py-2 px-4 focus-visible:outline focus-visible:outline-offset cursor-pointer',
-            selectedOption
+            isValid
               ? 'ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2'
               : 'ring-2 ring-negative-700',
           )}
@@ -118,7 +119,7 @@ export default function SelectDropdownError() {
           ))}
         </ul>
       </div>
-      {!selectedOption && <p className="text-negative-700 typography-text-sm font-medium mt-0.5">No option selected</p>}
+      {!isValid && <p className="text-negative-700 typography-text-sm font-medium mt-0.5">No option selected</p>}
     </>
   );
 }
