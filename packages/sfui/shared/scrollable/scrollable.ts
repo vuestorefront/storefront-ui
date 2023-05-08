@@ -14,6 +14,9 @@ export default class Scrollable {
   private dragScrollLeft: number;
   private dragScrollY: number;
   private dragScrollTop: number;
+  private pointerDownOffsetLeft: number;
+  private pointerDownOffsetTop: number;
+  private dragDistance: number;
 
   private isDraggedPreviously: boolean = false;
   public get isDragged() {
@@ -22,7 +25,9 @@ export default class Scrollable {
   public set isDragged(newValue: boolean) {
     if (newValue === this.isDraggedPreviously) return;
     this.isDraggedPreviously = newValue;
-    this.options.onDragChange?.({ isDragged: this.isDraggedPreviously });
+    this.options.onDragStart?.({
+      isDragged: this.isDraggedPreviously,
+    });
   }
 
   constructor(container: Element, ScrollableOptions?: Partial<ScrollableOptions>) {
@@ -38,6 +43,9 @@ export default class Scrollable {
     this.dragScrollLeft = 0;
     this.dragScrollY = 0;
     this.dragScrollTop = 0;
+    this.pointerDownOffsetLeft = 0;
+    this.pointerDownOffsetTop = 0;
+    this.dragDistance = 0;
   }
 
   public register() {
@@ -49,7 +57,7 @@ export default class Scrollable {
   private addListeners() {
     const onScroll = this.onScroll.bind(this);
     const onResize = this.onResize.bind(this);
-    this.container.addEventListener('scroll', onScroll, { passive: true });
+    this.container.addEventListener('scroll', onScroll, { passive: !this.options.drag });
     this.container.addEventListener('resize', onResize, { passive: true });
 
     if (this.options.drag) {
@@ -133,8 +141,53 @@ export default class Scrollable {
     }
   }
 
-  private onMouseUp() {
+  private onMouseUp(event: MouseEvent) {
+    const { container, options } = this;
     this.isDragged = false;
+
+    // sensitivity drags by how much you drag from x1 -> x2, then swipe inside container by this amount
+    const sensitivity =
+      typeof this.options.drag === 'object' && this.options.drag.sensitivity ? this.options.drag.sensitivity : 4;
+    // container width options define that no matter how hard you drag x1 -> x2 you will swipe by one container width
+    const scrollByOneWidth = typeof this.options.drag === 'object' ? this.options.drag.containerWidth : false;
+    // buffor for nor overshoot whole width/height of container becuase of subpixel, snap will cover unsufficient width/height
+    const buffor = 10;
+
+    if (options.direction === SfScrollableDirection.vertical) {
+      const element = event.pageY - container.offsetTop;
+      const scrolling = (element - this.dragScrollY) * sensitivity;
+
+      if (scrollByOneWidth) {
+        // if user just touched not dragged at least 10px - do nothing
+        if (Math.abs(this.dragDistance) < 10) return;
+        container.scrollLeft =
+          this.dragScrollLeft -
+          (this.dragDistance < 0 ? container.clientHeight - buffor : -container.clientHeight + buffor);
+      } else {
+        container.scrollTop = this.dragScrollTop - scrolling;
+      }
+    } else {
+      const element = event.pageX - container.offsetLeft;
+      const scrolling = (element - this.dragScrollX) * sensitivity;
+
+      if (scrollByOneWidth) {
+        // if user just touched not dragged at least 10px - do nothing
+        if (Math.abs(this.dragDistance) < 10) return;
+        container.scrollLeft =
+          this.dragScrollLeft -
+          (this.dragDistance < 0 ? container.clientWidth - buffor : -container.clientWidth + buffor);
+      } else {
+        container.scrollLeft = this.dragScrollLeft - scrolling;
+      }
+    }
+
+    // TODO: add proper scrolling effect with timing and easings, now we have no idea when animation ends, therefor cant disable double click during animation and weird behavior. With proper scrolling animation we will be able to add real time dragging not only dragging after mouse/touch UP
+
+    this.options.onDragEnd?.({
+      isDragged: false,
+      swipeLeft: this.dragDistance > -10,
+      swipeRight: this.dragDistance < 10,
+    });
   }
 
   private onMouseLeave() {
@@ -145,6 +198,8 @@ export default class Scrollable {
     event.preventDefault();
     const { container, options } = this;
     this.isDragged = true;
+    this.pointerDownOffsetLeft = event.offsetX;
+    this.pointerDownOffsetTop = event.offsetY;
 
     if (options.direction === SfScrollableDirection.vertical) {
       this.dragScrollY = event.pageY - container.offsetTop;
@@ -158,18 +213,11 @@ export default class Scrollable {
   private onMouseMove(event: MouseEvent) {
     if (!this.isDragged) return;
     event.preventDefault();
-
-    const sensitivity = typeof this.options.drag === 'object' ? this.options.drag.sensitivity : 4;
-
-    const { container, options } = this;
+    const { options } = this;
     if (options.direction === SfScrollableDirection.vertical) {
-      const element = event.pageY - container.offsetTop;
-      const scrolling = (element - this.dragScrollY) * sensitivity;
-      container.scrollTop = this.dragScrollTop - scrolling;
+      this.dragDistance = this.pointerDownOffsetTop - event.offsetY;
     } else {
-      const element = event.pageX - container.offsetLeft;
-      const scrolling = (element - this.dragScrollX) * sensitivity;
-      container.scrollLeft = this.dragScrollLeft - scrolling;
+      this.dragDistance = this.pointerDownOffsetLeft - event.offsetX;
     }
   }
 
@@ -178,8 +226,9 @@ export default class Scrollable {
     this.container.scrollTo({ left, top, behavior });
   }
 
-  private onScroll(): void {
+  private onScroll(event: Event): void {
     if (!this.container) return;
+    if (!!this.options.drag) event.preventDefault();
 
     clearTimeout(this.debounceId);
     this.debounceId = setTimeout(this.onScrollHandler.bind(this), 50);

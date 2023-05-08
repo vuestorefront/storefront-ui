@@ -6,17 +6,19 @@ export default {
 <script lang="ts" setup>
 import { computed, toRefs, type PropType, reactive } from 'vue';
 import {
+  ClassProp,
   SfScrollableDirection,
   SfScrollableButtonsPlacement,
-  useScrollable,
   SfIconChevronLeft,
   SfIconChevronRight,
   SfButton,
-  type SfScrollableOnDragChangeData,
+  useScrollable,
+  type SfScrollableOnDragStartData,
   type SfScrollableOnScrollData,
   type SfScrollableOnPrevData,
   type SfScrollableOnNextData,
-  ClassProp,
+  type SfScrollableOnDragEndData,
+  type ScrollableOptions,
 } from '@storefront-ui/vue';
 
 const props = defineProps({
@@ -42,7 +44,7 @@ const props = defineProps({
     default: undefined,
   },
   drag: {
-    type: Boolean,
+    type: [Object || Boolean] as PropType<ScrollableOptions['drag']>,
     default: undefined,
   },
   previousDisabled: {
@@ -53,14 +55,19 @@ const props = defineProps({
     type: Boolean,
     default: undefined,
   },
+  isActiveIndexCentered: {
+    type: Boolean,
+    default: false,
+  },
 });
 const emit = defineEmits<{
-  (e: 'onDragChange', data: SfScrollableOnDragChangeData): void;
+  (e: 'onDragStart', data: SfScrollableOnDragStartData): void;
+  (e: 'onDragEnd', data: SfScrollableOnDragEndData): void;
   (e: 'onScroll', data: SfScrollableOnScrollData): void;
   (e: 'onPrev', data: SfScrollableOnPrevData): void;
   (e: 'onNext', data: SfScrollableOnNextData): void;
 }>();
-const { direction, activeIndex, reduceMotion, drag } = toRefs(props);
+const { direction, activeIndex, reduceMotion, drag, isActiveIndexCentered } = toRefs(props);
 
 const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useScrollable(
   computed(() => ({
@@ -69,8 +76,10 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
       activeIndex,
       reduceMotion,
       drag,
+      isActiveIndexCentered,
     }),
-    onDragChange: (data) => emit('onDragChange', data),
+    onDragStart: (data) => emit('onDragStart', data),
+    onDragEnd: (data) => emit('onDragEnd', data),
     onScroll: (data) => emit('onScroll', data),
     onPrev: (data) => emit('onPrev', data),
     onNext: (data) => emit('onNext', data),
@@ -84,7 +93,11 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
 
 <template>
   <div :class="['items-center', 'relative', isHorizontal ? 'flex' : 'flex-col h-full inline-flex', wrapperClass]">
-    <div v-if="$slots.previousButton" v-bind="getPrevButtonProps"><slot name="previousButton" /></div>
+    <slot
+      v-if="$slots.previousButton && buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-bind="getPrevButtonProps"
+      name="previousButton"
+    />
     <SfButton
       v-else-if="buttonsPlacement !== SfScrollableButtonsPlacement.none"
       variant="secondary"
@@ -118,7 +131,11 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
     >
       <slot />
     </component>
-    <div v-if="$slots.nextButton" v-bind="getNextButtonProps"><slot name="nextButton" /></div>
+    <slot
+      v-if="$slots.nextButton && buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-bind="getNextButtonProps"
+      name="nextButton"
+    />
     <SfButton
       v-else-if="buttonsPlacement !== SfScrollableButtonsPlacement.none"
       variant="secondary"

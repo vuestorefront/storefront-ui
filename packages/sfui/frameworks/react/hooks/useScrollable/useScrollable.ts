@@ -7,10 +7,12 @@ export function useScrollable<TElement extends HTMLElement>({
   direction,
   drag,
   reduceMotion,
-  onDragChange,
+  onDragStart,
+  onDragEnd,
   onScroll,
   onPrev,
   onNext,
+  isActiveIndexCentered,
 }: Partial<UseScrollableOptions> = {}) {
   const containerElement = useRef<TElement>(null);
   const scrollable = useRef<Scrollable | null>(null);
@@ -31,17 +33,32 @@ export function useScrollable<TElement extends HTMLElement>({
         setState((currentState) => ({ ...currentState, hasNext: data.hasNext, hasPrev: data.hasPrev }));
         onScroll?.(data);
       },
-      onDragChange: (data) => {
+      onDragStart: (data) => {
         setState((currentState) => ({ ...currentState, isDragged: data.isDragged }));
-        onDragChange?.(data);
+        onDragStart?.(data);
       },
+      onDragEnd,
     });
     const unregister = scrollable.current.register();
 
-    if (activeIndex) scrollable.current.scrollToIndex(activeIndex);
+    if (typeof activeIndex === 'number' && activeIndex >= 0 && isActiveIndexCentered) {
+      scrollable.current.scrollToIndex(activeIndex);
+    }
 
     return unregister;
-  }, [containerElement, activeIndex, direction, drag, reduceMotion, onDragChange, onScroll, onPrev, onNext]);
+  }, [
+    containerElement,
+    activeIndex,
+    direction,
+    drag,
+    reduceMotion,
+    onDragStart,
+    onDragEnd,
+    onScroll,
+    onPrev,
+    onNext,
+    isActiveIndexCentered,
+  ]);
 
   const getPrevButtonProps = createPropsGetter((userProps) => {
     const handlePrev = () => {

@@ -82,9 +82,10 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `buttonsPlacement` | `SfScrollableButtonsPlacement`  | `'block'` | `'block'`, `'floating'`, `'none'`      |
 | `activeIndex` | `number`  |  |       |
 | `reduceMotion` | `boolean`  |  |       |
-| `drag` | `{ sensitivity: number; } | boolean`  |  |       |
+| `drag` | `{ sensitivity: number; containerWidth: boolean; } | boolean`  |  |       |
 | `previousDisabled` | `boolean`  |  |       |
 | `nextDisabled` | `boolean`  |  |       |
+| `isActiveIndexCentered` | `boolean`  |  |       |
 <!-- vue -->
 | `tag`       | `string`              | `'div'`        |                                    |
 <!-- end vue -->
@@ -94,11 +95,13 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `wrapperClassName`   | `string`      |               |    |
 | `slotPreviousButton` | `ReactNode`          |               | Previous button         |
 | `slotNextButton` | `ReactNode`          |               | Next button         |
-| `onDragChange`           | `Function` |    |  |
-| `onScroll`           | `Function` |   |  |
-| `onPrev`           | `Function` |    |  |
-| `onNext`           | `Function` |    |  |
+| `onDragStart`           | `(data: SfScrollableOnDragStartData) => void` |    |  |
+| `onDragEnd`           | `(data: SfScrollableOnDragEndData) => void` |    |  |
+| `onScroll`           | `(data: SfScrollableOnScrollData) => void` |   |  |
+| `onPrev`           | `(data: SfScrollableOnPrevData) => void` |    |  |
+| `onNext`           | `(data: SfScrollableOnNextData) => void` |    |  |
 <!-- end react -->
+`drag` prop is setting whether and how elements in a scrollable element can be dragged. By default is set to `false`, but when passing `object` you can set `sensitivity`  to determine how far it should be dragged in response to mouse movement and `containerWith` to allow it to be moved exactly one container width.
 
 <!-- vue -->
 ## Slots
@@ -113,7 +116,8 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 
 | Event name        | Trigger                       |
 | ----------------- | ----------------------------- |
-| `onDragChange` | triggers when drag has happens |
+| `onDragStart` | triggers when drag has started |
+| `onDragEnd` | triggers when drag has finished |
 | `onScroll` | triggers when any scroll happens |
 | `onPrev` | triggers when previous button is clicked |
 | `onNext` | triggers when next button is clicked |
