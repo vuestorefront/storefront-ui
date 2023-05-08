@@ -1,5 +1,3 @@
-<div class="e-page">
-  <div class="e-page-component">
-    <sf-button>Hello</sf-button>
-  </div>
-</div>
+<app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
+  <sf-button [variant]="prepareControlsData.state().variant">{{ prepareControlsData.state().SlotDefault }}</sf-button>
+</app-example-wrapper>

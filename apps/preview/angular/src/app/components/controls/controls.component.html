@@ -1,0 +1,164 @@
+<div class="e-page-controls">
+  <div class="heading-wrapper">
+    <h1 class="heading">Controls</h1>
+  </div>
+  <div class="table-wrapper">
+    <table aria-label="Controls table">
+      <thead class="table-heading">
+        <tr>
+          <th class="whitespace-nowrap">Prop Name</th>
+          <th class="whitespace-nowrap">Value</th>
+          <th class="whitespace-nowrap">Type</th>
+          <th class="whitespace-nowrap">Default Value</th>
+          <th class="whitespace-nowrap">Required</th>
+          <th class="whitespace-nowrap">Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let control of controls; index as index" class="props">
+          <td [ngClass]="{ 'align-middle': control.type === 'text' }">
+            <span [id]="control.modelName">{{ control.modelName }}</span>
+          </td>
+          <td class="value">
+            <ng-container *ngIf="control.type === 'select'; else inputTextControl">
+              <select
+                [ngModel]="state()[control.modelName]"
+                [attr.aria-labelledby]="control.modelName"
+                (ngModelChange)="handleControlChange($event, control.modelName)"
+              >
+                <option *ngFor="let option of control.options" [value]="option">
+                  {{ option }}
+                </option>
+              </select>
+            </ng-container>
+
+            <ng-template #inputTextControl>
+              <input
+                *ngIf="control.type === 'text'; else inputControl"
+                [ngModel]="state()[control.modelName]"
+                (ngModelChange)="handleControlChange($event, control.modelName)"
+                class="border rounded-md"
+                [type]="control.type"
+                [name]="control.modelName + '-' + index"
+                [attr.aria-labelledby]="control.modelName"
+              />
+            </ng-template>
+            <ng-template #inputControl>
+              <input
+                *ngIf="control.type === 'text'; else inputControl"
+                [ngModel]="state()[control.modelName]"
+                (ngModelChange)="handleControlChange($event, control.modelName)"
+                [type]="control.type"
+                [name]="control.modelName + '-' + index"
+                [attr.aria-labelledby]="control.modelName"
+              />
+            </ng-template>
+
+            <!-- <input
+                        v-else-if="control.type === 'text'"
+                        v-bind="(options as ControlOptionBind).bind"
+                        v-model="proxyModels[control.modelName]"
+                        class="border rounded-md"
+                        :type="control.type"
+                        :name="`${control.modelName}-${index}`"
+                        :aria-labelledby="control.modelName"
+                      />
+                      <input
+                        v-else
+                        v-bind="(options as ControlOptionBind).bind"
+                        v-model="proxyModels[control.modelName]"
+                        :type="control.type"
+                        :name="`${control.modelName}-${index}`"
+                        :aria-labelledby="control.modelName"
+                      /> -->
+
+            <!-- <template v-if="control.type === 'select'">
+              <select v-model="proxyModels[control.modelName]" :aria-labelledby="control.modelName">
+                <option
+                  v-for="(options, optionIndex) in control.options || [{}]"
+                  :key="`${control.modelName}-${index}-${optionIndex}`"
+                  :value="(options as ControlOptionBind).value || (options as ControlOptionBind).label || options"
+                >
+                  {{ (options as ControlOptionBind).label || options }}
+                </option>
+              </select>
+            </template>
+            <template v-else-if="control.type === 'boolean'">
+              <div class="switch-wrapper">
+                <label class="switch">
+                  <input
+                    v-model="proxyModels[control.modelName]"
+                    type="checkbox"
+                    :aria-labelledby="control.modelName"
+                  />
+                  <span class="slider" />
+                </label>
+                <span class="ml-2">{{ proxyModels[control.modelName] }}</span>
+              </div>
+            </template>
+            <template v-else>
+              <div
+                v-for="(options, optionIndex) in control.options || [{}]"
+                :key="`${control.modelName}-${index}-${optionIndex}`"
+                class="flex items-center"
+              >
+                <label class="flex items-center">
+                  <textarea
+                    v-if="control.type === 'json'"
+                    rows="10"
+                    v-bind="(options as ControlOptionBind).bind"
+                    :value="JSON.stringify(proxyModels[control.modelName], undefined, 2)"
+                    :name="`${control.modelName}-${index}`"
+                    :aria-labelledby="control.modelName"
+                    @input="proxyModels[control.modelName] = JSON.parse($event.target?.value)"
+                  >
+                  </textarea>
+                  <input
+                    v-else-if="control.type === 'range'"
+                    v-bind="(options as ControlOptionBind).bind"
+                    v-model="proxyModels[control.modelName]"
+                    :type="control.type"
+                    :name="`${control.modelName}-${index}`"
+                    :aria-labelledby="control.modelName"
+                  />
+                  <input
+                    v-else-if="control.type === 'text'"
+                    v-bind="(options as ControlOptionBind).bind"
+                    v-model="proxyModels[control.modelName]"
+                    class="border rounded-md"
+                    :type="control.type"
+                    :name="`${control.modelName}-${index}`"
+                    :aria-labelledby="control.modelName"
+                  />
+                  <input
+                    v-else
+                    v-bind="(options as ControlOptionBind).bind"
+                    v-model="proxyModels[control.modelName]"
+                    :type="control.type"
+                    :name="`${control.modelName}-${index}`"
+                    :aria-labelledby="control.modelName"
+                  />
+                  <span v-if="options.hasOwnProperty('label')" class="pl-2">{{
+                    (options as ControlOptionBind).label
+                  }}</span>
+                  <span v-else-if="typeof options === 'string'" class="pl-2">{{ options }}</span>
+                </label>
+              </div>
+            </template> -->
+
+            <!-- <div *ngFor="let options of control.options" class="flex items-center">
+              <label class="flex items-center"></label>
+            </div> -->
+          </td>
+          <td class="propType">
+            <span>{{ control.propType }}</span>
+          </td>
+          <td class="propDefaultValue">{{ control.propDefaultValue }}</td>
+          <td class="required">{{ control?.isRequired?.toString() }}</td>
+
+          <td class="description">{{ control.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
