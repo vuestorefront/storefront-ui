@@ -1,11 +1,11 @@
 <template>
   <label class="font-medium typography-label-sm" :for="id">Speed</label>
-  <div class="relative">
+  <div ref="referenceRef" class="relative">
     <div
       :id="id"
-      ref="selectDropdownRef"
+      ref="selectTriggerRef"
       role="combobox"
-      :aria-controls="unrefElement(listboxRef)?.id"
+      :aria-controls="listboxId"
       :aria-expanded="isOpen"
       aria-label="Select one option"
       :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
@@ -23,8 +23,8 @@
     </div>
     <ul
       v-show="isOpen"
-      :id="`select-dropdown-${listboxId}`"
-      ref="listboxRef"
+      :id="listboxId"
+      ref="floatingRef"
       role="listbox"
       aria-label="Select one option"
       class="w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
@@ -89,17 +89,18 @@ const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
 const selectedOption = ref<SelectOption>();
 const id = useId();
 const listboxId = `select-dropdown-${id}`;
+const selectTriggerRef = ref<HTMLDivElement>();
 
 const {
-  referenceRef: selectDropdownRef,
-  floatingRef: listboxRef,
+  referenceRef,
+  floatingRef,
   style: dropdownStyle,
 } = useDropdown({
   isOpen,
   onClose: close,
 });
 
-useTrapFocus(listboxRef as Ref<HTMLUListElement>, {
+useTrapFocus(floatingRef as Ref<HTMLUListElement>, {
   arrowKeysOn: true,
   activeState: isOpen,
   initialFocusContainerFallback: true,
@@ -108,6 +109,6 @@ useTrapFocus(listboxRef as Ref<HTMLUListElement>, {
 const selectOption = (option: SelectOption) => {
   selectedOption.value = option;
   close();
-  unrefElement(selectDropdownRef as Ref<HTMLDivElement>)?.focus();
+  unrefElement(selectTriggerRef as Ref<HTMLDivElement>)?.focus();
 };
 </script>
