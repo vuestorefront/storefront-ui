@@ -2,8 +2,8 @@
   <label class="font-medium typography-label-sm" :for="id">Speed</label>
   <div class="relative">
     <div
-      ref="selectDropdownRef"
       :id="id"
+      ref="selectDropdownRef"
       role="combobox"
       :aria-controls="unrefElement(listboxRef)?.id"
       :aria-expanded="isOpen"

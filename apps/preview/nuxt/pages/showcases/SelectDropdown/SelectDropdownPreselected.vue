@@ -2,8 +2,8 @@
   <label className="font-medium typography-label-sm" :for="id">Product</label>
   <div class="relative">
     <div
-      ref="selectDropdownRef"
       :id="id"
+      ref="selectDropdownRef"
       role="combobox"
       :aria-controls="listboxId"
       :aria-expanded="isOpen"
