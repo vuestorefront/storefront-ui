@@ -35,7 +35,7 @@ export default function SelectDropdownRequired() {
   const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
   const [selectedOption, setSelectedOption] = useState<SelectOption>();
   const id = useId();
-  const listboxId = `select-dropdown-${id}`;
+  const listboxId = useId();
   const selectTriggerRef = useRef<HTMLDivElement>(null);
 
   const { refs, style: dropdownStyle } = useDropdown({ isOpen, onClose: close });
