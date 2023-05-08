@@ -4,7 +4,7 @@ hideBreadcrumbs: true
 description: An order summary shows all order details into a consolidated view. Your customers can easily add a promo code to their order and the change will be visible immediately after applying a valid code.
 hideToc: true
 ---
-# Order Summary 
+# Order Summary
 
 {{ $frontmatter.description }}
 
@@ -13,6 +13,10 @@ The first one is shown in two cases:
 - when a valid promo code - `VSF2020` is passed to the input and applied by clicking on the `Apply` button,
 - when added promo code has been removed.
 The second alert shows up when passed promo code is not valid.
+
+:::tip
+In order to apply valid promo code use: `VSF2020`.
+:::
 
 <Showcase showcase-name="OrderSummary/OrderSummary" style="min-height:600px">
 
