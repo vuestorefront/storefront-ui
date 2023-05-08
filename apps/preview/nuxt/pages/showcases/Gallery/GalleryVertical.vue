@@ -91,7 +91,7 @@ import {
   SfIconChevronRight,
   type SfScrollableOnDragEndData,
 } from '@storefront-ui/vue';
-import { unrefElement, useIntersectionObserver } from '@vueuse/core';
+import { MaybeElement, unrefElement, useIntersectionObserver } from '@vueuse/core';
 import { watch } from 'vue';
 import * as Images from './images';
 
@@ -121,8 +121,8 @@ const thumbImages = [
   { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack10' },
 ];
 const thumbsRef = ref<HTMLElement>();
-const firstThumbRef = ref<HTMLButtonElement>();
-const lastThumbRef = ref<HTMLButtonElement>();
+const firstThumbRef = ref<MaybeElement>();
+const lastThumbRef = ref<MaybeElement>();
 const firstThumbVisible = ref(false);
 const lastThumbVisible = ref(false);
 const activeIndex = ref(0);
