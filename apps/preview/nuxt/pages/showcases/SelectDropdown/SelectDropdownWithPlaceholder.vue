@@ -9,7 +9,7 @@
       :aria-expanded="isOpen"
       aria-label="Select one option"
       :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
-      class="mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-neutral-300 ring-inset rounded-md py-2 px-4 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 cursor-pointer"
+      class="mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-neutral-300 ring-inset rounded-md py-2 px-4 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 focus-visible:outline focus-visible:outline-offset cursor-pointer"
       tabindex="0"
       @keydown.space="toggle()"
       @click="toggle()"
