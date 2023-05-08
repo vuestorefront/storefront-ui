@@ -1,40 +1,39 @@
 <template>
-  <SfDropdown v-model="isOpen" class="relative !w-full" dropdown-class="w-full">
-    <template #trigger>
-      <label class="font-medium typography-label-sm">
-        Speed
-        <div
-          ref="selectDropdownRef"
-          role="combobox"
-          :aria-controls="unrefElement(listboxRef)?.id"
-          :aria-expanded="isOpen"
-          aria-label="Select one option"
-          :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
-          class="mt-0.5 flex items-center gap-8 relative ring-inset rounded-md py-2 px-4 font-normal typography-text-base focus-within:ring-primary-700 focus-within:ring-2 cursor-pointer"
-          :class="
-            selectedOption
-              ? 'ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2'
-              : 'ring-2 ring-negative-700'
-          "
-          tabindex="0"
-          @keydown.space="isOpen = !isOpen"
-          @click="isOpen = !isOpen"
-        >
-          <template v-if="selectedOption">{{ selectedOption.label }}</template>
-          <span v-else class="text-neutral-500">Choose from the list</span>
-          <SfIconExpandMore
-            class="ml-auto text-neutral-500 transition-transform ease-in-out duration-300"
-            :class="{ 'rotate-180': isOpen }"
-          />
-        </div>
-      </label>
-    </template>
+  <label class="font-medium typography-label-sm" :for="id">Speed</label>
+  <div class="relative">
+    <div
+      ref="selectDropdownRef"
+      :id="id"
+      role="combobox"
+      :aria-controls="listboxId"
+      :aria-expanded="isOpen"
+      aria-label="Select one option"
+      :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
+      class="mt-0.5 flex items-center gap-8 relative ring-inset rounded-md py-2 px-4 font-normal typography-text-base focus-visible:outline focus-visible:outline-offset cursor-pointer"
+      :class="
+        selectedOption
+          ? 'ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2'
+          : 'ring-2 ring-negative-700'
+      "
+      tabindex="0"
+      @keydown.space="toggle()"
+      @click="toggle()"
+    >
+      <template v-if="selectedOption">{{ selectedOption.label }}</template>
+      <span v-else class="text-neutral-500">Choose from the list</span>
+      <SfIconExpandMore
+        class="ml-auto text-neutral-500 transition-transform ease-in-out duration-300"
+        :class="{ 'rotate-180': isOpen }"
+      />
+    </div>
     <ul
-      :id="`select-dropdown-${listboxId}`"
+      v-show="isOpen"
+      :id="listboxId"
       ref="listboxRef"
       role="listbox"
       aria-label="Select one option"
-      class="absolute w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
+      class="w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
+      :style="dropdownStyle"
     >
       <SfListItem
         v-for="option in options"
@@ -44,6 +43,7 @@
         tabindex="0"
         :aria-selected="option.value === selectedOption?.value"
         class="block"
+        :class="{ 'font-medium': option.value === selectedOption?.value }"
         @click="selectOption(option)"
         @keydown.enter="selectOption(option)"
         @keydown.space="selectOption(option)"
@@ -54,14 +54,22 @@
         </template>
       </SfListItem>
     </ul>
-  </SfDropdown>
+  </div>
   <p v-if="!selectedOption" class="text-negative-700 typography-text-sm font-medium mt-0.5">No option selected</p>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, type Ref } from 'vue';
 import { unrefElement } from '@vueuse/core';
-import { SfDropdown, SfIconExpandMore, SfListItem, SfIconCheck, useId, useTrapFocus } from '@storefront-ui/vue';
+import {
+  useDropdown,
+  useDisclosure,
+  SfIconExpandMore,
+  SfListItem,
+  SfIconCheck,
+  useId,
+  useTrapFocus,
+} from '@storefront-ui/vue';
 
 type OptionType = {
   label: string;
@@ -83,14 +91,21 @@ const options: OptionType[] = [
   },
 ];
 
-const isOpen = ref(false);
+const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
 const selectedOption = ref<OptionType>();
-const listboxId = useId();
+const id = useId();
+const listboxId = `select-dropdown-${id}`;
 
-const selectDropdownRef = ref<HTMLDivElement>();
-const listboxRef = ref<HTMLUListElement>();
+const {
+  referenceRef: selectDropdownRef,
+  floatingRef: listboxRef,
+  style: dropdownStyle,
+} = useDropdown({
+  isOpen,
+  onClose: close,
+});
 
-useTrapFocus(listboxRef, {
+useTrapFocus(listboxRef as Ref<HTMLUListElement>, {
   arrowKeysOn: true,
   activeState: isOpen,
   initialFocusContainerFallback: true,
@@ -98,7 +113,7 @@ useTrapFocus(listboxRef, {
 
 const selectOption = (option: OptionType) => {
   selectedOption.value = option;
-  isOpen.value = false;
-  unrefElement(selectDropdownRef)?.focus();
+  close();
+  unrefElement(selectDropdownRef as Ref<HTMLDivElement>)?.focus();
 };
 </script>
