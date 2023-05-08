@@ -11,12 +11,12 @@ import {
   useTrapFocus,
 } from '@storefront-ui/react';
 
-type OptionType = {
+type SelectOption = {
   label: string;
   value: string;
 };
 
-const options: OptionType[] = [
+const options: SelectOption[] = [
   {
     label: 'Today',
     value: 'today',
@@ -33,7 +33,7 @@ const options: OptionType[] = [
 
 export default function SelectDropdownDisabled() {
   const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
-  const [selectedOption, setSelectedOption] = useState<OptionType>();
+  const [selectedOption, setSelectedOption] = useState<SelectOption>();
   const id = useId();
   const listboxId = `select-dropdown-${id}`;
   const selectTriggerRef = useRef<HTMLDivElement>(null);
@@ -47,7 +47,7 @@ export default function SelectDropdownDisabled() {
     initialFocusContainerFallback: true,
   });
 
-  const selectOption = (option: OptionType) => {
+  const selectOption = (option: SelectOption) => {
     setSelectedOption(option);
     close();
     selectTriggerRef.current?.focus();
@@ -57,7 +57,7 @@ export default function SelectDropdownDisabled() {
     if (e.key === ' ') toggle();
   };
 
-  const handleOptionItemKeyDown = (e: KeyboardEvent<HTMLLIElement>, option: OptionType) => {
+  const handleOptionItemKeyDown = (e: KeyboardEvent<HTMLLIElement>, option: SelectOption) => {
     if (e.key === ' ' || e.key === 'Enter') selectOption(option);
   };
 

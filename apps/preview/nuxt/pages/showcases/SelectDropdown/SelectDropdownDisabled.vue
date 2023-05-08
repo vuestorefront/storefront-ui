@@ -71,12 +71,12 @@ import {
   useTrapFocus,
 } from '@storefront-ui/vue';
 
-type OptionType = {
+type SelectOption = {
   label: string;
   value: string;
 };
 
-const options: OptionType[] = [
+const options: SelectOption[] = [
   {
     label: 'Today',
     value: 'today',
@@ -93,7 +93,7 @@ const options: OptionType[] = [
 
 const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
 const isDisabled = ref(true);
-const selectedOption = ref<OptionType>();
+const selectedOption = ref<SelectOption>();
 const id = useId();
 const listboxId = `select-dropdown-${id}`;
 
@@ -112,7 +112,7 @@ useTrapFocus(listboxRef as Ref<HTMLUListElement>, {
   initialFocusContainerFallback: true,
 });
 
-const selectOption = (option: OptionType) => {
+const selectOption = (option: SelectOption) => {
   selectedOption.value = option;
   close();
   unrefElement(selectDropdownRef as Ref<HTMLDivElement>)?.focus();
