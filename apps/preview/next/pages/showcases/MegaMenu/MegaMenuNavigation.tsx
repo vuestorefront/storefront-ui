@@ -442,7 +442,7 @@ export default function MegaMenuNavigation() {
                   variant="tertiary"
                   onMouseEnter={handleOpenMenu([menuNode.key])}
                   onClick={handleOpenMenu([menuNode.key])}
-                  className="group mr-2 !text-neutral-900 hover:bg-neutral-200 hover:!text-neutral-700 active:!bg-neutral-300 active:!text-neutral-900"
+                  className="group mr-2 !text-neutral-900 hover:!bg-neutral-200 hover:!text-neutral-700 active:!bg-neutral-300 active:!text-neutral-900"
                 >
                   <span>{menuNode.value.label}</span>
                   <SfIconChevronRight className="rotate-90 text-neutral-500 group-hover:text-neutral-700 group-active:text-neutral-900" />
