@@ -1,7 +1,8 @@
-import { defineNuxtModule, addComponent, addImportsSources, installModule } from '@nuxt/kit';
+import { defineNuxtModule, addComponent, addImportsSources, installModule, addImports } from '@nuxt/kit';
+import { NuxtOptions } from '@nuxt/schema';
 import * as storefrontUi from '@storefront-ui/vue';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
-import { NuxtConfig } from 'nuxt/schema';
+
 // Module options TypeScript interface definition
 export interface ModuleOptions {
   contentPath?: string;
@@ -44,7 +45,8 @@ export default defineNuxtModule<ModuleOptions>({
     const composables: string[] = [];
 
     Object.keys(storefrontUi).forEach((key) => {
-      if (key.startsWith('Sf')) {
+      // @ts-expect-error - checking package export to see if it's a component
+      if (key.startsWith('Sf') && (storefrontUi[key].__name || storefrontUi[key].name)) {
         components.push(key);
       } else if (key.startsWith('use')) {
         composables.push(key);

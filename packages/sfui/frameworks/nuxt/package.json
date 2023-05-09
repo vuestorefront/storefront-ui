@@ -2,6 +2,9 @@
   "name": "@storefront-ui/nuxt",
   "version": "1.0.0",
   "homepage": "https://docs.storefrontui.io/v2/#vue",
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vuestorefront/storefront-ui.git",
@@ -33,7 +36,7 @@
   "dependencies": {
     "@nuxt/kit": "^3.3.2",
     "@nuxtjs/tailwindcss": "^6.6.4",
-    "@storefront-ui/vue": "workspace:*"
+    "@storefront-ui/vue": "latest"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.2.1",
