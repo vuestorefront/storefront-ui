@@ -2,12 +2,13 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: NavbarBottom block is the navigation element used in mobile view.
+hideToc: true
 ---
 # NavbarBottom
 
 {{ $frontmatter.description }}
- 
- ## NavbarBottom with white background
+
+## NavbarBottom with white background
 
 <Showcase showcase-name="NavbarBottom/NavbarBottom" style="min-height:200px">
 
@@ -32,4 +33,3 @@ description: NavbarBottom block is the navigation element used in mobile view.
 <!-- end vue -->
 
 </Showcase>
-

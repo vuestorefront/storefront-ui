@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: QuantitySelector allows the selection of a numeric value and the display of any additional information needed.
+hideToc: true
 ---
 # QuantitySelector
 

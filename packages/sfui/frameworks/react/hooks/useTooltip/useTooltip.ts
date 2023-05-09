@@ -46,7 +46,7 @@ export function useTooltip(options?: UseTooltipOptions) {
           bottom: 'top',
           left: 'right',
         }[basePlacement]]: `calc(${arrowSize} / -2)`,
-      };
+      } as const;
     }
     return {};
   }

@@ -1,6 +1,5 @@
 import classNames from 'classnames';
-import { SfButtonSize, SfButtonVariant, polymorphicForwardRef } from '@storefront-ui/react';
-import type { SfButtonProps } from '@storefront-ui/react';
+import { type SfButtonProps, SfButtonSize, SfButtonVariant, polymorphicForwardRef } from '@storefront-ui/react';
 
 const defaultButtonTag = 'button';
 
@@ -49,7 +48,6 @@ const SfButton = polymorphicForwardRef<typeof defaultButtonTag, SfButtonProps>((
         className,
       )}
       data-testid="button"
-      disabled={props.disabled}
       {...attributes}
     >
       {slotPrefix}

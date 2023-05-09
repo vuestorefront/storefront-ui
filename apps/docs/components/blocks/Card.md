@@ -2,6 +2,7 @@
 layout: DefaultLayout
 hideBreadcrumbs: true
 description: The Card component contains content and actions that inform about a single subject. 
+hideToc: true
 ---
 # Card
 
@@ -22,7 +23,7 @@ The default card view with a rectangle shaped image, a title, a description and 
 
 </Showcase>
 
-## Category Card 
+## Category Card
 
 The category card view with a circle shaped image, and category title, clickable as the one element.
 
