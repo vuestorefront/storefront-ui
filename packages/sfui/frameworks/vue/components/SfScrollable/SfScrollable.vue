@@ -94,7 +94,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
 <template>
   <div :class="['items-center', 'relative', isHorizontal ? 'flex' : 'flex-col h-full inline-flex', wrapperClass]">
     <slot
-      v-if="$slots.previousButton && buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-if="$slots.previousButton && buttonsPlacement !== SfScrollableButtonsPlacement.none"
       v-bind="getPrevButtonProps"
       name="previousButton"
     />
@@ -132,7 +132,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       <slot />
     </component>
     <slot
-      v-if="$slots.nextButton && buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-if="$slots.nextButton && buttonsPlacement !== SfScrollableButtonsPlacement.none"
       v-bind="getNextButtonProps"
       name="nextButton"
     />
