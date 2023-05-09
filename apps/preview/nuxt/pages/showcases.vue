@@ -10,6 +10,7 @@
         :variant="SfButtonVariant.tertiary"
         :size="SfButtonSize.sm"
         :aria-label="isOpen ? 'Hide sidebar' : 'Open sidebar'"
+        square
         @click="isOpen = !isOpen"
       >
         <template #prefix>
@@ -17,16 +18,23 @@
           <SfIconChevronRight v-else />
         </template>
       </SfButton>
+      <label class="sidebar-search">
+        <SfInput v-model="searchModelValue" placeholder="Search" />
+        <button type="button" class="sidebar-search__button" @click="searchModelValue = ''">
+          <SfIconCloseSm v-if="searchModelValue" class="sidebar-search__button-icon" />
+        </button>
+      </label>
       <ul class="sidebar-list">
         <template v-for="(groupValue, groupKey) in groups" :key="groupKey">
-          <li
-            class="flex justify-between px-2 py-1 bg-gray-200 cursor-pointer select-none"
-            @click="groupValue.open = !groupValue.open"
-          >
-            {{ groupKey }}<SfIconExpandMore :class="{ 'rotate-180': groupValue.open }" />
-          </li>
-          <li v-show="groupValue.open">
-            <ul>
+          <li v-if="groupValue.visible" class="flex flex-col select-none">
+            <button
+              type="button"
+              class="text-left bg-gray-200 px-2 py-1 justify-between cursor-pointer"
+              @click="groupValue.open = !groupValue.open"
+            >
+              {{ groupKey }}<SfIconExpandMore :class="{ 'rotate-180': groupValue.open }" />
+            </button>
+            <ul v-if="groupValue.open">
               <li v-for="showcaseName in groupValue.showcases" :key="groupKey + showcaseName">
                 <NuxtLink :key="showcaseName" v-slot="{ navigate }" :to="groupItemHref(groupKey, showcaseName)" custom>
                   <SfListItem
@@ -61,13 +69,21 @@ import {
   SfIconChevronLeft,
   SfIconChevronRight,
   SfIconExpandMore,
+  SfInput,
+  SfIconCloseSm,
 } from '@storefront-ui/vue';
+import { reactive } from 'vue';
+import { ref, watch } from 'vue';
+import { useControlsSearchParams } from '~/composables/utils/useControlsSearchParams';
 
 const { currentRoute } = useRouter();
 
 const REST_GROUP_NAME = 'Rest';
 const files = import.meta.glob('./showcases/**');
 const paths = Object.keys(files);
+const groupItemHref = (groupName, showcaseName) => {
+  return `/showcases/${groupName !== REST_GROUP_NAME ? `${groupName}/` : ''}${showcaseName}`;
+};
 const groups = reactive(
   paths.reduce((prev, curr) => {
     if (!curr.includes('.vue')) return prev;
@@ -75,23 +91,58 @@ const groups = reactive(
     const showcaseName = showcasePathArray[showcasePathArray.length - 1].replace('.vue', '');
     const groupName = showcasePathArray.length === 2 ? showcasePathArray[0] : REST_GROUP_NAME;
 
+    const isInUrl = currentRoute.value.href === groupItemHref(groupName, showcaseName);
     if (groupName in prev) {
       prev[groupName].showcases.push(showcaseName);
+      if (!prev[groupName].open) prev[groupName].open = isInUrl;
     } else {
       prev[groupName] = {
         showcases: [showcaseName],
-        open: ref(true),
+        open: ref(isInUrl),
+        visible: ref(true),
       };
     }
 
     return prev;
   }, {}),
 );
-
 const isOpen = ref(true);
 const isDocs = computed(() => currentRoute.value.query.docs);
+const searchModelValue = ref('');
 
-const groupItemHref = (groupName, showcaseName) => {
-  return `/showcases/${groupName !== REST_GROUP_NAME ? `${groupName}/` : ''}${showcaseName}`;
-};
+const findGroup = (groups, currentRouteHref) =>
+  Object.entries(groups).find((group) => {
+    return group[1].showcases.find((showcaseName) => {
+      return groupItemHref(group[0], showcaseName) === currentRouteHref;
+    });
+  });
+
+watch(
+  [currentRoute, groups],
+  ([currentRoute, groups]) => {
+    if (!currentRoute || !groups) return;
+    const currentGroup = findGroup(groups, currentRoute.path);
+    if (!currentGroup) return;
+    groups[currentGroup[0]].open = true;
+  },
+  { immediate: true },
+);
+
+watch(
+  searchModelValue,
+  (searchModelValue) => {
+    for (let group in groups) {
+      if (searchModelValue) {
+        const searchMatch = group.toLowerCase().startsWith(searchModelValue.toLowerCase());
+        groups[group].visible = searchMatch;
+        groups[group].open = searchMatch;
+      } else {
+        groups[group].visible = true;
+        groups[group].open = false;
+      }
+    }
+  },
+  { immediate: true },
+);
+useControlsSearchParams(reactive({ s: searchModelValue }));
 </script>
