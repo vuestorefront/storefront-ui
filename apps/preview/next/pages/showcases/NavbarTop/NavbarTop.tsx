@@ -76,8 +76,8 @@ export default function TopNav() {
         >
           <span className="hidden lg:flex whitespace-nowrap">Browse products</span>
         </SfButton>
-        <form 
-          role="search" 
+        <form
+          role="search"
           className="flex flex-[100%] order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
           onSubmit={(event) => search(event, inputValue)}
         >
