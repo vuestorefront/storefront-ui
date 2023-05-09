@@ -5,7 +5,6 @@
         href="#"
         aria-label="SF Homepage"
         class="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
-        :tabindex="1"
       >
         <picture>
           <source :srcset="brandLogo" media="(min-width: 768px)" />
@@ -13,7 +12,6 @@
         </picture>
       </a>
       <SfButton
-        :tabindex="2"
         aria-label="Open categories"
         class="lg:hidden order-first lg:order-1 mr-4"
         square
@@ -21,40 +19,19 @@
       >
         <SfIconMenu />
       </SfButton>
-      <SfButton :tabindex="2" class="hidden lg:flex lg:mr-4" type="button" variant="tertiary">
+      <SfButton class="hidden lg:flex lg:mr-4" type="button" variant="tertiary">
         <template #suffix>
           <SfIconExpandMore class="hidden lg:block" />
         </template>
         <span class="hidden lg:flex whitespace-nowrap">Browse products</span>
       </SfButton>
-      <nav class="flex-1 flex justify-end lg:order-last lg:ml-4">
-        <div class="flex flex-row flex-nowrap">
-          <SfButton
-            v-for="(actionItem, index) in actionItems"
-            :key="actionItem.ariaLabel"
-            class="mr-2 -ml-0.5 rounded-md text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
-            :aria-label="actionItem.ariaLabel"
-            variant="tertiary"
-            square
-            :tabindex="5 + index"
-          >
-            <template #prefix>
-              <Component :is="actionItem.icon" />
-            </template>
-            <span v-if="actionItem.role === 'login'" class="hidden xl:inline-flex whitespace-nowrap">{{
-              actionItem.label
-            }}</span>
-          </SfButton>
-        </div>
-      </nav>
       <form
         role="search"
-        class="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
+        class="flex flex-[100%] order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
         @submit.prevent="search(inputValue)"
       >
         <SfInput
           v-model="inputValue"
-          :tabindex="3"
           type="search"
           class="[&::-webkit-search-cancel-button]:appearance-none"
           placeholder="Search"
@@ -66,7 +43,6 @@
               <SfButton
                 variant="tertiary"
                 square
-                :tabindex="4"
                 aria-label="search"
                 type="submit"
                 class="rounded-l-none hover:bg-transparent active:bg-transparent"
@@ -77,6 +53,25 @@
           </template>
         </SfInput>
       </form>
+      <nav class="flex-1 flex justify-end lg:order-last lg:ml-4">
+        <div class="flex flex-row flex-nowrap">
+          <SfButton
+            v-for="(actionItem, index) in actionItems"
+            :key="actionItem.ariaLabel"
+            class="mr-2 -ml-0.5 rounded-md text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
+            :aria-label="actionItem.ariaLabel"
+            variant="tertiary"
+            square
+          >
+            <template #prefix>
+              <Component :is="actionItem.icon" />
+            </template>
+            <span v-if="actionItem.role === 'login'" class="hidden xl:inline-flex whitespace-nowrap">{{
+              actionItem.label
+            }}</span>
+          </SfButton>
+        </div>
+      </nav>
     </div>
   </header>
 </template>

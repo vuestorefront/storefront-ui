@@ -48,7 +48,6 @@ export default function TopNavFilled() {
       <div className="flex flex-wrap lg:flex-nowrap items-center flex-row justify-start h-full max-w-[1536px] w-full">
         <a
           href="/"
-          tabIndex={1}
           aria-label="SF Homepage"
           className="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
         >
@@ -65,7 +64,6 @@ export default function TopNavFilled() {
           aria-label="Open categories"
           className="lg:hidden order-first lg:order-1 mr-4 text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-900"
           square
-          tabIndex={2}
           variant="tertiary"
         >
           <SfIconMenu />
@@ -74,11 +72,38 @@ export default function TopNavFilled() {
           className="hidden lg:flex lg:mr-4 text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-900"
           type="button"
           variant="tertiary"
-          tabIndex={2}
           slotSuffix={<SfIconExpandMore className="hidden lg:block" />}
         >
           <span className="hidden lg:flex whitespace-nowrap">Browse products</span>
         </SfButton>
+        <form 
+          role="search" 
+          className="flex flex-[100%] order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
+          onSubmit={(event) => search(event, inputValue)}
+        >
+          <SfInput
+            value={inputValue}
+            type="search"
+            className="[&::-webkit-search-cancel-button]:appearance-none"
+            placeholder="Search"
+            wrapperClassName="flex-1 h-10 pr-0"
+            size="base"
+            slotSuffix={
+              <span className="flex items-center">
+                <SfButton
+                  variant="tertiary"
+                  square
+                  aria-label="search"
+                  type="submit"
+                  className="rounded-l-none hover:bg-transparent active:bg-transparent"
+                >
+                  <SfIconSearch />
+                </SfButton>
+              </span>
+            }
+            onChange={(event) => setInputValue(event.target.value)}
+          />
+        </form>
         <nav className="flex-1 flex justify-end lg:order-last lg:ml-4">
           <div className="flex flex-row flex-nowrap">
             {actionItems.map((actionItem, index) => (
@@ -87,7 +112,6 @@ export default function TopNavFilled() {
                 className="mr-2 -ml-0.5 rounded-md text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-900"
                 aria-label={actionItem.ariaLabel}
                 variant="tertiary"
-                tabIndex={5 + index}
                 square
                 slotPrefix={actionItem.icon}
               >
@@ -98,36 +122,6 @@ export default function TopNavFilled() {
             ))}
           </div>
         </nav>
-        <form 
-          role="search" 
-          className="flex flex-[100%] lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
-          onSubmit={(event) => search(event, inputValue)}
-        >
-          <SfInput
-            value={inputValue}
-            type="search"
-            className="[&::-webkit-search-cancel-button]:appearance-none"
-            placeholder="Search"
-            tabIndex={3}
-            wrapperClassName="flex-1 h-10 pr-0"
-            size="base"
-            slotSuffix={
-              <span className="flex items-center">
-                <SfButton
-                  variant="tertiary"
-                  square
-                  aria-label="search"
-                  type="submit"
-                  tabIndex={4}
-                  className="rounded-l-none hover:bg-transparent active:bg-transparent"
-                >
-                  <SfIconSearch />
-                </SfButton>
-              </span>
-            }
-            onChange={(event) => setInputValue(event.target.value)}
-          />
-        </form>
       </div>
     </header>
   );
