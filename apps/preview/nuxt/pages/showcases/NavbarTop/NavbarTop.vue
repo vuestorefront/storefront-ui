@@ -23,7 +23,7 @@
       <form
         role="search"
         class="flex flex-[100%] order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
-        @submit.prevent="search(inputValue)"
+        @submit.prevent="search"
       >
         <SfInput
           v-model="inputValue"
@@ -108,7 +108,7 @@ const actionItems = [
 
 const inputValue = ref('');
 
-const search = (searchValue: string) => {
-  alert(`Successfully found 10 results for ${searchValue}`);
+const search = () => {
+  alert(`Successfully found 10 results for ${inputValue.value}`);
 };
 </script>

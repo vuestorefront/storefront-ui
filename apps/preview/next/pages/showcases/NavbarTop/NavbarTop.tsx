@@ -38,9 +38,9 @@ export default function TopNav() {
     },
   ];
 
-  const search = (event: React.FormEvent<HTMLFormElement>, searchValue: string) => {
+  const search = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    alert(`Successfully found 10 results for ${searchValue}`);
+    alert(`Successfully found 10 results for ${inputValue}`);
   };
 
   return (
@@ -79,7 +79,7 @@ export default function TopNav() {
         <form
           role="search"
           className="flex flex-[100%] order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
-          onSubmit={(event) => search(event, inputValue)}
+          onSubmit={search}
         >
           <SfInput
             value={inputValue}
