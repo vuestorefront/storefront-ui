@@ -7,7 +7,13 @@ import { RouterOutlet } from '@angular/router';
   standalone: true,
   imports: [CommonModule, RouterOutlet],
   templateUrl: './examples-layout.component.html',
-  styleUrls: ['./examples-layout.component.css'],
+  styles: [
+    `
+      ::ng-deep ng-component {
+        display: contents;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExamplesLayoutComponent {}

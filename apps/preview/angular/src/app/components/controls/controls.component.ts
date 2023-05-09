@@ -8,7 +8,6 @@ import { Controls } from './controls.types';
   selector: 'app-controls',
   standalone: true,
   templateUrl: './controls.component.html',
-  styleUrls: ['./controls.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, FormsModule, SfButtonComponent],
 })

@@ -8,6 +8,5 @@ import { SfButtonComponent } from '@storefront-ui/angular';
   standalone: true,
   imports: [CommonModule, RouterOutlet, SfButtonComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {}

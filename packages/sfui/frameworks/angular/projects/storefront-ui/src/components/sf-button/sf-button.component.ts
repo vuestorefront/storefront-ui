@@ -6,7 +6,6 @@ import { SfButtonVariant, SfButtonSize } from '@storefront-ui/shared';
   selector: 'sf-button',
   standalone: true,
   templateUrl: './sf-button.component.html',
-  styleUrls: ['./sf-button.component.css'],
   imports: [CommonModule],
 })
 export class SfButtonComponent {

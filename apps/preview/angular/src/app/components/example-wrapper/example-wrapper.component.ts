@@ -7,7 +7,13 @@ import { Controls } from '../controls/controls.types';
   selector: 'app-example-wrapper',
   standalone: true,
   templateUrl: './example-wrapper.component.html',
-  styleUrls: ['./example-wrapper.component.css'],
+  styles: [
+    `
+      :host {
+        @apply contents;
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [CommonModule, ControlsComponent],
 })

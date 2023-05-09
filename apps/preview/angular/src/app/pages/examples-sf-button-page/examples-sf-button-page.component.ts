@@ -10,7 +10,6 @@ import { prepareControls } from 'src/app/components/controls/controls.utils';
   standalone: true,
   imports: [CommonModule, SfButtonComponent, ExampleWrapperComponent],
   templateUrl: './examples-sf-button-page.component.html',
-  styleUrls: ['./examples-sf-button-page.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExamplesSfButtonPageComponent {
