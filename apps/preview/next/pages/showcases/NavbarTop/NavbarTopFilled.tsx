@@ -106,7 +106,7 @@ export default function TopNavFilled() {
         </form>
         <nav className="flex-1 flex justify-end lg:order-last lg:ml-4">
           <div className="flex flex-row flex-nowrap">
-            {actionItems.map((actionItem, index) => (
+            {actionItems.map((actionItem) => (
               <SfButton
                 key={actionItem.ariaLabel}
                 className="mr-2 -ml-0.5 rounded-md text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-900"

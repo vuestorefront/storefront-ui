@@ -60,7 +60,7 @@
       <nav class="flex-1 flex justify-end lg:order-last lg:ml-4">
         <div class="flex flex-row flex-nowrap">
           <SfButton
-            v-for="(actionItem, index) in actionItems"
+            v-for="(actionItem) in actionItems"
             :key="actionItem.ariaLabel"
             class="text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-900 mr-2 -ml-0.5 rounded-md"
             :aria-label="actionItem.ariaLabel"

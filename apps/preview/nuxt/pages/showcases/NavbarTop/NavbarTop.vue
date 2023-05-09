@@ -11,11 +11,7 @@
           <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]" />
         </picture>
       </a>
-      <SfButton
-        aria-label="Open categories"
-        class="lg:hidden order-first lg:order-1 mr-4"
-        square
-        variant="tertiary"
+      <SfButton aria-label="Open categories" class="lg:hidden order-first lg:order-1 mr-4" square variant="tertiary"
       >
         <SfIconMenu />
       </SfButton>
@@ -56,7 +52,7 @@
       <nav class="flex-1 flex justify-end lg:order-last lg:ml-4">
         <div class="flex flex-row flex-nowrap">
           <SfButton
-            v-for="(actionItem, index) in actionItems"
+            v-for="(actionItem) in actionItems"
             :key="actionItem.ariaLabel"
             class="mr-2 -ml-0.5 rounded-md text-primary-700 hover:bg-primary-100 active:bg-primary-200 hover:text-primary-600 active:text-primary-700"
             :aria-label="actionItem.ariaLabel"
