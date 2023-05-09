@@ -56,9 +56,8 @@ export default class Scrollable {
 
   private addListeners() {
     const onScroll = this.onScroll.bind(this);
-    const onResize = this.onResize.bind(this);
     this.container.addEventListener('scroll', onScroll, { passive: !this.options.drag });
-    this.container.addEventListener('resize', onResize, { passive: true });
+    this.resizeObserver.observe(this.container);
 
     if (this.options.drag) {
       const onMouseDown = this.onMouseDown.bind(this);
@@ -73,17 +72,17 @@ export default class Scrollable {
 
       return () => {
         this.container.removeEventListener('scroll', onScroll);
-        this.container.removeEventListener('resize', onResize);
         this.container.removeEventListener('mousedown', onMouseDown);
         this.container.removeEventListener('mouseup', onMouseUp);
         this.container.removeEventListener('mousemove', onMouseMove);
         this.container.removeEventListener('mouseleave', onMouseLeave);
+        this.resizeObserver.unobserve(this.container);
       };
     }
 
     return () => {
       this.container.removeEventListener('scroll', onScroll);
-      this.container.removeEventListener('resize', onResize);
+      this.resizeObserver.unobserve(this.container);
     };
   }
 
@@ -234,12 +233,12 @@ export default class Scrollable {
     this.debounceId = setTimeout(this.onScrollHandler.bind(this), 50);
   }
 
-  private onResize(): void {
+  private resizeObserver = new ResizeObserver(() => {
     const container = this.container;
     if (!container) return;
 
     this.refresh(this.options.onScroll);
-  }
+  });
 
   private onScrollHandler() {
     this.refresh(this.options.onScroll);
