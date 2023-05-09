@@ -1,24 +1,55 @@
 <template>
-  <div class="w-full h-full bg-neutral-50">
-    <header class="flex justify-center w-full bg-white border-b h-14 md:h-20 border-neutral-200">
-      <div class="flex items-center flex-row flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
-        <a
-          href="#"
-          aria-label="SF Homepage"
-          class="inline-block mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+  <header class="flex justify-center w-full py-2 px-4 lg:py-5 lg:px-6 bg-white border-b border-neutral-200">
+    <div class="flex flex-wrap lg:flex-nowrap items-center flex-row justify-start h-full max-w-[1536px] w-full">
+      <a
+        href="#"
+        aria-label="SF Homepage"
+        class="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
+      >
+        <picture>
+          <source :srcset="brandLogo" media="(min-width: 768px)" />
+          <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]" />
+        </picture>
+      </a>
+      <SfButton aria-label="Open categories" class="lg:hidden order-first lg:order-1 mr-4" square variant="tertiary">
+        <SfIconMenu />
+      </SfButton>
+      <SfButton class="hidden lg:flex lg:mr-4" type="button" variant="tertiary">
+        <template #suffix>
+          <SfIconExpandMore class="hidden lg:block" />
+        </template>
+        <span class="hidden lg:flex whitespace-nowrap">Browse products</span>
+      </SfButton>
+      <form
+        role="search"
+        class="flex flex-[100%] order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
+        @submit.prevent="search"
+      >
+        <SfInput
+          v-model="inputValue"
+          type="search"
+          class="[&::-webkit-search-cancel-button]:appearance-none"
+          placeholder="Search"
+          wrapper-class="flex-1 h-10 pr-0"
+          size="base"
         >
-          <picture>
-            <source :srcset="brandLogo" media="(min-width: 1024px)" />
-            <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]" />
-          </picture>
-        </a>
-        <SfButton class="block mr-auto" type="button" variant="tertiary">
           <template #suffix>
-            <SfIconExpandMore />
+            <span class="flex items-center">
+              <SfButton
+                variant="tertiary"
+                square
+                aria-label="search"
+                type="submit"
+                class="rounded-l-none hover:bg-transparent active:bg-transparent"
+              >
+                <SfIconSearch />
+              </SfButton>
+            </span>
           </template>
-          <span class="hidden md:inline-flex">Browse products</span>
-        </SfButton>
-        <nav class="flex flex-row flex-nowrap">
+        </SfInput>
+      </form>
+      <nav class="flex-1 flex justify-end lg:order-last lg:ml-4">
+        <div class="flex flex-row flex-nowrap">
           <SfButton
             v-for="actionItem in actionItems"
             :key="actionItem.ariaLabel"
@@ -30,15 +61,27 @@
             <template #prefix>
               <Component :is="actionItem.icon" />
             </template>
-            <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
+            <span v-if="actionItem.role === 'login'" class="hidden xl:inline-flex whitespace-nowrap">{{
+              actionItem.label
+            }}</span>
           </SfButton>
-        </nav>
-      </div>
-    </header>
-  </div>
+        </div>
+      </nav>
+    </div>
+  </header>
 </template>
 <script lang="ts" setup>
-import { SfButton, SfIconShoppingCart, SfIconFavorite, SfIconPerson, SfIconExpandMore } from '@storefront-ui/vue';
+import { ref } from 'vue';
+import {
+  SfButton,
+  SfIconShoppingCart,
+  SfIconFavorite,
+  SfIconPerson,
+  SfIconExpandMore,
+  SfInput,
+  SfIconSearch,
+  SfIconMenu,
+} from '@storefront-ui/vue';
 import brandLogo from '@assets/vsf_logo.svg';
 import brandLogoSign from '@assets/vsf_logo_sign.svg';
 
@@ -62,4 +105,10 @@ const actionItems = [
     role: 'login',
   },
 ];
+
+const inputValue = ref('');
+
+const search = () => {
+  alert(`Successfully found 10 results for ${inputValue.value}`);
+};
 </script>
