@@ -30,7 +30,7 @@
         type="button"
         :aria-label="alt"
         :aria-current="activeIndex === index"
-        :class="`md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-2 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
+        :class="`md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 -mb-2 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
           activeIndex === index ? 'border-primary-700' : 'border-transparent'
         }`"
         @mouseover="activeIndex = index"
