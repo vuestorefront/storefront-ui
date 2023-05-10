@@ -56,7 +56,7 @@
           <li v-for="menuNode in content.children" :key="menuNode.key">
             <SfButton
               variant="tertiary"
-              class="group mr-2 !text-neutral-900 hover:bg-neutral-200 hover:!text-neutral-700 active:!bg-neutral-300 active:!text-neutral-900"
+              class="group mr-2 !text-neutral-900 hover:!bg-neutral-200 hover:!text-neutral-700 active:!bg-neutral-300 active:!text-neutral-900"
               @mouseenter="openMenu([menuNode.key])"
               @click="openMenu([menuNode.key])"
             >

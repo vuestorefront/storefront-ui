@@ -15,6 +15,7 @@ export default function ScrollableMoveByOne() {
       activeIndex={activeIndex}
       previousDisabled={activeIndex === 0}
       nextDisabled={activeIndex === itemsLength - 1}
+      isActiveIndexCentered
       onPrev={({ preventDefault }) => {
         preventDefault();
         setActiveIndex((currentValue) => currentValue - 1);

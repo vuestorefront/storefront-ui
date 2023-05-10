@@ -4,6 +4,7 @@ on:
     branches:
       - v2
       - v2-patch/**
+      - v2-release/**
       - v2-develop
 jobs:
   configure-enviroment:
