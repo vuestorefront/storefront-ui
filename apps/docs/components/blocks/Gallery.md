@@ -1,13 +1,11 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: Gallery is a component that shows multiple images.
+description: The Gallery presents a visually appealing and user-friendly collection of images that can be conveniently viewed and navigated.
 hideToc: true
 
 ---
 # Gallery
-
-## Description
 
 The Gallery presents a visually appealing and user-friendly collection of images that can be conveniently viewed and navigated. Within the example block, navigation options include "previous/next" arrows and photo thumbnails, providing users with multiple ways to interact with the gallery. These navigation features can be activated through both clicks and hover actions.
 

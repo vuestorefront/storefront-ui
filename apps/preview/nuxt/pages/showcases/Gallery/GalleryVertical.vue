@@ -26,11 +26,7 @@
       <button
         v-for="({ imageSrc, alt }, index) in thumbImages"
         :key="`${alt}-${index}-thumbnail`"
-        :ref="
-          (el) => {
-            index === thumbImages.length - 1 ? (lastThumbRef = el) : index === 0 ? (firstThumbRef = el) : undefined;
-          }
-        "
+        :ref="(el) => assignRef(el, index)"
         type="button"
         :aria-label="alt"
         :aria-current="activeIndex === index"
@@ -92,8 +88,8 @@ import {
   SfIconChevronRight,
   type SfScrollableOnDragEndData,
 } from '@storefront-ui/vue';
-import { MaybeElement, unrefElement, useIntersectionObserver } from '@vueuse/core';
-import { watch } from 'vue';
+import { unrefElement, useIntersectionObserver } from '@vueuse/core';
+import { watch, type ComponentPublicInstance } from 'vue';
 import * as Images from './images';
 
 const images = [
@@ -124,8 +120,8 @@ const thumbImages = [
   { imageSrc: Images.gallery11ThumbSrc, alt: 'backpack11' },
 ];
 const thumbsRef = ref<HTMLElement>();
-const firstThumbRef = ref<MaybeElement>();
-const lastThumbRef = ref<MaybeElement>();
+const firstThumbRef = ref<HTMLButtonElement>();
+const lastThumbRef = ref<HTMLButtonElement>();
 const firstThumbVisible = ref(false);
 const lastThumbVisible = ref(false);
 const activeIndex = ref(0);
@@ -175,6 +171,15 @@ const onDragged = (event: SfScrollableOnDragEndData) => {
     activeIndex.value -= 1;
   } else if (event.swipeLeft && activeIndex.value < images.length - 1) {
     activeIndex.value += 1;
+  }
+};
+
+const assignRef = (el: Element | ComponentPublicInstance | null, index: number) => {
+  if (!el) return;
+  if (index === thumbImages.length - 1) {
+    lastThumbRef.value = el as HTMLButtonElement;
+  } else if (index === 0) {
+    firstThumbRef.value = el as HTMLButtonElement;
   }
 };
 </script>
