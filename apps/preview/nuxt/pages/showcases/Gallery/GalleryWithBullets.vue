@@ -15,7 +15,7 @@
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === 0"
-          class="absolute hidden group-hover/scrollable:block !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
+          class="absolute hidden group-hover/scrollable:block disabled:!hidden !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -41,7 +41,7 @@
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === images.length - 1"
-          class="absolute hidden group-hover/scrollable:block !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
+          class="absolute hidden group-hover/scrollable:block disabled:!hidden !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -85,6 +85,7 @@ const images = [
   { imageSrc: Images.gallery8Src, alt: 'backpack8' },
   { imageSrc: Images.gallery9Src, alt: 'backpack9' },
   { imageSrc: Images.gallery10Src, alt: 'backpack10' },
+  { imageSrc: Images.gallery11Src, alt: 'backpack11' },
 ];
 
 const activeIndex = ref(0);

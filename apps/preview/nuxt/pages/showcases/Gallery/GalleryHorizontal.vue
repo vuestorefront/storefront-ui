@@ -46,7 +46,7 @@
         :aria-label="alt"
         :aria-current="activeIndex === index"
         :class="[
-          'md:w-[78px] md:h-auto relative shrink-0 pb-1 my-4 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
+          'md:w-14 md:h-auto relative shrink-0 pb-1 my-4 -mr-2 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
           activeIndex === index ? 'border-primary-700' : 'border-transparent',
         ]"
         @click="activeIndex = index"
@@ -90,6 +90,7 @@ const images = [
   { imageSrc: Images.gallery8Src, alt: 'backpack8' },
   { imageSrc: Images.gallery9Src, alt: 'backpack9' },
   { imageSrc: Images.gallery10Src, alt: 'backpack10' },
+  { imageSrc: Images.gallery11Src, alt: 'backpack11' },
 ];
 
 const thumbImages = [
@@ -103,6 +104,7 @@ const thumbImages = [
   { imageSrc: Images.gallery8ThumbSrc, alt: 'backpack8' },
   { imageSrc: Images.gallery9ThumbSrc, alt: 'backpack9' },
   { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack10' },
+  { imageSrc: Images.gallery11ThumbSrc, alt: 'backpack11' },
 ];
 
 const activeIndex = ref(0);
