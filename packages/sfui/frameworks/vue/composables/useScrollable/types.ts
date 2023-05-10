@@ -4,7 +4,8 @@ import {
   SfScrollableButtonsPlacement,
   type ScrollableOptions,
   type Prettify,
-  type SfScrollableOnDragChangeData,
+  type SfScrollableOnDragStartData,
+  type SfScrollableOnDragEndData,
   type SfScrollableOnScrollData,
   type SfScrollableOnPrevData,
   type SfScrollableOnNextData,
@@ -18,7 +19,8 @@ export type UseScrollableOptions = Prettify<
 
 export {
   type ScrollableOptions,
-  type SfScrollableOnDragChangeData,
+  type SfScrollableOnDragStartData,
+  type SfScrollableOnDragEndData,
   type SfScrollableOnScrollData,
   type SfScrollableOnPrevData,
   type SfScrollableOnNextData,

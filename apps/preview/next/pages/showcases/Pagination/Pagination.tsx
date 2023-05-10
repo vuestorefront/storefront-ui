@@ -22,7 +22,7 @@ export function Showcase() {
       <SfButton
         type="button"
         size="lg"
-        className="gap-3"
+        className="gap-3 !px-3 sm:px-6"
         aria-label="Go to previous page"
         disabled={selectedPage <= 1}
         variant="tertiary"
@@ -41,7 +41,7 @@ export function Showcase() {
             >
               <button
                 type="button"
-                className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
+                className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
                 aria-current={selectedPage === 1}
                 onClick={() => setPage(1)}
               >
@@ -57,7 +57,7 @@ export function Showcase() {
                 type="button"
                 disabled
                 aria-hidden="true"
-                className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
+                className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
               >
                 ...
               </button>
@@ -71,7 +71,7 @@ export function Showcase() {
                 <div className="flex pt-1 border-t-4 border-transparent">
                   <button
                     type="button"
-                    className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
+                    className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                     aria-current={endPage - 1 === selectedPage}
                     onClick={() => setPage(endPage - 1)}
                   >
@@ -89,7 +89,7 @@ export function Showcase() {
                 <button
                   type="button"
                   className={classNames(
-                    'px-4 py-3 text-neutral-500 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
+                    'px-3 sm:px-4 py-3 text-neutral-500 md:w-12 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
                     { '!text-neutral-900 hover:!text-primary-800 active:!text-primary-900': selectedPage === page },
                   )}
                   aria-label={`Page ${page} of ${totalPages}`}
@@ -105,7 +105,7 @@ export function Showcase() {
                 <div className="flex pt-1 border-t-4 border-transparent">
                   <button
                     type="button"
-                    className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
+                    className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                     aria-current={selectedPage === 1}
                     onClick={() => setPage(2)}
                   >
@@ -119,7 +119,12 @@ export function Showcase() {
         {endPage < totalPages - 1 && (
           <li>
             <div className="flex pt-1 border-t-4 border-transparent">
-              <button type="button" disabled aria-hidden="true" className="px-4 py-3 rounded-md text-neutral-500 ">
+              <button
+                type="button"
+                disabled
+                aria-hidden="true"
+                className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 "
+              >
                 ...
               </button>
             </div>
@@ -134,7 +139,7 @@ export function Showcase() {
             >
               <button
                 type="button"
-                className="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
+                className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                 aria-current={totalPages === selectedPage}
                 onClick={() => setPage(totalPages)}
               >
@@ -151,7 +156,7 @@ export function Showcase() {
         disabled={selectedPage >= totalPages}
         variant="tertiary"
         slotSuffix={<SfIconChevronRight />}
-        className="gap-3"
+        className="gap-3 !px-3 sm:px-6"
         onClick={() => next()}
       >
         <span className="hidden sm:inline-flex">Next</span>
