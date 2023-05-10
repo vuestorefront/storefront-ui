@@ -14,7 +14,7 @@ const SfInput = forwardRef<HTMLInputElement, SfInputProps>(
     const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 
     return (
-      <div
+      <span
         className={classNames([
           'flex items-center bg-white rounded-md ring-inset text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
           {
@@ -40,7 +40,7 @@ const SfInput = forwardRef<HTMLInputElement, SfInputProps>(
           {...attributes}
         />
         {slotSuffix && <span className="pl-2">{slotSuffix}</span>}
-      </div>
+      </span>
     );
   },
 );

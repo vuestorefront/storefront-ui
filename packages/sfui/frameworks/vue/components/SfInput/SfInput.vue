@@ -41,7 +41,7 @@ const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 /*
 Internal state has been implemented due to useFocusVisible and how it works. Main reason is that
 it captures native HTMLElement.prototype.focus method. It makes value disappear under certain circumstances,
-so it's importatnt to keep it here, or to always pass modelValue to the component.
+so it's important to keep it here, or to always pass modelValue to the component.
 */
 const internalState = ref<string | number>();
 const inputValue = computed({
@@ -54,7 +54,7 @@ const inputValue = computed({
 </script>
 
 <template>
-  <div
+  <span
     :class="[
       'flex items-center bg-white rounded-md ring-inset text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
       {
@@ -80,5 +80,5 @@ const inputValue = computed({
     <span v-if="$slots.suffix" class="pl-2">
       <slot name="suffix" />
     </span>
-  </div>
+  </span>
 </template>
