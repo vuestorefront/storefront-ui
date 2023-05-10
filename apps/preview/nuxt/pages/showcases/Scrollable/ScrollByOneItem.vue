@@ -3,8 +3,9 @@
     class="items-center w-full"
     :active-index="activeIndex"
     wrapper-class="min-w-0"
-    :prev-disabled="activeIndex === 0"
+    :previous-disabled="activeIndex === 0"
     :next-disabled="activeIndex === itemsLength - 1"
+    is-active-index-centered
     @on-prev="
       ({ preventDefault }) => {
         preventDefault();
