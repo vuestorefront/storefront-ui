@@ -97,7 +97,7 @@ export default {
 };
 ```
 
-And get ready to use default StorefrontUI typography classes [that are based on SFUI designs](https://www.figma.com/file/7pRNATsiFwYmveafXzjhSV/SFUI-2-%7C-Design-Kit-(public)).
+And get ready to use default StorefrontUI typography classes [that are based on SFUI designs](https://docs.storefrontui.io/v2/figma).
 
 ## How to use it
 
