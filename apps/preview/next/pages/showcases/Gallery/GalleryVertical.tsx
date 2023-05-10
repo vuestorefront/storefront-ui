@@ -26,6 +26,7 @@ const images = [
   { imageSrc: Images.gallery8Src, alt: 'backpack8' },
   { imageSrc: Images.gallery9Src, alt: 'backpack9' },
   { imageSrc: Images.gallery10Src, alt: 'backpack10' },
+  { imageSrc: Images.gallery11Src, alt: 'backpack11' },
 ];
 
 const thumbImages = [
@@ -39,6 +40,7 @@ const thumbImages = [
   { imageSrc: Images.gallery8ThumbSrc, alt: 'backpack8' },
   { imageSrc: Images.gallery9ThumbSrc, alt: 'backpack9' },
   { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack10' },
+  { imageSrc: Images.gallery11ThumbSrc, alt: 'backpack11' },
 ];
 
 export default function GalleryVertical() {
@@ -109,7 +111,7 @@ export default function GalleryVertical() {
             aria-current={activeIndex === index}
             key={`${alt}-${index}-thumbnail`}
             className={classNames(
-              'md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 border-b-4 snap-center cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
+              'md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 -mb-2 border-b-4 snap-center cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
               {
                 'border-primary-700': activeIndex === index,
                 'border-transparent': activeIndex !== index,
@@ -125,6 +127,7 @@ export default function GalleryVertical() {
       <SfScrollable
         className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         activeIndex={activeIndex}
+        direction="vertical"
         wrapperClassName="h-full"
         buttonsPlacement="none"
         isActiveIndexCentered

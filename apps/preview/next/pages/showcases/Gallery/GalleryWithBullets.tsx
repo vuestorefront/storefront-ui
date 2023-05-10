@@ -19,6 +19,7 @@ const images = [
   { imageSrc: Images.gallery8Src, alt: 'backpack8' },
   { imageSrc: Images.gallery9Src, alt: 'backpack9' },
   { imageSrc: Images.gallery10Src, alt: 'backpack10' },
+  { imageSrc: Images.gallery11Src, alt: 'backpack11' },
 ];
 
 export default function GalleryWithBullets() {
@@ -42,7 +43,7 @@ export default function GalleryWithBullets() {
         }}
         slotPreviousButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
+            className="hidden group-hover/scrollable:block disabled:!hidden absolute !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronLeft />}
@@ -50,7 +51,7 @@ export default function GalleryWithBullets() {
         }
         slotNextButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
+            className="hidden group-hover/scrollable:block disabled:!hidden absolute !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronRight />}
