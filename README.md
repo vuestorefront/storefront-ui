@@ -41,7 +41,7 @@ There is a lot of the things you have to take care of to build good user interfa
 
 🔹 **Performance.** Poorly written and overcomplicated components are often the performance bottleneck ruining the experience of your users. **All standard eCommerce pages that we've built with Storefront UI hit 95-100 on Lighthouse**! (mobile performance measured using [PSI](https://pagespeed.web.dev/))
 
-🔹 **Accessibility.**  Web accessibility is more than an ethical requirement in United States: [it’s also legally mandated](https://adasitecompliance.com/website-accessibility-legal-requirement/) and you risk fines if the justice department determines your website is non-compliant. At the same time building accessible components takes a lot of time and requires specific domain knowledge. **Storefront UI components are WCAG AA compliant out of the box!**
+🔹 **Accessibility.**  Web accessibility is more than an ethical requirement in the United States: [it’s also legally mandated](https://adasitecompliance.com/website-accessibility-legal-requirement/) and you risk fines if the justice department determines your website is non-compliant. At the same time building accessible components takes a lot of time and requires specific domain knowledge. **Storefront UI components are WCAG AA compliant out of the box!**
 
 But let's be honest, almost all established UI libraries can solve that. **Here's what's Storefront UI is best at::**
 
