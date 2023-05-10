@@ -72,6 +72,7 @@ export default function GalleryVertical() {
       <SfScrollable
         ref={thumbsRef}
         className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        wrapperClassName="shrink-0"
         direction="vertical"
         activeIndex={activeIndex}
         prevDisabled={activeIndex === 0}
