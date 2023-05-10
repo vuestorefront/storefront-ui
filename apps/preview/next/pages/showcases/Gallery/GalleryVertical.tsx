@@ -136,7 +136,7 @@ export default function GalleryVertical() {
             <img
               aria-label={alt}
               aria-hidden={activeIndex !== index}
-              className="object-cover w-auto h-full"
+              className="object-contain w-auto h-full"
               alt={alt}
               src={imageSrc}
             />
