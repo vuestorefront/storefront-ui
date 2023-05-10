@@ -47,7 +47,7 @@ const props = defineProps({
     type: [Object || Boolean] as PropType<ScrollableOptions['drag']>,
     default: undefined,
   },
-  previousDisabled: {
+  prevDisabled: {
     type: Boolean,
     default: undefined,
   },
@@ -108,10 +108,10 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         buttonsPlacement === SfScrollableButtonsPlacement.block && (isHorizontal ? 'mr-4' : 'mb-4 rotate-90'),
         buttonsPlacement === SfScrollableButtonsPlacement.floating && (isHorizontal ? 'left-4' : 'top-4 rotate-90'),
         { 'absolute z-10': buttonsPlacement === SfScrollableButtonsPlacement.floating },
-        changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
+        changeDisabledClass(typeof prevDisabled === 'boolean' ? prevDisabled : getPrevButtonProps.disabled),
       ]"
       v-bind="getPrevButtonProps"
-      :disabled="previousDisabled"
+      :disabled="prevDisabled"
     >
       <SfIconChevronLeft />
     </SfButton>
@@ -127,7 +127,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         },
       ]"
       v-bind="{ ...$attrs, ...props }"
-      :disabled="previousDisabled"
+      :disabled="prevDisabled"
     >
       <slot />
     </component>

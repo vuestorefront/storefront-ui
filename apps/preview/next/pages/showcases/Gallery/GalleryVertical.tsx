@@ -74,7 +74,7 @@ export default function GalleryVertical() {
         className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         direction="vertical"
         activeIndex={activeIndex}
-        previousDisabled={activeIndex === 0}
+        prevDisabled={activeIndex === 0}
         nextDisabled={activeIndex === images.length - 1}
         slotPreviousButton={
           <SfButton
