@@ -42,7 +42,7 @@ export default function GalleryWithBullets() {
         }}
         slotPreviousButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
+            className="hidden group-hover/scrollable:block disabled:!hidden absolute !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronLeft />}
@@ -50,7 +50,7 @@ export default function GalleryWithBullets() {
         }
         slotNextButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
+            className="hidden group-hover/scrollable:block disabled:!hidden absolute !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronRight />}

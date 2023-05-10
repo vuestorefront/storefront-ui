@@ -109,7 +109,7 @@ export default function GalleryVertical() {
             aria-current={activeIndex === index}
             key={`${alt}-${index}-thumbnail`}
             className={classNames(
-              'md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 border-b-4 snap-center cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
+              'md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-2 border-b-4 snap-center cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
               {
                 'border-primary-700': activeIndex === index,
                 'border-transparent': activeIndex !== index,
@@ -125,6 +125,7 @@ export default function GalleryVertical() {
       <SfScrollable
         className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         activeIndex={activeIndex}
+        direction="vertical"
         wrapperClassName="h-full"
         buttonsPlacement="none"
         isActiveIndexCentered
