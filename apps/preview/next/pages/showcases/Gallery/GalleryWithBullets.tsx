@@ -31,7 +31,7 @@ export default function GalleryWithBullets() {
         wrapperClassName="group/scrollable h-full"
         activeIndex={activeIndex}
         isActiveIndexCentered
-        previousDisabled={activeIndex === 0}
+        prevDisabled={activeIndex === 0}
         nextDisabled={activeIndex === images.length - 1}
         buttonsPlacement="block"
         onPrev={() => {
