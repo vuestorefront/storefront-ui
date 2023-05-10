@@ -160,7 +160,22 @@ import {
   SfThumbnail,
 } from '@storefront-ui/vue';
 
-const filtersData = ref([
+type FilterDetail = {
+  id: string;
+  label: string;
+  value: string;
+  counter?: number;
+  link?: string;
+};
+
+type Node = {
+  id: string;
+  summary: string;
+  type: string;
+  details: FilterDetail[];
+};
+
+const filtersData = ref<Node[]>([
   {
     id: 'acc1',
     summary: 'Size',
@@ -188,30 +203,35 @@ const filtersData = ref([
       {
         id: 'CLOTHING',
         label: 'Clothing',
+        value: 'clothing',
         counter: 30,
         link: '#',
       },
       {
         id: 'SHOES',
         label: 'Shoes',
+        value: 'shoes',
         counter: 28,
         link: '#',
       },
       {
         id: 'ACCESSORIES',
         label: 'Accessories',
+        value: 'accessories',
         counter: 56,
         link: '#',
       },
       {
         id: 'WEARABLES',
         label: 'Wearables',
+        value: 'wearables',
         counter: 12,
         link: '#',
       },
       {
         id: 'FOOD_DRINKS',
         label: 'Food & Drinks',
+        value: 'food and drinks',
         counter: 52,
         link: '#',
       },

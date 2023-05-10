@@ -28,7 +28,22 @@ const sortOptions = [
   { id: 'sort6', label: 'Bestsellers', value: 'bestsellers' },
 ];
 
-const filtersData = [
+type FilterDetail = {
+  id: string;
+  label: string;
+  value: string;
+  counter?: number;
+  link?: string;
+};
+
+type Node = {
+  id: string;
+  summary: string;
+  type: string;
+  details: FilterDetail[];
+};
+
+const filtersData: Node[] = [
   {
     id: 'acc1',
     summary: 'Size',
@@ -56,30 +71,35 @@ const filtersData = [
       {
         id: 'CLOTHING',
         label: 'Clothing',
+        value: 'clothing',
         counter: 30,
         link: '#',
       },
       {
         id: 'SHOES',
         label: 'Shoes',
+        value: 'shoes',
         counter: 28,
         link: '#',
       },
       {
         id: 'ACCESSORIES',
         label: 'Accessories',
+        value: 'accessories',
         counter: 56,
         link: '#',
       },
       {
         id: 'WEARABLES',
         label: 'Wearables',
+        value: 'wearables',
         counter: 12,
         link: '#',
       },
       {
         id: 'FOOD_DRINKS',
         label: 'Food & Drinks',
+        value: 'food and drinks',
         counter: 52,
         link: '#',
       },
@@ -186,18 +206,6 @@ export default function FiltersPanel() {
     <aside>
       <div className="flex items-center justify-between mb-4">
         <h4 className="px-2 font-bold typography-headline-4">List settings</h4>
-        {selectedFilters.length ? (
-          <SfButton
-            type="reset"
-            size="sm"
-            variant="tertiary"
-            className="hidden md:flex"
-            onClick={() => setSelectedFilters([])}
-            slotSuffix={<SfIconCancel size="sm" />}
-          >
-            Clear all
-          </SfButton>
-        ) : null}
         <button type="button" className="sm:hidden text-neutral-500" aria-label="Close filters panel">
           <SfIconClose />
         </button>
@@ -265,7 +273,7 @@ export default function FiltersPanel() {
                     </div>
                   </SfListItem>
                 </li>
-                {section.details.map(({id, link, label, counter}) => (
+                {section.details.map(({ id, link, label, counter }) => (
                   <li key={id}>
                     <SfListItem
                       size="sm"
@@ -274,9 +282,7 @@ export default function FiltersPanel() {
                       className={classNames('first-of-type:mt-2 rounded-md active:bg-primary-100', {
                         'bg-primary-100 hover:bg-primary-100': isFilterSelected(label),
                       })}
-                      slotSuffix={
-                        isFilterSelected(label) && <SfIconCheck size="xs" className="text-primary-700" />
-                      }
+                      slotSuffix={isFilterSelected(label) && <SfIconCheck size="xs" className="text-primary-700" />}
                       onClick={() => handleFilterSelection(label)}
                     >
                       <span className="flex items-center">
