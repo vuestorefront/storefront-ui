@@ -267,7 +267,7 @@ export default function FiltersPanel() {
               <ul className="mt-2 mb-6">
                 <li>
                   <SfListItem size="sm" as="button" type="button">
-                    <div className="flex items-center">
+                    <span className="flex items-center">
                       <SfIconArrowBack size="sm" className="text-neutral-500" />
                       <p className="ml-3">Back to {section.details[0].label}</p>
                     </div>
