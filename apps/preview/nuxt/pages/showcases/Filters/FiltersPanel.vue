@@ -48,7 +48,7 @@
                   </div>
                 </SfListItem>
               </li>
-              <li v-for="{key, link, label, counter} in details" :key="key">
+              <li v-for="{ key, link, label, counter } in details" :key="key">
                 <SfListItem
                   size="sm"
                   as="a"
