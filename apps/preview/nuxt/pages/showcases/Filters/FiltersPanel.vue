@@ -48,7 +48,7 @@
                   </div>
                 </SfListItem>
               </li>
-              <li v-for="{ key, link, label, counter } in details" :key="key">
+              <li v-for="{ id, link, label, counter } in details" :key="id">
                 <SfListItem
                   size="sm"
                   as="a"
@@ -186,31 +186,31 @@ const filtersData = ref([
     type: 'category',
     details: [
       {
-        key: 'CLOTHING',
+        id: 'CLOTHING',
         label: 'Clothing',
         counter: 30,
         link: '#',
       },
       {
-        key: 'SHOES',
+        id: 'SHOES',
         label: 'Shoes',
         counter: 28,
         link: '#',
       },
       {
-        key: 'ACCESSORIES',
+        id: 'ACCESSORIES',
         label: 'Accessories',
         counter: 56,
         link: '#',
       },
       {
-        key: 'WEARABLES',
+        id: 'WEARABLES',
         label: 'Wearables',
         counter: 12,
         link: '#',
       },
       {
-        key: 'FOOD_DRINKS',
+        id: 'FOOD_DRINKS',
         label: 'Food & Drinks',
         counter: 52,
         link: '#',
