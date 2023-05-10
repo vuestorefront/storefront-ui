@@ -84,7 +84,7 @@ export default {
 
       const containerOffsetLeft = this.$refs.wrapperRef.getBoundingClientRect().left;
       const pointerRelativeXpos = e.clientX - containerOffsetLeft;
-      const minWidth = 300;
+      const minWidth = 386;
 
       this.$refs.previewElementRef.style.maxWidth = `${Math.max(minWidth, pointerRelativeXpos)}px`;
       this.$refs.previewElementRef.style.maxWidth = `${Math.max(minWidth, pointerRelativeXpos)}px`;
