@@ -1,16 +1,18 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: Mega menu is a type of website navigation menu that typically displays a list of links and subcategories in a larger, more complex format than a traditional drop-down or fly-out menu. 
+description: The MegaMenu provide a convenient way of high-level navigation to users.
 hideToc: true
 ---
 # MegaMenu
 
-{{ $frontmatter.description }}
+The MegaMenu provide a convenient way of high-level navigation to users. By default, it remains hidden to avoid interrupting the user's browsing experience. It can be activated either through a click or hover action, revealing a large drop-down menu on desktop or a side sheet on mobile devices. This expanded menu not only includes a site-map for easy navigation but also incorporates additional elements such as banners.
+
+The MegaMenu is particularly useful for websites that feature multiple levels of navigation and numerous subcategories. It enables users to efficiently explore and access various sections of the website, enhancing their overall browsing experience.
 
 ## Accessibility notes
 
-MegaMenu follows the accessibility guidelines for menus and menubars by WCAG [Read more](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/).
+MegaMenu complies with the WCAG guidelines for accessibility for menus and menu bars (keyboard support). Learn more on the [W3C: Menu and Menubar Pattern](https://www.w3.org/WAI/ARIA/apg/patterns/menubar/) page.
 
 ## Base Mega Menu
 

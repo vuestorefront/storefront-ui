@@ -1,12 +1,18 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: This component is an alternative option for SfSelect component. It doesn't use native select tag to allow more styling customizations.
+description: The SelectDropdown is a visually customized version of the Select component, eliminating the reliance on the native "select" HTML tag.
 hideToc: true
 ---
 # Select Dropdown
 
-{{ $frontmatter.description }}
+The SelectDropdown is a visually customized version of the Select component, eliminating the reliance on the native "select" HTML tag. Despite the stylistic changes, the functionality of the component remains unchanged, allowing users to make a single selection from a dropdown list. The input can be marked as required and may include hints or additional information.
+
+Please note that the example block provided can also serve as a base component, offering flexibility for implementation within the project based on specific requirements and design considerations.
+
+## Accessibility notes
+
+The SelectDropdown fully supports the use of the keyboard.
 
 ## Basic usage
 
