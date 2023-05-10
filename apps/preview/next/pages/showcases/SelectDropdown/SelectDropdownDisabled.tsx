@@ -67,7 +67,7 @@ export default function SelectDropdownDisabled() {
         className={classNames('font-medium typography-label-sm', { 'text-disabled-900': isDisabled })}
         htmlFor={id}
       >
-        Speed
+        Delivery
       </label>
       <div ref={refs.setReference} className="relative">
         <div
