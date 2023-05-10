@@ -50,9 +50,9 @@
         </template>
       </SfListItem>
     </ul>
-    <p class="mt-0.5 text-neutral-500 typography-text-xs">Help text</p>
-    <p class="mt-2 text-neutral-500 typography-text-sm">*Required</p>
   </div>
+  <p class="mt-0.5 text-neutral-500 typography-text-xs">Help text</p>
+  <p class="mt-2 text-neutral-500 typography-text-sm">*Required</p>
 </template>
 
 <script lang="ts" setup>
