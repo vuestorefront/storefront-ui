@@ -28,6 +28,7 @@
         display: flex;
         font-size: 16px;
 
+
         .sidebar {
             $sidebarWidth: 230px;
             $sidebarCollapsedWidth: 40px;
@@ -37,7 +38,7 @@
             position: relative;
             flex-shrink: 0;
             width: $sidebarWidth;
-            padding: 20px 0 0;
+            padding: 10px 0 0;
             -webkit-box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
             -moz-box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
             box-shadow: inset -6px 0px 24px -22px rgba(66, 68, 90, 1);
@@ -54,7 +55,7 @@
             &-toggle {
                 position: absolute;
                 right: 4px;
-                top: 16px;
+                top: 6px;
                 pointer-events: auto;
             }
 
@@ -64,14 +65,29 @@
                 padding: 0 40px 0 10px;
             }
 
-            &-list{
+            &-search {
+                padding: 0 12px 12px;
+                position: relative;
+
+                &__button {
+                    position: absolute;
+                    top: 8px;
+                    right: 16px;
+
+                    &-icon {
+                        color: rgb(107 114 128)
+                    }
+                }
+            }
+
+            &-list {
                 overflow: auto;
                 padding-left: 0;
                 padding-bottom: 20px;
             }
         }
     }
-    
+
     [data-tooltip] {
         position: relative;
 
