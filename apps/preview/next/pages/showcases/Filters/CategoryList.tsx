@@ -44,7 +44,6 @@ const categories = [
   },
 ];
 export default function CategoryList() {
-  // TODO: use disclosure?
   const [opened, setOpened] = useState(true);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const handleCategorySelection = (val: string) => {
