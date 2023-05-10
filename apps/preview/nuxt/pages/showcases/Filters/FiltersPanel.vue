@@ -38,6 +38,38 @@
               </SfChip>
             </li>
           </ul>
+          <template v-if="type === 'category'">
+            <ul class="mt-2 mb-6">
+              <li>
+                <SfListItem size="sm" as="button" type="button">
+                  <div class="flex items-center">
+                    <SfIconArrowBack size="sm" class="text-neutral-500" />
+                    <p class="ml-3">Back to {{ details[0].label }}</p>
+                  </div>
+                </SfListItem>
+              </li>
+              <li v-for="{key, link, label, counter} in details" :key="key">
+                <SfListItem
+                  size="sm"
+                  as="a"
+                  :href="link"
+                  :class="[
+                    'first-of-type:mt-2 rounded-md active:bg-primary-100',
+                    { 'bg-primary-100 hover:bg-primary-100': isItemActive(label) },
+                  ]"
+                  @click="handleCategorySelection(label)"
+                >
+                  <template #suffix>
+                    <SfIconCheck v-if="isItemActive(label)" size="xs" class="text-primary-700" />
+                  </template>
+                  <span class="flex items-center">
+                    <span class="text-left">{{ label }}</span>
+                    <SfCounter class="ml-2 typography-text-sm">{{ counter }}</SfCounter>
+                  </span>
+                </SfListItem>
+              </li>
+            </ul>
+          </template>
           <template v-if="type === 'color'">
             <SfListItem
               v-for="{ id, value, label, counter } in details"
@@ -118,7 +150,9 @@ import {
   SfChip,
   SfCheckbox,
   SfCounter,
+  SfIconArrowBack,
   SfIconChevronLeft,
+  SfIconCheck,
   SfIconClose,
   SfListItem,
   SfRadio,
@@ -148,6 +182,43 @@ const filtersData = ref([
   },
   {
     id: 'acc2',
+    summary: 'Categories',
+    type: 'category',
+    details: [
+      {
+        key: 'CLOTHING',
+        label: 'Clothing',
+        counter: 30,
+        link: '#',
+      },
+      {
+        key: 'SHOES',
+        label: 'Shoes',
+        counter: 28,
+        link: '#',
+      },
+      {
+        key: 'ACCESSORIES',
+        label: 'Accessories',
+        counter: 56,
+        link: '#',
+      },
+      {
+        key: 'WEARABLES',
+        label: 'Wearables',
+        counter: 12,
+        link: '#',
+      },
+      {
+        key: 'FOOD_DRINKS',
+        label: 'Food & Drinks',
+        counter: 52,
+        link: '#',
+      },
+    ],
+  },
+  {
+    id: 'acc3',
     summary: 'Colors',
     type: 'color',
     details: [
@@ -190,7 +261,7 @@ const filtersData = ref([
     ],
   },
   {
-    id: 'acc3',
+    id: 'acc4',
     summary: 'Brand',
     type: 'checkbox',
     details: [
@@ -201,7 +272,7 @@ const filtersData = ref([
     ],
   },
   {
-    id: 'acc4',
+    id: 'acc5',
     summary: 'Price',
     type: 'radio',
     details: [
@@ -234,6 +305,13 @@ const handleSingleSelection = (val: string) => {
   const newSelectedFilters = selectedFilters.value.filter((selectedFilter) => !isItemActive(selectedFilter));
   newSelectedFilters.push(val);
   selectedFilters.value = newSelectedFilters;
+};
+const handleCategorySelection = (val: string) => {
+  if (selectedFilters.value.indexOf(val) > -1) {
+    selectedFilters.value = [...selectedFilters.value.filter((value) => value !== val)];
+  } else {
+    selectedFilters.value = [...selectedFilters.value, val];
+  }
 };
 const clearSelection = () => {
   selectedFilters.value = [];

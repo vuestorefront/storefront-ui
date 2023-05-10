@@ -8,6 +8,8 @@ import {
   SfIconCancel,
   SfIconClose,
   SfIconChevronLeft,
+  SfIconArrowBack,
+  SfIconCheck,
   SfListItem,
   SfThumbnail,
   SfRadio,
@@ -24,6 +26,29 @@ const sortOptions = [
   { id: 'sort4', label: 'New Arrivals', value: 'new arrivals' },
   { id: 'sort5', label: 'Customer Rating', value: 'customer rating' },
   { id: 'sort6', label: 'Bestsellers', value: 'bestsellers' },
+];
+
+const categories = [
+  {
+    key: 'CLOTHING',
+    value: { label: 'Clothing', counter: 30, link: '#' },
+  },
+  {
+    key: 'SHOES',
+    value: { label: 'Shoes', counter: 28, link: '#' },
+  },
+  {
+    key: 'ACCESSORIES',
+    value: { label: 'Accessories', counter: 56, link: '#' },
+  },
+  {
+    key: 'WEARABLES',
+    value: { label: 'Wearables', counter: 12, link: '#' },
+  },
+  {
+    key: 'FOOD_DRINKS',
+    value: { label: 'Food & Drinks', counter: 52, link: '#' },
+  },
 ];
 
 const filtersData = [
@@ -48,6 +73,43 @@ const filtersData = [
   },
   {
     id: 'acc2',
+    summary: 'Categories',
+    type: 'categories',
+    details: [
+      {
+        key: 'CLOTHING',
+        label: 'Clothing',
+        counter: 30,
+        link: '#',
+      },
+      {
+        key: 'SHOES',
+        label: 'Shoes',
+        counter: 28,
+        link: '#',
+      },
+      {
+        key: 'ACCESSORIES',
+        label: 'Accessories',
+        counter: 56,
+        link: '#',
+      },
+      {
+        key: 'WEARABLES',
+        label: 'Wearables',
+        counter: 12,
+        link: '#',
+      },
+      {
+        key: 'FOOD_DRINKS',
+        label: 'Food & Drinks',
+        counter: 52,
+        link: '#',
+      },
+    ],
+  },
+  {
+    id: 'acc3',
     summary: 'Colors',
     type: 'color',
     details: [
@@ -90,7 +152,7 @@ const filtersData = [
     ],
   },
   {
-    id: 'acc3',
+    id: 'acc4',
     summary: 'Brand',
     type: 'checkbox',
     details: [
@@ -101,7 +163,7 @@ const filtersData = [
     ],
   },
   {
-    id: 'acc4',
+    id: 'acc5',
     summary: 'Price',
     type: 'radio',
     details: [
@@ -212,6 +274,39 @@ export default function FiltersPanel() {
                     >
                       {label}
                     </SfChip>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {section.type === 'categories' && (
+              <ul className="mt-2 mb-6">
+                <li>
+                  <SfListItem size="sm" as="button" type="button">
+                    <div className="flex items-center">
+                      <SfIconArrowBack size="sm" className="text-neutral-500" />
+                      <p className="ml-3">Back to {categories[0].value.label}</p>
+                    </div>
+                  </SfListItem>
+                </li>
+                {section.details.map((category) => (
+                  <li key={category.key}>
+                    <SfListItem
+                      size="sm"
+                      as="a"
+                      href={category.link}
+                      className={classNames('first-of-type:mt-2 rounded-md active:bg-primary-100', {
+                        'bg-primary-100 hover:bg-primary-100': isFilterSelected(category.label),
+                      })}
+                      slotSuffix={
+                        isFilterSelected(category.label) && <SfIconCheck size="xs" className="text-primary-700" />
+                      }
+                      onClick={() => handleFilterSelection(category.label)}
+                    >
+                      <span className="flex items-center">
+                        <span className="text-left">{category.label}</span>
+                        <SfCounter className="ml-2 typography-text-sm">{category.counter}</SfCounter>
+                      </span>
+                    </SfListItem>
                   </li>
                 ))}
               </ul>

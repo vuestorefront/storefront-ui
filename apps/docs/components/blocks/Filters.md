@@ -53,12 +53,12 @@ Sorting in category pages is a feature that allows online shoppers to arrange an
 
 ## Category list
 
-Category list allows users to browse and select categories of content or products on a mobile device. It can be expanded by tapping a selected button.
+Category list allows users to browse and select categories of content or products. Each category can be expanded by tapping. Selected categories will be marked with green highlight and an icon.
 
-<Showcase showcase-name="Filters/CategoryList" style="min-height:1500px">
+<Showcase showcase-name="Filters/CategoryList" style="min-height:400px">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Filters/FiltersPanel.vue
+<<<../../preview/nuxt/pages/showcases/Filters/CategoryList.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Filters/CategoryList.tsx#source
