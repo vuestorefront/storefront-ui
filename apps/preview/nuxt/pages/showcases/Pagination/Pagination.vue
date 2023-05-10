@@ -6,7 +6,7 @@
       aria-label="Go to previous page"
       :disabled="selectedPage <= 1"
       variant="tertiary"
-      class="gap-3"
+      class="gap-3 !px-3 sm:px-6"
       @click="prev"
     >
       <template #prefix>
@@ -24,7 +24,7 @@
         >
           <button
             type="button"
-            class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
+            class="px-3 sm:px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-current="selectedPage === 1"
             @click="setPage(1)"
           >
@@ -41,7 +41,7 @@
         <div class="flex pt-1 border-t-4 border-transparent">
           <button
             type="button"
-            class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
+            class="px-3 sm:px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-current="endPage - 1 === selectedPage"
             @click="setPage(endPage - 1)"
           >
@@ -59,7 +59,7 @@
           <button
             type="button"
             :class="[
-              'px-4 py-3 text-neutral-500 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
+              'px-3 sm:px-4 py-3 text-neutral-500 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
               { '!text-neutral-900 hover:!text-primary-800 active:!text-primary-900': selectedPage === page },
             ]"
             :aria-label="`Page ${page} of ${totalPages}`"
@@ -74,7 +74,7 @@
         <div class="flex pt-1 border-t-4 border-transparent">
           <button
             type="button"
-            class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
+            class="px-3 sm:px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-label="`Page 2 of ${totalPages}`"
             @click="setPage(2)"
           >
@@ -96,7 +96,7 @@
         >
           <button
             type="button"
-            class="px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
+            class="px-3 sm:px-4 py-3 rounded-md text-neutral-500 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
             :aria-current="totalPages === selectedPage"
             @click="setPage(totalPages)"
           >
@@ -111,7 +111,7 @@
       aria-label="Go to next page"
       :disabled="selectedPage >= totalPages"
       variant="tertiary"
-      class="gap-3"
+      class="gap-3 !px-3 sm:px-6"
       @click="next"
     >
       <span class="hidden sm:inline-flex"> Next </span>
