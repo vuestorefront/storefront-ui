@@ -5,7 +5,6 @@ import {
   SfButton,
   SfCounter,
   SfChip,
-  SfIconCancel,
   SfIconClose,
   SfIconChevronLeft,
   SfIconArrowBack,
@@ -178,19 +177,19 @@ export default function FiltersPanel() {
   const [opened, setOpened] = useState<string[]>(filtersData.map((item) => item.id));
 
   const isAccordionItemOpen = (id: string) => opened.includes(id);
-  const isFilterSelected = (val: string) => selectedFilters.includes(val);
+  const isFilterSelected = (selectedValue: string) => selectedFilters.includes(selectedValue);
 
-  const handleFilterSelection = (val: string) => {
-    if (selectedFilters.indexOf(val) > -1) {
-      setSelectedFilters([...selectedFilters.filter((value) => value !== val)]);
+  const handleFilterSelection = (selectedValue: string) => {
+    if (selectedFilters.indexOf(selectedValue) > -1) {
+      setSelectedFilters([...selectedFilters.filter((value) => value !== selectedValue)]);
     } else {
-      setSelectedFilters([...selectedFilters, val]);
+      setSelectedFilters([...selectedFilters, selectedValue]);
     }
   };
 
-  const handleRadioSelection = (val: string) => {
+  const handleRadioSelection = (selectedValue: string) => {
     const newSelectedFilters = selectedFilters.filter((selectedFilter) => !isFilterSelected(selectedFilter));
-    newSelectedFilters.push(val);
+    newSelectedFilters.push(selectedValue);
     setSelectedFilters(newSelectedFilters);
   };
 
@@ -268,9 +267,9 @@ export default function FiltersPanel() {
                 <li>
                   <SfListItem size="sm" as="button" type="button">
                     <span className="flex items-center">
-                      <SfIconArrowBack size="sm" className="text-neutral-500" />
-                      <p className="ml-3">Back to {section.details[0].label}</p>
-                    </div>
+                      <SfIconArrowBack size="sm" className="text-neutral-500 mr-3" />
+                      Back to {section.details[0].label}
+                    </span>
                   </SfListItem>
                 </li>
                 {section.details.map(({ id, link, label, counter }) => (
@@ -286,7 +285,7 @@ export default function FiltersPanel() {
                       onClick={() => handleFilterSelection(label)}
                     >
                       <span className="flex items-center">
-                        <span className="text-left">{label}</span>
+                        {label}
                         <SfCounter className="ml-2 typography-text-sm">{counter}</SfCounter>
                       </span>
                     </SfListItem>

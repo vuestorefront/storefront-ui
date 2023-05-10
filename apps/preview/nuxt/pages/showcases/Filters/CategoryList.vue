@@ -10,8 +10,7 @@
       <li>
         <SfListItem size="sm" as="button" type="button">
           <div class="flex items-center">
-            <SfIconArrowBack size="sm" class="text-neutral-500" />
-            <p class="ml-3">Back to {{ categories[0].label }}</p>
+            <SfIconArrowBack size="sm" class="text-neutral-500 mr-3" />Back to {{ categories[0].label }}
           </div>
         </SfListItem>
       </li>
@@ -30,7 +29,7 @@
             <SfIconCheck v-if="isCategorySelected(category.label)" size="xs" class="text-primary-700" />
           </template>
           <span class="flex items-center">
-            <span class="text-left">{{ category.label }}</span>
+            {{ category.label }}
             <SfCounter class="ml-2 typography-text-sm">{{ category.counter }}</SfCounter>
           </span>
         </SfListItem>
@@ -86,12 +85,12 @@ const categories = ref([
 const open = ref(true);
 const selectedCategories = ref<string[]>([]);
 
-const isCategorySelected = (val: string) => selectedCategories.value.includes(val);
-const handleCategorySelection = (val: string) => {
-  if (selectedCategories.value.indexOf(val) > -1) {
-    selectedCategories.value = [...selectedCategories.value.filter((value) => value !== val)];
+const isCategorySelected = (selectedValue: string) => selectedCategories.value.includes(selectedValue);
+const handleCategorySelection = (selectedValue: string) => {
+  if (selectedCategories.value.indexOf(selectedValue) > -1) {
+    selectedCategories.value = [...selectedCategories.value.filter((value) => value !== selectedValue)];
   } else {
-    selectedCategories.value = [...selectedCategories.value, val];
+    selectedCategories.value = [...selectedCategories.value, selectedValue];
   }
 };
 </script>

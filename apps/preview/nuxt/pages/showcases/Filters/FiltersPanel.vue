@@ -43,8 +43,8 @@
               <li>
                 <SfListItem size="sm" as="button" type="button">
                   <div class="flex items-center">
-                    <SfIconArrowBack size="sm" class="text-neutral-500" />
-                    <p class="ml-3">Back to {{ details[0].label }}</p>
+                    <SfIconArrowBack size="sm" class="text-neutral-500 mr-3" />
+                    Back to {{ details[0].label }}
                   </div>
                 </SfListItem>
               </li>
@@ -63,7 +63,7 @@
                     <SfIconCheck v-if="isItemActive(label)" size="xs" class="text-primary-700" />
                   </template>
                   <span class="flex items-center">
-                    <span class="text-left">{{ label }}</span>
+                    {{ label }}
                     <SfCounter class="ml-2 typography-text-sm">{{ counter }}</SfCounter>
                   </span>
                 </SfListItem>
@@ -318,19 +318,19 @@ const opened = ref<boolean[]>(filtersData.value.map(() => true));
 const radioModel = ref('');
 const sortModel = ref();
 
-const isItemActive = (val: string) => {
-  return selectedFilters.value?.includes(val);
+const isItemActive = (selectedValue: string) => {
+  return selectedFilters.value?.includes(selectedValue);
 };
-const handleSingleSelection = (val: string) => {
+const handleSingleSelection = (selectedValue: string) => {
   const newSelectedFilters = selectedFilters.value.filter((selectedFilter) => !isItemActive(selectedFilter));
-  newSelectedFilters.push(val);
+  newSelectedFilters.push(selectedValue);
   selectedFilters.value = newSelectedFilters;
 };
-const handleCategorySelection = (val: string) => {
-  if (selectedFilters.value.indexOf(val) > -1) {
-    selectedFilters.value = [...selectedFilters.value.filter((value) => value !== val)];
+const handleCategorySelection = (selectedValue: string) => {
+  if (selectedFilters.value.indexOf(selectedValue) > -1) {
+    selectedFilters.value = [...selectedFilters.value.filter((value) => value !== selectedValue)];
   } else {
-    selectedFilters.value = [...selectedFilters.value, val];
+    selectedFilters.value = [...selectedFilters.value, selectedValue];
   }
 };
 const clearSelection = () => {
