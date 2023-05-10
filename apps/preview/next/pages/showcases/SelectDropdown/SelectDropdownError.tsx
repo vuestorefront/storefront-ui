@@ -64,7 +64,7 @@ export default function SelectDropdownError() {
   return (
     <>
       <label className="font-medium typography-label-sm" htmlFor={id}>
-        Speed
+        Delivery
       </label>
       <div ref={refs.setReference} className="relative">
         <div
