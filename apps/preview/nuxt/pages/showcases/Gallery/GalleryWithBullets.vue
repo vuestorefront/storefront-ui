@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-h-[600px] flex flex-col h-full gap-1">
+  <div class="relative max-h-[600px] flex flex-col w-full aspect-[4/3] gap-1">
     <SfScrollable
       class="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       :active-index="activeIndex"

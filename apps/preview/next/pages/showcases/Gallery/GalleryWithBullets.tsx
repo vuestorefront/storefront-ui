@@ -26,7 +26,7 @@ export default function GalleryWithBullets() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="relative max-h-[600px] flex flex-col h-full gap-1">
+    <div className="relative max-h-[600px] flex flex-col w-full aspect-[4/3] gap-1">
       <SfScrollable
         className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         wrapperClassName="group/scrollable h-full"
