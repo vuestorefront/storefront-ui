@@ -19,6 +19,10 @@ You can try out Storefront UI in your browser with our online playground.
 
 ## Next.js
 
+If you prefer video guides, we have a quick video that can help you set up Storefront UI in your Next.js project.
+
+<iframe src="https://www.youtube-nocookie.com/embed/6xOnCOXU8H4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded aspect-video relative mt-8 custom-block"></iframe>
+
 ### Create Your Next Project
 
 If you don't already have a Next app, you can use the `create-next-app` command from [Create Next App](https://nextjs.org/docs/api-reference/create-next-app) to get started.
@@ -99,7 +103,7 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/@storefront-ui/react/**/*.{js,mjs}',
   ],
   theme: {
