@@ -54,7 +54,7 @@ export default function GalleryHorizontal() {
   };
 
   return (
-    <div className="relative max-h-[600px] flex flex-col h-full">
+    <div className="relative flex flex-col w-full max-h-[600px] aspect-[4/3]">
       <SfScrollable
         className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         activeIndex={activeIndex}
@@ -69,7 +69,7 @@ export default function GalleryHorizontal() {
             <img
               aria-label={alt}
               aria-hidden={activeIndex !== index}
-              className="object-cover w-auto h-full"
+              className="w-auto h-full"
               alt={alt}
               src={imageSrc}
             />
