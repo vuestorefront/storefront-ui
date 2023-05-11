@@ -19,16 +19,17 @@
           <SfIconCancel /></button
       ></template>
     </SfInput>
-    <div v-if="isOpen" ref="floatingRef" :style="style" class="right-0 left-0">
+    <div v-if="isOpen" ref="floatingRef" :style="style" class="left-0 right-0">
       <div
         v-if="isLoadingSnippets"
-        class="w-full h-20 flex justify-center items-center border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2"
+        class="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
       >
         <SfLoaderCircular />
       </div>
       <ul
         v-else-if="snippets.length > 0"
-        class="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2"
+        ref="dropdownListRef"
+        class="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
       >
         <li v-for="{ highlight, rest, product } in snippets" :key="product.id">
           <SfListItem tag="button" type="button" class="flex justify-start" @click="() => selectValue(product.name)">
@@ -61,6 +62,7 @@ import {
 
 const inputModel = ref('');
 const inputRef = ref();
+const dropdownListRef = ref();
 const isLoadingSnippets = ref(false);
 const snippets = ref<{ highlight: string; rest: string; product: Product }[]>([]);
 const { isOpen, close, open } = useDisclosure();
@@ -70,7 +72,7 @@ const { referenceRef, floatingRef, style } = useDropdown({
   placement: 'bottom-start',
   middleware: [offset(4)],
 });
-useTrapFocus(floatingRef as Ref<HTMLElement>, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+useTrapFocus(dropdownListRef as Ref<HTMLElement>, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
 
 const submit = () => {
   close();
