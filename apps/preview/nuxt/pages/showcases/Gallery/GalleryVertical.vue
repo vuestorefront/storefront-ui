@@ -1,9 +1,8 @@
 <template>
-  <div class="relative max-h-[600px] flex h-full">
+  <div class="relative flex w-full max-h-[600px] aspect-[4/3]">
     <SfScrollable
       ref="thumbsRef"
       class="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-      wrapper-class="shrink-0"
       direction="vertical"
       :active-index="activeIndex"
       :previous-disabled="activeIndex === 0"
@@ -20,27 +19,23 @@
           size="sm"
           square
         >
-          <SfIconChevronLeft />
+          <SfIconChevronLeft size="sm" />
         </SfButton>
       </template>
       <button
         v-for="({ imageSrc, alt }, index) in thumbImages"
         :key="`${alt}-${index}-thumbnail`"
-        :ref="
-          (el) => {
-            index === thumbImages.length - 1 ? (lastThumbRef = el) : index === 0 ? (firstThumbRef = el) : undefined;
-          }
-        "
+        :ref="(el) => assignRef(el, index)"
         type="button"
         :aria-label="alt"
         :aria-current="activeIndex === index"
-        :class="`md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
+        :class="`md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 -mb-2 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0  ${
           activeIndex === index ? 'border-primary-700' : 'border-transparent'
         }`"
         @mouseover="activeIndex = index"
         @focus="activeIndex = index"
       >
-        <img :alt="alt" class="object-contain border border-neutral-200" width="78" height="78" :src="imageSrc" />
+        <img :alt="alt" class="border border-neutral-200" width="78" height="78" :src="imageSrc" />
       </button>
       <template #nextButton="defaultProps">
         <SfButton
@@ -52,14 +47,15 @@
           size="sm"
           square
         >
-          <SfIconChevronRight />
+          <SfIconChevronRight size="sm" />
         </SfButton>
       </template>
     </SfScrollable>
     <SfScrollable
       class="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       :active-index="activeIndex"
-      wrapper-class="h-full"
+      direction="vertical"
+      wrapper-class="h-full m-auto"
       is-active-index-centered
       buttons-placement="none"
       :drag="{ containerWidth: true }"
@@ -91,8 +87,8 @@ import {
   SfIconChevronRight,
   type SfScrollableOnDragEndData,
 } from '@storefront-ui/vue';
-import { MaybeElement, unrefElement, useIntersectionObserver } from '@vueuse/core';
-import { watch } from 'vue';
+import { unrefElement, useIntersectionObserver } from '@vueuse/core';
+import { watch, type ComponentPublicInstance } from 'vue';
 import * as Images from './images';
 
 const images = [
@@ -106,6 +102,7 @@ const images = [
   { imageSrc: Images.gallery8Src, alt: 'backpack8' },
   { imageSrc: Images.gallery9Src, alt: 'backpack9' },
   { imageSrc: Images.gallery10Src, alt: 'backpack10' },
+  { imageSrc: Images.gallery11Src, alt: 'backpack11' },
 ];
 
 const thumbImages = [
@@ -119,10 +116,11 @@ const thumbImages = [
   { imageSrc: Images.gallery8ThumbSrc, alt: 'backpack8' },
   { imageSrc: Images.gallery9ThumbSrc, alt: 'backpack9' },
   { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack10' },
+  { imageSrc: Images.gallery11ThumbSrc, alt: 'backpack11' },
 ];
 const thumbsRef = ref<HTMLElement>();
-const firstThumbRef = ref<MaybeElement>();
-const lastThumbRef = ref<MaybeElement>();
+const firstThumbRef = ref<HTMLButtonElement>();
+const lastThumbRef = ref<HTMLButtonElement>();
 const firstThumbVisible = ref(false);
 const lastThumbVisible = ref(false);
 const activeIndex = ref(0);
@@ -172,6 +170,15 @@ const onDragged = (event: SfScrollableOnDragEndData) => {
     activeIndex.value -= 1;
   } else if (event.swipeLeft && activeIndex.value < images.length - 1) {
     activeIndex.value += 1;
+  }
+};
+
+const assignRef = (el: Element | ComponentPublicInstance | null, index: number) => {
+  if (!el) return;
+  if (index === thumbImages.length - 1) {
+    lastThumbRef.value = el as HTMLButtonElement;
+  } else if (index === 0) {
+    firstThumbRef.value = el as HTMLButtonElement;
   }
 };
 </script>

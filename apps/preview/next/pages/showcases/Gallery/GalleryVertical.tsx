@@ -26,6 +26,7 @@ const images = [
   { imageSrc: Images.gallery8Src, alt: 'backpack8' },
   { imageSrc: Images.gallery9Src, alt: 'backpack9' },
   { imageSrc: Images.gallery10Src, alt: 'backpack10' },
+  { imageSrc: Images.gallery11Src, alt: 'backpack11' },
 ];
 
 const thumbImages = [
@@ -39,6 +40,7 @@ const thumbImages = [
   { imageSrc: Images.gallery8ThumbSrc, alt: 'backpack8' },
   { imageSrc: Images.gallery9ThumbSrc, alt: 'backpack9' },
   { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack10' },
+  { imageSrc: Images.gallery11ThumbSrc, alt: 'backpack11' },
 ];
 
 export default function GalleryVertical() {
@@ -68,13 +70,13 @@ export default function GalleryVertical() {
   };
 
   return (
-    <div className="relative max-h-[600px] flex h-full">
+    <div className="relative flex w-full max-h-[600px] aspect-[4/3]">
       <SfScrollable
         ref={thumbsRef}
         className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         direction="vertical"
         activeIndex={activeIndex}
-        previousDisabled={activeIndex === 0}
+        prevDisabled={activeIndex === 0}
         nextDisabled={activeIndex === images.length - 1}
         slotPreviousButton={
           <SfButton
@@ -84,7 +86,7 @@ export default function GalleryVertical() {
             variant="secondary"
             size="sm"
             square
-            slotPrefix={<SfIconChevronLeft />}
+            slotPrefix={<SfIconChevronLeft size="sm" />}
           />
         }
         slotNextButton={
@@ -95,7 +97,7 @@ export default function GalleryVertical() {
             variant="secondary"
             size="sm"
             square
-            slotPrefix={<SfIconChevronRight />}
+            slotPrefix={<SfIconChevronRight size="sm" />}
           />
         }
       >
@@ -108,7 +110,7 @@ export default function GalleryVertical() {
             aria-current={activeIndex === index}
             key={`${alt}-${index}-thumbnail`}
             className={classNames(
-              'md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 border-b-4 snap-center cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
+              'md:w-[78px] md:h-auto relative shrink-0 pb-1 mx-4 -mb-2 border-b-4 snap-center cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
               {
                 'border-primary-700': activeIndex === index,
                 'border-transparent': activeIndex !== index,
@@ -117,14 +119,15 @@ export default function GalleryVertical() {
             onMouseOver={() => setActiveIndex(index)}
             onFocus={() => setActiveIndex(index)}
           >
-            <img alt={alt} className="object-contain border border-neutral-200" width="78" height="78" src={imageSrc} />
+            <img alt={alt} className="border border-neutral-200" width="78" height="78" src={imageSrc} />
           </button>
         ))}
       </SfScrollable>
       <SfScrollable
         className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         activeIndex={activeIndex}
-        wrapperClassName="h-full"
+        direction="vertical"
+        wrapperClassName="h-full m-auto"
         buttonsPlacement="none"
         isActiveIndexCentered
         drag={{ containerWidth: true }}
@@ -135,7 +138,7 @@ export default function GalleryVertical() {
             <img
               aria-label={alt}
               aria-hidden={activeIndex !== index}
-              className="object-cover w-auto h-full"
+              className="object-contain w-auto h-full"
               alt={alt}
               src={imageSrc}
             />

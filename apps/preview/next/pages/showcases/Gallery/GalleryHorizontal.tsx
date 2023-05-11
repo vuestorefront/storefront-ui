@@ -25,6 +25,7 @@ const images = [
   { imageSrc: Images.gallery8Src, alt: 'backpack8' },
   { imageSrc: Images.gallery9Src, alt: 'backpack9' },
   { imageSrc: Images.gallery10Src, alt: 'backpack10' },
+  { imageSrc: Images.gallery11Src, alt: 'backpack11' },
 ];
 
 const thumbImages = [
@@ -38,6 +39,7 @@ const thumbImages = [
   { imageSrc: Images.gallery8ThumbSrc, alt: 'backpack8' },
   { imageSrc: Images.gallery9ThumbSrc, alt: 'backpack9' },
   { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack10' },
+  { imageSrc: Images.gallery11ThumbSrc, alt: 'backpack11' },
 ];
 
 export default function GalleryHorizontal() {
@@ -52,7 +54,7 @@ export default function GalleryHorizontal() {
   };
 
   return (
-    <div className="relative max-h-[600px] flex flex-col h-full">
+    <div className="relative flex flex-col w-full max-h-[600px] aspect-[4/3]">
       <SfScrollable
         className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         activeIndex={activeIndex}
@@ -67,7 +69,7 @@ export default function GalleryHorizontal() {
             <img
               aria-label={alt}
               aria-hidden={activeIndex !== index}
-              className="object-cover w-auto h-full"
+              className="w-auto h-full"
               alt={alt}
               src={imageSrc}
             />
@@ -84,7 +86,7 @@ export default function GalleryHorizontal() {
             variant="secondary"
             size="sm"
             square
-            slotPrefix={<SfIconChevronLeft />}
+            slotPrefix={<SfIconChevronLeft size="sm" />}
           />
         }
         slotNextButton={
@@ -93,7 +95,7 @@ export default function GalleryHorizontal() {
             variant="secondary"
             size="sm"
             square
-            slotPrefix={<SfIconChevronRight />}
+            slotPrefix={<SfIconChevronRight size="sm" />}
           />
         }
       >
@@ -104,7 +106,7 @@ export default function GalleryHorizontal() {
             aria-current={activeIndex === index}
             key={`${alt}-${index}-thumbnail`}
             className={classNames(
-              'md:w-[78px] md:h-auto relative shrink-0 pb-1 my-4 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
+              'md:w-14 md:h-auto relative shrink-0 pb-1 my-2 -mr-2 border-b-4 snap-start cursor-pointer focus-visible:outline focus-visible:outline-offset transition-colors flex-grow md:flex-grow-0',
               activeIndex === index ? 'border-primary-700' : 'border-transparent',
             )}
             onClick={() => setActiveIndex(index)}

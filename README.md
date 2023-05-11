@@ -62,7 +62,7 @@ In addition, Storefront UI fits perfectly complex UI setups where one library is
 - **Typography** package simplifying usage of 3rd party fonts
 - **Figma** file with pixel-perfect representation of SFUI components based on tailwind properties
 
-<a href="https://www.figma.com/file/7pRNATsiFwYmveafXzjhSV/SFUI-2-%7C-Design-Kit-(public)"><img src="./_readme/figma_included.png"></a>
+<a href="https://docs.storefrontui.io/v2/figma)"><img src="./_readme/figma_included.png"></a>
 
 ## Contributing
 
@@ -77,6 +77,21 @@ You can become contributor not only by writing code:
 - Do a talk about Storefront UI at your local meetup
 
 We are grateful for all kind of contributions. If you don't know where to start check out our [contribution guide](./CONTRIBUTING.md) or ask for help on [Discord](https://discord.vuestorefront.io)
+
+## How to run project locally
+
+In the `root` directory of this project run `yarn` command to install all needed dependencies. 
+After dependencies has been installed run `yarn dev` command to run this project.
+Now both (Nuxt preview for Vue and Next preview for React) projects are running locally and you can start working on them.
+If you need to run only one of them, you need to run a desired preview from its directory, so you need to go for Vue: `/apps/preview/nuxt` and for React: `/apps/preview/next`. 
+
+NOTE:
+Subdependencies have to be build, such as 
+- `@storefront-ui/shared` located in `/packages/sfui/shared` 
+- `@storefront-ui/tw-plugin-peer-next` located in `/packages/sfui/tw-plugin-peer-next` 
+- `@storefront-ui/typography` located in `/packages/sfui/typography` 
+  
+Knowing this we recommend using `yarn dev` in `root` directory.
 
 ## Links
 

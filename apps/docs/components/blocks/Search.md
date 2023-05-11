@@ -1,13 +1,19 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: Search is a simple yet powerful input that helps users quickly find products in your shop.
+description: The Search is a specialized input field designed for text-based searching on a website.
 hideToc: true
 ---
 
 # Search
 
-{{ $frontmatter.description }}
+The Search is a specialized input field designed for text-based searching on a website. In the provided example, the block includes an additional feature that displays live hints suggestions (autocomplete) as the user types.
+
+The Search input is primarily utilized in the global navigation (see NavBarTop block). However, variants without autocomplete functionality are commonly employed on results pages.
+
+## Accessibility notes
+
+The Search fully supports the use of the keyboard. The transition from the search input to the hints list is handled by Tab key.
 
 ## Basic search
 

@@ -31,7 +31,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       isActiveIndexCentered,
       className,
       wrapperClassName,
-      previousDisabled,
+      prevDisabled,
       nextDisabled,
       style,
       children,
@@ -77,7 +77,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
 
     function PreviousButton({ classNameButton }: { classNameButton?: string }) {
       if (slotPreviousButton) {
-        return cloneElement(slotPreviousButton, getPrevButtonProps({ disabled: previousDisabled, onClick: onPrev }));
+        return cloneElement(slotPreviousButton, getPrevButtonProps({ disabled: prevDisabled, onClick: onPrev }));
       }
       return (
         <SfButton
@@ -85,7 +85,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             square: true,
             variant: 'secondary',
             size: 'lg',
-            disabled: previousDisabled,
+            disabled: prevDisabled,
             slotPrefix: <SfIconChevronLeft />,
             className: classNames(
               'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',
