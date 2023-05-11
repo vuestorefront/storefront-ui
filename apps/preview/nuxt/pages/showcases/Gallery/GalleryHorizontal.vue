@@ -14,13 +14,7 @@
         :key="`${alt}-${index}`"
         class="flex justify-center h-full basis-full shrink-0 grow snap-center"
       >
-        <img
-          :aria-label="alt"
-          :aria-hidden="activeIndex !== index"
-          class="w-auto h-full"
-          :alt="alt"
-          :src="imageSrc"
-        />
+        <img :aria-label="alt" :aria-hidden="activeIndex !== index" class="w-auto h-full" :alt="alt" :src="imageSrc" />
       </div>
     </SfScrollable>
     <SfScrollable
