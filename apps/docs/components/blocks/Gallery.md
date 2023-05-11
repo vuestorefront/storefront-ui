@@ -7,6 +7,10 @@ hideToc: true
 ---
 # Gallery
 
+::: warning This is an experimental block
+This block has been built on top of experimental base component. The API and structure of it might change based on user feedback.
+:::
+
 The Gallery presents a visually appealing and user-friendly collection of images that can be conveniently viewed and navigated. Within the example block, navigation options include "previous/next" arrows and photo thumbnails, providing users with multiple ways to interact with the gallery. These navigation features can be activated through both clicks and hover actions.
 
 The Gallery is primarily intended for use on product pages, where it serves as an effective tool for showcasing product images. The choice between the vertical and horizontal variants should depend on the layout of the product page, ensuring optimal visual presentation. Additionally, the variant with bullets should be considered, particularly for mobile devices, as it offers a compact and easily accessible navigation format.
