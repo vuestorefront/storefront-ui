@@ -70,11 +70,10 @@ export default function GalleryVertical() {
   };
 
   return (
-    <div className="relative max-h-[600px] flex h-full">
+    <div className="relative flex w-full max-h-[600px] aspect-[4/3]">
       <SfScrollable
         ref={thumbsRef}
         className="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-        wrapperClassName="shrink-0"
         direction="vertical"
         activeIndex={activeIndex}
         prevDisabled={activeIndex === 0}
@@ -120,7 +119,7 @@ export default function GalleryVertical() {
             onMouseOver={() => setActiveIndex(index)}
             onFocus={() => setActiveIndex(index)}
           >
-            <img alt={alt} className="object-contain border border-neutral-200" width="78" height="78" src={imageSrc} />
+            <img alt={alt} className="border border-neutral-200" width="78" height="78" src={imageSrc} />
           </button>
         ))}
       </SfScrollable>
@@ -128,7 +127,7 @@ export default function GalleryVertical() {
         className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         activeIndex={activeIndex}
         direction="vertical"
-        wrapperClassName="h-full"
+        wrapperClassName="h-full m-auto"
         buttonsPlacement="none"
         isActiveIndexCentered
         drag={{ containerWidth: true }}

@@ -1,9 +1,8 @@
 <template>
-  <div class="relative max-h-[600px] flex h-full">
+  <div class="relative flex w-full max-h-[600px] aspect-[4/3]">
     <SfScrollable
       ref="thumbsRef"
       class="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
-      wrapper-class="shrink-0"
       direction="vertical"
       :active-index="activeIndex"
       :previous-disabled="activeIndex === 0"
@@ -36,7 +35,7 @@
         @mouseover="activeIndex = index"
         @focus="activeIndex = index"
       >
-        <img :alt="alt" class="object-contain border border-neutral-200" width="78" height="78" :src="imageSrc" />
+        <img :alt="alt" class="border border-neutral-200" width="78" height="78" :src="imageSrc" />
       </button>
       <template #nextButton="defaultProps">
         <SfButton
@@ -56,7 +55,7 @@
       class="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       :active-index="activeIndex"
       direction="vertical"
-      wrapper-class="h-full"
+      wrapper-class="h-full m-auto"
       is-active-index-centered
       buttons-placement="none"
       :drag="{ containerWidth: true }"
