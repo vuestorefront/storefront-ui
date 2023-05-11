@@ -66,5 +66,6 @@ apps/docs/components/utils/showcases.json
 apps/docs/components/utils/hooks.json
 apps/docs/components/utils/blocks.json
 
+# qwik-city cypress folders
 apps/preview/qwik-city/cypress/screenshots/*
 apps/preview/qwik-city/cypress/videos/*
