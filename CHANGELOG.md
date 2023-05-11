@@ -17,7 +17,7 @@ This release introduces new blocks and improvements of existing blocks.
 
 - Order Summary - alerts
 
-## Gub fixes
+## Bug fixes
 
 - SfSelect chevron rotates on blur ([#2569](https://github.com/vuestorefront/storefront-ui/issues/2569))
 - SfScrollable: general improvement
