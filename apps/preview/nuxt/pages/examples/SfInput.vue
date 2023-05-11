@@ -101,6 +101,11 @@ export default defineComponent({
           {
             type: 'text',
             propType: 'string',
+            modelName: 'wrapperTag',
+          },
+          {
+            type: 'text',
+            propType: 'string',
             modelName: 'helpText',
           },
           {
@@ -164,7 +169,8 @@ export default defineComponent({
           label: ref('Label'),
           characterLimit: characterLimit,
           value: inputValue,
-          wrapperClass: ref(),
+          wrapperClass: ref('span'),
+          wrapperTag: ref(),
           slotPrefix: ref(prefixSlotOptions.defaultOption),
           slotSuffix: ref(suffixSlotOptions.defaultOption),
         },
