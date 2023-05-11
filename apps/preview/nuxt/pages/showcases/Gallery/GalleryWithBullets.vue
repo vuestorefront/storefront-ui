@@ -29,7 +29,7 @@
         class="relative flex justify-center basis-full snap-center snap-always shrink-0 grow"
       >
         <img
-          class="object-cover w-auto h-full"
+          class="object-contain w-auto h-full"
           :aria-label="alt"
           :aria-hidden="activeIndex !== index"
           :alt="alt"

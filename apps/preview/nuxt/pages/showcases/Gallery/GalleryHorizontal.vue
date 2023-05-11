@@ -17,7 +17,7 @@
         <img
           :aria-label="alt"
           :aria-hidden="activeIndex !== index"
-          class="object-cover w-auto h-full"
+          class="object-contain w-auto h-full"
           :alt="alt"
           :src="imageSrc"
         />
