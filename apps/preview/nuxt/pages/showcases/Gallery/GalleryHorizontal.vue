@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-h-[600px] flex flex-col h-full">
+  <div class="relative flex flex-col w-full max-h-[600px] aspect-[4/3]">
     <SfScrollable
       class="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       :active-index="activeIndex"
@@ -17,7 +17,7 @@
         <img
           :aria-label="alt"
           :aria-hidden="activeIndex !== index"
-          class="object-cover w-auto h-full"
+          class="w-auto h-full"
           :alt="alt"
           :src="imageSrc"
         />
