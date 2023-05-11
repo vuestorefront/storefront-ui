@@ -86,7 +86,7 @@ export default function GalleryVertical() {
             variant="secondary"
             size="sm"
             square
-            slotPrefix={<SfIconChevronLeft />}
+            slotPrefix={<SfIconChevronLeft size="sm" />}
           />
         }
         slotNextButton={
@@ -97,7 +97,7 @@ export default function GalleryVertical() {
             variant="secondary"
             size="sm"
             square
-            slotPrefix={<SfIconChevronRight />}
+            slotPrefix={<SfIconChevronRight size="sm" />}
           />
         }
       >
