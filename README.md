@@ -90,7 +90,7 @@ Subdependencies have to be build, such as
 - `@storefront-ui/shared` located in `/packages/sfui/shared` 
 - `@storefront-ui/tw-plugin-peer-next` located in `/packages/sfui/tw-plugin-peer-next` 
 - `@storefront-ui/typography` located in `/packages/sfui/typography` 
-- 
+  
 Knowing this we recommend using `yarn dev` in `root` directory.
 
 ## Links
