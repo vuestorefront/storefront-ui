@@ -20,7 +20,7 @@
           size="sm"
           square
         >
-          <SfIconChevronLeft />
+          <SfIconChevronLeft size="sm" />
         </SfButton>
       </template>
       <button
@@ -48,7 +48,7 @@
           size="sm"
           square
         >
-          <SfIconChevronRight />
+          <SfIconChevronRight size="sm" />
         </SfButton>
       </template>
     </SfScrollable>
