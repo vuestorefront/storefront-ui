@@ -76,7 +76,6 @@ useTrapFocus(focusTrapElementRef)
 | Name      | Type                  | Default value | Description |
 | --------- | --------------------- | ------------- | ----------- |
 | refElement\* | `ref`    |      | Ref of element that focus trap will be attached              |
-<!-- vue -->
 | options  | `UseTrapFocusOptions` | `{}`              | Object with multiple options  |
 
 ## UseTrapFocus Options
@@ -93,6 +92,7 @@ useTrapFocus(focusTrapElementRef)
 <!-- end react -->
 | initialFocus    | `number | 'autofocus'` | `0`       | index number of desired focus element on init or first marked element with attribute `autofocus`, for disabling this option use `false` value  |
 | arrowKeysOn | `boolean`    | `false`      | Enable/Disable possibility of using keyboard arrows `left`/`right` for jumping through focusable elements              |
+| initialFocusContainerFallback | `boolean`  | `false`     | Fallback for initial focus           |
 
 ## Return value
 
