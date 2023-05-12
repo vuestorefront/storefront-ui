@@ -1,0 +1,20 @@
+{
+  "$schema": "./node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "dist/storefront-ui",
+  "lib": {
+    "entryFile": "components/public-api.ts"
+  },
+  "allowedNonPeerDependencies": [
+    "@angular/animations",
+    "@angular/common",
+    "@angular/compiler",
+    "@angular/core",
+    "@angular/forms",
+    "@angular/platform-browser",
+    "@angular/router",
+    "@storefront-ui/shared",
+    "@storefront-ui/tailwind-config",
+    "rxjs",
+    "zone.js"
+  ]
+}

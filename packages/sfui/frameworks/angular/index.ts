@@ -1,1 +1,1 @@
-export * from './projects/storefront-ui/src/public-api';
+export * from './components/public-api';

@@ -11,20 +11,20 @@
   "projects": {
     "storefront-ui": {
       "projectType": "library",
-      "root": "projects/storefront-ui",
-      "sourceRoot": "projects/storefront-ui/src",
+      "root": "",
+      "sourceRoot": "components",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/storefront-ui/ng-package.json"
+            "project": "ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/storefront-ui/tsconfig.lib.prod.json"
+              "tsConfig": "tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/storefront-ui/tsconfig.lib.json"
+              "tsConfig": "tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -32,7 +32,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/storefront-ui/tsconfig.spec.json",
+            "tsConfig": "tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
@@ -43,8 +43,8 @@
           "builder": "@angular-eslint/builder:lint",
           "options": {
             "lintFilePatterns": [
-              "projects/storefront-ui/**/*.ts",
-              "projects/storefront-ui/**/*.html"
+              "**/*.ts",
+              "**/*.html"
             ]
           }
         }
@@ -54,7 +54,7 @@
           "standalone": true,
           "changeDetection": "OnPush",
           "style": "none",
-          "path": "projects/storefront-ui/src/components"
+          "path": "components"
         },
         "@schematics/angular:application": {
           "strict": true
