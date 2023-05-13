@@ -9,11 +9,11 @@ import { SfButtonVariant, SfButtonSize } from '@storefront-ui/shared';
   imports: [CommonModule],
 })
 export class SfButtonComponent {
-  @Input() variant?: SfButtonVariant = SfButtonVariant.primary;
+  @Input() variant: SfButtonVariant = SfButtonVariant.primary;
 
-  @Input() size?: SfButtonSize = SfButtonSize.base;
+  @Input() size: SfButtonSize = SfButtonSize.base;
 
-  @Input() disabled? = false;
+  @Input() disabled = false;
 
   @Input() square = false;
 
