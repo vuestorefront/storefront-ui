@@ -1,3 +1,5 @@
 <app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
-  <sf-button [variant]="prepareControlsData.state().variant">{{ prepareControlsData.state().SlotDefault }}</sf-button>
+  <sf-button [variant]="prepareControlsData.state().variant" [disabled]="prepareControlsData.state().disabled">
+    {{ prepareControlsData.state().SlotDefault }}
+  </sf-button>
 </app-example-wrapper>

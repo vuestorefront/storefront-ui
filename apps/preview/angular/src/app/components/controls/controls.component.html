@@ -20,7 +20,7 @@
             <span [id]="control.modelName">{{ control.modelName }}</span>
           </td>
           <td class="value">
-            <ng-container *ngIf="control.type === 'select'; else inputTextControl">
+            <ng-container *ngIf="control.type === 'select'; else booleanControl">
               <select
                 [ngModel]="state()[control.modelName]"
                 [attr.aria-labelledby]="control.modelName"
@@ -31,6 +31,21 @@
                 </option>
               </select>
             </ng-container>
+
+            <ng-template #booleanControl>
+              <div *ngIf="control.type === 'boolean'; else inputTextControl" class="switch-wrapper">
+                <label class="switch">
+                  <input
+                    [ngModel]="state()[control.modelName]"
+                    (ngModelChange)="handleControlChange($event, control.modelName)"
+                    type="checkbox"
+                    [attr.aria-labelledby]="control.modelName"
+                  />
+                  <span class="slider"></span>
+                </label>
+                <span class="ml-2">{{ state()[control.modelName] }}</span>
+              </div>
+            </ng-template>
 
             <ng-template #inputTextControl>
               <input
@@ -43,6 +58,7 @@
                 [attr.aria-labelledby]="control.modelName"
               />
             </ng-template>
+
             <ng-template #inputControl>
               <input
                 *ngIf="control.type === 'text'; else inputControl"

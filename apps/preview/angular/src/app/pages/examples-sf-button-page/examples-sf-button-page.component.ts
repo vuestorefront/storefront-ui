@@ -24,10 +24,15 @@ export class ExamplesSfButtonPageComponent {
       modelName: 'variant',
       options: Object.keys(SfButtonVariant),
     },
+    {
+      type: 'boolean',
+      modelName: 'disabled',
+    },
   ];
 
   prepareControlsData = prepareControls(this.controls, {
     SlotDefault: 'Hello',
     variant: SfButtonVariant.primary,
+    disabled: false,
   });
 }
