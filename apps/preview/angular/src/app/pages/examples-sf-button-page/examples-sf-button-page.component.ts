@@ -26,7 +26,7 @@ export class ExamplesSfButtonPageComponent {
     },
   ];
 
-  prepareControlsData = prepareControls<{ SlotDefault?: string; variant?: SfButtonVariant }>(this.controls, {
+  prepareControlsData = prepareControls(this.controls, {
     SlotDefault: 'Hello',
     variant: SfButtonVariant.primary,
   });
