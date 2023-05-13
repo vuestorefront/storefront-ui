@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 import { SfButtonVariant, SfButtonSize } from '@storefront-ui/shared';
 
 @Component({
-  selector: 'sf-button',
+  selector: '[sf-button]',
   standalone: true,
   templateUrl: './sf-button.component.html',
   imports: [CommonModule],
