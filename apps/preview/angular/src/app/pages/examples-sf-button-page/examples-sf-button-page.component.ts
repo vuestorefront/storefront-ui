@@ -28,11 +28,17 @@ export class ExamplesSfButtonPageComponent {
       type: 'boolean',
       modelName: 'disabled',
     },
+    {
+      type: 'boolean',
+      modelName: 'square',
+      description: 'Add even paddings for icon-only usage',
+    },
   ];
 
   prepareControlsData = prepareControls(this.controls, {
     SlotDefault: 'Hello',
     variant: SfButtonVariant.primary,
     disabled: false,
+    square: false,
   });
 }
