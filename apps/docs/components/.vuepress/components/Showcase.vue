@@ -24,7 +24,7 @@
         @mousedown="mouseDownListener"
       >
         <div class="absolute inset-0" v-show="isHandlerDragging"></div>
-        <Generate :showcase-path="showcaseName" :allow="allow" class="flex-grow rounded" style="margin-top: 0" />
+        <Generate :showcase-path="showcaseName" :allow="allow" class="flex-grow rounded" style="margin-top: 0" :no-paddings="noPaddings"/>
         <div ref="handlerRef" class="select-none rounded-tr flex items-center" style="cursor: ew-resize">
           <iconify-icon icon="akar-icons:drag-vertical" class="pointer-events-none" />
         </div>
@@ -44,7 +44,10 @@ export default {
     showcaseName: {
       type: String,
       default: undefined,
-      default: undefined,
+    },
+    noPaddings: {
+      type: Boolean,
+      default: false
     },
     allow: {
       type: String,
