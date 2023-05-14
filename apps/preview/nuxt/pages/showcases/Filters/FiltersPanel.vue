@@ -38,6 +38,38 @@
               </SfChip>
             </li>
           </ul>
+          <template v-if="type === 'category'">
+            <ul class="mt-2 mb-6">
+              <li>
+                <SfListItem size="sm" as="button" type="button">
+                  <div class="flex items-center">
+                    <SfIconArrowBack size="sm" class="text-neutral-500 mr-3" />
+                    Back to {{ details[0].label }}
+                  </div>
+                </SfListItem>
+              </li>
+              <li v-for="{ id, link, label, counter } in details" :key="id">
+                <SfListItem
+                  size="sm"
+                  as="a"
+                  :href="link"
+                  :class="[
+                    'first-of-type:mt-2 rounded-md active:bg-primary-100',
+                    { 'bg-primary-100 hover:bg-primary-100': isItemActive(label) },
+                  ]"
+                  @click="handleCategorySelection(label)"
+                >
+                  <template #suffix>
+                    <SfIconCheck v-if="isItemActive(label)" size="xs" class="text-primary-700" />
+                  </template>
+                  <span class="flex items-center">
+                    {{ label }}
+                    <SfCounter class="ml-2 typography-text-sm">{{ counter }}</SfCounter>
+                  </span>
+                </SfListItem>
+              </li>
+            </ul>
+          </template>
           <template v-if="type === 'color'">
             <SfListItem
               v-for="{ id, value, label, counter } in details"
@@ -118,7 +150,9 @@ import {
   SfChip,
   SfCheckbox,
   SfCounter,
+  SfIconArrowBack,
   SfIconChevronLeft,
+  SfIconCheck,
   SfIconClose,
   SfListItem,
   SfRadio,
@@ -126,7 +160,22 @@ import {
   SfThumbnail,
 } from '@storefront-ui/vue';
 
-const filtersData = ref([
+type FilterDetail = {
+  id: string;
+  label: string;
+  value: string;
+  counter?: number;
+  link?: string;
+};
+
+type Node = {
+  id: string;
+  summary: string;
+  type: string;
+  details: FilterDetail[];
+};
+
+const filtersData = ref<Node[]>([
   {
     id: 'acc1',
     summary: 'Size',
@@ -148,6 +197,48 @@ const filtersData = ref([
   },
   {
     id: 'acc2',
+    summary: 'Categories',
+    type: 'category',
+    details: [
+      {
+        id: 'CLOTHING',
+        label: 'Clothing',
+        value: 'clothing',
+        counter: 30,
+        link: '#',
+      },
+      {
+        id: 'SHOES',
+        label: 'Shoes',
+        value: 'shoes',
+        counter: 28,
+        link: '#',
+      },
+      {
+        id: 'ACCESSORIES',
+        label: 'Accessories',
+        value: 'accessories',
+        counter: 56,
+        link: '#',
+      },
+      {
+        id: 'WEARABLES',
+        label: 'Wearables',
+        value: 'wearables',
+        counter: 12,
+        link: '#',
+      },
+      {
+        id: 'FOOD_DRINKS',
+        label: 'Food & Drinks',
+        value: 'food and drinks',
+        counter: 52,
+        link: '#',
+      },
+    ],
+  },
+  {
+    id: 'acc3',
     summary: 'Colors',
     type: 'color',
     details: [
@@ -190,7 +281,7 @@ const filtersData = ref([
     ],
   },
   {
-    id: 'acc3',
+    id: 'acc4',
     summary: 'Brand',
     type: 'checkbox',
     details: [
@@ -201,7 +292,7 @@ const filtersData = ref([
     ],
   },
   {
-    id: 'acc4',
+    id: 'acc5',
     summary: 'Price',
     type: 'radio',
     details: [
@@ -227,13 +318,20 @@ const opened = ref<boolean[]>(filtersData.value.map(() => true));
 const radioModel = ref('');
 const sortModel = ref();
 
-const isItemActive = (val: string) => {
-  return selectedFilters.value?.includes(val);
+const isItemActive = (selectedValue: string) => {
+  return selectedFilters.value?.includes(selectedValue);
 };
-const handleSingleSelection = (val: string) => {
+const handleSingleSelection = (selectedValue: string) => {
   const newSelectedFilters = selectedFilters.value.filter((selectedFilter) => !isItemActive(selectedFilter));
-  newSelectedFilters.push(val);
+  newSelectedFilters.push(selectedValue);
   selectedFilters.value = newSelectedFilters;
+};
+const handleCategorySelection = (selectedValue: string) => {
+  if (selectedFilters.value.indexOf(selectedValue) > -1) {
+    selectedFilters.value = [...selectedFilters.value.filter((value) => value !== selectedValue)];
+  } else {
+    selectedFilters.value = [...selectedFilters.value, selectedValue];
+  }
 };
 const clearSelection = () => {
   selectedFilters.value = [];
