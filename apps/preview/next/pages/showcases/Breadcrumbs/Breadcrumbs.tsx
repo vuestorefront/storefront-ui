@@ -76,10 +76,7 @@ export function Showcase() {
               className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
             >
               {item.name}
-            </SfLink> :
-            <span>
-              { item.name }
-            </span>}
+            </SfLink> : <span> { item.name } </span>}
           </li>
         ))}
       </ol>
