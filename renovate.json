@@ -3,7 +3,7 @@
   "timezone": "Europe/Warsaw",
   "extends": ["config:base", ":disableDependencyDashboard"],
   "schedule": [
-    "before 5am on Monday"
+    "before 5am on Tuesday"
   ],
   "packageRules": [
     {
