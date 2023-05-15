@@ -54,7 +54,8 @@
           "standalone": true,
           "changeDetection": "OnPush",
           "style": "none",
-          "path": "components"
+          "path": "components",
+          "skipTests": true
         },
         "@schematics/angular:application": {
           "strict": true
