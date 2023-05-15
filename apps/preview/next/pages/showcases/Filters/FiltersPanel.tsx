@@ -12,6 +12,7 @@ import {
   SfListItem,
   SfThumbnail,
   SfRadio,
+  SfRating,
   SfSelect,
   SfCheckbox,
 } from '@storefront-ui/react';
@@ -168,6 +169,18 @@ const filtersData: Node[] = [
       { id: 'pr3', label: '$50.00 - $99.99', value: '50-99', counter: 12 },
       { id: 'pr4', label: '$100.00 - $199.99', value: '100-199', counter: 3 },
       { id: 'pr5', label: '$200.00 and above', value: 'above', counter: 18 },
+    ],
+  },
+  {
+    id: 'acc6',
+    summary: 'Rating',
+    type: 'rating',
+    details: [
+      { id: 'pr1', label: '5', value: '5', counter: 10 },
+      { id: 'pr2', label: '4 & up', value: '4', counter: 123 },
+      { id: 'pr3', label: '3 & up', value: '3', counter: 12 },
+      { id: 'pr4', label: '2 & up', value: '2', counter: 3 },
+      { id: 'pr5', label: '1 & up', value: '1', counter: 13 },
     ],
   },
 ];
@@ -378,6 +391,36 @@ export default function FiltersPanel() {
                   <p>
                     <span className="mr-2 text-sm">{label}</span>
                     <SfCounter size="sm">{counter}</SfCounter>
+                  </p>
+                </SfListItem>
+              ))}
+            {section.type === 'rating' &&
+              section.details.map(({ label, value, counter }) => (
+                <SfListItem
+                  key={value}
+                  as="label"
+                  size="sm"
+                  className={classNames('!items-start bg-transparent hover:bg-transparent', {
+                    'font-medium': isFilterSelected(value),
+                  })}
+                  slotPrefix={
+                    <SfRadio
+                      value={value}
+                      name="radio-rating"
+                      checked={isFilterSelected(value)}
+                      onChange={(event) => {
+                        handleRadioSelection(event.target.value);
+                      }}
+                    />
+                  }
+                >
+                  {/* TODO: Adjust the styling when/if span wrapper removed from ListItem */}
+                  <p className="flex items-end">
+                    <SfRating value={Number(value)} max={5} size="sm" />
+                    <p className="inline-flex items-center">
+                      <span className="mx-2 text-sm">{label}</span>
+                      <SfCounter size="sm">{counter}</SfCounter>
+                    </p>
                   </p>
                 </SfListItem>
               ))}
