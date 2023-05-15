@@ -10,15 +10,13 @@
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["major"],
       "groupName": "all major dependency bump",
-      "groupSlug": "all-major",
-      "automerge": true
+      "groupSlug": "all-major"
     },
     {
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor"],
       "groupName": "all minor dependency bump",
-      "groupSlug": "all-minor",
-      "automerge": true
+      "groupSlug": "all-minor"
     },
     {
       "matchPackagePatterns": ["*"],
