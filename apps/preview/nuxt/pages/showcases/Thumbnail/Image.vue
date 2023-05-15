@@ -1,10 +1,9 @@
 <template>
   <SfThumbnail size="xl">
-    <img :src="card" alt="Thumbnail avatar" />
+    <img src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/card.png" alt="Thumbnail avatar" />
   </SfThumbnail>
 </template>
 
 <script lang="ts" setup>
-import card from '@assets/card.png';
 import { SfThumbnail } from '@storefront-ui/vue';
 </script>

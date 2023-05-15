@@ -1,12 +1,22 @@
 <template>
   <div class="relative min-h-[600px]">
     <picture>
-      <source :srcset="desktopBackground" media="(min-width: 768px)" />
-      <img :src="mobileBackground" class="absolute w-full h-full z-[-1] md:object-cover" />
+      <source
+        srcset="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/hero-bg.png"
+        media="(min-width: 768px)"
+      />
+      <img
+        src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/hero-bg-mobile.png"
+        class="absolute w-full h-full z-[-1] md:object-cover"
+      />
     </picture>
     <div class="md:flex md:flex-row-reverse md:justify-center max-w[1536px] mx-auto md:min-h-[600px]">
       <div class="flex flex-col md:basis-2/4 md:items-stretch md:overflow-hidden">
-        <img :src="headphones" alt="Headphones" class="h-full object-cover object-left" />
+        <img
+          src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/hero-headphones.png"
+          alt="Headphones"
+          class="h-full object-cover object-left"
+        />
       </div>
       <div class="p-4 md:p-10 md:max-w-[768px] md:flex md:flex-col md:justify-center md:items-start md:basis-2/4">
         <p class="typography-text-xs md:typography-text-sm font-bold tracking-widest text-neutral-500 uppercase">
@@ -29,7 +39,4 @@
 
 <script lang="ts" setup>
 import { SfButton } from '@storefront-ui/vue';
-import headphones from '@assets/hero-headphones.png';
-import mobileBackground from '@assets/hero-bg-mobile.png';
-import desktopBackground from '@assets/hero-bg.png';
 </script>

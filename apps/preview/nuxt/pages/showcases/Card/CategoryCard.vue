@@ -29,22 +29,18 @@
 </template>
 
 <script setup lang="ts">
-import men from '@assets/men_category.png';
-import women from '@assets/women_category.png';
-import kid from '@assets/kid_category.png';
-
 const categories = [
   {
     title: `Women`,
-    image: women,
+    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/women_category.png',
   },
   {
     title: `Men`,
-    image: men,
+    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/men_category.png',
   },
   {
     title: `Kid`,
-    image: kid,
+    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/kid_category.png',
   },
 ];
 </script>

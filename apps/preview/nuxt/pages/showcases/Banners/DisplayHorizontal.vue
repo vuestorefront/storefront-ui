@@ -44,13 +44,10 @@
 
 <script lang="ts" setup>
 import { SfButton } from '@storefront-ui/vue';
-import sunglasses from '@assets/display.png';
-import backpack from '@assets/display-2.png';
-import winterHat from '@assets/display-3.png';
 
 const displayDetails = [
   {
-    image: sunglasses,
+    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/display.png',
     title: 'Sunny Days Ahead',
     subtitle: 'Be inspired',
     description: 'Step out in style with our sunglasses collection',
@@ -62,7 +59,7 @@ const displayDetails = [
     descriptionClass: 'md:typography-text-lg',
   },
   {
-    image: backpack,
+    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/display-2.png',
     title: 'Pack it Up',
     subtitle: 'Be active',
     description: 'Explore the great outdoors with our backpacks',
@@ -71,7 +68,7 @@ const displayDetails = [
     backgroundColor: 'bg-warning-200',
   },
   {
-    image: winterHat,
+    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/display-3.png',
     title: 'Fresh and Bold',
     subtitle: 'New collection',
     description: 'Add a pop up color to your outfit',
