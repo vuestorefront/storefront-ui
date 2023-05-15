@@ -7,7 +7,9 @@
     "build:preview-angular": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "cypress.open": "cypress open --component",
+    "cypress.run": "cypress run --component"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +41,7 @@
     "@typescript-eslint/eslint-plugin": "5.59.2",
     "@typescript-eslint/parser": "5.59.2",
     "autoprefixer": "^10.4.14",
+    "cypress": "^12.12.0",
     "eslint": "^8.39.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
