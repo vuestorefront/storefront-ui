@@ -51,14 +51,19 @@ const mockAutocompleteRequest = async (phrase: string) => {
 
 export default function SearchBasic() {
   const inputRef = useRef<HTMLInputElement>(null);
+  const dropdownListRef = useRef<HTMLUListElement>(null);
   const [searchValue, setSearchValue] = useState('');
   const [isLoadingSnippets, setIsLoadingSnippets] = useState(false);
   const [snippets, setSnippets] = useState<{ highlight: string; rest: string; product: Product }[]>([]);
   const { isOpen, close, open } = useDisclosure();
-  const { refs, style } = useDropdown({ isOpen, onClose: close, placement: 'bottom-start', middleware: [offset(4)] });
-  useTrapFocus(refs.floating, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+  const { refs, style } = useDropdown({
+    isOpen,
+    onClose: close,
+    placement: 'bottom-start',
+    middleware: [offset(4)],
+  });
+  useTrapFocus(dropdownListRef, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
   const isResetButton = Boolean(searchValue);
-
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
     close();
@@ -138,14 +143,17 @@ export default function SearchBasic() {
         }
       />
       {isOpen && (
-        <div ref={refs.setFloating} style={style} className="right-0 left-0">
+        <div ref={refs.setFloating} style={style} className="left-0 right-0">
           {isLoadingSnippets ? (
-            <div className="w-full h-20 flex justify-center items-center border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2">
+            <div className="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md">
               <SfLoaderCircular />
             </div>
           ) : (
             snippets.length > 0 && (
-              <ul className="border border-solid border-neutral-100 rounded-md drop-shadow-md bg-white py-2">
+              <ul
+                ref={dropdownListRef}
+                className="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+              >
                 {snippets.map(({ highlight, rest, product }) => (
                   <li key={product.id}>
                     <SfListItem
