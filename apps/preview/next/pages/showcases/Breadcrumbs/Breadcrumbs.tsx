@@ -71,16 +71,16 @@ export function Showcase() {
             key={item.name}
           >
             (
-              {index < breadcrumbs.length - 1 ? <SfLink
+          {index < breadcrumbs.length - 1 ? (
+            <SfLink
                 href={item.link}
                 variant="secondary"
                 className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
               >
-                {item.name}
-              </SfLink> : (
+            {item.name}
+              </SfLink>) : (
                 <span> {item.name} </span>
-              )
-            })
+              )})
           </li>
         ))}
       </ol>
