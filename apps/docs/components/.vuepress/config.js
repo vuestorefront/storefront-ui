@@ -6,7 +6,7 @@ const { generateComponentPath } = require('./utils/path.util');
 
 const DOCS_EXAMPLES_REACT_PATH = process.env.VITE_DOCS_EXAMPLES_REACT_PATH;
 const DOCS_EXAMPLES_VUE_PATH = process.env.VITE_DOCS_EXAMPLES_VUE_PATH;
-const FIGMA_URL = 'https://docs.storefrontui.io/v2/figma';
+const FIGMA_URL = 'https://docs.storefrontui.io/v2-figma';
 const GTAG = 'G-BL2CYW4NJ5';
 const convertComponentPathsToLinks = (paths, slug, type) =>
   paths.map((c) => [generateComponentPath(slug, c, type), c.replace('Sf', '')]);
