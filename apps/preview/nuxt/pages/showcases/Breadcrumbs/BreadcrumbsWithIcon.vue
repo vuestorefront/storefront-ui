@@ -42,7 +42,7 @@
           v-if="index === 0"
           :href="item.link"
           variant="secondary"
-          class-name="inline-flex leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-neutral-500"
+          class="inline-flex leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-neutral-500"
         >
           <SfIconHome size="sm" />
         </SfLink>
