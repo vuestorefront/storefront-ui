@@ -83,7 +83,7 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `activeIndex` | `number`  |  |       |
 | `reduceMotion` | `boolean`  |  |       |
 | `drag` | `{ sensitivity: number; containerWidth: boolean; } | boolean`  |  |       |
-| `previousDisabled` | `boolean`  |  |       |
+| `prevDisabled` | `boolean`  |  |       |
 | `nextDisabled` | `boolean`  |  |       |
 | `isActiveIndexCentered` | `boolean`  |  |       |
 <!-- vue -->

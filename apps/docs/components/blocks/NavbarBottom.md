@@ -10,7 +10,7 @@ hideToc: true
 
 ## NavbarBottom with white background
 
-<Showcase showcase-name="NavbarBottom/NavbarBottom" style="min-height:200px">
+<Showcase showcase-name="NavbarBottom/NavbarBottom" no-paddings style="min-height:200px">
 
 <!-- react -->
 <<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottom.tsx#source
@@ -23,7 +23,7 @@ hideToc: true
 
 ## NavbarBottom with filled background
 
-<Showcase showcase-name="NavbarBottom/NavbarBottomFilled" style="min-height:200px">
+<Showcase showcase-name="NavbarBottom/NavbarBottomFilled" no-paddings style="min-height:200px">
 
 <!-- react -->
 <<<../../preview/next/pages/showcases/NavbarBottom/NavbarBottomFilled.tsx#source

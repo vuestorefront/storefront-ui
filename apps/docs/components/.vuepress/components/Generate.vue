@@ -1,6 +1,6 @@
 <template>
   <div class="custom-block border bg-white mt-4" :class="{ generate: !showcasePath }">
-    <iframe :src="exampleUrl" :allow="allow" class="w-full h-full" />
+    <iframe :src="exampleUrl" :allow="allow" class="w-full h-full" ref="iframeRef"/>
   </div>
 </template>
 
@@ -13,14 +13,36 @@ export default {
       type: String,
       default: undefined,
     },
+    noPaddings: {
+      type: Boolean,
+      default: false
+    },
     allow: {
       type: String,
       default: undefined,
     },
   },
+  data: () => {
+    return {
+      iframeRef: undefined
+    }
+  },
+  mounted: function() {
+    const iframeElement = this.$refs.iframeRef;
+    window.addEventListener('message', (e) => {
+      if(e.data === 'loaded' && this.noPaddings) {
+        iframeElement?.contentWindow?.postMessage('no-paddings', "*")
+      }
+    }, false);
+  },
   computed: {
     frameworkName() {
       return this.$route.path.split('/')[1];
+    },
+    urlBasePath() {
+      return this.frameworkName === 'react'
+          ? this.$themeConfig.DOCS_EXAMPLES_REACT_PATH
+          : this.$themeConfig.DOCS_EXAMPLES_VUE_PATH;
     },
     componentName() {
       return this.$route.path.split('/').pop()?.split('.')[0];
@@ -30,11 +52,7 @@ export default {
         component.toLowerCase().includes('sf' + this.componentName),
       );
 
-      return `${
-        this.frameworkName === 'react'
-          ? this.$themeConfig.DOCS_EXAMPLES_REACT_PATH
-          : this.$themeConfig.DOCS_EXAMPLES_VUE_PATH
-      }/${this.showcasePath ? `showcases/${this.showcasePath}` : `examples/${componentNameFull}`}?docs=true`;
+      return `${this.urlBasePath}/${this.showcasePath ? `showcases/${this.showcasePath}` : `examples/${componentNameFull}`}`;
     },
   },
 };

@@ -5,6 +5,7 @@
     wrapper-class="min-w-0"
     :prev-disabled="activeIndex === 0"
     :next-disabled="activeIndex === itemsLength - 1"
+    is-active-index-centered
     @on-prev="
       ({ preventDefault }) => {
         preventDefault();

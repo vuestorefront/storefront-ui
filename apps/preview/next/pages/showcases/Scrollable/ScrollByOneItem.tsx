@@ -13,7 +13,7 @@ export default function ScrollableMoveByOne() {
       wrapperClassName="min-w-0"
       className="items-center w-full"
       activeIndex={activeIndex}
-      previousDisabled={activeIndex === 0}
+      prevDisabled={activeIndex === 0}
       nextDisabled={activeIndex === itemsLength - 1}
       isActiveIndexCentered
       onPrev={({ preventDefault }) => {

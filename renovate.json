@@ -3,13 +3,25 @@
   "timezone": "Europe/Warsaw",
   "extends": ["config:base", ":disableDependencyDashboard"],
   "schedule": [
-    "before 5am on Monday"
+    "before 5am on Tuesday"
   ],
   "packageRules": [
     {
       "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["major"],
+      "groupName": "all major dependency bump",
+      "groupSlug": "all-major"
+    },
+    {
+      "matchPackagePatterns": ["*"],
+      "matchUpdateTypes": ["minor"],
+      "groupName": "all minor dependency bump",
+      "groupSlug": "all-minor"
+    },
+    {
+      "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["patch"],
-      "groupName": "all non-major dependency bump",
+      "groupName": "all patch dependency bump",
       "groupSlug": "all-patch",
       "automerge": true
     },
@@ -31,10 +43,6 @@
       "groupName": "definitelyTyped",
       "matchPackagePrefixes": ["@types/"],
       "automerge": true
-    },
-    {
-      "matchPackageNames": ["swc-plugin-coverage-instrument"],
-      "enabled": false
     }
   ]
 }

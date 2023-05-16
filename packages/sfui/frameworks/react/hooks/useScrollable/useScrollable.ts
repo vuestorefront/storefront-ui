@@ -1,6 +1,11 @@
 import { type Ref, useEffect, useRef, useState } from 'react';
-import { mergeRefs } from 'react-merge-refs';
-import { type UseScrollableOptions, Scrollable, composeHandlers, createPropsGetter } from '@storefront-ui/react';
+import {
+  type UseScrollableOptions,
+  Scrollable,
+  composeHandlers,
+  createPropsGetter,
+  mergeRefs,
+} from '@storefront-ui/react';
 
 export function useScrollable<TElement extends HTMLElement>({
   activeIndex,
@@ -66,7 +71,7 @@ export function useScrollable<TElement extends HTMLElement>({
     };
     return {
       onClick: composeHandlers(handlePrev, userProps?.onClick),
-      disabled: userProps.disabled || !state.hasPrev,
+      disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasPrev,
     };
   });
 
@@ -76,7 +81,7 @@ export function useScrollable<TElement extends HTMLElement>({
     };
     return {
       onClick: composeHandlers(handleNext, userProps?.onClick),
-      disabled: userProps.disabled || !state.hasNext,
+      disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasNext,
     };
   });
 

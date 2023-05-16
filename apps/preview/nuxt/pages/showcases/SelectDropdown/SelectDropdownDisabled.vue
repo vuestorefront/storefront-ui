@@ -1,5 +1,5 @@
 <template>
-  <label class="font-medium typography-label-sm" :class="{ 'text-disabled-900': isDisabled }" :for="id"> Speed </label>
+  <label class="font-medium typography-label-sm" :class="{ 'text-disabled-900': isDisabled }" :for="id">Delivery</label>
   <div ref="referenceRef" class="relative">
     <div
       :id="id"

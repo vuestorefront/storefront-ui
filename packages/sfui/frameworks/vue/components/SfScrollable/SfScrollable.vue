@@ -47,7 +47,7 @@ const props = defineProps({
     type: [Object || Boolean] as PropType<ScrollableOptions['drag']>,
     default: undefined,
   },
-  previousDisabled: {
+  prevDisabled: {
     type: Boolean,
     default: undefined,
   },
@@ -94,7 +94,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
 <template>
   <div :class="['items-center', 'relative', isHorizontal ? 'flex' : 'flex-col h-full inline-flex', wrapperClass]">
     <slot
-      v-if="$slots.previousButton && buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-if="$slots.previousButton && buttonsPlacement !== SfScrollableButtonsPlacement.none"
       v-bind="getPrevButtonProps"
       name="previousButton"
     />
@@ -108,10 +108,10 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         buttonsPlacement === SfScrollableButtonsPlacement.block && (isHorizontal ? 'mr-4' : 'mb-4 rotate-90'),
         buttonsPlacement === SfScrollableButtonsPlacement.floating && (isHorizontal ? 'left-4' : 'top-4 rotate-90'),
         { 'absolute z-10': buttonsPlacement === SfScrollableButtonsPlacement.floating },
-        changeDisabledClass(typeof previousDisabled === 'boolean' ? previousDisabled : getPrevButtonProps.disabled),
+        changeDisabledClass(typeof prevDisabled === 'boolean' ? prevDisabled : getPrevButtonProps.disabled),
       ]"
       v-bind="getPrevButtonProps"
-      :disabled="previousDisabled"
+      :disabled="prevDisabled"
     >
       <SfIconChevronLeft />
     </SfButton>
@@ -127,12 +127,12 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
         },
       ]"
       v-bind="{ ...$attrs, ...props }"
-      :disabled="previousDisabled"
+      :disabled="prevDisabled"
     >
       <slot />
     </component>
     <slot
-      v-if="$slots.nextButton && buttonsPlacement === SfScrollableButtonsPlacement.block"
+      v-if="$slots.nextButton && buttonsPlacement !== SfScrollableButtonsPlacement.none"
       v-bind="getNextButtonProps"
       name="nextButton"
     />

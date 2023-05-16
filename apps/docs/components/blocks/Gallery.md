@@ -1,13 +1,19 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: Gallery is a component that shows multiple images.
+description: The Gallery presents a visually appealing and user-friendly collection of images that can be conveniently viewed and navigated.
 hideToc: true
 
 ---
 # Gallery
 
-{{ $frontmatter.description }}
+::: warning This is an experimental block
+This block has been built on top of experimental base component. The API and structure of it might change based on user feedback.
+:::
+
+The Gallery presents a visually appealing and user-friendly collection of images that can be conveniently viewed and navigated. Within the example block, navigation options include "previous/next" arrows and photo thumbnails, providing users with multiple ways to interact with the gallery. These navigation features can be activated through both clicks and hover actions.
+
+The Gallery is primarily intended for use on product pages, where it serves as an effective tool for showcasing product images. The choice between the vertical and horizontal variants should depend on the layout of the product page, ensuring optimal visual presentation. Additionally, the variant with bullets should be considered, particularly for mobile devices, as it offers a compact and easily accessible navigation format.
 
 ## Product Gallery with vertical thumbnails
 
@@ -53,3 +59,22 @@ Changing an image is provided by click on the buttons which are visible after ho
 <!-- end react -->
 
 </Showcase>
+
+## Product Gallery with arrow key navigation
+
+In this block there is added arrow key navigation. When focus is on one of the thumbnails it's possible to change currently displayed image by pressing arrow keys - arrow up and arrow right will show a next image and arrow down and arrow left will show a  previous image.
+
+<Showcase showcase-name="Gallery/GalleryHorizontalArrowKeyNavigation" style="min-height:700px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontalArrowKeyNavigation.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Gallery/GalleryHorizontalArrowKeyNavigation.tsx#source
+<!-- end react -->
+
+</Showcase>
+
+## Accessibility notes
+
+The Gallery supports the use of the keyboard (Tab/alt+Tab) to navigate through images.
