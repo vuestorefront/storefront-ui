@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component, HostBinding, Input } from '@angular/core';
 import { SfButtonVariant, SfButtonSize } from '@storefront-ui/shared';
 
 @Component({
@@ -25,6 +25,20 @@ export class SfButtonComponent {
     [SfButtonVariant.tertiary]:
       'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 disabled:bg-transparent',
   };
+
+  @HostBinding('disabled') get hostDisabled() {
+    return this.disabled;
+  }
+
+  @HostBinding('class') get hostClass() {
+    return [
+      'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
+      this.variantClasses[this.variant],
+      this.sizeClasses.join(' '),
+    ].join(' ');
+  }
+
+  @HostBinding('attr.data-testid') dataTestId = 'button';
 
   get sizeClasses() {
     switch (this.size) {
