@@ -44,7 +44,7 @@ export default function ComboboxBasic() {
   const listId = useId();
   useTrapFocus(refs.floating, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSelect = (event: FormEvent) => {
     event.preventDefault();
     console.log(event);
     close();
@@ -67,7 +67,7 @@ export default function ComboboxBasic() {
 
   const selectOption = (event: FormEvent, option: SelectOption) => {
     setSearchValue(option.value);
-    handleSubmit(event);
+    handleSelect(event);
     close();
     handleFocusInput();
   };
@@ -94,13 +94,14 @@ export default function ComboboxBasic() {
   }, [searchValue]);
 
   return (
-    <form ref={refs.setReference} className="relative">
+    <div ref={refs.setReference} className="relative">
       <label className="font-medium typography-label-sm" htmlFor={id}>
         Country
       </label>
       <SfInput
         ref={inputRef}
         id={id}
+        role="combobox"
         value={searchValue}
         onChange={handleChange}
         aria-label="Choose country"
@@ -155,7 +156,7 @@ export default function ComboboxBasic() {
                   <SfListItem
                     as="button"
                     type="button"
-                    onClick={() => selectOption(option)}
+                    onClick={(event) => selectOption(event, option)}
                     onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
                     className="flex justify-start"
                   >
@@ -168,7 +169,7 @@ export default function ComboboxBasic() {
           </ul>
         )}
       </div>
-    </form>
+    </div>
   );
 }
 
