@@ -81,7 +81,7 @@ export function Showcase() {
               </SfLink>
             ) : (
               <span> {item.name} </span>
-          )}
+            )}
             )
           </li>
         ))}
