@@ -1,6 +1,6 @@
 <template>
   <div class="e-page-examples">
-    <div v-if="!isDocs" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
+    <div v-if="isNotIframe" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
       <header class="sidebar-heading">
         <h2>StorefrontUI v2</h2>
         <h3>Vue Blocks</h3>
@@ -106,7 +106,7 @@ const groups = reactive(
   }, {}),
 );
 const isOpen = ref(true);
-const isDocs = ref(true);
+const isNotIframe = ref(false);
 const arePaddingsDisabled = ref(false);
 const searchModelValue = ref('');
 
@@ -146,16 +146,9 @@ watch(
 );
 useControlsSearchParams(reactive({ s: searchModelValue }));
 
-const inIframe = () => {
-  try {
-    return window.self !== window.top;
-  } catch (e) {
-    return true;
-  }
-};
 onBeforeMount(() => {
-  if (!inIframe()) {
-    isDocs.value = false;
+  if (window.self === window.top) {
+    isNotIframe.value = true;
   } else {
     window.parent.postMessage('loaded', '*');
     window.addEventListener(
