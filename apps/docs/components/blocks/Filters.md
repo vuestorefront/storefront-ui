@@ -73,7 +73,7 @@ Ratings allows users to filter out specific ratings of products in category. Onl
 <Showcase showcase-name="Filters/Ratings" style="min-height:400px">
 
 <!-- vue -->
-<!-- <<<../../preview/nuxt/pages/showcases/Filters/Ratings.vue -->
+<<<../../preview/nuxt/pages/showcases/Filters/Ratings.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Filters/Ratings.tsx#source

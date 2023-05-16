@@ -5,11 +5,11 @@ import { useState } from 'react';
 import classNames from 'classnames';
 
 const ratingsValues = [
-  { id: 'pr1', label: '5', value: '5', counter: 10 },
-  { id: 'pr2', label: '4 & up', value: '4', counter: 123 },
-  { id: 'pr3', label: '3 & up', value: '3', counter: 12 },
-  { id: 'pr4', label: '2 & up', value: '2', counter: 3 },
-  { id: 'pr5', label: '1 & up', value: '1', counter: 13 },
+  { id: 'r1', label: '5', value: '5', counter: 10 },
+  { id: 'r2', label: '4 & up', value: '4', counter: 123 },
+  { id: 'r3', label: '3 & up', value: '3', counter: 12 },
+  { id: 'r4', label: '2 & up', value: '2', counter: 3 },
+  { id: 'r5', label: '1 & up', value: '1', counter: 13 },
 ];
 
 export default function Ratings() {
@@ -45,13 +45,13 @@ export default function Ratings() {
             }
           >
             {/* TODO: Adjust the styling when/if span wrapper removed from ListItem */}
-            <p className="flex items-end">
+            <div className="flex items-end">
               <SfRating value={Number(value)} max={5} size="sm" />
               <p className="inline-flex items-center">
                 <span className="mx-2 text-sm">{label}</span>
                 <SfCounter size="sm">{counter}</SfCounter>
               </p>
-            </p>
+            </div>
           </SfListItem>
         ))}
       </fieldset>
