@@ -236,7 +236,7 @@ export default function BaseMegaMenu() {
                       </div>
                     ))}
                     <div className="flex flex-col items-center justify-center overflow-hidden md:rounded-md bg-neutral-100 border-neutral-300 grow">
-                      <img src={bannerDetails.image.src} alt={bannerDetails.title} className="object-contain" />
+                      <img src={bannerDetails.image} alt={bannerDetails.title} className="object-contain" />
                       <p className="px-4 mt-4 mb-4 font-medium text-center typography-text-base">
                         {bannerDetails.title}
                       </p>
