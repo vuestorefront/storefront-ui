@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { useState } from 'react';
 import { SfDropdown, SfButton, SfLink, SfIconMoreHoriz, SfIconHome } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
