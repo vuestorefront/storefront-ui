@@ -22,6 +22,10 @@
         },
         "@schematics/angular:pipe": {
           "standalone": true
+        },
+        "@schematics/angular:service": {
+          "path": "services",
+          "skipTests": true
         }
       },
       "root": "",

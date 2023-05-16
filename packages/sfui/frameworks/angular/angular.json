@@ -59,6 +59,10 @@
         },
         "@schematics/angular:application": {
           "strict": true
+        },
+        "@schematics/angular:service": {
+          "path": "services",
+          "skipTests": true
         }
       }
     }

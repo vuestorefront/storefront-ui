@@ -4,13 +4,14 @@ import { SfButtonComponent } from '@storefront-ui/angular';
 import { ExampleWrapperComponent } from '../../components/example-wrapper/example-wrapper.component';
 import { SfButtonVariant } from '@storefront-ui/shared';
 import { Controls } from 'src/app/components/controls/controls.types';
-import { prepareControls } from 'src/app/components/controls/controls.utils';
+import { ControlService } from 'services/control.service';
 
 @Component({
   standalone: true,
   imports: [CommonModule, SfButtonComponent, ExampleWrapperComponent],
   templateUrl: './examples-sf-button-page.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [ControlService],
 })
 export class ExamplesSfButtonPageComponent {
   controls: Controls = [
@@ -35,10 +36,12 @@ export class ExamplesSfButtonPageComponent {
     },
   ];
 
-  prepareControlsData = prepareControls(this.controls, {
+  prepareControlsData = this.controlService.prepareControls(this.controls, {
     SlotDefault: 'Hello',
     variant: SfButtonVariant.primary,
     disabled: false,
     square: false,
   });
+
+  constructor(private controlService: ControlService) {}
 }
