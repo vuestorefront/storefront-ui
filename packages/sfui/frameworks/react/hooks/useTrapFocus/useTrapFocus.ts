@@ -104,7 +104,7 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
 
     return removeEventListeners;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [activeState, containerElementRef.current]);
+  }, [containerElementRef.current, focusableElements.current, currentlyFocused.current, activeState]);
 
   return {
     current: currentlyFocused,

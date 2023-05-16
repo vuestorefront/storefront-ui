@@ -308,6 +308,18 @@ module.exports = {
 
 </SourceCode>
 
+### Add Tailwind to Your CSS
+
+Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
+
+
+```css
+/* src/style.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
 ### You're Ready to Go!
 
 You can now import Storefront UI components inside your Astro project! You can either use them directly in your Astro components or import them into your React components.

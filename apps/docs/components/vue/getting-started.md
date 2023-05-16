@@ -165,6 +165,17 @@ export default <Config>{
   content: ['./**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
 };
 ```
+### Add Tailwind to Your CSS
+
+Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
+
+
+```css
+/* src/style.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
 ### You're ready to go
 
@@ -240,6 +251,18 @@ module.exports = {
   },
   plugins: [],
 };
+```
+
+### Add Tailwind to Your CSS
+
+Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
+
+
+```css
+/* src/style.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 ### You're Ready to Go!

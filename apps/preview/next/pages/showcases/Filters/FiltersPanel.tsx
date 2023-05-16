@@ -5,9 +5,10 @@ import {
   SfButton,
   SfCounter,
   SfChip,
-  SfIconCancel,
   SfIconClose,
   SfIconChevronLeft,
+  SfIconArrowBack,
+  SfIconCheck,
   SfListItem,
   SfThumbnail,
   SfRadio,
@@ -26,7 +27,22 @@ const sortOptions = [
   { id: 'sort6', label: 'Bestsellers', value: 'bestsellers' },
 ];
 
-const filtersData = [
+type FilterDetail = {
+  id: string;
+  label: string;
+  value: string;
+  counter?: number;
+  link?: string;
+};
+
+type Node = {
+  id: string;
+  summary: string;
+  type: string;
+  details: FilterDetail[];
+};
+
+const filtersData: Node[] = [
   {
     id: 'acc1',
     summary: 'Size',
@@ -48,6 +64,48 @@ const filtersData = [
   },
   {
     id: 'acc2',
+    summary: 'Categories',
+    type: 'categories',
+    details: [
+      {
+        id: 'CLOTHING',
+        label: 'Clothing',
+        value: 'clothing',
+        counter: 30,
+        link: '#',
+      },
+      {
+        id: 'SHOES',
+        label: 'Shoes',
+        value: 'shoes',
+        counter: 28,
+        link: '#',
+      },
+      {
+        id: 'ACCESSORIES',
+        label: 'Accessories',
+        value: 'accessories',
+        counter: 56,
+        link: '#',
+      },
+      {
+        id: 'WEARABLES',
+        label: 'Wearables',
+        value: 'wearables',
+        counter: 12,
+        link: '#',
+      },
+      {
+        id: 'FOOD_DRINKS',
+        label: 'Food & Drinks',
+        value: 'food and drinks',
+        counter: 52,
+        link: '#',
+      },
+    ],
+  },
+  {
+    id: 'acc3',
     summary: 'Colors',
     type: 'color',
     details: [
@@ -90,7 +148,7 @@ const filtersData = [
     ],
   },
   {
-    id: 'acc3',
+    id: 'acc4',
     summary: 'Brand',
     type: 'checkbox',
     details: [
@@ -101,7 +159,7 @@ const filtersData = [
     ],
   },
   {
-    id: 'acc4',
+    id: 'acc5',
     summary: 'Price',
     type: 'radio',
     details: [
@@ -119,19 +177,19 @@ export default function FiltersPanel() {
   const [opened, setOpened] = useState<string[]>(filtersData.map((item) => item.id));
 
   const isAccordionItemOpen = (id: string) => opened.includes(id);
-  const isFilterSelected = (val: string) => selectedFilters.includes(val);
+  const isFilterSelected = (selectedValue: string) => selectedFilters.includes(selectedValue);
 
-  const handleFilterSelection = (val: string) => {
-    if (selectedFilters.indexOf(val) > -1) {
-      setSelectedFilters([...selectedFilters.filter((value) => value !== val)]);
+  const handleFilterSelection = (selectedValue: string) => {
+    if (selectedFilters.indexOf(selectedValue) > -1) {
+      setSelectedFilters([...selectedFilters.filter((value) => value !== selectedValue)]);
     } else {
-      setSelectedFilters([...selectedFilters, val]);
+      setSelectedFilters([...selectedFilters, selectedValue]);
     }
   };
 
-  const handleRadioSelection = (val: string) => {
+  const handleRadioSelection = (selectedValue: string) => {
     const newSelectedFilters = selectedFilters.filter((selectedFilter) => !isFilterSelected(selectedFilter));
-    newSelectedFilters.push(val);
+    newSelectedFilters.push(selectedValue);
     setSelectedFilters(newSelectedFilters);
   };
 
@@ -147,18 +205,6 @@ export default function FiltersPanel() {
     <aside>
       <div className="flex items-center justify-between mb-4">
         <h4 className="px-2 font-bold typography-headline-4">List settings</h4>
-        {selectedFilters.length ? (
-          <SfButton
-            type="reset"
-            size="sm"
-            variant="tertiary"
-            className="hidden md:flex"
-            onClick={() => setSelectedFilters([])}
-            slotSuffix={<SfIconCancel size="sm" />}
-          >
-            Clear all
-          </SfButton>
-        ) : null}
         <button type="button" className="sm:hidden text-neutral-500" aria-label="Close filters panel">
           <SfIconClose />
         </button>
@@ -212,6 +258,37 @@ export default function FiltersPanel() {
                     >
                       {label}
                     </SfChip>
+                  </li>
+                ))}
+              </ul>
+            )}
+            {section.type === 'categories' && (
+              <ul className="mt-2 mb-6">
+                <li>
+                  <SfListItem size="sm" as="button" type="button">
+                    <span className="flex items-center">
+                      <SfIconArrowBack size="sm" className="text-neutral-500 mr-3" />
+                      Back to {section.details[0].label}
+                    </span>
+                  </SfListItem>
+                </li>
+                {section.details.map(({ id, link, label, counter }) => (
+                  <li key={id}>
+                    <SfListItem
+                      size="sm"
+                      as="a"
+                      href={link}
+                      className={classNames('first-of-type:mt-2 rounded-md active:bg-primary-100', {
+                        'bg-primary-100 hover:bg-primary-100': isFilterSelected(label),
+                      })}
+                      slotSuffix={isFilterSelected(label) && <SfIconCheck size="xs" className="text-primary-700" />}
+                      onClick={() => handleFilterSelection(label)}
+                    >
+                      <span className="flex items-center">
+                        {label}
+                        <SfCounter className="ml-2 typography-text-sm">{counter}</SfCounter>
+                      </span>
+                    </SfListItem>
                   </li>
                 ))}
               </ul>

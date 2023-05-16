@@ -51,6 +51,21 @@ Sorting in category pages is a feature that allows online shoppers to arrange an
 
 </Showcase>
 
+## Category list
+
+Category list allows users to browse and select categories of content or products. Each category can be expanded by tapping. Selected categories will be marked with green highlight and an icon.
+
+<Showcase showcase-name="Filters/CategoryList" style="min-height:400px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Filters/CategoryList.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Filters/CategoryList.tsx#source
+<!-- end react -->
+
+</Showcase>
+
 ## Filters Panel
 
 Filters panel can be customized to suit the specific needs of different applications or user groups. It may offer simple or advanced filtering options.
