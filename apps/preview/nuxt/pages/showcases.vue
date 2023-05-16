@@ -1,6 +1,6 @@
 <template>
   <div class="e-page-examples">
-    <div v-if="!isDocs" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
+    <div v-if="isNotIframe" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
       <header class="sidebar-heading">
         <h2>StorefrontUI v2</h2>
         <h3>Vue Blocks</h3>
@@ -53,7 +53,7 @@
       </ul>
     </div>
     <div class="e-page">
-      <div class="e-page-component">
+      <div class="e-page-component" :class="[arePaddingsDisabled && 'e-page-component--no-paddings']">
         <NuxtPage />
       </div>
     </div>
@@ -72,8 +72,7 @@ import {
   SfInput,
   SfIconCloseSm,
 } from '@storefront-ui/vue';
-import { reactive } from 'vue';
-import { ref, watch } from 'vue';
+import { ref, watch, reactive, onBeforeMount } from 'vue';
 import { useControlsSearchParams } from '~/composables/utils/useControlsSearchParams';
 
 const { currentRoute } = useRouter();
@@ -107,7 +106,8 @@ const groups = reactive(
   }, {}),
 );
 const isOpen = ref(true);
-const isDocs = computed(() => currentRoute.value.query.docs);
+const isNotIframe = ref(false);
+const arePaddingsDisabled = ref(false);
 const searchModelValue = ref('');
 
 const findGroup = (groups, currentRouteHref) =>
@@ -145,4 +145,19 @@ watch(
   { immediate: true },
 );
 useControlsSearchParams(reactive({ s: searchModelValue }));
+
+onBeforeMount(() => {
+  if (window.self === window.top) {
+    isNotIframe.value = true;
+  } else {
+    window.parent.postMessage('loaded', '*');
+    window.addEventListener(
+      'message',
+      (e) => {
+        if (e.data === 'no-paddings') arePaddingsDisabled.value = true;
+      },
+      false,
+    );
+  }
+});
 </script>
