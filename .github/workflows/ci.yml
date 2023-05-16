@@ -158,7 +158,7 @@ jobs:
         run: cd apps/test/vue; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
-        uses: SonarSource/sonarcloud-github-action@v1.8
+        uses: SonarSource/sonarcloud-github-action@v1.9
         with:
           projectBaseDir: packages/sfui/frameworks/vue
         env:
@@ -193,7 +193,7 @@ jobs:
         run: cd apps/test/react; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
-        uses: SonarSource/sonarcloud-github-action@v1.8
+        uses: SonarSource/sonarcloud-github-action@v1.9
         with:
           projectBaseDir: packages/sfui/frameworks/react
         env:
