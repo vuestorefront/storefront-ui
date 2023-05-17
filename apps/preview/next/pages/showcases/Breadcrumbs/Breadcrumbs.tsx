@@ -65,18 +65,22 @@ export function Showcase() {
             </div>
           </SfDropdown>
         </li>
-        {breadcrumbs.map((item) => (
+        {breadcrumbs.map((item, index) => (
           <li
-            className="peer hidden sm:flex peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
+            className="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
             key={item.name}
           >
-            <SfLink
-              href={item.link}
-              variant="secondary"
-              className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
-            >
-              {item.name}
-            </SfLink>
+            {index < breadcrumbs.length - 1 ? (
+              <SfLink
+                href={item.link}
+                variant="secondary"
+                className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
+              >
+                {item.name}
+              </SfLink>
+            ) : (
+              <span> {item.name} </span>
+            )}
           </li>
         ))}
       </ol>
