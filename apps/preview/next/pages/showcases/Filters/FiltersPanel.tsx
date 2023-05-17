@@ -415,13 +415,11 @@ export default function FiltersPanel() {
                       />
                     }
                   >
-                    {/* TODO: Adjust the styling when/if span wrapper removed from ListItem */}
-                    <div className="flex items-end">
+                    {/* TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem */}
+                    <div className="flex flex-wrap items-end">
                       <SfRating value={Number(value)} max={5} size="sm" />
-                      <p className="inline-flex items-center">
-                        <span className="mx-2 text-sm">{label}</span>
-                        <SfCounter size="sm">{counter}</SfCounter>
-                      </p>
+                      <span className="mx-2 text-sm">{label}</span>
+                      <SfCounter size="sm">{counter}</SfCounter>
                     </div>
                   </SfListItem>
                 ))}

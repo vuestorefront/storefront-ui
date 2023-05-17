@@ -13,7 +13,7 @@ const ratingsValues = [
 ];
 
 export default function Ratings() {
-  const [checkedRatingState, setCheckedRatingState] = useState('');
+  const [checkedRatingState, setCheckedRatingState] = useState<string | null>(null);
   const [opened, setOpened] = useState(true);
   return (
     <SfAccordionItem
@@ -32,9 +32,7 @@ export default function Ratings() {
             key={id}
             as="label"
             size="sm"
-            className={classNames('!items-start py-4 md:py-0 bg-transparent hover:bg-transparent', {
-              'font-medium': value === checkedRatingState,
-            })}
+            className={classNames('!items-start py-4 md:py-0 bg-transparent hover:bg-transparent')}
             slotPrefix={
               <SfRadio
                 value={value}
@@ -44,13 +42,17 @@ export default function Ratings() {
               />
             }
           >
-            {/* TODO: Adjust the styling when/if span wrapper removed from ListItem */}
-            <div className="flex items-end">
+            {/* TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem */}
+            <div className="flex flex-wrap items-end">
               <SfRating value={Number(value)} max={5} size="sm" />
-              <p className="inline-flex items-center">
-                <span className="mx-2 text-sm">{label}</span>
-                <SfCounter size="sm">{counter}</SfCounter>
-              </p>
+              <span
+                className={classNames('mx-2 text-sm', {
+                  'font-medium': value === checkedRatingState,
+                })}
+              >
+                {label}
+              </span>
+              <SfCounter size="sm">{counter}</SfCounter>
             </div>
           </SfListItem>
         ))}

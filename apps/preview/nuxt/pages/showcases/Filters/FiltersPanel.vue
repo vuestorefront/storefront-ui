@@ -131,6 +131,25 @@
               </p>
             </SfListItem>
           </template>
+          <template v-if="type === 'ratings'">
+            <SfListItem
+              v-for="{ id, value, label, counter } in details"
+              :key="id"
+              as="label"
+              size="sm"
+              class="!items-start px-1.5 bg-transparent hover:bg-transparent"
+            >
+              <template #prefix>
+                <SfRadio v-model="ratingsModel" :checked="ratingsModel === value" :name="ratingsModel" :value="value" />
+              </template>
+              <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
+              <div class="flex flex-wrap items-end">
+                <SfRating :value="Number(value)" :max="5" size="sm" />
+                <span :class="['mx-2 text-sm', { 'font-medium': ratingsModel === value }]">{{ label }}</span>
+                <SfCounter size="sm">{{ counter }}</SfCounter>
+              </div>
+            </SfListItem>
+          </template>
         </SfAccordionItem>
         <hr class="my-4" />
       </li>
@@ -156,6 +175,7 @@ import {
   SfIconClose,
   SfListItem,
   SfRadio,
+  SfRating,
   SfSelect,
   SfThumbnail,
 } from '@storefront-ui/vue';
@@ -303,6 +323,18 @@ const filtersData = ref<Node[]>([
       { id: 'pr5', label: '$200.00 and above', value: 'above', counter: 18 },
     ],
   },
+  {
+    id: 'acc6',
+    summary: 'Ratings',
+    type: 'ratings',
+    details: [
+      { id: 'r1', label: '5', value: '5', counter: 10 },
+      { id: 'r2', label: '4 & up', value: '4', counter: 123 },
+      { id: 'r3', label: '3 & up', value: '3', counter: 12 },
+      { id: 'r4', label: '2 & up', value: '2', counter: 3 },
+      { id: 'r5', label: '1 & up', value: '1', counter: 13 },
+    ],
+  },
 ]);
 const sortOptions = ref([
   { id: 'sort1', label: 'Relevance', value: 'relevance' },
@@ -316,6 +348,7 @@ const sortOptions = ref([
 const selectedFilters = ref<string[]>([]);
 const opened = ref<boolean[]>(filtersData.value.map(() => true));
 const radioModel = ref('');
+const ratingsModel = ref('');
 const sortModel = ref();
 
 const isItemActive = (selectedValue: string) => {

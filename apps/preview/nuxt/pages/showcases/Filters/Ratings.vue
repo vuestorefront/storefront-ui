@@ -15,14 +15,13 @@
         class="!items-start px-1.5 bg-transparent hover:bg-transparent"
       >
         <template #prefix>
-          <SfRadio v-model="radioModel" name="radio-price" :value="value" />
+          <SfRadio v-model="ratingsModel" :checked="ratingsModel === value" :name="ratingsModel" :value="value" />
         </template>
-        <div class="flex items-end">
+        <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
+        <div class="flex flex-wrap items-end">
           <SfRating :value="Number(value)" :max="5" size="sm" />
-          <p class="inline-flex items-center">
-            <span :class="['mx-2 text-sm', { 'font-medium': radioModel === value }]">{{ label }}</span>
-            <SfCounter size="sm">{{ counter }}</SfCounter>
-          </p>
+          <span :class="['mx-2 text-sm', { 'font-medium': ratingsModel === value }]">{{ label }}</span>
+          <SfCounter size="sm">{{ counter }}</SfCounter>
         </div>
       </SfListItem>
     </fieldset>
@@ -34,7 +33,7 @@ import { ref } from 'vue';
 import { SfAccordionItem, SfRadio, SfRating, SfIconChevronLeft, SfCounter, SfListItem } from '@storefront-ui/vue';
 
 const open = ref(true);
-const radioModel = ref('');
+const ratingsModel = ref('');
 const ratingsValues = ref([
   { id: 'r1', label: '5', value: '5', counter: 10 },
   { id: 'r2', label: '4 & up', value: '4', counter: 123 },
