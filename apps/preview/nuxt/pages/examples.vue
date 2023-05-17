@@ -1,6 +1,6 @@
 <template>
   <div class="e-page-examples">
-    <div v-if="!isDocs" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
+    <div v-if="isNotIframe" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
       <header class="sidebar-heading">
         <h2>StorefrontUI v2</h2>
         <h3>Vue components</h3>
@@ -45,6 +45,7 @@ import {
   SfIconChevronLeft,
   SfIconChevronRight,
 } from '@storefront-ui/vue';
+import { onBeforeMount } from 'vue';
 
 const { currentRoute } = useRouter();
 
@@ -54,5 +55,11 @@ const components = Object.keys(files)
   .sort();
 
 const isOpen = ref(true);
-const isDocs = computed(() => currentRoute.value.query.docs);
+const isNotIframe = ref(false);
+
+onBeforeMount(() => {
+  if (window.self === window.top) {
+    isNotIframe.value = true;
+  }
+});
 </script>
