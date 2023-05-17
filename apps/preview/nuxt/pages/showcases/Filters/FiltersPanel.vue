@@ -110,52 +110,61 @@
             </SfListItem>
           </template>
           <template v-if="type === 'radio'">
-            <SfListItem
-              v-for="{ id, value, label, counter } in details"
-              :key="id"
-              as="label"
-              size="sm"
-              class="px-1.5 bg-transparent hover:bg-transparent"
-            >
-              <template #prefix>
-                <SfRadio
-                  v-model="radioModel"
-                  name="radio-price"
-                  :value="value"
-                  @update:model-value="handleSingleSelection(value)"
-                />
-              </template>
-              <p>
-                <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
-                <SfCounter size="sm">{{ counter }}</SfCounter>
-              </p>
-            </SfListItem>
+            <fieldset id="radio-price">
+              <SfListItem
+                v-for="{ id, value, label, counter } in details"
+                :key="id"
+                as="label"
+                size="sm"
+                class="px-1.5 bg-transparent hover:bg-transparent"
+              >
+                <template #prefix>
+                  <SfRadio
+                    v-model="radioModel"
+                    name="radio-price"
+                    :value="value"
+                    @update:model-value="handleSingleSelection(value)"
+                  />
+                </template>
+                <p>
+                  <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
+                  <SfCounter size="sm">{{ counter }}</SfCounter>
+                </p>
+              </SfListItem>
+            </fieldset>
           </template>
           <template v-if="type === 'ratings'">
-            <SfListItem
-              v-for="{ id, value, label, counter } in details"
-              :key="id"
-              as="label"
-              size="sm"
-              class="!items-start px-1.5 bg-transparent hover:bg-transparent"
-            >
-              <template #prefix>
-                <SfRadio v-model="ratingsModel" :checked="ratingsModel === value" :name="ratingsModel" :value="value" />
-              </template>
-              <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
-              <div class="flex flex-wrap items-end">
-                <SfRating :value="Number(value)" :max="5" size="sm" />
-                <span :class="['mx-2 text-sm', { 'font-medium': ratingsModel === value }]">{{ label }}</span>
-                <SfCounter size="sm">{{ counter }}</SfCounter>
-              </div>
-            </SfListItem>
+            <fieldset id="radio-ratings">
+              <SfListItem
+                v-for="{ id, value, label, counter } in details"
+                :key="id"
+                as="label"
+                size="sm"
+                class="!items-start py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent"
+              >
+                <template #prefix>
+                  <SfRadio
+                    v-model="ratingsModel"
+                    :checked="ratingsModel === value"
+                    name="radio-ratings"
+                    :value="value"
+                  />
+                </template>
+                <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
+                <div class="flex flex-wrap items-end">
+                  <SfRating :value="Number(value)" :max="5" size="sm" />
+                  <span :class="['mx-2 text-sm', { 'font-medium': ratingsModel === value }]">{{ label }}</span>
+                  <SfCounter size="sm">{{ counter }}</SfCounter>
+                </div>
+              </SfListItem>
+            </fieldset>
           </template>
         </SfAccordionItem>
         <hr class="my-4" />
       </li>
     </ul>
     <div class="flex justify-between">
-      <SfButton variant="secondary" class="w-full mr-3" @click="clearSelection()"> Clear all filters </SfButton>
+      <SfButton variant="secondary" class="w-full mr-3" @click="handleClearFilters()"> Clear all filters </SfButton>
       <SfButton class="w-full">Show products</SfButton>
     </div>
   </aside>
@@ -366,8 +375,9 @@ const handleCategorySelection = (selectedValue: string) => {
     selectedFilters.value = [...selectedFilters.value, selectedValue];
   }
 };
-const clearSelection = () => {
+const handleClearFilters = () => {
   selectedFilters.value = [];
   radioModel.value = '';
+  ratingsModel.value = '';
 };
 </script>

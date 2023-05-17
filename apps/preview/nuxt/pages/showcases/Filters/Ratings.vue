@@ -12,7 +12,7 @@
         :key="id"
         as="label"
         size="sm"
-        class="!items-start px-1.5 bg-transparent hover:bg-transparent"
+        class="!items-start py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent"
       >
         <template #prefix>
           <SfRadio v-model="ratingsModel" :checked="ratingsModel === value" :name="ratingsModel" :value="value" />

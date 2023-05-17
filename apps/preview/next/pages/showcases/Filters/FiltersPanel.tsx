@@ -403,7 +403,7 @@ export default function FiltersPanel() {
                     key={id}
                     as="label"
                     size="sm"
-                    className={classNames('!items-start py-4 md:py-0 bg-transparent hover:bg-transparent', {
+                    className={classNames('!items-start py-4 md:py-1 bg-transparent hover:bg-transparent', {
                       'font-medium': value === checkedRatingState,
                     })}
                     slotPrefix={
