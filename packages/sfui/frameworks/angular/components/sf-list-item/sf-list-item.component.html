@@ -1,1 +1,16 @@
-sf-list-item works!
+<span class="flex flex-col w-full min-w-0">
+  <ng-container #prefixContent>
+    <span class="empty:hidden" [ngClass]="disabled ? 'text-disabled-500' : 'text-neutral-500'">
+      <ng-content select="[prefix]"></ng-content>
+    </span>
+  </ng-container>
+
+  <span class="flex flex-col w-full min-w-0">
+    <ng-content />
+  </span>
+
+  <span class="empty:hidden" [ngClass]="disabled ? 'text-disabled-500' : 'text-neutral-500'">
+    <ng-content select="[suffix]" />
+  </span>
+</span>
+
