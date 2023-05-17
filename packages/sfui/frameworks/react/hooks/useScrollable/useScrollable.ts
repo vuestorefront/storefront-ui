@@ -1,4 +1,4 @@
-import { type Ref, useEffect, useRef, useState } from 'react';
+import { type Ref, useEffect, useRef, useState, useCallback } from 'react';
 import {
   type UseScrollableOptions,
   Scrollable,
@@ -19,12 +19,12 @@ export function useScrollable<TElement extends HTMLElement>({
   onNext,
   isActiveIndexCentered,
 }: Partial<UseScrollableOptions> = {}) {
-  const containerElement = useRef<TElement>(null);
+  const containerRef = useRef<TElement>(null);
   const scrollable = useRef<Scrollable | null>(null);
   const [state, setState] = useState({ hasPrev: false, hasNext: false, isDragged: false });
 
   useEffect(() => {
-    const container = containerElement.current;
+    const container = containerRef.current;
     if (!container) {
       return () => {};
     }
@@ -52,7 +52,7 @@ export function useScrollable<TElement extends HTMLElement>({
 
     return unregister;
   }, [
-    containerElement,
+    containerRef,
     activeIndex,
     direction,
     drag,
@@ -65,34 +65,35 @@ export function useScrollable<TElement extends HTMLElement>({
     isActiveIndexCentered,
   ]);
 
-  const getPrevButtonProps = createPropsGetter((userProps) => {
-    const handlePrev = () => {
-      scrollable.current?.prev();
-    };
-    return {
-      onClick: composeHandlers(handlePrev, userProps?.onClick),
-      disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasPrev,
-    };
-  });
+  const goPrev = useCallback(() => {
+    scrollable.current?.prev();
+  }, []);
 
-  const getNextButtonProps = createPropsGetter((userProps) => {
-    const handleNext = () => {
-      scrollable.current?.next();
-    };
-    return {
-      onClick: composeHandlers(handleNext, userProps?.onClick),
-      disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasNext,
-    };
-  });
+  const goNext = useCallback(() => {
+    scrollable.current?.next();
+  }, []);
+
+  const getPrevButtonProps = createPropsGetter((userProps) => ({
+    onClick: composeHandlers(goPrev, userProps?.onClick),
+    disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasPrev,
+  }));
+
+  const getNextButtonProps = createPropsGetter((userProps) => ({
+    onClick: composeHandlers(goNext, userProps?.onClick),
+    disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasNext,
+  }));
 
   const getContainerProps = createPropsGetter((userProps) => ({
-    ref: mergeRefs([containerElement, userProps.ref].filter(Boolean) as Ref<HTMLElement>[]),
+    ref: mergeRefs([containerRef, userProps.ref].filter(Boolean) as Ref<HTMLElement>[]),
   }));
 
   return {
+    containerRef,
     getContainerProps,
     getPrevButtonProps,
     getNextButtonProps,
+    goNext,
+    goPrev,
     state,
   };
 }

@@ -15,32 +15,29 @@ import {
 const defaultScrollableTag = 'div';
 
 const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScrollableProps>(
-  (
-    {
-      as,
-      direction = SfScrollableDirection.horizontal,
-      buttonsPlacement = SfScrollableButtonsPlacement.block,
-      activeIndex,
-      reduceMotion,
-      drag,
-      onDragStart,
-      onDragEnd,
-      onScroll,
-      onPrev,
-      onNext,
-      isActiveIndexCentered,
-      className,
-      wrapperClassName,
-      prevDisabled,
-      nextDisabled,
-      style,
-      children,
-      slotPreviousButton,
-      slotNextButton,
-      ...attributes
-    },
-    ref,
-  ) => {
+  ({
+    as,
+    direction = SfScrollableDirection.horizontal,
+    buttonsPlacement = SfScrollableButtonsPlacement.block,
+    activeIndex,
+    reduceMotion,
+    drag,
+    onDragStart,
+    onDragEnd,
+    onScroll,
+    onPrev,
+    onNext,
+    isActiveIndexCentered,
+    className,
+    wrapperClassName,
+    prevDisabled,
+    nextDisabled,
+    style,
+    children,
+    slotPreviousButton,
+    slotNextButton,
+    ...attributes
+  }) => {
     const Tag = as || defaultScrollableTag;
     const isHorizontal = direction === SfScrollableDirection.horizontal;
     const isBlock = buttonsPlacement === SfScrollableButtonsPlacement.block;
@@ -73,7 +70,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       ],
     );
 
-    const { state, getContainerProps, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
+    const { state, containerRef, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
 
     function PreviousButton({ classNameButton }: { classNameButton?: string }) {
       if (slotPreviousButton) {
@@ -135,15 +132,13 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           />
         )}
         <Tag
-          {...getContainerProps({
-            className: classNames(className, 'motion-safe:scroll-smooth', {
-              'overflow-x-auto flex gap-4': isHorizontal,
-              'overflow-y-auto flex flex-col gap-4': !isHorizontal,
-              'cursor-grab': state.isDragged,
-            }),
-            ...attributes,
-            ref,
+          className={classNames(className, 'motion-safe:scroll-smooth', {
+            'overflow-x-auto flex gap-4': isHorizontal,
+            'overflow-y-auto flex flex-col gap-4': !isHorizontal,
+            'cursor-grab': state.isDragged,
           })}
+          ref={containerRef}
+          {...attributes}
         >
           {children}
         </Tag>
