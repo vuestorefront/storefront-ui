@@ -163,6 +163,17 @@ import pkg from "../../package.json";
       text-align: center;
     }
   }
+    .alert {
+      background: #efeded;
+      padding: 1rem;
+      margin: 0.5rem 0 1rem;
+    }
+
+  	.warning {
+  		border-left: 5px solid #ffc107;
+  		background-color: #fff4d5;
+  		font-weight: bold;
+  	}
 `}</style>
 
 <div class="container">
@@ -179,6 +190,11 @@ import pkg from "../../package.json";
       {pkg.version}
     </a>
   </p>
+</div>
+<div class="alert warning">
+
+This is legacy version of StorefrontUI. Check out the [LTS support](?path=/docs/storefrontui-lts-policy--page)
+
 </div>
 
 **@storefront-ui/vue** is a UI component library that ships **raw** source, and aims to be:
