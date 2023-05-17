@@ -11,17 +11,25 @@ export const routes: Routes = [
     path: 'examples',
     component: ExamplesLayoutComponent,
     children: [
-      // todo: will be implemented with ExamplesPageComponent for /examples index page later
       {
         path: '',
-        redirectTo: 'sf-button',
-        pathMatch: 'prefix',
+        loadComponent: () =>
+          import('./pages/examples-index-page/examples-index-page.component').then(
+            (mod) => mod.ExamplesIndexPageComponent,
+          ),
       },
       {
         path: 'sf-button',
         loadComponent: () =>
           import('./pages/examples-sf-button-page/examples-sf-button-page.component').then(
             (mod) => mod.ExamplesSfButtonPageComponent,
+          ),
+      },
+      {
+        path: 'sf-list-item',
+        loadComponent: () =>
+          import('./pages/examples-sf-list-item-page/examples-sf-list-item-page.component').then(
+            (mod) => mod.ExamplesSfListItemPageComponent,
           ),
       },
     ],

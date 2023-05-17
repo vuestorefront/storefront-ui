@@ -3,3 +3,5 @@
  */
 
 export * from './sf-button/sf-button.component';
+
+export * from './sf-list-item/sf-list-item.component';
