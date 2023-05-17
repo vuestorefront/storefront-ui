@@ -41,6 +41,7 @@ function CustomTooltip(props: Props) {
   );
 }
 ```
+
 </SourceCode>
 
 <!-- end react -->
@@ -65,11 +66,16 @@ useTrapFocus(focusTrapElementRef)
   </div>
 </template>
 ```
+
 </SourceCode>
 <!-- end vue -->
 ::::::
 
-::: slot api
+:::::: slot api
+
+::: warning DEPRECATION
+Parameter `arrowKeysOn` will be deprecated since version 2.3
+:::
 
 ## Parameters
 
@@ -90,8 +96,10 @@ useTrapFocus(focusTrapElementRef)
 <!-- react -->
 | activeState  | `boolean` | `true`              | Mount `useTrapFocus` when active is `true`  |
 <!-- end react -->
-| initialFocus    | `number | 'autofocus'` | `0`       | index number of desired focus element on init or first marked element with attribute `autofocus`, for disabling this option use `false` value  |
+| initialFocus    | `number | 'autofocus' | 'container'` | `0`       | index number of desired focus element on init, `autofocus` for first marked element with attribute `autofocus`, `container` so `refElement` would be initially focused, `false` for disabling this option  |
 | arrowKeysOn | `boolean`    | `false`      | Enable/Disable possibility of using keyboard arrows `left`/`right` for jumping through focusable elements              |
+| arrowKeysLeftRight | `boolean`    | `false`      | Enable/Disable possibility of using keyboard arrows `left | up`/`right | down` for jumping through focusable elements              |
+| arrowKeysUpDown | `boolean`    | `false`      | Enable/Disable possibility of using keyboard arrows `up`/`down` for jumping through focusable elements              |
 | initialFocusContainerFallback | `boolean`  | `false`     | Fallback for initial focus           |
 
 ## Return value
@@ -109,7 +117,7 @@ useTrapFocus(focusTrapElementRef)
 | focusPrev           | `() => void` |               |  When trigger jumps to previous focusable element |
 | focusNext           | `() => void` |               |  When trigger jumps to next focusable element |
 
-:::
+::::::
 
 ::: slot source
 <SourceCode>

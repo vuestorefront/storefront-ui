@@ -149,11 +149,14 @@ const { isOpen, toggle, close } = useDisclosure();
 const menuRef = ref();
 const drawerRef = ref();
 
+useTrapFocus(drawerRef, {
+  activeState: isOpen,
+  arrowKeysUpDown: true,
+  initialFocus: 'container',
+});
 onClickOutside(menuRef, () => {
   close();
 });
-
-useTrapFocus(drawerRef, { activeState: isOpen, arrowKeysOn: true });
 
 const actionItems = [
   {
@@ -186,27 +189,27 @@ const categoriesContent = [
     items: [
       {
         title: "All Women's",
-        link: '/',
+        link: '#',
       },
       {
         title: 'Clothing',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Shoes',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Accessories',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Wearables',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Food & Drinks',
-        link: '/',
+        link: '#',
       },
     ],
   },
@@ -215,27 +218,27 @@ const categoriesContent = [
     items: [
       {
         title: 'All Men’s',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Clothing',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Shoes',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Accessories',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Wearables',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Food & Drinks',
-        link: '/',
+        link: '#',
       },
     ],
   },
@@ -244,27 +247,27 @@ const categoriesContent = [
     items: [
       {
         title: 'All Kids',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Clothing',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Shoes',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Accessories',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Wearables',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Food & Drinks',
-        link: '/',
+        link: '#',
       },
     ],
   },
