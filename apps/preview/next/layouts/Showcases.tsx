@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Fragment, ReactElement, useEffect, useState } from 'react';
+import { Fragment, type ReactElement, useEffect, useState } from 'react';
 import useSWR from 'swr';
 import {
   SfButton,
