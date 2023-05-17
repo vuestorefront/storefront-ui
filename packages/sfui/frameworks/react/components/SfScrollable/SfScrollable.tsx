@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import {
   polymorphicForwardRef,
   useScrollable,
+  mergeRefs,
   SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
@@ -15,29 +16,32 @@ import {
 const defaultScrollableTag = 'div';
 
 const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScrollableProps>(
-  ({
-    as,
-    direction = SfScrollableDirection.horizontal,
-    buttonsPlacement = SfScrollableButtonsPlacement.block,
-    activeIndex,
-    reduceMotion,
-    drag,
-    onDragStart,
-    onDragEnd,
-    onScroll,
-    onPrev,
-    onNext,
-    isActiveIndexCentered,
-    className,
-    wrapperClassName,
-    prevDisabled,
-    nextDisabled,
-    style,
-    children,
-    slotPreviousButton,
-    slotNextButton,
-    ...attributes
-  }) => {
+  (
+    {
+      as,
+      direction = SfScrollableDirection.horizontal,
+      buttonsPlacement = SfScrollableButtonsPlacement.block,
+      activeIndex,
+      reduceMotion,
+      drag,
+      onDragStart,
+      onDragEnd,
+      onScroll,
+      onPrev,
+      onNext,
+      isActiveIndexCentered,
+      className,
+      wrapperClassName,
+      prevDisabled,
+      nextDisabled,
+      style,
+      children,
+      slotPreviousButton,
+      slotNextButton,
+      ...attributes
+    },
+    ref,
+  ) => {
     const Tag = as || defaultScrollableTag;
     const isHorizontal = direction === SfScrollableDirection.horizontal;
     const isBlock = buttonsPlacement === SfScrollableButtonsPlacement.block;
@@ -137,7 +141,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             'overflow-y-auto flex flex-col gap-4': !isHorizontal,
             'cursor-grab': state.isDragged,
           })}
-          ref={containerRef}
+          ref={mergeRefs([containerRef, ref])}
           {...attributes}
         >
           {children}
