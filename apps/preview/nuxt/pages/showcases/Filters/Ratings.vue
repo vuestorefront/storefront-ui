@@ -30,10 +30,17 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SfAccordionItem, SfRadio, SfRating, SfIconChevronLeft, SfCounter, SfListItem, useDisclosure } from '@storefront-ui/vue';
+import {
+  SfAccordionItem,
+  SfRadio,
+  SfRating,
+  SfIconChevronLeft,
+  SfCounter,
+  SfListItem,
+  useDisclosure,
+} from '@storefront-ui/vue';
 
-const open = ref(true);
-const { isOpen } = useDisclosure({initialValue: true});
+const { isOpen } = useDisclosure({ initialValue: true });
 const ratingsModel = ref('');
 const ratingsValues = ref([
   { id: 'r1', label: '5', value: '5', counter: 10 },
