@@ -59,21 +59,21 @@ export function useScrollable<TElement extends HTMLElement>({
     isActiveIndexCentered,
   ]);
 
-  const goPrev = useCallback(() => {
+  const showPrev = useCallback(() => {
     scrollable.current?.prev();
   }, []);
 
-  const goNext = useCallback(() => {
+  const showNext = useCallback(() => {
     scrollable.current?.next();
   }, []);
 
   const getPrevButtonProps = createPropsGetter((userProps) => ({
-    onClick: composeHandlers(goPrev, userProps?.onClick),
+    onClick: composeHandlers(showPrev, userProps?.onClick),
     disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasPrev,
   }));
 
   const getNextButtonProps = createPropsGetter((userProps) => ({
-    onClick: composeHandlers(goNext, userProps?.onClick),
+    onClick: composeHandlers(showNext, userProps?.onClick),
     disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasNext,
   }));
 
@@ -81,8 +81,8 @@ export function useScrollable<TElement extends HTMLElement>({
     containerRef,
     getPrevButtonProps,
     getNextButtonProps,
-    goNext,
-    goPrev,
+    showNext,
+    showPrev,
     state,
   };
 }
