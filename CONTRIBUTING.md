@@ -1,7 +1,5 @@
 # StorefrontUI Contributing Guide
 
-> Note: Until stable release this repository is a WIP and all of it's contents are a subject for change.
-
 We're very excited to see that **you are thinking about contribution to StorefrontUI** 🙌 To get you quickly up and running with the codebase and our vision of creating the software we have created following guidelines, please give them a read:
 
 - [Code of Conduct](https://github.com/vuestorefront/storefront-ui/blob/v2/.github/CODE_OF_CONDUCT.md)
