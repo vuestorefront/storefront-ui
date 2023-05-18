@@ -1,9 +1,9 @@
 <template>
-  <SfAccordionItem v-model="open">
+  <SfAccordionItem v-model="isOpen">
     <template #summary>
       <div class="flex justify-between p-2 mb-2">
         <p class="font-medium">Sizes</p>
-        <SfIconChevronLeft :class="['text-neutral-500', open ? 'rotate-90' : '-rotate-90']" />
+        <SfIconChevronLeft :class="['text-neutral-500', isOpen ? 'rotate-90' : '-rotate-90']" />
       </div>
     </template>
     <fieldset id="radio-rating">
@@ -30,9 +30,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SfAccordionItem, SfRadio, SfRating, SfIconChevronLeft, SfCounter, SfListItem } from '@storefront-ui/vue';
+import { SfAccordionItem, SfRadio, SfRating, SfIconChevronLeft, SfCounter, SfListItem, useDisclosure } from '@storefront-ui/vue';
 
 const open = ref(true);
+const { isOpen } = useDisclosure({initialValue: true});
 const ratingsModel = ref('');
 const ratingsValues = ref([
   { id: 'r1', label: '5', value: '5', counter: 10 },

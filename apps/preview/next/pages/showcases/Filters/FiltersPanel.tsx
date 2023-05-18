@@ -187,8 +187,8 @@ const filtersData: Node[] = [
 
 export default function FiltersPanel() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
-  const [checkedPriceState, setCheckedPriceState] = useState<string | null>(null);
-  const [checkedRatingState, setCheckedRatingState] = useState<string | null>(null);
+  const [price, setPrice] = useState<string | null>(null);
+  const [rating, setRating] = useState<string | null>(null);
   const [opened, setOpened] = useState<string[]>(filtersData.map((item) => item.id));
 
   const isAccordionItemOpen = (id: string) => opened.includes(id);
@@ -212,8 +212,8 @@ export default function FiltersPanel() {
 
   const handleClearFilters = () => {
     setSelectedFilters([]);
-    setCheckedPriceState(null);
-    setCheckedRatingState(null);
+    setPrice(null);
+    setRating(null);
   };
 
   return (
@@ -368,24 +368,24 @@ export default function FiltersPanel() {
                   </p>
                 </SfListItem>
               ))}
-            <fieldset id="radio-price">
-              {section.type === 'radio' &&
-                section.details.map(({ label, value, counter }) => (
+            {section.type === 'radio' && (
+              <fieldset name="radio-price">
+                {section.details.map(({ label, value, counter }) => (
                   <SfListItem
                     key={value}
                     as="label"
                     size="sm"
                     disabled={counter === 0}
                     className={classNames('px-1.5 bg-transparent hover:bg-transparent', {
-                      'font-medium': value === checkedPriceState,
+                      'font-medium': value === price,
                     })}
                     slotPrefix={
                       <SfRadio
                         disabled={counter === 0}
                         value={value}
-                        checked={checkedPriceState === value}
+                        checked={price === value}
                         name="radio-price"
-                        onChange={(event) => setCheckedPriceState(event.target.value)}
+                        onChange={(event) => setPrice(event.target.value)}
                       />
                     }
                   >
@@ -395,23 +395,24 @@ export default function FiltersPanel() {
                     </p>
                   </SfListItem>
                 ))}
-            </fieldset>
-            <fieldset id="radio-rating">
-              {section.type === 'rating' &&
-                section.details.map(({ id, label, value, counter }) => (
+              </fieldset>
+            )}
+            {section.type === 'rating' && (
+              <fieldset id="radio-rating">
+                {section.details.map(({ id, label, value, counter }) => (
                   <SfListItem
                     key={id}
                     as="label"
                     size="sm"
                     className={classNames('!items-start py-4 md:py-1 bg-transparent hover:bg-transparent', {
-                      'font-medium': value === checkedRatingState,
+                      'font-medium': value === rating,
                     })}
                     slotPrefix={
                       <SfRadio
                         value={value}
-                        checked={checkedRatingState === value}
+                        checked={rating === value}
                         name="radio-rating"
-                        onChange={(event) => setCheckedRatingState(event.target.value)}
+                        onChange={(event) => setRating(event.target.value)}
                       />
                     }
                   >
@@ -423,7 +424,8 @@ export default function FiltersPanel() {
                     </div>
                   </SfListItem>
                 ))}
-            </fieldset>
+              </fieldset>
+            )}
           </SfAccordionItem>
           <hr className="my-4" />
         </>
