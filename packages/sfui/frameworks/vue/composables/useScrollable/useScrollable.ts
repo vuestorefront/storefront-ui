@@ -36,21 +36,21 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
     { immediate: true, deep: true },
   );
 
-  const goPrev = () => {
+  const showPrev = () => {
     scrollable.value?.prev();
   };
 
-  const goNext = () => {
+  const showNext = () => {
     scrollable.value?.next();
   };
 
   const getPrevButtonProps = computed(() => ({
-    onClick: goPrev,
+    onClick: showPrev,
     disabled: !state.value.hasPrev,
   }));
 
   const getNextButtonProps = computed(() => ({
-    onClick: goNext,
+    onClick: showNext,
     disabled: !state.value.hasNext,
   }));
 
@@ -58,8 +58,8 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
     containerRef,
     getPrevButtonProps,
     getNextButtonProps,
-    goNext,
-    goPrev,
+    showNext,
+    showPrev,
     state,
   };
 }
