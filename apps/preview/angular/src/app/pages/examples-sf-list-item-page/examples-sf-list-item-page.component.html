@@ -1,7 +1,27 @@
-<app-example-wrapper>
-  <li sf-list-item>
-    <p prefix>prefix</p>
-    <span>List Item</span>
-    <span suffix>suffix</span>
+<app-example-wrapper [controls]="controls" [state]="prepareControlsData.state">
+  <li
+    sf-list-item
+    class="max-w-sm"
+    [size]="prepareControlsData.state().size"
+    [disabled]="prepareControlsData.state().disabled"
+    [selected]="prepareControlsData.state().selected"
+    (click)="handleClick()"
+    (keypress)="handleClick()"
+  >
+    <p *ngIf="prepareControlsData.state().slotPrefix" prefix>{{ prepareControlsData.state().slotPrefix }}</p>
+
+    <span class="bread-words">{{ prepareControlsData.state().label }}</span>
+
+    <p
+      class="text-xs font-normal break-words text-neutral-500"
+      [ngClass]="{
+        truncate: prepareControlsData.state().truncate,
+        '!text-disabled-500': prepareControlsData.state().disabled
+      }"
+    >
+      {{ prepareControlsData.state().secondaryText }}
+    </p>
+
+    <p *ngIf="prepareControlsData.state().slotSuffix" suffix>{{ prepareControlsData.state().slotSuffix }}</p>
   </li>
 </app-example-wrapper>
