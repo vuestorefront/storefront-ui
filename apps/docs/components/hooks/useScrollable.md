@@ -19,7 +19,7 @@ With this <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue
 ### Base Usage
 <!-- react -->
 
-To use `useScrollable`, we have attach `containerRef` on main container to identify the element that we want to watch for specific events. Additionally we need to create two buttons and apply `getPrevButtonProps` for button that show previous pages and `getNextButtonProps` for `button` that will show next pages on click.
+To use `useScrollable` attach `containerRef` to the main container to identify the element that will watch for specific events. Additionally, create two buttons for showing next nad previous elements and apply `getPrevButtonProps` and `getNextButtonProps` to each button accordingly.
 
 <SourceCode>
 
