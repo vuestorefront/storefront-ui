@@ -1,6 +1,14 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { SfAccordionItem, SfCounter, SfListItem, SfRadio, SfRating, SfIconChevronLeft, useDisclosure } from '@storefront-ui/react';
+import {
+  SfAccordionItem,
+  SfCounter,
+  SfListItem,
+  SfRadio,
+  SfRating,
+  SfIconChevronLeft,
+  useDisclosure,
+} from '@storefront-ui/react';
 import { useState } from 'react';
 import classNames from 'classnames';
 
@@ -14,7 +22,7 @@ const ratingsValues = [
 
 export default function Ratings() {
   const [rating, setRating] = useState<string | null>(null);
-  const { toggle, isOpen } = useDisclosure({initialValue: true});
+  const { toggle, isOpen } = useDisclosure({ initialValue: true });
   return (
     <SfAccordionItem
       open={isOpen}
