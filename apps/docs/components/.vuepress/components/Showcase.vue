@@ -22,7 +22,6 @@
         class="pt-4 flex-grow rounded overflow-hidden"
         :class="[tab === 1 ? 'flex' : 'hidden']"
         @mousedown="mouseDownListener"
-        @touchstart="touchDownListener"
       >
         <div class="absolute inset-0" v-show="isHandlerDragging"></div>
         <Generate :showcase-path="showcaseName" :allow="allow" class="flex-grow rounded" style="margin-top: 0" :no-paddings="noPaddings"/>
@@ -68,15 +67,11 @@ export default {
   }),
   mounted() {
     document.addEventListener('mousemove', this.mouseMoveListener);
-    document.addEventListener('touchmove', this.touchMoveListener);
     document.addEventListener('mouseup', this.mouseUpListener);
-    document.addEventListener('touchup', this.touchUpListener)
   },
   unmounted() {
     document.removeEventListener('mousemove', this.mouseMoveListener);
-    document.removeEventListener('touchmove', this.touchMoveListener);
     document.removeEventListener('mouseup', this.mouseUpListener);
-    document.removeEventListener('touchUp', this.touchUpListener);
   },
   methods: {
     mouseDownListener(e) {
@@ -84,27 +79,8 @@ export default {
         this.isHandlerDragging = true;
       }
     },
-    touchDownListener(e) {
-      if (e.target === this.$refs.handlerRef) {
-        this.isHandlerDragging = true;
-      }
-    },
-    touchUpListener(e) {
-      this.isHandlerDragging = false;
-    },
     mouseUpListener() {
       this.isHandlerDragging = false;
-    },
-    touchMoveListener(e){
-      if (!this.isHandlerDragging) return false;
-      
-      const containerOffsetLeft = this.$refs.wrapperRef.getBoundingClientRect().left;
-      const pointerRelativeXpos = e.touches[0].pageX - containerOffsetLeft;
-      const minWidth = 320;
-
-      this.$refs.previewElementRef.style.maxWidth = `${Math.max(minWidth, pointerRelativeXpos)}px`;
-      this.$refs.previewElementRef.style.maxWidth = `${Math.max(minWidth, pointerRelativeXpos)}px`;
-
     },
     mouseMoveListener(e) {
       if (!this.isHandlerDragging) return false;
