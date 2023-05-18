@@ -22,3 +22,5 @@ RUN yarn build:docs
 
 FROM nginx
 COPY --from=build /var/www/apps/docs/components/.vuepress/dist /usr/share/nginx/html/v2
+
+COPY .vuestorefrontcloud/docs/default.conf /etc/nginx/conf.d/default.conf
