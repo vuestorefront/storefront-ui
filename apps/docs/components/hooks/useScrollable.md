@@ -84,7 +84,7 @@ const { containerRef, state, getNextButtonProps, getPrevButtonProps } = useScrol
 ### Controlled showing next and previous elements
 <!-- react -->
 
-`useScrollable` is exposing imperative methods for showing elements - `showNext` and `showPrev`. To make them work, user needs to bind these functions as `onClick` handler.
+`useScrollable exposes imperative methods for showing elements - `showNext` and `showPrev`. To make them work, user needs to bind these functions as `onClick` handler.
 
 <SourceCode>
 
