@@ -23,9 +23,12 @@ type GroupsInterface = {
     visible: boolean;
   };
 };
+
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function ShowcaseLayout({ children }: { children: ReactElement }) {
   const [isOpen, setIsOpen] = useState(true);
+  const [isNotIframe, setIsNotIframe] = useState(false);
+  const [noPaddings, setNoPaddings] = useState(false);
   const [groups, setGroups] = useState<GroupsInterface>({});
   const [search, setSearch] = useState('');
 
@@ -86,10 +89,25 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
     set: (state) => setSearch((state as any).s),
   });
 
-  const isDocsRoute = !router.query.docs;
+  useEffect(() => {
+    if (window.self === window.top) {
+      setIsNotIframe(true);
+    } else {
+      window.parent.postMessage('loaded', '*');
+
+      window.addEventListener(
+        'message',
+        (e) => {
+          if (e.data === 'no-paddings') setNoPaddings(true);
+        },
+        false,
+      );
+    }
+  }, []);
+
   return (
     <div className="e-page-examples">
-      {isDocsRoute ? (
+      {isNotIframe ? (
         <div className={`sidebar ${isOpen ? '' : 'sidebar-collapsed'}`}>
           <header className="sidebar-heading">
             <h2>StorefrontUI v2</h2>
@@ -157,7 +175,9 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
         </div>
       ) : null}
       <div className="e-page">
-        <div className="e-page-component">{children}</div>
+        <div className={classNames('e-page-component', { 'e-page-component--no-paddings': noPaddings })}>
+          {children}
+        </div>
       </div>
     </div>
   );

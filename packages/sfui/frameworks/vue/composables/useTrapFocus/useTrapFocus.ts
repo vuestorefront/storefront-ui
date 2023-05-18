@@ -42,14 +42,14 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
   };
   const currentlyFocused = ref<HTMLElement | undefined>();
   const focusableElements = ref<FocusableElement[]>([]);
-  let containeHTMLElement: HTMLElement | undefined;
+  let containerHTMLElement: HTMLElement | undefined;
 
   const onFocusListener = () => {
     currentlyFocused.value = document.activeElement as HTMLElement;
   };
 
   const onKeyDownListener = (event: KeyboardEvent) => {
-    const isAnyGroupElement = arrowFocusGroupSelector && containeHTMLElement?.querySelector(arrowFocusGroupSelector);
+    const isAnyGroupElement = arrowFocusGroupSelector && containerHTMLElement?.querySelector(arrowFocusGroupSelector);
     if (arrowKeysOn) {
       if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
         focusNext({
@@ -76,8 +76,8 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
   };
 
   const removeEventListeners = () => {
-    containeHTMLElement?.removeEventListener('keydown', onKeyDownListener);
-    containeHTMLElement?.removeEventListener('keydown', onFocusListener);
+    containerHTMLElement?.removeEventListener('keydown', onKeyDownListener);
+    containerHTMLElement?.removeEventListener('keydown', onFocusListener);
   };
 
   watch(
@@ -86,11 +86,11 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
       if (containerElement && activeState) {
         let focusFallbackNeeded = false;
         await waitForNextRender();
-        containeHTMLElement = unrefElement(containerElement);
+        containerHTMLElement = unrefElement(containerElement);
 
-        containeHTMLElement?.addEventListener('focus', onFocusListener, true);
-        containeHTMLElement?.addEventListener('keydown', onKeyDownListener);
-        focusableElements.value = tabbable(containeHTMLElement as HTMLElement, { includeContainer });
+        containerHTMLElement?.addEventListener('focus', onFocusListener, true);
+        containerHTMLElement?.addEventListener('keydown', onKeyDownListener);
+        focusableElements.value = tabbable(containerHTMLElement as HTMLElement, { includeContainer });
 
         if (typeof initialFocus === 'number') {
           if (!focusableElements.value[initialFocus]) {

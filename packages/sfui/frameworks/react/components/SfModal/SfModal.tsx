@@ -1,8 +1,13 @@
 import classNames from 'classnames';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
-import { mergeRefs } from 'react-merge-refs';
-import { type SfModalProps, polymorphicForwardRef, useTrapFocus, InitialFocusType } from '@storefront-ui/react';
+import {
+  type SfModalProps,
+  polymorphicForwardRef,
+  useTrapFocus,
+  InitialFocusType,
+  mergeRefs,
+} from '@storefront-ui/react';
 
 const defaultModalTag = 'div';
 

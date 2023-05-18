@@ -60,6 +60,21 @@ Changing an image is provided by click on the buttons which are visible after ho
 
 </Showcase>
 
+## Product Gallery with arrow key navigation
+
+In this block there is added arrow key navigation. When focus is on one of the thumbnails it's possible to change currently displayed image by pressing arrow keys - arrow up and arrow right will show a next image and arrow down and arrow left will show a  previous image.
+
+<Showcase showcase-name="Gallery/GalleryHorizontalArrowKeyNavigation" style="min-height:700px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontalArrowKeyNavigation.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Gallery/GalleryHorizontalArrowKeyNavigation.tsx#source
+<!-- end react -->
+
+</Showcase>
+
 ## Accessibility notes
 
 The Gallery supports the use of the keyboard (Tab/alt+Tab) to navigate through images.
