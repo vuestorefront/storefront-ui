@@ -117,7 +117,7 @@ function BasicScrollable(props: Props) {
 <!-- end react -->
 <!-- vue -->
 
-`useScrollable` is exposing imperative methods for showing elements - `showNext` and `showPrev`. To make them work, user needs to bind these functions as click event. 
+`useScrollable` exposes imperative methods for showing elements - `showNext` and `showPrev`. To make them work, user needs to bind these functions as click event. 
 
 <SourceCode>
 
