@@ -23,7 +23,7 @@
     </h5>
     <ul>
       <!-- eslint-disable-next-line prettier/prettier -->
-      <li v-for="({ id: filterDataId, type, summary, details }, index) in filtersData" :key="filterDataId">
+      <li v-for="{ id: filterDataId, type, summary, details }, index in filtersData" :key="filterDataId">
         <SfAccordionItem v-model="opened[index]">
           <template #summary>
             <div class="flex justify-between p-2 mb-2">
@@ -96,7 +96,7 @@
             <SfListItem
               v-for="{ id, value, label, counter } in details"
               :key="id"
-              as="label"
+              tag="label"
               size="sm"
               :class="['px-1.5 bg-transparent hover:bg-transparent', { 'font-medium': isItemActive(value) }]"
             >
@@ -113,7 +113,7 @@
             <SfListItem
               v-for="{ id, value, label, counter } in details"
               :key="id"
-              as="label"
+              tag="label"
               size="sm"
               class="px-1.5 bg-transparent hover:bg-transparent"
             >
