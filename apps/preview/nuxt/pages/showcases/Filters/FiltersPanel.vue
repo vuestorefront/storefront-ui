@@ -82,7 +82,7 @@
               <template #prefix>
                 <input v-model="selectedFilters" :value="value" class="appearance-none peer" type="checkbox" />
                 <span
-                  class="inline-flex items-center justify-center p-1 transition duration-300 rounded-full cursor-pointer ring-1 ring-neutral-200 ring-inset outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline"
+                  class="inline-flex items-center justify-center p-1 transition duration-300 rounded-full cursor-pointer ring-1 ring-neutral-200 ring-inset outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-[&:not(:checked):hover]:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus-visible:outline"
                   ><SfThumbnail size="sm" :class="value"
                 /></span>
               </template>
@@ -96,7 +96,7 @@
             <SfListItem
               v-for="{ id, value, label, counter } in details"
               :key="id"
-              as="label"
+              tag="label"
               size="sm"
               :class="['px-1.5 bg-transparent hover:bg-transparent', { 'font-medium': isItemActive(value) }]"
             >
@@ -114,20 +114,15 @@
               <SfListItem
                 v-for="{ id, value, label, counter } in details"
                 :key="id"
-                as="label"
+                tag="label"
                 size="sm"
                 class="px-1.5 bg-transparent hover:bg-transparent"
               >
                 <template #prefix>
-                  <SfRadio
-                    v-model="radioModel"
-                    name="radio-price"
-                    :value="value"
-                    @update:model-value="handleSingleSelection(value)"
-                  />
+                  <SfRadio v-model="priceModel" name="radio-price" :value="value" />
                 </template>
                 <p>
-                  <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
+                  <span :class="['text-sm mr-2', { 'font-medium': priceModel === value }]">{{ label }}</span>
                   <SfCounter size="sm">{{ counter }}</SfCounter>
                 </p>
               </SfListItem>
@@ -138,17 +133,12 @@
               <SfListItem
                 v-for="{ id, value, label, counter } in details"
                 :key="id"
-                as="label"
+                tag="label"
                 size="sm"
                 class="!items-start py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent"
               >
                 <template #prefix>
-                  <SfRadio
-                    v-model="ratingsModel"
-                    :checked="ratingsModel === value"
-                    name="radio-ratings"
-                    :value="value"
-                  />
+                  <SfRadio v-model="ratingsModel" name="radio-ratings" :value="value" />
                 </template>
                 <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
                 <div class="flex flex-wrap items-end">
@@ -356,17 +346,12 @@ const sortOptions = ref([
 
 const selectedFilters = ref<string[]>([]);
 const opened = ref<boolean[]>(filtersData.value.map(() => true));
-const radioModel = ref('');
+const priceModel = ref('');
 const ratingsModel = ref('');
 const sortModel = ref();
 
 const isItemActive = (selectedValue: string) => {
   return selectedFilters.value?.includes(selectedValue);
-};
-const handleSingleSelection = (selectedValue: string) => {
-  const newSelectedFilters = selectedFilters.value.filter((selectedFilter) => !isItemActive(selectedFilter));
-  newSelectedFilters.push(selectedValue);
-  selectedFilters.value = newSelectedFilters;
 };
 const handleCategorySelection = (selectedValue: string) => {
   if (selectedFilters.value.indexOf(selectedValue) > -1) {
@@ -377,7 +362,7 @@ const handleCategorySelection = (selectedValue: string) => {
 };
 const handleClearFilters = () => {
   selectedFilters.value = [];
-  radioModel.value = '';
+  priceModel.value = '';
   ratingsModel.value = '';
 };
 </script>

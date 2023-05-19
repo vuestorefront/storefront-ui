@@ -19,7 +19,7 @@ With this <!-- react -->hook<!-- end react --><!-- vue -->composable<!-- end vue
 ### Base Usage
 <!-- react -->
 
-To use `useScrollable`, we have attach `getContainerProps` on main container to identify the element that we want to watch for specific events. Additionally we need to create two buttons and apply `getPrevButtonProps` for button that show previous pages and `getNextButtonProps` for `button` that will show next pages on click.
+To use `useScrollable` attach `containerRef` to the main container to identify the element that will watch for specific events. Additionally, create two buttons for showing next nad previous elements and apply `getPrevButtonProps` and `getNextButtonProps` to each button accordingly.
 
 <SourceCode>
 
@@ -28,12 +28,12 @@ import * as React from 'react';
 import { useScrollable } from '@storefront-ui/react';
 
 function BasicScrollable(props: Props) {
-  const { getContainerProps, state, getNextButtonProps, getPrevButtonProps } = useScrollable();
+  const { containerRef, state, getNextButtonProps, getPrevButtonProps } = useScrollable();
 
   return (
     <div className="flex items-center">
       <button {...getPrevButtonProps()}>previous</button>
-      <div {...getContainerProps()}>
+      <div ref={containerRef}>
         {Array.from({ length: itemsLength }, (_, i) => (
           <div
             key={i}
@@ -52,22 +52,21 @@ function BasicScrollable(props: Props) {
 <!-- end react -->
 <!-- vue -->
 
-To use `useScrollable`, we have attach `getContainerRef` on main container to identify the element that we want to watch for specific events. Additionally we need to create two buttons and apply `getPrevButtonProps` for button that show previous pages and `getNextButtonProps` for `button` that will show next pages on click.
+To use `useScrollable` attach `containerRef` to the main container to identify the element that will watch for specific events. Additionally, create two buttons for showing next nad previous elements and apply `getPrevButtonProps` and `getNextButtonProps` to each button accordingly.
 
 <SourceCode>
 
 ```vue
 <script lang="ts" setup>
-import { ref } from 'vue';
 import { useScrollable } from '@storefront-ui/vue';
 
-const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useScrollable()
+const { containerRef, state, getNextButtonProps, getPrevButtonProps } = useScrollable()
 </script>
 
 <template>
   <div class="flex items-center">
     <button v-bind="getPrevButtonProps">previous</button>
-    <div ref="getContainerRef">
+    <div ref="containerRef">
       <div
         v-for="(_, index) in Array.from({ length: 20 })"
         :key="index"
@@ -76,6 +75,71 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
       </div>
     </div>
     <button v-bind="getNextButtonProps">next</button>
+  </div>
+</template>
+```
+</SourceCode>
+<!-- end vue -->
+
+### Controlled showing next and previous elements
+<!-- react -->
+
+`useScrollable exposes imperative methods for showing elements - `showNext` and `showPrev`. To make them work, user needs to bind these functions as `onClick` handler.
+
+<SourceCode>
+
+```tsx
+import * as React from 'react';
+import { useScrollable } from '@storefront-ui/react';
+
+function BasicScrollable(props: Props) {
+  const { containerRef, state, showNext, showPrev } = useScrollable();
+
+  return (
+    <div className="flex items-center">
+      <button onClick={showPrev()} disabled={!state.hasPrev}>previous</button>
+      <div ref={containerRef}>
+        {Array.from({ length: itemsLength }, (_, i) => (
+          <div
+            key={i}
+          >
+            thumbnail {i + 1}
+          </div>
+        ))}
+      </div>
+      <button onClick={showNext()} disabled={!state.hasNext}>next</button>
+    </div>
+  );
+}
+```
+</SourceCode>
+
+<!-- end react -->
+<!-- vue -->
+
+`useScrollable` exposes imperative methods for showing elements - `showNext` and `showPrev`. To make them work, user needs to bind these functions as click event. 
+
+<SourceCode>
+
+```vue
+<script lang="ts" setup>
+import { useScrollable } from '@storefront-ui/vue';
+
+const { containerRef, state, showNext, showPrev } = useScrollable()
+</script>
+
+<template>
+  <div class="flex items-center">
+    <button @click="showPrev" :disabled="!state.hasPrev">previous</button>
+    <div ref="containerRef">
+      <div
+        v-for="(_, index) in Array.from({ length: 20 })"
+        :key="index"
+      >
+        thumbnail {{ index + 1 }}
+      </div>
+    </div>
+    <button @click="showNext" :disabled="!state.hasNext">next</button>
   </div>
 </template>
 ```
@@ -111,13 +175,17 @@ const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useSc
 | --------- | --------------------- | ------------- | ----------- |
 <!-- vue -->
 | state  | `Ref<{hasPrev: boolean; hasNext: boolean;isDragged: boolean;}>` | `ref{ hasPrev: false, hasNext: false, isDragged: false }`  | Current state of scrollable  |
-| getContainerRef  | `Ref<>` |   | `Ref` to be attached on container  |
+| containerRef  | `Ref<>` |   | `Ref` to be attached on container  |
+| showNext  | `() => void)` |   | Method used to show next items in the container  |
+| showPrev  | `() => void` |   | Method used to show previous items in the container  |
 | getPrevButtonProps  | `ComputedRef<{onClick, disabled}>` |   | ComputedRef to be binded onto previous button |
 | getNextButtonProps  | `ComputedRef<{onClick, disabled}>` |   | ComputedRef to be binded onto next button |
 <!-- end vue -->
 <!-- react -->
 | state  | `{hasPrev: boolean; hasNext: boolean;isDragged: boolean;}` | `{ hasPrev: false, hasNext: false, isDragged: false }`  | Current state of scrollable  |
-| getContainerProps  | `Function` |   | Props to be attched on container  |
+| containerRef  | `Ref<>` |   | `Ref` to be attached on container  |
+| showNext  | `() => void` |   | Method used to show next items in the container  |
+| showPrev  | `() => void` |   | Method used to show previous items in the container  |
 | getPrevButtonProps  | `Function` |   | Function to be attached onto previous button |
 | getNextButtonProps  | `Function` |   | Function to be attached onto next button |
 <!-- end react -->
