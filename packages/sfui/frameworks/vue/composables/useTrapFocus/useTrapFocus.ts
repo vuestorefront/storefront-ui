@@ -19,6 +19,13 @@ type UseTrapFocusOptions = TabbableOptions &
     arrowKeysOn?: boolean;
   };
 
+type UseTrapFocusReturn = {
+  current: Ref<HTMLElement | undefined>;
+  focusables: Ref<FocusableElement[]>;
+  focusNext: typeof focusNext;
+  focusPrev: typeof focusPrev;
+};
+
 const defaultOptions = {
   trapTabs: true,
   activeState: ref(true),
@@ -27,7 +34,10 @@ const defaultOptions = {
   arrowKeysOn: false,
 };
 
-export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, options?: UseTrapFocusOptions) => {
+export const useTrapFocus = (
+  containerElementRef: Ref<HTMLElement | undefined>,
+  options?: UseTrapFocusOptions,
+): UseTrapFocusReturn => {
   const {
     trapTabs,
     arrowFocusGroupSelector,
