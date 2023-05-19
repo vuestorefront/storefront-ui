@@ -31,27 +31,27 @@
 
 <img src="./_readme/showcase.png">
 
-## What problems does Storefront UI solve?
+## What problems does Storefront UI solve? 
 
 Like any UI Library / Design System the main goal of Storefront UI is to **accelerate the development process** by providing an opinionated set of premade components, utilities and patterns.
 
 There is a lot of the things you have to take care of to build good user interfaces:
 
-🔹 **Developer/Designer workflow**: Storefront UI comes out of the box with Figma files - a pixel-perfect representation of your code that your design and engineering teams needs to stay aligned. 
+🔹 **Developer/Designer workflow** - Storefront UI comes out of the box with Figma files - a pixel-perfect representation of your code that your design and engineering teams needs to stay aligned. 
 
-🔹 **Performance:** Poorly written and overcomplicated components are often the performance bottleneck ruining the experience of your users. **All standard eCommerce pages that we've built with Storefront UI hit 95-100 on Lighthouse**! (mobile performance measured using [PSI](https://pagespeed.web.dev/))
+🔹 **Performance** - Poorly written and overcomplicated components are often the performance bottleneck ruining the experience of your users. **All standard eCommerce pages that we've built with Storefront UI hit 95-100 on Lighthouse**! (mobile performance measured using [PSI](https://pagespeed.web.dev/))
 
-🔹 **Accessibility:**  Web Accessibility is more than an ethical requirement in US: [it’s also legal](https://adasitecompliance.com/website-accessibility-legal-requirement/) and you risk fines if the justice department finds you guilty.  At the same time building accessible components takes a lot of time and requires specific domain knowledge. **Storefront UI components are WCAG AA compliant out of the box!**
+🔹 **Accessibility** -  Web accessibility is more than an ethical requirement in the United States: [it’s also legally mandated](https://adasitecompliance.com/website-accessibility-legal-requirement/) and you risk fines if the justice department determines your website is non-compliant. At the same time building accessible components takes a lot of time and requires specific domain knowledge. **Storefront UI components are WCAG AA compliant out of the box!**
 
 But let's be honest, almost all established UI libraries can solve that. **Here's what's Storefront UI is best at::**
 
-🔸 **Customization:**  Most of the UI libraries out there fail when components need to be heavily customized. You suddenly find yourself working against your library just to achieve the desired look. Storefront UI is built for complex cases. We ship a set of small and flexible _base components_ like `Button`, `Checkbox` or `Modal` that can be used to build more complex ones. We also deliver more complex examples (aka _Blocks_) like `ProductCard` or a different checkout steps as copy-pasteable code using Storefront UI components and Tailwind utilities.
+🔸 **Customization** -  Most of the UI libraries out there fail when components need to be heavily customized. You suddenly find yourself working against your library just to achieve the desired look. Storefront UI is built for complex cases. We ship a set of small and flexible _base components_ like `Button`, `Checkbox` or `Modal` that can be used to build more complex ones. We also deliver more complex examples (aka _Blocks_) like `ProductCard` or a different checkout steps as copy-pasteable code using Storefront UI components and Tailwind utilities.
 
 In addition, Storefront UI fits perfectly complex UI setups where one library is inherited and customized by multiple projects differing visually.
 
-🔸 **Scaling:** The more your application grows the less maintainable your UI becomes. By providing the right building blocks and using Tailwind CSS we made sure that your UI will be easy to maintain and won't negatively impact your performance even on a large scale. 
+🔸 **Scaling** - The more your application grows the less maintainable your UI becomes. By providing the right building blocks and using Tailwind CSS we made sure that your UI will be easy to maintain and won't negatively impact your performance even on a large scale. 
 
-🔸 **Focus on eCommerce** Storefront UI comes out of the box with components specific to eCommerce like `ProductCard`, `QuantitySelector` and even checkout components
+🔸 **Focus on eCommerce** - Storefront UI comes out of the box with components specific to eCommerce like `ProductCard`, `QuantitySelector` and even checkout components
 
 ## What comes out of the box? 🎁
 
