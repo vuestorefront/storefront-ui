@@ -1,7 +1,7 @@
 import type { CheckOptions, FocusableElement, TabbableOptions } from 'tabbable';
 import { tabbable } from 'tabbable';
 import { focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
-import { useEffect, useRef, type RefObject } from 'react';
+import { useEffect, useState, useRef, type RefObject } from 'react';
 
 export enum InitialFocusType {
   autofocus = 'autofocus',
@@ -38,8 +38,9 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     ...defaultOptions,
     ...options,
   };
-  const currentlyFocused = useRef<HTMLElement | undefined>();
-  const focusableElements = useRef<FocusableElement[]>([]);
+
+  const [current, setCurrent] = useState<HTMLElement>();
+  const [focusables, setFocusables] = useState<FocusableElement[]>([]);
 
   const onKeyDownListener = (event: KeyboardEvent) => {
     const isAnyGroupElement =
@@ -47,34 +48,34 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     if (arrowKeysOn) {
       if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
         focusNext({
-          current: currentlyFocused.current,
-          focusables: focusableElements.current,
+          current,
+          focusables,
           ...(isAnyGroupElement && { arrowFocusGroupSelector }),
         });
       } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
         focusPrev({
-          current: currentlyFocused.current,
-          focusables: focusableElements.current,
+          current,
+          focusables,
           ...(isAnyGroupElement && { arrowFocusGroupSelector }),
         });
       }
     }
 
     if (trapTabs && isTab(event)) {
-      focusNext({ current: currentlyFocused.current, event, focusables: focusableElements.current });
+      focusNext({ current, event, focusables });
     }
 
     if (trapTabs && isTabAndShift(event)) {
-      focusPrev({ current: currentlyFocused.current, event, focusables: focusableElements.current });
+      focusPrev({ current, event, focusables });
     }
   };
   const onFocusListener = () => {
-    currentlyFocused.current = document.activeElement as HTMLElement | undefined;
+    setCurrent(document.activeElement as HTMLElement | undefined);
   };
 
   const removeEventListeners = () => {
     containerElementRef.current?.removeEventListener('keydown', onKeyDownListener);
-    containerElementRef.current?.removeEventListener('keydown', onFocusListener);
+    containerElementRef.current?.removeEventListener('focus', onFocusListener);
   };
 
   useEffect(() => {
@@ -82,33 +83,37 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
       containerElementRef.current?.addEventListener('focus', onFocusListener, true);
       containerElementRef.current?.addEventListener('keydown', onKeyDownListener);
       let focusFallbackNeeded = false;
-      focusableElements.current = tabbable(containerElementRef.current, { includeContainer });
-
+      setFocusables(tabbable(containerElementRef.current, { includeContainer }));
       if (typeof initialFocus === 'number') {
-        if (!focusableElements.current[initialFocus]) {
+        if (!focusables[initialFocus]) {
           // eslint-disable-next-line no-console
           console.error(`There is no element with given index ${initialFocus}`);
           focusFallbackNeeded = true;
-        } else focusableElements.current[initialFocus].focus();
+        } else {
+          focusables[initialFocus]?.focus();
+        }
       } else if (initialFocus === InitialFocusType.autofocus) {
-        const autofocusElement = focusableElements.current.find((focusable) => focusable.hasAttribute('autofocus'));
-        if (autofocusElement) autofocusElement.focus();
-        else focusFallbackNeeded = true;
+        const autofocusElement = focusables.find((focusable) => focusable?.hasAttribute('autofocus'));
+        if (autofocusElement) {
+          autofocusElement.focus();
+        } else {
+          focusFallbackNeeded = true;
+        }
       }
-
       if (initialFocusContainerFallback && focusFallbackNeeded) containerElementRef.current.focus();
+      console.log('trap', focusables, current);
     } else {
-      focusableElements.current = [];
-      currentlyFocused.current = undefined;
+      setFocusables([]);
+      setCurrent(undefined);
+      containerElementRef.current?.removeEventListener('focus', onFocusListener);
     }
 
     return removeEventListeners;
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [containerElementRef.current, focusableElements.current, currentlyFocused.current, activeState]);
-
+  }, [containerElementRef.current, activeState]);
   return {
-    current: currentlyFocused,
-    focusables: focusableElements,
+    current,
+    focusables,
     focusNext,
     focusPrev,
   };

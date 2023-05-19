@@ -12,25 +12,22 @@ import {
   useTrapFocus,
   useDropdown,
   SfSwitch,
+  InitialFocusType,
 } from '@storefront-ui/react';
 import classNames from 'classnames';
 
-type DisabledSwitchProps = {
+export function DisableSwitch({
+  disabledState,
+  setDisabledState,
+}: {
   disabledState: boolean;
   setDisabledState: (disabledState: boolean) => void;
-};
-
-export const DisableSwitch = function ({ disabledState, setDisabledState }: DisabledSwitchProps) {
+}) {
   return (
     <div className="mt-10">
       <label className="flex items-center">
-        <SfSwitch
-          className="!z-0"
-          checked={disabledState}
-          value="disabled"
-          onChange={() => setDisabledState(!disabledState)}
-        />
-        <span className="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Disbled/Enabled</span>
+        <SfSwitch checked={disabledState} value="disabled" onChange={() => setDisabledState(!disabledState)} />
+        <span className="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Disabled/Enabled</span>
       </label>
     </div>
   );
@@ -72,8 +69,8 @@ const mockAutocompleteRequest = async (phrase: string) => {
 export default function ComboboxBasic() {
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownListRef = useRef<HTMLUListElement>(null);
-  const [searchValue, setSearchValue] = useState<string | undefined>(undefined);
-  const [selectedValue, setSelectedValue] = useState<string | undefined>('');
+  const [searchValue, setSearchValue] = useState<string>('');
+  const [selectedValue, setSelectedValue] = useState<string>('');
   const [isValid, setIsValid] = useState<boolean | undefined>(undefined);
   const [isLoadingSnippets, setIsLoadingSnippets] = useState(false);
   const { isOpen, close, open, toggle } = useDisclosure();
@@ -83,10 +80,22 @@ export default function ComboboxBasic() {
   const id = useId();
   const listId = useId();
 
-  useTrapFocus(dropdownListRef, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+  const { current: currentFocus, focusables: focusableElements } = useTrapFocus(refs.setFloating, {
+    arrowKeysOn: true,
+    activeState: isOpen,
+    initialFocus: InitialFocusType.autofocus,
+    initialFocusContainerFallback: true,
+    arrowFocusGroupSelector: id,
+  });
 
   const handleFocusInput = () => {
     inputRef.current?.focus();
+  };
+
+  const handleReset = () => {
+    setSearchValue('');
+    setSnippets([]);
+    close();
   };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -95,15 +104,30 @@ export default function ComboboxBasic() {
     if (phrase) {
       setSearchValue(phrase);
     } else {
-      setSearchValue(undefined);
-      setSnippets([]);
-      close();
+      handleReset();
     }
   };
 
   const handleBlur = () => {
     if (dropdownListRef.current) return;
     setIsValid(!!selectedValue);
+  };
+
+  const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') handleReset();
+    if (event.key === 'ArrowUp') {
+      open();
+      if (isOpen) {
+        const focusableElementsAmount = focusableElements.length;
+        focusableElements[focusableElementsAmount - 1].focus();
+      }
+    }
+    if (event.key === 'ArrowDown') {
+      open();
+      if (isOpen) {
+        focusableElements[0].focus();
+      }
+    }
   };
 
   const selectOption = (event: FormEvent, option: SelectOption) => {
@@ -141,6 +165,7 @@ export default function ComboboxBasic() {
     [searchValue],
   );
 
+  console.log('combobox', currentFocus, focusableElements);
   return (
     <>
       <div ref={refs.setReference} className="relative">
@@ -164,10 +189,11 @@ export default function ComboboxBasic() {
           aria-autocomplete="both"
           aria-disabled={disabledState}
           aria-expanded={isOpen}
-          aria-activedescendant={selectedValue}
-          invalid={isValid === false}
+          aria-activedescendant={currentFocus}
+          invalid={!isValid}
           disabled={disabledState}
           onClick={toggle}
+          onKeyDown={handleInputKeyDown}
           className={classNames('cursor-pointer', {
             '!text-disabled-500': disabledState,
           })}
@@ -184,7 +210,7 @@ export default function ComboboxBasic() {
             />
           }
         />
-        <div ref={refs.setFloating} style={style} className="left-0 right-0">
+        <div ref={refs.setFloating} style={style} className={classNames('left-0 right-0')}>
           {isOpen &&
             (isLoadingSnippets ? (
               <div className="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md">
@@ -194,7 +220,6 @@ export default function ComboboxBasic() {
               <ul
                 id={listId}
                 role="listbox"
-                ref={dropdownListRef}
                 aria-label="Country list"
                 className="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
               >
@@ -202,6 +227,7 @@ export default function ComboboxBasic() {
                   snippets.map((option) => (
                     <li key={option.value}>
                       <SfListItem
+                        id={`${listId}-${option.value}`}
                         as="button"
                         type="button"
                         onClick={(event) => selectOption(event, option)}
@@ -225,8 +251,9 @@ export default function ComboboxBasic() {
                     </SfListItem>
                   )) ||
                   options.map((option) => (
-                    <div key={option.value}>
+                    <li key={option.value}>
                       <SfListItem
+                        id={`${listId}-${option.value}`}
                         as="button"
                         type="button"
                         onClick={(event) => selectOption(event, option)}
@@ -238,7 +265,7 @@ export default function ComboboxBasic() {
                           <span>{option.label}</span>
                         </p>
                       </SfListItem>
-                    </div>
+                    </li>
                   ))}
               </ul>
             ))}
