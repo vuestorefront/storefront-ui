@@ -420,10 +420,7 @@ export default function MegaMenuNavigation() {
               className="flex items-center mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
             >
               <picture>
-                <source
-                  srcSet="http://localhost:3100/@assets/vsf_logo_white.svg"
-                  media="(min-width: 1024px)"
-                />
+                <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
                 <img
                   src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
                   alt="Sf Logo"

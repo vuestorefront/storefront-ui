@@ -14,8 +14,7 @@ import {
 } from '@storefront-ui/react';
 import classNames from 'classnames';
 
-const withBase = (filepath: string) =>
-  `http://localhost:3100/@assets/gallery/${filepath}`;
+const withBase = (filepath: string) => `http://localhost:3100/@assets/gallery/${filepath}`;
 
 const images = [
   { imageSrc: withBase('gallery_1.png'), imageThumbSrc: withBase('gallery_1_thumb.png'), alt: 'backpack1' },

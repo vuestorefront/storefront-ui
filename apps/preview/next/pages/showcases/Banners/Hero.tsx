@@ -7,10 +7,7 @@ export default function Hero() {
   return (
     <div className="relative min-h-[600px]">
       <picture>
-        <source
-          srcSet="http://localhost:3100/@assets/hero-bg.png"
-          media="(min-width: 768px)"
-        />
+        <source srcSet="http://localhost:3100/@assets/hero-bg.png" media="(min-width: 768px)" />
         <img
           src="http://localhost:3100/@assets/hero-bg-mobile.png"
           className="absolute w-full h-full z-[-1] md:object-cover"

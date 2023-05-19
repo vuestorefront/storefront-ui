@@ -7,8 +7,7 @@ import { useState } from 'react';
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
 import classNames from 'classnames';
 
-const withBase = (filepath: string) =>
-  `http://localhost:3100/@assets/gallery/${filepath}`;
+const withBase = (filepath: string) => `http://localhost:3100/@assets/gallery/${filepath}`;
 
 const images = [
   { imageSrc: withBase('gallery_1.png'), alt: 'backpack1' },

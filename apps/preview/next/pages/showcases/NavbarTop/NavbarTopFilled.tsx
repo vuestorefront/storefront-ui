@@ -50,10 +50,7 @@ export default function TopNavFilled() {
           className="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
         >
           <picture>
-            <source
-              srcSet="http://localhost:3100/@assets/vsf_logo_white.svg"
-              media="(min-width: 768px)"
-            />
+            <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 768px)" />
             <img
               src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
               alt="Sf Logo"
