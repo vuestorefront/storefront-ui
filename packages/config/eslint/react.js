@@ -1,7 +1,6 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
   extends: ['airbnb', 'airbnb/hooks', 'eslint-config-airbnb-typescript', 'prettier'],
-  plugins: ['prettier'],
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/parsers': {
@@ -60,7 +59,6 @@ module.exports = {
         allowChildren: false,
       },
     ],
-    'prettier/prettier': 'error',
     'react/button-has-type': ['error', { reset: true }],
     'import/prefer-default-export': 0,
   },

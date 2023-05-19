@@ -22,7 +22,7 @@
       Filters
     </h5>
     <ul>
-      <!-- eslint-disable-next-line prettier/prettier -->
+      <!-- prettier-ignore-attribute -->
       <li v-for="{ id: filterDataId, type, summary, details }, index in filtersData" :key="filterDataId">
         <SfAccordionItem v-model="opened[index]">
           <template #summary>

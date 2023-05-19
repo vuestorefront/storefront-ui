@@ -16,8 +16,8 @@
     ]
   },
   "scripts": {
-    "postinstall": "yarn node hasEnv NOT_GENERATE_ICON && yarn generate-icons",
-    "generate-icons": "concurrently \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix:sfui",
+    "postinstall": "node hasEnv NOT_GENERATE_ICON && yarn generate-icons",
+    "generate-icons": "yarn createVueIcons && yarn createReactIcons && yarn lint:fix:sfui",
     "prepare": "husky install",
     "build": "yarn update-browserlist-db && yarn generate-icons && yarn build:peer-next && turbo run build",
     "dev:docs": "yarn update-browserlist-db && turbo run dev:docs",
@@ -43,9 +43,9 @@
     "test:ci-pre:react": "yarn build:peer-next && turbo run test:ci-pre:react",
     "test:ci:react": "yarn build:peer-next && turbo run test:ci:react",
     "clean": "rimraf ./**/node_modules && rm yarn.lock",
-    "clean:total": "rimraf ./**/node_modules && rimraf ./**/.cache && rimraf ./**/.turbo && rm yarn.lock",
-    "createVueIcons": "yarn node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/SfIcons/ absolutePathToIconBase=@storefront-ui/vue",
-    "createReactIcons": "yarn node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/SfIcons/ absolutePathToIconBase=@storefront-ui/react",
+    "clean:total": "rimraf ./**/node_modules ./**/.cache ./**/.turbo && rm yarn.lock",
+    "createVueIcons": "node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/SfIcons/ absolutePathToIconBase=@storefront-ui/vue",
+    "createReactIcons": "node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/SfIcons/ absolutePathToIconBase=@storefront-ui/react",
     "hygen": "./node_modules/.bin/hygen",
     "component": "yarn hygen component",
     "component-new": "yarn hygen component new"
