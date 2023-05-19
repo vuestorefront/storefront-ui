@@ -36,3 +36,4 @@ export * from './components/SfSwitch';
 export * from './components/SfScrollable';
 export * from './components/SfTooltip';
 export * from './components/SfThumbnail';
+export * from './components/SfBadge';
