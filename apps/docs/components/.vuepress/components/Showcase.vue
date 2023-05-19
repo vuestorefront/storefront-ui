@@ -21,11 +21,12 @@
         ref="previewElementRef"
         class="pt-4 flex-grow rounded overflow-hidden"
         :class="[tab === 1 ? 'flex' : 'hidden']"
-        @mousedown="mouseDownListener"
+        @mousedown="eventDownListener"
+        @touchstart="eventDownListener"
       >
         <div class="absolute inset-0" v-show="isHandlerDragging"></div>
         <Generate :showcase-path="showcaseName" :allow="allow" class="flex-grow rounded" style="margin-top: 0" :no-paddings="noPaddings"/>
-        <div ref="handlerRef" class="select-none rounded-tr flex items-center" style="cursor: ew-resize">
+        <div ref="handlerRef" class="select-none rounded-tr items-center hidden sm:flex" style="cursor: ew-resize">
           <iconify-icon icon="akar-icons:drag-vertical" class="pointer-events-none" />
         </div>
       </div>
@@ -66,30 +67,33 @@ export default {
     isHandlerDragging: false,
   }),
   mounted() {
-    document.addEventListener('mousemove', this.mouseMoveListener);
-    document.addEventListener('mouseup', this.mouseUpListener);
+    document.addEventListener('mousemove', this.eventMoveListener);
+    document.addEventListener('touchmove', this.eventMoveListener);
+    document.addEventListener('mouseup', this.eventUpListener);
+    document.addEventListener('touchup', this.eventUpListener)
   },
   unmounted() {
-    document.removeEventListener('mousemove', this.mouseMoveListener);
-    document.removeEventListener('mouseup', this.mouseUpListener);
+    document.removeEventListener('mousemove', this.eventMoveListener);
+    document.removeEventListener('touchmove', this.eventMoveListener);
+    document.removeEventListener('mouseup', this.eventUpListener);
+    document.removeEventListener('touchUp', this.eventUpListener);
   },
   methods: {
-    mouseDownListener(e) {
+    eventDownListener(e) {
       if (e.target === this.$refs.handlerRef) {
         this.isHandlerDragging = true;
       }
     },
-    mouseUpListener() {
+    eventUpListener(e) {
       this.isHandlerDragging = false;
     },
-    mouseMoveListener(e) {
+    eventMoveListener(e) {
       if (!this.isHandlerDragging) return false;
 
       const containerOffsetLeft = this.$refs.wrapperRef.getBoundingClientRect().left;
-      const pointerRelativeXpos = e.clientX - containerOffsetLeft;
+      const pointerRelativeXpos = (e?.clientX || (e?.touches[0] && e?.touches[0]?.pageX)) - containerOffsetLeft;
       const minWidth = 386;
 
-      this.$refs.previewElementRef.style.maxWidth = `${Math.max(minWidth, pointerRelativeXpos)}px`;
       this.$refs.previewElementRef.style.maxWidth = `${Math.max(minWidth, pointerRelativeXpos)}px`;
     },
   },
