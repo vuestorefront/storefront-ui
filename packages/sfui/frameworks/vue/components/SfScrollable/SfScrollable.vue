@@ -69,7 +69,7 @@ const emit = defineEmits<{
 }>();
 const { direction, activeIndex, reduceMotion, drag, isActiveIndexCentered } = toRefs(props);
 
-const { getContainerRef, state, getNextButtonProps, getPrevButtonProps } = useScrollable(
+const { containerRef, state, getNextButtonProps, getPrevButtonProps } = useScrollable(
   computed(() => ({
     ...reactive({
       direction,
@@ -117,7 +117,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
     </SfButton>
     <component
       :is="tag"
-      ref="getContainerRef"
+      ref="containerRef"
       :class="[
         'motion-safe:scroll-smooth',
         {
