@@ -3,9 +3,9 @@ export default {
   inheritAttrs: false,
 };
 const getSizeClasses = {
-  [SfInputSize.sm]: ' h-[32px]',
-  [SfInputSize.base]: 'h-[40px]',
-  [SfInputSize.lg]: 'h-[48px]',
+  [SfInputSize.sm]: 'py-1.5 h-[32px]',
+  [SfInputSize.base]: 'py-2 h-[40px]',
+  [SfInputSize.lg]: 'py-3 h-[48px]',
 };
 </script>
 
