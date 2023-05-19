@@ -29,22 +29,18 @@
 </template>
 
 <script setup lang="ts">
-import men from '@assets/men_category.png';
-import women from '@assets/women_category.png';
-import kid from '@assets/kid_category.png';
-
 const categories = [
   {
     title: `Women`,
-    image: women,
+    image: 'http://localhost:3100/@assets/women_category.png',
   },
   {
     title: `Men`,
-    image: men,
+    image: 'http://localhost:3100/@assets/men_category.png',
   },
   {
     title: `Kid`,
-    image: kid,
+    image: 'http://localhost:3100/@assets/kid_category.png',
   },
 ];
 </script>

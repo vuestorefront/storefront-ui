@@ -17,11 +17,6 @@ import {
   SfIconArrowBack,
 } from '@storefront-ui/react';
 import { type FocusEvent, Fragment, useRef, useState } from 'react';
-import brandLogo from '@assets/vsf_logo_white.svg';
-import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
-import watch from '@assets/watch.png';
-import glasses from '@assets/glasses.png';
-import toy from '@assets/toy.png';
 
 const actionItems = [
   {
@@ -64,7 +59,12 @@ const content: Node = {
   children: [
     {
       key: 'WOMEN',
-      value: { label: 'Women', counter: 515, banner: glasses.src, bannerTitle: 'The world in a new light' },
+      value: {
+        label: 'Women',
+        counter: 515,
+        banner: 'http://localhost:3100/@assets/glasses.png',
+        bannerTitle: 'The world in a new light',
+      },
       isLeaf: false,
       children: [
         {
@@ -167,7 +167,12 @@ const content: Node = {
     },
     {
       key: 'MEN',
-      value: { label: 'Men', counter: 364, banner: watch.src, bannerTitle: 'New in designer watches' },
+      value: {
+        label: 'Men',
+        counter: 364,
+        banner: 'http://localhost:3100/@assets/watch.png',
+        bannerTitle: 'New in designer watches',
+      },
       isLeaf: false,
       children: [
         {
@@ -265,7 +270,12 @@ const content: Node = {
     },
     {
       key: 'KIDS',
-      value: { label: 'Kids', counter: 263, banner: toy.src, bannerTitle: 'Unleash your imagination' },
+      value: {
+        label: 'Kids',
+        counter: 263,
+        banner: 'http://localhost:3100/@assets/toy.png',
+        bannerTitle: 'Unleash your imagination',
+      },
       isLeaf: false,
       children: [
         {
@@ -410,8 +420,12 @@ export default function MegaMenuNavigation() {
               className="flex items-center mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
             >
               <picture>
-                <source srcSet={brandLogo.src} media="(min-width: 1024px)" />
-                <img src={brandLogoSign.src} alt="Sf Logo" className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]" />
+                <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
+                <img
+                  src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
+                  alt="Sf Logo"
+                  className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
+                />
               </picture>
             </a>
           </div>
