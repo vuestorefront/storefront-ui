@@ -26,7 +26,7 @@
       >
         <div class="absolute inset-0" v-show="isHandlerDragging"></div>
         <Generate :showcase-path="showcaseName" :allow="allow" class="flex-grow rounded" style="margin-top: 0" :no-paddings="noPaddings"/>
-        <div ref="handlerRef" class="select-none rounded-tr flex items-center" style="cursor: ew-resize">
+        <div ref="handlerRef" class="select-none rounded-tr items-center hidden sm:flex" style="cursor: ew-resize">
           <iconify-icon icon="akar-icons:drag-vertical" class="pointer-events-none" />
         </div>
       </div>
@@ -92,7 +92,7 @@ export default {
 
       const containerOffsetLeft = this.$refs.wrapperRef.getBoundingClientRect().left;
       const pointerRelativeXpos = (e?.clientX || (e?.touches[0] && e?.touches[0]?.pageX)) - containerOffsetLeft;
-      const minWidth = e?.clientX ? 386 : 300;
+      const minWidth = 386;
 
       this.$refs.previewElementRef.style.maxWidth = `${Math.max(minWidth, pointerRelativeXpos)}px`;
     },
