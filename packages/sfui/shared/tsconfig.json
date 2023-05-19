@@ -1,6 +1,7 @@
 {
   "extends": "@storefront-ui/typescript-config/base.json",
   "compilerOptions": {
+    "outDir": "./dist",
     "strict": true,
     "skipLibCheck": true,
     "importHelpers": true,
@@ -18,7 +19,6 @@
       "vite/client"
     ]
   },
-  "include": [
-    "**/*.ts"
-  ]
+  "include": ["**/*.ts"],
+  "exclude": ["./dist/**/*"]
 }

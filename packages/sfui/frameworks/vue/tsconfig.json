@@ -1,6 +1,7 @@
 {
   "extends": "@storefront-ui/typescript-config/base.json",
   "compilerOptions": {
+    "outDir": "./dist",
     "strict": true,
     "skipLibCheck": true,
     "importHelpers": true,
@@ -12,6 +13,7 @@
     "module": "ESNext",
     "allowJs": true,
     "resolveJsonModule": true,
+    "incremental": true,
     "jsx": "preserve",
     "baseUrl": ".",
     "types": [
@@ -24,5 +26,6 @@
   "include": [
     "**/*.ts",
     "**/*.vue"
-  ]
+  ],
+  "exclude": ["./dist/**/*"]
 }
