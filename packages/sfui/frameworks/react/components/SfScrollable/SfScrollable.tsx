@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import {
   polymorphicForwardRef,
   useScrollable,
+  mergeRefs,
   SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
@@ -73,7 +74,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       ],
     );
 
-    const { state, getContainerProps, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
+    const { state, containerRef, getNextButtonProps, getPrevButtonProps } = useScrollable(sliderOptions);
 
     function PreviousButton({ classNameButton }: { classNameButton?: string }) {
       if (slotPreviousButton) {
@@ -135,15 +136,13 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           />
         )}
         <Tag
-          {...getContainerProps({
-            className: classNames(className, 'motion-safe:scroll-smooth', {
-              'overflow-x-auto flex gap-4': isHorizontal,
-              'overflow-y-auto flex flex-col gap-4': !isHorizontal,
-              'cursor-grab': state.isDragged,
-            }),
-            ...attributes,
-            ref,
+          className={classNames(className, 'motion-safe:scroll-smooth', {
+            'overflow-x-auto flex gap-4': isHorizontal,
+            'overflow-y-auto flex flex-col gap-4': !isHorizontal,
+            'cursor-grab': state.isDragged,
           })}
+          ref={mergeRefs([containerRef, ref])}
+          {...attributes}
         >
           {children}
         </Tag>
