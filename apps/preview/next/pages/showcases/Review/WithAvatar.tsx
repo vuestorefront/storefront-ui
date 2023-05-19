@@ -8,7 +8,7 @@ export default function Review() {
       <header className="flex flex-col items-start pb-4 md:flex-row md:justify-between">
         <div className="flex items-start">
           <img
-            src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/review_avatar.png"
+            src="http://localhost:3100/@assets/review_avatar.png"
             alt="Review avatar"
             className="p-0.5"
           />

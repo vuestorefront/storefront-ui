@@ -1,9 +1,6 @@
 <template>
   <SfThumbnail size="xl">
-    <img
-      src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/card.png"
-      alt="Thumbnail avatar"
-    />
+    <img src="http://localhost:3100/@assets/card.png" alt="Thumbnail avatar" />
   </SfThumbnail>
 </template>
 

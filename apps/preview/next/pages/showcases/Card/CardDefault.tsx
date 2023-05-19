@@ -5,21 +5,21 @@ import { SfButton } from '@storefront-ui/react';
 
 const cardDetails = [
   {
-    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/card-3.png',
+    image: 'http://localhost:3100/@assets/card-3.png',
     title: 'Sip Sustainably: The Rise of Boxed Water',
     description:
       'Boxed water is a sustainable alternative to traditional plastic bottles, made from renewable resources.',
     button: 'Read more',
   },
   {
-    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/card-2.png',
+    image: 'http://localhost:3100/@assets/card-2.png',
     title: 'Ride the Future: Exploring the Benefits of e-Bikes',
     description:
       'Eco-friendly, efficient, and fun modes of transportation that provide a range of benefits for riders and the environment.',
     button: 'Read more',
   },
   {
-    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/card-1.png',
+    image: 'http://localhost:3100/@assets/card-1.png',
     title: 'Unleash the Ultimate Listening Experience',
     description:
       'Audiophile headphones offer unmatched sound quality and clarity, making them the go-to choice for music enthusiasts.',

@@ -30,6 +30,7 @@
     "build:docs": "yarn build:peer-next && turbo run build:docs",
     "build:next": "turbo run build:next",
     "build:nuxt": "turbo run build:nuxt",
+    "build:replace-assets-url-with": "frs-replace \"http:\\/\\/localhost:3100\\/@assets\\/\" \"https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/$ENV_NAME/\" -i \"apps/preview/*/pages/**/*\" -s \"preserve-structure\" -o .",
     "build:react": "turbo run build:react",
     "build:vue": "turbo run build:vue",
     "build:release": "turbo run build:release",
@@ -52,6 +53,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
+    "@frsource/frs-replace": "^4.1.1",
     "@storefront-ui/typescript-config": "workspace:*",
     "babel-cli": "^6.26.0",
     "babel-preset-node": "^5.1.1",

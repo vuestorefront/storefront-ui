@@ -38,7 +38,7 @@ const actionItems = [
 ];
 
 const bannerDetails = {
-  image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/watch.png',
+  image: 'http://localhost:3100/@assets/watch.png',
   title: 'New in designer watches',
 };
 
@@ -156,11 +156,11 @@ export default function BaseMegaMenu() {
           >
             <picture>
               <source
-                srcSet="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/vsf_logo_white.svg"
+                srcSet="http://localhost:3100/@assets/vsf_logo_white.svg"
                 media="(min-width: 1024px)"
               />
               <img
-                src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/vsf_logo_sign_white.svg"
+                src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
                 alt="Sf Logo"
                 className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
               />

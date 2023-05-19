@@ -73,8 +73,7 @@
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/vue';
 import { ref } from 'vue';
 
-const withBase = (filepath: string) =>
-  `https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/gallery/${filepath}`;
+const withBase = (filepath: string) => `http://localhost:3100/@assets/gallery/${filepath}`;
 
 const images = [
   { imageSrc: withBase('gallery_1.png'), alt: 'backpack1' },

@@ -8,7 +8,7 @@ export default function ProductCardVertical() {
       <div className="relative">
         <SfLink href="#">
           <img
-            src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/sneakers.png"
+            src="http://localhost:3100/@assets/sneakers.png"
             alt="Great product"
             className="object-cover h-auto rounded-md aspect-square"
             width={300}

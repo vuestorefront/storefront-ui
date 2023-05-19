@@ -32,15 +32,15 @@
 const categories = [
   {
     title: `Women`,
-    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/women_category.png',
+    image: 'http://localhost:3100/@assets/women_category.png',
   },
   {
     title: `Men`,
-    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/men_category.png',
+    image: 'http://localhost:3100/@assets/men_category.png',
   },
   {
     title: `Kid`,
-    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/kid_category.png',
+    image: 'http://localhost:3100/@assets/kid_category.png',
   },
 ];
 </script>

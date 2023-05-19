@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 const displayDetails = [
   {
-    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/display.png',
+    image: 'http://localhost:3100/@assets/display.png',
     title: 'Sunny Days Ahead',
     subtitle: 'Be inspired',
     description: 'Step out in style with our sunglasses collection',
@@ -18,7 +18,7 @@ const displayDetails = [
     descriptionClass: 'md:typography-text-lg',
   },
   {
-    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/display-2.png',
+    image: 'http://localhost:3100/@assets/display-2.png',
     title: 'Pack it Up',
     subtitle: 'Be active',
     description: 'Explore the great outdoors with our backpacks',
@@ -27,7 +27,7 @@ const displayDetails = [
     backgroundColor: 'bg-warning-200',
   },
   {
-    image: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/display-3.png',
+    image: 'http://localhost:3100/@assets/display-3.png',
     title: 'Fresh and Bold',
     subtitle: 'New collection',
     description: 'Add a pop up color to your outfit',

@@ -4,7 +4,7 @@
       <SfLink href="#">
         <img
           class="w-full h-auto border rounded-md border-neutral-200"
-          src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/smartwatch.png"
+          src="http://localhost:3100/@assets/smartwatch.png"
           alt="Smartwatch Fitness Tracker"
           :width="176"
           :height="176"

@@ -20,14 +20,9 @@
             class="flex items-center mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
-              <source
-                srcset="
-                  https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/vsf_logo_white.svg
-                "
-                media="(min-width: 1024px)"
-              />
+              <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
               <img
-                src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/vsf_logo_sign_white.svg"
+                src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
                 alt="Sf Logo"
                 class="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
               />
@@ -278,7 +273,7 @@ const content: Node = {
       value: {
         label: 'Women',
         counter: 515,
-        banner: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/glasses.png',
+        banner: 'http://localhost:3100/@assets/glasses.png',
         bannerTitle: 'The world in a new light',
       },
       isLeaf: false,
@@ -386,7 +381,7 @@ const content: Node = {
       value: {
         label: 'Men',
         counter: 364,
-        banner: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/watch.png',
+        banner: 'http://localhost:3100/@assets/watch.png',
         bannerTitle: 'New in designer watches',
       },
       isLeaf: false,
@@ -489,7 +484,7 @@ const content: Node = {
       value: {
         label: 'Kids',
         counter: 263,
-        banner: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/toy.png',
+        banner: 'http://localhost:3100/@assets/toy.png',
         bannerTitle: 'Unleash your imagination',
       },
       isLeaf: false,

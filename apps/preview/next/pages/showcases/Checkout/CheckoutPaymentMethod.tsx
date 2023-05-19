@@ -5,25 +5,25 @@ const paymentMethods = [
   {
     label: 'Credit card',
     value: 'credit-card',
-    logo: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/visa-logo.svg',
+    logo: 'http://localhost:3100/@assets/visa-logo.svg',
     active: true,
   },
   {
     label: 'PayPal',
     value: 'paypal',
-    logo: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/paypal-logo.svg',
+    logo: 'http://localhost:3100/@assets/paypal-logo.svg',
     active: true,
   },
   {
     label: 'ApplePay',
     value: 'applepay',
-    logo: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/apple-pay-logo.svg',
+    logo: 'http://localhost:3100/@assets/apple-pay-logo.svg',
     active: true,
   },
   {
     label: 'GooglePay',
     value: 'googlepay',
-    logo: 'https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/google-pay-logo.svg',
+    logo: 'http://localhost:3100/@assets/google-pay-logo.svg',
     active: false,
   },
 ];

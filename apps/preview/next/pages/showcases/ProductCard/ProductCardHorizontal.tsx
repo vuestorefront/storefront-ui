@@ -21,7 +21,7 @@ export default function ProductCardHorizontal() {
         <SfLink href="#">
           <img
             className="w-full h-auto border rounded-md border-neutral-200"
-            src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/smartwatch.png"
+            src="http://localhost:3100/@assets/smartwatch.png"
             alt="alt"
             width={300}
             height={300}

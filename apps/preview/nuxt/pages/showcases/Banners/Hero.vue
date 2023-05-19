@@ -1,19 +1,16 @@
 <template>
   <div class="relative min-h-[600px]">
     <picture>
-      <source
-        srcset="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/hero-bg.png"
-        media="(min-width: 768px)"
-      />
+      <source srcset="http://localhost:3100/@assets/hero-bg.png" media="(min-width: 768px)" />
       <img
-        src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/hero-bg-mobile.png"
+        src="http://localhost:3100/@assets/hero-bg-mobile.png"
         class="absolute w-full h-full z-[-1] md:object-cover"
       />
     </picture>
     <div class="md:flex md:flex-row-reverse md:justify-center max-w[1536px] mx-auto md:min-h-[600px]">
       <div class="flex flex-col md:basis-2/4 md:items-stretch md:overflow-hidden">
         <img
-          src="https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/production/fixture/hero-headphones.png"
+          src="http://localhost:3100/@assets/hero-headphones.png"
           alt="Headphones"
           class="h-full object-cover object-left"
         />
