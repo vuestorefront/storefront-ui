@@ -31,7 +31,7 @@
 
 <img src="./_readme/showcase.png">
 
-## What problems does Storefront UI solve?
+## What problems does Storefront UI solve? 
 
 Like any UI Library / Design System the main goal of Storefront UI is to **accelerate the development process** by providing an opinionated set of premade components, utilities and patterns.
 
