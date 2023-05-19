@@ -162,7 +162,7 @@ const onDragged = (event: SfScrollableOnDragEndData) => {
 
 const assignRef = (el: Element | ComponentPublicInstance | null, index: number) => {
   if (!el) return;
-  if (index === thumbImages.length - 1) {
+  if (index === images.length - 1) {
     lastThumbRef.value = el as HTMLButtonElement;
   } else if (index === 0) {
     firstThumbRef.value = el as HTMLButtonElement;
