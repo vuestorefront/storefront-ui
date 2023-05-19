@@ -89,6 +89,11 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
 
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
       - name: Get cached dependencies
         uses: actions/cache@v2
         with:
