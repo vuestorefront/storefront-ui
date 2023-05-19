@@ -110,33 +110,51 @@
             </SfListItem>
           </template>
           <template v-if="type === 'radio'">
-            <SfListItem
-              v-for="{ id, value, label, counter } in details"
-              :key="id"
-              tag="label"
-              size="sm"
-              class="px-1.5 bg-transparent hover:bg-transparent"
-            >
-              <template #prefix>
-                <SfRadio
-                  v-model="radioModel"
-                  name="radio-price"
-                  :value="value"
-                  @update:model-value="handleSingleSelection(value)"
-                />
-              </template>
-              <p>
-                <span :class="['text-sm mr-2', { 'font-medium': isItemActive(value) }]">{{ label }}</span>
-                <SfCounter size="sm">{{ counter }}</SfCounter>
-              </p>
-            </SfListItem>
+            <fieldset id="radio-price">
+              <SfListItem
+                v-for="{ id, value, label, counter } in details"
+                :key="id"
+                tag="label"
+                size="sm"
+                class="px-1.5 bg-transparent hover:bg-transparent"
+              >
+                <template #prefix>
+                  <SfRadio v-model="priceModel" name="radio-price" :value="value" />
+                </template>
+                <p>
+                  <span :class="['text-sm mr-2', { 'font-medium': priceModel === value }]">{{ label }}</span>
+                  <SfCounter size="sm">{{ counter }}</SfCounter>
+                </p>
+              </SfListItem>
+            </fieldset>
+          </template>
+          <template v-if="type === 'ratings'">
+            <fieldset id="radio-ratings">
+              <SfListItem
+                v-for="{ id, value, label, counter } in details"
+                :key="id"
+                tag="label"
+                size="sm"
+                class="!items-start py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent"
+              >
+                <template #prefix>
+                  <SfRadio v-model="ratingsModel" name="radio-ratings" :value="value" />
+                </template>
+                <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
+                <div class="flex flex-wrap items-end">
+                  <SfRating :value="Number(value)" :max="5" size="sm" />
+                  <span :class="['mx-2 text-sm', { 'font-medium': ratingsModel === value }]">{{ label }}</span>
+                  <SfCounter size="sm">{{ counter }}</SfCounter>
+                </div>
+              </SfListItem>
+            </fieldset>
           </template>
         </SfAccordionItem>
         <hr class="my-4" />
       </li>
     </ul>
     <div class="flex justify-between">
-      <SfButton variant="secondary" class="w-full mr-3" @click="clearSelection()"> Clear all filters </SfButton>
+      <SfButton variant="secondary" class="w-full mr-3" @click="handleClearFilters()"> Clear all filters </SfButton>
       <SfButton class="w-full">Show products</SfButton>
     </div>
   </aside>
@@ -156,6 +174,7 @@ import {
   SfIconClose,
   SfListItem,
   SfRadio,
+  SfRating,
   SfSelect,
   SfThumbnail,
 } from '@storefront-ui/vue';
@@ -303,6 +322,18 @@ const filtersData = ref<Node[]>([
       { id: 'pr5', label: '$200.00 and above', value: 'above', counter: 18 },
     ],
   },
+  {
+    id: 'acc6',
+    summary: 'Ratings',
+    type: 'ratings',
+    details: [
+      { id: 'r1', label: '5', value: '5', counter: 10 },
+      { id: 'r2', label: '4 & up', value: '4', counter: 123 },
+      { id: 'r3', label: '3 & up', value: '3', counter: 12 },
+      { id: 'r4', label: '2 & up', value: '2', counter: 3 },
+      { id: 'r5', label: '1 & up', value: '1', counter: 13 },
+    ],
+  },
 ]);
 const sortOptions = ref([
   { id: 'sort1', label: 'Relevance', value: 'relevance' },
@@ -315,16 +346,12 @@ const sortOptions = ref([
 
 const selectedFilters = ref<string[]>([]);
 const opened = ref<boolean[]>(filtersData.value.map(() => true));
-const radioModel = ref('');
+const priceModel = ref('');
+const ratingsModel = ref('');
 const sortModel = ref();
 
 const isItemActive = (selectedValue: string) => {
   return selectedFilters.value?.includes(selectedValue);
-};
-const handleSingleSelection = (selectedValue: string) => {
-  const newSelectedFilters = selectedFilters.value.filter((selectedFilter) => !isItemActive(selectedFilter));
-  newSelectedFilters.push(selectedValue);
-  selectedFilters.value = newSelectedFilters;
 };
 const handleCategorySelection = (selectedValue: string) => {
   if (selectedFilters.value.indexOf(selectedValue) > -1) {
@@ -333,8 +360,9 @@ const handleCategorySelection = (selectedValue: string) => {
     selectedFilters.value = [...selectedFilters.value, selectedValue];
   }
 };
-const clearSelection = () => {
+const handleClearFilters = () => {
   selectedFilters.value = [];
-  radioModel.value = '';
+  priceModel.value = '';
+  ratingsModel.value = '';
 };
 </script>

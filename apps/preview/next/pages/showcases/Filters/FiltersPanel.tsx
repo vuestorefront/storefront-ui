@@ -12,6 +12,7 @@ import {
   SfListItem,
   SfThumbnail,
   SfRadio,
+  SfRating,
   SfSelect,
   SfCheckbox,
 } from '@storefront-ui/react';
@@ -170,10 +171,24 @@ const filtersData: Node[] = [
       { id: 'pr5', label: '$200.00 and above', value: 'above', counter: 18 },
     ],
   },
+  {
+    id: 'acc6',
+    summary: 'Rating',
+    type: 'rating',
+    details: [
+      { id: 'r1', label: '5', value: '5', counter: 10 },
+      { id: 'r2', label: '4 & up', value: '4', counter: 123 },
+      { id: 'r3', label: '3 & up', value: '3', counter: 12 },
+      { id: 'r4', label: '2 & up', value: '2', counter: 3 },
+      { id: 'r5', label: '1 & up', value: '1', counter: 13 },
+    ],
+  },
 ];
 
 export default function FiltersPanel() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [price, setPrice] = useState<string | null>(null);
+  const [rating, setRating] = useState<string | null>(null);
   const [opened, setOpened] = useState<string[]>(filtersData.map((item) => item.id));
 
   const isAccordionItemOpen = (id: string) => opened.includes(id);
@@ -187,18 +202,18 @@ export default function FiltersPanel() {
     }
   };
 
-  const handleRadioSelection = (selectedValue: string) => {
-    const newSelectedFilters = selectedFilters.filter((selectedFilter) => !isFilterSelected(selectedFilter));
-    newSelectedFilters.push(selectedValue);
-    setSelectedFilters(newSelectedFilters);
-  };
-
   const handleToggle = (id: string) => (open: boolean) => {
     if (open) {
       setOpened((current) => [...current, id]);
     } else {
       setOpened((current) => current.filter((item) => item !== id));
     }
+  };
+
+  const handleClearFilters = () => {
+    setSelectedFilters([]);
+    setPrice(null);
+    setRating(null);
   };
 
   return (
@@ -353,40 +368,70 @@ export default function FiltersPanel() {
                   </p>
                 </SfListItem>
               ))}
-            {section.type === 'radio' &&
-              section.details.map(({ label, value, counter }) => (
-                <SfListItem
-                  key={value}
-                  as="label"
-                  size="sm"
-                  disabled={counter === 0}
-                  className={classNames('px-1.5 bg-transparent hover:bg-transparent', {
-                    'font-medium': isFilterSelected(value),
-                  })}
-                  slotPrefix={
-                    <SfRadio
-                      disabled={counter === 0}
-                      value={value}
-                      name="radio-price"
-                      checked={isFilterSelected(value)}
-                      onChange={(event) => {
-                        handleRadioSelection(event.target.value);
-                      }}
-                    />
-                  }
-                >
-                  <p>
-                    <span className="mr-2 text-sm">{label}</span>
-                    <SfCounter size="sm">{counter}</SfCounter>
-                  </p>
-                </SfListItem>
-              ))}
+            {section.type === 'radio' && (
+              <fieldset name="radio-price">
+                {section.details.map(({ label, value, counter }) => (
+                  <SfListItem
+                    key={value}
+                    as="label"
+                    size="sm"
+                    disabled={counter === 0}
+                    className={classNames('px-1.5 bg-transparent hover:bg-transparent', {
+                      'font-medium': value === price,
+                    })}
+                    slotPrefix={
+                      <SfRadio
+                        disabled={counter === 0}
+                        value={value}
+                        checked={price === value}
+                        name="radio-price"
+                        onChange={(event) => setPrice(event.target.value)}
+                      />
+                    }
+                  >
+                    <p>
+                      <span className="mr-2 text-sm">{label}</span>
+                      <SfCounter size="sm">{counter}</SfCounter>
+                    </p>
+                  </SfListItem>
+                ))}
+              </fieldset>
+            )}
+            {section.type === 'rating' && (
+              <fieldset id="radio-rating">
+                {section.details.map(({ id, label, value, counter }) => (
+                  <SfListItem
+                    key={id}
+                    as="label"
+                    size="sm"
+                    className={classNames('!items-start py-4 md:py-1 bg-transparent hover:bg-transparent', {
+                      'font-medium': value === rating,
+                    })}
+                    slotPrefix={
+                      <SfRadio
+                        value={value}
+                        checked={rating === value}
+                        name="radio-rating"
+                        onChange={(event) => setRating(event.target.value)}
+                      />
+                    }
+                  >
+                    {/* TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem */}
+                    <div className="flex flex-wrap items-end">
+                      <SfRating value={Number(value)} max={5} size="sm" />
+                      <span className="mx-2 text-sm">{label}</span>
+                      <SfCounter size="sm">{counter}</SfCounter>
+                    </div>
+                  </SfListItem>
+                ))}
+              </fieldset>
+            )}
           </SfAccordionItem>
           <hr className="my-4" />
         </>
       ))}
       <div className="flex justify-between">
-        <SfButton variant="secondary" className="w-full mr-3" onClick={() => setSelectedFilters([])}>
+        <SfButton variant="secondary" className="w-full mr-3" onClick={handleClearFilters}>
           Clear all filters
         </SfButton>
         <SfButton className="w-full">Show products</SfButton>
