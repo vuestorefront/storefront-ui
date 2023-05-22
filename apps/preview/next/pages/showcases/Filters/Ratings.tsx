@@ -46,7 +46,7 @@ export default function Ratings() {
                 value={value}
                 checked={rating === value}
                 name="radio-rating"
-                onClick={() => (rating === value ? setRating(null) : setRating(value))}
+                onClick={() => setRating(rating === value ? null : value)}
               />
             }
           >
