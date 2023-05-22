@@ -20,7 +20,7 @@
             :checked="ratingsModel === value"
             :name="ratingsModel"
             :value="value"
-            @click="ratingsModel === value ? (ratingsModel = '') : (ratingsModel = value)"
+            @click="ratingsModel = ratingsModel === value ? '' : value"
           />
         </template>
         <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
