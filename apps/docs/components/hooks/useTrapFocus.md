@@ -98,7 +98,7 @@ Parameter `arrowKeysOn` will be deprecated since version 2.3 and removed in next
 | activeState  | `boolean` | `true`              | Mount `useTrapFocus` when active is `true`  |
 <!-- end react -->
 | initialFocus    | `number | 'autofocus' | 'container'` | `0`       | index number of desired focus element on init, `autofocus` for first marked element with attribute `autofocus`, `container` so `refElement` would be initially focused, `false` for disabling this option  |
-| arrowKeysOn | `boolean`    | `false`      | Enable/Disable possibility of using keyboard arrows `left`/`right` for jumping through focusable elements              |
+| arrowKeysOn | `boolean`    | `false`      | (deprecated) Enable/Disable possibility of using keyboard arrows `left`/`right` for jumping through focusable elements              |
 | arrowKeysLeftRight | `boolean`    | `false`      | Enable/Disable possibility of using keyboard arrows `left | up`/`right | down` for jumping through focusable elements              |
 | arrowKeysUpDown | `boolean`    | `false`      | Enable/Disable possibility of using keyboard arrows `up`/`down` for jumping through focusable elements              |
 | initialFocusContainerFallback | `boolean`  | `false`     | Fallback for initial focus           |
