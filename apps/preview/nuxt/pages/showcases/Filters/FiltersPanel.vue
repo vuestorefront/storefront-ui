@@ -123,7 +123,7 @@
                     v-model="priceModel"
                     name="radio-price"
                     :value="value"
-                    @click="priceModel === value ? (priceModel = '') : (priceModel = value)"
+                    @click="priceModel = priceModel === value ? '' : value"
                   />
                 </template>
                 <p>
