@@ -94,6 +94,7 @@ For a full list of the possible parameters and return values, see the API sectio
 | --------- | ------------------------ | ------------- | ----------------------------------------- |
 | onClose\* | `() => void`             |               |                                           |
 <!-- react -->
+| onCloseDeps | `string[]`             |               | Dependency array for `useMemo` for `onClose` function |
 | isOpen  | `boolean`                |  `false`             | Recalculates position when isOpen is true |
 <!-- end react -->
 <!-- vue -->

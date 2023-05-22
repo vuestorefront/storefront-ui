@@ -48,27 +48,27 @@ const categoriesContent = [
     items: [
       {
         title: "All Women's",
-        link: '/',
+        link: '#',
       },
       {
         title: 'Clothing',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Shoes',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Accessories',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Wearables',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Food & Drinks',
-        link: '/',
+        link: '#',
       },
     ],
   },
@@ -77,27 +77,27 @@ const categoriesContent = [
     items: [
       {
         title: 'All Men’s',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Clothing',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Shoes',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Accessories',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Wearables',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Food & Drinks',
-        link: '/',
+        link: '#',
       },
     ],
   },
@@ -106,37 +106,42 @@ const categoriesContent = [
     items: [
       {
         title: 'All Kids',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Clothing',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Shoes',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Accessories',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Wearables',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Food & Drinks',
-        link: '/',
+        link: '#',
       },
     ],
   },
 ];
 
 export default function BaseMegaMenu() {
-  const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
+  const { close, toggle, isOpen } = useDisclosure();
   const drawerRef = useRef(null);
   const menuRef = useRef(null);
-  useTrapFocus(drawerRef, { activeState: isOpen, arrowKeysOn: true });
+
+  useTrapFocus(drawerRef, {
+    activeState: isOpen,
+    arrowKeysUpDown: true,
+    initialFocus: 'container',
+  });
   useClickAway(menuRef, () => {
     close();
   });

@@ -5,6 +5,7 @@ import { useEffect, useRef, type RefObject } from 'react';
 
 export enum InitialFocusType {
   autofocus = 'autofocus',
+  container = 'container',
 }
 
 type UseTrapFocusOptions = TabbableOptions &
@@ -15,6 +16,8 @@ type UseTrapFocusOptions = TabbableOptions &
     initialFocus?: number | `${InitialFocusType}` | false;
     initialFocusContainerFallback?: boolean;
     arrowKeysOn?: boolean;
+    arrowKeysLeftRight?: boolean;
+    arrowKeysUpDown?: boolean;
   };
 
 const defaultOptions = {
@@ -23,8 +26,14 @@ const defaultOptions = {
   initialFocus: 0,
   initialFocusContainerFallback: false,
   arrowKeysOn: false,
+  arrowKeysLeftRight: false,
+  arrowKeysUpDown: false,
 };
 
+/**
+ * @deprecated Since version 2.3.
+ * @param {boolean} arrowKeysOn - Enabling both `letf` | `up` | `right` | `down` arrow keys.
+ */
 export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>, options?: UseTrapFocusOptions) => {
   const {
     trapTabs,
@@ -33,6 +42,8 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     activeState,
     initialFocus,
     arrowKeysOn,
+    arrowKeysLeftRight,
+    arrowKeysUpDown,
     initialFocusContainerFallback,
   } = {
     ...defaultOptions,
@@ -41,33 +52,48 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
   const currentlyFocused = useRef<HTMLElement | undefined>();
   const focusableElements = useRef<FocusableElement[]>([]);
 
+  const focusPreviousItem = ({
+    event,
+    additionalData,
+  }: {
+    event?: KeyboardEvent;
+    additionalData?: Record<string, unknown>;
+  }) =>
+    focusPrev({
+      current: currentlyFocused.current,
+      focusables: focusableElements.current,
+      event,
+      ...additionalData,
+    });
+
+  const focusNextItem = ({
+    event,
+    additionalData,
+  }: {
+    event?: KeyboardEvent;
+    additionalData?: Record<string, unknown>;
+  }) =>
+    focusNext({
+      current: currentlyFocused.current,
+      focusables: focusableElements.current,
+      event,
+      ...additionalData,
+    });
+
   const onKeyDownListener = (event: KeyboardEvent) => {
     const isAnyGroupElement =
       arrowFocusGroupSelector && containerElementRef.current?.querySelector(arrowFocusGroupSelector);
-    if (arrowKeysOn) {
-      if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-        focusNext({
-          current: currentlyFocused.current,
-          focusables: focusableElements.current,
-          ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-        });
-      } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-        focusPrev({
-          current: currentlyFocused.current,
-          focusables: focusableElements.current,
-          ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-        });
-      }
-    }
+    const additionalData = isAnyGroupElement ? { arrowFocusGroupSelector } : {};
 
-    if (trapTabs && isTab(event)) {
-      focusNext({ current: currentlyFocused.current, event, focusables: focusableElements.current });
-    }
+    if ((arrowKeysLeftRight && event.key === 'ArrowLeft') || arrowKeysOn) focusPreviousItem({ additionalData });
+    if ((arrowKeysLeftRight && event.key === 'ArrowRight') || arrowKeysOn) focusNextItem({ additionalData });
+    if ((arrowKeysUpDown && event.key === 'ArrowUp') || arrowKeysOn) focusPreviousItem({ additionalData });
+    if ((arrowKeysUpDown && event.key === 'ArrowDown') || arrowKeysOn) focusNextItem({ additionalData });
 
-    if (trapTabs && isTabAndShift(event)) {
-      focusPrev({ current: currentlyFocused.current, event, focusables: focusableElements.current });
-    }
+    if (trapTabs && isTab(event)) focusNextItem({ event });
+    if (trapTabs && isTabAndShift(event)) focusPreviousItem({ event });
   };
+
   const onFocusListener = () => {
     currentlyFocused.current = document.activeElement as HTMLElement | undefined;
   };
@@ -78,6 +104,7 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
   };
 
   useEffect(() => {
+    // console.log(containerElementRef.current, activeState);
     if (containerElementRef.current && activeState) {
       containerElementRef.current?.addEventListener('focus', onFocusListener, true);
       containerElementRef.current?.addEventListener('keydown', onKeyDownListener);
@@ -96,7 +123,8 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
         else focusFallbackNeeded = true;
       }
 
-      if (initialFocusContainerFallback && focusFallbackNeeded) containerElementRef.current.focus();
+      if ((initialFocusContainerFallback && focusFallbackNeeded) || initialFocus === InitialFocusType.container)
+        containerElementRef.current?.focus();
     } else {
       focusableElements.current = [];
       currentlyFocused.current = undefined;

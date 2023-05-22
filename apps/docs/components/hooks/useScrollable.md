@@ -5,9 +5,11 @@ description: An easy to use function for creating scrollable slider.
 ---
 
 # useScrollable
+
 ::: warning This is an experimental component
 This component is shipped in our NPM package, but its API might change based on user feedback.
 :::
+
 :::::: slot usage
 
 `useScrollable` gives possibility to create slider scrollable with e.g thumbnails.

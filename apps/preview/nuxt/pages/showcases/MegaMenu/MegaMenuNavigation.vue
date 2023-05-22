@@ -45,7 +45,7 @@
           </SfButton>
         </div>
       </div>
-
+      <!-- Desktop dropdown -->
       <nav ref="floatingRef">
         <ul
           class="hidden md:flex px-6 py-2 bg-white border-b border-b-neutral-200 border-b-solid"
@@ -57,8 +57,9 @@
             }
           "
         >
-          <li v-for="menuNode in content.children" :key="menuNode.key">
+          <li v-for="(menuNode, index) in content.children" :key="menuNode.key">
             <SfButton
+              ref="triggerRefs"
               variant="tertiary"
               class="group mr-2 !text-neutral-900 hover:!bg-neutral-200 hover:!text-neutral-700 active:!bg-neutral-300 active:!text-neutral-900"
               @mouseenter="openMenu([menuNode.key])"
@@ -73,9 +74,12 @@
             <div
               v-if="isOpen && activeNode.length === 1 && activeNode[0] === menuNode.key"
               :key="activeMenu.key"
+              ref="megaMenuRef"
               :style="style"
-              class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0"
+              class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-none"
+              tabindex="0"
               @mouseleave="close()"
+              @keydown.esc="focusTrigger(index)"
             >
               <template v-for="node in activeMenu.children" :key="node.key">
                 <template v-if="node.isLeaf">
@@ -112,6 +116,7 @@
         </ul>
       </nav>
 
+      <!-- Mobile drawer -->
       <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50" />
       <SfDrawer ref="drawerRef" v-model="isOpen" placement="left" class="md:hidden bg-white w-[320px] overflow-y-auto">
         <nav>
@@ -184,15 +189,16 @@ import {
   SfButton,
   SfDrawer,
   SfListItem,
-  useDisclosure,
-  useTrapFocus,
   SfIconChevronRight,
-  useDropdown,
   SfIconMenu,
   SfCounter,
   SfIconArrowBack,
+  useDisclosure,
+  useTrapFocus,
+  useDropdown,
 } from '@storefront-ui/vue';
 import { ref, computed } from 'vue';
+import { unrefElement } from '@vueuse/core';
 
 const findNode = (keys: string[], node: Node): Node => {
   if (keys.length > 1) {
@@ -203,18 +209,32 @@ const findNode = (keys: string[], node: Node): Node => {
   }
 };
 
-const { close, open, isOpen } = useDisclosure({ initialValue: false });
+const { close, open, isOpen } = useDisclosure();
 const { referenceRef, floatingRef, style } = useDropdown({
   isOpen,
   onClose: close,
   placement: 'bottom-start',
   middleware: [],
 });
+
 const drawerRef = ref();
-useTrapFocus(drawerRef, { activeState: isOpen, arrowKeysOn: true });
+const megaMenuRef = ref();
+const triggerRefs = ref();
 const activeNode = ref<string[]>([]);
+
 const activeMenu = computed(() => findNode(activeNode.value, content));
 const bannerNode = computed(() => findNode(activeNode.value.slice(0, 1), content));
+
+const trapFocusOptions = {
+  activeState: isOpen,
+  arrowKeysUpDown: true,
+  initialFocus: 'container',
+} as const;
+useTrapFocus(
+  computed(() => megaMenuRef.value?.[0]),
+  trapFocusOptions,
+);
+useTrapFocus(drawerRef, trapFocusOptions);
 
 const openMenu = (menuType: string[]) => {
   activeNode.value = menuType;
@@ -227,6 +247,10 @@ const goBack = () => {
 
 const goNext = (key: string) => {
   activeNode.value = [...activeNode.value, key];
+};
+
+const focusTrigger = (index: number) => {
+  unrefElement(triggerRefs.value[index]).focus();
 };
 
 const actionItems = [
@@ -280,7 +304,7 @@ const content: Node = {
       children: [
         {
           key: 'ALL_WOMEN',
-          value: { label: "All Women's", counter: 515, link: '/' },
+          value: { label: "All Women's", counter: 515, link: '#' },
           isLeaf: true,
         },
         {
@@ -290,32 +314,32 @@ const content: Node = {
           children: [
             {
               key: 'ALL_CATEGORIES',
-              value: { label: 'All Categories', counter: 178, link: '/' },
+              value: { label: 'All Categories', counter: 178, link: '#' },
               isLeaf: true,
             },
             {
               key: 'CLOTHING',
-              value: { label: 'Clothing', counter: 30, link: '/' },
+              value: { label: 'Clothing', counter: 30, link: '#' },
               isLeaf: true,
             },
             {
               key: 'SHOES',
-              value: { label: 'Shoes', counter: 28, link: '/' },
+              value: { label: 'Shoes', counter: 28, link: '#' },
               isLeaf: true,
             },
             {
               key: 'ACCESSORIES',
-              value: { label: 'Accessories', counter: 56, link: '/' },
+              value: { label: 'Accessories', counter: 56, link: '#' },
               isLeaf: true,
             },
             {
               key: 'WEARABLES',
-              value: { label: 'Wearables', counter: 12, link: '/' },
+              value: { label: 'Wearables', counter: 12, link: '#' },
               isLeaf: true,
             },
             {
               key: 'FOOD_DRINKS',
-              value: { label: 'Food & Drinks', counter: 52, link: '/' },
+              value: { label: 'Food & Drinks', counter: 52, link: '#' },
               isLeaf: true,
             },
           ],
@@ -327,32 +351,32 @@ const content: Node = {
           children: [
             {
               key: 'ALL_ACTIVITIES',
-              value: { label: 'All Activities', counter: 239, link: '/' },
+              value: { label: 'All Activities', counter: 239, link: '#' },
               isLeaf: true,
             },
             {
               key: 'FITNESS',
-              value: { label: 'Fitness', counter: 83, link: '/' },
+              value: { label: 'Fitness', counter: 83, link: '#' },
               isLeaf: true,
             },
             {
               key: 'PILATES',
-              value: { label: 'Pilates', counter: 65, link: '/' },
+              value: { label: 'Pilates', counter: 65, link: '#' },
               isLeaf: true,
             },
             {
               key: 'TRAINING',
-              value: { label: 'Training', counter: 21, link: '/' },
+              value: { label: 'Training', counter: 21, link: '#' },
               isLeaf: true,
             },
             {
               key: 'CARDIO_WORKOUT',
-              value: { label: 'Cardio Workout', counter: 50, link: '/' },
+              value: { label: 'Cardio Workout', counter: 50, link: '#' },
               isLeaf: true,
             },
             {
               key: 'YOGA',
-              value: { label: 'Yoga', counter: 20, link: '/' },
+              value: { label: 'Yoga', counter: 20, link: '#' },
               isLeaf: true,
             },
           ],
@@ -364,12 +388,12 @@ const content: Node = {
           children: [
             {
               key: 'ALL_DEALS',
-              value: { label: 'All Deals', counter: 98, link: '/' },
+              value: { label: 'All Deals', counter: 98, link: '#' },
               isLeaf: true,
             },
             {
               key: 'OUTLET',
-              value: { label: 'Outlet', counter: 98, link: '/' },
+              value: { label: 'Outlet', counter: 98, link: '#' },
               isLeaf: true,
             },
           ],
@@ -388,7 +412,7 @@ const content: Node = {
       children: [
         {
           key: 'ALL_MEN',
-          value: { label: "All Men's", counter: 364, link: '/' },
+          value: { label: "All Men's", counter: 364, link: '#' },
           isLeaf: true,
         },
         {
@@ -398,32 +422,32 @@ const content: Node = {
           children: [
             {
               key: 'ALL_CATEGORIES',
-              value: { label: 'All Categories', counter: 164, link: '/' },
+              value: { label: 'All Categories', counter: 164, link: '#' },
               isLeaf: true,
             },
             {
               key: 'CLOTHING',
-              value: { label: 'Clothing', counter: 41, link: '/' },
+              value: { label: 'Clothing', counter: 41, link: '#' },
               isLeaf: true,
             },
             {
               key: 'SHOES',
-              value: { label: 'Shoes', counter: 20, link: '/' },
+              value: { label: 'Shoes', counter: 20, link: '#' },
               isLeaf: true,
             },
             {
               key: 'ACCESSORIES',
-              value: { label: 'Accessories', counter: 56, link: '/' },
+              value: { label: 'Accessories', counter: 56, link: '#' },
               isLeaf: true,
             },
             {
               key: 'WEARABLES',
-              value: { label: 'Wearables', counter: 32, link: '/' },
+              value: { label: 'Wearables', counter: 32, link: '#' },
               isLeaf: true,
             },
             {
               key: 'FOOD_DRINKS',
-              value: { label: 'Food & Drinks', counter: 15, link: '/' },
+              value: { label: 'Food & Drinks', counter: 15, link: '#' },
               isLeaf: true,
             },
           ],
@@ -435,27 +459,27 @@ const content: Node = {
           children: [
             {
               key: 'ALL_ACTIVITIES',
-              value: { label: 'All Activities', counter: 132, link: '/' },
+              value: { label: 'All Activities', counter: 132, link: '#' },
               isLeaf: true,
             },
             {
               key: 'TRAINING',
-              value: { label: 'Training', counter: 21, link: '/' },
+              value: { label: 'Training', counter: 21, link: '#' },
               isLeaf: true,
             },
             {
               key: 'WORKOUT',
-              value: { label: 'Workout', counter: 43, link: '/' },
+              value: { label: 'Workout', counter: 43, link: '#' },
               isLeaf: true,
             },
             {
               key: 'FOOTBALL',
-              value: { label: 'Football', counter: 30, link: '/' },
+              value: { label: 'Football', counter: 30, link: '#' },
               isLeaf: true,
             },
             {
               key: 'FITNESS',
-              value: { label: 'Fitness', counter: 38, link: '/' },
+              value: { label: 'Fitness', counter: 38, link: '#' },
               isLeaf: true,
             },
           ],
@@ -467,12 +491,12 @@ const content: Node = {
           children: [
             {
               key: 'ALL_DEALS',
-              value: { label: 'All Deals', counter: 68, link: '/' },
+              value: { label: 'All Deals', counter: 68, link: '#' },
               isLeaf: true,
             },
             {
               key: 'OUTLET',
-              value: { label: 'Outlet', counter: 68, link: '/' },
+              value: { label: 'Outlet', counter: 68, link: '#' },
               isLeaf: true,
             },
           ],
@@ -491,7 +515,7 @@ const content: Node = {
       children: [
         {
           key: 'ALL_KIDS',
-          value: { label: 'All Kids', counter: 263, link: '/' },
+          value: { label: 'All Kids', counter: 263, link: '#' },
           isLeaf: true,
         },
         {
@@ -501,32 +525,32 @@ const content: Node = {
           children: [
             {
               key: 'ALL_CATEGORIES',
-              value: { label: 'All Categories', counter: 192, link: '/' },
+              value: { label: 'All Categories', counter: 192, link: '#' },
               isLeaf: true,
             },
             {
               key: 'CLOTHING',
-              value: { label: 'Clothing', counter: 29, link: '/' },
+              value: { label: 'Clothing', counter: 29, link: '#' },
               isLeaf: true,
             },
             {
               key: 'SHOES',
-              value: { label: 'Shoes', counter: 60, link: '/' },
+              value: { label: 'Shoes', counter: 60, link: '#' },
               isLeaf: true,
             },
             {
               key: 'ACCESSORIES',
-              value: { label: 'Accessories', counter: 48, link: '/' },
+              value: { label: 'Accessories', counter: 48, link: '#' },
               isLeaf: true,
             },
             {
               key: 'WEARABLES',
-              value: { label: 'Wearables', counter: 22, link: '/' },
+              value: { label: 'Wearables', counter: 22, link: '#' },
               isLeaf: true,
             },
             {
               key: 'FOOD_DRINKS',
-              value: { label: 'Food & Drinks', counter: 33, link: '/' },
+              value: { label: 'Food & Drinks', counter: 33, link: '#' },
               isLeaf: true,
             },
           ],
@@ -538,17 +562,17 @@ const content: Node = {
           children: [
             {
               key: 'ALL_ACTIVITIES',
-              value: { label: 'All Activities', counter: 40, link: '/' },
+              value: { label: 'All Activities', counter: 40, link: '#' },
               isLeaf: true,
             },
             {
               key: 'FOOTBALL',
-              value: { label: 'Football', counter: 21, link: '/' },
+              value: { label: 'Football', counter: 21, link: '#' },
               isLeaf: true,
             },
             {
               key: 'BASKETBALL',
-              value: { label: 'Basketball', counter: 19, link: '/' },
+              value: { label: 'Basketball', counter: 19, link: '#' },
               isLeaf: true,
             },
           ],
@@ -560,12 +584,12 @@ const content: Node = {
           children: [
             {
               key: 'ALL_DEALS',
-              value: { label: 'All Deals', counter: 31, link: '/' },
+              value: { label: 'All Deals', counter: 31, link: '#' },
               isLeaf: true,
             },
             {
               key: 'OUTLET',
-              value: { label: 'Outlet', counter: 31, link: '/' },
+              value: { label: 'Outlet', counter: 31, link: '#' },
               isLeaf: true,
             },
           ],
