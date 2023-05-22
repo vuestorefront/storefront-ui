@@ -1,6 +1,5 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  plugins: ['prettier'],
   settings: {
     'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/parsers': {

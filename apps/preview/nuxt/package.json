@@ -7,8 +7,10 @@
     "build": "PROD=true nuxt build",
     "build:nuxt": "yarn build",
     "serve": "node .output/server/index.mjs",
-    "lint": "eslint --ext .ts,.js,.vue .",
-    "lint:fix": "eslint --fix --ext .ts,.js,.vue ."
+    "lint": "yarn eslint --max-warnings 0 && yarn prettier --check",
+    "lint:fix": "yarn eslint --fix && yarn prettier --write",
+    "eslint": "eslint \"**/*.{js,ts,vue}\"",
+    "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"**/*.{js,ts,vue}\""
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
@@ -26,6 +28,7 @@
     "eslint-plugin-nuxt": "^4.0.0",
     "nuxt": "^3.3.2",
     "postcss": "^8.4.21",
+    "prettier": "^2.8.8",
     "sass": "^1.58.2",
     "sass-loader": "^13.2.0",
     "tailwindcss": "^3.2.7"
