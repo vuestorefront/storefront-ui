@@ -101,10 +101,13 @@ export const useTrapFocus = (
     const isAnyGroupElement = arrowFocusGroupSelector && containerHTMLElement?.querySelector(arrowFocusGroupSelector);
     const additionalData = isAnyGroupElement ? { arrowFocusGroupSelector } : {};
 
-    if ((arrowKeysLeftRight && event.key === 'ArrowLeft') || arrowKeysOn) focusPreviousItem({ additionalData });
-    if ((arrowKeysLeftRight && event.key === 'ArrowRight') || arrowKeysOn) focusNextItem({ additionalData });
-    if ((arrowKeysUpDown && event.key === 'ArrowUp') || arrowKeysOn) focusPreviousItem({ additionalData });
-    if ((arrowKeysUpDown && event.key === 'ArrowDown') || arrowKeysOn) focusNextItem({ additionalData });
+    if (arrowKeysOn && (event.key === 'ArrowLeft' || event.key === 'ArrowUp')) focusPreviousItem({ additionalData });
+    if (arrowKeysOn && (event.key === 'ArrowRight' || event.key === 'ArrowDown')) focusNextItem({ additionalData });
+
+    if (arrowKeysLeftRight && event.key === 'ArrowLeft') focusPreviousItem({ additionalData });
+    if (arrowKeysLeftRight && event.key === 'ArrowRight') focusNextItem({ additionalData });
+    if (arrowKeysUpDown && event.key === 'ArrowUp') focusPreviousItem({ additionalData });
+    if (arrowKeysUpDown && event.key === 'ArrowDown') focusNextItem({ additionalData });
 
     if (trapTabs && isTab(event)) focusNextItem({ event });
     if (trapTabs && isTabAndShift(event)) focusPreviousItem({ event });
