@@ -385,7 +385,7 @@ export default function FiltersPanel() {
                         value={value}
                         checked={price === value}
                         name="radio-price"
-                        onClick={() => (price === value ? setPrice(null) : setPrice(value))}
+                        onClick={() => setPrice(price === value ? null : value)}
                       />
                     }
                   >
