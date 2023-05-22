@@ -385,7 +385,7 @@ export default function FiltersPanel() {
                         value={value}
                         checked={price === value}
                         name="radio-price"
-                        onChange={(event) => setPrice(event.target.value)}
+                        onClick={() => setPrice(price === value ? null : value)}
                       />
                     }
                   >
@@ -412,7 +412,7 @@ export default function FiltersPanel() {
                         value={value}
                         checked={rating === value}
                         name="radio-rating"
-                        onChange={(event) => setRating(event.target.value)}
+                        onClick={() => setRating(rating === value ? null : value)}
                       />
                     }
                   >

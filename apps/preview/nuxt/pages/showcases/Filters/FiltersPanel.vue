@@ -119,7 +119,12 @@
                 class="px-1.5 bg-transparent hover:bg-transparent"
               >
                 <template #prefix>
-                  <SfRadio v-model="priceModel" name="radio-price" :value="value" />
+                  <SfRadio
+                    v-model="priceModel"
+                    name="radio-price"
+                    :value="value"
+                    @click="priceModel = priceModel === value ? '' : value"
+                  />
                 </template>
                 <p>
                   <span :class="['text-sm mr-2', { 'font-medium': priceModel === value }]">{{ label }}</span>
@@ -138,7 +143,12 @@
                 class="!items-start py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent"
               >
                 <template #prefix>
-                  <SfRadio v-model="ratingsModel" name="radio-ratings" :value="value" />
+                  <SfRadio
+                    v-model="ratingsModel"
+                    name="radio-ratings"
+                    :value="value"
+                    @click="ratingsModel = ratingsModel === value ? '' : value"
+                  />
                 </template>
                 <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
                 <div class="flex flex-wrap items-end">
