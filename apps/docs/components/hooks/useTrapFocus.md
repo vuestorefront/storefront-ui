@@ -73,8 +73,9 @@ useTrapFocus(focusTrapElementRef)
 
 :::::: slot api
 
+<!-- TODO: remove arrowKeysOn before 3.0.0 release -->
 ::: warning DEPRECATION
-Parameter `arrowKeysOn` will be deprecated since version 2.3
+Parameter `arrowKeysOn` will be deprecated since version 2.3 and removed in next major version.
 :::
 
 ## Parameters
