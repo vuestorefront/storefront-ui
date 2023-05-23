@@ -50,8 +50,9 @@ jobs:
           environment: production
           initial_status: in_progress
       # Not using the vuestorefront/* package because of:
-      # https://github.com/sethidden/publish-docs-action/commit/5fb4bf1df975567879f99d3e975447a2ff824bb2
-      - uses: sethidden/publish-docs-action@v1
+      # https://github.com/vuestorefront/publish-docs-action/compare/main...Mateuszpietrusinski:publish-docs-action:main
+      - name: Deploy on https://docs.storefrontui.io/v1
+        uses: Mateuszpietrusinski/publish-docs-action@v1.0.3
         with:
           user-id: ${{ secrets.CLOUD_USERNAME }}
           api-key: ${{ secrets.CLOUD_PASSWORD }}
@@ -61,6 +62,7 @@ jobs:
           path: "/v1"
           port: "80"
           has-base-path: true
+          farmer-namespace-name: "sfui-europe-west1-gcp-storefrontcloud-io"
       - name: Update deployment status (success)
         if: success()
         uses: chrnorm/deployment-status@releases/v1
