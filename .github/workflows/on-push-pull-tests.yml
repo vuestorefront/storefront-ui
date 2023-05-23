@@ -65,6 +65,11 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
+
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
@@ -83,6 +88,11 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: "12"
 
       - name: Get cached dependencies
         uses: actions/cache@v2
