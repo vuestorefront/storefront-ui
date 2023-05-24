@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-between items-center border-t border-neutral-200" role="navigation" aria-label="pagination">
+  <nav class="flex justify-between items-end" border-t border-neutral-200 role="navigation" aria-label="pagination">
     <SfButton
       type="button"
       size="lg"
@@ -15,7 +15,7 @@
       <span class="hidden sm:inline-flex"> Previous </span>
     </SfButton>
     <ul class="flex justify-center">
-      <li v-if="!pages.find((page) => page === 1)">
+      <li v-if="!pages.includes(1)">
         <div
           :class="[
             'flex pt-1 border-t-4 border-transparent',
@@ -91,7 +91,7 @@
           </button>
         </div>
       </li>
-      <li v-if="!pages.find((page) => page === totalPages)">
+      <li v-if="!pages.includes(totalPages)">
         <div
           :class="[
             'flex pt-1 border-t-4 border-transparent',
