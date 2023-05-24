@@ -80,6 +80,7 @@
     "markdown-loader": "^5.0.0",
     "mdx-embed": "^0.0.19",
     "prettier": "^2.0.4",
+    "sb": "^7.0.14",
     "style-loader": "^2.0.0",
     "vue-docgen-api": "^3.22.3",
     "vue-template-compiler": "^2.6.11",
