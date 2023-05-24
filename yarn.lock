@@ -2581,7 +2581,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/tailwindcss@npm:^6.4.1, @nuxtjs/tailwindcss@npm:^6.6.4":
+"@nuxtjs/tailwindcss@npm:^6.6.4, @nuxtjs/tailwindcss@npm:^6.6.5":
   version: 6.7.0
   resolution: "@nuxtjs/tailwindcss@npm:6.7.0"
   dependencies:
@@ -3142,7 +3142,7 @@ __metadata:
   resolution: "@storefront-ui/preview-nuxt@workspace:apps/preview/nuxt"
   dependencies:
     "@nuxtjs/eslint-config-typescript": ^12.0.0
-    "@nuxtjs/tailwindcss": ^6.4.1
+    "@nuxtjs/tailwindcss": ^6.6.5
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/example-style": "workspace:*"
     "@storefront-ui/preview-shared": "workspace:^"
@@ -3161,7 +3161,6 @@ __metadata:
     prettier: ^2.8.8
     sass: ^1.58.2
     sass-loader: ^13.2.0
-    tailwindcss: ^3.2.7
   languageName: unknown
   linkType: soft
 
