@@ -3,7 +3,7 @@
     <div
       v-for="({ icon, title, description, buttonText, isDisabled }, index) in cardDetails"
       :key="`${title}-${index}`"
-      class="flex flex-col min-w-[325px] w-[375px] lg:w-[496px] items-center"
+      class="flex flex-col w-full max-w-[325px] sm:w-[375px] lg:w-[496px] items-center"
     >
       <component :is="icon" size="2xl" :class="{ 'text-disabled-900': isDisabled }" />
       <div class="p-4 flex flex-col items-center">
