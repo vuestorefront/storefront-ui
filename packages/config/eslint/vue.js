@@ -13,5 +13,6 @@ module.exports = {
     'vue/no-v-html': 0,
     'import/no-extraneous-dependencies': 0,
     'vue/multi-word-component-names': 0,
+    'vue/no-dupe-keys': 0
   },
 };

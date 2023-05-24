@@ -2581,7 +2581,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxtjs/tailwindcss@npm:^6.6.4, @nuxtjs/tailwindcss@npm:^6.6.5":
+"@nuxtjs/tailwindcss@npm:^6.4.1, @nuxtjs/tailwindcss@npm:^6.6.4":
   version: 6.7.0
   resolution: "@nuxtjs/tailwindcss@npm:6.7.0"
   dependencies:
@@ -3142,7 +3142,7 @@ __metadata:
   resolution: "@storefront-ui/preview-nuxt@workspace:apps/preview/nuxt"
   dependencies:
     "@nuxtjs/eslint-config-typescript": ^12.0.0
-    "@nuxtjs/tailwindcss": ^6.6.5
+    "@nuxtjs/tailwindcss": ^6.4.1
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/example-style": "workspace:*"
     "@storefront-ui/preview-shared": "workspace:^"
@@ -3161,6 +3161,7 @@ __metadata:
     prettier: ^2.8.8
     sass: ^1.58.2
     sass-loader: ^13.2.0
+    tailwindcss: ^3.2.7
   languageName: unknown
   linkType: soft
 
@@ -3236,7 +3237,14 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/shared@2.2.0, @storefront-ui/shared@workspace:*, @storefront-ui/shared@workspace:packages/sfui/shared":
+"@storefront-ui/shared@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@storefront-ui/shared@npm:2.2.1"
+  checksum: 90c5f6275f353b72a797c2937849e9614b80ea733aa6b7bb14cf6556242ae51dbef0d75ec16d1e90c8f6b695d0d8bcb25b29dc5df6105bb543980280b72b5b11
+  languageName: node
+  linkType: hard
+
+"@storefront-ui/shared@workspace:*, @storefront-ui/shared@workspace:packages/sfui/shared":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/shared@workspace:packages/sfui/shared"
   dependencies:
@@ -3248,7 +3256,17 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/tailwind-config@2.2.0, @storefront-ui/tailwind-config@workspace:*, @storefront-ui/tailwind-config@workspace:^, @storefront-ui/tailwind-config@workspace:packages/config/tailwind":
+"@storefront-ui/tailwind-config@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@storefront-ui/tailwind-config@npm:2.2.1"
+  dependencies:
+    "@mertasan/tailwindcss-variables": ^2.5.2
+    "@storefront-ui/tw-plugin-peer-next": 2.2.1
+  checksum: 86981791153feca154b2a5d8c3d6d479bdb67f42a98fd11fa48590974ee76026059af96828592cdcbb2fa41c67b013417e63b540ab18aee9200e33556bfb7bc3
+  languageName: node
+  linkType: hard
+
+"@storefront-ui/tailwind-config@workspace:*, @storefront-ui/tailwind-config@workspace:^, @storefront-ui/tailwind-config@workspace:packages/config/tailwind":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/tailwind-config@workspace:packages/config/tailwind"
   dependencies:
@@ -3279,6 +3297,15 @@ __metadata:
     prettier: ^2.8.8
   languageName: unknown
   linkType: soft
+
+"@storefront-ui/tw-plugin-peer-next@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@storefront-ui/tw-plugin-peer-next@npm:2.2.1"
+  peerDependencies:
+    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
+  checksum: 6799aa26b1491aacb89ee8876614de35fbd578c32cc95a283254945f69ba21992b5ddb97a0de807df79814e2fa9088c38c6281eb6a1434cdcc3d9947ea1dd70c
+  languageName: node
+  linkType: hard
 
 "@storefront-ui/tw-plugin-peer-next@workspace:*, @storefront-ui/tw-plugin-peer-next@workspace:packages/sfui/tw-plugin-peer-next":
   version: 0.0.0-use.local
@@ -3350,18 +3377,18 @@ __metadata:
   linkType: soft
 
 "@storefront-ui/vue@npm:latest":
-  version: 2.2.0
-  resolution: "@storefront-ui/vue@npm:2.2.0"
+  version: 2.2.1
+  resolution: "@storefront-ui/vue@npm:2.2.1"
   dependencies:
     "@floating-ui/vue": ^0.2.1
-    "@storefront-ui/shared": 2.2.0
-    "@storefront-ui/tailwind-config": 2.2.0
+    "@storefront-ui/shared": 2.2.1
+    "@storefront-ui/tailwind-config": 2.2.1
     "@vueuse/core": ^9.12.0
     jw-paginate: ^1.0.4
     tabbable: ^6.1.1
   peerDependencies:
     vue: ^3.2.47
-  checksum: 30643c23a214dacb23bc7c4122401ba217dd9c3201923a9f7c9e6c2d32754365a95960bb74f3c75acaf10d2b7d597fa08caecb1cd2847406049da6b77fc9006f
+  checksum: 40ac3337829bcf81353dc299ac5fb191c0dfda288d61070afaf6b39a032bd8ae927a62778e60ef5f39f973d59e9587f8ec34c55468499422a5ae09b3004ff80b
   languageName: node
   linkType: hard
 
@@ -3754,13 +3781,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:^18.0.28":
-  version: 18.2.6
-  resolution: "@types/react@npm:18.2.6"
+  version: 18.2.7
+  resolution: "@types/react@npm:18.2.7"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: dea9d232d8df7ac357367a69dcb557711ab3d5501807ffa77cebeee73d49ee94d095f298e36853c63ed47cce097eee4c7eae2aaa8c02fac3f0171ec1b523a819
+  checksum: caa5da4cf929766738ec789301dc6fb6624bd48dd317d851c4c9b84b1f47cd8ebe17fe01398cadaa0bc938cd4d502d67f4b9de9ff771dc132096bdc86228efba
   languageName: node
   linkType: hard
 
@@ -9990,12 +10017,12 @@ __metadata:
   linkType: hard
 
 "enhanced-resolve@npm:^5.0.0, enhanced-resolve@npm:^5.10.0, enhanced-resolve@npm:^5.12.0":
-  version: 5.14.0
-  resolution: "enhanced-resolve@npm:5.14.0"
+  version: 5.14.1
+  resolution: "enhanced-resolve@npm:5.14.1"
   dependencies:
     graceful-fs: ^4.2.4
     tapable: ^2.2.0
-  checksum: fff1aaebbf376371e5df4502e111967f6247c37611ad3550e4e7fca657f6dcb29ef7ffe88bf14e5010b78997f1ddd984a8db97af87ee0a5477771398fd326f5b
+  checksum: ad2a31928b6649eed40d364838449587f731baa63863e83d2629bebaa8be1eabac18b90f89c1784bc805b0818363e99b22547159edd485d7e5ccf18cdc640642
   languageName: node
   linkType: hard
 
@@ -12682,7 +12709,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"h3@npm:^1.6.4, h3@npm:^1.6.6":
+"h3@npm:^1.6.6":
   version: 1.6.6
   resolution: "h3@npm:1.6.6"
   dependencies:
@@ -16567,14 +16594,14 @@ __metadata:
   linkType: hard
 
 "mlly@npm:^1.0.0, mlly@npm:^1.2.0, mlly@npm:^1.2.1":
-  version: 1.2.1
-  resolution: "mlly@npm:1.2.1"
+  version: 1.3.0
+  resolution: "mlly@npm:1.3.0"
   dependencies:
     acorn: ^8.8.2
     pathe: ^1.1.0
     pkg-types: ^1.0.3
     ufo: ^1.1.2
-  checksum: 82939436ec0e1c53e400d86fd571bd005090383b3fa49d5d8b9df4b388b24bae2b7b2f0369ef0c905d29fb35377cd4724d2bf5e5cd130d922849f74948bb81f0
+  checksum: aea2a99131b1a1f02a733219317b6466156e150473e0a2f490802eaf2dc66940a21bb68e0ddd5c003360263e674e7dd0bd02da6520c740e6d16fa0edf5efa46e
   languageName: node
   linkType: hard
 
@@ -16957,7 +16984,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"node-fetch-native@npm:^1.0.2, node-fetch-native@npm:^1.1.0, node-fetch-native@npm:^1.1.1":
+"node-fetch-native@npm:^1.0.2, node-fetch-native@npm:^1.1.1":
   version: 1.1.1
   resolution: "node-fetch-native@npm:1.1.1"
   checksum: 41fe59179eb94b6ffb25e657e5ed14b4b50e2ba7f6bf5346622970638c8abbf29653b011141c919c6c081979962edd1eb94424a7621412cd78c47a9cd8be1227
@@ -23401,15 +23428,15 @@ __metadata:
   linkType: hard
 
 "unenv@npm:^1.4.1":
-  version: 1.5.0
-  resolution: "unenv@npm:1.5.0"
+  version: 1.5.1
+  resolution: "unenv@npm:1.5.1"
   dependencies:
     consola: ^3.1.0
     defu: ^6.1.2
     mime: ^3.0.0
     node-fetch-native: ^1.1.1
     pathe: ^1.1.0
-  checksum: b5aed91f614e003640dfa3396e86bbee0408384ded41be2694b6c3598d4b726e27e01f44410195018e1991d154fb41887a7a98aa7a75dea7aeabe264ad90e0ae
+  checksum: 35c46d99a103f3502ef094589b9f1efb54ba618a19bb57f5c2daa45b615d8fc419cceb6f8f5ad155767d24765480f604bd3be3a4da0dae3024366b3026f05f75
   languageName: node
   linkType: hard
 
@@ -23630,30 +23657,30 @@ __metadata:
   linkType: hard
 
 "unstorage@npm:^1.6.0":
-  version: 1.6.0
-  resolution: "unstorage@npm:1.6.0"
+  version: 1.6.1
+  resolution: "unstorage@npm:1.6.1"
   dependencies:
     anymatch: ^3.1.3
     chokidar: ^3.5.3
     destr: ^1.2.2
-    h3: ^1.6.4
+    h3: ^1.6.6
     ioredis: ^5.3.2
     listhen: ^1.0.4
     lru-cache: ^9.1.1
     mri: ^1.2.0
-    node-fetch-native: ^1.1.0
+    node-fetch-native: ^1.1.1
     ofetch: ^1.0.1
     ufo: ^1.1.2
   peerDependencies:
     "@azure/app-configuration": ^1.4.1
     "@azure/cosmos": ^3.17.3
     "@azure/data-tables": ^13.2.2
-    "@azure/identity": ^3.1.4
+    "@azure/identity": ^3.2.2
     "@azure/keyvault-secrets": ^4.7.0
     "@azure/storage-blob": ^12.14.0
     "@planetscale/database": ^1.7.0
-    "@upstash/redis": ^1.20.5
-    "@vercel/kv": ^0.1.1
+    "@upstash/redis": ^1.20.6
+    "@vercel/kv": ^0.2.1
   peerDependenciesMeta:
     "@azure/app-configuration":
       optional: true
@@ -23673,7 +23700,7 @@ __metadata:
       optional: true
     "@vercel/kv":
       optional: true
-  checksum: a7332ac6ea6a8c4a500e5c1ca0a40e8bb37576f96eb84f9e0da3f73c99ebd5a2e3d443262447ca19f051f9f1fa4b154923c7701ff99196d700cced6cc5ef09ac
+  checksum: 3f0cd74cb252f79976ce6da7114d522ccbad496e0892714dd224cb50279f89a263519adf4355bb101ffcf924182c9b71c1ac6484ed48e1710779ba95a43a89ff
   languageName: node
   linkType: hard
 
@@ -24456,8 +24483,8 @@ __metadata:
   linkType: hard
 
 "vuepress-theme-vsf-docs@npm:^1.2.19":
-  version: 1.2.21
-  resolution: "vuepress-theme-vsf-docs@npm:1.2.21"
+  version: 1.3.1
+  resolution: "vuepress-theme-vsf-docs@npm:1.3.1"
   dependencies:
     "@vuepress/plugin-active-header-links": 1.9.7
     "@vuepress/plugin-nprogress": 1.9.7
@@ -24465,7 +24492,7 @@ __metadata:
     iconify-icon: ^1.0.1
     markdown-it-anchor: ^8.6.5
     vuepress-plugin-container: ^2.0.2
-  checksum: e8813a1ebe19173812f5c6ba1852d3589d1e7584a01a85f0fd70775b66f82f4b907c8d3be2679fe2941ddf7519bab3d46c3820bc483d69c2c8f41869552e0c57
+  checksum: 03774774562f21bccde6825fa4a327f563544cb12628e476957f726ae2e25afe9194d391e820fef72add905e4b0ad20854c136f71534ce85663b0c925ad761ce
   languageName: node
   linkType: hard
 
