@@ -46,13 +46,23 @@
       "cache": false
     },
     "build:release": {
-      "dependsOn": ["build:react", "build:vue", "build:tailwind-config", "build:typography", "build:peer-next"],
+      "dependsOn": [
+        "build:react",
+        "build:vue",
+        "build:tailwind-config",
+        "build:nuxt-module",
+        "build:typography",
+        "build:peer-next"
+      ],
       "cache": false
     },
     "build:shared": {
       "cache": false
     },
     "build:typography": {
+      "cache": false
+    },
+    "build:nuxt-module": {
       "cache": false
     },
     "build:peer-next": {
