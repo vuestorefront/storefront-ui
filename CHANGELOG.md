@@ -1,3 +1,13 @@
+# 2.2.1 (2023-05-24)
+
+## Overview
+
+This is a patch release containing bug fixes to SFUI2.
+
+## Bug fixes
+
+- enable CJS support introduced by `react-merge-refs` dependency ([#2699](https://github.com/vuestorefront/storefront-ui/issues/2699), [c1c5b5fee](https://github.com/vuestorefront/storefront-ui/commit/c1c5b5feee1c7a7e2a2933f001e3f4239887f15d)).
+
 # 2.2.0 (2023-05-11)
 
 ## Overview
