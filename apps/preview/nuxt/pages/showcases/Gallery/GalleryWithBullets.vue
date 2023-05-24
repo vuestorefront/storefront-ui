@@ -1,5 +1,5 @@
 <template>
-  <div class="relative max-h-[600px] flex flex-col h-full gap-1">
+  <div class="relative max-h-[600px] flex flex-col w-full aspect-[4/3] gap-1">
     <SfScrollable
       class="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       :active-index="activeIndex"
@@ -15,7 +15,7 @@
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === 0"
-          class="absolute hidden group-hover/scrollable:block !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
+          class="absolute hidden group-hover/scrollable:block disabled:!hidden !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -41,7 +41,7 @@
         <SfButton
           v-bind="defaultProps"
           :disabled="activeIndex === images.length - 1"
-          class="absolute hidden group-hover/scrollable:block !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
+          class="absolute hidden group-hover/scrollable:block disabled:!hidden !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
           variant="secondary"
           size="lg"
           square
@@ -72,19 +72,21 @@
 <script lang="ts" setup>
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/vue';
 import { ref } from 'vue';
-import * as Images from './images';
+
+const withBase = (filepath: string) => `http://localhost:3100/@assets/gallery/${filepath}`;
 
 const images = [
-  { imageSrc: Images.gallery1Src, alt: 'backpack1' },
-  { imageSrc: Images.gallery2Src, alt: 'backpack2' },
-  { imageSrc: Images.gallery3Src, alt: 'backpack3' },
-  { imageSrc: Images.gallery4Src, alt: 'backpack4' },
-  { imageSrc: Images.gallery5Src, alt: 'backpack5' },
-  { imageSrc: Images.gallery6Src, alt: 'backpack6' },
-  { imageSrc: Images.gallery7Src, alt: 'backpack7' },
-  { imageSrc: Images.gallery8Src, alt: 'backpack8' },
-  { imageSrc: Images.gallery9Src, alt: 'backpack9' },
-  { imageSrc: Images.gallery10Src, alt: 'backpack10' },
+  { imageSrc: withBase('gallery_1.png'), alt: 'backpack1' },
+  { imageSrc: withBase('gallery_2.png'), alt: 'backpack2' },
+  { imageSrc: withBase('gallery_3.png'), alt: 'backpack3' },
+  { imageSrc: withBase('gallery_4.png'), alt: 'backpack4' },
+  { imageSrc: withBase('gallery_5.png'), alt: 'backpack5' },
+  { imageSrc: withBase('gallery_6.png'), alt: 'backpack6' },
+  { imageSrc: withBase('gallery_7.png'), alt: 'backpack7' },
+  { imageSrc: withBase('gallery_8.png'), alt: 'backpack8' },
+  { imageSrc: withBase('gallery_9.png'), alt: 'backpack9' },
+  { imageSrc: withBase('gallery_10.png'), alt: 'backpack10' },
+  { imageSrc: withBase('gallery_11.png'), alt: 'backpack11' },
 ];
 
 const activeIndex = ref(0);

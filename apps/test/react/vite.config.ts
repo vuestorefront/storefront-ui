@@ -7,7 +7,7 @@ import nycConfig from './.nycrc.json';
 const isCoverageEnabled = process.env.CYPRESS_COVERAGE === 'true';
 const reactComponentsPath = isCoverageEnabled
   ? copiedSfuiPath('react', __dirname)
-  : relativeSfuiPath('react', __dirname)
+  : relativeSfuiPath('react', __dirname);
 // https://vitejs.dev/config/
 
 export default defineConfig({

@@ -1,4 +1,4 @@
-import type { InputHTMLAttributes, ReactNode } from 'react';
+import type { InputHTMLAttributes, ReactNode, ElementType } from 'react';
 import type { PropsWithStyle } from '@storefront-ui/react';
 import { SfInputSize } from '@storefront-ui/shared';
 
@@ -9,4 +9,5 @@ export interface SfInputProps extends PropsWithStyle, Omit<InputHTMLAttributes<H
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
   wrapperClassName?: string;
+  wrapperAs?: ElementType<any> | undefined;
 }

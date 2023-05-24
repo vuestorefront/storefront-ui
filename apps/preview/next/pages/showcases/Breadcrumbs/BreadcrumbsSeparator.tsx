@@ -68,17 +68,21 @@ export function Showcase() {
         {breadcrumbs.map((item, index) => (
           <li
             data-icon="url('@assets/chevron_right.svg')"
-            className="hidden peer sm:flex text-neutral-500 last-of-type:flex last-of-type:text-neutral-900 last-of-type:font-medium"
+            className="hidden peer sm:flex items-center text-neutral-500 last-of-type:flex last-of-type:text-neutral-900 last-of-type:font-medium"
             key={item.name}
           >
             {index !== 0 ? <SfIconChevronRight size="sm" className="mx-0.5 text-disabled-500" /> : null}
-            <SfLink
-              href={item.link}
-              variant="secondary"
-              className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
-            >
-              {item.name}
-            </SfLink>
+            {index < breadcrumbs.length - 1 ? (
+              <SfLink
+                href={item.link}
+                variant="secondary"
+                className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
+              >
+                {item.name}
+              </SfLink>
+            ) : (
+              <span> {item.name} </span>
+            )}
           </li>
         ))}
       </ol>

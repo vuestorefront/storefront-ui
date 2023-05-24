@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/react",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -28,11 +28,13 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build:react": "vite build",
-    "lint": "yarn dlx browserslist@latest && yarn lint:script  --max-warnings 0",
+    "lint": "yarn dlx browserslist@latest && yarn lint:script",
     "lint:fix": "yarn lint:script:fix",
     "lint:fix:sfui": "yarn lint:fix",
-    "lint:script": "eslint --ext .ts,.tsx \"components/**\" \"shared/**\"",
-    "lint:script:fix": "eslint --fix --ext .ts,.tsx \"components/**\" \"shared/**\""
+    "lint:script": "concurrently \"yarn eslint --max-warnings 0\" \"yarn prettier --check\"",
+    "lint:script:fix": "yarn eslint --fix && yarn prettier --write",
+    "eslint": "eslint \"{components,shared,hooks}/**/*.{ts,tsx}\"",
+    "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"{components,shared,hooks}/**/*.{ts,tsx}\""
   },
   "files": [
     "dist"
@@ -43,7 +45,6 @@
     "@storefront-ui/tailwind-config": "workspace:*",
     "classnames": "^2.3.2",
     "jw-paginate": "^1.0.4",
-    "react-merge-refs": "^2.0.1",
     "react-polymorphed": "^2.1.0",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.4.0",
@@ -54,6 +55,7 @@
     "@storefront-ui/tests-shared": "workspace:*",
     "@vitejs/plugin-react": "^3.1.0",
     "eslint": "^8.34.0",
+    "prettier": "^2.8.8",
     "vite": "^4.3.0",
     "vite-plugin-dts": "^2.0.0-beta.1",
     "vite-tsconfig-paths": "^4.0.5"

@@ -30,7 +30,7 @@ hideBreadcrumbs: true
 :::::: slot vue
 
 ::: read-more
-If you're using Storefront UI 1, you can find that documentation at [https://storefrontui.io/v1](https://storefrontui.io/v1).
+If you're using Storefront UI 1, you can find that documentation at [https://docs.storefrontui.io/v1](https://docs.storefrontui.io/v1).
 :::
 
 ## Base Components

@@ -32,8 +32,6 @@
 
 <script lang="ts" setup>
 import { SfButton } from '@storefront-ui/vue';
-import sunglasses from '@assets/display.png';
-import backpack from '@assets/display-2.png';
 
 const displayDetails = [
   {
@@ -41,7 +39,7 @@ const displayDetails = [
     subtitle: 'Be active',
     description: 'Explore the great outdoors with our backpacks',
     callToAction: 'Discover now',
-    image: backpack,
+    image: 'http://localhost:3100/@assets/display-2.png',
     backgroundColor: 'bg-warning-200',
     reverse: false,
   },
@@ -50,7 +48,7 @@ const displayDetails = [
     subtitle: 'Be inspired',
     description: 'Step out in style with our sunglasses collection',
     callToAction: 'Discover now',
-    image: sunglasses,
+    image: 'http://localhost:3100/@assets/display.png',
     backgroundColor: 'bg-negative-200',
     reverse: true,
   },
@@ -60,7 +58,7 @@ const displayDetails = [
     subtitle: 'Be active',
     description: 'Explore the great outdoors with our backpacks',
     callToAction: 'Discover now',
-    image: backpack,
+    image: 'http://localhost:3100/@assets/display-2.png',
     backgroundColor: 'bg-warning-200',
     reverse: true,
   },
@@ -69,7 +67,7 @@ const displayDetails = [
     subtitle: 'Be inspired',
     description: 'Step out in style with our sunglasses collection',
     callToAction: 'Discover now',
-    image: sunglasses,
+    image: 'http://localhost:3100/@assets/display.png',
     backgroundColor: 'bg-negative-200',
     reverse: false,
   },

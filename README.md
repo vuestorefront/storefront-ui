@@ -31,27 +31,27 @@
 
 <img src="./_readme/showcase.png">
 
-## What problems does Storefront UI solve?
+## What problems does Storefront UI solve? 
 
 Like any UI Library / Design System the main goal of Storefront UI is to **accelerate the development process** by providing an opinionated set of premade components, utilities and patterns.
 
 There is a lot of the things you have to take care of to build good user interfaces:
 
-🔹 **Developer/Designer workflow**: Storefront UI comes out of the box with Figma files - a pixel-perfect representation of your code that your design and engineering teams needs to stay aligned. 
+🔹 **Developer/Designer workflow** - Storefront UI comes out of the box with Figma files - a pixel-perfect representation of your code that your design and engineering teams needs to stay aligned. 
 
-🔹 **Performance:** Poorly written and overcomplicated components are often the performance bottleneck ruining the experience of your users. **All standard eCommerce pages that we've built with Storefront UI hit 95-100 on Lighthouse**! (mobile performance measured using [PSI](https://pagespeed.web.dev/))
+🔹 **Performance** - Poorly written and overcomplicated components are often the performance bottleneck ruining the experience of your users. **All standard eCommerce pages that we've built with Storefront UI hit 95-100 on Lighthouse**! (mobile performance measured using [PSI](https://pagespeed.web.dev/))
 
-🔹 **Accessibility:**  Web Accessibility is more than an ethical requirement in US: [it’s also legal](https://adasitecompliance.com/website-accessibility-legal-requirement/) and you risk fines if the justice department finds you guilty.  At the same time building accessible components takes a lot of time and requires specific domain knowledge. **Storefront UI components are WCAG AA compliant out of the box!**
+🔹 **Accessibility** -  Web accessibility is more than an ethical requirement in the United States: [it’s also legally mandated](https://adasitecompliance.com/website-accessibility-legal-requirement/) and you risk fines if the justice department determines your website is non-compliant. At the same time building accessible components takes a lot of time and requires specific domain knowledge. **Storefront UI components are WCAG AA compliant out of the box!**
 
 But let's be honest, almost all established UI libraries can solve that. **Here's what's Storefront UI is best at::**
 
-🔸 **Customization:**  Most of the UI libraries out there fail when components need to be heavily customized. You suddenly find yourself working against your library just to achieve the desired look. Storefront UI is built for complex cases. We ship a set of small and flexible _base components_ like `Button`, `Checkbox` or `Modal` that can be used to build more complex ones. We also deliver more complex examples (aka _Blocks_) like `ProductCard` or a different checkout steps as copy-pasteable code using Storefront UI components and Tailwind utilities.
+🔸 **Customization** -  Most of the UI libraries out there fail when components need to be heavily customized. You suddenly find yourself working against your library just to achieve the desired look. Storefront UI is built for complex cases. We ship a set of small and flexible _base components_ like `Button`, `Checkbox` or `Modal` that can be used to build more complex ones. We also deliver more complex examples (aka _Blocks_) like `ProductCard` or a different checkout steps as copy-pasteable code using Storefront UI components and Tailwind utilities.
 
 In addition, Storefront UI fits perfectly complex UI setups where one library is inherited and customized by multiple projects differing visually.
 
-🔸 **Scaling:** The more your application grows the less maintainable your UI becomes. By providing the right building blocks and using Tailwind CSS we made sure that your UI will be easy to maintain and won't negatively impact your performance even on a large scale. 
+🔸 **Scaling** - The more your application grows the less maintainable your UI becomes. By providing the right building blocks and using Tailwind CSS we made sure that your UI will be easy to maintain and won't negatively impact your performance even on a large scale. 
 
-🔸 **Focus on eCommerce** Storefront UI comes out of the box with components specific to eCommerce like `ProductCard`, `QuantitySelector` and even checkout components
+🔸 **Focus on eCommerce** - Storefront UI comes out of the box with components specific to eCommerce like `ProductCard`, `QuantitySelector` and even checkout components
 
 ## What comes out of the box? 🎁
 
@@ -62,7 +62,7 @@ In addition, Storefront UI fits perfectly complex UI setups where one library is
 - **Typography** package simplifying usage of 3rd party fonts
 - **Figma** file with pixel-perfect representation of SFUI components based on tailwind properties
 
-<a href="https://www.figma.com/file/7pRNATsiFwYmveafXzjhSV/SFUI-2-%7C-Design-Kit-(public)"><img src="./_readme/figma_included.png"></a>
+<a href="https://www.figma.com/file/7pRNATsiFwYmveafXzjhSV/Storefront-UI-%7C-Design-Kit-v2.1-(public)?type=design&t=Pl1AI78nphlRpIGb-0"><img src="./_readme/figma_included.png"></a>
 
 ## Contributing
 
@@ -77,6 +77,21 @@ You can become contributor not only by writing code:
 - Do a talk about Storefront UI at your local meetup
 
 We are grateful for all kind of contributions. If you don't know where to start check out our [contribution guide](./CONTRIBUTING.md) or ask for help on [Discord](https://discord.vuestorefront.io)
+
+## How to run project locally
+
+In the `root` directory of this project run `yarn` command to install all needed dependencies. 
+After dependencies has been installed run `yarn dev` command to run this project.
+Now both (Nuxt preview for Vue and Next preview for React) projects are running locally and you can start working on them.
+If you need to run only one of them, you need to run a desired preview from its directory, so you need to go for Vue: `/apps/preview/nuxt` and for React: `/apps/preview/next`. 
+
+NOTE:
+Subdependencies have to be build, such as 
+- `@storefront-ui/shared` located in `/packages/sfui/shared` 
+- `@storefront-ui/tw-plugin-peer-next` located in `/packages/sfui/tw-plugin-peer-next` 
+- `@storefront-ui/typography` located in `/packages/sfui/typography` 
+  
+Knowing this we recommend using `yarn dev` in `root` directory.
 
 ## Links
 

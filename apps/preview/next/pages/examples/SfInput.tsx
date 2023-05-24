@@ -34,6 +34,7 @@ function Example() {
       disabled: boolean;
       required: boolean;
       readonly: boolean | undefined;
+      wrapperAs: string;
     }
   >(
     [
@@ -53,6 +54,11 @@ function Example() {
         type: 'text',
         propType: 'string',
         modelName: 'placeholder',
+      },
+      {
+        type: 'text',
+        propType: 'string',
+        modelName: 'wrapperAs',
       },
       {
         type: 'text',
@@ -113,6 +119,7 @@ function Example() {
       required: false,
       invalid: false,
       readonly: undefined,
+      wrapperAs: 'span',
       placeholder: 'Placeholder text',
       helpText: 'Help text',
       requiredText: 'Required text',
@@ -149,6 +156,7 @@ function Example() {
           placeholder={state.get.placeholder}
           disabled={state.get.disabled}
           readOnly={state.get.readonly}
+          wrapperAs={state.get.wrapperAs}
           slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
           slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
           onChange={onChange}

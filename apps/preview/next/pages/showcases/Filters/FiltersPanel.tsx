@@ -5,12 +5,14 @@ import {
   SfButton,
   SfCounter,
   SfChip,
-  SfIconCancel,
   SfIconClose,
   SfIconChevronLeft,
+  SfIconArrowBack,
+  SfIconCheck,
   SfListItem,
   SfThumbnail,
   SfRadio,
+  SfRating,
   SfSelect,
   SfCheckbox,
 } from '@storefront-ui/react';
@@ -26,7 +28,22 @@ const sortOptions = [
   { id: 'sort6', label: 'Bestsellers', value: 'bestsellers' },
 ];
 
-const filtersData = [
+type FilterDetail = {
+  id: string;
+  label: string;
+  value: string;
+  counter?: number;
+  link?: string;
+};
+
+type Node = {
+  id: string;
+  summary: string;
+  type: string;
+  details: FilterDetail[];
+};
+
+const filtersData: Node[] = [
   {
     id: 'acc1',
     summary: 'Size',
@@ -48,6 +65,48 @@ const filtersData = [
   },
   {
     id: 'acc2',
+    summary: 'Categories',
+    type: 'categories',
+    details: [
+      {
+        id: 'CLOTHING',
+        label: 'Clothing',
+        value: 'clothing',
+        counter: 30,
+        link: '#',
+      },
+      {
+        id: 'SHOES',
+        label: 'Shoes',
+        value: 'shoes',
+        counter: 28,
+        link: '#',
+      },
+      {
+        id: 'ACCESSORIES',
+        label: 'Accessories',
+        value: 'accessories',
+        counter: 56,
+        link: '#',
+      },
+      {
+        id: 'WEARABLES',
+        label: 'Wearables',
+        value: 'wearables',
+        counter: 12,
+        link: '#',
+      },
+      {
+        id: 'FOOD_DRINKS',
+        label: 'Food & Drinks',
+        value: 'food and drinks',
+        counter: 52,
+        link: '#',
+      },
+    ],
+  },
+  {
+    id: 'acc3',
     summary: 'Colors',
     type: 'color',
     details: [
@@ -90,7 +149,7 @@ const filtersData = [
     ],
   },
   {
-    id: 'acc3',
+    id: 'acc4',
     summary: 'Brand',
     type: 'checkbox',
     details: [
@@ -101,7 +160,7 @@ const filtersData = [
     ],
   },
   {
-    id: 'acc4',
+    id: 'acc5',
     summary: 'Price',
     type: 'radio',
     details: [
@@ -112,27 +171,35 @@ const filtersData = [
       { id: 'pr5', label: '$200.00 and above', value: 'above', counter: 18 },
     ],
   },
+  {
+    id: 'acc6',
+    summary: 'Rating',
+    type: 'rating',
+    details: [
+      { id: 'r1', label: '5', value: '5', counter: 10 },
+      { id: 'r2', label: '4 & up', value: '4', counter: 123 },
+      { id: 'r3', label: '3 & up', value: '3', counter: 12 },
+      { id: 'r4', label: '2 & up', value: '2', counter: 3 },
+      { id: 'r5', label: '1 & up', value: '1', counter: 13 },
+    ],
+  },
 ];
 
 export default function FiltersPanel() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+  const [price, setPrice] = useState<string | null>(null);
+  const [rating, setRating] = useState<string | null>(null);
   const [opened, setOpened] = useState<string[]>(filtersData.map((item) => item.id));
 
   const isAccordionItemOpen = (id: string) => opened.includes(id);
-  const isFilterSelected = (val: string) => selectedFilters.includes(val);
+  const isFilterSelected = (selectedValue: string) => selectedFilters.includes(selectedValue);
 
-  const handleFilterSelection = (val: string) => {
-    if (selectedFilters.indexOf(val) > -1) {
-      setSelectedFilters([...selectedFilters.filter((value) => value !== val)]);
+  const handleFilterSelection = (selectedValue: string) => {
+    if (selectedFilters.indexOf(selectedValue) > -1) {
+      setSelectedFilters([...selectedFilters.filter((value) => value !== selectedValue)]);
     } else {
-      setSelectedFilters([...selectedFilters, val]);
+      setSelectedFilters([...selectedFilters, selectedValue]);
     }
-  };
-
-  const handleRadioSelection = (val: string) => {
-    const newSelectedFilters = selectedFilters.filter((selectedFilter) => !isFilterSelected(selectedFilter));
-    newSelectedFilters.push(val);
-    setSelectedFilters(newSelectedFilters);
   };
 
   const handleToggle = (id: string) => (open: boolean) => {
@@ -143,22 +210,16 @@ export default function FiltersPanel() {
     }
   };
 
+  const handleClearFilters = () => {
+    setSelectedFilters([]);
+    setPrice(null);
+    setRating(null);
+  };
+
   return (
     <aside>
       <div className="flex items-center justify-between mb-4">
         <h4 className="px-2 font-bold typography-headline-4">List settings</h4>
-        {selectedFilters.length ? (
-          <SfButton
-            type="reset"
-            size="sm"
-            variant="tertiary"
-            className="hidden md:flex"
-            onClick={() => setSelectedFilters([])}
-            slotSuffix={<SfIconCancel size="sm" />}
-          >
-            Clear all
-          </SfButton>
-        ) : null}
         <button type="button" className="sm:hidden text-neutral-500" aria-label="Close filters panel">
           <SfIconClose />
         </button>
@@ -216,6 +277,37 @@ export default function FiltersPanel() {
                 ))}
               </ul>
             )}
+            {section.type === 'categories' && (
+              <ul className="mt-2 mb-6">
+                <li>
+                  <SfListItem size="sm" as="button" type="button">
+                    <span className="flex items-center">
+                      <SfIconArrowBack size="sm" className="text-neutral-500 mr-3" />
+                      Back to {section.details[0].label}
+                    </span>
+                  </SfListItem>
+                </li>
+                {section.details.map(({ id, link, label, counter }) => (
+                  <li key={id}>
+                    <SfListItem
+                      size="sm"
+                      as="a"
+                      href={link}
+                      className={classNames('first-of-type:mt-2 rounded-md active:bg-primary-100', {
+                        'bg-primary-100 hover:bg-primary-100': isFilterSelected(label),
+                      })}
+                      slotSuffix={isFilterSelected(label) && <SfIconCheck size="xs" className="text-primary-700" />}
+                      onClick={() => handleFilterSelection(label)}
+                    >
+                      <span className="flex items-center">
+                        {label}
+                        <SfCounter className="ml-2 typography-text-sm">{counter}</SfCounter>
+                      </span>
+                    </SfListItem>
+                  </li>
+                ))}
+              </ul>
+            )}
             {section.type === 'color' &&
               section.details.map(({ id, label, value, counter }) => (
                 <SfListItem
@@ -237,7 +329,7 @@ export default function FiltersPanel() {
                           handleFilterSelection(event.target.value);
                         }}
                       />
-                      <span className="inline-flex items-center justify-center p-1 transition duration-300 rounded-full cursor-pointer ring-1 ring-neutral-200 ring-inset outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-hover:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus:outline">
+                      <span className="inline-flex items-center justify-center p-1 transition duration-300 rounded-full cursor-pointer ring-1 ring-neutral-200 ring-inset outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-[&:not(:checked):hover]:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus-visible:outline">
                         <SfThumbnail size="sm" className={value} />
                       </span>
                     </>
@@ -276,40 +368,70 @@ export default function FiltersPanel() {
                   </p>
                 </SfListItem>
               ))}
-            {section.type === 'radio' &&
-              section.details.map(({ label, value, counter }) => (
-                <SfListItem
-                  key={value}
-                  as="label"
-                  size="sm"
-                  disabled={counter === 0}
-                  className={classNames('px-1.5 bg-transparent hover:bg-transparent', {
-                    'font-medium': isFilterSelected(value),
-                  })}
-                  slotPrefix={
-                    <SfRadio
-                      disabled={counter === 0}
-                      value={value}
-                      name="radio-price"
-                      checked={isFilterSelected(value)}
-                      onChange={(event) => {
-                        handleRadioSelection(event.target.value);
-                      }}
-                    />
-                  }
-                >
-                  <p>
-                    <span className="mr-2 text-sm">{label}</span>
-                    <SfCounter size="sm">{counter}</SfCounter>
-                  </p>
-                </SfListItem>
-              ))}
+            {section.type === 'radio' && (
+              <fieldset name="radio-price">
+                {section.details.map(({ label, value, counter }) => (
+                  <SfListItem
+                    key={value}
+                    as="label"
+                    size="sm"
+                    disabled={counter === 0}
+                    className={classNames('px-1.5 bg-transparent hover:bg-transparent', {
+                      'font-medium': value === price,
+                    })}
+                    slotPrefix={
+                      <SfRadio
+                        disabled={counter === 0}
+                        value={value}
+                        checked={price === value}
+                        name="radio-price"
+                        onClick={() => setPrice(price === value ? null : value)}
+                      />
+                    }
+                  >
+                    <p>
+                      <span className="mr-2 text-sm">{label}</span>
+                      <SfCounter size="sm">{counter}</SfCounter>
+                    </p>
+                  </SfListItem>
+                ))}
+              </fieldset>
+            )}
+            {section.type === 'rating' && (
+              <fieldset id="radio-rating">
+                {section.details.map(({ id, label, value, counter }) => (
+                  <SfListItem
+                    key={id}
+                    as="label"
+                    size="sm"
+                    className={classNames('!items-start py-4 md:py-1 bg-transparent hover:bg-transparent', {
+                      'font-medium': value === rating,
+                    })}
+                    slotPrefix={
+                      <SfRadio
+                        value={value}
+                        checked={rating === value}
+                        name="radio-rating"
+                        onClick={() => setRating(rating === value ? null : value)}
+                      />
+                    }
+                  >
+                    {/* TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem */}
+                    <div className="flex flex-wrap items-end">
+                      <SfRating value={Number(value)} max={5} size="sm" />
+                      <span className="mx-2 text-sm">{label}</span>
+                      <SfCounter size="sm">{counter}</SfCounter>
+                    </div>
+                  </SfListItem>
+                ))}
+              </fieldset>
+            )}
           </SfAccordionItem>
           <hr className="my-4" />
         </>
       ))}
       <div className="flex justify-between">
-        <SfButton variant="secondary" className="w-full mr-3" onClick={() => setSelectedFilters([])}>
+        <SfButton variant="secondary" className="w-full mr-3" onClick={handleClearFilters}>
           Clear all filters
         </SfButton>
         <SfButton className="w-full">Show products</SfButton>

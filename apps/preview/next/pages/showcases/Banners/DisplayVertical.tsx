@@ -3,8 +3,6 @@ import { ShowcasePageLayout } from '../../showcases';
 
 // #region source
 import { SfButton } from '@storefront-ui/react';
-import sunglasses from '@assets/display.png';
-import backpack from '@assets/display-2.png';
 import classNames from 'classnames';
 
 const displayDetails = [
@@ -13,7 +11,7 @@ const displayDetails = [
     subtitle: 'Be active',
     description: 'Explore the great outdoors with our backpacks',
     callToAction: 'Discover now',
-    image: backpack,
+    image: 'http://localhost:3100/@assets/display-2.png',
     backgroundColor: 'bg-warning-200',
     reverse: false,
   },
@@ -22,7 +20,7 @@ const displayDetails = [
     subtitle: 'Be inspired',
     description: 'Step out in style with our sunglasses collection',
     callToAction: 'Discover now',
-    image: sunglasses,
+    image: 'http://localhost:3100/@assets/display.png',
     backgroundColor: 'bg-negative-200',
     reverse: true,
   },
@@ -50,7 +48,7 @@ export default function DisplayVertical() {
             <SfButton className="font-semibold !bg-neutral-900">{callToAction}</SfButton>
           </div>
           <div className="flex items-center w-full">
-            <img src={image.src} alt={title} width="100%" height="auto" />
+            <img src={image} alt={title} width="100%" height="auto" />
           </div>
         </div>
       ))}

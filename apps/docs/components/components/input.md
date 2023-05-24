@@ -107,6 +107,8 @@ Since, `size` is a specified prop of `SfInput`, you won't be able to pass the na
 
 Since `SfInput` uses `<input>`, it inherits all the features of the native input. For example, `SfInput` is focusable for keyboard users with `tab`.
 
+Avoid adding `div` tags to slots. If an input element is wrapped in `label` tag (recommended) then it can't have `div` inside.
+
 ## Playground
 
 <Generate style="height: 600px;"/>
@@ -121,7 +123,9 @@ Since `SfInput` uses `<input>`, it inherits all the features of the native input
 | ------------ | --------        | ------------- | -------------------------------------- |
 | `size`         | `SfInputSize`  | `'base'`          | `'sm'`, `'base'`, `'lg'`                           |
 | `invalid`      | `boolean`         | `false`         |                                        |
+| `wrapperTag`    | `string`         | `span`        | Any tag name for input wrapper         |
 <!-- react -->
+| `wrapperAs`    | `string`          | `span`        | Any tag name for input wrapper         |
 | `className`    | `string`          |               |                                        |
 | `slotPrefix`   | `ReactNode`       |               |                                        |
 | `slotSuffix`   | `ReactNode`       |               |                                        |

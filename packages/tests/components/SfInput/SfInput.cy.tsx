@@ -12,6 +12,8 @@ describe('SfInput', () => {
   let placeholder: string;
   let invalid: boolean;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
+  let wrapperAs: string;
+  let wrapperTag: string;
   let value = '';
   let readonly;
 
@@ -27,6 +29,7 @@ describe('SfInput', () => {
           placeholder,
           invalid,
           readonly,
+          wrapperTag,
           modelValue: value,
           'onUpdate:modelValue': onChangeSpy,
         },
@@ -39,6 +42,7 @@ describe('SfInput', () => {
           invalid={invalid}
           size={size}
           readOnly={readonly}
+          wrapperAs={wrapperAs}
           onChange={onChangeSpy}
         />
       ),
@@ -92,6 +96,19 @@ describe('SfInput', () => {
       initializeComponent();
 
       page().hasPlaceholder().makeSnapshot();
+    });
+  });
+
+  describe('when prop wrapperAs/wrapperTag is set as label', () => {
+    before(() => {
+      wrapperAs = 'label';
+      wrapperTag = 'label';
+    });
+    it(`should render input wrapper as label tag`, () => {
+      initializeComponent();
+
+      page().hasTag('LABEL');
+      page().makeSnapshot();
     });
   });
 

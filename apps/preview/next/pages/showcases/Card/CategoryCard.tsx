@@ -1,22 +1,19 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import men from '@assets/men_category.png';
-import women from '@assets/women_category.png';
-import kid from '@assets/kid_category.png';
 
 const categories = [
   {
     title: `Women`,
-    image: women.src,
+    image: 'http://localhost:3100/@assets/women_category.png',
   },
   {
     title: `Men`,
-    image: men.src,
+    image: 'http://localhost:3100/@assets/men_category.png',
   },
   {
     title: `Kid`,
-    image: kid.src,
+    image: 'http://localhost:3100/@assets/kid_category.png',
   },
 ];
 export default function CategoryCard() {

@@ -1,6 +1,6 @@
 <template>
   <div class="space-x-4">
-    <SfLink :tag="NuxtLink" :to="{ path: '#', query: { docs: true } }"> NuxtLink </SfLink>
+    <SfLink :tag="NuxtLink" href="#"> NuxtLink </SfLink>
   </div>
 </template>
 

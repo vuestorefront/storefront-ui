@@ -1,6 +1,7 @@
 {
   "extends": "@storefront-ui/typescript-config/base.json",
   "compilerOptions": {
+    "outDir": "./dist",
     "sourceMap": true,
     "noEmit": true,
     "target": "ESNext",
@@ -8,5 +9,6 @@
     "baseUrl": ".",
     "types": ["vite/client"]
   },
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts"],
+  "exclude": ["./dist/**/*"]
 }

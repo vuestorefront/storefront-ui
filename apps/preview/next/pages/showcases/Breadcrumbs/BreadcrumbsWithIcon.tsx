@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import { useState } from 'react';
 import { SfDropdown, SfButton, SfLink, SfIconMoreHoriz, SfIconHome } from '@storefront-ui/react';
 import { ShowcasePageLayout } from '../../showcases';
@@ -67,7 +68,7 @@ export function Showcase() {
         </li>
         {breadcrumbs.map((item, index) => (
           <li
-            className="peer hidden sm:flex peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
+            className="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
             key={item.name}
           >
             {index === 0 ? (
@@ -78,7 +79,7 @@ export function Showcase() {
               >
                 <SfIconHome size="sm" />
               </SfLink>
-            ) : (
+            ) : index < breadcrumbs.length - 1 ? (
               <SfLink
                 href={item.link}
                 variant="secondary"
@@ -86,6 +87,8 @@ export function Showcase() {
               >
                 {item.name}
               </SfLink>
+            ) : (
+              <span> {item.name} </span>
             )}
           </li>
         ))}

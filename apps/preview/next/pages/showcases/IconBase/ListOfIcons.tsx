@@ -8,7 +8,7 @@ const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function IconList() {
   const [copied, setCopied] = useState('');
   const { data: componentsNames = [] } = useSWR<string[]>(
-    `${process.env.DOCS_EXAMPLES_REACT_PATH || ''}/api/getIcons`,
+    `${process.env.VITE_DOCS_EXAMPLES_REACT_PATH || ''}/api/getIcons`,
     fetcher,
   );
 

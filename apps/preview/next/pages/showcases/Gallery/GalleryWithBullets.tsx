@@ -5,33 +5,35 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { useState } from 'react';
 import { SfScrollable, SfButton, SfIconChevronLeft, SfIconChevronRight } from '@storefront-ui/react';
-import * as Images from './images';
 import classNames from 'classnames';
 
+const withBase = (filepath: string) => `http://localhost:3100/@assets/gallery/${filepath}`;
+
 const images = [
-  { imageSrc: Images.gallery1Src, alt: 'backpack1' },
-  { imageSrc: Images.gallery2Src, alt: 'backpack2' },
-  { imageSrc: Images.gallery3Src, alt: 'backpack3' },
-  { imageSrc: Images.gallery4Src, alt: 'backpack4' },
-  { imageSrc: Images.gallery5Src, alt: 'backpack5' },
-  { imageSrc: Images.gallery6Src, alt: 'backpack6' },
-  { imageSrc: Images.gallery7Src, alt: 'backpack7' },
-  { imageSrc: Images.gallery8Src, alt: 'backpack8' },
-  { imageSrc: Images.gallery9Src, alt: 'backpack9' },
-  { imageSrc: Images.gallery10Src, alt: 'backpack10' },
+  { imageSrc: withBase('gallery_1.png'), alt: 'backpack1' },
+  { imageSrc: withBase('gallery_2.png'), alt: 'backpack2' },
+  { imageSrc: withBase('gallery_3.png'), alt: 'backpack3' },
+  { imageSrc: withBase('gallery_4.png'), alt: 'backpack4' },
+  { imageSrc: withBase('gallery_5.png'), alt: 'backpack5' },
+  { imageSrc: withBase('gallery_6.png'), alt: 'backpack6' },
+  { imageSrc: withBase('gallery_7.png'), alt: 'backpack7' },
+  { imageSrc: withBase('gallery_8.png'), alt: 'backpack8' },
+  { imageSrc: withBase('gallery_9.png'), alt: 'backpack9' },
+  { imageSrc: withBase('gallery_10.png'), alt: 'backpack10' },
+  { imageSrc: withBase('gallery_11.png'), alt: 'backpack11' },
 ];
 
 export default function GalleryWithBullets() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="relative max-h-[600px] flex flex-col h-full gap-1">
+    <div className="relative max-h-[600px] flex flex-col w-full aspect-[4/3] gap-1">
       <SfScrollable
         className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         wrapperClassName="group/scrollable h-full"
         activeIndex={activeIndex}
         isActiveIndexCentered
-        previousDisabled={activeIndex === 0}
+        prevDisabled={activeIndex === 0}
         nextDisabled={activeIndex === images.length - 1}
         buttonsPlacement="block"
         onPrev={() => {
@@ -42,7 +44,7 @@ export default function GalleryWithBullets() {
         }}
         slotPreviousButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
+            className="hidden group-hover/scrollable:block disabled:!hidden absolute !rounded-full !p-3 z-10 top-1/2 left-4 bg-white"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronLeft />}
@@ -50,7 +52,7 @@ export default function GalleryWithBullets() {
         }
         slotNextButton={
           <SfButton
-            className="hidden group-hover/scrollable:block absolute !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
+            className="hidden group-hover/scrollable:block disabled:!hidden absolute !rounded-full !p-3 z-10 top-1/2 right-4 bg-white"
             variant="secondary"
             size="lg"
             slotPrefix={<SfIconChevronRight />}
