@@ -4,7 +4,7 @@ import { type ChangeEvent, type FormEvent, useState, useRef } from 'react';
 import { useDebounce } from 'react-use';
 import { offset } from '@floating-ui/react-dom';
 import {
-    SfButton,
+  SfButton,
   SfInput,
   SfIconSearch,
   SfIconCancel,
@@ -136,7 +136,7 @@ export default function SearchWithIcon() {
         slotSuffix={
             isResetButton && (
                 <button
-                  type="button"
+                  type="reset"
                   onClick={handleReset}
                   aria-label="Reset search"
                   className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
@@ -146,7 +146,7 @@ export default function SearchWithIcon() {
               )
         }
       />
-      <SfButton className="rounded-l-none"><SfIconSearch/></SfButton>
+      <SfButton type="submit" aria-label="Search for a specific phrase on the page" className="rounded-l-none"><SfIconSearch/></SfButton>
       </div>
       {isOpen && (
         <div ref={refs.setFloating} style={style} className="left-0 right-0">

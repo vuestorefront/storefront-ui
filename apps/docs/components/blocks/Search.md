@@ -34,13 +34,28 @@ Simple search with an autocomplete functionality. Give your users hints of what 
 
 This block enhances search functionality with a custom icon and categorized result suggestions.
 
-<Showcase showcase-name="Search/SearchWithIcon" style="min-height: 350px">
+<Showcase showcase-name="Search/SearchWithIcon" style="min-height: 500px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Search/SearchBasic.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Search/SearchWithIcon.tsx#source
+<!-- end react -->
+
+</Showcase>
+
+## Search with custom button
+
+This block enhances search functionality with a custom button, categorized result suggestions and thumbnails.
+
+<Showcase showcase-name="Search/SearchWithButton" style="min-height: 500px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Search/SearchBasic.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Search/SearchWithButton.tsx#source
 <!-- end react -->
 
 </Showcase>
