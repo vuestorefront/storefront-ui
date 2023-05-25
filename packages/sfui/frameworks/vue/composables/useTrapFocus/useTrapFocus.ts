@@ -1,6 +1,5 @@
 import { unrefElement } from '@vueuse/core';
-import type { CheckOptions, FocusableElement, TabbableOptions } from 'tabbable';
-import { tabbable } from 'tabbable';
+import { CheckOptions, FocusableElement, tabbable, TabbableOptions } from 'tabbable';
 import { type Ref, ref, watch } from 'vue';
 import { focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
 import { waitForNextRender } from '@storefront-ui/vue';
@@ -49,6 +48,7 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
   };
 
   const onKeyDownListener = (event: KeyboardEvent) => {
+    event.preventDefault();
     const isAnyGroupElement = arrowFocusGroupSelector && containerHTMLElement?.querySelector(arrowFocusGroupSelector);
     if (arrowKeysOn) {
       if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
@@ -77,7 +77,7 @@ export const useTrapFocus = (containerElementRef: Ref<HTMLElement | undefined>, 
 
   const removeEventListeners = () => {
     containerHTMLElement?.removeEventListener('keydown', onKeyDownListener);
-    containerHTMLElement?.removeEventListener('keydown', onFocusListener);
+    containerHTMLElement?.removeEventListener('focus', onFocusListener, true);
   };
 
   watch(

@@ -13,7 +13,7 @@
       :aria-disabled="isDisabled"
       :aria-expanded="isOpen"
       :aria-activedescendant="currentFocus?.id"
-      :invalid="!isValid"
+      :invalid="isValid === false && !isOpen"
       :disabled="isDisabled"
       :class="[
         'cursor-pointer',
@@ -21,8 +21,8 @@
           '!text-disabled-500': isDisabled,
         },
       ]"
-      :wrapper-class-name="{
-        '!bg-disabled-100 !ring-disabled-300 !ring-1': isDisabled,
+      :wrapper-class="{
+        '!bg-disabled-100 !ring-disabled-300 !hover:ring-disabled-300 !ring-1': isDisabled,
       }"
       slot-suffix="{"
       }
@@ -53,7 +53,7 @@
       <ul
         v-else
         :id="listId"
-        ref="dropdownListRef"
+        ref="dropdownRef"
         role="listbox"
         aria-label="Country list"
         class="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
@@ -62,12 +62,12 @@
           <li v-for="option in snippets" :key="option.value">
             <SfListItem
               :id="`${listId}-${option.value}`"
-              as="button"
+              tag="button"
               type="button"
               class="flex justify-start"
               :aria-selected="option.value === inputModel"
-              @click="selectOption(option.value)"
-              @keydown="(event) => handleOptionItemKeyDown(event, option)"
+              @click="selectOption(option.label)"
+              @keydown.enter.space.prevent="selectOption(option.label)"
             >
               <p class="text-left">
                 <span :class="isDisabled ? '!text-disabled-500' : 'text-neutral-500'">
@@ -77,7 +77,7 @@
             </SfListItem>
           </li>
         </div>
-        <SfListItem v-else-if="inputModel" class-name="flex justify-start">
+        <SfListItem v-else-if="inputModel" class-name="flex justify-start" aria-label="No options">
           <p class="text-left">
             <span>No options</span>
           </p>
@@ -86,12 +86,12 @@
           <li v-for="option in options" :key="option.value">
             <SfListItem
               :id="`${listId}-${option.value}`"
-              as="button"
+              tag="button"
               type="button"
               class="flex justify-start"
               :aria-selected="option.value === inputModel"
-              @click="() => selectOption(option.value)"
-              @key-down="(event) => handleOptionItemKeyDown(event, option)"
+              @click="selectOption(option.label)"
+              @keydown.enter.space.prevent="selectOption(option.label)"
             >
               <p class="text-left">
                 <span>{{ option.label }}</span>
@@ -104,10 +104,10 @@
   </div>
   <p class="text-xs mt-0.5 text-neutral-500">Help text</p>
   <p class="mt-2 text-neutral-500 typography-text-sm">*Required</p>
-  <p v-if="!isDisabled && isValid === false" class="text-negative-700 typography-text-sm font-medium mt-0.5">
+  <p v-if="!isDisabled && isValid === false && !isOpen" class="text-negative-700 typography-text-sm font-medium mt-0.5">
     No option selected
   </p>
-  <div class="mt-10">
+  <div class="mt-40">
     <label class="flex items-center">
       <SfSwitch :checked="isDisabled" value="disabled" @change="isDisabled = !isDisabled" />
       <span class="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Disabled/Enabled</span>
@@ -116,7 +116,7 @@
 </template>
 
 <script lang="ts" setup>
-import { type Ref, ref, watch } from 'vue';
+import { ref, watch } from 'vue';
 import { offset } from '@floating-ui/vue';
 import { watchDebounced } from '@vueuse/shared';
 import { unrefElement } from '@vueuse/core';
@@ -129,19 +129,19 @@ import {
   useDisclosure,
   useDropdown,
   useTrapFocus,
-  InitialFocusType,
   useId,
 } from '@storefront-ui/vue';
 
 const inputModel = ref('');
 const inputRef = ref();
-const dropdownListRef = ref();
+const dropdownRef = ref();
 const isLoadingSnippets = ref(false);
 const id = useId();
 const listId = useId();
 const isDisabled = ref(false);
 const snippets = ref<{ label: string; value: string }[]>([]);
 const isValid = ref<boolean | undefined>(undefined);
+const isSelected = ref(false);
 const { isOpen, close, open, toggle } = useDisclosure();
 const { referenceRef, floatingRef, style } = useDropdown({
   isOpen,
@@ -149,11 +149,11 @@ const { referenceRef, floatingRef, style } = useDropdown({
   placement: 'bottom-start',
   middleware: [offset(4)],
 });
-const { current: currentFocus, focusables: focusableElements } = useTrapFocus(dropdownListRef as Ref<HTMLElement>, {
+const { current: currentFocus, focusables: focusableElements } = useTrapFocus(dropdownRef, {
+  trapTabs: false,
   arrowKeysOn: true,
   activeState: isOpen,
-  initialFocus: InitialFocusType.autofocus,
-  initialFocusContainerFallback: true,
+  initialFocus: false,
 });
 
 const handleFocusInput = () => {
@@ -169,8 +169,7 @@ const handleReset = () => {
 };
 
 const handleBlur = () => {
-  if (dropdownListRef.value) return;
-  isValid.value = !!inputModel.value;
+  isValid.value = !!options.find((option) => option.value.toLowerCase() === inputModel.value.toLowerCase());
 };
 
 const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
@@ -179,22 +178,20 @@ const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     open();
     if (isOpen) {
       const focusableElementsAmount = focusableElements.value.length;
-      console.log('focusables', focusableElements.value[focusableElementsAmount - 1]);
       focusableElements.value[focusableElementsAmount - 1].focus();
     }
   }
   if (event.key === 'ArrowDown') {
     open();
-    focusableElements.value[0].focus();
+    if (isOpen) {
+      focusableElements.value[0].focus();
+    }
   }
-};
-
-const handleOptionItemKeyDown = (event: KeyboardEvent<HTMLButtonElement>, option: SelectOption) => {
-  if (event.key === ' ' || event.key === 'Enter') selectOption(option.value);
 };
 
 const selectOption = (phrase: string) => {
   inputModel.value = phrase;
+  isSelected.value = true;
   close();
   handleFocusInput();
 };
@@ -208,9 +205,9 @@ watch(inputModel, () => {
 watchDebounced(
   inputModel,
   () => {
-    if (inputModel.value) {
+    if (inputModel.value && isSelected.value === false) {
       const getSnippets = async () => {
-        open();
+        if (!isOpen.value) open();
         isLoadingSnippets.value = true;
         try {
           const data = await mockAutocompleteRequest(inputModel.value);
@@ -223,6 +220,8 @@ watchDebounced(
       };
 
       getSnippets();
+    } else {
+      isSelected.value = false;
     }
   },
   { debounce: 500 },
