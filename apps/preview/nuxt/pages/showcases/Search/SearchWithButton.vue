@@ -138,7 +138,7 @@
     id: string;
     name: string;
     image?: string;
-    thumbnail?: Node;
+    thumbnail?: unknown;
   }
   const mockProducts: Product[] = [
   { id: 'j-avatar', name: 'jack', image: 'http://localhost:3100/@assets/kid.png' },

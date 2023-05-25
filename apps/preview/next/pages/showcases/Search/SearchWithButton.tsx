@@ -1,3 +1,5 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { type ChangeEvent, type FormEvent, useState, useRef } from 'react';
