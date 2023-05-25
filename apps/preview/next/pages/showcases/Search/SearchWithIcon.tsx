@@ -158,7 +158,7 @@ export default function SearchWithIcon() {
             snippets.length > 0 && (
               <ul
                 ref={dropdownListRef}
-                className="py-2 bg-white sm:border border-solid sm:rounded-md sm:border-neutral-100 sm:drop-shadow-md"
+                className="py-2 bg-white h-screen sm:h-auto sm:border sm:border-solid sm:rounded-md sm:border-neutral-100 sm:drop-shadow-md"
               >
                 {snippets.map(({ highlight, rest, product }) => (
                   <li key={product.id}>

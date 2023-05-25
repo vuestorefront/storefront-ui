@@ -37,7 +37,7 @@ This block enhances search functionality with a custom icon and categorized resu
 <Showcase showcase-name="Search/SearchWithIcon" style="min-height: 500px">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Search/SearchBasic.vue
+<<<../../preview/nuxt/pages/showcases/Search/SearchWithIcon.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Search/SearchWithIcon.tsx#source
@@ -52,7 +52,7 @@ This block enhances search functionality with a custom button, categorized resul
 <Showcase showcase-name="Search/SearchWithButton" style="min-height: 500px">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Search/SearchBasic.vue
+<<<../../preview/nuxt/pages/showcases/Search/SearchWithButton.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Search/SearchWithButton.tsx#source
