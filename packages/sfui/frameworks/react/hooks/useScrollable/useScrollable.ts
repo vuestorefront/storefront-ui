@@ -1,5 +1,11 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
-import { type UseScrollableOptions, Scrollable, composeHandlers, createPropsGetter } from '@storefront-ui/react';
+import { type Ref, useEffect, useRef, useState } from 'react';
+import {
+  type UseScrollableOptions,
+  Scrollable,
+  composeHandlers,
+  createPropsGetter,
+  mergeRefs,
+} from '@storefront-ui/react';
 
 export function useScrollable<TElement extends HTMLElement>({
   activeIndex,
