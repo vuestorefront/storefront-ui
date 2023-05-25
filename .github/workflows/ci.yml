@@ -16,7 +16,7 @@ jobs:
     name: Create cache for all steps
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Node.js
         uses: actions/setup-node@v3
