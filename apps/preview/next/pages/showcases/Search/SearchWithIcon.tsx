@@ -125,30 +125,32 @@ export default function SearchWithIcon() {
 
   return (
     <form role="search" onSubmit={handleSubmit} ref={refs.setReference} className="relative">
-    <div className="flex">
-      <SfInput
-        ref={inputRef}
-        value={searchValue}
-        onChange={handleChange}
-        onFocus={open}
-        wrapperClassName="w-full ring-0 active:ring-0 hover:ring-0 focus-within:ring-0 border-y border-l border-neutral-200 rounded-r-none hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
-        aria-label="Search"
-        placeholder="Search 'MacBook' or 'iPhone'..."
-        slotPrefix={<SfIconSearch />}
-        slotSuffix={
+      <div className="flex">
+        <SfInput
+          ref={inputRef}
+          value={searchValue}
+          onChange={handleChange}
+          onFocus={open}
+          wrapperClassName="w-full ring-0 active:ring-0 hover:ring-0 focus-within:ring-0 border-y border-l border-neutral-200 rounded-r-none hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
+          aria-label="Search"
+          placeholder="Search 'MacBook' or 'iPhone'..."
+          slotPrefix={<SfIconSearch />}
+          slotSuffix={
             isResetButton && (
-                <button
-                  type="reset"
-                  onClick={handleReset}
-                  aria-label="Reset search"
-                  className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
-                >
-                  <SfIconCancel />
-                </button>
-              )
-        }
-      />
-      <SfButton type="submit" aria-label="Search for a specific phrase on the page" className="rounded-l-none"><SfIconSearch/></SfButton>
+              <button
+                type="reset"
+                onClick={handleReset}
+                aria-label="Reset search"
+                className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+              >
+                <SfIconCancel />
+              </button>
+            )
+          }
+        />
+        <SfButton type="submit" aria-label="Search for a specific phrase on the page" className="rounded-l-none">
+          <SfIconSearch />
+        </SfButton>
       </div>
       {isOpen && (
         <div ref={refs.setFloating} style={style} className="left-0 right-0">

@@ -26,7 +26,7 @@ interface Product {
 }
 
 const mockProducts: Product[] = [
-  { id: 'j-avatar', name: 'jack', image: 'http://localhost:3100/@assets/kid.png'  },
+  { id: 'j-avatar', name: 'jack', image: 'http://localhost:3100/@assets/kid.png' },
   { id: 'j-cat', name: 'jackets', thumbnail: <SfIconGridView /> },
   { id: 'j-wom', name: 'jacket women', thumbnail: <SfIconSearch /> },
   { id: 'j-den', name: 'jacket denim', thumbnail: <SfIconSearch /> },
@@ -34,7 +34,7 @@ const mockProducts: Product[] = [
   { id: 'dr-cat', name: 'dresses', thumbnail: <SfIconGridView /> },
   { id: 'dr-cot', name: 'cotton dresses', thumbnail: <SfIconSearch /> },
   { id: 'dr-wom', name: 'dresses women', thumbnail: <SfIconSearch /> },
-  { id: 'dr-sum', name: 'summer dresses', thumbnail: <SfIconSearch /> }
+  { id: 'dr-sum', name: 'summer dresses', thumbnail: <SfIconSearch /> },
 ];
 
 // Just for presentation purposes. Replace mock request with the actual API call.
@@ -124,30 +124,32 @@ export default function SearchWithIcon() {
 
   return (
     <form role="search" onSubmit={handleSubmit} ref={refs.setReference} className="relative">
-    <div className="flex">
-      <SfInput
-        ref={inputRef}
-        value={searchValue}
-        onChange={handleChange}
-        onFocus={open}
-        wrapperClassName="w-full ring-0 active:ring-0 hover:ring-0 focus-within:ring-0 border-y border-l border-neutral-200 rounded-r-none hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
-        aria-label="Search"
-        placeholder="Search 'jackets' or 'dresses'..."
-        slotPrefix={<SfIconSearch />}
-        slotSuffix={
+      <div className="flex">
+        <SfInput
+          ref={inputRef}
+          value={searchValue}
+          onChange={handleChange}
+          onFocus={open}
+          wrapperClassName="w-full ring-0 active:ring-0 hover:ring-0 focus-within:ring-0 border-y border-l border-neutral-200 rounded-r-none hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
+          aria-label="Search"
+          placeholder="Search 'jackets' or 'dresses'..."
+          slotPrefix={<SfIconSearch />}
+          slotSuffix={
             isResetButton && (
-                <button
-                  type="reset"
-                  onClick={handleReset}
-                  aria-label="Reset search"
-                  className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
-                >
-                  <SfIconCancel />
-                </button>
-              )
-        }
-      />
-      <SfButton type="submit" className="rounded-l-none">Search</SfButton>
+              <button
+                type="reset"
+                onClick={handleReset}
+                aria-label="Reset search"
+                className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+              >
+                <SfIconCancel />
+              </button>
+            )
+          }
+        />
+        <SfButton type="submit" className="rounded-l-none">
+          Search
+        </SfButton>
       </div>
       {isOpen && (
         <div ref={refs.setFloating} style={style} className="left-0 right-0">
@@ -170,7 +172,11 @@ export default function SearchWithIcon() {
                       className="!py-4 sm:!py-2 flex justify-start"
                     >
                       <p className="flex items-center text-left text-neutral-500">
-                        {product.image ? <img src={product.image} alt={product.name} className="rounded-sm" width={24} height={24} /> : product.thumbnail}
+                        {product.image ? (
+                          <img src={product.image} alt={product.name} className="rounded-sm" width={24} height={24} />
+                        ) : (
+                          product.thumbnail
+                        )}
                         <span className="ml-2 text-neutral-900">{highlight}</span>
                         <span className="font-medium text-neutral-900">{rest}</span>
                       </p>
