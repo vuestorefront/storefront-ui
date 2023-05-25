@@ -216,8 +216,15 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Build and release canary version
-        run: |
-          yarn build:release
-          yarn changeset version --snapshot
-          yarn changeset publish --tag canary
+      - name: Bump package version
+        run: yarn changeset version --snapshot
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build package
+        run: yarn build:release
+      - name: Publish canary version
+        run: yarn changeset publish --tag canary
+        env:
+          # Needs access to publish to npm
+          NPM_TOKEN: ${{ secrets.RELEASE_NOTES }}
+          NODE_AUTH_TOKEN: ${{ secrets.RELEASE_NOTES }}
