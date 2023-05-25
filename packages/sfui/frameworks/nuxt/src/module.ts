@@ -24,6 +24,16 @@ export default defineNuxtModule<ModuleOptions>({
     const { contentPath } = options;
     const nuxtOptions = nuxt.options;
 
+    const content = [];
+
+    if (Array.isArray(nuxtOptions.tailwindcss?.config?.content)) {
+      content.push(...(nuxtOptions.tailwindcss?.config?.content as Array<string>));
+    }
+    if (Array.isArray(nuxtOptions.tailwindcss?.config?.content)) {
+      content.push(...nuxtOptions.tailwindcss?.config?.content!);
+    }
+    if (contentPath) content.push(contentPath);
+
     nuxtOptions.tailwindcss = {
       ...nuxtOptions.tailwindcss,
       config: {
@@ -45,7 +55,7 @@ export default defineNuxtModule<ModuleOptions>({
     const composables: string[] = [];
 
     Object.keys(storefrontUi).forEach((key) => {
-      // @ts-expect-error - checking package export to see if it's a component
+      // @ts-expect-error - if an object has a name or __name fields we consider it a Vue component instance
       if (key.startsWith('Sf') && (storefrontUi[key].__name || storefrontUi[key].name)) {
         components.push(key);
       } else if (key.startsWith('use')) {
