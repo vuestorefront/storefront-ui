@@ -199,3 +199,25 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_REACT }}
+
+  release-canary:
+    name: Release canary package
+    needs: [build, build-release, cypress-react, cypress-vue]
+    if: ${{ github.ref == 'refs/heads/v2-develop' }}
+    # Can't use 'configure-enviroment' because it fails on dev branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Build and release canary version
+        run: |
+          yarn build:release
+          yarn changeset version --snapshot
+          yarn changeset publish --tag canary
