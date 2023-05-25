@@ -12,7 +12,6 @@ import {
   useTrapFocus,
   useDropdown,
   SfSwitch,
-  InitialFocusType,
 } from '@storefront-ui/react';
 import classNames from 'classnames';
 
@@ -24,14 +23,15 @@ export function DisableSwitch({
   setDisabledState: (disabledState: boolean) => void;
 }) {
   return (
-    <div className="mt-10">
+    <div className="mt-40">
+      {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label className="flex items-center">
         <SfSwitch checked={disabledState} value="disabled" onChange={() => setDisabledState(!disabledState)} />
         <span className="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Disabled/Enabled</span>
       </label>
     </div>
   );
-};
+}
 
 type SelectOption = {
   label: string;
@@ -55,6 +55,10 @@ const options: SelectOption[] = [
     label: 'Enterprise',
     value: 'enterprise',
   },
+  {
+    label: 'Enter',
+    value: 'enter',
+  },
 ];
 
 // eslint-disable-next-line no-promise-executor-return
@@ -68,7 +72,7 @@ const mockAutocompleteRequest = async (phrase: string) => {
 
 export default function ComboboxBasic() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const dropdownListRef = useRef<HTMLUListElement>(null);
+  const dropdownRef = useRef<HTMLUListElement>(null);
   const [searchValue, setSearchValue] = useState<string>('');
   const [selectedValue, setSelectedValue] = useState<string>('');
   const [isValid, setIsValid] = useState<boolean | undefined>(undefined);
@@ -80,12 +84,11 @@ export default function ComboboxBasic() {
   const id = useId();
   const listId = useId();
 
-  const { current: currentFocus, focusables: focusableElements } = useTrapFocus(refs.setFloating, {
+  const { current: currentFocus, focusables: focusableElements } = useTrapFocus(dropdownRef, {
+    trapTabs: false,
     arrowKeysOn: true,
     activeState: isOpen,
-    initialFocus: InitialFocusType.autofocus,
-    initialFocusContainerFallback: true,
-    arrowFocusGroupSelector: id,
+    initialFocus: false,
   });
 
   const handleFocusInput = () => {
@@ -109,7 +112,7 @@ export default function ComboboxBasic() {
   };
 
   const handleBlur = () => {
-    if (dropdownListRef.current) return;
+    if (isOpen) return;
     setIsValid(!!selectedValue);
   };
 
@@ -144,9 +147,9 @@ export default function ComboboxBasic() {
 
   useDebounce(
     () => {
-      if (searchValue) {
+      if (searchValue && !selectedValue) {
         const getSnippets = async () => {
-          open();
+          if (!isOpen) open();
           setIsLoadingSnippets(true);
           try {
             const data = await mockAutocompleteRequest(searchValue);
@@ -165,7 +168,6 @@ export default function ComboboxBasic() {
     [searchValue],
   );
 
-  console.log('combobox', currentFocus, focusableElements);
   return (
     <>
       <div ref={refs.setReference} className="relative">
@@ -189,8 +191,8 @@ export default function ComboboxBasic() {
           aria-autocomplete="both"
           aria-disabled={disabledState}
           aria-expanded={isOpen}
-          aria-activedescendant={currentFocus}
-          invalid={!isValid}
+          aria-activedescendant={currentFocus?.id}
+          invalid={isValid === false && !isOpen}
           disabled={disabledState}
           onClick={toggle}
           onKeyDown={handleInputKeyDown}
@@ -220,6 +222,7 @@ export default function ComboboxBasic() {
               <ul
                 id={listId}
                 role="listbox"
+                ref={dropdownRef}
                 aria-label="Country list"
                 className="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
               >
@@ -244,7 +247,7 @@ export default function ComboboxBasic() {
                     </li>
                   ))) ||
                   (searchValue && (
-                    <SfListItem className="flex justify-start">
+                    <SfListItem className="flex justify-start" aria-label="No options">
                       <p className="text-left">
                         <span>No options</span>
                       </p>
