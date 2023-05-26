@@ -1,0 +1,40 @@
+on:
+  workflow_dispatch:
+    inputs:
+      generate-changelog:
+        description: 'Pick enter for pre-release or exit for production changeset'
+        required: true
+        default: 'enter'
+        type: choice
+        options:
+          - enter
+          - exit
+
+jobs:
+  generation-changelog-on-trigger:
+    runs-on: ubuntu-latest
+    if: ${{ startsWith( github.ref, refs/heads/v2-release ) }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Change changeset pre based on trigger
+        run: yarn changeset pre ${{ inputs.generate-changelog }} ${{ inputs.generate-changelog == 'enter' && 'next' }}
+      - name: Create PR with changelog
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: yarn run changeset-version
+          commit: '[ci] - release ${{ inputs.generate-changelog }}'
+          title: '[ci] - release ${{ inputs.generate-changelog }}'
+        env:
+          # Needs access to publish to npm
+          # refresh token before Saturday, May 25, 2024
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

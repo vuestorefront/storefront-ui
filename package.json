@@ -49,7 +49,8 @@
     "createReactIcons": "node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/SfIcons/ absolutePathToIconBase=@storefront-ui/react",
     "hygen": "./node_modules/.bin/hygen",
     "component": "yarn hygen component",
-    "component-new": "yarn hygen component new"
+    "component-new": "yarn hygen component new",
+    "changeset-version": "changeset version"
   },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
