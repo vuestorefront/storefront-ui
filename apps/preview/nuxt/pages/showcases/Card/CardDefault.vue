@@ -7,7 +7,7 @@
     >
       <a
         class="absolute inset-0 z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
-        href="/"
+        href="#"
       />
       <img :src="image" :alt="title" class="object-cover h-auto rounded-t-md aspect-video" />
       <div class="flex flex-col items-start p-4 grow">

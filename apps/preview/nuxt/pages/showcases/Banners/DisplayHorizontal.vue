@@ -21,7 +21,7 @@
       <a
         class="absolute w-full h-full z-1 focus-visible:outline focus-visible:rounded-lg"
         :aria-label="title"
-        href="/"
+        href="#"
       />
       <div :class="['flex justify-between overflow-hidden grow', { 'flex-row-reverse': reverse }]">
         <div class="flex flex-col justify-center items-start p-6 lg:p-10 max-w-1/2">
