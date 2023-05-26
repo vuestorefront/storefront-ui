@@ -8,6 +8,7 @@ defineProps({
   },
   summaryClass: ClassProp,
 });
+
 defineEmits<{
   (event: 'update:modelValue', open: boolean): void;
 }>();

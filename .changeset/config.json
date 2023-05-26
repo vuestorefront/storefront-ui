@@ -1,0 +1,24 @@
+{
+  "$schema": "https://unpkg.com/@changesets/config@2.3.0/schema.json",
+  "changelog": ["@changesets/changelog-github", { "repo": "vuestorefront/storefront-ui" }],
+  "commit": false,
+  "fixed": [],
+  "linked": [],
+  "access": "public",
+  "baseBranch": "origin/v2",
+  "updateInternalDependencies": "patch",
+  "ignore": [
+    "@storefront-ui/preview-next",
+    "@storefront-ui/preview-nuxt",
+    "@storefront-ui/preview-shared",
+    "@storefront-ui/docs",
+    "@storefront-ui/example-style",
+    "@storefront-ui/tests",
+    "@storefront-ui/vue-test",
+    "@storefront-ui/react-test"
+  ],
+  "snapshot": {
+    "useCalculatedVersion": true,
+    "prereleaseTemplate": "{commit}"
+  }
+}

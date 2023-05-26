@@ -22,13 +22,9 @@ export default function SfRating({
 }: SfRatingProps) {
   const precision = halfIncrement ? 0.5 : 1;
   const ratingValue = clamp(roundToNearest(value, precision), 0, max);
-
   const partiallyFilled = Number(!Number.isInteger(ratingValue)); // 0 or 1
-
   const filled = Math.ceil(ratingValue - partiallyFilled);
-
   const empty = max - filled - partiallyFilled;
-
   const label = ariaLabel ?? `${value} out of ${max}`;
 
   return (
