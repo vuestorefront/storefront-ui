@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PropType, computed } from 'vue';
+import { type PropType, computed } from 'vue';
 import { SfBadgePlacement, SfBadgeVariant } from '@storefront-ui/vue';
 
 const props = defineProps({
