@@ -65,11 +65,13 @@
     },
     "build:release": {
       "dependsOn": [
+        "build:tw-plugin-peer-next",
         "build:react",
         "build:vue",
         "build:tailwind-config",
         "build:typography",
-        "build:peer-next"
+        "build:peer-next",
+        "build:shared"
       ],
       "cache": false
     },
@@ -83,6 +85,9 @@
       "cache": false
     },
     "build:tailwind-config": {
+      "cache": false
+    },
+    "build:tw-plugin-peer-next": {
       "cache": false
     },
     "build:test-utils": {
