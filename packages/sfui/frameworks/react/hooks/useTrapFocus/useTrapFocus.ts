@@ -97,6 +97,7 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
       if (trapTabs && isTab(event)) focusNextItem({ event });
       if (trapTabs && isTabAndShift(event)) focusPreviousItem({ event });
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentlyFocused],
   );
 
