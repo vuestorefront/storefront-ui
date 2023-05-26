@@ -4971,19 +4971,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@unhead/dom@npm:1.1.26":
-  version: 1.1.26
-  resolution: "@unhead/dom@npm:1.1.26"
+"@typescript-eslint/visitor-keys@npm:5.59.0":
+  version: 5.59.0
+  resolution: "@typescript-eslint/visitor-keys@npm:5.59.0"
   dependencies:
-    "@unhead/schema": 1.1.26
-    "@unhead/shared": 1.1.26
-  checksum: 743fb9065270ae132283cb7dc43f96a424df10ecca230e60bc76658e61d73decd1dee5d66a9dfc8e134f5951b3c2a986064e41dad3bab41882d50700d3d39e10
+    "@typescript-eslint/types": 5.59.0
+    eslint-visitor-keys: ^3.3.0
+  checksum: e21656de02e221a27a5fe9f7fd34a1ca28530e47675134425f84fd0d1f276695fe39e35120837a491b02255d49aa2fd871e2c858ecccc66c687db972d057bd1c
   languageName: node
   linkType: hard
 
-"@unhead/schema@npm:1.1.26":
-  version: 1.1.26
-  resolution: "@unhead/schema@npm:1.1.26"
+"@typescript-eslint/visitor-keys@npm:5.59.1":
+  version: 5.59.1
+  resolution: "@typescript-eslint/visitor-keys@npm:5.59.1"
   dependencies:
     hookable: ^5.5.3
     zhead: ^2.0.4
