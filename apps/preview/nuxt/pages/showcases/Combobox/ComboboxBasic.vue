@@ -58,7 +58,7 @@
         aria-label="Country list"
         class="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
       >
-        <div v-if="snippets.length > 0">
+        <template v-if="snippets.length > 0">
           <li v-for="option in snippets" :key="option.value">
             <SfListItem
               :id="`${listId}-${option.value}`"
@@ -68,21 +68,22 @@
               :aria-selected="option.value === inputModel"
               @click="selectOption(option.label)"
               @keydown.enter.space.prevent="selectOption(option.label)"
+              @keydown.esc="handleFocusInput"
             >
               <p class="text-left">
-                <span :class="isDisabled ? '!text-disabled-500' : 'text-neutral-500'">
+                <span>
                   {{ option.label }}
                 </span>
               </p>
             </SfListItem>
           </li>
-        </div>
+        </template>
         <SfListItem v-else-if="inputModel" class-name="flex justify-start" aria-label="No options">
           <p class="text-left">
             <span>No options</span>
           </p>
         </SfListItem>
-        <div v-else>
+        <template v-else>
           <li v-for="option in options" :key="option.value">
             <SfListItem
               :id="`${listId}-${option.value}`"
@@ -92,21 +93,22 @@
               :aria-selected="option.value === inputModel"
               @click="selectOption(option.label)"
               @keydown.enter.space.prevent="selectOption(option.label)"
+              @keydown.esc="handleFocusInput"
             >
               <p class="text-left">
                 <span>{{ option.label }}</span>
               </p>
             </SfListItem>
           </li>
-        </div>
+        </template>
       </ul>
     </div>
   </div>
-  <p class="text-xs mt-0.5 text-neutral-500">Help text</p>
-  <p class="mt-2 text-neutral-500 typography-text-sm">*Required</p>
   <p v-if="!isDisabled && isValid === false && !isOpen" class="text-negative-700 typography-text-sm font-medium mt-0.5">
     No option selected
   </p>
+  <p class="text-xs mt-0.5 text-neutral-500">Help text</p>
+  <p class="mt-2 text-neutral-500 typography-text-sm">*Required</p>
   <div class="mt-40">
     <label class="flex items-center">
       <SfSwitch :checked="isDisabled" value="disabled" @change="isDisabled = !isDisabled" />
@@ -174,6 +176,7 @@ const handleBlur = () => {
 
 const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
   if (event.key === 'Escape') handleReset();
+  if (event.key === 'Enter') close();
   if (event.key === 'ArrowUp') {
     open();
     if (isOpen) {
@@ -218,7 +221,6 @@ watchDebounced(
         }
         isLoadingSnippets.value = false;
       };
-
       getSnippets();
     } else {
       isSelected.value = false;

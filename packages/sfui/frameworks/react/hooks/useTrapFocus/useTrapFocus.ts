@@ -43,7 +43,6 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
   const [focusables, setFocusables] = useState<FocusableElement[]>([]);
   const onKeyDownListener = useCallback(
     (event: KeyboardEvent) => {
-      event.preventDefault();
       const isAnyGroupElement =
         arrowFocusGroupSelector && containerElementRef.current?.querySelector(arrowFocusGroupSelector);
 

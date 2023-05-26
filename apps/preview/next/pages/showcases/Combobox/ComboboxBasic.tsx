@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';
+import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef, useId } from 'react';
 import { useDebounce } from 'react-use';
 import { offset } from '@floating-ui/react-dom';
 import {
@@ -80,7 +80,7 @@ export default function ComboboxBasic() {
   const { isOpen, close, open, toggle } = useDisclosure();
   const [snippets, setSnippets] = useState<{ label: string; value: string }[]>([]);
   const { refs, style } = useDropdown({ isOpen, onClose: close, placement: 'bottom-start', middleware: [offset(4)] });
-  const [disabledState, setDisabledState] = useState(false);
+  const [isDisabled, setIsDisabled] = useState(false);
   const id = useId();
   const listId = useId();
 
@@ -118,6 +118,7 @@ export default function ComboboxBasic() {
 
   const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
     if (event.key === 'Escape') handleReset();
+    if (event.key === 'Enter') close();
     if (event.key === 'ArrowUp') {
       open();
       if (isOpen) {
@@ -134,7 +135,6 @@ export default function ComboboxBasic() {
   };
 
   const selectOption = (event: FormEvent, option: SelectOption) => {
-    event.preventDefault();
     setSearchValue(option.value);
     setSelectedValue(option.value);
     close();
@@ -142,7 +142,9 @@ export default function ComboboxBasic() {
   };
 
   const handleOptionItemKeyDown = (event: KeyboardEvent<HTMLButtonElement>, option: SelectOption) => {
-    if (event.key === ' ' || event.key === 'Enter') selectOption(event, option);
+    if (event.key === 'Escape') {
+      handleFocusInput();
+    } else if (event.key === ' ' || event.key === 'Enter') selectOption(event, option);
   };
 
   useDebounce(
@@ -172,7 +174,7 @@ export default function ComboboxBasic() {
     <>
       <div ref={refs.setReference} className="relative">
         <label
-          className={classNames('font-medium typography-label-sm', { 'text-disabled-900': disabledState })}
+          className={classNames('font-medium typography-label-sm', { 'text-disabled-900': isDisabled })}
           htmlFor={id}
         >
           Country
@@ -189,25 +191,25 @@ export default function ComboboxBasic() {
           placeholder="Choose country"
           aria-controls={listId}
           aria-autocomplete="both"
-          aria-disabled={disabledState}
+          aria-disabled={isDisabled}
           aria-expanded={isOpen}
           aria-activedescendant={currentFocus?.id}
           invalid={isValid === false && !isOpen}
-          disabled={disabledState}
+          disabled={isDisabled}
           onClick={toggle}
           onKeyDown={handleInputKeyDown}
           className={classNames('cursor-pointer', {
-            '!text-disabled-500': disabledState,
+            '!text-disabled-500': isDisabled,
           })}
           wrapperClassName={classNames({
-            '!bg-disabled-100 !ring-disabled-300 !ring-1': disabledState,
+            '!bg-disabled-100 !ring-disabled-300 !ring-1': isDisabled,
           })}
           slotSuffix={
             <SfIconExpandMore
-              onClick={() => !disabledState && toggle()}
+              onClick={() => !isDisabled && toggle()}
               className={classNames('ml-auto text-neutral-500 transition-transform ease-in-out duration-300', {
                 'rotate-180': isOpen,
-                '!text-disabled-500 cursor-not-allowed': disabledState,
+                '!text-disabled-500 cursor-not-allowed': isDisabled,
               })}
             />
           }
@@ -239,9 +241,7 @@ export default function ComboboxBasic() {
                         aria-selected={option.value === selectedValue}
                       >
                         <p className="text-left">
-                          <span className={disabledState ? '!text-disabled-500' : 'text-neutral-500'}>
-                            {option.label}
-                          </span>
+                          <span>{option.label}</span>
                         </p>
                       </SfListItem>
                     </li>
@@ -274,12 +274,12 @@ export default function ComboboxBasic() {
             ))}
         </div>
       </div>
-      <p className="text-xs mt-0.5 text-neutral-500">Help text</p>
-      <p className="mt-2 text-neutral-500 typography-text-sm">*Required</p>
-      {!disabledState && isValid === false && (
+      {!isDisabled && isValid === false && (
         <p className="text-negative-700 typography-text-sm font-medium mt-0.5">No option selected</p>
       )}
-      <DisableSwitch setDisabledState={setDisabledState} disabledState={disabledState} />
+      <p className="text-xs mt-0.5 text-neutral-500">Help text</p>
+      <p className="mt-2 text-neutral-500 typography-text-sm">*Required</p>
+      <DisableSwitch setDisabledState={setIsDisabled} disabledState={isDisabled} />
     </>
   );
 }
