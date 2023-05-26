@@ -73,7 +73,7 @@ A common use case for the Badge is to place it on a user's avatar.
 
 | Prop name   | Type               | Default value | Possible values                                        |
 | ----------- | ------------------ | ------------- | ------------------------------------------------------ |
-| `content`   | `string            | number`       |                                                        |
+| `content`   | `string  | number`       |                                                        |
 | `max`       | `number`           | `99`          |                                                        |
 | `placement` | `SfBadgePlacement` | `top-right`   | `top-right`, `top-left`, `bottom-right`, `bottom-left` |
 | `variant`   | `SfBadgeVariant`   | `standard`    | `standard`, `dot`                                      |
