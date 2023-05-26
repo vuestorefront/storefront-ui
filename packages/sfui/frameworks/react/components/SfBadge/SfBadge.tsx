@@ -31,6 +31,7 @@ export default function SfBadge({
         },
         className,
       )}
+      data-testid="badge"
       {...attributes}
     >
       {displayValue}

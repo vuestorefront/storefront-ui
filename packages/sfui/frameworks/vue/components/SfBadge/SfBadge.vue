@@ -45,6 +45,7 @@ const displayValue = computed(() => {
         'bottom-0 left-0 translate-x-0.5 -translate-y-0.5': placement === 'bottom-left',
       },
     ]"
+    data-testid="badge"
   >
     {{ displayValue }}
   </span>
