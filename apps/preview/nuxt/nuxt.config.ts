@@ -15,7 +15,6 @@ export default defineNuxtConfig({
     },
   },
   alias: {
-    '@assets': resolve(__dirname, 'assets', 'fixture'),
     ...(!isProd
       ? {
           '@storefront-ui/vue': resolve(

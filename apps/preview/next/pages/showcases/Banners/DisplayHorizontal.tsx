@@ -3,13 +3,10 @@ import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfButton } from '@storefront-ui/react';
 import classNames from 'classnames';
-import sunglasses from '@assets/display.png';
-import backpack from '@assets/display-2.png';
-import winterHat from '@assets/display-3.png';
 
 const displayDetails = [
   {
-    image: sunglasses,
+    image: 'http://localhost:3100/@assets/display.png',
     title: 'Sunny Days Ahead',
     subtitle: 'Be inspired',
     description: 'Step out in style with our sunglasses collection',
@@ -21,7 +18,7 @@ const displayDetails = [
     descriptionClass: 'md:typography-text-lg',
   },
   {
-    image: backpack,
+    image: 'http://localhost:3100/@assets/display-2.png',
     title: 'Pack it Up',
     subtitle: 'Be active',
     description: 'Explore the great outdoors with our backpacks',
@@ -30,7 +27,7 @@ const displayDetails = [
     backgroundColor: 'bg-warning-200',
   },
   {
-    image: winterHat,
+    image: 'http://localhost:3100/@assets/display-3.png',
     title: 'Fresh and Bold',
     subtitle: 'New collection',
     description: 'Add a pop up color to your outfit',
@@ -72,7 +69,7 @@ export default function DisplayHorizontalBlock() {
                 <p className="typography-text-base block mb-4">{description}</p>
                 <SfButton className="!bg-black">{buttonText}</SfButton>
               </div>
-              <img src={image.src} alt={title} className="w-1/2 self-end object-contain" />
+              <img src={image} alt={title} className="w-1/2 self-end object-contain" />
             </div>
           </div>
         ),

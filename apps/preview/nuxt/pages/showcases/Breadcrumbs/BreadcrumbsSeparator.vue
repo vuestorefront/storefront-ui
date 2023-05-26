@@ -37,7 +37,7 @@
         v-for="(item, index) in breadcrumbs"
         :key="item.name"
         icon=""
-        class="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-[url('@assets/chevron_right.svg')] peer-[:nth-of-type(even)]:before:inline-flex last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
+        class="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-[url('http://localhost:3100/@assets/chevron_right.svg')] peer-[:nth-of-type(even)]:before:inline-flex last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
       >
         <SfLink
           v-if="index < breadcrumbs.length - 1"

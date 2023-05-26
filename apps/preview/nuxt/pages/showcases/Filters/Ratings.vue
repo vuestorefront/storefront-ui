@@ -10,12 +10,18 @@
       <SfListItem
         v-for="{ id, value, label, counter } in ratingsValues"
         :key="id"
-        as="label"
+        tag="label"
         size="sm"
         class="!items-start py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent"
       >
         <template #prefix>
-          <SfRadio v-model="ratingsModel" :checked="ratingsModel === value" :name="ratingsModel" :value="value" />
+          <SfRadio
+            v-model="ratingsModel"
+            :checked="ratingsModel === value"
+            :name="ratingsModel"
+            :value="value"
+            @click="ratingsModel = ratingsModel === value ? '' : value"
+          />
         </template>
         <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
         <div class="flex flex-wrap items-end">

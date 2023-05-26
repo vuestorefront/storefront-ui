@@ -1,5 +1,4 @@
 import { ShowcasePageLayout } from '../../showcases';
-// #region source
 import {
   SfAccordionItem,
   SfCounter,
@@ -23,6 +22,7 @@ const ratingsValues = [
 export default function Ratings() {
   const [rating, setRating] = useState<string | null>(null);
   const { toggle, isOpen } = useDisclosure({ initialValue: true });
+
   return (
     <SfAccordionItem
       open={isOpen}
@@ -46,11 +46,10 @@ export default function Ratings() {
                 value={value}
                 checked={rating === value}
                 name="radio-rating"
-                onChange={(event) => setRating(event.target.value)}
+                onClick={() => setRating(rating === value ? null : value)}
               />
             }
           >
-            {/* TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem */}
             <div className="flex flex-wrap items-end">
               <SfRating value={Number(value)} max={5} size="sm" />
               <span
@@ -69,5 +68,4 @@ export default function Ratings() {
   );
 }
 
-// #endregion source
 Ratings.getLayout = ShowcasePageLayout;

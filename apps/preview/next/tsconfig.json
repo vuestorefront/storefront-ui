@@ -28,9 +28,6 @@
     "paths": {
       "~/*": [
         "./*"
-      ],
-      "@assets/*": [
-        "./assets/fixture/*"
       ]
     },
     "incremental": true

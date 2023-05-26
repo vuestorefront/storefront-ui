@@ -15,7 +15,7 @@ export function Showcase() {
 
   return (
     <nav
-      className="flex justify-between items-center border-t border-neutral-200"
+      className="flex justify-between items-end border-t border-neutral-200"
       role="navigation"
       aria-label="pagination"
     >
@@ -32,7 +32,7 @@ export function Showcase() {
         <span className="hidden sm:inline-flex">Previous</span>
       </SfButton>
       <ul className="flex justify-center">
-        {!pages.find((page: number) => page === 1) && (
+        {!pages.includes(1) && (
           <li>
             <div
               className={classNames('flex pt-1 border-t-4 border-transparent', {
@@ -130,7 +130,7 @@ export function Showcase() {
             </div>
           </li>
         )}
-        {!pages.find((page: number) => page === totalPages) && (
+        {!pages.includes(totalPages) && (
           <li>
             <div
               className={classNames('flex pt-1 border-t-4 border-transparent', {

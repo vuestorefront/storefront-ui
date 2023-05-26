@@ -1,34 +1,29 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import ApplePayLogo from '@assets/apple-pay-logo.svg';
-import GooglePayLogo from '@assets/google-pay-logo.svg';
-import PayPalLogo from '@assets/paypal-logo.svg';
-import VisaLogo from '@assets/visa-logo.svg';
-
 // List of payment methods
 const paymentMethods = [
   {
     label: 'Credit card',
     value: 'credit-card',
-    logo: VisaLogo.src,
+    logo: 'http://localhost:3100/@assets/visa-logo.svg',
     active: true,
   },
   {
     label: 'PayPal',
     value: 'paypal',
-    logo: PayPalLogo.src,
+    logo: 'http://localhost:3100/@assets/paypal-logo.svg',
     active: true,
   },
   {
     label: 'ApplePay',
     value: 'applepay',
-    logo: ApplePayLogo.src,
+    logo: 'http://localhost:3100/@assets/apple-pay-logo.svg',
     active: true,
   },
   {
     label: 'GooglePay',
     value: 'googlepay',
-    logo: GooglePayLogo.src,
+    logo: 'http://localhost:3100/@assets/google-pay-logo.svg',
     active: false,
   },
 ];
