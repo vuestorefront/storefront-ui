@@ -1,23 +1,23 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: The Combobox is a specialized input field designed for text-based searching on a website.
+description: The Combobox is a specialized input field designed for selecting options from long lists.
 hideToc: true
 ---
 
 # Combobox
 
-The Search is a specialized input field designed for text-based searching on a website. In the provided example, the block includes an additional feature that displays live hints suggestions (autocomplete) as the user types.
+The Combobox is a specialized input field designed for selecting from the options list by typing inside.
 
-The Search input is primarily utilized in the global navigation (see NavBarTop block). However, variants without autocomplete functionality are commonly employed on results pages.
+It allows users to speed up selecting by searching from limited number of options provided.
 
 ## Accessibility notes
 
-The Search fully supports the use of the keyboard. The transition from the search input to the hints list is handled by Tab key.
+The Combobox supports the use of the keyboard. The focus move from input field into the dropdown list and inside it is provided by arrow up/down keys. On escape key press you can go back to the input field, but when pressed inside input field it resets its content. 
 
 ## Basic search
 
-Simple search with an autocomplete functionality. Give your users hints of what they may look for. In this example we use mock autocomplete example, make sure you provide real data.
+The Basic Combobox block shows how to select one of the country's names from the list by clicking on the dropdown or selecting from the keyboard. 
 
 <Showcase showcase-name="Combobox/ComboboxBasic" style="min-height: 350px">
 
