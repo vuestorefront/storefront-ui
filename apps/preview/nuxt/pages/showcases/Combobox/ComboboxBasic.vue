@@ -24,8 +24,6 @@
       :wrapper-class="{
         '!bg-disabled-100 !ring-disabled-300 !hover:ring-disabled-300 !ring-1': isDisabled,
       }"
-      slot-suffix="{"
-      }
       @blur="handleBlur"
       @focus="isValid = undefined"
       @click="toggle()"
@@ -235,20 +233,24 @@ type SelectOption = {
 };
 const options: SelectOption[] = [
   {
-    label: 'Startup',
-    value: 'startup',
+    label: 'Afghanistan',
+    value: 'afghanistan',
   },
   {
-    label: 'Business',
-    value: 'business',
+    label: 'Bahamas',
+    value: 'bahamas',
   },
   {
-    label: 'Buses',
-    value: 'buses',
+    label: 'Canada',
+    value: 'canada',
   },
   {
-    label: 'Enterprise',
-    value: 'enterprise',
+    label: 'Denmark',
+    value: 'denmark',
+  },
+  {
+    label: 'Egypt',
+    value: 'egypt',
   },
 ];
 // Just for presentation purposes. Replace mock request with the actual API call.

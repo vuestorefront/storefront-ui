@@ -40,24 +40,24 @@ type SelectOption = {
 
 const options: SelectOption[] = [
   {
-    label: 'Startup',
-    value: 'startup',
+    label: 'Afghanistan',
+    value: 'afghanistan',
   },
   {
-    label: 'Business',
-    value: 'business',
+    label: 'Bahamas',
+    value: 'bahamas',
   },
   {
-    label: 'Buses',
-    value: 'buses',
+    label: 'Canada',
+    value: 'canada',
   },
   {
-    label: 'Enterprise',
-    value: 'enterprise',
+    label: 'Denmark',
+    value: 'denmark',
   },
   {
-    label: 'Enter',
-    value: 'enter',
+    label: 'Egypt',
+    value: 'egypt',
   },
 ];
 
@@ -135,8 +135,8 @@ export default function ComboboxBasic() {
   };
 
   const selectOption = (event: FormEvent, option: SelectOption) => {
-    setSearchValue(option.value);
-    setSelectedValue(option.value);
+    setSearchValue(option.label);
+    setSelectedValue(option.label);
     close();
     handleFocusInput();
   };
