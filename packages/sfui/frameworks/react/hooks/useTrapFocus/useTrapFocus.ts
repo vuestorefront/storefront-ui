@@ -112,7 +112,6 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
   };
 
   useEffect(() => {
-    // console.log(containerElementRef.current, activeState);
     if (containerElementRef.current && activeState) {
       containerElementRef.current?.addEventListener('focus', onFocusListener, true);
       containerElementRef.current?.addEventListener('keydown', onKeyDownListener);
