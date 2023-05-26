@@ -66,6 +66,21 @@ Category list allows users to browse and select categories of content or product
 
 </Showcase>
 
+## Ratings
+
+Ratings allows users to filter out specific ratings of products in category. Only one at the time can be selected.
+
+<Showcase showcase-name="Filters/Ratings" style="min-height:400px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Filters/Ratings.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Filters/Ratings.tsx#source
+<!-- end react -->
+
+</Showcase>
+
 ## Filters Panel
 
 Filters panel can be customized to suit the specific needs of different applications or user groups. It may offer simple or advanced filtering options.

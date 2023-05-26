@@ -3,6 +3,7 @@
   "$schema": "https://json.schemastore.org/tsconfig",
   "display": "Default",
   "compilerOptions": {
+    "outDir": "./dist",
     "declaration": false,
     "declarationMap": false,
     "strictPropertyInitialization": false,
@@ -34,5 +35,6 @@
   "include": [
     "**/*.ts",
     "**/*.tsx"
-  ]
+  ],
+  "exclude": ["./dist/**/*"]
 }

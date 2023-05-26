@@ -15,9 +15,6 @@ import {
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
 import { CSSTransition } from 'react-transition-group';
-import brandLogo from '@assets/vsf_logo_white.svg';
-import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
-import watch from '@assets/watch.png';
 
 const actionItems = [
   {
@@ -41,7 +38,7 @@ const actionItems = [
 ];
 
 const bannerDetails = {
-  image: watch,
+  image: 'http://localhost:3100/@assets/watch.png',
   title: 'New in designer watches',
 };
 
@@ -51,27 +48,27 @@ const categoriesContent = [
     items: [
       {
         title: "All Women's",
-        link: '/',
+        link: '#',
       },
       {
         title: 'Clothing',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Shoes',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Accessories',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Wearables',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Food & Drinks',
-        link: '/',
+        link: '#',
       },
     ],
   },
@@ -80,27 +77,27 @@ const categoriesContent = [
     items: [
       {
         title: 'All Men’s',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Clothing',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Shoes',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Accessories',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Wearables',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Food & Drinks',
-        link: '/',
+        link: '#',
       },
     ],
   },
@@ -109,37 +106,42 @@ const categoriesContent = [
     items: [
       {
         title: 'All Kids',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Clothing',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Shoes',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Accessories',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Wearables',
-        link: '/',
+        link: '#',
       },
       {
         title: 'Food & Drinks',
-        link: '/',
+        link: '#',
       },
     ],
   },
 ];
 
 export default function BaseMegaMenu() {
-  const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
+  const { close, toggle, isOpen } = useDisclosure();
   const drawerRef = useRef(null);
   const menuRef = useRef(null);
-  useTrapFocus(drawerRef, { activeState: isOpen, arrowKeysOn: true });
+
+  useTrapFocus(drawerRef, {
+    activeState: isOpen,
+    arrowKeysUpDown: true,
+    initialFocus: 'container',
+  });
   useClickAway(menuRef, () => {
     close();
   });
@@ -158,8 +160,12 @@ export default function BaseMegaMenu() {
             className="flex shrink-0 mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
-              <source srcSet={brandLogo.src} media="(min-width: 1024px)" />
-              <img src={brandLogoSign.src} alt="Sf Logo" className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]" />
+              <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
+              <img
+                src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
+                alt="Sf Logo"
+                className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
+              />
             </picture>
           </a>
           <nav className="flex justify-between w-full flex-nowrap" aria-label="SF Navigation">
@@ -232,7 +238,7 @@ export default function BaseMegaMenu() {
                       </div>
                     ))}
                     <div className="flex flex-col items-center justify-center overflow-hidden md:rounded-md bg-neutral-100 border-neutral-300 grow">
-                      <img src={bannerDetails.image.src} alt={bannerDetails.title} className="object-contain" />
+                      <img src={bannerDetails.image} alt={bannerDetails.title} className="object-contain" />
                       <p className="px-4 mt-4 mb-4 font-medium text-center typography-text-base">
                         {bannerDetails.title}
                       </p>

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { ReactElement, useState } from 'react';
+import { type ReactElement, useEffect, useState } from 'react';
 import useSWR from 'swr';
 import {
   SfButton,
@@ -15,13 +15,20 @@ import classNames from 'classnames';
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 export default function ExampleLayout({ children }: { children: ReactElement }) {
   const [isOpen, setIsOpen] = useState(true);
+  const [isNotIframe, setIsNotIframe] = useState(false);
+
   const router = useRouter();
   const { data: components } = useSWR<string[]>(`${router.basePath}/api/getExamples`, fetcher);
 
-  const isDocsRoute = !router.query.docs;
+  useEffect(() => {
+    if (window.self === window.top) {
+      setIsNotIframe(true);
+    }
+  }, []);
+
   return (
     <div className="e-page-examples">
-      {isDocsRoute ? (
+      {isNotIframe ? (
         <div className={`sidebar ${isOpen ? '' : 'sidebar-collapsed'}`}>
           <header className="sidebar-heading">
             <h2>StorefrontUI v2</h2>

@@ -3,9 +3,9 @@ export default {
   inheritAttrs: false,
 };
 const getSizeClasses = {
-  [SfInputSize.sm]: 'py-1.5 px-4',
-  [SfInputSize.base]: 'py-2 px-4',
-  [SfInputSize.lg]: 'py-3 px-4',
+  [SfInputSize.sm]: ' h-[32px]',
+  [SfInputSize.base]: 'h-[40px]',
+  [SfInputSize.lg]: 'h-[48px]',
 };
 </script>
 
@@ -61,7 +61,7 @@ const inputValue = computed({
   <component
     :is="wrapperTag"
     :class="[
-      'flex items-center gap-2 bg-white rounded-md ring-inset text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
+      'flex items-center gap-2 px-4 bg-white rounded-md ring-1 text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
       {
         'ring-2 ring-negative-700': invalid,
         'ring-1 ring-neutral-200': !invalid,

@@ -5,6 +5,7 @@ import { useCallback, useEffect, useState, type RefObject } from 'react';
 
 export enum InitialFocusType {
   autofocus = 'autofocus',
+  container = 'container',
 }
 
 type UseTrapFocusOptions = TabbableOptions &
@@ -15,6 +16,8 @@ type UseTrapFocusOptions = TabbableOptions &
     initialFocus?: number | `${InitialFocusType}` | false;
     initialFocusContainerFallback?: boolean;
     arrowKeysOn?: boolean;
+    arrowKeysLeftRight?: boolean;
+    arrowKeysUpDown?: boolean;
   };
 
 const defaultOptions = {
@@ -23,8 +26,14 @@ const defaultOptions = {
   initialFocus: 0,
   initialFocusContainerFallback: false,
   arrowKeysOn: false,
+  arrowKeysLeftRight: false,
+  arrowKeysUpDown: false,
 };
 
+/**
+ * @deprecated Since version 2.3.
+ * @param {boolean} arrowKeysOn - Enabling both `letf` | `up` | `right` | `down` arrow keys.
+ */
 export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>, options?: UseTrapFocusOptions) => {
   const {
     trapTabs,
@@ -33,48 +42,67 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     activeState,
     initialFocus,
     arrowKeysOn,
+    arrowKeysLeftRight,
+    arrowKeysUpDown,
     initialFocusContainerFallback,
   } = {
     ...defaultOptions,
     ...options,
   };
 
-  const [current, setCurrent] = useState<HTMLElement>();
-  const [focusables, setFocusables] = useState<FocusableElement[]>([]);
+  const [currentlyFocused, setCurrentlyFocused] = useState<HTMLElement>();
+  const [focusableElements, setFocusableElements] = useState<FocusableElement[]>([]);
+  const focusPreviousItem = ({
+    event,
+    additionalData,
+  }: {
+    event?: KeyboardEvent;
+    additionalData?: Record<string, unknown>;
+  }) =>
+    focusPrev({
+      current: currentlyFocused,
+      focusables: focusableElements,
+      event,
+      ...additionalData,
+    });
+
+  const focusNextItem = ({
+    event,
+    additionalData,
+  }: {
+    event?: KeyboardEvent;
+    additionalData?: Record<string, unknown>;
+  }) =>
+    focusNext({
+      current: currentlyFocused,
+      focusables: focusableElements,
+      event,
+      ...additionalData,
+    });
+
   const onKeyDownListener = useCallback(
     (event: KeyboardEvent) => {
       const isAnyGroupElement =
         arrowFocusGroupSelector && containerElementRef.current?.querySelector(arrowFocusGroupSelector);
+      const additionalData = isAnyGroupElement ? { arrowFocusGroupSelector } : {};
 
-      if (arrowKeysOn) {
-        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
-          focusNext({
-            current,
-            focusables,
-            ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-          });
-        } else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
-          focusPrev({
-            current,
-            focusables,
-            ...(isAnyGroupElement && { arrowFocusGroupSelector }),
-          });
-        }
-      }
+      if (arrowKeysOn && (event.key === 'ArrowLeft' || event.key === 'ArrowUp')) focusPreviousItem({ additionalData });
+      if (arrowKeysOn && (event.key === 'ArrowRight' || event.key === 'ArrowDown')) focusNextItem({ additionalData });
 
-      if (trapTabs && isTab(event)) {
-        focusNext({ current, event, focusables });
-      }
+      if (arrowKeysLeftRight && event.key === 'ArrowLeft') focusPreviousItem({ additionalData });
+      if (arrowKeysLeftRight && event.key === 'ArrowRight') focusNextItem({ additionalData });
+      if (arrowKeysUpDown && event.key === 'ArrowUp') focusPreviousItem({ additionalData });
+      if (arrowKeysUpDown && event.key === 'ArrowDown') focusNextItem({ additionalData });
 
-      if (trapTabs && isTabAndShift(event)) {
-        focusPrev({ current, event, focusables });
-      }
+      if (trapTabs && isTab(event)) focusNextItem({ event });
+      if (trapTabs && isTabAndShift(event)) focusPreviousItem({ event });
     },
-    [current],
+    [currentlyFocused],
   );
+
   const onFocusListener = () => {
     const activeElement = document.activeElement as HTMLElement | undefined;
-    setCurrent(activeElement);
+    setCurrentlyFocused(activeElement);
   };
 
   const removeEventListeners = () => {
@@ -83,37 +111,43 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
   };
 
   useEffect(() => {
+    // console.log(containerElementRef.current, activeState);
     if (containerElementRef.current && activeState) {
       containerElementRef.current?.addEventListener('focus', onFocusListener, true);
       containerElementRef.current?.addEventListener('keydown', onKeyDownListener);
       let focusFallbackNeeded = false;
-      setFocusables(tabbable(containerElementRef.current, { includeContainer }));
+      setFocusableElements(tabbable(containerElementRef.current, { includeContainer }));
 
       if (typeof initialFocus === 'number') {
-        if (!focusables[initialFocus]) {
+        if (!focusableElements[initialFocus]) {
           // eslint-disable-next-line no-console
           console.error(`There is no element with given index ${initialFocus}`);
           focusFallbackNeeded = true;
         } else {
-          focusables[initialFocus]?.focus();
+          focusableElements[initialFocus]?.focus();
         }
       } else if (initialFocus === InitialFocusType.autofocus) {
-        const autofocusElement = focusables.find((focusable) => focusable?.hasAttribute('autofocus'));
+        const autofocusElement = focusableElements.find((focusable) => focusable?.hasAttribute('autofocus'));
         if (autofocusElement) {
           autofocusElement.focus();
         } else {
           focusFallbackNeeded = true;
         }
       }
-      if (initialFocusContainerFallback && focusFallbackNeeded) containerElementRef.current.focus();
+
+      if ((initialFocusContainerFallback && focusFallbackNeeded) || initialFocus === InitialFocusType.container)
+        containerElementRef.current?.focus();
+    } else {
+      setFocusableElements([]);
+      setCurrentlyFocused(undefined);
     }
 
     return removeEventListeners;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [containerElementRef.current, activeState, onKeyDownListener]);
   return {
-    current,
-    focusables,
+    current: currentlyFocused,
+    focusables: focusableElements,
     focusNext,
     focusPrev,
   };

@@ -18,7 +18,7 @@ MegaMenu complies with the WCAG guidelines for accessibility for menus and menu 
 
  When the user clicks on the trigger element (such as one of the menu items), the mega menu opens. On mobile screens, clicking on hamburger button will trigger a drawer opening from the left side with menu content.
 
-<Showcase showcase-name="MegaMenu/BaseMegaMenu" style="min-height: 500px;">
+<Showcase showcase-name="MegaMenu/BaseMegaMenu" no-paddings style="min-height: 500px;">
 
 <!-- react -->
 <<<../../preview/next/pages/showcases/MegaMenu/BaseMegaMenu.tsx#source
@@ -33,7 +33,7 @@ MegaMenu complies with the WCAG guidelines for accessibility for menus and menu 
 
 Additional navigation bar under the main header helps to find general categories. User can easily open Mega Menu for each category. When using on mobile devices side drawer provides a nice way of navigating through nested categories.
 
-<Showcase showcase-name="MegaMenu/MegaMenuNavigation" style="min-height: 600px;">
+<Showcase showcase-name="MegaMenu/MegaMenuNavigation" no-paddings style="min-height: 600px;">
 
 <!-- react -->
 <<<../../preview/next/pages/showcases/MegaMenu/MegaMenuNavigation.tsx#source

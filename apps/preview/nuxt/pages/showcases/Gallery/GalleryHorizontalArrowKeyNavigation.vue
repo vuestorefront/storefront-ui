@@ -34,7 +34,7 @@
         </SfButton>
       </template>
       <button
-        v-for="({ imageSrc, alt }, index) in thumbImages"
+        v-for="({ imageThumbSrc, alt }, index) in images"
         :key="`${alt}-${index}-thumbnail`"
         type="button"
         :aria-label="alt"
@@ -49,7 +49,7 @@
         @keydown.down.prevent="activeArrowNavigation($event, index)"
         @click="activeIndex = index"
       >
-        <img :alt="alt" class="object-contain border border-neutral-200" width="78" height="78" :src="imageSrc" />
+        <img :alt="alt" class="object-contain border border-neutral-200" width="78" height="78" :src="imageThumbSrc" />
       </button>
       <template #nextButton="defaultProps">
         <SfButton
@@ -75,34 +75,21 @@ import {
   SfIconChevronRight,
   type SfScrollableOnDragEndData,
 } from '@storefront-ui/vue';
-import * as Images from './images';
+
+const withBase = (filepath: string) => `http://localhost:3100/@assets/gallery/${filepath}`;
 
 const images = [
-  { imageSrc: Images.gallery1Src, alt: 'backpack1' },
-  { imageSrc: Images.gallery2Src, alt: 'backpack2' },
-  { imageSrc: Images.gallery3Src, alt: 'backpack3' },
-  { imageSrc: Images.gallery4Src, alt: 'backpack4' },
-  { imageSrc: Images.gallery5Src, alt: 'backpack5' },
-  { imageSrc: Images.gallery6Src, alt: 'backpack6' },
-  { imageSrc: Images.gallery7Src, alt: 'backpack7' },
-  { imageSrc: Images.gallery8Src, alt: 'backpack8' },
-  { imageSrc: Images.gallery9Src, alt: 'backpack9' },
-  { imageSrc: Images.gallery10Src, alt: 'backpack10' },
-  { imageSrc: Images.gallery11Src, alt: 'backpack11' },
-];
-
-const thumbImages = [
-  { imageSrc: Images.gallery1ThumbSrc, alt: 'backpack1' },
-  { imageSrc: Images.gallery2ThumbSrc, alt: 'backpack2' },
-  { imageSrc: Images.gallery3ThumbSrc, alt: 'backpack3' },
-  { imageSrc: Images.gallery4ThumbSrc, alt: 'backpack4' },
-  { imageSrc: Images.gallery5ThumbSrc, alt: 'backpack5' },
-  { imageSrc: Images.gallery6ThumbSrc, alt: 'backpack6' },
-  { imageSrc: Images.gallery7ThumbSrc, alt: 'backpack7' },
-  { imageSrc: Images.gallery8ThumbSrc, alt: 'backpack8' },
-  { imageSrc: Images.gallery9ThumbSrc, alt: 'backpack9' },
-  { imageSrc: Images.gallery10ThumbSrc, alt: 'backpack10' },
-  { imageSrc: Images.gallery11ThumbSrc, alt: 'backpack11' },
+  { imageSrc: withBase('gallery_1.png'), imageThumbSrc: withBase('gallery_1_thumb.png'), alt: 'backpack1' },
+  { imageSrc: withBase('gallery_2.png'), imageThumbSrc: withBase('gallery_2_thumb.png'), alt: 'backpack2' },
+  { imageSrc: withBase('gallery_3.png'), imageThumbSrc: withBase('gallery_3_thumb.png'), alt: 'backpack3' },
+  { imageSrc: withBase('gallery_4.png'), imageThumbSrc: withBase('gallery_4_thumb.png'), alt: 'backpack4' },
+  { imageSrc: withBase('gallery_5.png'), imageThumbSrc: withBase('gallery_5_thumb.png'), alt: 'backpack5' },
+  { imageSrc: withBase('gallery_6.png'), imageThumbSrc: withBase('gallery_6_thumb.png'), alt: 'backpack6' },
+  { imageSrc: withBase('gallery_7.png'), imageThumbSrc: withBase('gallery_7_thumb.png'), alt: 'backpack7' },
+  { imageSrc: withBase('gallery_8.png'), imageThumbSrc: withBase('gallery_8_thumb.png'), alt: 'backpack8' },
+  { imageSrc: withBase('gallery_9.png'), imageThumbSrc: withBase('gallery_9_thumb.png'), alt: 'backpack9' },
+  { imageSrc: withBase('gallery_10.png'), imageThumbSrc: withBase('gallery_10_thumb.png'), alt: 'backpack10' },
+  { imageSrc: withBase('gallery_11.png'), imageThumbSrc: withBase('gallery_11_thumb.png'), alt: 'backpack11' },
 ];
 
 const activeIndex = ref(0);
@@ -120,7 +107,7 @@ const activeArrowNavigation = ($event: KeyboardEvent, index: number) => {
   const nextElement = currentElement.nextElementSibling as HTMLElement;
   const previousElement = currentElement.previousElementSibling as HTMLElement;
 
-  if (($event.code === 'ArrowRight' || $event.code === 'ArrowUp') && index < thumbImages.length - 1) {
+  if (($event.code === 'ArrowRight' || $event.code === 'ArrowUp') && index < images.length - 1) {
     activeIndex.value = index + 1;
     nextElement.focus();
   } else if (($event.code === 'ArrowLeft' || $event.code === 'ArrowDown') && index > 0) {

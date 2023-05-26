@@ -2,20 +2,24 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfButton } from '@storefront-ui/react';
-import headphones from '@assets/hero-headphones.png';
-import mobileBackground from '@assets/hero-bg-mobile.png';
-import desktopBackground from '@assets/hero-bg.png';
 
 export default function Hero() {
   return (
     <div className="relative min-h-[600px]">
       <picture>
-        <source srcSet={desktopBackground.src} media="(min-width: 768px)" />
-        <img src={mobileBackground.src} className="absolute w-full h-full z-[-1] md:object-cover" />
+        <source srcSet="http://localhost:3100/@assets/hero-bg.png" media="(min-width: 768px)" />
+        <img
+          src="http://localhost:3100/@assets/hero-bg-mobile.png"
+          className="absolute w-full h-full z-[-1] md:object-cover"
+        />
       </picture>
       <div className="md:flex md:flex-row-reverse md:justify-center min-h-[600px] max-w-[1536px] mx-auto">
         <div className="flex flex-col md:basis-2/4 md:items-stretch md:overflow-hidden">
-          <img src={headphones.src} alt="Headphones" className="h-full object-cover object-left" />
+          <img
+            src="http://localhost:3100/@assets/hero-headphones.png"
+            alt="Headphones"
+            className="h-full object-cover object-left"
+          />
         </div>
         <div className="p-4 md:p-10 md:flex md:flex-col md:justify-center md:items-start md:basis-2/4">
           <p className="typography-text-xs md:typography-text-sm font-bold tracking-widest text-neutral-500 uppercase">

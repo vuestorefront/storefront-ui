@@ -42,7 +42,6 @@ const ratingValue = computed(() => clamp(roundToNearest(value.value, precision.v
 const partiallyFilled = computed(() => Number(!Number.isInteger(ratingValue.value)));
 const filled = computed(() => Math.ceil(ratingValue.value - partiallyFilled.value));
 const empty = computed(() => max.value - filled.value - partiallyFilled.value);
-
 const label = computed(() => ariaLabel?.value ?? `${value.value} out of ${max.value}`);
 </script>
 

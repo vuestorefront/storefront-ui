@@ -7,8 +7,10 @@
     "build": "PROD=true next build",
     "build:next": "yarn build",
     "serve": "next start",
-    "lint": "next lint --ext .tsx,.ts",
-    "lint:fix": "next lint --fix"
+    "lint": "yarn eslint --max-warnings 0 && yarn prettier --check",
+    "lint:fix": "yarn eslint --fix && yarn prettier --write",
+    "eslint": "next lint --ext .tsx,.ts",
+    "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@storefront-ui/preview-shared": "workspace:*",

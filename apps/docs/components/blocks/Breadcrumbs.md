@@ -34,7 +34,7 @@ Breadcrumbs block with icons as a item separator.
 
 ## Breadcrumbs with home icon
 
-Breadrcrumbs block with home icon as the first item.
+Breadcrumbs block with home icon as the first item.
 
 <Showcase showcase-name="Breadcrumbs/BreadcrumbsWithIcon" style="min-height: 300px;">
 <!-- vue -->

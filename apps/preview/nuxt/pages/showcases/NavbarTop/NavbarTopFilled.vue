@@ -7,8 +7,12 @@
         class="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
       >
         <picture>
-          <source :srcset="brandLogo" media="(min-width: 768px)" />
-          <img :src="brandLogoSign" alt="Sf Logo" class="w-8 h-8 md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]" />
+          <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 768px)" />
+          <img
+            src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
+            alt="Sf Logo"
+            class="w-8 h-8 md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]"
+          />
         </picture>
       </a>
       <SfButton
@@ -91,8 +95,6 @@ import {
   SfIconSearch,
   SfIconMenu,
 } from '@storefront-ui/vue';
-import brandLogo from '@assets/vsf_logo_white.svg';
-import brandLogoSign from '@assets/vsf_logo_sign_white.svg';
 
 const actionItems = [
   {

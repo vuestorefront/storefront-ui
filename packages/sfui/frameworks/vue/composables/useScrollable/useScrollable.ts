@@ -3,15 +3,15 @@ import { type ComputedRef, ref, watch, computed } from 'vue';
 import { noop, unrefElement } from '@vueuse/core';
 
 export function useScrollable<TElement extends HTMLElement>(options?: ComputedRef<Partial<UseScrollableOptions>>) {
-  const containerElement = ref<TElement>();
+  const containerRef = ref<TElement>();
   const scrollable = ref<Scrollable | null>(null);
   const state = ref({ hasPrev: false, hasNext: false, isDragged: false });
 
   let unregister = noop;
   watch(
-    [containerElement, options],
+    [containerRef, options],
     () => {
-      const container = unrefElement(containerElement);
+      const container = unrefElement(containerRef);
       if (!container) return;
       unregister();
 
@@ -36,30 +36,30 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
     { immediate: true, deep: true },
   );
 
-  const getPrevButtonProps = computed(() => {
-    const onClick = () => {
-      scrollable.value?.prev();
-    };
-    return {
-      onClick,
-      disabled: !state.value.hasPrev,
-    };
-  });
+  const showPrev = () => {
+    scrollable.value?.prev();
+  };
 
-  const getNextButtonProps = computed(() => {
-    const onClick = () => {
-      scrollable.value?.next();
-    };
-    return {
-      onClick,
-      disabled: !state.value.hasNext,
-    };
-  });
+  const showNext = () => {
+    scrollable.value?.next();
+  };
+
+  const getPrevButtonProps = computed(() => ({
+    onClick: showPrev,
+    disabled: !state.value.hasPrev,
+  }));
+
+  const getNextButtonProps = computed(() => ({
+    onClick: showNext,
+    disabled: !state.value.hasNext,
+  }));
 
   return {
-    getContainerRef: containerElement,
+    containerRef,
     getPrevButtonProps,
     getNextButtonProps,
+    showNext,
+    showPrev,
     state,
   };
 }
