@@ -9,7 +9,8 @@ export default function BadgeOutline() {
         <SfButton className="group relative" square variant="tertiary">
           <SfIconShoppingCart />
           <SfBadge
-            content={10}
+            content={100}
+            max={99}
             className="outline outline-white group-hover:outline-primary-100 group-active:outline-primary-200"
           />
         </SfButton>
@@ -19,8 +20,9 @@ export default function BadgeOutline() {
         <SfButton className="group relative hover:bg-primary-800 active:bg-primary-900" square variant="tertiary">
           <SfIconShoppingCart className="text-white" />
           <SfBadge
-            content={10}
-            className="outline outline-primary-700 group-hover:outline-primary-800 group-active:outline-primary-900"
+            content={100}
+            max={99}
+            className="outline outline-primary-700 bg-white !text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900"
           />
         </SfButton>
       </div>

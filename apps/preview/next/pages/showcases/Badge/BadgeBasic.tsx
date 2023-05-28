@@ -17,12 +17,12 @@ export default function BadgeBasic() {
 
       <SfButton className="relative" square variant="tertiary">
         <SfIconShoppingCart />
-        <SfBadge variant="dot" />
+        <SfBadge content="New" />
       </SfButton>
 
       <SfButton className="relative" square variant="tertiary">
         <SfIconShoppingCart />
-        <SfBadge content="NEW" />
+        <SfBadge variant="dot" />
       </SfButton>
     </div>
   );

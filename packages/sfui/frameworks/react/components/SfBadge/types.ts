@@ -1,5 +1,5 @@
 import { SfBadgePlacement, SfBadgeVariant } from '@storefront-ui/shared';
-import { PropsWithStyle } from 'shared';
+import type { PropsWithStyle } from '@storefront-ui/react';
 
 export { SfBadgePlacement, SfBadgeVariant };
 

@@ -12,12 +12,12 @@
 
     <SfButton class="relative" square variant="tertiary">
       <SfIconShoppingCart />
-      <SfBadge variant="dot" />
+      <SfBadge :content="textContent" />
     </SfButton>
 
     <SfButton class="relative" square variant="tertiary">
       <SfIconShoppingCart />
-      <SfBadge :content="textContent" />
+      <SfBadge variant="dot" />
     </SfButton>
   </div>
 </template>
@@ -28,5 +28,5 @@ import { SfBadge, SfButton, SfIconShoppingCart } from '@storefront-ui/vue';
 
 const content = ref(10);
 const maxContent = ref(10000);
-const textContent = ref('NEW');
+const textContent = ref('New');
 </script>

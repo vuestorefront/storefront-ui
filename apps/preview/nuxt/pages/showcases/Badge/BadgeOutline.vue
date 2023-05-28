@@ -5,6 +5,7 @@
         <SfIconShoppingCart />
         <SfBadge
           :content="content"
+          :max="99"
           class="outline outline-white group-hover:outline-primary-100 group-active:outline-primary-200"
         />
       </SfButton>
@@ -15,7 +16,8 @@
         <SfIconShoppingCart class="text-white" />
         <SfBadge
           :content="content"
-          class="outline outline-primary-700 group-hover:outline-primary-800 group-active:outline-primary-900"
+          :max="99"
+          class="outline outline-primary-700 bg-white !text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900"
         />
       </SfButton>
     </div>
@@ -26,5 +28,5 @@
 import { ref } from 'vue';
 import { SfBadge, SfButton, SfIconShoppingCart } from '@storefront-ui/vue';
 
-const content = ref(10);
+const content = ref(100);
 </script>

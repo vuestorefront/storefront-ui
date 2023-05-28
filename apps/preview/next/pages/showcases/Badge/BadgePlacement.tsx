@@ -7,22 +7,22 @@ export default function BadgePlacement() {
     <div className="flex gap-3">
       <SfButton className="relative" square variant="tertiary">
         <SfIconShoppingCart />
-        <SfBadge content={7} placement="top-right" />
+        <SfBadge content={100} max={99} placement="top-right" />
       </SfButton>
 
       <SfButton className="relative" square variant="tertiary">
         <SfIconShoppingCart />
-        <SfBadge content={7} placement="bottom-right" />
+        <SfBadge content={100} max={99} placement="bottom-right" />
       </SfButton>
 
       <SfButton className="relative" square variant="tertiary">
         <SfIconShoppingCart />
-        <SfBadge content={7} placement="top-left" />
+        <SfBadge content={100} max={99} placement="top-left" />
       </SfButton>
 
       <SfButton className="relative" square variant="tertiary">
         <SfIconShoppingCart />
-        <SfBadge content={7} placement="bottom-left" />
+        <SfBadge content={100} max={99} placement="bottom-left" />
       </SfButton>
     </div>
   );
