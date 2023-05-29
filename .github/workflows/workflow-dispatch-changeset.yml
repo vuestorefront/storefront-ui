@@ -2,9 +2,9 @@ on:
   workflow_dispatch:
     inputs:
       generate-changelog:
-        description: 'Run generation of production changset'
+        description: 'Pick enter for pre-release or exit for production changeset'
         required: true
-        default: 'exit'
+        default: 'enter'
         type: choice
         options:
           - exit
@@ -25,8 +25,24 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Remove File
+        uses: JesseTG/rm@v1.0.3
+        with:
+          path: .changeset/pre.json
+          # - name: Change changeset pre based on trigger output
+          #   run: yarn changeset pre exit
+        # push commit with file mode for changeset
+      - name: removelabel
+        uses: buildsville/add-remove-label@v2.0.0
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          labels: POST_RC
+          type: add
+      - name: Set if trigger is release-candidate or production var
+        id: vars
+        run: echo "tag=$(echo ${{ inputs.generate-changelog == 'enter' && 'rc' }}" >> $GITHUB_OUTPUT
       - name: Change changeset pre based on trigger output
-        run: yarn changeset pre exit
+        run: yarn changeset pre ${{ inputs.generate-changelog }} ${{ steps.vars.outputs.tag }}
         # push commit with file mode for changeset
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
