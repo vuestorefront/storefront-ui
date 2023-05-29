@@ -6,13 +6,16 @@ on:
   pull_request:
     types:
       - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - edited
     branches:
       - v2-release/**
 
 jobs:
   create-release-changelog:
     name: Create PR with changelog
-    needs: [build, build-release, cypress-react, cypress-vue]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
