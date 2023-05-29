@@ -31,6 +31,7 @@
     "build:next": "turbo run build:next",
     "build:nuxt": "turbo run build:nuxt",
     "build:replace-assets-url-with": "frs-replace \"http:\\/\\/localhost:3100\\/@assets\\/\" \"https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/$ENV_NAME/\" -i \"apps/preview/*/pages/**/*\" -s \"preserve-structure\" -o .",
+    "build:nuxt-module": "turbo run build:nuxt-module",
     "build:react": "turbo run build:react",
     "build:vue": "turbo run build:vue",
     "build:release": "turbo run build:release",
