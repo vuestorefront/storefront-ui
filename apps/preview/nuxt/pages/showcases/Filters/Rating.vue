@@ -1,5 +1,5 @@
 <template>
-  <SfAccordionItem v-model="isOpen">
+  <SfAccordionItem v-model="isOpen" class="w-full md:max-w-[376px]">
     <template #summary>
       <div class="flex justify-between p-2 mb-2">
         <p class="font-medium">Sizes</p>
