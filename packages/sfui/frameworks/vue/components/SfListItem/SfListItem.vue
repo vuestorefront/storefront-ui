@@ -41,6 +41,7 @@ defineProps({
     :disabled="disabled"
     data-testid="list-item"
   >
+    dsadsa
     <span v-if="$slots.prefix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
       <slot name="prefix" />
     </span>
