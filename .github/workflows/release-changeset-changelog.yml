@@ -3,15 +3,6 @@ on:
   push:
     branches:
       - v2-release/**
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - ready_for_review
-      - edited
-    branches:
-      - v2-release/**
 
 jobs:
   create-release-changelog:
@@ -32,9 +23,11 @@ jobs:
         uses: andstor/file-existence-action@v2
         with:
           files: '.changeset/pre.json'
+      - name: Switch into pre-release mode if file does not exists (first push)
+        if: ${{ steps.is_pre_json_exists.outputs.files_exists != 'true' }}
+        run: yarn changeset pre enter rc
       - name: Get pre.json file content
         id: pre_json
-        if: ${{ steps.is_pre_json_exists.outputs.files_exists == 'true' }}
         uses: notiz-dev/github-action-json-property@release
         with:
           path: '.changeset/pre.json'
@@ -43,8 +36,7 @@ jobs:
         id: is_prerelease
         run: |
           IS_PROP=${{ steps.pre_json.outputs.prop == 'pre' }}
-          DOES_EXISTS=${{ steps.is_pre_json_exists.outputs.result == 'true' }}
-          if [[ $DOES_EXISTS ]] && [[ $IS_PROP == 'true' ]]; then
+          if [[ $IS_PROP == 'true' ]]; then
             echo "result= rc" >> $GITHUB_OUTPUT
           fi
       - name: Create PR with changelog

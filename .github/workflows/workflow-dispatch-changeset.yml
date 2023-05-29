@@ -2,12 +2,11 @@ on:
   workflow_dispatch:
     inputs:
       generate-changelog:
-        description: 'Pick enter for pre-release or exit for production changeset'
+        description: 'Run generation of production changset'
         required: true
-        default: 'enter'
+        default: 'exit'
         type: choice
         options:
-          - enter
           - exit
 
 jobs:
@@ -26,11 +25,8 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Set if trigger is release-candidate or production var
-        id: vars
-        run: echo "tag=$(echo ${{ inputs.generate-changelog == 'enter' && 'rc' }})" >> $GITHUB_OUTPUT
       - name: Change changeset pre based on trigger output
-        run: yarn changeset pre ${{ inputs.generate-changelog }} ${{ steps.vars.outputs.tag }}
+        run: yarn changeset pre exit
         # push commit with file mode for changeset
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
