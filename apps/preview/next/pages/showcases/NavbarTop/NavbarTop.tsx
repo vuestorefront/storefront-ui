@@ -39,6 +39,7 @@ export default function TopNav() {
 
   const search = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    // eslint-disable-next-line no-alert
     alert(`Successfully found 10 results for ${inputValue}`);
   };
 
