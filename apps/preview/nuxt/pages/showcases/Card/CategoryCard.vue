@@ -7,7 +7,7 @@
     >
       <a
         class="absolute w-full h-full z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
-        href="/"
+        href="#"
         :aria-label="title"
       />
       <img

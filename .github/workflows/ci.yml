@@ -16,7 +16,7 @@ jobs:
     name: Create cache for all steps
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Node.js
         uses: actions/setup-node@v3
@@ -199,3 +199,34 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_REACT }}
+
+  release-canary:
+    name: Release canary package
+    needs: [build, build-release, cypress-react, cypress-vue]
+    if: ${{ github.ref == 'refs/heads/v2-develop' }}
+    # Can't use 'configure-enviroment' because it fails on dev branch
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Bump package version
+        run: yarn changeset version --snapshot
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build package
+        run: yarn build:release
+      - name: Publish canary version
+        run: yarn changeset publish --tag canary
+        env:
+          # Needs access to publish to npm
+          # refresh token before Saturday, May 25, 2024
+          NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}

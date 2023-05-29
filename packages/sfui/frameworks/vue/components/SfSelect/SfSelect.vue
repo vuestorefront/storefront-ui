@@ -37,18 +37,16 @@ const props = defineProps({
     default: '',
   },
 });
-
-const selected = ref(props.value);
-const chevronRotated = ref(false);
 const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
+
+const selected = ref(props.value);
+const chevronRotated = ref(false);
 const { isFocusVisible } = useFocusVisible();
 
 const clickHandler = () => (chevronRotated.value = true);
-
 const blurHandler = () => (chevronRotated.value = false);
-
 const keydownHandler = () => (chevronRotated.value = true);
 
 const changedValue = (event: Event) => {

@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
@@ -52,7 +53,7 @@ export default function DisplayHorizontalBlock() {
             <a
               className="absolute w-full h-full z-1 focus-visible:outline focus-visible:rounded-lg"
               aria-label={title}
-              href="/"
+              href="#"
             />
             <div
               className={classNames('flex justify-between overflow-hidden grow', {

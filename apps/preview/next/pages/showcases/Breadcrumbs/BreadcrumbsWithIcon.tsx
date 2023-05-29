@@ -6,12 +6,12 @@ import { ShowcasePageLayout } from '../../showcases';
 const breadcrumbs = [
   {
     name: 'Home',
-    link: '/page',
+    link: '#',
   },
-  { name: 'Page 2', link: '/page' },
-  { name: 'Page 3', link: '/page' },
-  { name: 'Page 4', link: '/page' },
-  { name: 'Page 5', link: '/page' },
+  { name: 'Page 2', link: '#' },
+  { name: 'Page 3', link: '#' },
+  { name: 'Page 4', link: '#' },
+  { name: 'Page 5', link: '#' },
 ];
 
 export function Showcase() {

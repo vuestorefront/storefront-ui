@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
 import { ShowcasePageLayout } from '../../showcases';
@@ -446,7 +447,7 @@ export default function MegaMenuNavigation() {
               <SfIconMenu className="text-white" />
             </SfButton>
             <a
-              href="/"
+              href="#"
               aria-label="SF Homepage"
               className="flex items-center mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
             >
