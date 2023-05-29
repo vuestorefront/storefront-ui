@@ -43,7 +43,7 @@ const colorValues = [
   },
 ];
 
-export default function FilterColor() {
+export default function ColorFilter() {
   const [colorList, setColorList] = useState<string[]>([]);
   const [opened, setOpened] = useState(true);
   const handleColorSelection = (val: string) => {
@@ -60,6 +60,7 @@ export default function FilterColor() {
     <SfAccordionItem
       open={opened}
       onToggle={() => setOpened(!opened)}
+      className="w-full md:max-w-[376px]"
       summary={
         <div className="flex justify-between p-2 mb-2">
           <p className="font-medium">Color</p>
@@ -102,4 +103,4 @@ export default function FilterColor() {
 }
 
 // #endregion source
-FilterColor.getLayout = ShowcasePageLayout;
+ColorFilter.getLayout = ShowcasePageLayout;

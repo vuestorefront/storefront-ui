@@ -185,7 +185,7 @@ const filtersData: Node[] = [
   },
 ];
 
-export default function FiltersPanel() {
+export default function FiltersSidepanel() {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
   const [price, setPrice] = useState<string | null>(null);
   const [rating, setRating] = useState<string | null>(null);
@@ -217,7 +217,7 @@ export default function FiltersPanel() {
   };
 
   return (
-    <aside>
+    <aside className="w-full md:max-w-[376px]">
       <div className="flex items-center justify-between mb-4">
         <h4 className="px-2 font-bold typography-headline-4">List settings</h4>
         <button type="button" className="sm:hidden text-neutral-500" aria-label="Close filters panel">
@@ -225,10 +225,10 @@ export default function FiltersPanel() {
         </button>
       </div>
       <h5 className="py-2 px-4 mb-6 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md">
-        Sort by
+        Sorting
       </h5>
       <div className="px-2">
-        <SfSelect aria-label="Sort by">
+        <SfSelect aria-label="Sorting">
           {sortOptions.map((option) => (
             <option value={option.value} key={option.value}>
               {option.label}
@@ -441,4 +441,4 @@ export default function FiltersPanel() {
 }
 
 // #endregion source
-FiltersPanel.getLayout = ShowcasePageLayout;
+FiltersSidepanel.getLayout = ShowcasePageLayout;

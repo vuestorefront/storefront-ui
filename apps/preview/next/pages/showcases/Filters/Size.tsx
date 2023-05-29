@@ -19,7 +19,7 @@ const chipSizes = [
   { id: 's12', label: '12', value: '12', isAvailable: true },
 ];
 
-export default function FilterSizes() {
+export default function SizeFilter() {
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [opened, setOpened] = useState(true);
   const handleSizeSelection = (val: string) => {
@@ -33,6 +33,7 @@ export default function FilterSizes() {
     <SfAccordionItem
       open={opened}
       onToggle={() => setOpened(!opened)}
+      className="w-full md:max-w-[376px]"
       summary={
         <div className="flex justify-between p-2 mb-2">
           <p className="font-medium">Sizes</p>
@@ -58,4 +59,4 @@ export default function FilterSizes() {
 }
 
 // #endregion source
-FilterSizes.getLayout = ShowcasePageLayout;
+SizeFilter.getLayout = ShowcasePageLayout;

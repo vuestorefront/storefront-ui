@@ -43,7 +43,7 @@ const categories = [
     link: '#',
   },
 ];
-export default function CategoryList() {
+export default function CategoryFilter() {
   const [opened, setOpened] = useState(true);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const handleCategorySelection = (selectedValue: string) => {
@@ -59,6 +59,7 @@ export default function CategoryList() {
     <SfAccordionItem
       open={opened}
       onToggle={() => setOpened(!opened)}
+      className="w-full md:max-w-[376px]"
       summary={
         <div className="flex justify-between p-2 mb-2">
           <p className="font-medium">Categories</p>
@@ -100,4 +101,4 @@ export default function CategoryList() {
 }
 
 // #endregion source
-CategoryList.getLayout = ShowcasePageLayout;
+CategoryFilter.getLayout = ShowcasePageLayout;
