@@ -13,7 +13,7 @@ on:
 jobs:
   generation-changelog-on-trigger:
     runs-on: ubuntu-latest
-    if: ${{ startsWith( github.ref, "refs/heads/v2-release" ) }}
+    if: ${{ startsWith( github.ref, 'refs/heads/v2-release' ) }}
     permissions:
       contents: write
     steps:
@@ -28,7 +28,7 @@ jobs:
         run: yarn --immutable
       - name: Set if trigger is release-candidate or production var
         id: vars
-        run: echo "tag=$(echo ${{ inputs.generate-changelog == 'enter' && 'rc' }}" >> $GITHUB_OUTPUT
+        run: echo "tag=$(echo ${{ inputs.generate-changelog == 'enter' && 'rc' }})" >> $GITHUB_OUTPUT
       - name: Change changeset pre based on trigger output
         run: yarn changeset pre ${{ inputs.generate-changelog }} ${{ steps.vars.outputs.tag }}
         # push commit with file mode for changeset

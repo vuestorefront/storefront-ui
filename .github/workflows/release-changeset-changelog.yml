@@ -27,19 +27,32 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
-      - name: ConsoleLOG
-        run: echo ${{ fromJSON($(cat .changeset/pre.json )).mode }}
-      - name: Check if .changeset/pre.json file contain "mode:pre"
-        id: prerelease_check
-        run: echo "result=$(echo ${{ fromJSON($(cat .changeset/pre.json )).mode == "pre" }})" >> $GITHUB_OUTPUT
-      - name: ConsoleLOG2
-        run: echo ${{ steps.prerelease_check.output.result }}
+      - name: Check if .changeset/pre.json exists
+        id: is_pre_json_exists
+        uses: andstor/file-existence-action@v2
+        with:
+          files: '.changeset/pre.json'
+      - name: Get pre.json file content
+        id: pre_json
+        if: ${{ steps.is_pre_json_exists.outputs.files_exists == 'true' }}
+        uses: notiz-dev/github-action-json-property@release
+        with:
+          path: '.changeset/pre.json'
+          prop_path: 'mode'
+      - name: Changeset is in pre mode or not
+        id: is_prerelease
+        run: |
+          IS_PROP=${{ steps.pre_json.outputs.prop == 'pre' }}
+          DOES_EXISTS=${{ steps.is_pre_json_exists.outputs.result == 'true' }}
+          if [[ $DOES_EXISTS ]] && [[ $IS_PROP == 'true' ]]; then
+            echo "result= rc" >> $GITHUB_OUTPUT
+          fi
       - name: Create PR with changelog
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: '[ci] - release${{ steps.prerelease_check.output.result && " rc" }}'
-          title: '[ci] - release${{ steps.prerelease_check.output.result && " rc" }}'
+          commit: '[ci] - release${{ steps.is_prerelease.outputs.result }}'
+          title: '[ci] - release${{ steps.is_prerelease.outputs.result }}'
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
