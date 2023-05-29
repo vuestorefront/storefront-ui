@@ -4,6 +4,7 @@ on:
     branches:
       - v2
       - v2-develop
+      - v2-release/**
   pull_request:
     types:
       - opened
@@ -230,3 +231,13 @@ jobs:
           # refresh token before Saturday, May 25, 2024
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+
+  release-next:
+    name: Release release candidate
+    runs-on: ubuntu-latest
+    needs: [build, build-release, cypress-react, cypress-vue]
+    # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "rc" suffix, logic can be found in "release-changeset-changelog.yml"
+    if: ${{ startsWith( github.ref, 'refs/heads/v2-release' ) && github.event.head_commit.message == '[ci] - release rc' }}
+    steps:
+      - name: Publish release-candidate
+        run: echo "Publish now"
