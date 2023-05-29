@@ -15,7 +15,7 @@
             <SfIconMenu class="text-white" />
           </SfButton>
           <a
-            href="/"
+            href="#"
             aria-label="SF Homepage"
             class="flex items-center mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >

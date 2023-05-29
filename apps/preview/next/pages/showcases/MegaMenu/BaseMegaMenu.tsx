@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import {
@@ -155,7 +156,7 @@ export default function BaseMegaMenu() {
       >
         <div className="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <a
-            href="/"
+            href="#"
             aria-label="SF Homepage"
             className="flex shrink-0 mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >

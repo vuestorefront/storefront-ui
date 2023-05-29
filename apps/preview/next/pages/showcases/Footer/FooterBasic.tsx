@@ -20,23 +20,23 @@ const categories = [
     subcategories: [
       {
         subcategoryLabel: 'Payment methods',
-        link: '/payment-methods',
+        link: '#',
       },
       {
         subcategoryLabel: 'Order pickup',
-        link: '/order',
+        link: '#',
       },
       {
         subcategoryLabel: 'Purchase status',
-        link: '/purchase',
+        link: '#',
       },
       {
         subcategoryLabel: 'Track orders',
-        link: '/track',
+        link: '#',
       },
       {
         subcategoryLabel: 'Returns',
-        link: '/returns',
+        link: '#',
       },
     ],
   },
@@ -45,19 +45,19 @@ const categories = [
     subcategories: [
       {
         subcategoryLabel: 'Help centers',
-        link: '/help',
+        link: '#',
       },
       {
         subcategoryLabel: 'Security & fraud',
-        link: '/security',
+        link: '#',
       },
       {
         subcategoryLabel: 'Feedback',
-        link: '/feedback',
+        link: '#',
       },
       {
         subcategoryLabel: 'Contact',
-        link: '/contact',
+        link: '#',
       },
     ],
   },
@@ -66,19 +66,19 @@ const categories = [
     subcategories: [
       {
         subcategoryLabel: 'Gift cards',
-        link: '/gift',
+        link: '#',
       },
       {
         subcategoryLabel: 'Order pickup',
-        link: '/order',
+        link: '#',
       },
       {
         subcategoryLabel: 'Purchase status',
-        link: '/purchase',
+        link: '#',
       },
       {
         subcategoryLabel: 'Track orders',
-        link: '/track',
+        link: '#',
       },
     ],
   },
@@ -87,23 +87,23 @@ const categories = [
     subcategories: [
       {
         subcategoryLabel: 'About us',
-        link: '/about',
+        link: '#',
       },
       {
         subcategoryLabel: 'Order pickup',
-        link: '/order',
+        link: '#',
       },
       {
         subcategoryLabel: 'Purchase status',
-        link: '/purchase',
+        link: '#',
       },
       {
         subcategoryLabel: 'Track orders',
-        link: '/track',
+        link: '#',
       },
       {
         subcategoryLabel: 'Returns',
-        link: '/returns',
+        link: '#',
       },
     ],
   },
@@ -111,46 +111,46 @@ const categories = [
 const socialMedia = [
   {
     label: 'Facebook',
-    link: '/facebook',
+    link: '#',
     icon: () => <SfIconFacebook />,
   },
   {
     label: 'Twitter',
-    link: '/twitter',
+    link: '#',
     icon: () => <SfIconTwitter />,
   },
   {
     label: 'Instagram',
-    link: '/instagram',
+    link: '#',
     icon: () => <SfIconInstagram />,
   },
   {
     label: 'Pinterest',
-    link: '/pinterest',
+    link: '#',
     icon: () => <SfIconPinterest />,
   },
   {
     label: 'Youtube',
-    link: '/youtube',
+    link: '#',
     icon: () => <SfIconYoutube />,
   },
 ];
 const contactOptions = [
   {
     label: 'Help center',
-    link: '/help',
+    link: '#',
     details: ['Find answers online anytime'],
     icon: () => <SfIconHelp size="lg" />,
   },
   {
     label: 'Live chat',
-    link: '/live',
+    link: '#',
     details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
     icon: () => <SfIconContactSupport size="lg" />,
   },
   {
     label: '1 234 567 8901',
-    link: '/tel',
+    link: '#',
     details: ['Mon–Fri, 5am–10pm PT', 'Sat–Sun, 6am–9pm PT'],
     icon: () => <SfIconCall size="lg" />,
   },
@@ -158,11 +158,11 @@ const contactOptions = [
 const bottomLinks = [
   {
     label: 'Terms',
-    link: '/terms',
+    link: '#',
   },
   {
     label: 'Privacy policy',
-    link: '/privacy',
+    link: '#',
   },
 ];
 export default function FooterBasic() {

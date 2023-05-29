@@ -12,7 +12,7 @@
         <a
           class="absolute w-full h-full z-1 focus-visible:outline focus-visible:rounded-lg"
           :aria-label="title"
-          href="/"
+          href="#"
         />
         <div class="flex flex-col p-4 text-center md:p-10">
           <p class="mb-2 font-bold tracking-widest uppercase typography-headline-6">{{ subtitle }}</p>

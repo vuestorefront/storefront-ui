@@ -7,7 +7,7 @@
     >
       <div class="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <a
-          href="/"
+          href="#"
           aria-label="SF Homepage"
           class="flex shrink-0 text-white mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >

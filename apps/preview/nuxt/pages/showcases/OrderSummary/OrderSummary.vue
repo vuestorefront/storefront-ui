@@ -42,8 +42,8 @@
         </div>
         <SfButton size="lg" class="w-full"> Place Order And Pay </SfButton>
         <div class="typography-text-sm mt-4 text-center">
-          By placing my order, you agree to our <SfLink href="/">Terms and Conditions</SfLink> and our
-          <SfLink href="/">Privacy Policy.</SfLink>
+          By placing my order, you agree to our <SfLink href="#">Terms and Conditions</SfLink> and our
+          <SfLink href="#">Privacy Policy.</SfLink>
         </div>
       </div>
     </div>

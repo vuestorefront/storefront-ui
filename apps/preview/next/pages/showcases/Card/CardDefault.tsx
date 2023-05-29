@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
@@ -37,7 +38,7 @@ export default function CardDefault() {
         >
           <a
             className="absolute inset-0 z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
-            href="/"
+            href="#"
             aria-label={title}
           />
           <img src={image} alt={title} className="object-cover h-auto rounded-t-md aspect-video" />
