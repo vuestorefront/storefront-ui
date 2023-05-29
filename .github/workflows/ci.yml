@@ -4,13 +4,13 @@ on:
     branches:
       - v2
       - v2-develop
-      - v2-release/**
   pull_request:
     types:
       - opened
       - reopened
       - synchronize
       - ready_for_review
+      - edited
 
 jobs:
   cache:
@@ -235,9 +235,15 @@ jobs:
   release-next:
     name: Release release candidate
     runs-on: ubuntu-latest
-    needs: [build, build-release, cypress-react, cypress-vue]
-    # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "rc" suffix, logic can be found in "release-changeset-changelog.yml"
-    if: ${{ startsWith( github.ref, 'refs/heads/v2-release' ) && github.event.head_commit.message == '[ci] - release rc' }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Save head commit message
+        id: commit_message
+        run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
       - name: Publish release-candidate
+        # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "rc" suffix, logic can be found in "release-changeset-changelog.yml
+        if: ${{ startsWith( github.ref, 'refs/heads/v2-release' ) && steps.commit_message.output.result  == '[ci] - release rc' }}
         run: echo "Publish now"
