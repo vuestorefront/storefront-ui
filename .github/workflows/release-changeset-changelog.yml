@@ -5,11 +5,9 @@ on:
       - v2-release/**
 
 jobs:
-  release-canary:
-    name: Release canary package
+  create-release-changelog:
+    name: Create PR with changelog
     needs: [build, build-release, cypress-react, cypress-vue]
-    if: ${{ github.ref == 'refs/heads/v2-develop' }}
-    # Can't use 'configure-enviroment' because it fails on dev branch
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -19,19 +17,22 @@ jobs:
         with:
           node-version-file: '.node-version'
           cache: 'yarn'
-          registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Bump package version
-        run: yarn changeset version --snapshot
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build package
-        run: yarn build:release
-      - name: Publish canary version
-        run: yarn changeset publish --tag canary
+      - name: ConsoleLOG
+        ron: echo fromJSON($(cat .changeset/pre.json )).mode
+      - name: Set VAR if .changeset/pre.json file contain "mode:pre"
+        id: vars
+        run: echo "isInPreMode=$(echo ${{ fromJSON($(cat .changeset/pre.json )).mode == "pre" }})" >> $GITHUB_OUTPUT
+      - name: Create PR with changelog
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          version: yarn run changeset-version
+          commit: '[ci] - release${{ steps.vars.output.isInPreMode && " rc" }}'
+          title: '[ci] - release${{ steps.vars.output.isInPreMode && " rc" }}'
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
-          NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
