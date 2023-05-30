@@ -7,8 +7,6 @@ on:
       - synchronize
       - ready_for_review
       - edited
-    branches:
-      - v2-release/**
   issue_comment:
     types: [created, edited, deleted]
 
@@ -20,6 +18,7 @@ jobs:
   create-release-changelog:
     name: Create PR with changelog
     runs-on: ubuntu-latest
+    if: ${{ startsWith( github.ref, 'refs/heads/v2-release' ) }}
     steps:
       - name: resolve pr refs
         id: refs
