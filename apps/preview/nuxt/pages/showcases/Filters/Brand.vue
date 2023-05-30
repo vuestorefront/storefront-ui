@@ -34,5 +34,4 @@ const details = ref([
   { id: 'b3', label: 'Ledner & Ward', value: 'lednerward', counter: 0 },
   { id: 'b4', label: 'Pacocha', value: 'pacocha', counter: 3 },
 ]);
-
 </script>

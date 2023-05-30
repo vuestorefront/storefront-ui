@@ -11,29 +11,23 @@ const details = [
   { id: 'pr3', label: '$50.00 - $99.99', value: '50-99', counter: 12 },
   { id: 'pr4', label: '$100.00 - $199.99', value: '100-199', counter: 3 },
   { id: 'pr5', label: '$200.00 and above', value: 'above', counter: 18 },
-]
-
+];
 
 export default function PriceFilter() {
   const [opened, setOpened] = useState(true);
   const [price, setPrice] = useState<string | null>(null);
   return (
     <SfAccordionItem
-        open={opened}
-        onToggle={() => setOpened(!opened)}
-        className="w-full md:max-w-[376px]"
-        summary={
-          <div className="flex justify-between p-2 mb-2">
-            <p className="mb-2 font-medium typography-headline-5">Brand</p>
-            <SfIconChevronLeft
-              className={classNames(
-                'text-neutral-500',
-                `${opened ? 'rotate-90' : '-rotate-90'}`,
-              )}
-            />
-          </div>
-        }
-      >
+      open={opened}
+      onToggle={() => setOpened(!opened)}
+      className="w-full md:max-w-[376px]"
+      summary={
+        <div className="flex justify-between p-2 mb-2">
+          <p className="mb-2 font-medium typography-headline-5">Brand</p>
+          <SfIconChevronLeft className={classNames('text-neutral-500', `${opened ? 'rotate-90' : '-rotate-90'}`)} />
+        </div>
+      }
+    >
       <fieldset name="radio-price">
         {details.map(({ label, value, counter }) => (
           <SfListItem

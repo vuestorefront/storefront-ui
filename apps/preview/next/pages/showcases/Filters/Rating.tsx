@@ -27,7 +27,7 @@ export default function RatingFilter() {
     <SfAccordionItem
       open={isOpen}
       onToggle={() => toggle()}
-      className="w-full md:max-w-[376px]"      
+      className="w-full md:max-w-[376px]"
       summary={
         <div className="flex justify-between p-2 mb-2">
           <p className="font-medium">Color</p>

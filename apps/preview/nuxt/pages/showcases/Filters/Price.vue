@@ -1,5 +1,5 @@
 <template>
- <SfAccordionItem v-model="open" class="w-full md:max-w-[376px]">
+  <SfAccordionItem v-model="open" class="w-full md:max-w-[376px]">
     <fieldset id="radio-price">
       <SfListItem
         v-for="{ id, value, label, counter } in details"
@@ -37,6 +37,5 @@ const details = [
   { id: 'pr3', label: '$50.00 - $99.99', value: '50-99', counter: 12 },
   { id: 'pr4', label: '$100.00 - $199.99', value: '100-199', counter: 3 },
   { id: 'pr5', label: '$200.00 and above', value: 'above', counter: 18 },
-]
-
+];
 </script>
