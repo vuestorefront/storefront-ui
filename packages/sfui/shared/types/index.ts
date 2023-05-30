@@ -1,7 +1,6 @@
 export * from './SfAlert';
 export * from './SfBadge';
 export * from './SfButton';
-export * from './SfBadge';
 export * from './SfChip';
 export * from './SfCounter';
 export * from './SfDrawer';
