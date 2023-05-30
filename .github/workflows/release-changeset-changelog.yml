@@ -12,10 +12,6 @@ on:
       - edited
     branches:
       - v2-release/**
-  issue_comment:
-    types: [created]
-    branches:
-      - v2-release/**
 
 jobs:
   create-release-changelog:
@@ -31,52 +27,14 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Save is comment
-        id: commit_message
-        run: echo "result=${{ github.event.issue.pull_request && contains(github.event.comment.body, '!') }}" >> $GITHUB_OUTPUT
-      # - name: If not triggered run rc by default
-      #   if: steps.commit_message.outputs.result != 'true'
-      #   run: yarn changeset pre enter rc
       - name: Create PR with changelog
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: '[ci] - release${{ steps.commit_message.outputs.result }}'
-          title: '[ci] - release${{ steps.commit_message.outputs.result }}'
+          commit: '[ci] - release'
+          title: '[ci] - release'
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # - name: Check if .changeset/pre.json exists
-      #   id: is_pre_json_exists
-      #   uses: andstor/file-existence-action@v2
-      #   with:
-      #     files: '.changeset/pre.json'
-      # - name: Switch into pre-release mode if file does not exists (first push)
-      #   if: ${{ steps.is_pre_json_exists.outputs.files_exists != 'true' && github.event.label.name != 'POST_RC' }}
-      #   run: yarn changeset pre enter rc
-      # - name: Get pre.json file content
-      #   id: pre_json
-      #   uses: notiz-dev/github-action-json-property@release
-      #   with:
-      #     path: '.changeset/pre.json'
-      #     prop_path: 'mode'
-      # - name: Check if changeset is in pre mode or not
-      #   id: is_prerelease
-      #   run: |
-      #     IS_PROP=${{ steps.pre_json.outputs.prop == 'pre' }}
-      #     if [[ $IS_PROP == 'true' ]]; then
-      #       echo "result= rc" >> $GITHUB_OUTPUT
-      #     fi
-      # - name: Create PR with changelog
-      #   id: changesets
-      #   uses: changesets/action@v1
-      #   with:
-      #     commit: '[ci] - release${{ steps.is_prerelease.outputs.result }}'
-      #     title: '[ci] - release${{ steps.is_prerelease.outputs.result }}'
-      #   env:
-      #     # Needs access to publish to npm
-      #     # refresh token before Saturday, May 25, 2024
-      #     NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
