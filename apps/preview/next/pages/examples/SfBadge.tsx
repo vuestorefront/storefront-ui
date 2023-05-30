@@ -38,7 +38,7 @@ function Example() {
     ],
     {
       content: '1',
-      max: '99',
+      max: 99,
       variant: SfBadgeVariant.standard,
       placement: SfBadgePlacement['top-right'],
     },
