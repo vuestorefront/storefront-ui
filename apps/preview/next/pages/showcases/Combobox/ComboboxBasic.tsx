@@ -1,3 +1,4 @@
+/* eslint-disable no-promise-executor-return */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef, useId } from 'react';
@@ -8,7 +9,6 @@ import {
   SfIconExpandMore,
   useDisclosure,
   SfListItem,
-  SfLoaderCircular,
   useTrapFocus,
   useDropdown,
   SfSwitch,
@@ -61,7 +61,6 @@ const options: SelectOption[] = [
   },
 ];
 
-// eslint-disable-next-line no-promise-executor-return
 const delay = () => new Promise((resolve) => setTimeout(resolve, Math.random() * 1000));
 
 const mockAutocompleteRequest = async (phrase: string) => {
@@ -76,7 +75,6 @@ export default function ComboboxBasic() {
   const [searchValue, setSearchValue] = useState<string>('');
   const [selectedValue, setSelectedValue] = useState<string>('');
   const [isValid, setIsValid] = useState<boolean | undefined>(undefined);
-  const [isLoadingSnippets, setIsLoadingSnippets] = useState(false);
   const { isOpen, close, open, toggle } = useDisclosure();
   const [snippets, setSnippets] = useState<{ label: string; value: string }[]>([]);
   const { refs, style } = useDropdown({ isOpen, onClose: close, placement: 'bottom-start', middleware: [offset(4)] });
@@ -122,8 +120,7 @@ export default function ComboboxBasic() {
     if (event.key === 'ArrowUp') {
       open();
       if (isOpen) {
-        const focusableElementsAmount = focusableElements.length;
-        focusableElements[focusableElementsAmount - 1].focus();
+        focusableElements[focusableElements.length - 1].focus();
       }
     }
     if (event.key === 'ArrowDown') {
@@ -152,7 +149,6 @@ export default function ComboboxBasic() {
       if (searchValue && !selectedValue) {
         const getSnippets = async () => {
           if (!isOpen) open();
-          setIsLoadingSnippets(true);
           try {
             const data = await mockAutocompleteRequest(searchValue);
             setSnippets(data);
@@ -160,7 +156,6 @@ export default function ComboboxBasic() {
             close();
             console.error(error);
           }
-          setIsLoadingSnippets(false);
         };
 
         getSnippets();
@@ -190,7 +185,7 @@ export default function ComboboxBasic() {
           aria-label="Choose country"
           placeholder="Choose country"
           aria-controls={listId}
-          aria-autocomplete="both"
+          aria-autocomplete="list"
           aria-disabled={isDisabled}
           aria-expanded={isOpen}
           aria-activedescendant={currentFocus?.id}
@@ -214,64 +209,57 @@ export default function ComboboxBasic() {
             />
           }
         />
-        <div ref={refs.setFloating} style={style} className={classNames('left-0 right-0')}>
-          {isOpen &&
-            (isLoadingSnippets ? (
-              <div className="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md">
-                <SfLoaderCircular />
-              </div>
-            ) : (
-              <ul
-                id={listId}
-                role="listbox"
-                ref={dropdownRef}
-                aria-label="Country list"
-                className="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
-              >
-                {(snippets.length > 0 &&
-                  snippets.map((option) => (
-                    <li key={option.value}>
-                      <SfListItem
-                        id={`${listId}-${option.value}`}
-                        as="button"
-                        type="button"
-                        onClick={(event) => selectOption(event, option)}
-                        onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
-                        className="flex justify-start"
-                        aria-selected={option.value === selectedValue}
-                      >
-                        <p className="text-left">
-                          <span>{option.label}</span>
-                        </p>
-                      </SfListItem>
-                    </li>
-                  ))) ||
-                  (searchValue && (
-                    <SfListItem className="flex justify-start" aria-label="No options">
+        <div ref={refs.setFloating} style={style} className="left-0 right-0 z-1">
+          {isOpen && (
+            <ul
+              id={listId}
+              role="listbox"
+              ref={dropdownRef}
+              aria-label="Country list"
+              className="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+            >
+              {(snippets.length > 0 &&
+                snippets.map((option) => (
+                  <li key={option.value}>
+                    <SfListItem
+                      id={`${listId}-${option.value}`}
+                      as="button"
+                      type="button"
+                      onClick={(event) => selectOption(event, option)}
+                      onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
+                      className="flex justify-start"
+                      aria-selected={option.value === selectedValue}
+                    >
                       <p className="text-left">
-                        <span>No options</span>
+                        <span>{option.label}</span>
                       </p>
                     </SfListItem>
-                  )) ||
-                  options.map((option) => (
-                    <li key={option.value}>
-                      <SfListItem
-                        id={`${listId}-${option.value}`}
-                        as="button"
-                        type="button"
-                        onClick={(event) => selectOption(event, option)}
-                        onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
-                        className="flex justify-start"
-                        aria-selected={option.value === selectedValue}
-                      >
-                        <p className="text-left">
-                          <span>{option.label}</span>
-                        </p>
-                      </SfListItem>
-                    </li>
-                  ))}
-              </ul>
-            ))}
+                  </li>
+                ))) ||
+                (searchValue && (
+                  <p className="inline-flex px-4 py-2 w-full text-left" aria-label="No options">
+                    <span>No options</span>
+                  </p>
+                )) ||
+                options.map((option) => (
+                  <li key={option.value}>
+                    <SfListItem
+                      id={`${listId}-${option.value}`}
+                      as="button"
+                      type="button"
+                      onClick={(event) => selectOption(event, option)}
+                      onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
+                      className="flex justify-start"
+                      aria-selected={option.value === selectedValue}
+                    >
+                      <p className="text-left">
+                        <span>{option.label}</span>
+                      </p>
+                    </SfListItem>
+                  </li>
+                ))}
+            </ul>
+          )}
         </div>
       </div>
       {!isDisabled && isValid === false && (

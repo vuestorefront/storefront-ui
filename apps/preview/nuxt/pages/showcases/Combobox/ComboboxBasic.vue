@@ -9,7 +9,7 @@
       aria-label="Choose country"
       placeholder="Choose country"
       :aria-controls="listId"
-      aria-autocomplete="both"
+      aria-autocomplete="list"
       :aria-disabled="isDisabled"
       :aria-expanded="isOpen"
       :aria-activedescendant="currentFocus?.id"
@@ -41,15 +41,8 @@
         />
       </template>
     </SfInput>
-    <div v-if="isOpen" ref="floatingRef" :style="style" class="left-0 right-0">
-      <div
-        v-if="isLoadingSnippets"
-        class="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
-      >
-        <SfLoaderCircular />
-      </div>
+    <div v-if="isOpen" ref="floatingRef" :style="style" class="left-0 right-0 z-1">
       <ul
-        v-else
         :id="listId"
         ref="dropdownRef"
         role="listbox"
@@ -76,11 +69,9 @@
             </SfListItem>
           </li>
         </template>
-        <SfListItem v-else-if="inputModel" class-name="flex justify-start" aria-label="No options">
-          <p class="text-left">
-            <span>No options</span>
-          </p>
-        </SfListItem>
+        <p v-else-if="inputModel" class="inline-flex px-4 py-2 w-full text-left" aria-label="No options">
+          <span>No options</span>
+        </p>
         <template v-else>
           <li v-for="option in options" :key="option.value">
             <SfListItem
@@ -102,7 +93,7 @@
       </ul>
     </div>
   </div>
-  <p v-if="!isDisabled && isValid === false && !isOpen" class="text-negative-700 typography-text-sm font-medium mt-0.5">
+  <p v-if="!isDisabled && isValid === false" class="text-negative-700 typography-text-sm font-medium mt-0.5">
     No option selected
   </p>
   <p class="text-xs mt-0.5 text-neutral-500">Help text</p>
@@ -123,7 +114,6 @@ import { unrefElement } from '@vueuse/core';
 import {
   SfInput,
   SfListItem,
-  SfLoaderCircular,
   SfIconExpandMore,
   SfSwitch,
   useDisclosure,
@@ -135,7 +125,6 @@ import {
 const inputModel = ref('');
 const inputRef = ref();
 const dropdownRef = ref();
-const isLoadingSnippets = ref(false);
 const id = useId();
 const listId = useId();
 const isDisabled = ref(false);
@@ -178,8 +167,7 @@ const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
   if (event.key === 'ArrowUp') {
     open();
     if (isOpen) {
-      const focusableElementsAmount = focusableElements.value.length;
-      focusableElements.value[focusableElementsAmount - 1].focus();
+      focusableElements.value[focusableElements.value.length - 1].focus();
     }
   }
   if (event.key === 'ArrowDown') {
@@ -209,7 +197,6 @@ watchDebounced(
     if (inputModel.value && isSelected.value === false) {
       const getSnippets = async () => {
         if (!isOpen.value) open();
-        isLoadingSnippets.value = true;
         try {
           const data = await mockAutocompleteRequest(inputModel.value);
           snippets.value = data;
@@ -217,7 +204,6 @@ watchDebounced(
           close();
           console.error(error);
         }
-        isLoadingSnippets.value = false;
       };
       getSnippets();
     } else {
