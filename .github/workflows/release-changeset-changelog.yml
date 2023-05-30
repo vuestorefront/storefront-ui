@@ -34,9 +34,9 @@ jobs:
       - name: Save is comment
         id: commit_message
         run: echo "result=${{ github.event.issue.pull_request && contains(github.event.comment.body, '!') }}" >> $GITHUB_OUTPUT
-      - name: If not triggered run rc by default
-        if: steps.commit_message.outputs.result != 'true'
-        run: yarn changeset pre enter rc
+      # - name: If not triggered run rc by default
+      #   if: steps.commit_message.outputs.result != 'true'
+      #   run: yarn changeset pre enter rc
       - name: Create PR with changelog
         id: changesets
         uses: changesets/action@v1
