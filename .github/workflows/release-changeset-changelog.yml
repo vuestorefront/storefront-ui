@@ -15,8 +15,15 @@ jobs:
     name: Create PR with changelog
     runs-on: ubuntu-latest
     steps:
+      - name: resolve pr refs
+        id: refs
+        uses: eficode/resolve-pr-refs@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.refs.outputs.head_ref }}
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
