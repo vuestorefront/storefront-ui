@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     # if: ${{ startsWith( github.ref, 'refs/heads/v2-release' ) }}
     steps:
-      - run: echo ${{github.ref}}
+      - run: echo ${{github.head_ref}}
       - name: resolve pr refs
         id: refs
         uses: eficode/resolve-pr-refs@main
