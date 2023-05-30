@@ -1,6 +1,12 @@
 name: Generate changelog on v2-release
 on:
-  push:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+      - edited
     branches:
       - v2-release/**
   workflow_dispatch:
