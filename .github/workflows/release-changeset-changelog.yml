@@ -39,10 +39,10 @@ jobs:
         run: echo "${{ steps.find_comment.outputs.comment_body }}"
         # by default should be rc changelog
       - name: If comment exists run RC mode (default)
-        if: steps.find_comment.outputs.comment_body'
+        if: steps.find_comment.outputs.comment_body
         run: yarn changeset pre enter rc
       - name: If comment does not exists run NOT rc mode
-        if: steps.find_comment.outputs.comment_body'
+        if: steps.find_comment.outputs.comment_body
         run: yarn changeset pre exit
       - name: Create PR with changelog
         id: changesets
