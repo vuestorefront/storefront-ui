@@ -39,6 +39,9 @@ jobs:
       - name: If not triggered run rc by default
         if: steps.commit_message.outputs.result != 'true'
         run: yarn changeset pre enter rc
+      - name: If triggered comment
+        if: steps.commit_message.outputs.result == 'true'
+        run: yarn changeset pre exit
       - name: Create PR with changelog
         id: changesets
         uses: changesets/action@v1
