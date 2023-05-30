@@ -57,7 +57,7 @@ export default {
         ],
         {
           content: ref('1'),
-          max: ref('99'),
+          max: ref(99),
           variant: ref(SfBadgeVariant.standard),
           placement: ref(SfBadgePlacement['top-right']),
         },
