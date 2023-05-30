@@ -26,6 +26,7 @@ type UseTrapFocusReturn = {
   focusables: Ref<FocusableElement[]>;
   focusNext: typeof focusNext;
   focusPrev: typeof focusPrev;
+  updateFocusableElements: () => void;
 };
 
 const defaultOptions = {
@@ -152,10 +153,15 @@ export const useTrapFocus = (
     { immediate: true },
   );
 
+  const updateFocusableElements = () => {
+    focusableElements.value = tabbable(containerElementRef.value as HTMLElement, { includeContainer });
+  };
+
   return {
     current: currentlyFocused,
     focusables: focusableElements,
     focusNext,
     focusPrev,
+    updateFocusableElements,
   };
 };

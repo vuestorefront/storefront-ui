@@ -109,7 +109,6 @@
 <script lang="ts" setup>
 import { ref, watch } from 'vue';
 import { offset } from '@floating-ui/vue';
-import { watchDebounced } from '@vueuse/shared';
 import { unrefElement } from '@vueuse/core';
 import {
   SfInput,
@@ -138,7 +137,11 @@ const { referenceRef, floatingRef, style } = useDropdown({
   placement: 'bottom-start',
   middleware: [offset(4)],
 });
-const { current: currentFocus, focusables: focusableElements } = useTrapFocus(dropdownRef, {
+const {
+  current: currentFocus,
+  focusables: focusableElements,
+  updateFocusableElements,
+} = useTrapFocus(dropdownRef, {
   trapTabs: false,
   arrowKeysOn: true,
   activeState: isOpen,
@@ -166,13 +169,13 @@ const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
   if (event.key === 'Enter') close();
   if (event.key === 'ArrowUp') {
     open();
-    if (isOpen) {
+    if (isOpen && focusableElements.value.length > 0) {
       focusableElements.value[focusableElements.value.length - 1].focus();
     }
   }
   if (event.key === 'ArrowDown') {
     open();
-    if (isOpen) {
+    if (isOpen && focusableElements.value.length > 0) {
       focusableElements.value[0].focus();
     }
   }
@@ -188,30 +191,23 @@ const selectOption = (phrase: string) => {
 watch(inputModel, () => {
   if (inputModel.value === '') {
     handleReset();
+  } else if (inputModel.value && isSelected.value === false) {
+    const getSnippets = async () => {
+      open();
+      try {
+        const data = await mockAutocompleteRequest(inputModel.value);
+        snippets.value = data;
+        updateFocusableElements();
+      } catch (error) {
+        close();
+        console.error(error);
+      }
+    };
+    getSnippets();
+  } else {
+    isSelected.value = false;
   }
 });
-
-watchDebounced(
-  inputModel,
-  () => {
-    if (inputModel.value && isSelected.value === false) {
-      const getSnippets = async () => {
-        if (!isOpen.value) open();
-        try {
-          const data = await mockAutocompleteRequest(inputModel.value);
-          snippets.value = data;
-        } catch (error) {
-          close();
-          console.error(error);
-        }
-      };
-      getSnippets();
-    } else {
-      isSelected.value = false;
-    }
-  },
-  { debounce: 500 },
-);
 
 type SelectOption = {
   label: string;
@@ -240,9 +236,7 @@ const options: SelectOption[] = [
   },
 ];
 // Just for presentation purposes. Replace mock request with the actual API call.
-const delay = () => new Promise((resolve) => setTimeout(resolve, Math.random() * 1000));
-const mockAutocompleteRequest = async (phrase: string) => {
-  await delay();
+const mockAutocompleteRequest = (phrase: string) => {
   const results = options.filter((option) => option.value.toLowerCase().startsWith(phrase.toLowerCase()));
   return results;
 };
