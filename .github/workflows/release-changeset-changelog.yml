@@ -25,19 +25,24 @@ jobs:
       - name: Install dependencies
         run: yarn --immutable
         # Check if there is comment !release
-      - name: Check comments
-        id: commit_message
-        run: echo "result=${{ github.event.issue.pull_request && contains(github.event.comment.body, '!release') }}" >> $GITHUB_OUTPUT
+      # - name: Check comments
+      #   id: commit_message
+      #   run: echo "result=${{ github.event.issue.pull_request && contains(github.event.comment.body, '!release') }}" >> $GITHUB_OUTPUT
+      - name: Find a comment using a search term.
+        uses: sandeshjangam/comment-actions@v1
+        id: find_comment
+        with:
+          type: 'find'
+          search_term: '!preview'
+          number: ${{ github.event.pull_request.number }}
       - name: LOG
-        run: echo "${{ steps.commit_message.outputs.result }}"
-      - name: LOG2
-        run: echo "${{ github.event.comment.body }}"
+        run: echo "${{ steps.find_comment.outputs.comment_body }}"
         # by default should be rc changelog
       - name: If comment exists run RC mode (default)
-        if: steps.commit_message.outputs.result != 'true'
+        if: steps.find_comment.outputs.comment_body'
         run: yarn changeset pre enter rc
       - name: If comment does not exists run NOT rc mode
-        if: steps.commit_message.outputs.result == 'true'
+        if: steps.find_comment.outputs.comment_body'
         run: yarn changeset pre exit
       - name: Create PR with changelog
         id: changesets
