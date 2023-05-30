@@ -3,9 +3,8 @@ on:
   push:
     branches:
       - v2-release/**
-  workflow_dispatch:
   issue_comment:
-    types: [created]
+    types: [created, edited, deleted]
 
 defaults:
   run:
@@ -30,9 +29,9 @@ jobs:
         id: commit_message
         run: echo "result=${{ github.event.issue.pull_request && contains(github.event.comment.body, '!release') }}" >> $GITHUB_OUTPUT
       - name: LOG
-        run: echo ${{ steps.commit_message.outputs.result }}
+        run: echo "${{ steps.commit_message.outputs.result }}"
       - name: LOG2
-        run: echo ${{ github.event.comment.body }}
+        run: echo "${{ github.event.comment.body }}"
         # by default should be rc changelog
       - name: If comment exists run RC mode (default)
         if: steps.commit_message.outputs.result != 'true'
