@@ -3,19 +3,13 @@ on:
   push:
     branches:
       - v2-release/**
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - ready_for_review
-      - edited
-    branches:
-      - v2-release/**
+  workflow_dispatch:
   issue_comment:
     types: [created]
-    branches:
-      - v2-release/**
+
+defaults:
+  run:
+    shell: bash
 
 jobs:
   create-release-changelog:
@@ -35,55 +29,25 @@ jobs:
       - name: Check comments
         id: commit_message
         run: echo "result=${{ github.event.issue.pull_request && contains(github.event.comment.body, '!release') }}" >> $GITHUB_OUTPUT
+      - name: LOG
+        run: echo ${{ steps.commit_message.outputs.result }}
+      - name: LOG2
+        run: echo ${{ github.event.comment.body }}
         # by default should be rc changelog
-      - name: If not triggered run rc by default
+      - name: If comment exists run RC mode (default)
         if: steps.commit_message.outputs.result != 'true'
         run: yarn changeset pre enter rc
-      - name: If triggered comment
+      - name: If comment does not exists run NOT rc mode
         if: steps.commit_message.outputs.result == 'true'
         run: yarn changeset pre exit
       - name: Create PR with changelog
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: '[ci] - release${{ steps.commit_message.outputs.result }}'
-          title: '[ci] - release${{ steps.commit_message.outputs.result }}'
+          commit: '[ci] - release'
+          title: '[ci] - release'
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      # Part with checking if pre.json exist, but IMHO this does not make sense anymore since we cannot switch back and forth rc and latest, because once changelog is for latest (pre exit) we cannot generate rc changelog. Which means having trigger is extra step when all can be achieved by simple comment in PR
-
-      # - name: Check if .changeset/pre.json exists
-      #   id: is_pre_json_exists
-      #   uses: andstor/file-existence-action@v2
-      #   with:
-      #     files: '.changeset/pre.json'
-      # - name: Switch into pre-release mode if file does not exists (first push)
-      #   if: ${{ steps.is_pre_json_exists.outputs.files_exists != 'true' && github.event.label.name != 'POST_RC' }}
-      #   run: yarn changeset pre enter rc
-      # - name: Get pre.json file content
-      #   id: pre_json
-      #   uses: notiz-dev/github-action-json-property@release
-      #   with:
-      #     path: '.changeset/pre.json'
-      #     prop_path: 'mode'
-      # - name: Check if changeset is in pre mode or not
-      #   id: is_prerelease
-      #   run: |
-      #     IS_PROP=${{ steps.pre_json.outputs.prop == 'pre' }}
-      #     if [[ $IS_PROP == 'true' ]]; then
-      #       echo "result= rc" >> $GITHUB_OUTPUT
-      #     fi
-      # - name: Create PR with changelog
-      #   id: changesets
-      #   uses: changesets/action@v1
-      #   with:
-      #     commit: '[ci] - release${{ steps.is_prerelease.outputs.result }}'
-      #     title: '[ci] - release${{ steps.is_prerelease.outputs.result }}'
-      #   env:
-      #     # Needs access to publish to npm
-      #     # refresh token before Saturday, May 25, 2024
-      #     NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
