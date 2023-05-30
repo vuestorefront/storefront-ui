@@ -1,14 +1,9 @@
 name: Generate changelog on v2-release
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - ready_for_review
-      - edited
   issue_comment:
     types: [created, edited, deleted]
+    branches:
+      - v2-release/**
 
 defaults:
   run:
@@ -18,7 +13,7 @@ jobs:
   create-release-changelog:
     name: Create PR with changelog
     runs-on: ubuntu-latest
-    if: ${{ startsWith( github.head_ref, 'v2-release' ) }}
+    # if: ${{ startsWith( github.head_ref, 'v2-release' ) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
