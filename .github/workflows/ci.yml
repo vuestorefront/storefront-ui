@@ -247,3 +247,4 @@ jobs:
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "rc" suffix, logic can be found in "release-changeset-changelog.yml
         if: ${{ startsWith( github.ref, 'refs/heads/v2-release' ) && steps.commit_message.output.result  == '[ci] - release rc' }}
         run: echo "Publish now"
+        # remove label POST_RC

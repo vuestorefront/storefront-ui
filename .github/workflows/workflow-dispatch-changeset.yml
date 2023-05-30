@@ -7,13 +7,12 @@ on:
         default: 'enter'
         type: choice
         options:
-          - enter
           - exit
 
 jobs:
   generation-changelog-on-trigger:
     runs-on: ubuntu-latest
-    if: ${{ startsWith( github.ref, "refs/heads/v2-release" ) }}
+    if: ${{ startsWith( github.ref, 'refs/heads/v2-release' ) }}
     permissions:
       contents: write
     steps:
@@ -26,6 +25,19 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Remove File
+        uses: JesseTG/rm@v1.0.3
+        with:
+          path: .changeset/pre.json
+          # - name: Change changeset pre based on trigger output
+          #   run: yarn changeset pre exit
+        # push commit with file mode for changeset
+      - name: removelabel
+        uses: buildsville/add-remove-label@v2.0.0
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          labels: POST_RC
+          type: add
       - name: Set if trigger is release-candidate or production var
         id: vars
         run: echo "tag=$(echo ${{ inputs.generate-changelog == 'enter' && 'rc' }}" >> $GITHUB_OUTPUT
