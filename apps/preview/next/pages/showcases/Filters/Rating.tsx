@@ -30,7 +30,7 @@ export default function RatingFilter() {
       className="w-full md:max-w-[376px]"
       summary={
         <div className="flex justify-between p-2 mb-2">
-          <p className="font-medium">Color</p>
+          <p className="font-medium">Rating</p>
           <SfIconChevronLeft className={classNames('text-neutral-500', `${isOpen ? 'rotate-90' : '-rotate-90'}`)} />
         </div>
       }

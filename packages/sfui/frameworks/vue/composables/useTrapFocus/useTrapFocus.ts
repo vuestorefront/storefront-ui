@@ -1,6 +1,5 @@
 import { unrefElement } from '@vueuse/core';
-import type { CheckOptions, FocusableElement, TabbableOptions } from 'tabbable';
-import { tabbable } from 'tabbable';
+import { CheckOptions, FocusableElement, tabbable, TabbableOptions } from 'tabbable';
 import { type Ref, ref, watch } from 'vue';
 import { focusNext, focusPrev, isTab, isTabAndShift } from '@storefront-ui/shared';
 import { waitForNextRender } from '@storefront-ui/vue';
@@ -17,6 +16,10 @@ type UseTrapFocusOptions = TabbableOptions &
     activeState?: Ref<boolean>;
     initialFocus?: number | `${InitialFocusType}` | false;
     initialFocusContainerFallback?: boolean;
+    /**
+     * Enabling both `left` | `up` | `right` | `down` arrow keys.
+     * @deprecated Since version 2.3. Use arrowKeysLeftRight or/and arrowKeysUpDown options instead.
+     */
     arrowKeysOn?: boolean;
     arrowKeysLeftRight?: boolean;
     arrowKeysUpDown?: boolean;
@@ -27,6 +30,7 @@ type UseTrapFocusReturn = {
   focusables: Ref<FocusableElement[]>;
   focusNext: typeof focusNext;
   focusPrev: typeof focusPrev;
+  updateFocusableElements: () => void;
 };
 
 const defaultOptions = {
@@ -39,10 +43,6 @@ const defaultOptions = {
   arrowKeysUpDown: false,
 };
 
-/**
- * @deprecated Since version 2.3.
- * @param {boolean} arrowKeysOn - Enabling both `letf` | `up` | `right` | `down` arrow keys.
- */
 export const useTrapFocus = (
   containerElementRef: Ref<HTMLElement | undefined>,
   options?: UseTrapFocusOptions,
@@ -115,7 +115,7 @@ export const useTrapFocus = (
 
   const removeEventListeners = () => {
     containerHTMLElement?.removeEventListener('keydown', onKeyDownListener);
-    containerHTMLElement?.removeEventListener('keydown', onFocusListener);
+    containerHTMLElement?.removeEventListener('focus', onFocusListener, true);
   };
 
   watch(
@@ -152,10 +152,15 @@ export const useTrapFocus = (
     { immediate: true },
   );
 
+  const updateFocusableElements = () => {
+    focusableElements.value = tabbable(containerElementRef.value as HTMLElement, { includeContainer });
+  };
+
   return {
     current: currentlyFocused,
     focusables: focusableElements,
     focusNext,
     focusPrev,
+    updateFocusableElements,
   };
 };

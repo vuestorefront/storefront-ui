@@ -59,6 +59,7 @@
                       aria-label="Close navigation menu"
                       class="text-white"
                       @click="close()"
+                      @keydown.enter.space="close()"
                     >
                       <SfIconClose />
                     </SfButton>

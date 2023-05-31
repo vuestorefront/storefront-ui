@@ -117,6 +117,7 @@ Parameter `arrowKeysOn` will be deprecated since version 2.3 and removed in next
 <!-- end react -->
 | focusPrev           | `() => void` |               |  When trigger jumps to previous focusable element |
 | focusNext           | `() => void` |               |  When trigger jumps to next focusable element |
+| updateFocusableElements | `() => void` |               |  Use when you need to update focusable elements manually |
 
 ::::::
 
