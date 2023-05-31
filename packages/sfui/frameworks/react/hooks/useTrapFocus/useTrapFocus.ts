@@ -16,6 +16,10 @@ type UseTrapFocusOptions = TabbableOptions &
     initialFocus?: number | `${InitialFocusType}` | false;
     initialFocusContainerFallback?: boolean;
     arrowKeysOn?: boolean;
+    /**
+     * @deprecated Since version 2.3.
+     * @param {boolean} arrowKeysOn - Enabling both `letf` | `up` | `right` | `down` arrow keys.
+     */
     arrowKeysLeftRight?: boolean;
     arrowKeysUpDown?: boolean;
   };
@@ -30,10 +34,6 @@ const defaultOptions = {
   arrowKeysUpDown: false,
 };
 
-/**
- * @deprecated Since version 2.3.
- * @param {boolean} arrowKeysOn - Enabling both `letf` | `up` | `right` | `down` arrow keys.
- */
 export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>, options?: UseTrapFocusOptions) => {
   const {
     trapTabs,
@@ -145,10 +145,17 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     return removeEventListeners;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [containerElementRef.current, activeState, onKeyDownListener]);
+
+  const updateFocusableElements = () => {
+    if (!containerElementRef.current) return;
+    setFocusableElements(tabbable(containerElementRef.current as HTMLElement, { includeContainer }));
+  };
+
   return {
     current: currentlyFocused,
     focusables: focusableElements,
     focusNext,
     focusPrev,
+    updateFocusableElements,
   };
 };

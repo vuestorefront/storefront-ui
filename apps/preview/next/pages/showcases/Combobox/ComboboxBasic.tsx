@@ -1,8 +1,7 @@
 /* eslint-disable no-promise-executor-return */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef, useId } from 'react';
-import { useDebounce } from 'react-use';
+import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';
 import { offset } from '@floating-ui/react-dom';
 import {
   SfInput,
@@ -61,10 +60,7 @@ const options: SelectOption[] = [
   },
 ];
 
-const delay = () => new Promise((resolve) => setTimeout(resolve, Math.random() * 1000));
-
-const mockAutocompleteRequest = async (phrase: string) => {
-  await delay();
+const mockAutocompleteRequest = (phrase: string) => {
   const results = options.filter((option) => option.value.toLowerCase().startsWith(phrase.toLowerCase()));
   return results;
 };
@@ -82,7 +78,11 @@ export default function ComboboxBasic() {
   const id = useId();
   const listId = useId();
 
-  const { current: currentFocus, focusables: focusableElements } = useTrapFocus(dropdownRef, {
+  const {
+    current: currentFocus,
+    focusables: focusableElements,
+    updateFocusableElements,
+  } = useTrapFocus(dropdownRef, {
     trapTabs: false,
     arrowKeysOn: true,
     activeState: isOpen,
@@ -119,13 +119,15 @@ export default function ComboboxBasic() {
     if (event.key === 'Enter') close();
     if (event.key === 'ArrowUp') {
       open();
-      if (isOpen) {
+      updateFocusableElements();
+      if (isOpen && focusableElements.length > 0) {
         focusableElements[focusableElements.length - 1].focus();
       }
     }
     if (event.key === 'ArrowDown') {
       open();
-      if (isOpen) {
+      updateFocusableElements();
+      if (isOpen && focusableElements.length > 0) {
         focusableElements[0].focus();
       }
     }
@@ -144,26 +146,21 @@ export default function ComboboxBasic() {
     } else if (event.key === ' ' || event.key === 'Enter') selectOption(event, option);
   };
 
-  useDebounce(
-    () => {
-      if (searchValue && !selectedValue) {
-        const getSnippets = async () => {
-          if (!isOpen) open();
-          try {
-            const data = await mockAutocompleteRequest(searchValue);
-            setSnippets(data);
-          } catch (error) {
-            close();
-            console.error(error);
-          }
-        };
-
-        getSnippets();
-      }
-    },
-    500,
-    [searchValue],
-  );
+  useEffect(() => {
+    if (searchValue && !selectedValue) {
+      const getSnippets = async () => {
+        open();
+        try {
+          const data = await mockAutocompleteRequest(searchValue);
+          setSnippets(data);
+        } catch (error) {
+          close();
+          console.error(error);
+        }
+      };
+      getSnippets();
+    }
+  }, [searchValue]);
 
   return (
     <>

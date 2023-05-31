@@ -17,6 +17,10 @@ type UseTrapFocusOptions = TabbableOptions &
     initialFocus?: number | `${InitialFocusType}` | false;
     initialFocusContainerFallback?: boolean;
     arrowKeysOn?: boolean;
+    /**
+     * @deprecated Since version 2.3.
+     * @param {boolean} arrowKeysOn - Enabling both `letf` | `up` | `right` | `down` arrow keys.
+     */
     arrowKeysLeftRight?: boolean;
     arrowKeysUpDown?: boolean;
   };
@@ -39,10 +43,6 @@ const defaultOptions = {
   arrowKeysUpDown: false,
 };
 
-/**
- * @deprecated Since version 2.3.
- * @param {boolean} arrowKeysOn - Enabling both `letf` | `up` | `right` | `down` arrow keys.
- */
 export const useTrapFocus = (
   containerElementRef: Ref<HTMLElement | undefined>,
   options?: UseTrapFocusOptions,
