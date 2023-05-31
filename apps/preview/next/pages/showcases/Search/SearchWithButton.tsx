@@ -1,9 +1,12 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { type ChangeEvent, type FormEvent, useState, useRef } from 'react';
 import { useDebounce } from 'react-use';
 import { offset } from '@floating-ui/react-dom';
 import {
+  SfButton,
   SfInput,
   SfIconSearch,
   SfIconCancel,
@@ -12,26 +15,26 @@ import {
   SfLoaderCircular,
   useTrapFocus,
   useDropdown,
+  SfIconGridView,
 } from '@storefront-ui/react';
 
 interface Product {
   id: string;
   name: string;
+  thumbnail?: JSX.Element;
+  image?: string;
 }
 
 const mockProducts: Product[] = [
-  { id: 'ip-14', name: 'iPhone 14' },
-  { id: 'ip-14-pro', name: 'iPhone 14 Pro' },
-  { id: 'ip-14-pro-max', name: 'iPhone 14 Pro Max' },
-  { id: 'ip-14-plus', name: 'iPhone 14 Plus' },
-  { id: 'ip-13', name: 'iPhone 13' },
-  { id: 'ip-13-mini', name: 'iPhone 13 mini' },
-  { id: 'ip-12', name: 'iPhone 12' },
-  { id: 'ip-11', name: 'iPhone 11' },
-  { id: 'mb-air', name: 'MacBook Air' },
-  { id: 'mb-pro-13', name: 'MacBook Pro 13"' },
-  { id: 'mb-pro-14', name: 'MacBook Pro 14"' },
-  { id: 'mb-pro-16', name: 'MacBook Pro 16"' },
+  { id: 'j-avatar', name: 'jack', image: 'http://localhost:3100/@assets/kid.png' },
+  { id: 'j-cat', name: 'jackets', thumbnail: <SfIconGridView /> },
+  { id: 'j-wom', name: 'jacket women', thumbnail: <SfIconSearch /> },
+  { id: 'j-den', name: 'jacket denim', thumbnail: <SfIconSearch /> },
+  { id: 'j-dre', name: 'jacket dress', thumbnail: <SfIconSearch /> },
+  { id: 'dr-cat', name: 'dresses', thumbnail: <SfIconGridView /> },
+  { id: 'dr-cot', name: 'cotton dresses', thumbnail: <SfIconSearch /> },
+  { id: 'dr-wom', name: 'dresses women', thumbnail: <SfIconSearch /> },
+  { id: 'dr-sum', name: 'summer dresses', thumbnail: <SfIconSearch /> },
 ];
 
 // Just for presentation purposes. Replace mock request with the actual API call.
@@ -49,7 +52,7 @@ const mockAutocompleteRequest = async (phrase: string) => {
   return results;
 };
 
-export default function SearchBasic() {
+export default function SearchWithIcon() {
   const inputRef = useRef<HTMLInputElement>(null);
   const dropdownListRef = useRef<HTMLUListElement>(null);
   const [searchValue, setSearchValue] = useState('');
@@ -121,38 +124,44 @@ export default function SearchBasic() {
 
   return (
     <form role="search" onSubmit={handleSubmit} ref={refs.setReference} className="relative">
-      <SfInput
-        ref={inputRef}
-        value={searchValue}
-        onChange={handleChange}
-        onFocus={open}
-        aria-label="Search"
-        placeholder="Search 'MacBook' or 'iPhone'..."
-        slotPrefix={<SfIconSearch />}
-        slotSuffix={
-          isResetButton && (
-            <button
-              type="reset"
-              onClick={handleReset}
-              aria-label="Reset search"
-              className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
-            >
-              <SfIconCancel />
-            </button>
-          )
-        }
-      />
+      <div className="flex">
+        <SfInput
+          ref={inputRef}
+          value={searchValue}
+          onChange={handleChange}
+          onFocus={open}
+          wrapperClassName="w-full ring-0 active:ring-0 hover:ring-0 focus-within:ring-0 border-y border-l border-neutral-200 rounded-r-none hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
+          aria-label="Search"
+          placeholder="Search 'jackets' or 'dresses'..."
+          slotPrefix={<SfIconSearch />}
+          slotSuffix={
+            isResetButton && (
+              <button
+                type="reset"
+                onClick={handleReset}
+                aria-label="Reset search"
+                className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+              >
+                <SfIconCancel />
+              </button>
+            )
+          }
+        />
+        <SfButton type="submit" className="rounded-l-none">
+          Search
+        </SfButton>
+      </div>
       {isOpen && (
         <div ref={refs.setFloating} style={style} className="left-0 right-0">
           {isLoadingSnippets ? (
-            <div className="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md">
+            <div className="flex items-center justify-center bg-white w-full h-screen sm:h-20 py-2 sm:border sm:border-solid sm:rounded-md sm:border-neutral-100 sm:drop-shadow-md">
               <SfLoaderCircular />
             </div>
           ) : (
             snippets.length > 0 && (
               <ul
                 ref={dropdownListRef}
-                className="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+                className="py-2 bg-white sm:border border-solid sm:rounded-md sm:border-neutral-100 sm:drop-shadow-md"
               >
                 {snippets.map(({ highlight, rest, product }) => (
                   <li key={product.id}>
@@ -160,11 +169,16 @@ export default function SearchBasic() {
                       as="button"
                       type="button"
                       onClick={handleSelect(product.name)}
-                      className="flex justify-start"
+                      className="!py-4 sm:!py-2 flex justify-start"
                     >
-                      <p className="text-left">
-                        <span>{highlight}</span>
-                        <span className="font-medium">{rest}</span>
+                      <p className="flex items-center text-left text-neutral-500">
+                        {product.image ? (
+                          <img src={product.image} alt={product.name} className="rounded-sm" width={24} height={24} />
+                        ) : (
+                          product.thumbnail
+                        )}
+                        <span className="ml-2 text-neutral-900">{highlight}</span>
+                        <span className="font-medium text-neutral-900">{rest}</span>
                       </p>
                     </SfListItem>
                   </li>
@@ -179,4 +193,4 @@ export default function SearchBasic() {
 }
 
 // #endregion source
-SearchBasic.getLayout = ShowcasePageLayout;
+SearchWithIcon.getLayout = ShowcasePageLayout;
