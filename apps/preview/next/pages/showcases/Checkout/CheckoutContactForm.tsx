@@ -1,12 +1,31 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { SfInput, SfButton, SfSelect } from '@storefront-ui/react';
+import { SfInput, SfButton } from '@storefront-ui/react';
 import { useState, ChangeEvent, FormEventHandler } from 'react';
+import SelectDropdown from '../SelectDropdown/SelectDropdown';
 
 export default function ContactForm() {
   const [invalid, setInvalid] = useState(true);
-  const options = [1, 7, 20, 27, 30, 30, 31, 32, 33, 34, 36, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 51];
+  // const options = [1, 7, 20, 27, 30, 30, 31, 32, 33, 34, 36, 39, 40, 41, 43, 44, 45, 46, 47, 48, 49, 51];
+  const options = [
+    {
+      label: '+39	🇮🇹',
+      value: 'IT',
+    },
+    {
+      label: '+44	🇬🇧',
+      value: 'GB',
+    },
+    {
+      label: '+48	🇵🇱',
+      value: 'PL',
+    },
+    {
+      label: '+49	🇩🇪',
+      value: 'DE',
+    },
+  ];
   const emailRegExp = /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
   const handleValidation = (event: ChangeEvent<HTMLInputElement>) =>
@@ -48,13 +67,7 @@ export default function ContactForm() {
       <label className="flex flex-col gap-y-0.5">
         <span className="font-medium typography-text-sm">Phone number</span>
         <div className="flex">
-          <SfSelect name="phone-country-code" className="w-16 mr-4" placeholder="--" autoComplete="tel-country-code">
-            {options.map((option) => (
-              <option value={option} key={option}>
-                {option}
-              </option>
-            ))}
-          </SfSelect>
+          <SelectDropdown name="phone-country-code" options={options} className="w-26 mr-4" defaultValue={options[0]} />
           <SfInput
             name="phone-national"
             wrapperClassName="w-full"

@@ -18,71 +18,106 @@ The SelectDropdown fully supports the use of the keyboard.
 
 Select Dropdown with preselected option.
 
-<Showcase showcase-name="SelectDropdown/SelectDropdownPreselected" style="min-height:300px">
+<ShowcasePoc showcase-name="SelectDropdown/SelectDropdownPreselected" style="min-height:300px">
 
+::: slot usage
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownPreselected.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownPreselected.tsx#source
 <!-- end react -->
+:::
 
-</Showcase>
+::: slot code
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdown.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdown.tsx#source
+<!-- end react -->
+:::
+
+</ShowcasePoc>
 
 ## With placeholder
 
 Adding placeholder might be helpful and informative for end users.
 
-<Showcase showcase-name="SelectDropdown/SelectDropdownWithPlaceholder" style="min-height:300px">
+<ShowcasePoc showcase-name="SelectDropdown/SelectDropdownWithPlaceholder" style="min-height:300px">
+::: slot usage
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.tsx#source
 <!-- end react -->
-</Showcase>
+:::
+::: slot code
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdown.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdown.tsx#source
+<!-- end react -->
+:::
+</ShowcasePoc>
 
 ## With required text
 
 By adding a sublabel, the user can easily see if this field is required. Remember to add `aria-required` to help users that use assistive technologies.
 
 <Showcase showcase-name="SelectDropdown/SelectDropdownRequired" style="min-height:300px">
-
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownRequired.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownRequired.tsx#source
 <!-- end react -->
-
 </Showcase>
 
 ## Invalid state
 
 Provide visual cues for end users to indicate occuring error.
 
-<Showcase showcase-name="SelectDropdown/SelectDropdownError" style="min-height:300px">
-
+<ShowcasePoc showcase-name="SelectDropdown/SelectDropdownError" style="min-height:300px">
+::: slot usage
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownError.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownError.tsx#source
 <!-- end react -->
-
-</Showcase>
+:::
+::: slot code
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdown.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdown.tsx#source
+<!-- end react -->
+:::
+</ShowcasePoc>
 
 ## Disabled state
 
 Differentiate disabled state to smooth UX experience. In such case, keyboard navigation becomes disabled as well and an `aria-disabled="true"` is specified for better accessibility.
 
-<Showcase showcase-name="SelectDropdown/SelectDropdownDisabled" style="min-height:300px">
-
+<ShowcasePoc showcase-name="SelectDropdown/SelectDropdownDisabled" style="min-height:300px">
+::: slot usage
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownDisabled.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownDisabled.tsx#source
 <!-- end react -->
-
-</Showcase>
+:::
+::: slot code
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdown.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdown.tsx#source
+<!-- end react -->
+:::
+</ShowcasePoc>
