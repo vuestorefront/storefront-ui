@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, toRefs } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import { useTrapFocus, InitialFocusType } from '@storefront-ui/vue';
+import { useTrapFocus } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
@@ -39,8 +39,9 @@ const onEscKeyDown = () => {
 };
 
 useTrapFocus(modalRef, {
+  trapTabs: true,
   activeState: modelValue,
-  initialFocus: InitialFocusType.autofocus,
+  initialFocus: false,
   initialFocusContainerFallback: true,
 });
 </script>
@@ -53,7 +54,7 @@ useTrapFocus(modalRef, {
     aria-modal="true"
     data-testid="modal"
     tabindex="-1"
-    class="fixed inset-0 p-6 pt-10 m-auto bg-white border shadow-xl outline-none w-fit h-fit lg:p-10 border-neutral-100 rounded-xl"
+    class="fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-xl outline-none"
     @keydown.esc="onEscKeyDown"
   >
     <slot />

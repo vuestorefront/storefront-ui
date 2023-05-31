@@ -32,7 +32,13 @@
         class="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
       >
         <li v-for="{ highlight, rest, product } in snippets" :key="product.id">
-          <SfListItem tag="button" type="button" class="flex justify-start" @click="() => selectValue(product.name)">
+          <SfListItem
+            tag="button"
+            type="button"
+            class="flex justify-start"
+            @click="() => selectValue(product.name)"
+            @keydown.enter.space.prevent="selectValue(product.name)"
+          >
             <p class="text-left">
               <span>{{ highlight }}</span>
               <span class="font-medium">{{ rest }}</span>
@@ -72,7 +78,7 @@ const { referenceRef, floatingRef, style } = useDropdown({
   placement: 'bottom-start',
   middleware: [offset(4)],
 });
-useTrapFocus(dropdownListRef as Ref<HTMLElement>, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+useTrapFocus(dropdownListRef as Ref<HTMLElement>, { arrowKeysUpDown: true, activeState: isOpen, initialFocus: false });
 
 const submit = () => {
   close();

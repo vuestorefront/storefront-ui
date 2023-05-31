@@ -62,7 +62,11 @@ export default function SearchBasic() {
     placement: 'bottom-start',
     middleware: [offset(4)],
   });
-  useTrapFocus(dropdownListRef, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+  useTrapFocus(dropdownListRef, {
+    initialFocus: false,
+    arrowKeysUpDown: true,
+    activeState: isOpen,
+  });
   const isResetButton = Boolean(searchValue);
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
