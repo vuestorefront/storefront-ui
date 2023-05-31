@@ -19,7 +19,7 @@
     <h5
       class="py-2 px-4 mt-6 mb-4 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md"
     >
-      Filters
+      Filter
     </h5>
     <ul>
       <!-- prettier-ignore-attribute -->
@@ -140,7 +140,7 @@
               </SfListItem>
             </fieldset>
           </template>
-          <template v-if="type === 'ratings'">
+          <template v-if="type === 'rating'">
             <fieldset id="radio-ratings">
               <SfListItem
                 v-for="{ id, value, label, counter } in details"
@@ -234,7 +234,7 @@ const filtersData = ref<Node[]>([
   },
   {
     id: 'acc2',
-    summary: 'Categories',
+    summary: 'Category',
     type: 'category',
     details: [
       {
@@ -276,7 +276,7 @@ const filtersData = ref<Node[]>([
   },
   {
     id: 'acc3',
-    summary: 'Colors',
+    summary: 'Color',
     type: 'color',
     details: [
       {
@@ -342,8 +342,8 @@ const filtersData = ref<Node[]>([
   },
   {
     id: 'acc6',
-    summary: 'Ratings',
-    type: 'ratings',
+    summary: 'Rating',
+    type: 'rating',
     details: [
       { id: 'r1', label: '5', value: '5', counter: 10 },
       { id: 'r2', label: '4 & up', value: '4', counter: 123 },

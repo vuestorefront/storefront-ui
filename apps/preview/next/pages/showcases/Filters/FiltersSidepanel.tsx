@@ -65,8 +65,8 @@ const filtersData: Node[] = [
   },
   {
     id: 'acc2',
-    summary: 'Categories',
-    type: 'categories',
+    summary: 'Category',
+    type: 'category',
     details: [
       {
         id: 'CLOTHING',
@@ -107,7 +107,7 @@ const filtersData: Node[] = [
   },
   {
     id: 'acc3',
-    summary: 'Colors',
+    summary: 'Color',
     type: 'color',
     details: [
       {
@@ -225,7 +225,7 @@ export default function FiltersSidepanel() {
         </button>
       </div>
       <h5 className="py-2 px-4 mb-6 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md">
-        Sorting
+        Sort by
       </h5>
       <div className="px-2">
         <SfSelect aria-label="Sorting">
@@ -237,7 +237,7 @@ export default function FiltersSidepanel() {
         </SfSelect>
       </div>
       <h5 className="py-2 px-4 mt-6 mb-4 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md">
-        Filters
+        Filter
       </h5>
       {filtersData.map((section) => (
         <>
@@ -277,7 +277,7 @@ export default function FiltersSidepanel() {
                 ))}
               </ul>
             )}
-            {section.type === 'categories' && (
+            {section.type === 'category' && (
               <ul className="mt-2 mb-6">
                 <li>
                   <SfListItem size="sm" as="button" type="button">
