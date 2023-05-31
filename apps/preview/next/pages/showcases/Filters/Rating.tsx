@@ -45,6 +45,7 @@ export default function RatingFilter() {
             slotPrefix={
               <SfRadio
                 value={value}
+                className="flex items-center"
                 checked={rating === value}
                 name="radio-rating"
                 onClick={() => setRating(rating === value ? null : value)}

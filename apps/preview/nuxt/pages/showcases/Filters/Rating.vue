@@ -17,6 +17,7 @@
         <template #prefix>
           <SfRadio
             v-model="ratingsModel"
+            class="flex items-center"
             :checked="ratingsModel === value"
             :name="ratingsModel"
             :value="value"

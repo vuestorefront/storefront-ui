@@ -47,6 +47,7 @@ export default function BrandFilter() {
           slotPrefix={
             <SfCheckbox
               disabled={counter === 0}
+              className="flex items-center"
               value={value}
               checked={isFilterSelected(value)}
               onChange={(event) => {

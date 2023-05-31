@@ -41,6 +41,7 @@ export default function PriceFilter() {
             slotPrefix={
               <SfRadio
                 disabled={counter === 0}
+                className="flex items-center"
                 value={value}
                 checked={price === value}
                 name="radio-price"

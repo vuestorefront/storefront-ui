@@ -98,10 +98,16 @@
               :key="id"
               tag="label"
               size="sm"
+              :disabled="counter === 0"
               :class="['px-1.5 bg-transparent hover:bg-transparent', { 'font-medium': isItemActive(value) }]"
             >
               <template #prefix>
-                <SfCheckbox v-model="selectedFilters" :disabled="counter === 0" :value="value" />
+                <SfCheckbox
+                  v-model="selectedFilters"
+                  class="flex items-center"
+                  :disabled="counter === 0"
+                  :value="value"
+                />
               </template>
               <p>
                 <span class="mr-2 text-sm">{{ label }}</span>
@@ -121,6 +127,7 @@
                 <template #prefix>
                   <SfRadio
                     v-model="priceModel"
+                    class="flex items-center"
                     name="radio-price"
                     :value="value"
                     @click="priceModel = priceModel === value ? '' : value"
@@ -146,12 +153,13 @@
                   <SfRadio
                     v-model="ratingsModel"
                     name="radio-ratings"
+                    class="flex items-end"
                     :value="value"
                     @click="ratingsModel = ratingsModel === value ? '' : value"
                   />
                 </template>
                 <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
-                <div class="flex flex-wrap items-end">
+                <div class="flex flex-wrap">
                   <SfRating :value="Number(value)" :max="5" size="sm" />
                   <span :class="['mx-2 text-sm', { 'font-medium': ratingsModel === value }]">{{ label }}</span>
                   <SfCounter size="sm">{{ counter }}</SfCounter>

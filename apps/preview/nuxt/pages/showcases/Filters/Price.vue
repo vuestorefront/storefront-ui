@@ -11,6 +11,7 @@
         <template #prefix>
           <SfRadio
             v-model="priceModel"
+            class="flex items-center"
             name="radio-price"
             :value="value"
             @click="priceModel = priceModel === value ? '' : value"

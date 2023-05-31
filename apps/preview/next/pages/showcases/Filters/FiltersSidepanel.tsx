@@ -353,6 +353,7 @@ export default function FiltersSidepanel() {
                   })}
                   slotPrefix={
                     <SfCheckbox
+                      className="flex items-center"
                       disabled={counter === 0}
                       value={value}
                       checked={isFilterSelected(value)}
@@ -381,6 +382,7 @@ export default function FiltersSidepanel() {
                     })}
                     slotPrefix={
                       <SfRadio
+                        className="flex items-center"
                         disabled={counter === 0}
                         value={value}
                         checked={price === value}
@@ -409,6 +411,7 @@ export default function FiltersSidepanel() {
                     })}
                     slotPrefix={
                       <SfRadio
+                        className="flex items-center"
                         value={value}
                         checked={rating === value}
                         name="radio-rating"

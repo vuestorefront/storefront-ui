@@ -5,10 +5,11 @@
       :key="id"
       tag="label"
       size="sm"
+      :disabled="counter === 0"
       :class="['px-1.5 bg-transparent hover:bg-transparent', { 'font-medium': isItemActive(value) }]"
     >
       <template #prefix>
-        <SfCheckbox v-model="selectedFilters" :disabled="counter === 0" :value="value" />
+        <SfCheckbox v-model="selectedFilters" class="flex items-center" :disabled="counter === 0" :value="value" />
       </template>
       <p>
         <span class="mr-2 text-sm">{{ label }}</span>
