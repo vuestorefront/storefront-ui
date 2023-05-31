@@ -9,6 +9,7 @@ import {
   useDropdown,
   SfIconCheck,
   useTrapFocus,
+  InitialFocusType,
 } from '@storefront-ui/react';
 
 type SelectOption = {
@@ -44,6 +45,7 @@ export default function SelectDropdownError() {
   useTrapFocus(refs.floating, {
     arrowKeysUpDown: true,
     activeState: isOpen,
+    initialFocus: InitialFocusType.autofocus,
     initialFocusContainerFallback: true,
   });
 

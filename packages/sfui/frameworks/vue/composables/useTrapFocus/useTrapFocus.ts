@@ -98,7 +98,6 @@ export const useTrapFocus = (
     });
 
   const onKeyDownListener = (event: KeyboardEvent) => {
-    event.preventDefault();
     const isAnyGroupElement = arrowFocusGroupSelector && containerHTMLElement?.querySelector(arrowFocusGroupSelector);
     const additionalData = isAnyGroupElement ? { arrowFocusGroupSelector } : {};
 
