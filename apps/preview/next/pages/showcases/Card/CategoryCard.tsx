@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/anchor-has-content */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
@@ -23,7 +24,7 @@ export default function CategoryCard() {
         <div className="relative min-w-[180px] flex-col max-w-[240px] group" key={title}>
           <a
             className="absolute w-full h-full z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
-            href="/"
+            href="#"
             aria-label={title}
           />
           <img
