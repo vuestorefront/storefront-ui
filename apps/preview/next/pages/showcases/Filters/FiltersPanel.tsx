@@ -287,21 +287,20 @@ export default function FiltersPanel() {
                     </span>
                   </SfListItem>
                 </li>
-                {section.details.map(({ id, link, label, counter }) => (
+                {section.details.map(({ id, link, label, counter }, categoryIndex) => (
                   <li key={id}>
                     <SfListItem
                       size="sm"
                       as="a"
                       href={link}
                       className={classNames('first-of-type:mt-2 rounded-md active:bg-primary-100', {
-                        'bg-primary-100 hover:bg-primary-100': isFilterSelected(label),
+                        'bg-primary-100 hover:bg-primary-100 font-medium': categoryIndex === 0,
                       })}
-                      slotSuffix={isFilterSelected(label) && <SfIconCheck size="xs" className="text-primary-700" />}
-                      onClick={() => handleFilterSelection(label)}
+                      slotSuffix={categoryIndex === 0 && <SfIconCheck size="sm" className="text-primary-700" />}
                     >
                       <span className="flex items-center">
                         {label}
-                        <SfCounter className="ml-2 typography-text-sm">{counter}</SfCounter>
+                        <SfCounter className="ml-2 typography-text-sm font-normal">{counter}</SfCounter>
                       </span>
                     </SfListItem>
                   </li>

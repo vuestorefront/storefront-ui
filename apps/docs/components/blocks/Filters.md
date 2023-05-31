@@ -53,7 +53,7 @@ Sorting in category pages is a feature that allows online shoppers to arrange an
 
 ## Category list
 
-Category list allows users to browse and select categories of content or products. Each category can be expanded by tapping. Selected categories will be marked with green highlight and an icon.
+Category list allows users to browse and select categories of content or products. Clicking on category will navigate the user to the another page with different available subcategories. Currently selected category is marked with green highlight and check icon. The following example is build only for presentation - actual functionality must be implemented by the user.
 
 <Showcase showcase-name="Filters/CategoryList" style="min-height:400px">
 
