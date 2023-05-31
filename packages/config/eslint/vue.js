@@ -13,5 +13,7 @@ module.exports = {
     'vue/no-v-html': 0,
     'import/no-extraneous-dependencies': 0,
     'vue/multi-word-component-names': 0,
+    // needs to be reenabled after this gets merged: https://github.com/vuejs/eslint-plugin-vue/pull/2189 [evaluate after: 07-06-2023]
+    'vue/no-dupe-keys': 0
   },
 };
