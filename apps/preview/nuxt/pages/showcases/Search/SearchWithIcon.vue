@@ -43,6 +43,7 @@
             type="button"
             class="flex justify-start !py-4 sm:!py-2"
             @click="() => selectValue(product.name)"
+            @keydown.enter.space.prevent="selectValue(product.name)"
           >
             <p class="text-left">
               <span>{{ highlight }}</span>

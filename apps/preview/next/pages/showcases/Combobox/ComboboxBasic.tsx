@@ -17,12 +17,14 @@ import classNames from 'classnames';
 export function DisableSwitch({
   disabledState,
   setDisabledState,
+  className,
 }: {
   disabledState: boolean;
   setDisabledState: (disabledState: boolean) => void;
+  className: string;
 }) {
   return (
-    <div className="mt-40">
+    <div className={classNames(['mt-40', className])}>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label className="flex items-center">
         <SfSwitch checked={disabledState} value="disabled" onChange={() => setDisabledState(!disabledState)} />
@@ -43,20 +45,68 @@ const options: SelectOption[] = [
     value: 'afghanistan',
   },
   {
+    label: 'Albania',
+    value: 'albania',
+  },
+  {
+    label: 'Angola',
+    value: 'angola',
+  },
+  {
     label: 'Bahamas',
     value: 'bahamas',
+  },
+  {
+    label: 'Bangladesh',
+    value: 'bangladesh',
   },
   {
     label: 'Canada',
     value: 'canada',
   },
   {
+    label: 'Chile',
+    value: 'chile',
+  },
+  {
+    label: 'Czech Republic',
+    value: 'czech Republic',
+  },
+  {
+    label: 'Colombia',
+    value: 'colombia',
+  },
+  {
+    label: 'Congo',
+    value: 'congo',
+  },
+  {
+    label: 'Croatia',
+    value: 'croatia',
+  },
+  {
+    label: 'Cuba',
+    value: 'cuba',
+  },
+  {
     label: 'Denmark',
     value: 'denmark',
   },
   {
+    label: 'Dominica',
+    value: 'dominica',
+  },
+  {
     label: 'Egypt',
     value: 'egypt',
+  },
+  {
+    label: 'Ethiopia',
+    value: 'ethiopia',
+  },
+  {
+    label: 'Estonia',
+    value: 'estonia',
   },
 ];
 
@@ -264,7 +314,11 @@ export default function ComboboxBasic() {
       )}
       <p className="text-xs mt-0.5 text-neutral-500">Help text</p>
       <p className="mt-2 text-neutral-500 typography-text-sm">*Required</p>
-      <DisableSwitch setDisabledState={setIsDisabled} disabledState={isDisabled} />
+      <DisableSwitch
+        className={classNames({ hidden: isOpen })}
+        setDisabledState={setIsDisabled}
+        disabledState={isDisabled}
+      />
     </>
   );
 }

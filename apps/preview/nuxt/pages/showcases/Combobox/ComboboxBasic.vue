@@ -98,7 +98,7 @@
   </p>
   <p class="text-xs mt-0.5 text-neutral-500">Help text</p>
   <p class="mt-2 text-neutral-500 typography-text-sm">*Required</p>
-  <div class="mt-40">
+  <div v-if="!isOpen" class="mt-40">
     <label class="flex items-center">
       <SfSwitch :checked="isDisabled" value="disabled" @change="isDisabled = !isDisabled" />
       <span class="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Disabled/Enabled</span>
@@ -219,20 +219,68 @@ const options: SelectOption[] = [
     value: 'afghanistan',
   },
   {
+    label: 'Albania',
+    value: 'albania',
+  },
+  {
+    label: 'Angola',
+    value: 'angola',
+  },
+  {
     label: 'Bahamas',
     value: 'bahamas',
+  },
+  {
+    label: 'Bangladesh',
+    value: 'bangladesh',
   },
   {
     label: 'Canada',
     value: 'canada',
   },
   {
+    label: 'Chile',
+    value: 'chile',
+  },
+  {
+    label: 'Czech Republic',
+    value: 'czech Republic',
+  },
+  {
+    label: 'Colombia',
+    value: 'colombia',
+  },
+  {
+    label: 'Congo',
+    value: 'congo',
+  },
+  {
+    label: 'Croatia',
+    value: 'croatia',
+  },
+  {
+    label: 'Cuba',
+    value: 'cuba',
+  },
+  {
     label: 'Denmark',
     value: 'denmark',
   },
   {
+    label: 'Dominica',
+    value: 'dominica',
+  },
+  {
     label: 'Egypt',
     value: 'egypt',
+  },
+  {
+    label: 'Ethiopia',
+    value: 'ethiopia',
+  },
+  {
+    label: 'Estonia',
+    value: 'estonia',
   },
 ];
 // Just for presentation purposes. Replace mock request with the actual API call.
