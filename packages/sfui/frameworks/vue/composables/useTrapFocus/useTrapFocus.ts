@@ -16,11 +16,11 @@ type UseTrapFocusOptions = TabbableOptions &
     activeState?: Ref<boolean>;
     initialFocus?: number | `${InitialFocusType}` | false;
     initialFocusContainerFallback?: boolean;
-    arrowKeysOn?: boolean;
     /**
-     * @deprecated Since version 2.3.
-     * @param {boolean} arrowKeysOn - Enabling both `letf` | `up` | `right` | `down` arrow keys.
+     * Enabling both `left` | `up` | `right` | `down` arrow keys.
+     * @deprecated Since version 2.3. Use arrowKeysLeftRight or/and arrowKeysUpDown options instead.
      */
+    arrowKeysOn?: boolean;
     arrowKeysLeftRight?: boolean;
     arrowKeysUpDown?: boolean;
   };

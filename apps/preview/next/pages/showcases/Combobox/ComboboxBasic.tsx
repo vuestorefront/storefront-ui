@@ -134,7 +134,7 @@ export default function ComboboxBasic() {
     updateFocusableElements,
   } = useTrapFocus(dropdownRef, {
     trapTabs: false,
-    arrowKeysOn: true,
+    arrowKeysUpDown: true,
     activeState: isOpen,
     initialFocus: false,
   });

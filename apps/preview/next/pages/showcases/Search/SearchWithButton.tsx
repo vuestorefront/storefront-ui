@@ -65,7 +65,7 @@ export default function SearchWithIcon() {
     placement: 'bottom-start',
     middleware: [offset(4)],
   });
-  useTrapFocus(dropdownListRef, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+  useTrapFocus(dropdownListRef, { arrowKeysUpDown: true, activeState: isOpen, initialFocus: false });
   const isResetButton = Boolean(searchValue);
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();

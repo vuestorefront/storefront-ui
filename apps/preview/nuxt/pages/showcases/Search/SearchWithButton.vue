@@ -93,7 +93,7 @@ const { referenceRef, floatingRef, style } = useDropdown({
   placement: 'bottom-start',
   middleware: [offset(4)],
 });
-useTrapFocus(dropdownListRef as Ref<HTMLElement>, { arrowKeysOn: true, activeState: isOpen, initialFocus: false });
+useTrapFocus(dropdownListRef as Ref<HTMLElement>, { arrowKeysUpDown: true, activeState: isOpen, initialFocus: false });
 
 const submit = () => {
   close();

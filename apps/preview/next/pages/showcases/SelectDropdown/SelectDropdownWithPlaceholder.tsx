@@ -41,7 +41,7 @@ export default function SelectDropdownWithPlaceholder() {
   const { refs, style: dropdownStyle } = useDropdown({ isOpen, onClose: close });
 
   useTrapFocus(refs.floating, {
-    arrowKeysOn: true,
+    arrowKeysUpDown: true,
     activeState: isOpen,
     initialFocusContainerFallback: true,
   });

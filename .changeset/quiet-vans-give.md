@@ -3,4 +3,8 @@
 '@storefront-ui/vue': minor
 ---
 
-UseTrapFocus - added updateFocusableElements method, change refs to states in react and other minor fixes
+useTrapFocus:
+
+- added `updateFocusableElement` method that allow to refresh the list of focusable children within container element,
+- use `useState` instead of `useRefs` for `current` and `focusable` return values.
+
