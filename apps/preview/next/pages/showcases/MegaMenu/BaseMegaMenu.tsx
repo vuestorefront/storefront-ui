@@ -14,6 +14,7 @@ import {
   useTrapFocus,
   SfInput,
   SfIconSearch,
+  SfIconMenu,
 } from '@storefront-ui/react';
 import { useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
@@ -149,13 +150,12 @@ export default function BaseMegaMenu() {
   useClickAway(menuRef, () => {
     close();
   });
-  
+
   const search = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     // eslint-disable-next-line no-alert
     alert(`Successfully found 10 results for ${inputValue}`);
   };
-
 
   return (
     <div className="w-full h-full">
@@ -168,7 +168,7 @@ export default function BaseMegaMenu() {
           <a
             href="#"
             aria-label="SF Homepage"
-            className="flex shrink-0 mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            className="flex shrink-0 mr-2 md:order-first text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
               <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -179,19 +179,20 @@ export default function BaseMegaMenu() {
               />
             </picture>
           </a>
+          <SfButton
+            className="block lg:mr-4 order-first md:order-none text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            slotSuffix={<SfIconExpandMore className="hidden md:inline-flex" />}
+            variant="tertiary"
+            onClick={toggle}
+          >
+            <span className="hidden md:inline-flex  whitespace-nowrap">Browse products</span>
+            <SfIconMenu className="md:hidden text-white" />
+          </SfButton>
           <ul>
             <li role="none">
-              <SfButton
-                className="block lg:mr-4 text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-                type="button"
-                aria-haspopup="true"
-                aria-expanded={isOpen}
-                slotSuffix={<SfIconExpandMore />}
-                variant="tertiary"
-                onClick={toggle}
-              >
-                <span className="hidden md:inline-flex  whitespace-nowrap">Browse products</span>
-              </SfButton>
               <CSSTransition
                 in={isOpen}
                 timeout={500}
@@ -207,7 +208,7 @@ export default function BaseMegaMenu() {
                   open
                   disableClickAway
                   placement="top"
-                  className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-6"
+                  className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-28 md:max-w-full md:p-6"
                 >
                   <div className="flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
                     <div className="flex items-center font-medium text-white typography-text-lg">Browse products</div>
@@ -249,9 +250,7 @@ export default function BaseMegaMenu() {
                   ))}
                   <div className="flex flex-col items-center justify-center overflow-hidden md:rounded-md bg-neutral-100 border-neutral-300 grow">
                     <img src={bannerDetails.image} alt={bannerDetails.title} className="object-contain" />
-                    <p className="px-4 mt-4 mb-4 font-medium text-center typography-text-base">
-                      {bannerDetails.title}
-                    </p>
+                    <p className="px-4 mt-4 mb-4 font-medium text-center typography-text-base">{bannerDetails.title}</p>
                   </div>
                   <SfButton
                     square
@@ -305,7 +304,9 @@ export default function BaseMegaMenu() {
                   variant="tertiary"
                   slotPrefix={actionItem.icon}
                 >
-                  {actionItem.role === 'login' && <p className="hidden md:inline-flex whitespace-nowrap">{actionItem.label}</p>}
+                  {actionItem.role === 'login' && (
+                    <p className="hidden md:inline-flex whitespace-nowrap">{actionItem.label}</p>
+                  )}
                 </SfButton>
               ))}
             </div>

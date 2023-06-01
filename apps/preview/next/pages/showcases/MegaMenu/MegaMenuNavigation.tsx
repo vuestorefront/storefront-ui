@@ -508,7 +508,9 @@ export default function MegaMenuNavigation() {
                 slotPrefix={actionItem.icon}
                 square
               >
-                {actionItem.role === 'login' && <p className="hidden md:inline-flex whitespace-nowrap">{actionItem.label}</p>}
+                {actionItem.role === 'login' && (
+                  <p className="hidden md:inline-flex whitespace-nowrap">{actionItem.label}</p>
+                )}
               </SfButton>
             ))}
           </div>

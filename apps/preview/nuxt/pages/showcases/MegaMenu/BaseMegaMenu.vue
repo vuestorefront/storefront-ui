@@ -9,7 +9,7 @@
         <a
           href="#"
           aria-label="SF Homepage"
-          class="flex shrink-0 text-white mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          class="flex shrink-0 md:order-first text-white mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >
           <picture>
             <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -20,22 +20,23 @@
             />
           </picture>
         </a>
+        <SfButton
+          class="block mr-auto order-first md:order-none text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+          type="button"
+          :aria-haspopup="true"
+          :aria-expanded="isOpen"
+          variant="tertiary"
+          @click="toggle()"
+        >
+          <template #suffix>
+            <SfIconExpandMore class="hidden md:inline-flex" />
+          </template>
+          <span class="hidden md:inline-flex">Browse products</span>
+          <SfIconMenu class="md:hidden text-white" />
+        </SfButton>
         <nav class="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
           <ul>
             <li role="none">
-              <SfButton
-                class="block mr-auto text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-                type="button"
-                :aria-haspopup="true"
-                :aria-expanded="isOpen"
-                variant="tertiary"
-                @click="toggle()"
-              >
-                <template #suffix>
-                  <SfIconExpandMore />
-                </template>
-                <span class="hidden md:inline-flex">Browse products</span>
-              </SfButton>
               <transition
                 enter-active-class="transform transition duration-500 ease-in-out"
                 leave-active-class="transform transition duration-500 ease-in-out"
@@ -141,6 +142,7 @@ import {
   SfListItem,
   useDisclosure,
   useTrapFocus,
+  SfIconMenu,
 } from '@storefront-ui/vue';
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
