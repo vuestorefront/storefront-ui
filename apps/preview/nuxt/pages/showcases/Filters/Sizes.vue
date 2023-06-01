@@ -8,7 +8,7 @@
     </template>
     <ul class="grid grid-cols-5 gap-2">
       <li v-for="({ label, value, isAvailable }, index) in chipSizes" :key="index">
-        <SfChip v-model="selectedSizes" class="w-16" size="sm" :input-props="{ value, disabled: !isAvailable }">
+        <SfChip v-model="selectedSizes" class="w-full" size="sm" :input-props="{ value, disabled: !isAvailable }">
           {{ label }}
         </SfChip>
       </li>

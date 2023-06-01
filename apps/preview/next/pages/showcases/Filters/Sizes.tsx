@@ -46,7 +46,7 @@ export default function FilterSizes() {
             <SfChip
               key={id}
               size="sm"
-              className="w-16"
+              className="w-full"
               inputProps={{ value, disabled: !isAvailable, onChange: () => handleSizeSelection(value) }}
             >
               {label}
