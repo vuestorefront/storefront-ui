@@ -3,9 +3,9 @@
     <div v-if="isOpen" class="fixed w-screen h-screen inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
     <header
       ref="menuRef"
-      class="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
+      class="flex justify-center w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:h-20 md:z-10"
     >
-      <div class="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+      <div class="flex items-center flex-wrap md:flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <a
           href="#"
           aria-label="SF Homepage"
@@ -34,7 +34,7 @@
           <span class="hidden md:inline-flex">Browse products</span>
           <SfIconMenu class="md:hidden text-white" />
         </SfButton>
-        <nav class="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
+        <nav>
           <ul>
             <li role="none">
               <transition
@@ -111,21 +111,49 @@
               </transition>
             </li>
           </ul>
-          <div class="flex flex-nowrap">
-            <SfButton
-              v-for="actionItem in actionItems"
-              :key="actionItem.ariaLabel"
-              class="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-              :aria-label="actionItem.ariaLabel"
-              variant="tertiary"
-              square
-            >
-              <template #prefix>
-                <Component :is="actionItem.icon" />
-              </template>
-              <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
-            </SfButton>
-          </div>
+        </nav>
+        <form
+          role="search"
+          class="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
+          @submit.prevent="search"
+        >
+          <SfInput
+            v-model="inputValue"
+            type="search"
+            class="[&::-webkit-search-cancel-button]:appearance-none"
+            placeholder="Search"
+            wrapper-class="flex-1 h-10 pr-0"
+            size="base"
+          >
+            <template #suffix>
+              <span class="flex items-center">
+                <SfButton
+                  variant="tertiary"
+                  square
+                  aria-label="search"
+                  type="submit"
+                  class="rounded-l-none hover:bg-transparent active:bg-transparent"
+                >
+                  <SfIconSearch />
+                </SfButton>
+              </span>
+            </template>
+          </SfInput>
+        </form>
+        <nav class="flex flex-nowrap md:order-last w-full justify-end items-center md:ml-10" aria-label="SF Navigation">
+          <SfButton
+            v-for="actionItem in actionItems"
+            :key="actionItem.ariaLabel"
+            class="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            :aria-label="actionItem.ariaLabel"
+            variant="tertiary"
+            square
+          >
+            <template #prefix>
+              <Component :is="actionItem.icon" />
+            </template>
+            <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
+          </SfButton>
         </nav>
       </div>
     </header>
@@ -144,6 +172,8 @@ import {
   useDisclosure,
   useTrapFocus,
   SfIconMenu,
+  SfInput,
+  SfIconSearch,
 } from '@storefront-ui/vue';
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
@@ -160,6 +190,12 @@ useTrapFocus(drawerRef, {
 onClickOutside(menuRef, () => {
   close();
 });
+
+const inputValue = ref('');
+
+const search = () => {
+  alert(`Successfully found 10 results for ${inputValue.value}`);
+};
 
 const actionItems = [
   {
