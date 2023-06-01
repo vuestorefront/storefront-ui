@@ -162,9 +162,9 @@ export default function BaseMegaMenu() {
       {isOpen && <div className="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />}
       <header
         ref={menuRef}
-        className="flex justify-center w-full py-2 lg:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:z-10"
+        className="flex justify-center w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:z-10"
       >
-        <div className="flex items-center flex-wrap lg:flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+        <div className="flex items-center flex-wrap md:flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <a
             href="#"
             aria-label="SF Homepage"
@@ -180,7 +180,7 @@ export default function BaseMegaMenu() {
             </picture>
           </a>
           <SfButton
-            className="block lg:mr-4 order-first md:order-none text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            className="block order-first md:order-none text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
             type="button"
             aria-haspopup="true"
             aria-expanded={isOpen}
@@ -208,7 +208,7 @@ export default function BaseMegaMenu() {
                   open
                   disableClickAway
                   placement="top"
-                  className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-28 md:max-w-full md:p-6"
+                  className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-20 md:max-w-full md:p-6"
                 >
                   <div className="flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
                     <div className="flex items-center font-medium text-white typography-text-lg">Browse products</div>
@@ -268,7 +268,7 @@ export default function BaseMegaMenu() {
           </ul>
           <form
             role="search"
-            className="flex flex-[100%] order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
+            className="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
             onSubmit={search}
           >
             <SfInput
@@ -294,7 +294,7 @@ export default function BaseMegaMenu() {
               onChange={(event) => setInputValue(event.target.value)}
             />
           </form>
-          <nav className="flex-1 flex justify-end lg:order-last lg:ml-4" aria-label="SF Navigation">
+          <nav className="flex-1 flex justify-end md:order-last md:ml-10" aria-label="SF Navigation">
             <div className="flex flex-nowrap">
               {actionItems.map((actionItem) => (
                 <SfButton
@@ -305,7 +305,7 @@ export default function BaseMegaMenu() {
                   slotPrefix={actionItem.icon}
                 >
                   {actionItem.role === 'login' && (
-                    <p className="hidden md:inline-flex whitespace-nowrap">{actionItem.label}</p>
+                    <p className="hidden lg:inline-flex whitespace-nowrap">{actionItem.label}</p>
                   )}
                 </SfButton>
               ))}

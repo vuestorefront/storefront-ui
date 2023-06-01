@@ -444,7 +444,7 @@ export default function MegaMenuNavigation() {
   return (
     <div className="w-full h-full">
       <header ref={refs.setReference} className="relative">
-        <div className="flex flex-wrap lg:flex-nowrap justify-between items-center px-4 md:px-10 py-2 lg:py-5 w-full border-0 bg-primary-700 border-neutral-200 h-full md:z-10">
+        <div className="flex flex-wrap md:flex-nowrap justify-between items-center px-4 md:px-10 py-2 md:py-5 w-full border-0 bg-primary-700 border-neutral-200 h-full md:z-10">
           <div className="flex">
             <SfButton
               onClick={handleOpenMenu([])}
@@ -458,21 +458,17 @@ export default function MegaMenuNavigation() {
             <a
               href="#"
               aria-label="SF Homepage"
-              className="flex shrink-0 items-center mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+              className="flex shrink-0 w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem] items-center text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
             >
               <picture>
                 <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
-                <img
-                  src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
-                  alt="Sf Logo"
-                  className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
-                />
+                <img src="http://localhost:3100/@assets/vsf_logo_sign_white.svg" alt="Sf Logo" />
               </picture>
             </a>
           </div>
           <form
             role="search"
-            className="flex flex-[100%] order-last lg:order-3 mt-2 lg:mt-0 pb-2 lg:pb-0"
+            className="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 ml-2 md:ml-10 pb-2 md:pb-0"
             onSubmit={search}
           >
             <SfInput
@@ -498,7 +494,7 @@ export default function MegaMenuNavigation() {
               onChange={(event) => setInputValue(event.target.value)}
             />
           </form>
-          <div className="flex flex-nowrap lg:order-last lg:ml-4">
+          <div className="flex flex-nowrap md:order-last md:ml-4">
             {actionItems.map((actionItem) => (
               <SfButton
                 className="ml-2 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
@@ -509,7 +505,7 @@ export default function MegaMenuNavigation() {
                 square
               >
                 {actionItem.role === 'login' && (
-                  <p className="hidden md:inline-flex whitespace-nowrap">{actionItem.label}</p>
+                  <p className="hidden lg:inline-flex whitespace-nowrap">{actionItem.label}</p>
                 )}
               </SfButton>
             ))}
