@@ -45,16 +45,6 @@ const categories = [
 ];
 export default function CategoryList() {
   const [opened, setOpened] = useState(true);
-  const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
-  const handleCategorySelection = (selectedValue: string) => {
-    if (selectedCategories.indexOf(selectedValue) > -1) {
-      setSelectedCategories([...selectedCategories.filter((selectedValueue) => selectedValueue !== selectedValue)]);
-    } else {
-      setSelectedCategories([...selectedCategories, selectedValue]);
-    }
-  };
-
-  const isCategorySelected = (selectedValue: string) => selectedCategories.includes(selectedValue);
   return (
     <SfAccordionItem
       open={opened}
@@ -75,21 +65,20 @@ export default function CategoryList() {
             </div>
           </SfListItem>
         </li>
-        {categories.map((category) => (
+        {categories.map((category, index) => (
           <li key={category.key}>
             <SfListItem
               size="sm"
               as="a"
               href={category.link}
               className={classNames('first-of-type:mt-2 rounded-md active:bg-primary-100', {
-                'bg-primary-100 hover:bg-primary-100': isCategorySelected(category.label),
+                'bg-primary-100 hover:bg-primary-100 font-medium': index === 0,
               })}
-              slotSuffix={isCategorySelected(category.label) && <SfIconCheck size="xs" className="text-primary-700" />}
-              onClick={() => handleCategorySelection(category.label)}
+              slotSuffix={index === 0 && <SfIconCheck size="sm" className="text-primary-700" />}
             >
               <span className="flex items-center">
                 {category.label}
-                <SfCounter className="ml-2 typography-text-sm">{category.counter}</SfCounter>
+                <SfCounter className="ml-2 typography-text-sm font-normal">{category.counter}</SfCounter>
               </span>
             </SfListItem>
           </li>

@@ -14,23 +14,22 @@
           </div>
         </SfListItem>
       </li>
-      <li v-for="category in categories" :key="category.key">
+      <li v-for="(category, index) in categories" :key="category.key">
         <SfListItem
           size="sm"
           as="a"
           :href="category.link"
           :class="[
             'first-of-type:mt-2 rounded-md active:bg-primary-100',
-            { 'bg-primary-100 hover:bg-primary-100': isCategorySelected(category.label) },
+            { 'bg-primary-100 hover:bg-primary-100 active:bg-primary-100 font-medium': index === 0 },
           ]"
-          @click="handleCategorySelection(category.label)"
         >
           <template #suffix>
-            <SfIconCheck v-if="isCategorySelected(category.label)" size="xs" class="text-primary-700" />
+            <SfIconCheck v-if="index === 0" size="sm" class="text-primary-700" />
           </template>
           <span class="flex items-center">
             {{ category.label }}
-            <SfCounter class="ml-2 typography-text-sm">{{ category.counter }}</SfCounter>
+            <SfCounter class="ml-2 typography-text-sm font-normal">{{ category.counter }}</SfCounter>
           </span>
         </SfListItem>
       </li>
@@ -83,14 +82,4 @@ const categories = ref([
 ]);
 
 const open = ref(true);
-const selectedCategories = ref<string[]>([]);
-
-const isCategorySelected = (selectedValue: string) => selectedCategories.value.includes(selectedValue);
-const handleCategorySelection = (selectedValue: string) => {
-  if (selectedCategories.value.indexOf(selectedValue) > -1) {
-    selectedCategories.value = [...selectedCategories.value.filter((value) => value !== selectedValue)];
-  } else {
-    selectedCategories.value = [...selectedCategories.value, selectedValue];
-  }
-};
 </script>

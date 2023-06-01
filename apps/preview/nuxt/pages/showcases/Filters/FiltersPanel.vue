@@ -48,19 +48,18 @@
                   </div>
                 </SfListItem>
               </li>
-              <li v-for="{ id, link, label, counter } in details" :key="id">
+              <li v-for="({ id, link, label, counter }, categoryIndex) in details" :key="id">
                 <SfListItem
                   size="sm"
                   as="a"
                   :href="link"
                   :class="[
                     'first-of-type:mt-2 rounded-md active:bg-primary-100',
-                    { 'bg-primary-100 hover:bg-primary-100': isItemActive(label) },
+                    { 'bg-primary-100 hover:bg-primary-100 active:bg-primary-100 font-medium': categoryIndex === 0 },
                   ]"
-                  @click="handleCategorySelection(label)"
                 >
                   <template #suffix>
-                    <SfIconCheck v-if="isItemActive(label)" size="xs" class="text-primary-700" />
+                    <SfIconCheck v-if="categoryIndex === 0" size="xs" class="text-primary-700" />
                   </template>
                   <span class="flex items-center">
                     {{ label }}
@@ -362,13 +361,6 @@ const sortModel = ref();
 
 const isItemActive = (selectedValue: string) => {
   return selectedFilters.value?.includes(selectedValue);
-};
-const handleCategorySelection = (selectedValue: string) => {
-  if (selectedFilters.value.indexOf(selectedValue) > -1) {
-    selectedFilters.value = [...selectedFilters.value.filter((value) => value !== selectedValue)];
-  } else {
-    selectedFilters.value = [...selectedFilters.value, selectedValue];
-  }
 };
 const handleClearFilters = () => {
   selectedFilters.value = [];
