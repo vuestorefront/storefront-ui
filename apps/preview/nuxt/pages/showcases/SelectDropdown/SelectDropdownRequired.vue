@@ -104,7 +104,7 @@ const {
 });
 
 useTrapFocus(floatingRef as Ref<HTMLUListElement>, {
-  arrowKeysOn: true,
+  arrowKeysUpDown: true,
   activeState: isOpen,
   initialFocusContainerFallback: true,
 });

@@ -14,6 +14,7 @@ export * from './shared';
 // Components
 export * from './components/SfAccordionItem';
 export * from './components/SfButton';
+export * from './components/SfBadge';
 export * from './components/SfCheckbox';
 export * from './components/SfChip';
 export * from './components/SfCounter';

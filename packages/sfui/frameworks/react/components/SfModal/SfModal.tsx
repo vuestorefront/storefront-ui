@@ -1,13 +1,7 @@
 import classNames from 'classnames';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
-import {
-  type SfModalProps,
-  polymorphicForwardRef,
-  useTrapFocus,
-  InitialFocusType,
-  mergeRefs,
-} from '@storefront-ui/react';
+import { type SfModalProps, polymorphicForwardRef, useTrapFocus, mergeRefs } from '@storefront-ui/react';
 
 const defaultModalTag = 'div';
 
@@ -29,8 +23,9 @@ const SfModal = polymorphicForwardRef<typeof defaultModalTag, SfModalProps>(
     };
 
     useTrapFocus(modalRef, {
+      trapTabs: true,
       activeState: open,
-      initialFocus: InitialFocusType.autofocus,
+      initialFocus: false,
       initialFocusContainerFallback: true,
     });
 

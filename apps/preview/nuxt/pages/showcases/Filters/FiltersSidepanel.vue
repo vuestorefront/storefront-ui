@@ -1,5 +1,5 @@
 <template>
-  <aside>
+  <aside class="w-full md:max-w-[376px]">
     <div class="flex justify-between mb-4">
       <h4 class="px-2 font-bold typography-headline-4">List settings</h4>
       <button type="button" class="sm:hidden text-neutral-500" aria-label="Close filters panel">
@@ -19,7 +19,7 @@
     <h5
       class="py-2 px-4 mt-6 mb-4 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md"
     >
-      Filters
+      Filter
     </h5>
     <ul>
       <!-- prettier-ignore-attribute -->
@@ -48,19 +48,18 @@
                   </div>
                 </SfListItem>
               </li>
-              <li v-for="{ id, link, label, counter } in details" :key="id">
+              <li v-for="({ id, link, label, counter }, categoryIndex) in details" :key="id">
                 <SfListItem
                   size="sm"
                   as="a"
                   :href="link"
                   :class="[
                     'first-of-type:mt-2 rounded-md active:bg-primary-100',
-                    { 'bg-primary-100 hover:bg-primary-100': isItemActive(label) },
+                    { 'bg-primary-100 hover:bg-primary-100 active:bg-primary-100 font-medium': categoryIndex === 0 },
                   ]"
-                  @click="handleCategorySelection(label)"
                 >
                   <template #suffix>
-                    <SfIconCheck v-if="isItemActive(label)" size="xs" class="text-primary-700" />
+                    <SfIconCheck v-if="categoryIndex === 0" size="xs" class="text-primary-700" />
                   </template>
                   <span class="flex items-center">
                     {{ label }}
@@ -98,10 +97,16 @@
               :key="id"
               tag="label"
               size="sm"
+              :disabled="counter === 0"
               :class="['px-1.5 bg-transparent hover:bg-transparent', { 'font-medium': isItemActive(value) }]"
             >
               <template #prefix>
-                <SfCheckbox v-model="selectedFilters" :disabled="counter === 0" :value="value" />
+                <SfCheckbox
+                  v-model="selectedFilters"
+                  class="flex items-center"
+                  :disabled="counter === 0"
+                  :value="value"
+                />
               </template>
               <p>
                 <span class="mr-2 text-sm">{{ label }}</span>
@@ -121,6 +126,7 @@
                 <template #prefix>
                   <SfRadio
                     v-model="priceModel"
+                    class="flex items-center"
                     name="radio-price"
                     :value="value"
                     @click="priceModel = priceModel === value ? '' : value"
@@ -133,7 +139,7 @@
               </SfListItem>
             </fieldset>
           </template>
-          <template v-if="type === 'ratings'">
+          <template v-if="type === 'rating'">
             <fieldset id="radio-ratings">
               <SfListItem
                 v-for="{ id, value, label, counter } in details"
@@ -146,12 +152,13 @@
                   <SfRadio
                     v-model="ratingsModel"
                     name="radio-ratings"
+                    class="flex items-end"
                     :value="value"
                     @click="ratingsModel = ratingsModel === value ? '' : value"
                   />
                 </template>
                 <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
-                <div class="flex flex-wrap items-end">
+                <div class="flex flex-wrap">
                   <SfRating :value="Number(value)" :max="5" size="sm" />
                   <span :class="['mx-2 text-sm', { 'font-medium': ratingsModel === value }]">{{ label }}</span>
                   <SfCounter size="sm">{{ counter }}</SfCounter>
@@ -226,7 +233,7 @@ const filtersData = ref<Node[]>([
   },
   {
     id: 'acc2',
-    summary: 'Categories',
+    summary: 'Category',
     type: 'category',
     details: [
       {
@@ -268,7 +275,7 @@ const filtersData = ref<Node[]>([
   },
   {
     id: 'acc3',
-    summary: 'Colors',
+    summary: 'Color',
     type: 'color',
     details: [
       {
@@ -334,8 +341,8 @@ const filtersData = ref<Node[]>([
   },
   {
     id: 'acc6',
-    summary: 'Ratings',
-    type: 'ratings',
+    summary: 'Rating',
+    type: 'rating',
     details: [
       { id: 'r1', label: '5', value: '5', counter: 10 },
       { id: 'r2', label: '4 & up', value: '4', counter: 123 },
@@ -362,13 +369,6 @@ const sortModel = ref();
 
 const isItemActive = (selectedValue: string) => {
   return selectedFilters.value?.includes(selectedValue);
-};
-const handleCategorySelection = (selectedValue: string) => {
-  if (selectedFilters.value.indexOf(selectedValue) > -1) {
-    selectedFilters.value = [...selectedFilters.value.filter((value) => value !== selectedValue)];
-  } else {
-    selectedFilters.value = [...selectedFilters.value, selectedValue];
-  }
 };
 const handleClearFilters = () => {
   selectedFilters.value = [];

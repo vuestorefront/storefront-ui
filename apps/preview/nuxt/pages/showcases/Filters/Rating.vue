@@ -1,8 +1,8 @@
 <template>
-  <SfAccordionItem v-model="isOpen">
+  <SfAccordionItem v-model="isOpen" class="w-full md:max-w-[376px]">
     <template #summary>
       <div class="flex justify-between p-2 mb-2">
-        <p class="font-medium">Sizes</p>
+        <p class="font-medium">Rating</p>
         <SfIconChevronLeft :class="['text-neutral-500', isOpen ? 'rotate-90' : '-rotate-90']" />
       </div>
     </template>
@@ -17,6 +17,7 @@
         <template #prefix>
           <SfRadio
             v-model="ratingsModel"
+            class="flex items-center"
             :checked="ratingsModel === value"
             :name="ratingsModel"
             :value="value"
