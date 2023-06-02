@@ -31,9 +31,9 @@
               <SfIconChevronLeft :class="opened[index] ? 'rotate-90' : '-rotate-90'" />
             </div>
           </template>
-          <ul v-if="type === 'size'" class="flex flex-wrap gap-4 px-1.5">
+          <ul v-if="type === 'size'" class="grid grid-cols-5 gap-2">
             <li v-for="{ id, value, counter, label } in details" :key="id">
-              <SfChip v-model="selectedFilters" size="sm" :input-props="{ value, disabled: !counter }">
+              <SfChip v-model="selectedFilters" class="w-full" size="sm" :input-props="{ value, disabled: !counter }">
                 {{ label }}
               </SfChip>
             </li>
