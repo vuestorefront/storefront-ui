@@ -191,81 +191,85 @@ export default function BaseMegaMenu() {
             <span className="hidden md:inline-flex  whitespace-nowrap">Browse products</span>
             <SfIconMenu className="md:hidden text-white" />
           </SfButton>
-          <ul>
-            <li role="none">
-              <CSSTransition
-                in={isOpen}
-                timeout={500}
-                unmountOnExit
-                classNames={{
-                  enter: '-translate-x-full md:opacity-0 md:translate-x-0',
-                  enterActive: 'translate-x-0 md:opacity-100 transition duration-500 ease-in-out',
-                  exitActive: '-translate-x-full md:opacity-0 md:translate-x-0 transition duration-500 ease-in-out',
-                }}
-              >
-                <SfDrawer
-                  ref={drawerRef}
-                  open
-                  disableClickAway
-                  placement="top"
-                  className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-20 md:max-w-full md:p-6"
+          <nav>
+            <ul>
+              <li role="none">
+                <CSSTransition
+                  in={isOpen}
+                  timeout={500}
+                  unmountOnExit
+                  classNames={{
+                    enter: '-translate-x-full md:opacity-0 md:translate-x-0',
+                    enterActive: 'translate-x-0 md:opacity-100 transition duration-500 ease-in-out',
+                    exitActive: '-translate-x-full md:opacity-0 md:translate-x-0 transition duration-500 ease-in-out',
+                  }}
                 >
-                  <div className="flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
-                    <div className="flex items-center font-medium text-white typography-text-lg">Browse products</div>
+                  <SfDrawer
+                    ref={drawerRef}
+                    open
+                    disableClickAway
+                    placement="top"
+                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-20 md:max-w-full md:p-6"
+                  >
+                    <div className="flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
+                      <div className="flex items-center font-medium text-white typography-text-lg">Browse products</div>
+                      <SfButton
+                        square
+                        variant="tertiary"
+                        aria-label="Close navigation menu"
+                        onClick={close}
+                        className="text-white"
+                      >
+                        <SfIconClose />
+                      </SfButton>
+                    </div>
+                    {categoriesContent.map(({ heading, items }) => (
+                      <div key={heading} className="[&:nth-child(2)]:pt-0 pt-6 md:pt-0">
+                        <h2
+                          role="presentation"
+                          className="typography-text-base font-medium text-neutral-900 whitespace-nowrap p-4 md:py-1.5"
+                        >
+                          {heading}
+                        </h2>
+                        <hr className="mb-3.5" />
+                        <ul>
+                          {items.map((item) => (
+                            <li key={item.title}>
+                              <SfListItem
+                                as="a"
+                                size="sm"
+                                role="none"
+                                href={item.link}
+                                className="typography-text-base md:typography-text-sm py-4 md:py-1.5"
+                              >
+                                {item.title}
+                              </SfListItem>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                    <div className="flex flex-col items-center justify-center overflow-hidden md:rounded-md bg-neutral-100 border-neutral-300 grow">
+                      <img src={bannerDetails.image} alt={bannerDetails.title} className="object-contain" />
+                      <p className="px-4 mt-4 mb-4 font-medium text-center typography-text-base">
+                        {bannerDetails.title}
+                      </p>
+                    </div>
                     <SfButton
                       square
+                      size="sm"
                       variant="tertiary"
                       aria-label="Close navigation menu"
                       onClick={close}
-                      className="text-white"
+                      className="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
                     >
-                      <SfIconClose />
+                      <SfIconClose className="text-neutral-500" />
                     </SfButton>
-                  </div>
-                  {categoriesContent.map(({ heading, items }) => (
-                    <div key={heading} className="[&:nth-child(2)]:pt-0 pt-6 md:pt-0">
-                      <h2
-                        role="presentation"
-                        className="typography-text-base font-medium text-neutral-900 whitespace-nowrap p-4 md:py-1.5"
-                      >
-                        {heading}
-                      </h2>
-                      <hr className="mb-3.5" />
-                      <ul>
-                        {items.map((item) => (
-                          <li key={item.title}>
-                            <SfListItem
-                              as="a"
-                              size="sm"
-                              role="none"
-                              href={item.link}
-                              className="typography-text-base md:typography-text-sm py-4 md:py-1.5"
-                            >
-                              {item.title}
-                            </SfListItem>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  ))}
-                  <div className="flex flex-col items-center justify-center overflow-hidden md:rounded-md bg-neutral-100 border-neutral-300 grow">
-                    <img src={bannerDetails.image} alt={bannerDetails.title} className="object-contain" />
-                    <p className="px-4 mt-4 mb-4 font-medium text-center typography-text-base">{bannerDetails.title}</p>
-                  </div>
-                  <SfButton
-                    square
-                    size="sm"
-                    variant="tertiary"
-                    aria-label="Close navigation menu"
-                    onClick={close}
-                    className="hidden md:block md:absolute md:right-0 hover:bg-white active:bg-white"
-                  >
-                    <SfIconClose className="text-neutral-500" />
-                  </SfButton>
-                </SfDrawer>
-              </CSSTransition>
-            </li>
-          </ul>
+                  </SfDrawer>
+                </CSSTransition>
+              </li>
+            </ul>
+          </nav>
           <form
             role="search"
             className="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"

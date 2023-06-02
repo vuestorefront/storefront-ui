@@ -494,7 +494,7 @@ export default function MegaMenuNavigation() {
               onChange={(event) => setInputValue(event.target.value)}
             />
           </form>
-          <div className="flex flex-nowrap md:order-last md:ml-4">
+          <nav className="flex flex-nowrap md:order-last md:ml-4">
             {actionItems.map((actionItem) => (
               <SfButton
                 className="ml-2 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
@@ -509,7 +509,7 @@ export default function MegaMenuNavigation() {
                 )}
               </SfButton>
             ))}
-          </div>
+          </nav>
         </div>
         {/* Desktop dropdown */}
         <nav ref={refs.setFloating}>

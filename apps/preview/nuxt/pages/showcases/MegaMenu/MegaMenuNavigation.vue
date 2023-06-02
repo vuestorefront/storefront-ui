@@ -2,7 +2,7 @@
   <div class="w-full h-full">
     <header ref="referenceRef" class="relative">
       <div
-        class="flex justify-between items-center px-4 md:px-10 w-full border-0 bg-primary-700 border-neutral-200 h-14 md:h-20 md:z-10"
+        class="flex justify-between items-center flex-wrap md:flex-nowrap px-4 md:px-10 py-2 md:py-5 w-full h-full border-0 bg-primary-700 border-neutral-200 md:h-20 md:z-10"
       >
         <div class="flex">
           <SfButton
@@ -17,19 +17,43 @@
           <a
             href="#"
             aria-label="SF Homepage"
-            class="flex items-center mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            class="flex shrink-0 w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem] items-center mr-auto text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
               <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
-              <img
-                src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
-                alt="Sf Logo"
-                class="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
-              />
+              <img src="http://localhost:3100/@assets/vsf_logo_sign_white.svg" alt="Sf Logo" />
             </picture>
           </a>
         </div>
-        <div class="flex flex-nowrap">
+        <form
+          role="search"
+          class="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
+          @submit.prevent="search"
+        >
+          <SfInput
+            v-model="inputValue"
+            type="search"
+            class="[&::-webkit-search-cancel-button]:appearance-none"
+            placeholder="Search"
+            wrapper-class="flex-1 h-10 pr-0"
+            size="base"
+          >
+            <template #suffix>
+              <span class="flex items-center">
+                <SfButton
+                  variant="tertiary"
+                  square
+                  aria-label="search"
+                  type="submit"
+                  class="rounded-l-none hover:bg-transparent active:bg-transparent"
+                >
+                  <SfIconSearch />
+                </SfButton>
+              </span>
+            </template>
+          </SfInput>
+        </form>
+        <nav class="flex flex-nowrap md:order-last md:ml-10">
           <SfButton
             v-for="actionItem in actionItems"
             :key="actionItem.ariaLabel"
@@ -41,9 +65,9 @@
             <template #prefix>
               <Component :is="actionItem.icon" />
             </template>
-            <p v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</p>
+            <p v-if="actionItem.role === 'login'" class="hidden lg:inline-flex">{{ actionItem.label }}</p>
           </SfButton>
-        </div>
+        </nav>
       </div>
       <!-- Desktop dropdown -->
       <nav ref="floatingRef">
@@ -196,6 +220,8 @@ import {
   useDisclosure,
   useTrapFocus,
   useDropdown,
+  SfInput,
+  SfIconSearch,
 } from '@storefront-ui/vue';
 import { ref, computed } from 'vue';
 import { unrefElement } from '@vueuse/core';
@@ -251,6 +277,12 @@ const goNext = (key: string) => {
 
 const focusTrigger = (index: number) => {
   unrefElement(triggerRefs.value[index]).focus();
+};
+
+const inputValue = ref('');
+
+const search = () => {
+  alert(`Successfully found 10 results for ${inputValue.value}`);
 };
 
 const actionItems = [

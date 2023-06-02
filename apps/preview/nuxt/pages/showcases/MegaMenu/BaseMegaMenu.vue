@@ -3,13 +3,13 @@
     <div v-if="isOpen" class="fixed w-screen h-screen inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
     <header
       ref="menuRef"
-      class="flex justify-center w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:h-20 md:z-10"
+      class="flex w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:h-20 md:z-10"
     >
       <div class="flex items-center flex-wrap md:flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <a
           href="#"
           aria-label="SF Homepage"
-          class="flex shrink-0 md:order-first text-white mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          class="flex shrink-0 md:order-first text-white mr-auto md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >
           <picture>
             <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -21,7 +21,7 @@
           </picture>
         </a>
         <SfButton
-          class="block mr-auto order-first md:order-none text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+          class="block order-first md:order-none text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
           type="button"
           :aria-haspopup="true"
           :aria-expanded="isOpen"
@@ -140,7 +140,7 @@
             </template>
           </SfInput>
         </form>
-        <nav class="flex flex-nowrap md:order-last w-full justify-end items-center md:ml-10" aria-label="SF Navigation">
+        <nav class="flex flex-nowrap md:order-last justify-end items-center md:ml-10" aria-label="SF Navigation">
           <SfButton
             v-for="actionItem in actionItems"
             :key="actionItem.ariaLabel"
@@ -152,7 +152,7 @@
             <template #prefix>
               <Component :is="actionItem.icon" />
             </template>
-            <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
+            <span v-if="actionItem.role === 'login'" class="hidden lg:inline-flex">{{ actionItem.label }}</span>
           </SfButton>
         </nav>
       </div>
