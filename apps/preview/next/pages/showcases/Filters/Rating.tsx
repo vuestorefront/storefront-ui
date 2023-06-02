@@ -19,7 +19,7 @@ const ratingsValues = [
   { id: 'r5', label: '1 & up', value: '1', counter: 13 },
 ];
 
-export default function Ratings() {
+export default function RatingFilter() {
   const [rating, setRating] = useState<string | null>(null);
   const { toggle, isOpen } = useDisclosure({ initialValue: true });
 
@@ -27,6 +27,7 @@ export default function Ratings() {
     <SfAccordionItem
       open={isOpen}
       onToggle={() => toggle()}
+      className="w-full md:max-w-[376px]"
       summary={
         <div className="flex justify-between p-2 mb-2">
           <p className="font-medium">Rating</p>
@@ -44,6 +45,7 @@ export default function Ratings() {
             slotPrefix={
               <SfRadio
                 value={value}
+                className="flex items-center"
                 checked={rating === value}
                 name="radio-rating"
                 onClick={() => setRating(rating === value ? null : value)}
@@ -68,4 +70,4 @@ export default function Ratings() {
   );
 }
 
-Ratings.getLayout = ShowcasePageLayout;
+RatingFilter.getLayout = ShowcasePageLayout;
