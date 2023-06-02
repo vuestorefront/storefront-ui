@@ -76,7 +76,7 @@
               :key="activeMenu.key"
               ref="megaMenuRef"
               :style="style"
-              class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-none z-10"
+              class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-none"
               tabindex="0"
               @mouseleave="close()"
               @keydown.esc="focusTrigger(index)"
@@ -117,8 +117,8 @@
       </nav>
 
       <!-- Mobile drawer -->
-      <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50 z-10" />
-      <SfDrawer ref="drawerRef" v-model="isOpen" placement="left" class="md:hidden bg-white w-[320px] overflow-y-auto z-10">
+      <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50" />
+      <SfDrawer ref="drawerRef" v-model="isOpen" placement="left" class="md:hidden bg-white w-[320px] overflow-y-auto">
         <nav>
           <div class="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">
             <p class="typography-text-base font-medium">Browse products</p>
