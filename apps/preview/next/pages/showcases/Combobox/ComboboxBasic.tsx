@@ -24,11 +24,11 @@ export function DisableSwitch({
   className: string;
 }) {
   return (
-    <div className={classNames(['mt-40', className])}>
+    <div className={classNames(['mt-4', className])}>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label className="flex items-center">
         <SfSwitch checked={disabledState} value="disabled" onChange={() => setDisabledState(!disabledState)} />
-        <span className="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Disabled/Enabled</span>
+        <span className="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Enabled/Disabled</span>
       </label>
     </div>
   );
