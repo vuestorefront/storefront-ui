@@ -1,5 +1,11 @@
 <template>
   <SfAccordionItem v-model="open" class="w-full md:max-w-[376px]">
+    <template #summary>
+      <div class="flex justify-between p-2 mb-2">
+        <p class="font-medium">Price</p>
+        <SfIconChevronLeft :class="['text-neutral-500', open ? 'rotate-90' : '-rotate-90']" />
+      </div>
+    </template>
     <fieldset id="radio-price">
       <SfListItem
         v-for="{ id, value, label, counter } in details"
@@ -28,7 +34,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SfAccordionItem, SfCounter, SfListItem, SfRadio } from '@storefront-ui/vue';
+import { SfAccordionItem, SfCounter, SfIconChevronLeft, SfListItem, SfRadio } from '@storefront-ui/vue';
 
 const open = ref(true);
 const priceModel = ref('');

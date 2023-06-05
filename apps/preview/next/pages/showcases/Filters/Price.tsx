@@ -23,7 +23,7 @@ export default function PriceFilter() {
       className="w-full md:max-w-[376px]"
       summary={
         <div className="flex justify-between p-2 mb-2">
-          <p className="mb-2 font-medium typography-headline-5">Brand</p>
+          <p className="mb-2 font-medium typography-headline-5">Price</p>
           <SfIconChevronLeft className={classNames('text-neutral-500', `${opened ? 'rotate-90' : '-rotate-90'}`)} />
         </div>
       }

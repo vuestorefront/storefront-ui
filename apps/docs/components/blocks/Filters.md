@@ -12,7 +12,7 @@ description: Product filters are a valuable tool for online shoppers to quickly 
 
 Color filters are a type of product filter that allow online shoppers to narrow down their search results based on the color or colors of the products they are interested in.
 
-<Showcase showcase-name="Filters/Color" style="min-height:500px">
+<Showcase showcase-name="Filters/Color" style="min-height:400px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Filters/Color.vue
@@ -26,13 +26,41 @@ Color filters are a type of product filter that allow online shoppers to narrow 
 
 Sizes in category pages are a feature that allows online shoppers to filter their search results based on specific sizes of products they are interested in.
 
-<Showcase showcase-name="Filters/Size">
+<Showcase showcase-name="Filters/Size" style="min-height:300px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Filters/Size.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/Filters/Size.tsx#source
+<!-- end react -->
+</Showcase>
+
+## Brand
+
+Brand in category pages are a feature that allows online shoppers to filter their search results based on specific brands of products they are interested in.
+
+<Showcase showcase-name="Filters/Brand" style="min-height:300px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Filters/Brand.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Filters/Brand.tsx#source
+<!-- end react -->
+</Showcase>
+
+## Price
+
+Price in category pages are a feature that allows online shoppers to filter their search results based on price range of products they are interested in.
+
+<Showcase showcase-name="Filters/Price" style="min-height:350px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Filters/Price.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Filters/Price.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -70,7 +98,7 @@ Category list allows users to browse and select categories of content or product
 
 Ratings allows users to filter out specific ratings of products in category. Only one at the time can be selected.
 
-<Showcase showcase-name="Filters/Rating" style="min-height:400px">
+<Showcase showcase-name="Filters/Rating" style="min-height:300px">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Filters/Rating.vue
