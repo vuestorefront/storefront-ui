@@ -9,7 +9,7 @@
         <a
           href="#"
           aria-label="SF Homepage"
-          class="flex shrink-0 md:order-first text-white mr-auto md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          class="flex shrink-0 ml-4 md:ml-0 md:order-first text-white mr-auto md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >
           <picture>
             <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -26,12 +26,13 @@
           :aria-haspopup="true"
           :aria-expanded="isOpen"
           variant="tertiary"
+          square
           @click="toggle()"
         >
           <template #suffix>
             <SfIconExpandMore class="hidden md:inline-flex" />
           </template>
-          <span class="hidden md:inline-flex">Browse products</span>
+          <span class="hidden md:inline-flex whitespace-nowrap px-2">Browse products</span>
           <SfIconMenu class="md:hidden text-white" />
         </SfButton>
         <nav>
@@ -50,15 +51,17 @@
                   v-model="isOpen"
                   disable-click-away
                   placement="top"
-                  class="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-6"
+                  class="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] max-w-[376px] md:max-w-full md:p-6 mr-[50px] md:mr-0"
                 >
-                  <div class="flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden">
+                  <div
+                    class="sticky top-0 flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden w-full max-w-[376px]"
+                  >
                     <div class="flex items-center typography-text-lg font-medium text-white">Browse products</div>
                     <SfButton
                       square
                       variant="tertiary"
                       aria-label="Close navigation menu"
-                      class="text-white"
+                      class="text-white ml-2"
                       @click="close()"
                       @keydown.enter.space="close()"
                     >
@@ -152,7 +155,9 @@
             <template #prefix>
               <Component :is="actionItem.icon" />
             </template>
-            <span v-if="actionItem.role === 'login'" class="hidden lg:inline-flex">{{ actionItem.label }}</span>
+            <span v-if="actionItem.role === 'login'" class="hidden lg:inline-flex whitespace-nowrap pr-2">{{
+              actionItem.label
+            }}</span>
           </SfButton>
         </nav>
       </div>

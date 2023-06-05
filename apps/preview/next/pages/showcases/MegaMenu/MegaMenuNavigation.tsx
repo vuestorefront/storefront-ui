@@ -468,7 +468,7 @@ export default function MegaMenuNavigation() {
           </div>
           <form
             role="search"
-            className="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 ml-2 md:ml-10 pb-2 md:pb-0"
+            className="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
             onSubmit={search}
           >
             <SfInput
@@ -505,7 +505,7 @@ export default function MegaMenuNavigation() {
                 square
               >
                 {actionItem.role === 'login' && (
-                  <p className="hidden lg:inline-flex whitespace-nowrap">{actionItem.label}</p>
+                  <p className="hidden lg:inline-flex whitespace-nowrap mr-2">{actionItem.label}</p>
                 )}
               </SfButton>
             ))}
@@ -597,7 +597,7 @@ export default function MegaMenuNavigation() {
               open={isOpen}
               onClose={close}
               placement="left"
-              className="md:hidden bg-white w-[320px] overflow-y-auto"
+              className="md:hidden mr-[50px] bg-white max-w-[376px] overflow-y-auto"
             >
               <nav>
                 <div className="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">

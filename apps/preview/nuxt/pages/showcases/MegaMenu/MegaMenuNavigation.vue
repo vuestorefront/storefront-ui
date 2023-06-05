@@ -65,7 +65,9 @@
             <template #prefix>
               <Component :is="actionItem.icon" />
             </template>
-            <p v-if="actionItem.role === 'login'" class="hidden lg:inline-flex">{{ actionItem.label }}</p>
+            <p v-if="actionItem.role === 'login'" class="hidden lg:inline-flex whitespace-nowrap mr-2">
+              {{ actionItem.label }}
+            </p>
           </SfButton>
         </nav>
       </div>

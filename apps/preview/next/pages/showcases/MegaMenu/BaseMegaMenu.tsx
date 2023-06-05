@@ -189,7 +189,7 @@ export default function BaseMegaMenu() {
             onClick={toggle}
             square
           >
-            <span className="hidden md:inline-flex  whitespace-nowrap">Browse products</span>
+            <span className="hidden md:inline-flex whitespace-nowrap px-2">Browse products</span>
             <SfIconMenu className="md:hidden text-white" />
           </SfButton>
           <nav>
@@ -210,16 +210,16 @@ export default function BaseMegaMenu() {
                     open
                     disableClickAway
                     placement="top"
-                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-sm shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-20 md:max-w-full md:p-6 mr-[50px] md:mr-0"
+                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-20 max-w-[376px] md:max-w-full md:p-6 mr-[50px] md:mr-0"
                   >
-                    <div className="flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
+                    <div className="sticky top-0 flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
                       <div className="flex items-center font-medium text-white typography-text-lg">Browse products</div>
                       <SfButton
                         square
                         variant="tertiary"
                         aria-label="Close navigation menu"
                         onClick={close}
-                        className="text-white"
+                        className="text-white ml-2"
                       >
                         <SfIconClose />
                       </SfButton>
@@ -308,9 +308,10 @@ export default function BaseMegaMenu() {
                   aria-label={actionItem.ariaLabel}
                   variant="tertiary"
                   slotPrefix={actionItem.icon}
+                  square
                 >
                   {actionItem.role === 'login' && (
-                    <p className="hidden lg:inline-flex whitespace-nowrap">{actionItem.label}</p>
+                    <p className="hidden lg:inline-flex whitespace-nowrap pr-2">{actionItem.label}</p>
                   )}
                 </SfButton>
               ))}
