@@ -98,10 +98,11 @@
   </p>
   <p class="text-xs mt-0.5 text-neutral-500">Help text</p>
   <p class="mt-2 text-neutral-500 typography-text-sm">*Required</p>
-  <div v-if="!isOpen" class="mt-40">
+  <div v-if="!isOpen" class="mt-4">
     <label class="flex items-center">
       <SfSwitch :checked="isDisabled" value="disabled" @change="isDisabled = !isDisabled" />
-      <span class="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Disabled/Enabled</span>
+      <span v-if="isDisabled" class="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Disabled</span>
+      <span v-else class="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Enabled</span>
     </label>
   </div>
 </template>

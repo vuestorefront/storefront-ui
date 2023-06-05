@@ -15,7 +15,7 @@ It allows users to speed up selecting by searching from limited number of option
 
 The Combobox supports the use of the keyboard. The focus move from input field into the dropdown list and inside it is provided by arrow up/down keys. On escape key press you can go back to the input field, but when pressed inside input field it resets its content. 
 
-## Basic search
+## Combobox search
 
 The Basic Combobox block shows how to select one of the country's names from the list by clicking on the dropdown or selecting from the keyboard. 
 
