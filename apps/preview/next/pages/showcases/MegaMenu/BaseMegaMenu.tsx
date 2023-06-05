@@ -168,7 +168,7 @@ export default function BaseMegaMenu() {
           <a
             href="#"
             aria-label="SF Homepage"
-            className="flex shrink-0 mr-2 md:order-first text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            className="flex shrink-0 ml-4 md:ml-0 mr-2 md:order-first text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
               <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -187,6 +187,7 @@ export default function BaseMegaMenu() {
             slotSuffix={<SfIconExpandMore className="hidden md:inline-flex" />}
             variant="tertiary"
             onClick={toggle}
+            square
           >
             <span className="hidden md:inline-flex  whitespace-nowrap">Browse products</span>
             <SfIconMenu className="md:hidden text-white" />
@@ -209,7 +210,7 @@ export default function BaseMegaMenu() {
                     open
                     disableClickAway
                     placement="top"
-                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-20 md:max-w-full md:p-6"
+                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-sm shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-20 md:max-w-full md:p-6 mr-[50px] md:mr-0"
                   >
                     <div className="flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
                       <div className="flex items-center font-medium text-white typography-text-lg">Browse products</div>
