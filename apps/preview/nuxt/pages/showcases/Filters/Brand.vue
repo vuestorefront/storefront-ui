@@ -1,5 +1,11 @@
 <template>
   <SfAccordionItem v-model="open" class="w-full md:max-w-[376px]">
+    <template #summary>
+      <div class="flex justify-between p-2 mb-2">
+        <p class="font-medium">Brand</p>
+        <SfIconChevronLeft :class="['text-neutral-500', open ? 'rotate-90' : '-rotate-90']" />
+      </div>
+    </template>
     <SfListItem
       v-for="{ id, value, label, counter } in details"
       :key="id"
@@ -21,7 +27,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SfAccordionItem, SfCheckbox, SfCounter, SfListItem } from '@storefront-ui/vue';
+import { SfAccordionItem, SfCheckbox, SfCounter, SfIconChevronLeft, SfListItem } from '@storefront-ui/vue';
 
 const open = ref(true);
 const selectedFilters = ref<string[]>([]);
