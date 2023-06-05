@@ -16,18 +16,18 @@ import classNames from 'classnames';
 
 export function DisableSwitch({
   disabled,
-  setDisabledState,
+  onChangeHandler,
   className,
 }: {
   disabled: boolean;
-  setDisabledState: (disabled: boolean) => void;
+  onChangeHandler: () => void;
   className: string;
 }) {
   return (
     <div className={classNames(['mt-4', className])}>
       {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
       <label className="flex items-center">
-        <SfSwitch checked={disabled} value="disabled" onChange={() => setDisabledState((disabled) => !disabled)} />
+        <SfSwitch checked={disabled} value="disabled" onChange={onChangeHandler} />
         <span className="text-base ml-[10px] text-gray-900 cursor-pointer font-body">
           {disabled ? 'Disabled' : 'Enabled'}
         </span>
@@ -214,6 +214,10 @@ export default function ComboboxBasic() {
     }
   }, [searchValue]);
 
+  const onDisabledChangeHandler = () => {
+    setIsDisabled((disabled) => !disabled);
+  };
+
   return (
     <>
       <div ref={refs.setReference} className="relative">
@@ -318,7 +322,7 @@ export default function ComboboxBasic() {
       <p className="mt-2 text-neutral-500 typography-text-sm">*Required</p>
       <DisableSwitch
         className={classNames({ hidden: isOpen })}
-        setDisabledState={setIsDisabled}
+        onChangeHandler={onDisabledChangeHandler}
         disabled={isDisabled}
       />
     </>
