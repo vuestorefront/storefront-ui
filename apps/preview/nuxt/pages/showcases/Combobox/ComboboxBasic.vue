@@ -101,7 +101,8 @@
   <div v-if="!isOpen" class="mt-4">
     <label class="flex items-center">
       <SfSwitch :checked="isDisabled" value="disabled" @change="isDisabled = !isDisabled" />
-      <span class="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Enabled/Disabled</span>
+      <span v-if="isDisabled" class="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Disabled</span>
+      <span v-else class="text-base ml-[10px] text-gray-900 cursor-pointer font-body">Enabled</span>
     </label>
   </div>
 </template>
