@@ -455,7 +455,7 @@ export default function FormFields() {
               id="phone-number"
               placeholder="eg. 123 456 7890"
               wrapperClassName="md:flex-grow mt-4 md:mt-0"
-              className='placeholder:text-neutral-500'
+              className="placeholder:text-neutral-500"
               onInput={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
               onBlur={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
               onChange={(event) => setPhoneNumber(event.target.value)}
