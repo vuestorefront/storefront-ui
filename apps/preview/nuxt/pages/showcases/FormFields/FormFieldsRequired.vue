@@ -25,9 +25,9 @@
           v-model="emailModelValue"
           type="email"
           :invalid="emailIsInvalid"
+          :required="true"
           @input="emailModelValue ? (emailIsInvalid = false) : (emailIsInvalid = true)"
           @blur="emailModelValue ? (emailIsInvalid = false) : (emailIsInvalid = true)"
-          :required="true"
         >
           <template #prefix>
             <SfIconEmail />
@@ -68,16 +68,16 @@
         </span>
         <span class="mt-4 md:mt-0 grow">
           <SfInput
+            id="phone-number"
             v-model="phoneNumberModelValue"
             type="tel"
             :required="true"
             :invalid="phoneNumberIsInvalid"
-            @input="phoneNumberModelValue ? (phoneNumberIsInvalid = false) : (phoneNumberIsInvalid = true)"
-            @blur="phoneNumberModelValue ? (phoneNumberIsInvalid = false) : (phoneNumberIsInvalid = true)"
-            id="phone-number"
             placeholder="eg. 123 456 7890"
             wrapper-class="w-full"
             class="placeholder:text-neutral-500"
+            @input="phoneNumberModelValue ? (phoneNumberIsInvalid = false) : (phoneNumberIsInvalid = true)"
+            @blur="phoneNumberModelValue ? (phoneNumberIsInvalid = false) : (phoneNumberIsInvalid = true)"
           />
           <p v-if="phoneNumberIsInvalid" class="mt-0.5 text-negative-700 typography-text-sm font-medium">
             The field cannot be empty
