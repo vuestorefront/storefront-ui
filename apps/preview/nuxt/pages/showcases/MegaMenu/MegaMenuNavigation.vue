@@ -144,11 +144,11 @@
 
       <!-- Mobile drawer -->
       <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50" />
-      <SfDrawer ref="drawerRef" v-model="isOpen" placement="left" class="md:hidden bg-white w-[320px] overflow-y-auto">
+      <SfDrawer ref="drawerRef" v-model="isOpen" placement="left" class="md:hidden right-[50px] max-w-[376px] bg-white overflow-y-auto">
         <nav>
           <div class="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">
             <p class="typography-text-base font-medium">Browse products</p>
-            <SfButton variant="tertiary" square aria-label="Close menu" class="-m-2" @click="close()">
+            <SfButton variant="tertiary" square aria-label="Close menu" class="ml-2" @click="close()">
               <SfIconClose class="text-neutral-500" />
             </SfButton>
           </div>

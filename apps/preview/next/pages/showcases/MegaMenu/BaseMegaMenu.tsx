@@ -210,7 +210,7 @@ export default function BaseMegaMenu() {
                     open
                     disableClickAway
                     placement="top"
-                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-20 max-w-[376px] md:max-w-full md:p-6 mr-[50px] md:mr-0"
+                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white shadow-lg p-0 max-h-screen overflow-y-auto md:!absolute md:!top-20 max-w-[376px] md:max-w-full md:p-6 mr-[50px] md:mr-0"
                   >
                     <div className="sticky top-0 flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
                       <div className="flex items-center font-medium text-white typography-text-lg">Browse products</div>

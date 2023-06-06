@@ -597,12 +597,12 @@ export default function MegaMenuNavigation() {
               open={isOpen}
               onClose={close}
               placement="left"
-              className="md:hidden mr-[50px] bg-white max-w-[376px] overflow-y-auto"
+              className="md:hidden right-[50px] max-w-[376px] bg-white overflow-y-auto"
             >
               <nav>
                 <div className="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">
                   <p className="typography-text-base font-medium">Browse products</p>
-                  <SfButton onClick={close} variant="tertiary" square aria-label="Close menu" className="-m-2">
+                  <SfButton onClick={close} variant="tertiary" square aria-label="Close menu" className="ml-2">
                     <SfIconClose className="text-neutral-500" />
                   </SfButton>
                 </div>
