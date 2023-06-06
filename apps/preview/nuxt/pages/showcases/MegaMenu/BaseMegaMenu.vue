@@ -3,13 +3,24 @@
     <div v-if="isOpen" class="fixed w-screen h-screen inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
     <header
       ref="menuRef"
-      class="flex w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:h-20 md:z-10"
+      class="flex flex-wrap md:flex-nowrap w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:h-20 md:z-10"
     >
-      <div class="flex items-center flex-wrap md:flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+      <div class="flex items-center justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+        <SfButton
+          class="block md:hidden text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+          type="button"
+          :aria-haspopup="true"
+          :aria-expanded="isOpen"
+          variant="tertiary"
+          square
+          @click="toggle()"
+        >
+          <SfIconMenu class="text-white" />
+        </SfButton>
         <a
           href="#"
           aria-label="SF Homepage"
-          class="flex shrink-0 ml-4 md:ml-0 md:order-first text-white mr-auto md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          class="flex shrink-0 ml-4 md:ml-0 text-white mr-auto md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >
           <picture>
             <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -21,7 +32,7 @@
           </picture>
         </a>
         <SfButton
-          class="block order-first md:order-none text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+          class="hidden md:flex text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
           type="button"
           :aria-haspopup="true"
           :aria-expanded="isOpen"
@@ -33,7 +44,6 @@
             <SfIconExpandMore class="hidden md:inline-flex" />
           </template>
           <span class="hidden md:inline-flex whitespace-nowrap px-2">Browse products</span>
-          <SfIconMenu class="md:hidden text-white" />
         </SfButton>
         <nav>
           <ul>
@@ -117,7 +127,7 @@
         </nav>
         <form
           role="search"
-          class="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
+          class="hidden md:flex flex-[100%] mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
           @submit.prevent="search"
         >
           <SfInput
@@ -143,11 +153,11 @@
             </template>
           </SfInput>
         </form>
-        <nav class="flex flex-nowrap md:order-last justify-end items-center md:ml-10" aria-label="SF Navigation">
+        <nav class="flex flex-nowrap justify-end items-center md:ml-10 gap-x-1" aria-label="SF Navigation">
           <SfButton
             v-for="actionItem in actionItems"
             :key="actionItem.ariaLabel"
-            class="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            class="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
             :aria-label="actionItem.ariaLabel"
             variant="tertiary"
             square
@@ -161,6 +171,30 @@
           </SfButton>
         </nav>
       </div>
+      <form role="search" class="flex md:hidden flex-[100%] my-2 mx-4" @submit.prevent="search">
+        <SfInput
+          v-model="inputValue"
+          type="search"
+          class="[&::-webkit-search-cancel-button]:appearance-none"
+          placeholder="Search"
+          wrapper-class="flex-1 h-10 pr-0"
+          size="base"
+        >
+          <template #suffix>
+            <span class="flex items-center">
+              <SfButton
+                variant="tertiary"
+                square
+                aria-label="search"
+                type="submit"
+                class="rounded-l-none hover:bg-transparent active:bg-transparent"
+              >
+                <SfIconSearch />
+              </SfButton>
+            </span>
+          </template>
+        </SfInput>
+      </form>
     </header>
   </div>
 </template>

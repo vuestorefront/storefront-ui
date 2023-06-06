@@ -4,7 +4,7 @@
       <div
         class="flex justify-between items-center flex-wrap md:flex-nowrap px-4 md:px-10 py-2 md:py-5 w-full h-full border-0 bg-primary-700 border-neutral-200 md:h-20 md:z-10"
       >
-        <div class="flex">
+        <div class="flex items-center">
           <SfButton
             variant="tertiary"
             square
@@ -25,11 +25,7 @@
             </picture>
           </a>
         </div>
-        <form
-          role="search"
-          class="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
-          @submit.prevent="search"
-        >
+        <form role="search" class="hidden md:flex flex-[100%] ml-10" @submit.prevent="search">
           <SfInput
             v-model="inputValue"
             type="search"
@@ -53,12 +49,12 @@
             </template>
           </SfInput>
         </form>
-        <nav class="flex flex-nowrap md:order-last md:ml-10">
+        <nav class="flex flex-nowrap justify-end items-center md:ml-10 gap-x-1">
           <SfButton
             v-for="actionItem in actionItems"
             :key="actionItem.ariaLabel"
             :aria-label="actionItem.ariaLabel"
-            class="ml-2 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            class="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
             variant="tertiary"
             square
           >
@@ -70,6 +66,30 @@
             </p>
           </SfButton>
         </nav>
+        <form role="search" class="flex md:hidden flex-[100%] my-2" @submit.prevent="search">
+          <SfInput
+            v-model="inputValue"
+            type="search"
+            class="[&::-webkit-search-cancel-button]:appearance-none"
+            placeholder="Search"
+            wrapper-class="flex-1 h-10 pr-0"
+            size="base"
+          >
+            <template #suffix>
+              <span class="flex items-center">
+                <SfButton
+                  variant="tertiary"
+                  square
+                  aria-label="search"
+                  type="submit"
+                  class="rounded-l-none hover:bg-transparent active:bg-transparent"
+                >
+                  <SfIconSearch />
+                </SfButton>
+              </span>
+            </template>
+          </SfInput>
+        </form>
       </div>
       <!-- Desktop dropdown -->
       <nav ref="floatingRef">

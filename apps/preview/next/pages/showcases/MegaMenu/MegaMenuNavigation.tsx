@@ -443,9 +443,9 @@ export default function MegaMenuNavigation() {
 
   return (
     <div className="w-full h-full">
-      <header ref={refs.setReference} className="relative">
+      <header className="relative" ref={refs.setReference}>
         <div className="flex flex-wrap md:flex-nowrap justify-between items-center px-4 md:px-10 py-2 md:py-5 w-full border-0 bg-primary-700 border-neutral-200 h-full md:z-10">
-          <div className="flex">
+          <div className="flex items-center">
             <SfButton
               onClick={handleOpenMenu([])}
               variant="tertiary"
@@ -466,11 +466,7 @@ export default function MegaMenuNavigation() {
               </picture>
             </a>
           </div>
-          <form
-            role="search"
-            className="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
-            onSubmit={search}
-          >
+          <form role="search" className="hidden md:flex flex-[100%] ml-10" onSubmit={search}>
             <SfInput
               value={inputValue}
               type="search"
@@ -494,10 +490,10 @@ export default function MegaMenuNavigation() {
               onChange={(event) => setInputValue(event.target.value)}
             />
           </form>
-          <nav className="flex flex-nowrap md:order-last md:ml-4">
+          <nav className="flex flex-nowrap justify-end items-center md:ml-10 gap-x-1">
             {actionItems.map((actionItem) => (
               <SfButton
-                className="ml-2 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+                className="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                 key={actionItem.ariaLabel}
                 aria-label={actionItem.ariaLabel}
                 variant="tertiary"
@@ -510,6 +506,30 @@ export default function MegaMenuNavigation() {
               </SfButton>
             ))}
           </nav>
+          <form role="search" className="flex md:hidden flex-[100%] my-2" onSubmit={search}>
+            <SfInput
+              value={inputValue}
+              type="search"
+              className="[&::-webkit-search-cancel-button]:appearance-none"
+              placeholder="Search"
+              wrapperClassName="flex-1 h-10 pr-0"
+              size="base"
+              slotSuffix={
+                <span className="flex items-center">
+                  <SfButton
+                    variant="tertiary"
+                    square
+                    aria-label="search"
+                    type="submit"
+                    className="rounded-l-none hover:bg-transparent active:bg-transparent"
+                  >
+                    <SfIconSearch />
+                  </SfButton>
+                </span>
+              }
+              onChange={(event) => setInputValue(event.target.value)}
+            />
+          </form>
         </div>
         {/* Desktop dropdown */}
         <nav ref={refs.setFloating}>
@@ -638,7 +658,7 @@ export default function MegaMenuNavigation() {
                         <SfListItem size="lg" as="button" type="button" onClick={handleNext(node.key)}>
                           <div className="flex justify-between items-center">
                             <div className="flex items-center">
-                              <p className="text-left">{node.value.label}</p>
+                              <p className="text-left">{node.value.label}</p>{' '}
                               <SfCounter className="ml-2">{node.value.counter}</SfCounter>
                             </div>
                             <SfIconChevronRight className="text-neutral-500" />

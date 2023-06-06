@@ -162,13 +162,24 @@ export default function BaseMegaMenu() {
       {isOpen && <div className="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />}
       <header
         ref={menuRef}
-        className="flex justify-center w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:z-10"
+        className="flex flex-wrap md:flex-nowrap justify-center w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:z-10"
       >
-        <div className="flex items-center flex-wrap md:flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+        <div className="flex items-center justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+          <SfButton
+            className="block md:hidden text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            variant="tertiary"
+            onClick={toggle}
+            square
+          >
+            <SfIconMenu className=" text-white" />
+          </SfButton>
           <a
             href="#"
             aria-label="SF Homepage"
-            className="flex shrink-0 ml-4 md:ml-0 mr-2 md:order-first text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            className="flex shrink-0 ml-4 md:ml-0 mr-2 md:mr-10 text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
               <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -180,7 +191,7 @@ export default function BaseMegaMenu() {
             </picture>
           </a>
           <SfButton
-            className="block order-first md:order-none text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            className="hidden md:flex text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
             type="button"
             aria-haspopup="true"
             aria-expanded={isOpen}
@@ -190,7 +201,6 @@ export default function BaseMegaMenu() {
             square
           >
             <span className="hidden md:inline-flex whitespace-nowrap px-2">Browse products</span>
-            <SfIconMenu className="md:hidden text-white" />
           </SfButton>
           <nav>
             <ul>
@@ -271,11 +281,7 @@ export default function BaseMegaMenu() {
               </li>
             </ul>
           </nav>
-          <form
-            role="search"
-            className="flex flex-[100%] order-last md:order-3 mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
-            onSubmit={search}
-          >
+          <form role="search" className="hidden md:flex flex-[100%] ml-10" onSubmit={search}>
             <SfInput
               value={inputValue}
               type="search"
@@ -299,25 +305,47 @@ export default function BaseMegaMenu() {
               onChange={(event) => setInputValue(event.target.value)}
             />
           </form>
-          <nav className="flex-1 flex justify-end md:order-last md:ml-10" aria-label="SF Navigation">
-            <div className="flex flex-nowrap">
-              {actionItems.map((actionItem) => (
-                <SfButton
-                  className="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-                  key={actionItem.ariaLabel}
-                  aria-label={actionItem.ariaLabel}
-                  variant="tertiary"
-                  slotPrefix={actionItem.icon}
-                  square
-                >
-                  {actionItem.role === 'login' && (
-                    <p className="hidden lg:inline-flex whitespace-nowrap pr-2">{actionItem.label}</p>
-                  )}
-                </SfButton>
-              ))}
-            </div>
+          <nav className="flex-1 flex flex-nowrap justify-end items-center md:ml-10 gap-x-1" aria-label="SF Navigation">
+            {actionItems.map((actionItem) => (
+              <SfButton
+                className="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+                key={actionItem.ariaLabel}
+                aria-label={actionItem.ariaLabel}
+                variant="tertiary"
+                slotPrefix={actionItem.icon}
+                square
+              >
+                {actionItem.role === 'login' && (
+                  <p className="hidden lg:inline-flex whitespace-nowrap pr-2">{actionItem.label}</p>
+                )}
+              </SfButton>
+            ))}
           </nav>
         </div>
+        <form role="search" className="flex md:hidden flex-[100%] my-2 mx-4" onSubmit={search}>
+          <SfInput
+            value={inputValue}
+            type="search"
+            className="[&::-webkit-search-cancel-button]:appearance-none"
+            placeholder="Search"
+            wrapperClassName="flex-1 h-10 pr-0"
+            size="base"
+            slotSuffix={
+              <span className="flex items-center">
+                <SfButton
+                  variant="tertiary"
+                  square
+                  aria-label="search"
+                  type="submit"
+                  className="rounded-l-none hover:bg-transparent active:bg-transparent"
+                >
+                  <SfIconSearch />
+                </SfButton>
+              </span>
+            }
+            onChange={(event) => setInputValue(event.target.value)}
+          />
+        </form>
       </header>
     </div>
   );
