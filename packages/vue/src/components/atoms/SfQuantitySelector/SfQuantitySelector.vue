@@ -94,7 +94,7 @@ export default {
   },
   handleInput(qty, listeners, min, max) {
     // adjust qty per min/max if needed
-    const minimum = min || 1;
+    const minimum = min >= 0 ? min : 1;
     if (qty < minimum || isNaN(qty)) {
       qty = minimum;
     } else if (max !== null && qty > max) {
