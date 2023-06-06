@@ -171,7 +171,16 @@ export default {
       },
     },
   },
-  mounted() {
+  async mounted() {
+    // Fix lack of marker icons
+    const { Icon } = await import('leaflet');
+    delete Icon.Default.prototype._getIconUrl;
+    Icon.Default.mergeOptions({
+      iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+      iconUrl: require("leaflet/dist/images/marker-icon.png"),
+      shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+    });
+
     import("leaflet/dist/leaflet.css");
     import("vue2-leaflet").then(
       ({ LMap, LTileLayer, LMarker, LIcon, LControl, LControlZoom }) => {

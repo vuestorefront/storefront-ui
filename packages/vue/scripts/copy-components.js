@@ -4,7 +4,7 @@ const fse = require("fse");
 const path = require("path");
 const fs = require("fs");
 
-const srcPath = path.join(__dirname, "../src/");
+const srcPath = path.join(__dirname, "../src");
 const styleSrcPath = path.join(__dirname, "../../shared");
 const targetComponentsPath = path.join(
   __dirname,
@@ -14,35 +14,10 @@ const targetStylesPath = path.join(
   __dirname,
   "../../../../storefrontUI/styles"
 );
-const examplesPath = path.join(
-  __dirname,
-  "../../../../storefrontUI/components/examples"
-);
 const componentsPath = path.join(
   __dirname,
   "../../../../storefrontUI/components"
 );
-
-function removeDir(path) {
-  if (fs.existsSync(path)) {
-    const files = fs.readdirSync(path);
-
-    if (files.length > 0) {
-      files.forEach((filename) => {
-        if (fs.statSync(`${path}/${filename}`).isDirectory()) {
-          removeDir(`${path}/${filename}`);
-        } else {
-          fs.unlinkSync(`${path}/${filename}`);
-        }
-      });
-      fs.rmdirSync(path);
-    } else {
-      fs.rmdirSync(path);
-    }
-  } else {
-    console.log("Directory path not found.");
-  }
-}
 
 function removeFiles(names, path, flat) {
   const removeFilesFlat = () => {
@@ -135,10 +110,12 @@ function removeFiles(names, path, flat) {
 
   namesToRemove.forEach((filePath) => fs.unlinkSync(filePath));
 }
+fs.unlinkSync(`${srcPath}/components/templates/internalData.js`, (err) => {
+  if (err) throw err;
+});
 
 fse
   .copydir(srcPath, targetComponentsPath)
-  .then(() => removeDir(examplesPath))
   .then(() =>
     removeFiles(
       ["App.vue", "index.js", "main.js", "Playground.vue", "shims-vue.d.ts"],

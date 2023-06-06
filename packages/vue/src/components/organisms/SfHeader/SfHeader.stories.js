@@ -288,7 +288,7 @@ export default {
       description: "Header search placeholder",
     },
     searchValue: {
-      control: "number",
+      control: "text",
       table: {
         category: "Props for main component",
       },
@@ -304,7 +304,8 @@ export default {
         },
       },
       defaultValue: 0,
-      description: "Header cart items quantity",
+      description:
+        "*This prop is passed to slot and changing this prop won't be visible in storybook. Header cart items quantity. ",
     },
     wishlistItemsQty: {
       control: "number",
@@ -315,7 +316,8 @@ export default {
         },
       },
       defaultValue: 0,
-      description: "Header wishlist items quantity",
+      description:
+        "*This prop is passed to slot and changing this prop won't be visible in storybook. Header wishlist items quantity",
     },
     isSticky: {
       control: "boolean",
@@ -485,7 +487,6 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       navigationItems: ["women", "man", "kids"],
-      searchValues: "",
     };
   },
   methods: {
@@ -503,14 +504,12 @@ const Template = (args, { argTypes }) => ({
     :logoWidth="logoWidth"
     :active-icon="activeIcon"
     :search-placeholder="searchPlaceholder"
-    :search-value="searchValues"
+    :search-value="searchValue"
     :cart-icon="cartIcon"
     :wishlist-icon="wishlistIcon"
     :is-sticky="isSticky"
     :is-nav-visible="isNavVisible"
     :account-icon="accountIcon"
-    :cart-items-qty="cartItemsQty"
-    :wishlist-items-qty="wishlistItemsQty"
     @click:cart="this['click:cart']"
     @click:wishlist="this['click:wishlist']"
     @click:account="this['click:account']"
@@ -531,4 +530,5 @@ export const Common = Template.bind({});
 Common.args = {
   title: "Storefront UI",
   logo: "/assets/logo.svg",
+  searchValue: "",
 };
