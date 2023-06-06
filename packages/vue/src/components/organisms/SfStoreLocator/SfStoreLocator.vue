@@ -69,13 +69,6 @@ import { focus } from "../../../utilities/directives";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfLoader from "../../atoms/SfLoader/SfLoader.vue";
 import SfStore from "./_internal/SfStore.vue";
-import { Icon } from "leaflet";
-delete Icon.Default.prototype._getIconUrl;
-Icon.Default.mergeOptions({
-  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
-});
 
 Vue.component("SfStore", SfStore);
 export default {
@@ -178,7 +171,16 @@ export default {
       },
     },
   },
-  mounted() {
+  async mounted() {
+    // Fix lack of marker icons
+    const { Icon } = await import('leaflet');
+    delete Icon.Default.prototype._getIconUrl;
+    Icon.Default.mergeOptions({
+      iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
+      iconUrl: require("leaflet/dist/images/marker-icon.png"),
+      shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+    });
+
     import("leaflet/dist/leaflet.css");
     import("vue2-leaflet").then(
       ({ LMap, LTileLayer, LMarker, LIcon, LControl, LControlZoom }) => {
