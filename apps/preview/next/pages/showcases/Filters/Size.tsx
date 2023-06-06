@@ -19,7 +19,7 @@ const chipSizes = [
   { id: 's12', label: '12', value: '12', isAvailable: true },
 ];
 
-export default function FilterSizes() {
+export default function SizeFilter() {
   const [selectedSizes, setSelectedSizes] = useState<string[]>([]);
   const [opened, setOpened] = useState(true);
   const handleSizeSelection = (val: string) => {
@@ -33,19 +33,21 @@ export default function FilterSizes() {
     <SfAccordionItem
       open={opened}
       onToggle={() => setOpened(!opened)}
+      className="w-full md:max-w-[376px]"
       summary={
         <div className="flex justify-between p-2 mb-2">
-          <p className="font-medium">Sizes</p>
+          <p className="font-medium">Size</p>
           <SfIconChevronLeft className={classNames('text-neutral-500', `${opened ? 'rotate-90' : '-rotate-90'}`)} />
         </div>
       }
     >
-      <ul className="flex flex-wrap gap-4 px-1.5">
+      <ul className="grid grid-cols-5 gap-2">
         {chipSizes.map(({ id, label, value, isAvailable }) => (
           <li>
             <SfChip
               key={id}
               size="sm"
+              className="w-full"
               inputProps={{ value, disabled: !isAvailable, onChange: () => handleSizeSelection(value) }}
             >
               {label}
@@ -58,4 +60,4 @@ export default function FilterSizes() {
 }
 
 // #endregion source
-FilterSizes.getLayout = ShowcasePageLayout;
+SizeFilter.getLayout = ShowcasePageLayout;

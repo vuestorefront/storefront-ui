@@ -12,9 +12,9 @@ const options = [
   { label: 'Bestsellers', value: 'bestsellers' },
 ];
 
-export default function SortByFilter() {
+export default function SortingFilter() {
   return (
-    <>
+    <div className="w-full md:max-w-[376px]">
       <h6 className="bg-neutral-100 mb-4 px-4 py-2 rounded uppercase typography-headline-6 font-bold tracking-widest">
         Sort by
       </h6>
@@ -27,9 +27,9 @@ export default function SortByFilter() {
           ))}
         </SfSelect>
       </div>
-    </>
+    </div>
   );
 }
 
 // #endregion source
-SortByFilter.getLayout = ShowcasePageLayout;
+SortingFilter.getLayout = ShowcasePageLayout;

@@ -43,15 +43,16 @@ const categories = [
     link: '#',
   },
 ];
-export default function CategoryList() {
+export default function CategoryFilter() {
   const [opened, setOpened] = useState(true);
   return (
     <SfAccordionItem
       open={opened}
       onToggle={() => setOpened(!opened)}
+      className="w-full md:max-w-[376px]"
       summary={
         <div className="flex justify-between p-2 mb-2">
-          <p className="font-medium">Categories</p>
+          <p className="font-medium">Category</p>
           <SfIconChevronLeft className={classNames('text-neutral-500', `${opened ? 'rotate-90' : '-rotate-90'}`)} />
         </div>
       }
@@ -89,4 +90,4 @@ export default function CategoryList() {
 }
 
 // #endregion source
-CategoryList.getLayout = ShowcasePageLayout;
+CategoryFilter.getLayout = ShowcasePageLayout;

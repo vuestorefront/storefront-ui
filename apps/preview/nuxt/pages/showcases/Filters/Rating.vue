@@ -1,5 +1,5 @@
 <template>
-  <SfAccordionItem v-model="isOpen">
+  <SfAccordionItem v-model="isOpen" class="w-full md:max-w-[376px]">
     <template #summary>
       <div class="flex justify-between p-2 mb-2">
         <p class="font-medium">Rating</p>
@@ -17,6 +17,7 @@
         <template #prefix>
           <SfRadio
             v-model="ratingsModel"
+            class="flex items-center"
             :checked="ratingsModel === value"
             :name="ratingsModel"
             :value="value"

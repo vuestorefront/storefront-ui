@@ -141,8 +141,8 @@
                 </div>
               </SfListItem>
             </li>
-            <template v-for="node in activeMenu.children">
-              <li v-if="node.isLeaf" :key="node.value.label">
+            <template v-for="node in activeMenu.children" :key="node.value.label">
+              <li v-if="node.isLeaf">
                 <SfListItem size="lg" tag="a" :href="node.value.link" class="first-of-type:mt-2">
                   <div class="flex items-center">
                     <p class="text-left">{{ node.value.label }}</p>
@@ -150,7 +150,7 @@
                   </div>
                 </SfListItem>
               </li>
-              <li v-else :key="node.key">
+              <li v-else>
                 <SfListItem size="lg" tag="button" type="button" @click="goNext(node.key)">
                   <div class="flex justify-between items-center">
                     <div class="flex items-center">
