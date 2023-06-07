@@ -406,7 +406,7 @@ export default function FiltersSidepanel() {
                     key={id}
                     as="label"
                     size="sm"
-                    className={classNames('!items-start py-4 md:py-1 bg-transparent hover:bg-transparent', {
+                    className={classNames('!items-center py-4 md:py-1 bg-transparent hover:bg-transparent', {
                       'font-medium': value === rating,
                     })}
                     slotPrefix={
@@ -420,9 +420,9 @@ export default function FiltersSidepanel() {
                     }
                   >
                     {/* TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem */}
-                    <div className="flex flex-wrap items-end">
-                      <SfRating value={Number(value)} max={5} size="sm" />
-                      <span className="mx-2 text-sm">{label}</span>
+                    <div className="flex flex-wrap items-center">
+                      <SfRating className="-mt-px" value={Number(value)} max={5} size="sm" />
+                      <span className="mx-2 text-base md:text-sm">{label}</span>
                       <SfCounter size="sm">{counter}</SfCounter>
                     </div>
                   </SfListItem>

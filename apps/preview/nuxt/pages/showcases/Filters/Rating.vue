@@ -12,7 +12,7 @@
         :key="id"
         tag="label"
         size="sm"
-        class="!items-start py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent"
+        class="!items-center py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent"
       >
         <template #prefix>
           <SfRadio
@@ -25,9 +25,9 @@
           />
         </template>
         <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->
-        <div class="flex flex-wrap items-end">
-          <SfRating :value="Number(value)" :max="5" size="sm" />
-          <span :class="['mx-2 text-sm', { 'font-medium': ratingsModel === value }]">{{ label }}</span>
+        <div class="flex flex-wrap items-center">
+          <SfRating class="-mt-px" :value="Number(value)" :max="5" size="sm" />
+          <span :class="['mx-2 text-base md:text-sm', { 'font-medium': ratingsModel === value }]">{{ label }}</span>
           <SfCounter size="sm">{{ counter }}</SfCounter>
         </div>
       </SfListItem>
