@@ -1,3 +1,46 @@
+# 2.3.0 (2023-06-07)
+
+## Overview
+
+This release introduces SfBadge alongside new blocks and improvements.
+
+## Features
+
+### Blocks Vue.js and React.js
+
+- Filters: Category, Rating, Price and Brand blocks
+- Combobox
+- Search: with custom button and with custom icon button
+- Gallery: with arrow keys navigation 
+  
+### Components Vue.js and React.js
+
+- SfBadge
+- 
+## Improvements
+
+- docs: possibility to turn off padding in example iframe 
+- chore: introduced changesets and continuos development pipeline 
+- useScrollable: add missing methods, remove prop getter and add containerRef  
+- chore: ESLint speed improvement
+- uploading assets to the cloud allowing for code to be use-ready after copying 
+- docs: add figma redirect link to latest version
+- chore: create nuxt module 
+
+## Bug fixes
+
+- SfInput: replace div element with dynamic WrapperTag, remove spans around slots, styling issues
+- Pagination: on mobile, buttons width based on container width, gap above prev/next buttons on Vue 
+- Breadcrumbs: replace anchor from last item to span 
+- SfButton: ring border fixed
+- Filters: checkbox and radio components selecting, styling issues
+- Card Feature: styling issues
+- Icons: visibility on the list 
+- docs: changing size of example preview on mobile
+- docs: add missing useTrapFocus description and adding tailwind section 
+- docs: redirect nginx app to .html suffix and v2 domain url fix
+- blocks: all dummy links changed to # 
+
 # 2.2.1 (2023-05-24)
 
 ## Overview
