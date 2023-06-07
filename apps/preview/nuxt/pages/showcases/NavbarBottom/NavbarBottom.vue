@@ -19,7 +19,7 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue';
-import { SfButton, SfIconHome, SfIconMenu, SfIconSearch, SfIconShoppingCart, SfIconFavorite } from '@storefront-ui/vue';
+import { SfButton, SfIconHome, SfIconMenu, SfIconShoppingCart, SfIconFavorite, SfIconPerson } from '@storefront-ui/vue';
 
 const items = [
   {
@@ -31,16 +31,16 @@ const items = [
     icon: SfIconMenu,
   },
   {
-    label: 'Search',
-    icon: SfIconSearch,
-  },
-  {
     label: 'Cart',
     icon: SfIconShoppingCart,
   },
   {
-    label: 'Wishlist',
+    label: 'Watchlist',
     icon: SfIconFavorite,
+  },
+  {
+    label: 'Account',
+    icon: SfIconPerson,
   },
 ];
 const selectedItem = ref('');
