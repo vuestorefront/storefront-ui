@@ -41,7 +41,7 @@ export default function RatingFilter() {
             key={id}
             as="label"
             size="sm"
-            className={classNames('!items-start py-4 md:py-1 bg-transparent hover:bg-transparent')}
+            className={classNames('!items-center py-4 md:py-1 bg-transparent hover:bg-transparent')}
             slotPrefix={
               <SfRadio
                 value={value}
@@ -52,10 +52,10 @@ export default function RatingFilter() {
               />
             }
           >
-            <div className="flex flex-wrap items-end">
-              <SfRating value={Number(value)} max={5} size="sm" />
+            <div className="flex flex-wrap items-center">
+              <SfRating className="-mt-px" value={Number(value)} max={5} size="sm" />
               <span
-                className={classNames('mx-2 text-sm', {
+                className={classNames('mx-2 text-base md:text-sm', {
                   'font-medium': value === rating,
                 })}
               >
