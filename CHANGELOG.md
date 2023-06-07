@@ -2,7 +2,7 @@
 
 ## Overview
 
-This release introduces new components, blocks and improvements of existing blocks.
+This release introduces SfBadge alongside new blocks and improvements.
 
 ## Features
 
@@ -12,15 +12,17 @@ This release introduces new components, blocks and improvements of existing bloc
 - Combobox
 - Search: with custom button and with custom icon button
 - Gallery: with arrow keys navigation 
+  
 ### Components Vue.js and React.js
 
 - SfBadge
+- 
 ## Improvements
 
 - docs: possibility to turn off padding in example iframe 
-- chore: CI building process improved 
+- chore: introduced changesets and continuos development pipeline 
 - useScrollable: add missing methods, remove prop getter and add containerRef  
-- chore: EsLint speed improvement
+- chore: ESLint speed improvement
 - uploading assets to the cloud allowing for code to be use-ready after copying 
 - docs: add figma redirect link to latest version
 - chore: create nuxt module 
