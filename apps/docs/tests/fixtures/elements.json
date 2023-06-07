@@ -186,8 +186,8 @@
   },
   {
     "url": "/blocks/Breadcrumbs.html",
-    "name": "Breadcrumbs page ",
-    "className": "breadcrumbs-page"
+    "name": "Breadcrumbs",
+    "className": "breadcrumbs"
   },
   {
     "url": "/blocks/Card.html",
@@ -195,9 +195,10 @@
     "className": "card"
   },
   {
+ 
     "url": "/blocks/Checkout.html",
-    "name": "Checkout page ",
-    "className": "checkout-page"
+    "name": "Checkout",
+    "className": "checkout"
   },
   {
     "url": "/blocks/Filters.html",
@@ -208,6 +209,11 @@
     "url": "/blocks/Footer.html",
     "name": "Footer",
     "className": "footer"
+  },
+  {
+    "url": "/blocks/Gallery.html",
+    "name": "Gallery",
+    "className": "gallery"
   },
   {
     "url": "/blocks/MegaMenu.html",
@@ -255,9 +261,14 @@
     "className": "review"
   },
   {
-    "url": "/migration.html",
-    "name": "Migration Guide",
-    "className": "migration-guide"
+    "url": "/blocks/Search.html",
+    "name": "Search ",
+    "className": "search"
+  },
+  {
+    "url": "/blocks/SelectDropdown.html",
+    "name": "Select Dropdown ",
+    "className": "select-dropdown"
   },
   {
     "url": "/migration.html",
