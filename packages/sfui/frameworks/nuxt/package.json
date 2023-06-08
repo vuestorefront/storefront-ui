@@ -39,7 +39,7 @@
     "@storefront-ui/vue": "latest"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/module-builder": "^0.4.0",
     "@nuxt/schema": "^3.3.2",
     "nuxt": "^3.3.2"
   }
