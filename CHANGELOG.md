@@ -1,3 +1,9 @@
+# 2.3.1 (2023-06-08)
+
+## Bug fixes
+
+- fix package cross-dependencies that caused released package to fail
+
 # 2.3.0 (2023-06-07)
 
 ## Overview
