@@ -1,4 +1,4 @@
-name: Create changelog
+name: Create changelog changesets
 on:
   pull_request:
     types:
@@ -27,16 +27,15 @@ jobs:
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
-          body-includes: "!exit-rc"
-          direction: "last"
-      - name: Enter pre-release changelog if !exit-rc comment does not exists
-        if: ${{ steps.fc.outputs.comment-id }}
+          body-includes: "!prod-ready"
+      - name: Enter pre-release changelog if !prod-ready comment does not exists
+        if: ${{ !steps.fc.outputs.comment-id }}
         run: yarn changeset pre enter rc
       - name: Create PR with changelog
-        id: changesets
+        if: ${{ always() }}
         uses: changesets/action@v1
         with:
-          commit: "[ci] - release"
+          commit: "[ci] - release [no ci]"
           title: "[ci] - release"
         env:
           # Needs access to publish to npm
