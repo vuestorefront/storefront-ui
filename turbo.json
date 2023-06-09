@@ -51,7 +51,7 @@
         "build:react",
         "build:vue",
         "build:tailwind-config",
-        "build:nuxt-module",
+        "^build:nuxt-module",
         "build:typography",
         "build:peer-next",
         "build:shared"
@@ -65,7 +65,11 @@
       "cache": false
     },
     "build:nuxt-module": {
-      "cache": false
+      "cache": false,
+      "dependsOn": [
+        "build:vue",
+        "build:tailwind-config"
+      ]
     },
     "build:peer-next": {
       "cache": false
