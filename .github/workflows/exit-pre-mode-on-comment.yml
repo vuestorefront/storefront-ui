@@ -1,18 +1,13 @@
-name: Exit pre-release
-
+name: Exit pre-release changesets
 on:
-  workflow_dispatch:
   issue_comment:
-    types: [created]
-
-defaults:
-  run:
-    shell: bash
+    types:
+      - created
 
 jobs:
   exit-pre-release:
-    name: Exit changesets pre-release mode when !exit-rc comment created
-    if: ${{ github.event.comment.body == '!exit-rc' && github.event.issue.pull_request }}
+    name: Exit changesets pre-release mode when !prod-ready comment created
+    if: ${{ github.event.comment.body == '!prod-ready' && github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -26,22 +21,22 @@ jobs:
         run: yarn --immutable
       - name: resolve pr refs
         id: refs
-        uses: eficode/resolve-pr-refs@main
+        uses: eficode/resolve-pr-refs@v0.0.4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/checkout@v3
         with:
           ref: ${{ steps.refs.outputs.head_ref }}
-      - name: set up env branch name var
+      - name: Set up env branch name var
         run: echo "BRANCH_NAME=$(echo $(git branch --show-current))" >> $GITHUB_ENV
-      - name: Exit pre release mode for changesets
+      - name: Exit pre-release mode for changesets
         if: ${{ startsWith( env.BRANCH_NAME, 'v2-release' ) }}
         run: yarn changeset pre exit
       - name: Create PR with changelog
         id: changesets
         uses: changesets/action@v1
         with:
-          commit: '[ci] - release'
+          commit: '[ci] - release [no ci]'
           title: '[ci] - release'
         env:
           # Needs access to publish to npm
