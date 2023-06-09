@@ -24,12 +24,6 @@ jobs:
           cache: "yarn"
       - name: Install dependencies
         run: yarn --immutable
-      - name: Check if user has write access
-        uses: lannonbr/repo-permission-check-action@2.0.0
-        with:
-          permission: "write"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: resolve pr refs
         id: refs
         uses: eficode/resolve-pr-refs@main
