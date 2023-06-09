@@ -33,7 +33,6 @@ jobs:
         if: ${{ startsWith( env.BRANCH_NAME, 'v2-release' ) }}
         run: yarn changeset pre exit
       - name: Create PR with changelog
-        id: changesets
         uses: changesets/action@v1
         with:
           commit: '[ci] - release [no ci]'
