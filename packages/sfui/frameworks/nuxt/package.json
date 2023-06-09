@@ -36,7 +36,7 @@
   "dependencies": {
     "@nuxt/kit": "^3.3.2",
     "@nuxtjs/tailwindcss": "^6.6.4",
-    "@storefront-ui/vue": "latest"
+    "@storefront-ui/vue": "workspace:*"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.2.1",
