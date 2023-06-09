@@ -200,6 +200,48 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_REACT }}
+  
+  visual-regression-react:
+    name: Run visual regression tests(React)
+    needs: [cache, lint, verify-collaborator]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Lost Pixel
+        uses: lost-pixel/lost-pixel@v3.4.0
+        with:
+          browser: chrome
+          working-directory: apps/test/react
+          component: true
+
+  visual-regression-vue:
+    name: Run visual regression tests(Vue)
+    needs: [cache, lint, verify-collaborator]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Lost Pixel
+        uses: lost-pixel/lost-pixel@v3.4.0
+        with:
+          browser: chrome
+          working-directory: apps/test/vue
+          component: true
 
   release-canary:
     name: Release canary package
