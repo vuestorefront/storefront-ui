@@ -219,6 +219,7 @@ jobs:
         uses: lost-pixel/lost-pixel@v3.4.0
         env:
           LOST_PIXEL_API_KEY: ${{ secrets.LOST_PIXEL_API_KEY }}
+          LOST_PIXEL_CONFIG_DIR: apps/test/react
 
   release-canary:
     name: Release canary package
