@@ -1,7 +1,6 @@
 export class IconVisiblePageObject {
     iconVisible(){
       return this.checkIconVisibilityInIframe;
-      return this;
     }
 
 
@@ -12,8 +11,9 @@ export class IconVisiblePageObject {
           const $body = $iframe.contents().find('body');
           cy.fixture<Record<string, string>[]>('iconTestId.json').then((elements) => {
             elements.forEach((element) => {
-          cy.wrap($body).find(`[data-testid="${element.testid}"]`).should('be.visible');
+               cy.wrap($body).find(`[data-testid="${element.testid}"]`).should('be.visible');
             });
         });
       });
-    };}
+    };
+ }
