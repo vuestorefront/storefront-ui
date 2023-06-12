@@ -1,0 +1,113 @@
+diff --git a/dist/assemble-release-plan.cjs.dev.js b/dist/assemble-release-plan.cjs.dev.js
+index 3a37c62c975518f975c22e1b4b3974d9b325a5da..4aaad4630b4d3cf31738b105d8a1e42a428cee2c 100644
+--- a/dist/assemble-release-plan.cjs.dev.js
++++ b/dist/assemble-release-plan.cjs.dev.js
+@@ -430,7 +430,7 @@ function applyLinks(releases, packagesByName, linked) {
+ 
+ function getPreVersion(version) {
+   let parsed = semver.parse(version);
+-  let preVersion = parsed.prerelease[1] === undefined ? -1 : parsed.prerelease[1];
++  let preVersion = parsed?.prerelease[1] === undefined ? -1 : parsed.prerelease[1];
+ 
+   if (typeof preVersion !== "number") {
+     throw new errors.InternalError("preVersion is not a number");
+diff --git a/dist/assemble-release-plan.cjs.prod.js b/dist/assemble-release-plan.cjs.prod.js
+index 87b4c104bf3fa53ba498ced6f81eda0ed4c86436..7bc909df1e80b006d72e92c593f3ec39105034d1 100644
+--- a/dist/assemble-release-plan.cjs.prod.js
++++ b/dist/assemble-release-plan.cjs.prod.js
+@@ -89,7 +89,7 @@ function determineDependents({releases: releases, packagesByName: packagesByName
+           "major" !== type && "minor" !== type && "patch" !== type && (type = "none");
+         }
+       }
+-      return releases.has(dependent) && releases.get(dependent).type === type && (type = void 0), 
++      return releases.has(dependent) && releases.get(dependent).type === type && (type = void 0),
+       {
+         name: dependent,
+         type: type,
+@@ -98,7 +98,7 @@ function determineDependents({releases: releases, packagesByName: packagesByName
+     })).filter((dependentItem => !!dependentItem.type)).forEach((({name: name, type: type, pkgJSON: pkgJSON}) => {
+       updated = !0;
+       const existing = releases.get(name);
+-      if (existing && "major" === type && "major" !== existing.type) existing.type = "major", 
++      if (existing && "major" === type && "major" !== existing.type) existing.type = "major",
+       pkgsToSearch.push(existing); else {
+         let newDependent = {
+           name: name,
+@@ -139,7 +139,7 @@ function flattenReleases(changesets, packagesByName, ignoredPackages) {
+     changeset.releases.filter((({name: name}) => !ignoredPackages.includes(name))).forEach((({name: name, type: type}) => {
+       let release = releases.get(name), pkg = packagesByName.get(name);
+       if (!pkg) throw new Error(`"${changeset.id}" changeset mentions a release for a package "${name}" but such a package could not be found.`);
+-      release ? ("major" !== type && ("patch" !== release.type && "none" !== release.type || "minor" !== type && "patch" !== type) || (release.type = type), 
++      release ? ("major" !== type && ("patch" !== release.type && "none" !== release.type || "minor" !== type && "patch" !== type) || (release.type = type),
+       release.changesets.push(changeset.id)) : release = {
+         name: name,
+         type: type,
+@@ -171,7 +171,7 @@ function getCurrentHighestVersion(packageGroup, packagesByName) {
+   let highestVersion;
+   for (let pkgName of packageGroup) {
+     let pkg = packagesByName.get(pkgName);
+-    if (!pkg) throw console.error(`FATAL ERROR IN CHANGESETS! We were unable to version for package group: ${pkgName} in package group: ${packageGroup.toString()}`), 
++    if (!pkg) throw console.error(`FATAL ERROR IN CHANGESETS! We were unable to version for package group: ${pkgName} in package group: ${packageGroup.toString()}`),
+     new Error("fatal: could not resolve linked packages");
+     (void 0 === highestVersion || semver__default.default.gt(pkg.packageJson.version, highestVersion)) && (highestVersion = pkg.packageJson.version);
+   }
+@@ -187,8 +187,8 @@ function matchFixedConstraint(releases, packagesByName, config) {
+     for (let pkgName of fixedPackages) {
+       if (config.ignore.includes(pkgName)) continue;
+       let release = releases.get(pkgName);
+-      release ? (release.type !== highestReleaseType && (updated = !0, release.type = highestReleaseType), 
+-      release.oldVersion !== highestVersion && (updated = !0, release.oldVersion = highestVersion)) : (updated = !0, 
++      release ? (release.type !== highestReleaseType && (updated = !0, release.type = highestReleaseType),
++      release.oldVersion !== highestVersion && (updated = !0, release.oldVersion = highestVersion)) : (updated = !0,
+       releases.set(pkgName, {
+         name: pkgName,
+         type: highestReleaseType,
+@@ -206,15 +206,15 @@ function applyLinks(releases, packagesByName, linked) {
+     let releasingLinkedPackages = [ ...releases.values() ].filter((release => linkedPackages.includes(release.name) && "none" !== release.type));
+     if (0 === releasingLinkedPackages.length) continue;
+     let highestReleaseType = getHighestReleaseType(releasingLinkedPackages), highestVersion = getCurrentHighestVersion(linkedPackages, packagesByName);
+-    for (let linkedPackage of releasingLinkedPackages) linkedPackage.type !== highestReleaseType && (updated = !0, 
+-    linkedPackage.type = highestReleaseType), linkedPackage.oldVersion !== highestVersion && (updated = !0, 
++    for (let linkedPackage of releasingLinkedPackages) linkedPackage.type !== highestReleaseType && (updated = !0,
++    linkedPackage.type = highestReleaseType), linkedPackage.oldVersion !== highestVersion && (updated = !0,
+     linkedPackage.oldVersion = highestVersion);
+   }
+   return updated;
+ }
+ 
+ function getPreVersion(version) {
+-  let parsed = semver.parse(version), preVersion = void 0 === parsed.prerelease[1] ? -1 : parsed.prerelease[1];
++  let parsed = semver.parse(version), preVersion = void 0 === parsed?.prerelease[1] ? -1 : parsed.prerelease[1];
+   if ("number" != typeof preVersion) throw new errors.InternalError("preVersion is not a number");
+   return preVersion++, preVersion;
+ }
+diff --git a/dist/assemble-release-plan.esm.js b/dist/assemble-release-plan.esm.js
+index c29c008dd709f07cabcb07feff86012c35a01ce5..a0a8aa19b0fa11a0c9b1bf4996963a0ed0a41c91 100644
+--- a/dist/assemble-release-plan.esm.js
++++ b/dist/assemble-release-plan.esm.js
+@@ -422,7 +422,7 @@ function applyLinks(releases, packagesByName, linked) {
+ 
+ function getPreVersion(version) {
+   let parsed = parse(version);
+-  let preVersion = parsed.prerelease[1] === undefined ? -1 : parsed.prerelease[1];
++  let preVersion = parsed?.prerelease[1] === undefined ? -1 : parsed.prerelease[1];
+ 
+   if (typeof preVersion !== "number") {
+     throw new InternalError("preVersion is not a number");
+diff --git a/src/index.ts b/src/index.ts
+index 3ffb6fa772b78506bd7de7a4fcb41c004733b00d..e18f65bd7e4c062c6ba65a27ae6ae827ce7c92e6 100644
+--- a/src/index.ts
++++ b/src/index.ts
+@@ -21,10 +21,10 @@ type SnapshotReleaseParameters = {
+   commit?: string | undefined;
+ };
+ 
+-function getPreVersion(version: string) {
++function getPreVersion(version?: string) {
+   let parsed = semver.parse(version)!;
+   let preVersion =
+-    parsed.prerelease[1] === undefined ? -1 : parsed.prerelease[1];
++    parsed?.prerelease[1] === undefined ? -1 : parsed.prerelease[1];
+   if (typeof preVersion !== "number") {
+     throw new InternalError("preVersion is not a number");
+   }

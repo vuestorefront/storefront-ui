@@ -82,5 +82,8 @@
       "path": "cz-conventional-changelog",
       "disableScopeLowerCase": true
     }
+  },
+  "resolutions": {
+    "@changesets/assemble-release-plan@^5.2.3": "patch:@changesets/assemble-release-plan@npm%3A5.2.3#./.yarn/patches/@changesets-assemble-release-plan-npm-5.2.3-296454a28f.patch"
   }
 }
