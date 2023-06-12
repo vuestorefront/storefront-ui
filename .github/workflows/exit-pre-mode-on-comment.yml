@@ -1,4 +1,4 @@
-name: Exit pre-release changesets
+name: Exit changesets pre-release
 on:
   issue_comment:
     types:
@@ -15,8 +15,8 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: ".node-version"
-          cache: "yarn"
+          node-version-file: '.node-version'
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
       - name: resolve pr refs
