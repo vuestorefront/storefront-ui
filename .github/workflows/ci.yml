@@ -203,7 +203,7 @@ jobs:
 
   visual-regression-react:
     name: Run visual regression tests(React)
-    needs: [cache, lint, verify-collaborator]
+    needs: [cache, lint, verify-collaborator, cypress-react]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
