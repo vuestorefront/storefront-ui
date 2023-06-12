@@ -35,7 +35,7 @@ describe('SfCheckbox', () => {
   });
 
   it('initial state', () => {
-    initializeComponent({ invalid: true });
+    initializeComponent();
 
     page().makeSnapshot();
   });
@@ -45,8 +45,8 @@ describe('SfCheckbox', () => {
     after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
-
       page().isDisabled().makeSnapshot();
+      cy.screenshot();
     });
   });
 
