@@ -9,7 +9,7 @@ hideToc: true
 {{ $frontmatter.description }}
 
 ::: tip You can make the navbar items links
-Each item in the navbar is an [`SfButton`](../components/button) component. This means that you can make each item a link by using the `tag` prop. [Learn more about this usage in the component documentation.](../components/button#link-as-a-button)
+Each item in the navbar is an [`SfButton`](../components/button) component. This means that you can make each item a link by using the `tag` prop to make it an `a`, <!-- react -->`NextLink`<!-- end react --><!-- vue -->`NuxtLink`<!-- end vue -->, or any other element/component. [Learn more about this usage in the component documentation.](../components/button#link-as-a-button)
 
 ```html
 <SfButton tag="a" href="#">
