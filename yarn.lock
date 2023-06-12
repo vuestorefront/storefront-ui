@@ -1402,7 +1402,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/assemble-release-plan@npm:^5.2.3":
+"@changesets/assemble-release-plan@npm:5.2.3":
   version: 5.2.3
   resolution: "@changesets/assemble-release-plan@npm:5.2.3"
   dependencies:
@@ -1413,6 +1413,20 @@ __metadata:
     "@manypkg/get-packages": ^1.1.3
     semver: ^5.4.1
   checksum: 2c61894414736b12e9a26903d73c387b65f4caba398e280488b885f4d0f4bb307aaa6bae140dfd754c85de6557bd07645accda2af6b8794837ab43823ba6215c
+  languageName: node
+  linkType: hard
+
+"@changesets/assemble-release-plan@patch:@changesets/assemble-release-plan@npm%3A5.2.3#./.yarn/patches/@changesets-assemble-release-plan-npm-5.2.3-296454a28f.patch::locator=%40storefront-ui%2Fmonorepo%40workspace%3A.":
+  version: 5.2.3
+  resolution: "@changesets/assemble-release-plan@patch:@changesets/assemble-release-plan@npm%3A5.2.3#./.yarn/patches/@changesets-assemble-release-plan-npm-5.2.3-296454a28f.patch::version=5.2.3&hash=c3c931&locator=%40storefront-ui%2Fmonorepo%40workspace%3A."
+  dependencies:
+    "@babel/runtime": ^7.20.1
+    "@changesets/errors": ^0.1.4
+    "@changesets/get-dependents-graph": ^1.3.5
+    "@changesets/types": ^5.2.1
+    "@manypkg/get-packages": ^1.1.3
+    semver: ^5.4.1
+  checksum: a9c5d7e2f8c20d546fe4c4b1f9a4223882841bf84236cdf5fe1135c49205da1008e424eb6d0aa07ea12ea11e057acedc688585250cf03b51c1b9da194c33786a
   languageName: node
   linkType: hard
 
