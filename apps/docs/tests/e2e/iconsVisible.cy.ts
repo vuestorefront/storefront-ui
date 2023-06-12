@@ -8,10 +8,10 @@ describe('Icons visible', () => {
     iconVisible().checkIconVisibilityInIframe();
   });
 
-it('react icons check', () => { //waiting for react fix
-  cy.visit('/react/components/iconbase.html');
-  iconVisible().checkIconVisibilityInIframe();
-});
+  it('react icons check', () => { 
+    cy.visit('/react/components/iconbase.html');
+    iconVisible().checkIconVisibilityInIframe();
+  });
 });
 
 
