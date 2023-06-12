@@ -8,7 +8,7 @@ describe('Icons visible', () => {
     iconVisible().checkIconVisibilityInIframe();
   });
 
-it.skip('react icons check', () => { //waiting for react fix
+it('react icons check', () => { //waiting for react fix
   cy.visit('/react/components/iconbase.html');
   iconVisible().checkIconVisibilityInIframe();
 });
