@@ -222,7 +222,7 @@ jobs:
 
   release-canary:
     name: Release canary package
-    needs: [build, build-release, cypress-react, cypress-vue]
+    needs: [build, build-release, cypress-react, cypress-vue, visual-regression-react]
     if: ${{ github.ref == 'refs/heads/v2-develop' }}
     # Can't use 'configure-enviroment' because it fails on dev branch
     runs-on: ubuntu-latest
