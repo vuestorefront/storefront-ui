@@ -44,6 +44,7 @@
     "concurrently": "^7.6.0",
     "cpy-cli": "^4.2.0",
     "cypress": "^12.9.0",
+    "lost-pixel": "^3.4.1",
     "nyc": "^15.1.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
