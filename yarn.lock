@@ -3406,7 +3406,7 @@ __metadata:
     "@nuxt/module-builder": ^0.4.0
     "@nuxt/schema": ^3.3.2
     "@nuxtjs/tailwindcss": ^6.6.4
-    "@storefront-ui/vue": latest
+    "@storefront-ui/vue": "workspace:*"
     nuxt: ^3.3.2
   languageName: unknown
   linkType: soft
@@ -3544,13 +3544,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/shared@npm:2.2.1":
-  version: 2.2.1
-  resolution: "@storefront-ui/shared@npm:2.2.1"
-  checksum: 90c5f6275f353b72a797c2937849e9614b80ea733aa6b7bb14cf6556242ae51dbef0d75ec16d1e90c8f6b695d0d8bcb25b29dc5df6105bb543980280b72b5b11
-  languageName: node
-  linkType: hard
-
 "@storefront-ui/shared@workspace:*, @storefront-ui/shared@workspace:packages/sfui/shared":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/shared@workspace:packages/sfui/shared"
@@ -3562,16 +3555,6 @@ __metadata:
     vue-tsc: ^1.1.2
   languageName: unknown
   linkType: soft
-
-"@storefront-ui/tailwind-config@npm:2.2.1":
-  version: 2.2.1
-  resolution: "@storefront-ui/tailwind-config@npm:2.2.1"
-  dependencies:
-    "@mertasan/tailwindcss-variables": ^2.5.2
-    "@storefront-ui/tw-plugin-peer-next": 2.2.1
-  checksum: 86981791153feca154b2a5d8c3d6d479bdb67f42a98fd11fa48590974ee76026059af96828592cdcbb2fa41c67b013417e63b540ab18aee9200e33556bfb7bc3
-  languageName: node
-  linkType: hard
 
 "@storefront-ui/tailwind-config@workspace:*, @storefront-ui/tailwind-config@workspace:^, @storefront-ui/tailwind-config@workspace:packages/config/tailwind":
   version: 0.0.0-use.local
@@ -3604,15 +3587,6 @@ __metadata:
     prettier: ^2.8.8
   languageName: unknown
   linkType: soft
-
-"@storefront-ui/tw-plugin-peer-next@npm:2.2.1":
-  version: 2.2.1
-  resolution: "@storefront-ui/tw-plugin-peer-next@npm:2.2.1"
-  peerDependencies:
-    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
-  checksum: 6799aa26b1491aacb89ee8876614de35fbd578c32cc95a283254945f69ba21992b5ddb97a0de807df79814e2fa9088c38c6281eb6a1434cdcc3d9947ea1dd70c
-  languageName: node
-  linkType: hard
 
 "@storefront-ui/tw-plugin-peer-next@workspace:*, @storefront-ui/tw-plugin-peer-next@workspace:packages/sfui/tw-plugin-peer-next":
   version: 0.0.0-use.local
@@ -3682,22 +3656,6 @@ __metadata:
     vue-tsc: ^1.1.2
   languageName: unknown
   linkType: soft
-
-"@storefront-ui/vue@npm:latest":
-  version: 2.2.1
-  resolution: "@storefront-ui/vue@npm:2.2.1"
-  dependencies:
-    "@floating-ui/vue": ^0.2.1
-    "@storefront-ui/shared": 2.2.1
-    "@storefront-ui/tailwind-config": 2.2.1
-    "@vueuse/core": ^9.12.0
-    jw-paginate: ^1.0.4
-    tabbable: ^6.1.1
-  peerDependencies:
-    vue: ^3.2.47
-  checksum: 40ac3337829bcf81353dc299ac5fb191c0dfda288d61070afaf6b39a032bd8ae927a62778e60ef5f39f973d59e9587f8ec34c55468499422a5ae09b3004ff80b
-  languageName: node
-  linkType: hard
 
 "@storefront-ui/vue@workspace:*, @storefront-ui/vue@workspace:packages/sfui/frameworks/vue":
   version: 0.0.0-use.local
