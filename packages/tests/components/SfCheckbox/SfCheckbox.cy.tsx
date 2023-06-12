@@ -1,3 +1,4 @@
+/* eslint-disable cypress/assertion-before-screenshot */
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
