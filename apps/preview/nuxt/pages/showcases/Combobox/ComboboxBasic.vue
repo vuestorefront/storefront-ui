@@ -47,23 +47,23 @@
         ref="dropdownRef"
         role="listbox"
         aria-label="Country list"
-        class="max-h-80 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md overflow-y-auto"
+        class="max-h-80 px-1 -mx-1 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md overflow-y-auto"
       >
         <template v-if="snippets.length > 0">
-          <li v-for="option in snippets" :key="option">
+          <li v-for="option in snippets" :key="option.value">
             <SfListItem
-              :id="`${listId}-${option}`"
+              :id="`${listId}-${option.value}`"
               tag="button"
               type="button"
               class="flex justify-start"
-              :aria-selected="option === inputModel"
-              @click="selectOption(option)"
-              @keydown.enter.space.prevent="selectOption(option)"
+              :aria-selected="option.value === inputModel"
+              @click="selectOption(option.label)"
+              @keydown.enter.space.prevent="selectOption(option.label)"
               @keydown.esc="handleFocusInput"
             >
               <p class="text-left">
                 <span>
-                  {{ option }}
+                  {{ option.label }}
                 </span>
               </p>
             </SfListItem>
@@ -73,19 +73,19 @@
           <span>No options</span>
         </p>
         <template v-else>
-          <li v-for="option in countriesList" :key="option">
+          <li v-for="option in countriesList" :key="option.value">
             <SfListItem
-              :id="`${listId}-${option}`"
+              :id="`${listId}-${option.value}`"
               tag="button"
               type="button"
               class="flex justify-start"
-              :aria-selected="option === inputModel"
+              :aria-selected="option.value === inputModel"
               @click="selectOption(option.label)"
-              @keydown.enter.space.prevent="selectOption(option)"
+              @keydown.enter.space.prevent="selectOption(option.label)"
               @keydown.esc="handleFocusInput"
             >
               <p class="text-left">
-                <span>{{ option }}</span>
+                <span>{{ option.label }}</span>
               </p>
             </SfListItem>
           </li>
@@ -121,7 +121,6 @@ import {
   useTrapFocus,
   useId,
 } from '@storefront-ui/vue';
-import countriesList from 'http:///localhost:3100/@assets/countries.json';
 
 const inputModel = ref('');
 const inputRef = ref();
@@ -215,7 +214,7 @@ type SelectOption = {
   label: string;
   value: string;
 };
-const options: SelectOption[] = [
+const countriesList: SelectOption[] = [
   {
     label: 'Afghanistan',
     value: 'afghanistan',
@@ -287,7 +286,9 @@ const options: SelectOption[] = [
 ];
 // Just for presentation purposes. Replace mock request with the actual API call.
 const mockAutocompleteRequest = (phrase: string) => {
-  const results = countriesList.filter((option: string) => option.toLowerCase().startsWith(phrase.toLowerCase()));
+  const results = countriesList.filter((option: SelectOption) =>
+    option.value.toLowerCase().startsWith(phrase.toLowerCase()),
+  );
   return results;
 };
 </script>

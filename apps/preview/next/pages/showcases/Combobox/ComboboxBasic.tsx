@@ -13,7 +13,6 @@ import {
   SfSwitch,
 } from '@storefront-ui/react';
 import classNames from 'classnames';
-import countriesList from 'http://localhost:3100/@assets/countries.json';
 
 export function DisableSwitch({
   disabled,
@@ -37,152 +36,86 @@ export function DisableSwitch({
   );
 }
 
-// type SelectOption = {
-//   label: string;
-//   value: string;
-// };
+type SelectOption = {
+  label: string;
+  value: string;
+};
 
-// const options: SelectOption[] = [
-//   {
-//     label: 'Afghanistan',
-//     value: 'afghanistan',
-//   },
-//   {
-//     label: 'Albania',
-//     value: 'albania',
-//   },
-//   {
-//     label: 'Angola',
-//     value: 'angola',
-//   },
-//   {
-//     label: 'Bahamas',
-//     value: 'bahamas',
-//   },
-//   {
-//     label: 'Bangladesh',
-//     value: 'bangladesh',
-//   },
-//   {
-//     label: 'Canada',
-//     value: 'canada',
-//   },
-//   {
-//     label: 'Chile',
-//     value: 'chile',
-//   },
-//   {
-//     label: 'Czech Republic',
-//     value: 'czech Republic',
-//   },
-//   {
-//     label: 'Colombia',
-//     value: 'colombia',
-//   },
-//   {
-//     label: 'Congo',
-//     value: 'congo',
-//   },
-//   {
-//     label: 'Croatia',
-//     value: 'croatia',
-//   },
-//   {
-//     label: 'Cuba',
-//     value: 'cuba',
-//   },
-//   {
-//     label: 'Denmark',
-//     value: 'denmark',
-//   },
-//   {
-//     label: 'Dominica',
-//     value: 'dominica',
-//   },
-//   {
-//     label: 'Egypt',
-//     value: 'egypt',
-//   },
-//   {
-//     label: 'Ethiopia',
-//     value: 'ethiopia',
-//   },
-//   {
-//     label: 'Estonia',
-//     value: 'estonia',
-//   },
-//   {
-//     label: 'Afghanistan',
-//     value: 'afghanistan',
-//   },
-//   {
-//     label: 'Albania',
-//     value: 'albania',
-//   },
-//   {
-//     label: 'Angola',
-//     value: 'angola',
-//   },
-//   {
-//     label: 'Bahamas',
-//     value: 'bahamas',
-//   },
-//   {
-//     label: 'Bangladesh',
-//     value: 'bangladesh',
-//   },
-//   {
-//     label: 'Canada',
-//     value: 'canada',
-//   },
-//   {
-//     label: 'Chile',
-//     value: 'chile',
-//   },
-//   {
-//     label: 'Czech Republic',
-//     value: 'czech Republic',
-//   },
-//   {
-//     label: 'Colombia',
-//     value: 'colombia',
-//   },
-//   {
-//     label: 'Congo',
-//     value: 'congo',
-//   },
-//   {
-//     label: 'Croatia',
-//     value: 'croatia',
-//   },
-//   {
-//     label: 'Cuba',
-//     value: 'cuba',
-//   },
-//   {
-//     label: 'Denmark',
-//     value: 'denmark',
-//   },
-//   {
-//     label: 'Dominica',
-//     value: 'dominica',
-//   },
-//   {
-//     label: 'Egypt',
-//     value: 'egypt',
-//   },
-//   {
-//     label: 'Ethiopia',
-//     value: 'ethiopia',
-//   },
-//   {
-//     label: 'Estonia',
-//     value: 'estonia',
-//   },
-// ];
+const countriesList: SelectOption[] = [
+  {
+    label: 'Afghanistan',
+    value: 'afghanistan',
+  },
+  {
+    label: 'Albania',
+    value: 'albania',
+  },
+  {
+    label: 'Angola',
+    value: 'angola',
+  },
+  {
+    label: 'Bahamas',
+    value: 'bahamas',
+  },
+  {
+    label: 'Bangladesh',
+    value: 'bangladesh',
+  },
+  {
+    label: 'Canada',
+    value: 'canada',
+  },
+  {
+    label: 'Chile',
+    value: 'chile',
+  },
+  {
+    label: 'Czech Republic',
+    value: 'czech Republic',
+  },
+  {
+    label: 'Colombia',
+    value: 'colombia',
+  },
+  {
+    label: 'Congo',
+    value: 'congo',
+  },
+  {
+    label: 'Croatia',
+    value: 'croatia',
+  },
+  {
+    label: 'Cuba',
+    value: 'cuba',
+  },
+  {
+    label: 'Denmark',
+    value: 'denmark',
+  },
+  {
+    label: 'Dominica',
+    value: 'dominica',
+  },
+  {
+    label: 'Egypt',
+    value: 'egypt',
+  },
+  {
+    label: 'Ethiopia',
+    value: 'ethiopia',
+  },
+  {
+    label: 'Estonia',
+    value: 'estonia',
+  },
+];
 
 const mockAutocompleteRequest = (phrase: string) => {
-  const results = countriesList.filter((option: string) => option.toLowerCase().startsWith(phrase.toLowerCase()));
+  const results = countriesList.filter((option: SelectOption) =>
+    option.value.toLowerCase().startsWith(phrase.toLowerCase()),
+  );
   return results;
 };
 
@@ -193,7 +126,7 @@ export default function ComboboxBasic() {
   const [selectedValue, setSelectedValue] = useState<string>('');
   const [isValid, setIsValid] = useState<boolean | undefined>(undefined);
   const { isOpen, close, open, toggle } = useDisclosure();
-  const [snippets, setSnippets] = useState<string[]>([]);
+  const [snippets, setSnippets] = useState<{ label: string; value: string }[]>([]);
   const { refs, style } = useDropdown({ isOpen, onClose: close, placement: 'bottom-start', middleware: [offset(4)] });
   const [isDisabled, setIsDisabled] = useState(false);
   const id = useId();
@@ -254,14 +187,14 @@ export default function ComboboxBasic() {
     }
   };
 
-  const selectOption = (option: string) => {
-    setSearchValue(option);
-    setSelectedValue(option);
+  const selectOption = (option: SelectOption) => {
+    setSearchValue(option.label);
+    setSelectedValue(option.label);
     close();
     handleFocusInput();
   };
 
-  const handleOptionItemKeyDown = (event: KeyboardEvent<HTMLButtonElement>, option: string) => {
+  const handleOptionItemKeyDown = (event: KeyboardEvent<HTMLButtonElement>, option: SelectOption) => {
     if (event.key === 'Escape') {
       handleFocusInput();
     } else if (event.key === ' ' || event.key === 'Enter') selectOption(option);
@@ -338,22 +271,22 @@ export default function ComboboxBasic() {
               role="listbox"
               ref={dropdownRef}
               aria-label="Country list"
-              className="max-h-80 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md overflow-y-auto"
+              className="max-h-80 px-1 -mx-1 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md overflow-y-auto"
             >
               {(snippets.length > 0 &&
                 snippets.map((option) => (
-                  <li key={option}>
+                  <li key={`${listId}-${option.value}`}>
                     <SfListItem
-                      id={`${listId}-${option}`}
+                      id={`${listId}-${option.value}`}
                       as="button"
                       type="button"
                       onClick={() => selectOption(option)}
                       onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
-                      className="flex justify-start"
-                      aria-selected={option === selectedValue}
+                      className="flex justify-start !focus-visible:z-9999  "
+                      aria-selected={option.value === selectedValue}
                     >
                       <p className="text-left">
-                        <span>{option}</span>
+                        <span>{option.label}</span>
                       </p>
                     </SfListItem>
                   </li>
@@ -363,19 +296,19 @@ export default function ComboboxBasic() {
                     <span>No options</span>
                   </p>
                 )) ||
-                countriesList.map((option: string) => (
-                  <li key={option}>
+                countriesList.map((option) => (
+                  <li key={`${listId}-${option.value}`}>
                     <SfListItem
-                      id={`${listId}-${option}`}
+                      id={`${listId}-${option.value}`}
                       as="button"
                       type="button"
                       onClick={() => selectOption(option)}
                       onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
                       className="flex justify-start"
-                      aria-selected={option === selectedValue}
+                      aria-selected={option.value === selectedValue}
                     >
                       <p className="text-left">
-                        <span>{option}</span>
+                        <span>{option.label}</span>
                       </p>
                     </SfListItem>
                   </li>
