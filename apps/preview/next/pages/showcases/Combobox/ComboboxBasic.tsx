@@ -1,7 +1,7 @@
 /* eslint-disable no-promise-executor-return */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';
+import { type ChangeEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';
 import { offset } from '@floating-ui/react-dom';
 import {
   SfInput,
@@ -181,10 +181,8 @@ export function DisableSwitch({
 //   },
 // ];
 
-const countriesOptions = JSON.parse(countriesList);
-
 const mockAutocompleteRequest = (phrase: string) => {
-  const results = countriesOptions.filter((option: string) => option.toLowerCase().startsWith(phrase.toLowerCase()));
+  const results = countriesList.filter((option: string) => option.toLowerCase().startsWith(phrase.toLowerCase()));
   return results;
 };
 
@@ -266,7 +264,7 @@ export default function ComboboxBasic() {
   const handleOptionItemKeyDown = (event: KeyboardEvent<HTMLButtonElement>, option: string) => {
     if (event.key === 'Escape') {
       handleFocusInput();
-    } else if (event.key === ' ' || event.key === 'Enter') selectOption(event, option);
+    } else if (event.key === ' ' || event.key === 'Enter') selectOption(option);
   };
 
   useEffect(() => {
@@ -365,7 +363,7 @@ export default function ComboboxBasic() {
                     <span>No options</span>
                   </p>
                 )) ||
-                countriesOptions.map((option: string) => (
+                countriesList.map((option: string) => (
                   <li key={option}>
                     <SfListItem
                       id={`${listId}-${option}`}
