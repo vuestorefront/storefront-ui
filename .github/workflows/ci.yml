@@ -215,6 +215,8 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Build app
+        run: yarn build
       - name: Lost Pixel
         uses: lost-pixel/lost-pixel@next
         env:
