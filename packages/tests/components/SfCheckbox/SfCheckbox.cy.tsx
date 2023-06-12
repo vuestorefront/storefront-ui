@@ -1,3 +1,4 @@
+/* eslint-disable cypress/assertion-before-screenshot */
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { mount, useComponent } from '../../utils/mount';
@@ -35,7 +36,7 @@ describe('SfCheckbox', () => {
   });
 
   it('initial state', () => {
-    initializeComponent({ invalid: true });
+    initializeComponent();
 
     page().makeSnapshot();
   });
@@ -45,7 +46,7 @@ describe('SfCheckbox', () => {
     after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
-
+      cy.screenshot();
       page().isDisabled().makeSnapshot();
     });
   });
