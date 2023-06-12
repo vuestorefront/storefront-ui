@@ -1,0 +1,44 @@
+name: Exit changesets pre-release
+on:
+  issue_comment:
+    types:
+      - created
+
+jobs:
+  exit-pre-release:
+    name: Exit changesets pre-release mode when !prod-ready comment created
+    if: ${{ contains(github.event.comment.body, '!prod-ready') && github.event.issue.pull_request }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: resolve pr refs
+        id: refs
+        uses: eficode/resolve-pr-refs@v0.0.4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ steps.refs.outputs.head_ref }}
+      - name: Set up env branch name var
+        run: echo "BRANCH_NAME=$(echo $(git branch --show-current))" >> $GITHUB_ENV
+      - name: Exit pre-release mode for changesets
+        if: ${{ startsWith( env.BRANCH_NAME, 'v2-release' ) }}
+        run: yarn changeset pre exit
+      - name: Create PR with changelog
+        uses: changesets/action@v1
+        with:
+          commit: '[ci] - release [no ci]'
+          title: '[ci] - release'
+        env:
+          # Needs access to publish to npm
+          # refresh token before Saturday, May 25, 2024
+          NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
