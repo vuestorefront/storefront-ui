@@ -47,6 +47,7 @@ useTrapFocus(modalRef, {
 </script>
 
 <template>
+  adsad
   <component
     :is="tag || 'div'"
     v-if="modelValue"
