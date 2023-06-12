@@ -7,7 +7,7 @@ on:
 jobs:
   exit-pre-release:
     name: Exit changesets pre-release mode when !prod-ready comment created
-    if: ${{ github.event.comment.body == '!prod-ready' && github.event.issue.pull_request }}
+    if: ${{ contains(github.event.comment.body, '!prod-ready') && github.event.issue.pull_request }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
