@@ -4,6 +4,7 @@ on:
     branches:
       - v2
       - v2-develop
+      - !changeset-release/**
   pull_request:
     types:
       - opened
