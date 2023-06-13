@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
@@ -39,7 +40,6 @@ export default function TopNav() {
 
   const search = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // eslint-disable-next-line no-alert
     alert(`Successfully found 10 results for ${inputValue}`);
   };
 
