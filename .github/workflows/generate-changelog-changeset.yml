@@ -8,7 +8,6 @@ jobs:
   create-changelog:
     name: Create changelog
     runs-on: ubuntu-latest
-    # if: ${{ startsWith( github.head_ref, 'v2-release' ) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -19,17 +18,7 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Find Comment
-        uses: peter-evans/find-comment@v2
-        id: fc
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          body-includes: '!prod-ready'
-      - name: Enter pre-release changelog if !prod-ready comment does not exists
-        if: ${{ !steps.fc.outputs.comment-id }}
-        run: yarn changeset pre enter rc
       - name: Create PR with changelog
-        if: ${{ always() }}
         uses: changesets/action@v1
         with:
           commit: '[ci] - release [no ci]'
