@@ -1,6 +1,6 @@
 <template>
   <SfScrollable
-    class="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']"
+    class="items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
   >
     <div
       v-for="(_, index) in Array.from({ length: 20 })"

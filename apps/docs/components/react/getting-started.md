@@ -19,19 +19,23 @@ You can try out Storefront UI in your browser with our online playground.
 
 ## Next.js
 
+If you prefer video guides, we have a quick video that can help you set up Storefront UI in your Next.js project.
+
+<iframe src="https://www.youtube-nocookie.com/embed/6xOnCOXU8H4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded aspect-video relative mt-8 custom-block"></iframe>
+
 ### Create Your Next Project
 
 If you don't already have a Next app, you can use the `create-next-app` command from [Create Next App](https://nextjs.org/docs/api-reference/create-next-app) to get started.
 
 ```bash
 # npm
-npx create-next-app@latest --experimental-app
+npx create-next-app@latest
 
 # yarn
-yarn create next-app --experimental-app
+yarn create next-app
 
 # pnpm
-pnpm create next-app --experimental-app
+pnpm create next-app
 ```
 
 ### Install Tailwind and Storefront UI Dependencies
@@ -52,6 +56,23 @@ pnpm add @storefront-ui/react
 pnpm add -D tailwindcss postcss autoprefixer
 ```
 
+::: tip
+In Next.js 13 environments that are not using [App Router](https://beta.nextjs.org/docs/api-reference/next-config#appdir) there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
+
+As a workaround, you can add `transpilePackages: ['@storefront-ui/react']` to your `next.config.js` configuration file:
+
+```js
+// next.config.js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  transpilePackages: ['@storefront-ui/react']
+}
+
+module.exports = nextConfig
+```
+
+:::
+
 ### Initialize Tailwind
 
 Running Tailwind's `init` command will generate a `tailwind.config.js` and `postcss.config.js` file in your project's root directory.
@@ -62,7 +83,7 @@ npx tailwindcss init -p
 
 ### Modify Your Tailwind Configuration File
 
-Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.cjs` file.
+Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.js` file.
 
 ::: tip Add a path to your installed package
 
@@ -82,7 +103,7 @@ module.exports = {
     './app/**/*.{js,ts,jsx,tsx}',
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
-    "./src/**/*.{js,ts,jsx,tsx}",
+    './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/@storefront-ui/react/**/*.{js,mjs}',
   ],
   theme: {
@@ -117,22 +138,7 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/ap
 
 </SourceCode>
 
-::: tip
-In Next.js 13 environments that are not using [App Router](https://beta.nextjs.org/docs/api-reference/next-config#appdir) there is an issue with [Next.js not detecting ESM modules of subdependencies correctly.](https://github.com/vercel/next.js/issues/39375)
 
-As a workaround, you can add `transpilePackages: ['@storefront-ui/react']` to your `next.config.js` configuration file:
-
-```js
-// next.config.js
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  transpilePackages: ['@storefront-ui/react']
-}
-
-module.exports = nextConfig
-```
-
-:::
 ::::::
 
 :::::: slot vite
@@ -174,7 +180,7 @@ pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/react
 
 ### Initialize Tailwind
 
-Running Tailwind's `init` command will generate a `tailwind.config.cjs` and `postcss.config.cjs` file in your project's root directory.
+Running Tailwind's `init` command will generate a `tailwind.config.js` and `postcss.config.js` file in your project's root directory.
 
 ```bash
 npx tailwindcss init -p
@@ -182,7 +188,7 @@ npx tailwindcss init -p
 
 ### Modify Your Tailwind Configuration File
 
-Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.cjs` file.
+Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.js` file.
 
 ::: tip Add a path to your installed package
 
@@ -192,11 +198,11 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 <SourceCode>
 
 ```ts
-// tailwind.config.cjs
-const { tailwindConfig } = require('@storefront-ui/react/tailwind-config');
+// tailwind.config.js
+import { tailwindConfig } from '@storefront-ui/react/tailwind-config';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   presets: [tailwindConfig],
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './node_modules/@storefront-ui/react/**/*.{js,mjs}'],
   theme: {
@@ -257,7 +263,7 @@ yarn astro add react tailwind
 pnpm astro add react tailwind
 ```
 
-The `astro add` command will automatically install the necessary dependencies and add the necessary configuration to your project. Also, it will add a `tailwind.config.cjs` file to your project's root directory.
+The `astro add` command will automatically install the necessary dependencies and add the necessary configuration to your project. Also, it will add a `tailwind.config.js` file to your project's root directory.
 
 ### Install Storefront UI Dependencies
 
@@ -301,6 +307,18 @@ module.exports = {
 ```
 
 </SourceCode>
+
+### Add Tailwind to Your CSS
+
+Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
+
+
+```css
+/* src/style.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
 ### You're Ready to Go!
 

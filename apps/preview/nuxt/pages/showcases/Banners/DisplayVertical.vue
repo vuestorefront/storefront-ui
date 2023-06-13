@@ -11,7 +11,7 @@
       <a
         class="absolute w-full h-full z-1 focus-visible:outline focus-visible:rounded-lg"
         :aria-label="title"
-        href="/"
+        href="#"
       />
       <div class="flex flex-col items-center p-4 text-center md:p-10">
         <p class="mb-2 font-bold tracking-widest uppercase typography-headline-6">{{ subtitle }}</p>
@@ -30,8 +30,6 @@
 
 <script lang="ts" setup>
 import { SfButton } from '@storefront-ui/vue';
-import sunglasses from '@assets/display.png';
-import backpack from '@assets/display-2.png';
 
 const displayDetails = [
   {
@@ -39,7 +37,7 @@ const displayDetails = [
     subtitle: 'Be inspired',
     description: 'Step out in style with our sunglasses collection',
     callToAction: 'Discover now',
-    image: sunglasses,
+    image: 'http://localhost:3100/@assets/display.png',
     backgroundColor: 'bg-negative-200',
     reverse: false,
   },
@@ -48,7 +46,7 @@ const displayDetails = [
     subtitle: 'Be active',
     description: 'Explore the great outdoors with our backpacks',
     callToAction: 'Discover now',
-    image: backpack,
+    image: 'http://localhost:3100/@assets/display-2.png',
     backgroundColor: 'bg-warning-200',
     reverse: true,
   },

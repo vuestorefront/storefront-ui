@@ -36,24 +36,27 @@
       <li
         v-for="(item, index) in breadcrumbs"
         :key="item.name"
-        class="peer hidden sm:flex peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
+        class="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-['/'] peer-[:nth-of-type(even)]:before:px-2 peer-[:nth-of-type(even)]:before:leading-5 last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
       >
         <SfLink
           v-if="index === 0"
           :href="item.link"
           variant="secondary"
-          class-name="inline-flex leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-neutral-500"
+          class="inline-flex leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-neutral-500"
         >
           <SfIconHome size="sm" />
         </SfLink>
         <SfLink
-          v-else
+          v-else-if="index < breadcrumbs.length - 1"
           :href="item.link"
           variant="secondary"
           class="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
         >
           {{ item.name }}
         </SfLink>
+        <span v-else>
+          {{ item.name }}
+        </span>
       </li>
     </ol>
   </nav>
@@ -66,12 +69,12 @@ import { ref } from 'vue';
 const breadcrumbs = [
   {
     name: 'Home',
-    link: '/page',
+    link: '#',
   },
-  { name: 'Page 2', link: '/page' },
-  { name: 'Page 3', link: '/page' },
-  { name: 'Page 4', link: '/page' },
-  { name: 'Page 5', link: '/page' },
+  { name: 'Page 2', link: '#' },
+  { name: 'Page 3', link: '#' },
+  { name: 'Page 4', link: '#' },
+  { name: 'Page 5', link: '#' },
 ];
 
 const dropdownOpened = ref(false);

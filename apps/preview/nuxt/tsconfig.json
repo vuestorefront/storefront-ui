@@ -14,7 +14,6 @@
       "~/*": [
         "./*"
       ],
-      "@assets/*": ["./assets/fixture"],
       "@storefront-ui/vue": ["../../../packages/sfui/frameworks/vue/index.ts"],
       "@storefront-ui/react": ["../../../packages/sfui/frameworks/vue/index.ts"]
     }

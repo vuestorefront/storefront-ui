@@ -22,17 +22,12 @@ export default function SfSelect(props: SfSelectProps) {
     ...attributes
   } = props;
   const { isFocusVisible } = useFocusVisible();
-
   const [chevronRotated, setChevronRotated] = useState(false);
 
   const rotateUp = () => setChevronRotated(true);
-
   const rotateDown = () => setChevronRotated(false);
-
   const keydownHandler = (event: KeyboardEvent<HTMLSelectElement>) => {
-    if (event.code === 'Space') {
-      rotateUp();
-    }
+    if (event.code === 'Space') rotateUp();
   };
 
   return (

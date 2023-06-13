@@ -56,7 +56,7 @@ pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/vue
 
 ### Initialize Tailwind
 
-Running Tailwind's `init` command will generate a `tailwind.config.cjs` and `postcss.config.cjs` file in your project's root directory.
+Running Tailwind's `init` command will generate a `tailwind.config.js` and `postcss.config.js` file in your project's root directory.
 
 ```bash
 npx tailwindcss init -p
@@ -64,7 +64,7 @@ npx tailwindcss init -p
 
 ### Modify Your Tailwind Configuration File
 
-Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.cjs` file.
+Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.js` file.
 
 ::: tip Add a path to your installed package
 
@@ -72,11 +72,11 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 :::
 
 ```ts
-// tailwind.config.cjs
-const { tailwindConfig } = require('@storefront-ui/vue/tailwind-config');
+// tailwind.config.js
+import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
 /** @type {import('tailwindcss').Config} */
-module.exports = {
+export default {
   presets: [tailwindConfig],
   content: ['./index.html', './**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
   theme: {
@@ -115,6 +115,10 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 
 :::::: slot nuxt
 ## Nuxt 3
+
+If you prefer video guides, we have a quick video that can help you set up Storefront UI in your Nuxt 3 project.
+
+<iframe src="https://www.youtube-nocookie.com/embed/YamdPmZexto" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded aspect-video relative mt-8 custom-block"></iframe>
 
 ### Install all dependencies
 
@@ -160,6 +164,17 @@ export default <Config>{
   presets: [tailwindConfig],
   content: ['./**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
 };
+```
+### Add Tailwind to Your CSS
+
+Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
+
+
+```css
+/* src/style.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 ### You're ready to go
@@ -236,6 +251,18 @@ module.exports = {
   },
   plugins: [],
 };
+```
+
+### Add Tailwind to Your CSS
+
+Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
+
+
+```css
+/* src/style.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 ### You're Ready to Go!

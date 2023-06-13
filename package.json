@@ -16,12 +16,12 @@
     ]
   },
   "scripts": {
-    "postinstall": "yarn node hasEnv NOT_GENERATE_ICON && yarn generate-icons",
-    "generate-icons": "concurrently \"yarn createVueIcons\" \"yarn createReactIcons\" && yarn lint:fix:sfui",
+    "postinstall": "node hasEnv NOT_GENERATE_ICON && yarn generate-icons",
+    "generate-icons": "yarn createVueIcons && yarn createReactIcons && yarn lint:fix:sfui",
     "prepare": "husky install",
     "build": "yarn update-browserlist-db && yarn generate-icons && yarn build:peer-next && turbo run build",
     "dev:docs": "yarn update-browserlist-db && turbo run dev:docs",
-    "dev": "yarn update-browserlist-db && yarn build:typography && yarn build:peer-next && yarn build:tailwind-config && yarn build:test-utils && turbo run dev --parallel",
+    "dev": "yarn update-browserlist-db && yarn build:typography && yarn build:peer-next && yarn build:tailwind-config && yarn build:test-utils && yarn build:react && turbo run dev --parallel",
     "dev:shared": "turbo run dev:shared",
     "update-browserlist-db": "yarn dlx browserslist@latest",
     "lint": "yarn build:typography && yarn build:peer-next && yarn build:tailwind-config && turbo run lint",
@@ -30,28 +30,34 @@
     "build:docs": "yarn build:peer-next && turbo run build:docs",
     "build:next": "turbo run build:next",
     "build:nuxt": "turbo run build:nuxt",
+    "build:replace-assets-url-with": "frs-replace \"http:\\/\\/localhost:3100\\/@assets\\/\" \"https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/$ENV_NAME/\" -i \"apps/preview/*/pages/**/*\" -s \"preserve-structure\" -o .",
+    "build:nuxt-module": "turbo run build:nuxt-module",
     "build:react": "turbo run build:react",
     "build:vue": "turbo run build:vue",
     "build:release": "turbo run build:release",
     "build:tailwind-config": "turbo run build:tailwind-config",
     "build:typography": "turbo run build:typography",
     "build:peer-next": "turbo run build:peer-next",
+    "build:tw-plugin-peer-next": "turbo run builtd:w-plugin-peer-next",
     "test": "turbo run test",
     "test:ci-pre:vue": "yarn build:peer-next && turbo run test:ci-pre:vue",
     "test:ci:vue": "yarn build:peer-next && turbo run test:ci:vue",
     "test:ci-pre:react": "yarn build:peer-next && turbo run test:ci-pre:react",
     "test:ci:react": "yarn build:peer-next && turbo run test:ci:react",
     "clean": "rimraf ./**/node_modules && rm yarn.lock",
-    "clean:total": "rimraf ./**/node_modules && rimraf ./**/.cache && rimraf ./**/.turbo && rm yarn.lock",
-    "createVueIcons": "yarn node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/SfIcons/ absolutePathToIconBase=@storefront-ui/vue",
-    "createReactIcons": "yarn node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/SfIcons/ absolutePathToIconBase=@storefront-ui/react",
+    "clean:total": "rimraf ./**/node_modules ./**/.cache ./**/.turbo && rm yarn.lock",
+    "createVueIcons": "node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/SfIcons/ absolutePathToIconBase=@storefront-ui/vue",
+    "createReactIcons": "node createIcons framework=react input=packages/sfui/assets/ output=packages/sfui/frameworks/react/components/SfIcons/ absolutePathToIconBase=@storefront-ui/react",
     "hygen": "./node_modules/.bin/hygen",
     "component": "yarn hygen component",
     "component-new": "yarn hygen component new"
   },
   "devDependencies": {
+    "@changesets/changelog-github": "^0.4.8",
+    "@changesets/cli": "^2.26.1",
     "@commitlint/cli": "^17.0.0",
     "@commitlint/config-conventional": "^17.0.0",
+    "@frsource/frs-replace": "^4.1.1",
     "@storefront-ui/typescript-config": "workspace:*",
     "babel-cli": "^6.26.0",
     "babel-preset-node": "^5.1.1",
@@ -70,11 +76,14 @@
     "yarn": ">=1.22.19",
     "node": ">=16.0.0 <17.0.0"
   },
-  "packageManager": "yarn@3.4.1",
+  "packageManager": "yarn@3.5.1",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog",
       "disableScopeLowerCase": true
     }
+  },
+  "resolutions": {
+    "@changesets/assemble-release-plan@^5.2.3": "patch:@changesets/assemble-release-plan@npm%3A5.2.3#./.yarn/patches/@changesets-assemble-release-plan-npm-5.2.3-296454a28f.patch"
   }
 }

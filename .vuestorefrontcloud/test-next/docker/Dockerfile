@@ -5,12 +5,17 @@ WORKDIR /var/www
 COPY . .
 
 ARG VITE_DOCS_BASEPATH
-ENV VITE_DOCS_BASEPATH = VITE_DOCS_BASEPATH
+ARG VITE_DOCS_EXAMPLES_REACT_PATH
+ARG ENVIRONMENT
 
-ENV DOCS_EXAMPLES_REACT_PATH=https://docs.storefrontui.io/v2-react
-RUN  yarn install \
-  && yarn build:peer-next \
-  && yarn build:next
+ENV VITE_DOCS_BASEPATH=$VITE_DOCS_BASEPATH
+ENV VITE_DOCS_EXAMPLES_REACT_PATH=$VITE_DOCS_EXAMPLES_REACT_PATH
+ENV ENVIRONMENT=$ENVIRONMENT
+
+RUN yarn
+RUN ENV_NAME=$ENVIRONMENT yarn build:replace-assets-url-with
+RUN yarn build:peer-next
+RUN yarn build:next
 
 WORKDIR /var/www/apps/preview/next
 

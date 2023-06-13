@@ -1,7 +1,7 @@
 module.exports = {
   parser: 'vue-eslint-parser',
   extends: ['plugin:@typescript-eslint/recommended', 'plugin:vue/vue3-recommended', 'prettier'],
-  plugins: ['prettier', 'import'],
+  plugins: ['import'],
   parserOptions: {
     ecmaVersion: 2020,
     parser: '@typescript-eslint/parser',
@@ -13,6 +13,7 @@ module.exports = {
     'vue/no-v-html': 0,
     'import/no-extraneous-dependencies': 0,
     'vue/multi-word-component-names': 0,
-    'prettier/prettier': 'error',
+    // needs to be reenabled after this gets merged: https://github.com/vuejs/eslint-plugin-vue/pull/2189 [evaluate after: 07-06-2023]
+    'vue/no-dupe-keys': 0
   },
 };

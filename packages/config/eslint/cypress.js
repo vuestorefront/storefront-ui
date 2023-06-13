@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['plugin:@typescript-eslint/recommended', 'prettier', 'plugin:cypress/recommended'],
-  plugins: ['prettier', 'cypress', 'import'],
+  plugins: ['cypress', 'import'],
   parserOptions: {
     ecmaVersion: 2020,
     parser: '@typescript-eslint/parser',
@@ -17,7 +17,6 @@ module.exports = {
     "cypress/no-async-tests": "error",
     "cypress/no-pause": "error",
     "@typescript-eslint/triple-slash-reference": "off",
-    'prettier/prettier': 'error',
   },
   env: {
     "cypress/globals": true

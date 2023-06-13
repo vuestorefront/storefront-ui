@@ -6,10 +6,14 @@
     "**/*.js",
     "**/*.ts"
   ],
+  "scripts": {
+    "dev": "serve -p 3100 --no-request-logging --no-clipboard --no-port-switching public/"
+  },
   "dependencies": {
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
-    "@types/lodash-es": "^4.17.6"
+    "@types/lodash-es": "^4.17.6",
+    "serve": "^14.2.0"
   }
 }

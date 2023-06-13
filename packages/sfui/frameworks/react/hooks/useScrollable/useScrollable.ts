@@ -1,5 +1,4 @@
-import { type Ref, useEffect, useRef, useState } from 'react';
-import { mergeRefs } from 'react-merge-refs';
+import { useEffect, useRef, useState, useCallback } from 'react';
 import { type UseScrollableOptions, Scrollable, composeHandlers, createPropsGetter } from '@storefront-ui/react';
 
 export function useScrollable<TElement extends HTMLElement>({
@@ -7,17 +6,19 @@ export function useScrollable<TElement extends HTMLElement>({
   direction,
   drag,
   reduceMotion,
-  onDragChange,
+  onDragStart,
+  onDragEnd,
   onScroll,
   onPrev,
   onNext,
+  isActiveIndexCentered,
 }: Partial<UseScrollableOptions> = {}) {
-  const containerElement = useRef<TElement>(null);
+  const containerRef = useRef<TElement>(null);
   const scrollable = useRef<Scrollable | null>(null);
   const [state, setState] = useState({ hasPrev: false, hasNext: false, isDragged: false });
 
   useEffect(() => {
-    const container = containerElement.current;
+    const container = containerRef.current;
     if (!container) {
       return () => {};
     }
@@ -31,46 +32,57 @@ export function useScrollable<TElement extends HTMLElement>({
         setState((currentState) => ({ ...currentState, hasNext: data.hasNext, hasPrev: data.hasPrev }));
         onScroll?.(data);
       },
-      onDragChange: (data) => {
+      onDragStart: (data) => {
         setState((currentState) => ({ ...currentState, isDragged: data.isDragged }));
-        onDragChange?.(data);
+        onDragStart?.(data);
       },
+      onDragEnd,
     });
     const unregister = scrollable.current.register();
 
-    if (activeIndex) scrollable.current.scrollToIndex(activeIndex);
+    if (typeof activeIndex === 'number' && activeIndex >= 0 && isActiveIndexCentered) {
+      scrollable.current.scrollToIndex(activeIndex);
+    }
 
     return unregister;
-  }, [containerElement, activeIndex, direction, drag, reduceMotion, onDragChange, onScroll, onPrev, onNext]);
+  }, [
+    containerRef,
+    activeIndex,
+    direction,
+    drag,
+    reduceMotion,
+    onDragStart,
+    onDragEnd,
+    onScroll,
+    onPrev,
+    onNext,
+    isActiveIndexCentered,
+  ]);
 
-  const getPrevButtonProps = createPropsGetter((userProps) => {
-    const handlePrev = () => {
-      scrollable.current?.prev();
-    };
-    return {
-      onClick: composeHandlers(handlePrev, userProps?.onClick),
-      disabled: userProps.disabled || !state.hasPrev,
-    };
-  });
+  const showPrev = useCallback(() => {
+    scrollable.current?.prev();
+  }, []);
 
-  const getNextButtonProps = createPropsGetter((userProps) => {
-    const handleNext = () => {
-      scrollable.current?.next();
-    };
-    return {
-      onClick: composeHandlers(handleNext, userProps?.onClick),
-      disabled: userProps.disabled || !state.hasNext,
-    };
-  });
+  const showNext = useCallback(() => {
+    scrollable.current?.next();
+  }, []);
 
-  const getContainerProps = createPropsGetter((userProps) => ({
-    ref: mergeRefs([containerElement, userProps.ref].filter(Boolean) as Ref<HTMLElement>[]),
+  const getPrevButtonProps = createPropsGetter((userProps) => ({
+    onClick: composeHandlers(showPrev, userProps?.onClick),
+    disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasPrev,
+  }));
+
+  const getNextButtonProps = createPropsGetter((userProps) => ({
+    onClick: composeHandlers(showNext, userProps?.onClick),
+    disabled: typeof userProps.disabled !== 'undefined' ? userProps.disabled : !state.hasNext,
   }));
 
   return {
-    getContainerProps,
+    containerRef,
     getPrevButtonProps,
     getNextButtonProps,
+    showNext,
+    showPrev,
     state,
   };
 }

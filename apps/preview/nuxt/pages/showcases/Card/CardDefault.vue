@@ -7,7 +7,7 @@
     >
       <a
         class="absolute inset-0 z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
-        href="/"
+        href="#"
       />
       <img :src="image" :alt="title" class="object-cover h-auto rounded-t-md aspect-video" />
       <div class="flex flex-col items-start p-4 grow">
@@ -20,27 +20,24 @@
 </template>
 <script lang="ts" setup>
 import { SfButton } from '@storefront-ui/vue';
-import earphones from '@assets/card-1.png';
-import eBike from '@assets/card-2.png';
-import boxedWater from '@assets/card-3.png';
 
 const cardDetails = [
   {
-    image: boxedWater,
+    image: 'http://localhost:3100/@assets/card-3.png',
     title: 'Sip Sustainably: The Rise of Boxed Water',
     description:
       'Boxed water is a sustainable alternative to traditional plastic bottles, made from renewable resources.',
     button: 'Read more',
   },
   {
-    image: eBike,
+    image: 'http://localhost:3100/@assets/card-2.png',
     title: 'Ride the Future: Exploring the Benefits of e-Bikes',
     description:
       'Eco-friendly, efficient, and fun modes of transportation that provide a range of benefits for riders and the environment.',
     button: 'Read more',
   },
   {
-    image: earphones,
+    image: 'http://localhost:3100/@assets/card-1.png',
     title: 'Unleash the Ultimate Listening Experience',
     description:
       'Audiophile headphones offer unmatched sound quality and clarity, making them the go-to choice for music enthusiasts.',
