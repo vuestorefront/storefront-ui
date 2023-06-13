@@ -124,7 +124,7 @@ const selectValue = (phrase: string) => {
   focusInput();
 };
 
-const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+const handleInputKeyDown = (event: KeyboardEvent) => {
   if (event.key === 'Escape') reset();
   if (event.key === 'ArrowUp') {
     open();
