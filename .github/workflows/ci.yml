@@ -234,7 +234,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
 
   release-next:
-    name: Release release candidate
+    name: Release RC package
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -246,5 +246,5 @@ jobs:
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
       - name: Publish release-candidate
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "rc" suffix, logic can be found in "release-changeset-changelog.yml
-        if: "${{ startsWith( github.ref, 'refs/heads/v2-release' ) && contains(steps.commit_message.output.result, 'ci: release (rc)') }}"
+        if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: release (rc)' ) }}"
         run: echo "Publish now"
