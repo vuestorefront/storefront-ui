@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source

@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
@@ -18,6 +19,8 @@ import {
   useDropdown,
   useTrapFocus,
   useDisclosure,
+  SfInput,
+  SfIconSearch,
 } from '@storefront-ui/react';
 import { type FocusEvent, Fragment, useRef, useState, useMemo, createRef, RefObject } from 'react';
 
@@ -379,6 +382,7 @@ export default function MegaMenuNavigation() {
   const drawerRef = useRef(null);
   const megaMenuRef = useRef(null);
   const [activeNode, setActiveNode] = useState<string[]>([]);
+  const [inputValue, setInputValue] = useState('');
 
   const refsByKey = useMemo(() => {
     const buttonRefs: Record<string, RefObject<HTMLButtonElement>> = {};
@@ -432,11 +436,16 @@ export default function MegaMenuNavigation() {
     }
   };
 
+  const search = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    alert(`Successfully found 10 results for ${inputValue}`);
+  };
+
   return (
     <div className="w-full h-full">
-      <header ref={refs.setReference} className="relative">
-        <div className="flex justify-between items-center px-4 md:px-10 w-full border-0 bg-primary-700 border-neutral-200 h-14 md:h-20 md:z-10">
-          <div className="flex">
+      <header className="relative" ref={refs.setReference}>
+        <div className="flex flex-wrap md:flex-nowrap justify-between items-center px-4 md:px-10 py-2 md:py-5 w-full border-0 bg-primary-700 border-neutral-200 h-full md:z-10">
+          <div className="flex items-center">
             <SfButton
               onClick={handleOpenMenu([])}
               variant="tertiary"
@@ -449,32 +458,78 @@ export default function MegaMenuNavigation() {
             <a
               href="#"
               aria-label="SF Homepage"
-              className="flex items-center mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+              className="flex shrink-0 w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem] items-center text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
             >
               <picture>
                 <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
-                <img
-                  src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
-                  alt="Sf Logo"
-                  className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
-                />
+                <img src="http://localhost:3100/@assets/vsf_logo_sign_white.svg" alt="Sf Logo" />
               </picture>
             </a>
           </div>
-          <div className="flex flex-nowrap">
+          <form role="search" className="hidden md:flex flex-[100%] ml-10" onSubmit={search}>
+            <SfInput
+              value={inputValue}
+              type="search"
+              className="[&::-webkit-search-cancel-button]:appearance-none"
+              placeholder="Search"
+              wrapperClassName="flex-1 h-10 pr-0"
+              size="base"
+              slotSuffix={
+                <span className="flex items-center">
+                  <SfButton
+                    variant="tertiary"
+                    square
+                    aria-label="search"
+                    type="submit"
+                    className="rounded-l-none hover:bg-transparent active:bg-transparent"
+                  >
+                    <SfIconSearch />
+                  </SfButton>
+                </span>
+              }
+              onChange={(event) => setInputValue(event.target.value)}
+            />
+          </form>
+          <nav className="flex flex-nowrap justify-end items-center md:ml-10 gap-x-1">
             {actionItems.map((actionItem) => (
               <SfButton
-                className="ml-2 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+                className="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                 key={actionItem.ariaLabel}
                 aria-label={actionItem.ariaLabel}
                 variant="tertiary"
                 slotPrefix={actionItem.icon}
                 square
               >
-                {actionItem.role === 'login' && <p className="hidden md:inline-flex">{actionItem.label}</p>}
+                {actionItem.role === 'login' && (
+                  <p className="hidden lg:inline-flex whitespace-nowrap mr-2">{actionItem.label}</p>
+                )}
               </SfButton>
             ))}
-          </div>
+          </nav>
+          <form role="search" className="flex md:hidden flex-[100%] my-2" onSubmit={search}>
+            <SfInput
+              value={inputValue}
+              type="search"
+              className="[&::-webkit-search-cancel-button]:appearance-none"
+              placeholder="Search"
+              wrapperClassName="flex-1 h-10 pr-0"
+              size="base"
+              slotSuffix={
+                <span className="flex items-center">
+                  <SfButton
+                    variant="tertiary"
+                    square
+                    aria-label="search"
+                    type="submit"
+                    className="rounded-l-none hover:bg-transparent active:bg-transparent"
+                  >
+                    <SfIconSearch />
+                  </SfButton>
+                </span>
+              }
+              onChange={(event) => setInputValue(event.target.value)}
+            />
+          </form>
         </div>
         {/* Desktop dropdown */}
         <nav ref={refs.setFloating}>
@@ -562,12 +617,12 @@ export default function MegaMenuNavigation() {
               open={isOpen}
               onClose={close}
               placement="left"
-              className="md:hidden bg-white w-[320px] overflow-y-auto"
+              className="md:hidden right-[50px] max-w-[376px] bg-white overflow-y-auto"
             >
               <nav>
                 <div className="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">
                   <p className="typography-text-base font-medium">Browse products</p>
-                  <SfButton onClick={close} variant="tertiary" square aria-label="Close menu" className="-m-2">
+                  <SfButton onClick={close} variant="tertiary" square aria-label="Close menu" className="ml-2">
                     <SfIconClose className="text-neutral-500" />
                   </SfButton>
                 </div>
@@ -603,7 +658,7 @@ export default function MegaMenuNavigation() {
                         <SfListItem size="lg" as="button" type="button" onClick={handleNext(node.key)}>
                           <div className="flex justify-between items-center">
                             <div className="flex items-center">
-                              <p className="text-left">{node.value.label}</p>
+                              <p className="text-left">{node.value.label}</p>{' '}
                               <SfCounter className="ml-2">{node.value.counter}</SfCounter>
                             </div>
                             <SfIconChevronRight className="text-neutral-500" />
