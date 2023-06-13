@@ -12,6 +12,10 @@ on:
       - ready_for_review
       - edited
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  SONAR_TOKEN_REACT: ${{ secrets.SONAR_TOKEN_REACT }}
+
 jobs:
   cache:
     name: Create cache for all steps
@@ -42,6 +46,12 @@ jobs:
                | grep -q "Collaborator not found" \
                && echo "isCollaborator=false" >> $GITHUB_OUTPUT \
                || echo "isCollaborator=true" >> $GITHUB_OUTPUT
+      - name: Run if github_token exists
+        if: ${{ env.GITHUB_TOKEN }}
+        run: echo ${{ env.GITHUB_TOKEN }}
+      - name: Run if SONAR_TOKEN_REACT exists
+        if: ${{ env.SONAR_TOKEN_REACT }}
+        run: echo ${{ env.SONAR_TOKEN_REACT }}
 
   commit-lint:
     name: Validate PR Title (conventional-commit)
