@@ -1,42 +1,28 @@
 name: Create changelog changesets
 on:
-  pull_request:
-    types:
-      - opened
-      - reopened
-      - synchronize
-      - ready_for_review
+  push:
+    branches:
+      - v2-release/**
 
 jobs:
   create-changelog:
     name: Create changelog
     runs-on: ubuntu-latest
-    if: ${{ startsWith( github.head_ref, 'v2-release' ) }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: ".node-version"
-          cache: "yarn"
+          node-version-file: '.node-version'
+          cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Find Comment
-        uses: peter-evans/find-comment@v2
-        id: fc
-        with:
-          issue-number: ${{ github.event.pull_request.number }}
-          body-includes: "!prod-ready"
-      - name: Enter pre-release changelog if !prod-ready comment does not exists
-        if: ${{ !steps.fc.outputs.comment-id }}
-        run: yarn changeset pre enter rc
       - name: Create PR with changelog
-        if: ${{ always() }}
         uses: changesets/action@v1
         with:
-          commit: "[ci] - release [no ci]"
-          title: "[ci] - release"
+          commit: 'ci: release'
+          title: 'ci: release'
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
