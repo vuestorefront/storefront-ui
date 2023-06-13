@@ -21,7 +21,7 @@ jobs:
       - name: Create PR with changelog
         uses: changesets/action@v1
         with:
-          commit: 'ci: release [no ci]'
+          commit: 'ci: release'
           title: 'ci: release'
         env:
           # Needs access to publish to npm
