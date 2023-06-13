@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable jsx-a11y/no-noninteractive-tabindex */
@@ -437,7 +438,6 @@ export default function MegaMenuNavigation() {
 
   const search = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // eslint-disable-next-line no-alert
     alert(`Successfully found 10 results for ${inputValue}`);
   };
 
