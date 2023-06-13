@@ -254,9 +254,14 @@ jobs:
       - name: Save head commit message
         id: commit_message
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
-      - name: Publish release-candidate
+      - name: Publish release-candidate version
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
         if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: release (rc)' ) }}"
         run: |
           yarn changeset version
           yarn changeset publish
+        env:
+          # Needs access to publish to npm
+          # refresh token before Saturday, May 25, 2024
+          NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
