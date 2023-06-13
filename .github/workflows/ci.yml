@@ -4,7 +4,7 @@ on:
     branches:
       - v2
       - v2-develop
-      - !changeset-release/**
+      - '!changeset-release/**'
   pull_request:
     types:
       - opened
@@ -13,7 +13,7 @@ on:
       - ready_for_review
       - edited
     branches:
-      - !changeset-release/**
+      - '!changeset-release/**'
 
 jobs:
   cache:
