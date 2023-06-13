@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { type ChangeEvent, type FormEvent, useState, useRef } from 'react';
+import { type ChangeEvent, type KeyboardEvent, type FormEvent, useState, useRef } from 'react';
 import { useDebounce } from 'react-use';
 import { offset } from '@floating-ui/react-dom';
 import {
