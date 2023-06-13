@@ -14,8 +14,8 @@ on:
       - edited
 
 env:
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   SONAR_TOKEN_REACT: ${{ secrets.SONAR_TOKEN_REACT }}
+  SONAR_TOKEN_VUE: ${{ secrets.SONAR_TOKEN_VUE }}
 
 jobs:
   cache:
@@ -31,28 +31,6 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
-
-  verify-collaborator:
-    name: Verify collaborator
-    needs: [cache]
-    runs-on: ubuntu-latest
-    outputs:
-      isCollaborator: ${{ steps.collaborator.outputs.isCollaborator }}
-    steps:
-      - id: collaborator
-        name: Check if user is a collaborator
-        run: |
-          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-               "https://api.github.com/repos/${{ github.repository }}/collaborators/${{ github.actor }}" \
-               | grep -q "Collaborator not found" \
-               && echo "isCollaborator=false" >> $GITHUB_OUTPUT \
-               || echo "isCollaborator=true" >> $GITHUB_OUTPUT
-      - name: Run if github_token exists
-        if: ${{ env.GITHUB_TOKEN }}
-        run: echo ${{ env.GITHUB_TOKEN }}
-      - name: Run if SONAR_TOKEN_REACT exists
-        if: ${{ env.SONAR_TOKEN_REACT }}
-        run: echo ${{ env.SONAR_TOKEN_REACT }}
 
   commit-lint:
     name: Validate PR Title (conventional-commit)
@@ -142,7 +120,7 @@ jobs:
 
   cypress-vue:
     name: Run cypress tests(Vue)
-    needs: [cache, lint, verify-collaborator]
+    needs: [cache, lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -169,7 +147,7 @@ jobs:
       - name: Post-Cypress (generate coverage)
         run: cd apps/test/vue; yarn generate-coverage
       - name: SonarCloud Scan
-        if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
+        if: ${{ env.SONAR_TOKEN_VUE }}
         uses: SonarSource/sonarcloud-github-action@v1.9
         with:
           projectBaseDir: packages/sfui/frameworks/vue
@@ -179,7 +157,7 @@ jobs:
 
   cypress-react:
     name: Run cypress tests(React)
-    needs: [cache, lint, verify-collaborator]
+    needs: [cache, lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -204,7 +182,7 @@ jobs:
       - name: Post-Cypress (generate coverage)
         run: cd apps/test/react; yarn generate-coverage
       - name: SonarCloud Scan
-        if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
+        if: ${{ env.SONAR_TOKEN_REACT }}
         uses: SonarSource/sonarcloud-github-action@v1.9
         with:
           projectBaseDir: packages/sfui/frameworks/react
