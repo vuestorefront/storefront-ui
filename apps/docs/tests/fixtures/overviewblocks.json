@@ -1,0 +1,62 @@
+[
+ 
+  {
+    "url": "/blocks/Alert.html"
+  },
+  {
+    "url": "/blocks/Banners.html"
+  },
+  {
+    "url": "/blocks/Breadcrumbs.html"
+  },
+  {
+    "url": "/blocks/Card.html"
+  },
+  {
+ 
+    "url": "/blocks/Checkout.html"
+  },
+  {
+    "url": "/blocks/Filters.html"
+  },
+  {
+    "url": "/blocks/Footer.html"
+  },
+  {
+    "url": "/blocks/Gallery.html"
+  },
+  {
+    "url": "/blocks/MegaMenu.html"
+  },
+  {
+    "url": "/blocks/NavbarBottom.html"
+  },
+  {
+    "url": "/blocks/NavbarTop.html"
+  },
+  {
+    "url": "/blocks/NewsletterBox.html"
+  },
+  {
+    "url": "/blocks/OrderSummary.html"
+  },
+  {
+    "url": "/blocks/Pagination.html"
+  },
+  {
+    "url": "/blocks/ProductCard.html"
+  },
+  {
+    "url": "/blocks/QuantitySelector.html"
+  },
+  {
+    "url": "/blocks/Review.html"
+  },
+  {
+    "url": "/blocks/Search.html"
+  },
+  {
+    "url": "/blocks/SelectDropdown.html"
+  }
+ 
+]
