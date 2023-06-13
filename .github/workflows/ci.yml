@@ -12,8 +12,6 @@ on:
       - synchronize
       - ready_for_review
       - edited
-    branches:
-      - '!changeset-release/**'
 
 jobs:
   cache:
