@@ -1,5 +1,11 @@
 # @storefront-ui/vue
 
+## 2.4.0-rc.2
+
+### Patch Changes
+
+- [#2806](https://github.com/vuestorefront/storefront-ui/pull/2806) [`436e68c92`](https://github.com/vuestorefront/storefront-ui/commit/436e68c920b7aae22fe8b46fe2be5dd3425355f0) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - dsadsa
+
 ## 2.4.0-rc.1
 
 ### Patch Changes
