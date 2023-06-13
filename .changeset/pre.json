@@ -20,5 +20,11 @@
     "@storefront-ui/typography": "2.3.1",
     "@storefront-ui/tests": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "blue-dryers-knock",
+    "nine-flowers-hunt",
+    "odd-trains-beg",
+    "quiet-vans-give",
+    "rude-crews-listen"
+  ]
 }
