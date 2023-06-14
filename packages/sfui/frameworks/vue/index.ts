@@ -19,7 +19,7 @@ export * from './components/SfChip';
 export * from './components/SfCounter';
 export * from './components/SfDrawer';
 export * from './components/SfDropdown';
-export * from './components/SfGroup';
+export * from './components/SfFieldset';
 export * from './components/SfIconBase';
 export * from './components/SfIcons';
 export * from './components/SfInput';
