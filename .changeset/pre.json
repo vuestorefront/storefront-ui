@@ -20,5 +20,11 @@
     "@storefront-ui/typography": "2.3.1",
     "@storefront-ui/tests": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "blue-dryers-knock",
+    "mean-lizards-promise",
+    "nine-flowers-hunt",
+    "odd-trains-beg",
+    "quiet-vans-give"
+  ]
 }

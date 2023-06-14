@@ -230,6 +230,14 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: yarn --immutable
       - name: Save head commit message
         id: commit_message
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
