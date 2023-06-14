@@ -33,6 +33,12 @@ const renderDefaultIcon = ({ isFilled, iconSize }: SfRatingButtonRenderProps) =>
   );
 };
 
+const iconSize: Record<SfRatingButtonSize, SfRatingButtonRenderProps['iconSize']> = {
+  [SfRatingButtonSize.sm]: SfIconSize.base,
+  [SfRatingButtonSize.base]: SfIconSize.lg,
+  [SfRatingButtonSize.lg]: SfIconSize.xl,
+};
+
 export default function SfRatingButton({
   onChange,
   value = 0,
@@ -50,11 +56,6 @@ export default function SfRatingButton({
   const [hoverValue, setHoverValue] = useState(0);
   const icons = Array.from({ length: Math.floor(Math.abs(max)) }, (_, index) => index + 1);
   const isIconFilled = (ratingValue: number) => ratingValue <= hoverValue || (hoverValue === 0 && ratingValue <= value);
-  const iconSize: Record<SfRatingButtonSize, SfRatingButtonRenderProps['iconSize']> = {
-    [SfRatingButtonSize.sm]: SfIconSize.base,
-    [SfRatingButtonSize.base]: SfIconSize.lg,
-    [SfRatingButtonSize.lg]: SfIconSize.xl,
-  };
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     onChange?.(Number(event.target.value));

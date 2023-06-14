@@ -1,8 +1,5 @@
 <template>
-  <div>
-    <p>Select rating</p>
-    <SfRatingButton v-model="modelValue" :max="10" />
-  </div>
+  <SfRatingButton v-model="modelValue" :max="10" />
 </template>
 
 <script lang="ts" setup>

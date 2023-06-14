@@ -1,5 +1,5 @@
 import { type ReactNode } from 'react';
-import { PropsWithStyle } from '@storefront-ui/react';
+import { type PropsWithStyle } from '@storefront-ui/react';
 import { SfIconSize, SfRatingButtonSize } from '@storefront-ui/shared';
 
 export { SfRatingButtonSize };

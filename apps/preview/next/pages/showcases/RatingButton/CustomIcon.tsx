@@ -5,27 +5,25 @@ import { SfIconFavorite, SfIconFavoriteFilled, SfRatingButton } from '@storefron
 
 export default function RatingButtonCustomIcon() {
   const [rating, setRating] = useState(0);
+
   return (
-    <div>
-      <p>Select rating</p>
-      <SfRatingButton value={rating} onChange={setRating}>
-        {({ isFilled, iconSize }) =>
-          isFilled ? (
-            <SfIconFavoriteFilled
-              role="none"
-              size={iconSize}
-              className="text-red-700 cursor-pointer peer-disabled:cursor-default peer-disabled:text-neutral-500 peer-focus-visible:outline"
-            />
-          ) : (
-            <SfIconFavorite
-              role="none"
-              size={iconSize}
-              className="text-neutral-500 cursor-pointer peer-disabled:cursor-default peer-disabled:text-neutral-400 peer-focus-visible:outline"
-            />
-          )
-        }
-      </SfRatingButton>
-    </div>
+    <SfRatingButton value={rating} onChange={setRating}>
+      {({ isFilled, iconSize }) =>
+        isFilled ? (
+          <SfIconFavoriteFilled
+            role="none"
+            size={iconSize}
+            className="text-red-700 cursor-pointer peer-disabled:cursor-default peer-disabled:text-neutral-500 peer-focus-visible:outline"
+          />
+        ) : (
+          <SfIconFavorite
+            role="none"
+            size={iconSize}
+            className="text-neutral-500 cursor-pointer peer-disabled:cursor-default peer-disabled:text-neutral-400 peer-focus-visible:outline"
+          />
+        )
+      }
+    </SfRatingButton>
   );
 }
 

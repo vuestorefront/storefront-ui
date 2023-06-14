@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { PropType, computed, ref, toRefs } from 'vue';
+import { type PropType, computed, ref, toRefs } from 'vue';
 import {
   SfIconStar,
   SfIconStarFilled,

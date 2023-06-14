@@ -4,9 +4,9 @@ import { useState } from 'react';
 import { SfRatingButton } from '@storefront-ui/react';
 
 export default function RatingButtonSizes() {
-  const [rating1, setRating1] = useState(5);
-  const [rating2, setRating2] = useState(5);
-  const [rating3, setRating3] = useState(5);
+  const [rating1, setRating1] = useState(0);
+  const [rating2, setRating2] = useState(0);
+  const [rating3, setRating3] = useState(0);
 
   return (
     <div>
