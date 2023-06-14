@@ -282,7 +282,7 @@ export default function ComboboxBasic() {
                       type="button"
                       onClick={() => selectOption(option)}
                       onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
-                      className="flex justify-start !focus-visible:z-9999  "
+                      className="flex justify-start"
                       aria-selected={option.value === selectedValue}
                     >
                       <p className="text-left">
