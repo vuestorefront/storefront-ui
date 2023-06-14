@@ -3,7 +3,6 @@ layout: DefaultLayout
 hideBreadcrumbs: true
 description: The ProductSlider allows for scrollable content with product cards, providing a visually appealing and interactive way to showcase products.
 hideToc: true
-
 ---
 # ProductSlider
 
