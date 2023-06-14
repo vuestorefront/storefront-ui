@@ -162,7 +162,7 @@ const handleReset = () => {
 };
 
 const handleBlur = () => {
-  isValid.value = !!options.find((option) => option.value.toLowerCase() === inputModel.value.toLowerCase());
+  isValid.value = !!countriesList.find((option) => option.value.toLowerCase() === inputModel.value.toLowerCase());
 };
 
 const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
