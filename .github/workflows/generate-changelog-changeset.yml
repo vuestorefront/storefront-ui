@@ -18,11 +18,16 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Extract version number from branch name
+        id: version_number
+        run: |
+          branchName=${{ github.ref }}
+          echo "result=${branchName##*/}" >> $GITHUB_OUTPUT
       - name: Create PR with changelog
         uses: changesets/action@v1
         with:
-          commit: 'ci: release'
-          title: 'ci: release'
+          commit: 'ci: version packages'
+          title: 'ci: version packages v${{ steps.version_number.outputs.result }}'
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
