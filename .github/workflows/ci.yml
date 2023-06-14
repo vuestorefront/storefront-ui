@@ -229,15 +229,21 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: yarn --immutable
       - name: Save head commit message
         id: commit_message
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
       - name: Publish release-candidate version
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
-        if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: release (rc)' ) }}"
-        run: |
-          yarn changeset version
-          yarn changeset publish
+        if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: version packages (rc)' ) }}"
+        run: yarn changeset publish
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
