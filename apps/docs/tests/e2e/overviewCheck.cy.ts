@@ -6,7 +6,7 @@ describe('Blocks and Components overview check', () => {
   it('Vue', () => {
     cy.visit('/#vue');
     cy.contains('Install for Vue').should('be.visible');
-    cy.get(`h2[id="base-components"]`).should('contain.text', 'Base Components ');
+    cy.get('#base-components').should('contain.text', 'Base Components ');
     overviewVisible().overviewVueComponents();
     cy.visit('/vue/blocks.html');
     overviewVisible().overviewVueBlocks();
