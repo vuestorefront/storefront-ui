@@ -165,7 +165,7 @@ const handleBlur = () => {
   isValid.value = !!countriesList.find((option) => option.value.toLowerCase() === inputModel.value.toLowerCase());
 };
 
-const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+const handleInputKeyDown = (event: KeyboardEvent) => {
   if (event.key === 'Escape') handleReset();
   if (event.key === 'Enter') close();
   if (event.key === 'ArrowUp') {
