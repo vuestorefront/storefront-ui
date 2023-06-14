@@ -18,6 +18,7 @@ import {
   useTrapFocus,
   useDropdown,
   SfIconCheck,
+  InitialFocusType
 } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { offset } from '@floating-ui/react-dom';
@@ -326,9 +327,9 @@ export default function FormFields() {
   const { refs, style: dropdownStyle } = useDropdown({ isOpen, onClose: close });
 
   useTrapFocus(refs.floating, {
-    arrowKeysOn: true,
+    arrowKeysUpDown: true,
     activeState: isOpen,
-    initialFocusContainerFallback: true,
+    initialFocus: InitialFocusType.autofocus,
   });
 
   const selectOption = (option: SelectOption) => {

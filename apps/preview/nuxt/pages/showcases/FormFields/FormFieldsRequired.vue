@@ -505,6 +505,12 @@ const {
   onClose: dropdownClose,
 });
 
+useTrapFocus(dropdownFloatingRef as Ref<HTMLUListElement>, {
+  arrowKeysUpDown: true,
+  activeState: dropdownOpen,
+  initialFocusContainerFallback: true,
+});
+
 const dropdownSelectOption = (option: SelectOption) => {
   selectedOption.value = option;
   dropdownClose();
