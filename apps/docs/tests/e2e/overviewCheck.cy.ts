@@ -14,7 +14,7 @@ describe('Blocks and Components overview check', () => {
   it('React', () => {
     cy.visit('/#react');
     cy.contains('Install for React').should('be.visible');
-    cy.get(`h2[id="base-components-2"]`).should('contain.text', 'Base Components ');
+    cy.get('#base-components-2').should('contain.text', 'Base Components ');
     overviewVisible().overviewReactComponents();
     cy.visit('/react/blocks.html');
     overviewVisible().overviewReactBlocks();
