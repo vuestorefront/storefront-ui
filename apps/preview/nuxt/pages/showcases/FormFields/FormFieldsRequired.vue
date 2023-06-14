@@ -232,7 +232,6 @@
       </div>
       <label>
         <span class="typography-label-sm font-medium">Description</span>
-        <!-- TODO: replace textarea when ready -->
         <textarea
           :value="descriptionValue"
           placeholder="Write something about yourself..."
@@ -491,7 +490,7 @@ const areaCodes = [
   { label: '880', value: '880' },
 ];
 
-const { close: dropdownClose, toggle: dropdownToggle, isOpen: dropdownOpen } = useDisclosure({ initialValue: false });
+const { close: dropdownClose, toggle: dropdownToggle, isOpen: dropdownOpen } = useDisclosure();
 const selectedOption = ref<SelectOption>();
 const dropdownID = useId();
 const listboxId = `select-dropdown-${dropdownID}`;
@@ -624,7 +623,6 @@ const sendForm = () => {
     emailNotifications: emailNotificationsModelValue.value,
     pushNotifications: pushNotificationsModelValue.value,
   };
-  // TODO: Form control
   console.log(userData);
 };
 </script>
