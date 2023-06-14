@@ -26,8 +26,8 @@ jobs:
       - name: Create PR with changelog
         uses: changesets/action@v1
         with:
-          commit: 'ci: release'
-          title: 'ci: release v${{ steps.version_number.outputs.result }}'
+          commit: 'ci: changelog'
+          title: 'ci: changelog v${{ steps.version_number.outputs.result }}'
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024

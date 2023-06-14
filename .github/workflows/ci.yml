@@ -223,7 +223,6 @@ jobs:
 
   release-rc:
     name: Release RC package
-    needs: [build, build-release, cypress-react, cypress-vue]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -243,7 +242,7 @@ jobs:
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
       - name: Publish release-candidate version
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
-        if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: release (rc)' ) }}"
+        if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: changelog (rc)' ) }}"
         run: |
           yarn changeset version
           yarn changeset publish
