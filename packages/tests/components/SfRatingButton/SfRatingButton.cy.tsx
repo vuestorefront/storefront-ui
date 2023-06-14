@@ -5,7 +5,7 @@ import { mount, useComponent } from '../../utils/mount';
 
 const { vue: SfRatingButtonVue, react: SfRatingButtonReact } = useComponent('SfRatingButton');
 import SfRatingButtonBaseObject from './SfRatingButton.PageObject';
-import { isVue } from '../../utils/utils';
+import { isReact } from '../../utils/utils';
 
 describe('SfRatingButton', () => {
   const page = () => new SfRatingButtonBaseObject('ratingbutton');
@@ -46,9 +46,6 @@ describe('SfRatingButton', () => {
           label,
           size,
           getLabelText,
-        },
-        slots: {
-          default: () => children?.(),
         },
       },
       react: (
@@ -165,11 +162,16 @@ describe('SfRatingButton', () => {
   });
 
   describe('when custom icon', () => {
-    it('should render custom icons', () => {
-      const props = { children: isVue ? () => <p>star</p> : () => <p>star</p> };
-      initializeComponent(props);
+    if (isReact) {
+      it('should pass props to render function', () => {
+        const props = { children: cy.spy(), max: 5, size: SfRatingButtonSize.base };
+        initializeComponent(props);
 
-      page().makeSnapshot();
-    });
+        cy.then(() => {
+          expect(props.children).to.be.callCount(props.max);
+          expect(props.children).to.be.calledWith({ isFilled: false, max: props.max, iconSize: 'lg' });
+        });
+      });
+    }
   });
 });

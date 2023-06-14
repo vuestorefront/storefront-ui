@@ -99,14 +99,12 @@ const handleHoverOut = () => {
       <slot :is-filled="isIconFilled(ratingValue)" :icon-size="iconSize[size]" :max="max">
         <SfIconStarFilled
           v-if="isIconFilled(ratingValue)"
-          data-testid="ratingbutton-icon-filled"
           role="none"
           class="text-primary-700 cursor-pointer peer-disabled:cursor-default peer-disabled:text-disabled-500 peer-focus-visible:outline"
           :size="iconSize[size]"
         />
         <SfIconStar
           v-else
-          data-testid="ratingbutton-icon-empty"
           role="none"
           class="text-neutral-500 cursor-pointer peer-disabled:cursor-default peer-disabled:text-disabled-500 peer-focus-visible:outline"
           :size="iconSize[size]"
