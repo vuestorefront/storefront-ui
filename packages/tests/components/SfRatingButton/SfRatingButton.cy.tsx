@@ -5,6 +5,7 @@ import { mount, useComponent } from '../../utils/mount';
 
 const { vue: SfRatingButtonVue, react: SfRatingButtonReact } = useComponent('SfRatingButton');
 import SfRatingButtonBaseObject from './SfRatingButton.PageObject';
+import { isVue } from '../../utils/utils';
 
 describe('SfRatingButton', () => {
   const page = () => new SfRatingButtonBaseObject('ratingbutton');
@@ -16,10 +17,10 @@ describe('SfRatingButton', () => {
       max?: number;
       name?: string;
       disabled?: boolean;
-      ariaLabel?: string;
+      label?: string;
       size?: SfRatingButtonSize;
       getLabelText?: (value: number) => string;
-      // children?: (state: SfRatingButtonRenderProps) => ReactNode;
+      children?: () => JSX.Element;
     } = {},
   ) => {
     const {
@@ -28,9 +29,10 @@ describe('SfRatingButton', () => {
       max = 5,
       name = 'sf-rating-button',
       disabled = false,
-      ariaLabel = 'Rating',
+      label = 'Rating',
       size = SfRatingButtonSize.base,
       getLabelText = (value) => `${value} star`,
+      children,
     } = props;
     return mount({
       vue: {
@@ -41,9 +43,12 @@ describe('SfRatingButton', () => {
           max,
           name,
           disabled,
-          ariaLabel,
+          label,
           size,
           getLabelText,
+        },
+        slots: {
+          default: () => children?.(),
         },
       },
       react: (
@@ -53,10 +58,12 @@ describe('SfRatingButton', () => {
           max={max}
           name={name}
           disabled={disabled}
-          ariaLabel={ariaLabel}
+          label={label}
           size={size}
           getLabelText={getLabelText}
-        ></SfRatingButtonReact>
+        >
+          {children}
+        </SfRatingButtonReact>
       ),
     });
   };
@@ -74,7 +81,7 @@ describe('SfRatingButton', () => {
 
       page().clickEmptyIcon();
       cy.then(() => {
-        expect(props.onChange).calledOnceWith();
+        expect(props.onChange).to.be.calledOnce;
       });
     });
   });
@@ -93,16 +100,16 @@ describe('SfRatingButton', () => {
       const props = { name: 'custom-name', max: 5 };
       initializeComponent(props);
 
-      page().allInputsHaveName(props.name, props.max);
+      page().allInputsHaveAttr({ attr: 'name', expectedValue: props.name, max: props.max });
     });
   });
 
-  describe('when prop ariaLabel is set', () => {
-    it('should pass given ariaLabel', () => {
-      const props = { ariaLabel: 'rating button label' };
+  describe('when prop label is set', () => {
+    it('should pass given label', () => {
+      const props = { label: 'rating button label' };
       initializeComponent(props);
 
-      page().hasAriaLabel(props.ariaLabel);
+      page().hasLabel(props.label);
     });
   });
 
@@ -141,7 +148,7 @@ describe('SfRatingButton', () => {
       const props = { getLabelText: (value) => `${value} heart${value !== 1 ? 's' : ''}`, max: 5 };
       initializeComponent(props);
 
-      page().hasLabels(props.getLabelText, props.max);
+      page().allInputsHaveAttr({ attr: 'aria-label', expectedValue: props.getLabelText, max: props.max });
     });
   });
 
@@ -154,6 +161,15 @@ describe('SfRatingButton', () => {
           page().makeSnapshot();
         });
       });
+    });
+  });
+
+  describe('when custom icon', () => {
+    it('should render custom icons', () => {
+      const props = { children: isVue ? () => <p>star</p> : () => <p>star</p> };
+      initializeComponent(props);
+
+      page().makeSnapshot();
     });
   });
 });

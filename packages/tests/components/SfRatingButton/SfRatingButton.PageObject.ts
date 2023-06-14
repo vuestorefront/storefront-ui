@@ -6,26 +6,27 @@ export default class SfRatingButtonBaseObject extends BasePage {
     return this;
   }
 
-  hasAriaLabel(ariaLabel: string) {
-    this.container.should('have.attr', 'aria-label', ariaLabel);
+  hasLabel(label: string) {
+    cy.get('legend').contains(label);
     return this;
   }
 
-  allInputsHaveName(name: string, max: number) {
+  allInputsHaveAttr({
+    max,
+    attr,
+    expectedValue,
+  }: {
+    max: number;
+    attr: string;
+    expectedValue: string | ((value: number) => string);
+  }) {
     this.inputs.should(($inputs) => {
       expect($inputs, `${max} inputs`).to.have.length(max);
-      Array.from({ length: max }, (_, index) => index).forEach((index) => {
-        expect($inputs.eq(index), `${index} input`).to.have.attr('name', name);
-      });
-    });
-    return this;
-  }
-
-  hasLabels(getLabelText: (value: number) => string, max: number) {
-    this.labels.should(($labels) => {
-      expect($labels, `${max} labels`).to.have.length(max);
       Array.from({ length: max }, (_, index) => index + 1).forEach((value, index) => {
-        expect($labels.eq(index), `${index} input`).to.contain(getLabelText(value));
+        expect($inputs.eq(index), `${index} input`).to.have.attr(
+          attr,
+          typeof expectedValue === 'function' ? expectedValue(value) : expectedValue,
+        );
       });
     });
     return this;
@@ -56,10 +57,10 @@ export default class SfRatingButtonBaseObject extends BasePage {
   }
 
   get iconFilled() {
-    return this.getTestElement('ratingbutton-icon-filled');
+    return this.getTestElement('star-filled');
   }
 
   get iconEmpty() {
-    return this.getTestElement('ratingbutton-icon-empty');
+    return this.getTestElement('star');
   }
 }

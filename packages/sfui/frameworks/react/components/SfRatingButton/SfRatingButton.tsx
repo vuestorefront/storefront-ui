@@ -17,7 +17,6 @@ const renderDefaultIcon = ({ isFilled, iconSize }: SfRatingButtonRenderProps) =>
   if (isFilled) {
     return (
       <SfIconStarFilled
-        data-testid="ratingbutton-icon-filled"
         role="none"
         className="text-primary-700 cursor-pointer peer-disabled:cursor-default peer-disabled:text-disabled-500 peer-focus-visible:outline"
         size={iconSize}
@@ -40,7 +39,8 @@ export default function SfRatingButton({
   disabled = false,
   max = 5,
   name = 'sf-rating-button',
-  ariaLabel = 'Rating',
+  label = 'Rating',
+  labelClassName,
   size = SfRatingButtonSize.base,
   getLabelText = defaultLabelText,
   children = renderDefaultIcon,
@@ -73,16 +73,10 @@ export default function SfRatingButton({
   };
 
   return (
-    <div
-      role="radiogroup"
-      aria-label={ariaLabel}
-      className={classNames('flex', className)}
-      data-testid="ratingbutton"
-      {...attributes}
-    >
+    <fieldset className={classNames('flex', className)} disabled={disabled} data-testid="ratingbutton" {...attributes}>
+      <legend className={labelClassName}>{label}</legend>
       {icons.map((ratingValue) => (
         <label key={ratingValue} onMouseEnter={handleHoverIn(ratingValue)} onMouseLeave={handleHoverOut}>
-          <span className="sr-only">{getLabelText(ratingValue)}</span>
           <input
             type="radio"
             name={name}
@@ -90,11 +84,12 @@ export default function SfRatingButton({
             checked={ratingValue === value}
             onChange={handleChange}
             disabled={disabled}
+            aria-label={getLabelText(ratingValue)}
             className="sr-only peer"
           />
-          {children({ isFilled: isIconFilled(ratingValue), value, max, iconSize: iconSize[size] })}
+          {children({ isFilled: isIconFilled(ratingValue), max, iconSize: iconSize[size] })}
         </label>
       ))}
-    </div>
+    </fieldset>
   );
 }

@@ -25,7 +25,11 @@ const props = defineProps({
     type: String,
     default: 'sf-rating-button',
   },
-  ariaLabel: {
+  label: {
+    type: String,
+    default: 'Rating',
+  },
+  labelClassName: {
     type: String,
     default: 'Rating',
   },
@@ -74,14 +78,14 @@ const handleHoverOut = () => {
 </script>
 
 <template>
-  <div role="radiogroup" :aria-label="ariaLabel" class="flex" data-testid="ratingbutton">
+  <filedset class="flex" data-testid="ratingbutton">
+    <legend :class="labelClassName">{{ label }}</legend>
     <label
       v-for="ratingValue in icons"
       :key="ratingValue"
       @mouseenter="handleHoverIn(ratingValue)"
       @mouseleave="handleHoverOut"
     >
-      <span class="sr-only">{{ getLabelText(ratingValue) }}</span>
       <input
         type="radio"
         class="sr-only peer"
@@ -89,6 +93,7 @@ const handleHoverOut = () => {
         :value="ratingValue"
         :checked="ratingValue === modelValue"
         :disabled="disabled"
+        :aria-label="getLabelText(ratingValue)"
         @change="handleChange"
       />
       <slot :is-filled="isIconFilled(ratingValue)" :icon-size="iconSize[size]" :max="max">
@@ -108,5 +113,5 @@ const handleHoverOut = () => {
         />
       </slot>
     </label>
-  </div>
+  </filedset>
 </template>

@@ -41,9 +41,9 @@ RatingButton comes with three different sizes which are compatible with Storefro
 <!-- end react -->
 </Showcase>
 
-### Different number of icons
+### Adjust maximum rating score value
 
-Set any number of icons using `max` prop.
+Set any number of stars using `max` prop. For example, if you increase the maximum rating score to 10, the component will dynamically generate ten buttons, giving users a wider range of options to rate their experience.
 
 <Showcase showcase-name="RatingButton/MaxNumber" style="min-height:250px">
 <!-- vue -->
@@ -78,7 +78,7 @@ You can customize an icon of the RatingButton using
 
 RatingButton follows [WAI-ARIA guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/) for rating radio groups.
 
-The outer wrapper element has a role ["radiogroup"](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Roles/radiogroup_role). You can set its aria-label using the `ariaLabel` prop. If you want to use visible label you should add it by yourself, and provide proper `aria-labelledby`.
+The outer wrapper element is `<fieldset>`. You can set a corrsponding `<legend>` using `label` prop.
 
 The RatingButton uses hidden radio input elements to satisfy all keyboard functional requirements. Each input element has corresponding label that reflects selected value. By default it says "stars", so make sure you change it when using custom icons. You can change each icon label using `getLabelText` prop.
 
@@ -92,20 +92,21 @@ The RatingButton uses hidden radio input elements to satisfy all keyboard functi
 
 ## Props
 
-| Prop name      | Type                                              | Default value      | Possible values    |
-| -------------- | ------------------------------------------------- | ------------------ | ------------------ |
+| Prop name        | Type                                              | Default value      | Possible values    |
+| ---------------- | ------------------------------------------------- | ------------------ | ------------------ |
 <!-- react -->
-| `value`        | `number`                                          | `0`                |                    |
-| `onChange`     | `(value: number) => void`                         |                    |                    |
+| `value`          | `number`                                          | `0`                |                    |
+| `onChange`       | `(value: number) => void`                         |                    |                    |
 <!-- end react -->
-| `name`         | `string`                                          | `sf-rating-button` |                    |
-| `max`          | `number`                                          | `5`                |                    |
-| `size`         | `SfRatingButtonSize`                              | `base`             | `sm`, `base`, `lg` |
-| `disabled`     | `boolean`                                         | `false`            |                    |
-| `ariaLabel`    | `string`                                          | `Rating`           |                    |
-| `getLabelText` | `(value: number) => string`                       |                    |                    |
+| `name`           | `string`                                          | `sf-rating-button` |                    |
+| `max`            | `number`                                          | `5`                |                    |
+| `size`           | `SfRatingButtonSize`                              | `base`             | `sm`, `base`, `lg` |
+| `disabled`       | `boolean`                                         | `false`            |                    |
+| `label`          | `string`                                          | `Rating`           |                    |
+| `labelClassName` | `string`                                          | `Rating`           |                    |
+| `getLabelText`   | `(value: number) => string`                       |                    |                    |
 <!-- react -->
-| `children`     | `(state: SfRatingButtonRenderProps) => ReactNode` |                    |                    |
+| `children`       | `(state: SfRatingButtonRenderProps) => ReactNode` |                    |                    |
 <!-- end react -->
 
 <!-- react -->
@@ -117,7 +118,6 @@ SfRatingButtonRenderProps
 | Prop name  | Type                 | Default value | Possible values    |
 | ---------- | -------------------- | ------------- | ------------------ |
 | `isFilled` | `boolean`            |               |                    |
-| `value`    | `number`             |               |                    |
 | `max`      | `number`             |               |                    |
 | `iconSize` | `SfIconSize`         |               | `base`, `lg`, `xl` |
 

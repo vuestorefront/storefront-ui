@@ -6,7 +6,6 @@ export { SfRatingButtonSize };
 
 export interface SfRatingButtonRenderProps {
   isFilled: boolean;
-  value: number;
   max: number;
   iconSize: Extract<`${SfIconSize}`, 'base' | 'lg' | 'xl'>;
 }
@@ -17,7 +16,8 @@ export interface SfRatingButtonProps extends PropsWithStyle {
   max?: number;
   name?: string;
   disabled?: boolean;
-  ariaLabel?: string;
+  label?: string;
+  labelClassName?: string;
   size?: `${SfRatingButtonSize}`;
   getLabelText?: (value: number) => string;
   children?: (state: SfRatingButtonRenderProps) => ReactNode;
