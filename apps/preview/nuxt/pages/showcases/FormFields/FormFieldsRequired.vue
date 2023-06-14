@@ -2,7 +2,7 @@
   <div class="px-4">
     <h1 class="mb-4 typography-headline-4 font-bold">Personal information</h1>
     <form @submit.prevent="sendForm">
-      <label class="flex justify-between typography-text-base cursor-pointer mb-4 gap-2">
+      <label class="flex justify-between cursor-pointer mb-4 gap-2">
         Don’t display my personal information on a public profile
         <SfSwitch v-model="personalInformationModelValue" />
       </label>
@@ -10,10 +10,9 @@
         <span class="typography-label-sm font-medium">Username *</span>
         <SfInput
           v-model="usernameModelValue"
-          :required="true"
+          required
           :invalid="usernameIsInvalid"
-          @input="usernameModelValue ? (usernameIsInvalid = false) : (usernameIsInvalid = true)"
-          @blur="usernameModelValue ? (usernameIsInvalid = false) : (usernameIsInvalid = true)"
+          @update:model-value="usernameIsInvalid = !usernameModelValue"
         />
         <p v-if="usernameIsInvalid" class="mt-0.5 text-negative-700 typography-text-sm font-medium">
           The field cannot be empty
@@ -25,9 +24,8 @@
           v-model="emailModelValue"
           type="email"
           :invalid="emailIsInvalid"
-          :required="true"
-          @input="emailModelValue ? (emailIsInvalid = false) : (emailIsInvalid = true)"
-          @blur="emailModelValue ? (emailIsInvalid = false) : (emailIsInvalid = true)"
+          required
+          @update:model-value="emailIsInvalid = !emailModelValue"
         >
           <template #prefix>
             <SfIconEmail />
@@ -52,11 +50,10 @@
           <SfSelect
             id="select-area-code"
             v-model="areaCode"
-            :required="true"
+            required
             placeholder="--"
             :invalid="areaCodeIsInvalid"
-            @change="areaCode ? (areaCodeIsInvalid = false) : null"
-            @blur="areaCode ? (areaCodeIsInvalid = false) : (areaCodeIsInvalid = true)"
+            @update:model-value="areaCodeIsInvalid = !areaCode"
           >
             <option v-for="({ value, label }, index) in areaCodes" :key="`${value}-${index}`" :value="value">
               {{ label }}
@@ -71,13 +68,12 @@
             id="phone-number"
             v-model="phoneNumberModelValue"
             type="tel"
-            :required="true"
+            required
             :invalid="phoneNumberIsInvalid"
             placeholder="eg. 123 456 7890"
             wrapper-class="w-full"
             class="placeholder:text-neutral-500"
-            @input="phoneNumberModelValue ? (phoneNumberIsInvalid = false) : (phoneNumberIsInvalid = true)"
-            @blur="phoneNumberModelValue ? (phoneNumberIsInvalid = false) : (phoneNumberIsInvalid = true)"
+            @update:model-value="phoneNumberIsInvalid = !phoneNumberModelValue"
           />
           <p v-if="phoneNumberIsInvalid" class="mt-0.5 text-negative-700 typography-text-sm font-medium">
             The field cannot be empty
@@ -270,7 +266,7 @@
           <SfRadio
             v-model="pushNotificationsModelValue"
             :invalid="pushNotificationIsInvalid"
-            :required="true"
+            required
             :value="value"
             :name="name"
           />

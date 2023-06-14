@@ -376,7 +376,7 @@ export default function FormFields() {
     <div className="px-4">
       <h1 className="mb-4 typography-headline-4 font-bold">Personal information</h1>
       <form onSubmit={sendForm}>
-        <label className="flex justify-between typography-text-base cursor-pointer mb-4 gap-2">
+        <label className="flex justify-between cursor-pointer mb-4 gap-2">
           Don’t display my personal information on a public profile
           <SfSwitch checked={personalInformation} onChange={() => setPersonalInformation(!personalInformation)} />
         </label>
