@@ -1,7 +1,7 @@
 /* eslint-disable no-promise-executor-return */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';
+import { type ChangeEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';
 import { offset } from '@floating-ui/react-dom';
 import {
   SfInput,
@@ -41,7 +41,7 @@ type SelectOption = {
   value: string;
 };
 
-const options: SelectOption[] = [
+const countriesList: SelectOption[] = [
   {
     label: 'Afghanistan',
     value: 'afghanistan',
@@ -113,7 +113,9 @@ const options: SelectOption[] = [
 ];
 
 const mockAutocompleteRequest = (phrase: string) => {
-  const results = options.filter((option) => option.value.toLowerCase().startsWith(phrase.toLowerCase()));
+  const results = countriesList.filter((option: SelectOption) =>
+    option.value.toLowerCase().startsWith(phrase.toLowerCase()),
+  );
   return results;
 };
 
@@ -185,7 +187,7 @@ export default function ComboboxBasic() {
     }
   };
 
-  const selectOption = (event: FormEvent, option: SelectOption) => {
+  const selectOption = (option: SelectOption) => {
     setSearchValue(option.label);
     setSelectedValue(option.label);
     close();
@@ -195,7 +197,7 @@ export default function ComboboxBasic() {
   const handleOptionItemKeyDown = (event: KeyboardEvent<HTMLButtonElement>, option: SelectOption) => {
     if (event.key === 'Escape') {
       handleFocusInput();
-    } else if (event.key === ' ' || event.key === 'Enter') selectOption(event, option);
+    } else if (event.key === ' ' || event.key === 'Enter') selectOption(option);
   };
 
   useEffect(() => {
@@ -269,16 +271,16 @@ export default function ComboboxBasic() {
               role="listbox"
               ref={dropdownRef}
               aria-label="Country list"
-              className="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+              className="max-h-80 px-1 -mx-1 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md overflow-y-auto"
             >
               {(snippets.length > 0 &&
                 snippets.map((option) => (
-                  <li key={option.value}>
+                  <li key={`${listId}-${option.value}`}>
                     <SfListItem
                       id={`${listId}-${option.value}`}
                       as="button"
                       type="button"
-                      onClick={(event) => selectOption(event, option)}
+                      onClick={() => selectOption(option)}
                       onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
                       className="flex justify-start"
                       aria-selected={option.value === selectedValue}
@@ -294,13 +296,13 @@ export default function ComboboxBasic() {
                     <span>No options</span>
                   </p>
                 )) ||
-                options.map((option) => (
-                  <li key={option.value}>
+                countriesList.map((option) => (
+                  <li key={`${listId}-${option.value}`}>
                     <SfListItem
                       id={`${listId}-${option.value}`}
                       as="button"
                       type="button"
-                      onClick={(event) => selectOption(event, option)}
+                      onClick={() => selectOption(option)}
                       onKeyDown={(event) => handleOptionItemKeyDown(event, option)}
                       className="flex justify-start"
                       aria-selected={option.value === selectedValue}
