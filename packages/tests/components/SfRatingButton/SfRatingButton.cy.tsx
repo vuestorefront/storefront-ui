@@ -23,7 +23,7 @@ describe('SfRatingButton', () => {
   const page = () => new SfRatingButtonBaseObject('ratingbutton');
 
   const initializeComponent = (props: Props = {}) => {
-    const { value, onChange, max, name, disabled, label, size, getLabelText, children } = props;
+    const { value, onChange, max, name, disabled, label, size, getLabelText } = props;
     return mount({
       vue: {
         component: SfRatingButtonVue,
@@ -48,9 +48,7 @@ describe('SfRatingButton', () => {
           label={label}
           size={size}
           getLabelText={getLabelText}
-        >
-          {children}
-        </SfRatingButtonReact>
+        />
       ),
     });
   };
@@ -66,9 +64,11 @@ describe('SfRatingButton', () => {
       const props = { value: 6, max: 9, onChange: cy.spy() };
       initializeComponent(props);
 
-      page().clickEmptyIcon();
+      // index 0 means click first empty icon
+      page().clickEmptyIcon(0);
       cy.then(() => {
-        expect(props.onChange).to.be.calledOnce;
+        // so expected value passed to onChange/modelValue should be +1 to the current value
+        expect(props.onChange).calledOnceWith(props.value + 1);
       });
     });
   });
