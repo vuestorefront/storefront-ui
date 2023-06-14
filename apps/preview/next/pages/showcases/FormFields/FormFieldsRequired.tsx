@@ -18,7 +18,7 @@ import {
   useTrapFocus,
   useDropdown,
   SfIconCheck,
-  InitialFocusType
+  InitialFocusType,
 } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { offset } from '@floating-ui/react-dom';
