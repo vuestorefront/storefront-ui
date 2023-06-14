@@ -2,7 +2,7 @@
 /* eslint-disable no-console */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { type ChangeEvent, type FormEvent, useState, useRef } from 'react';
+import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef } from 'react';
 import { useDebounce } from 'react-use';
 import { offset } from '@floating-ui/react-dom';
 import {
@@ -66,7 +66,12 @@ export default function SearchWithIcon() {
     placement: 'bottom-start',
     middleware: [offset(4)],
   });
-  useTrapFocus(dropdownListRef, { arrowKeysUpDown: true, activeState: isOpen, initialFocus: false });
+  const { focusables: focusableElements, updateFocusableElements } = useTrapFocus(dropdownListRef, {
+    trapTabs: false,
+    arrowKeysUpDown: true,
+    activeState: isOpen,
+    initialFocus: false,
+  });
   const isResetButton = Boolean(searchValue);
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
@@ -98,6 +103,24 @@ export default function SearchWithIcon() {
     setSearchValue(phrase);
     close();
     handleFocusInput();
+  };
+
+  const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') handleReset();
+    if (event.key === 'ArrowUp') {
+      open();
+      updateFocusableElements();
+      if (isOpen && focusableElements.length > 0) {
+        focusableElements[focusableElements.length - 1].focus();
+      }
+    }
+    if (event.key === 'ArrowDown') {
+      open();
+      updateFocusableElements();
+      if (isOpen && focusableElements.length > 0) {
+        focusableElements[0].focus();
+      }
+    }
   };
 
   useDebounce(
@@ -134,6 +157,7 @@ export default function SearchWithIcon() {
           wrapperClassName="w-full !ring-0 active:!ring-0 hover:!ring-0 focus-within:!ring-0 border-y border-l border-neutral-200 rounded-r-none hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
           aria-label="Search"
           placeholder="Search 'MacBook' or 'iPhone'..."
+          onKeyDown={handleInputKeyDown}
           slotPrefix={<SfIconSearch />}
           slotSuffix={
             isResetButton && (

@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { type ChangeEvent, type FormEvent, useState, useRef } from 'react';
+import { type ChangeEvent, type KeyboardEvent, type FormEvent, useState, useRef } from 'react';
 import { useDebounce } from 'react-use';
 import { offset } from '@floating-ui/react-dom';
 import {
@@ -62,7 +62,8 @@ export default function SearchBasic() {
     placement: 'bottom-start',
     middleware: [offset(4)],
   });
-  useTrapFocus(dropdownListRef, {
+  const { focusables: focusableElements, updateFocusableElements } = useTrapFocus(dropdownListRef, {
+    trapTabs: false,
     initialFocus: false,
     arrowKeysUpDown: true,
     activeState: isOpen,
@@ -100,6 +101,24 @@ export default function SearchBasic() {
     handleFocusInput();
   };
 
+  const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Escape') handleReset();
+    if (event.key === 'ArrowUp') {
+      open();
+      updateFocusableElements();
+      if (isOpen && focusableElements.length > 0) {
+        focusableElements[focusableElements.length - 1].focus();
+      }
+    }
+    if (event.key === 'ArrowDown') {
+      open();
+      updateFocusableElements();
+      if (isOpen && focusableElements.length > 0) {
+        focusableElements[0].focus();
+      }
+    }
+  };
+
   useDebounce(
     () => {
       if (searchValue) {
@@ -132,6 +151,7 @@ export default function SearchBasic() {
         onFocus={open}
         aria-label="Search"
         placeholder="Search 'MacBook' or 'iPhone'..."
+        onKeyDown={handleInputKeyDown}
         slotPrefix={<SfIconSearch />}
         slotSuffix={
           isResetButton && (
