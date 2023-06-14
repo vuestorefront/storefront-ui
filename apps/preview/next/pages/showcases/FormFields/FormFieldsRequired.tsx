@@ -368,7 +368,6 @@ export default function FormFields() {
       pushNotifications,
     };
 
-    // eslint-disable-next-line no-console
     console.log(userData);
   };
 
