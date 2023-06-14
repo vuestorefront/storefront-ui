@@ -17,7 +17,7 @@ const getSizeClasses = (size: SfButtonProps['size'], square: SfButtonProps['squa
     case SfButtonSize.sm:
       return [square ? 'p-1.5' : 'leading-5 text-sm py-1.5 px-3', 'gap-1.5'];
     case SfButtonSize.lg:
-      return [square ? 'p-4' : 'py-3 leading-6 px-6', 'gap-3'];
+      return [square ? 'p-3' : 'py-3 leading-6 px-6', 'gap-3'];
     default:
       return [square ? 'p-2' : 'py-2 leading-6 px-4', 'gap-2'];
   }
