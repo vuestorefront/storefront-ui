@@ -223,6 +223,7 @@ jobs:
 
   release-rc:
     name: Release RC package
+    needs: [build, build-release, cypress-react, cypress-vue]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
