@@ -26,8 +26,8 @@ const props = defineProps({
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string): void;
 }>();
-
 const { modelValue } = toRefs(props);
+
 const proxyChecked = computed({
   get: () => modelValue.value,
   set: (val) => {
