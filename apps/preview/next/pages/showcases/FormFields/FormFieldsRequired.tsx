@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
@@ -204,7 +205,7 @@ export default function FormFields() {
   const [pushNotifications, setPushNotifications] = useState('');
   const [searchValue, setSearchValue] = useState<string>('');
   const [selectedValueCombobox, setSelectedValueCombobox] = useState<string>('');
-  const [isValid, setIsValid] = useState<boolean | undefined>(undefined);
+  const [isValid, setIsValid] = useState<boolean | undefined>();
   const [snippets, setSnippets] = useState<{ label: string; value: string }[]>([]);
   const [isDisabled] = useState(false);
   const [usernameIsInvalid, setUsernameIsInvalid] = useState(false);
@@ -309,7 +310,6 @@ export default function FormFields() {
           setSnippets(data);
         } catch (error) {
           closeCombobox();
-          // eslint-disable-next-line no-console
           console.error(error);
         }
       };
@@ -317,7 +317,7 @@ export default function FormFields() {
     }
   }, [searchValue]);
 
-  const { close, toggle, isOpen } = useDisclosure({ initialValue: false });
+  const { close, toggle, isOpen } = useDisclosure();
   const [selectedOption, setSelectedOption] = useState<SelectOption>();
   const id = useId();
   const listboxId = useId();
