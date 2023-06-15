@@ -39,7 +39,7 @@ hideToc: true
 
 The alternate NavbarTop variant designed to work seamlessly with the NavbarBottom, providing a cohesive mobile navigation experience.
 
-By combining with the NavbarBottom, you can create a unified navigation structure that accommodates both top and bottom navigation elements on mobile devices. This ensures a smooth and intuitive user experience, allowing users to access important navigation options easily.
+By combining with the NavbarBottom, you can create a unified navigation structure that accommodates both top and bottom navigation elements on mobile devices. This ensures a smooth and intuitive user experience, allowing users to access important navigation options easily. 
 
 <Showcase showcase-name="NavbarTop/NavbarTopSimpleMobile" no-paddings style="min-height: 500px;">
 
