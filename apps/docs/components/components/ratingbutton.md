@@ -78,7 +78,7 @@ You can customize an icon of the RatingButton using
 
 RatingButton follows [WAI-ARIA guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/) for rating radio groups.
 
-When adding a label make sure you added corresponding `aria-labelledby` to the RatingButton.
+To ensure optimal accessibility for RatingButton, we recommend to use either an `aria-label` attribute or a paragraph element with an assigned `id` and link it with `aria-labelledby`. For more details, have a look at examples below
 
 The RatingButton uses hidden radio input elements to satisfy all keyboard functional requirements. Each input element has corresponding label that reflects selected value. By default it says "stars", so make sure you change it when using custom icons. You can change each icon label using `getLabelText` prop.
 
