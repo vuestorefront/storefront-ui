@@ -13,7 +13,7 @@ hideBreadcrumbs: true
 
 ### Value handling
 
-The `value` prop allows you to set the current rating and max number of stars via `max` prop. 
+The `value` prop allows you to set the current rating and max number of stars via `max` prop.
 
 If you need to support partial stars, you can show half-filled star icons by passing the `half-increment` prop.
 
@@ -46,7 +46,6 @@ If you need to support partial stars, you can show half-filled star icons by pas
 ### Colors
 
 Rating by default uses a `warning-500` for filled and partially filled stars and `disabled-500` as an empty icon color. You can change these values in your [Tailwind configuration](https://tailwindcss.com/docs/configuration#theme) or override them for a single element using [`important modifier`](https://tailwindcss.com/docs/configuration#important-modifier).
-
 
 <Showcase showcase-name="Rating/RatingColors">
 
