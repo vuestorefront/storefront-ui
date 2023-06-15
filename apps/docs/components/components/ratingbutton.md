@@ -102,8 +102,6 @@ The RatingButton uses hidden radio input elements to satisfy all keyboard functi
 | `max`            | `number`                                          | `5`                |                    |
 | `size`           | `SfRatingButtonSize`                              | `base`             | `sm`, `base`, `lg` |
 | `disabled`       | `boolean`                                         | `false`            |                    |
-| `label`          | `string`                                          | `Rating`           |                    |
-| `labelClassName` | `string`                                          | `Rating`           |                    |
 | `getLabelText`   | `(value: number) => string`                       |                    |                    |
 <!-- react -->
 | `children`       | `(state: SfRatingButtonRenderProps) => ReactNode` |                    |                    |

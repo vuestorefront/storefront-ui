@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent } from 'react';
+import classnames from 'classnames';
 import {
   SfIconStar,
   SfIconStarFilled,
@@ -44,8 +45,7 @@ export default function SfRatingButton({
   disabled = false,
   max = 5,
   name = 'sf-rating-button',
-  label = 'Rating',
-  labelClassName,
+  className,
   size = SfRatingButtonSize.base,
   getLabelText = defaultLabelText,
   children = renderDefaultIcon,
@@ -72,25 +72,22 @@ export default function SfRatingButton({
   };
 
   return (
-    <fieldset disabled={disabled} data-testid="ratingbutton" {...attributes}>
-      <legend className={labelClassName}>{label}</legend>
-      <div className="flex">
-        {icons.map((ratingValue) => (
-          <label key={ratingValue} onMouseEnter={handleHoverIn(ratingValue)} onMouseLeave={handleHoverOut}>
-            <input
-              type="radio"
-              name={name}
-              value={ratingValue}
-              checked={ratingValue === value}
-              onChange={handleChange}
-              disabled={disabled}
-              aria-label={getLabelText(ratingValue)}
-              className="sr-only peer"
-            />
-            {children({ isFilled: isIconFilled(ratingValue), max, iconSize: iconSize[size] })}
-          </label>
-        ))}
-      </div>
-    </fieldset>
+    <div role="radiogroup" className={classnames('flex', className)} data-testid="ratingbutton" {...attributes}>
+      {icons.map((ratingValue) => (
+        <label key={ratingValue} onMouseEnter={handleHoverIn(ratingValue)} onMouseLeave={handleHoverOut}>
+          <input
+            type="radio"
+            name={name}
+            value={ratingValue}
+            checked={ratingValue === value}
+            onChange={handleChange}
+            disabled={disabled}
+            aria-label={getLabelText(ratingValue)}
+            className="sr-only peer"
+          />
+          {children({ isFilled: isIconFilled(ratingValue), max, iconSize: iconSize[size] })}
+        </label>
+      ))}
+    </div>
   );
 }

@@ -25,14 +25,6 @@ const props = defineProps({
     type: String,
     default: 'sf-rating-button',
   },
-  label: {
-    type: String,
-    default: 'Rating',
-  },
-  labelClassName: {
-    type: String,
-    default: 'Rating',
-  },
   size: {
     type: String as PropType<`${SfRatingButtonSize}`>,
     default: SfRatingButtonSize.base,
@@ -81,39 +73,36 @@ const handleHoverOut = () => {
 </script>
 
 <template>
-  <fieldset data-testid="ratingbutton">
-    <legend :class="labelClassName">{{ label }}</legend>
-    <div class="flex">
-      <label
-        v-for="ratingValue in icons"
-        :key="ratingValue"
-        @mouseenter="handleHoverIn(ratingValue)"
-        @mouseleave="handleHoverOut"
-      >
-        <input
-          v-model="radioModel"
-          type="radio"
-          class="sr-only peer"
-          :name="name"
-          :value="ratingValue"
-          :disabled="disabled"
-          :aria-label="getLabelText(ratingValue)"
+  <div role="radiogroup" class="flex" data-testid="ratingbutton">
+    <label
+      v-for="ratingValue in icons"
+      :key="ratingValue"
+      @mouseenter="handleHoverIn(ratingValue)"
+      @mouseleave="handleHoverOut"
+    >
+      <input
+        v-model="radioModel"
+        type="radio"
+        class="sr-only peer"
+        :name="name"
+        :value="ratingValue"
+        :disabled="disabled"
+        :aria-label="getLabelText(ratingValue)"
+      />
+      <slot :is-filled="isIconFilled(ratingValue)" :icon-size="iconSize[size]" :max="max">
+        <SfIconStarFilled
+          v-if="isIconFilled(ratingValue)"
+          role="none"
+          class="text-primary-700 cursor-pointer peer-disabled:cursor-default peer-disabled:text-disabled-500 peer-focus-visible:outline"
+          :size="iconSize[size]"
         />
-        <slot :is-filled="isIconFilled(ratingValue)" :icon-size="iconSize[size]" :max="max">
-          <SfIconStarFilled
-            v-if="isIconFilled(ratingValue)"
-            role="none"
-            class="text-primary-700 cursor-pointer peer-disabled:cursor-default peer-disabled:text-disabled-500 peer-focus-visible:outline"
-            :size="iconSize[size]"
-          />
-          <SfIconStar
-            v-else
-            role="none"
-            class="text-neutral-500 cursor-pointer peer-disabled:cursor-default peer-disabled:text-disabled-500 peer-focus-visible:outline"
-            :size="iconSize[size]"
-          />
-        </slot>
-      </label>
-    </div>
-  </fieldset>
+        <SfIconStar
+          v-else
+          role="none"
+          class="text-neutral-500 cursor-pointer peer-disabled:cursor-default peer-disabled:text-disabled-500 peer-focus-visible:outline"
+          :size="iconSize[size]"
+        />
+      </slot>
+    </label>
+  </div>
 </template>

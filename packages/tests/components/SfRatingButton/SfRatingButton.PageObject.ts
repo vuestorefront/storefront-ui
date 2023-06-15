@@ -6,11 +6,6 @@ export default class SfRatingButtonBaseObject extends BasePage {
     return this;
   }
 
-  hasLabel(label: string) {
-    cy.get('legend').contains(label);
-    return this;
-  }
-
   allInputsHaveAttr({
     max,
     attr,
