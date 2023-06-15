@@ -1,29 +1,18 @@
 /// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { SfRatingButtonSize } from '@storefront-ui/shared';
+import { type SfRatingButtonProps } from '@storefront-ui/react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: SfRatingButtonVue, react: SfRatingButtonReact } = useComponent('SfRatingButton');
 import SfRatingButtonBaseObject from './SfRatingButton.PageObject';
 import { isReact } from '../../utils/utils';
 
-interface Props {
-  value?: number;
-  onChange?: (value: number) => void;
-  max?: number;
-  name?: string;
-  disabled?: boolean;
-  label?: string;
-  labelClassName?: string;
-  size?: `${SfRatingButtonSize}`;
-  getLabelText?: (value: number) => string;
-}
-
 describe('SfRatingButton', () => {
   const page = () => new SfRatingButtonBaseObject('ratingbutton');
 
-  const initializeComponent = (props: Props = {}) => {
-    const { value, onChange, max, name, disabled, label, size, getLabelText } = props;
+  const initializeComponent = (props: SfRatingButtonProps = {}) => {
+    const { value, onChange, max, name, disabled, label, size, getLabelText, children } = props;
     return mount({
       vue: {
         component: SfRatingButtonVue,
@@ -48,7 +37,9 @@ describe('SfRatingButton', () => {
           label={label}
           size={size}
           getLabelText={getLabelText}
-        />
+        >
+          {children}
+        </SfRatingButtonReact>
       ),
     });
   };
