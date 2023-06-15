@@ -19,7 +19,7 @@ export default {
   webpack(config) {
     if (!isProd) {
       config.module.rules.push({
-        test: /\/sfui\/frameworks\/react\/index\.ts/,
+        test: /[\\\/]sfui[\\\/]frameworks[\\\/]react[\\\/]index\.ts/,
         loader: 'string-replace-loader',
         options: {
           // only for dev purposes in monorepo:
@@ -28,7 +28,7 @@ export default {
           // import type { PropsWithStyle } from '@storefront-ui/react';
 
           // export { SfThumbnailSize };
-          search: /^export \* from '\.\/components\/([^']+?)';/gm,
+          search: /^export \* from '\.[\\\/]components[\\\/]([^']+?)';/gm,
           replace: (_match, componentName) => {
             const path = join(
               process.cwd(),
