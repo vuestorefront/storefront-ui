@@ -78,7 +78,7 @@ You can customize an icon of the RatingButton using
 
 RatingButton follows [WAI-ARIA guidelines](https://www.w3.org/WAI/ARIA/apg/patterns/radio/examples/radio-rating/) for rating radio groups.
 
-The outer wrapper element is `<fieldset>`. You can set a corrsponding `<legend>` using `label` prop.
+To ensure optimal accessibility for RatingButton, we recommend to use either an `aria-label` attribute or a paragraph element with an assigned `id` and link it with `aria-labelledby`. For more details, have a look at examples below
 
 The RatingButton uses hidden radio input elements to satisfy all keyboard functional requirements. Each input element has corresponding label that reflects selected value. By default it says "stars", so make sure you change it when using custom icons. You can change each icon label using `getLabelText` prop.
 
@@ -102,8 +102,6 @@ The RatingButton uses hidden radio input elements to satisfy all keyboard functi
 | `max`            | `number`                                          | `5`                |                    |
 | `size`           | `SfRatingButtonSize`                              | `base`             | `sm`, `base`, `lg` |
 | `disabled`       | `boolean`                                         | `false`            |                    |
-| `label`          | `string`                                          | `Rating`           |                    |
-| `labelClassName` | `string`                                          | `Rating`           |                    |
 | `getLabelText`   | `(value: number) => string`                       |                    |                    |
 <!-- react -->
 | `children`       | `(state: SfRatingButtonRenderProps) => ReactNode` |                    |                    |

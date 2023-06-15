@@ -82,15 +82,6 @@ describe('SfRatingButton', () => {
     });
   });
 
-  describe('when prop label is set', () => {
-    it('should pass given label', () => {
-      const props = { label: 'rating button label' };
-      initializeComponent(props);
-
-      page().hasLabel(props.label);
-    });
-  });
-
   describe('when prop disabled=true', () => {
     it('should not change value on click', () => {
       const props = { disabled: true, value: 1, onChange: cy.spy() };

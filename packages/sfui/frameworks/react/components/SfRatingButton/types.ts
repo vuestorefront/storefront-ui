@@ -16,8 +16,7 @@ export interface SfRatingButtonProps extends PropsWithStyle {
   max?: number;
   name?: string;
   disabled?: boolean;
-  label?: string;
-  labelClassName?: string;
+  className?: string;
   size?: `${SfRatingButtonSize}`;
   getLabelText?: (value: number) => string;
   children?: (state: SfRatingButtonRenderProps) => ReactNode;
