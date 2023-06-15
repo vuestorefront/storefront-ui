@@ -57,7 +57,7 @@ const changedValue = (event: Event) => {
 </script>
 
 <template>
-  <div
+  <span
     :class="[
       'relative flex flex-col rounded-md',
       {
@@ -78,7 +78,7 @@ const changedValue = (event: Event) => {
           'py-1.5': size === SfSelectSize.sm,
           'py-2': size === SfSelectSize.base,
           'py-3 text-base': size === SfSelectSize.lg,
-          '!ring-negative-600 ring-2': invalid && !disabled,
+          '!ring-negative-700 ring-2': invalid && !disabled,
         },
       ]"
       data-testid="select-input"
@@ -115,5 +115,5 @@ const changedValue = (event: Event) => {
         ]"
       />
     </slot>
-  </div>
+  </span>
 </template>
