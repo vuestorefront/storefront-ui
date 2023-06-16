@@ -1,7 +1,7 @@
 <template>
   <div class="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
     <div class="relative">
-      <SfLink href="#">
+      <SfLink href="#" class="block">
         <img
           src="http://localhost:3100/@assets/sneakers.png"
           alt="Great product"
