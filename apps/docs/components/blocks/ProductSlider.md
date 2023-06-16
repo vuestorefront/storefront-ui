@@ -14,7 +14,7 @@ The example allows for scrollable content with product cards, providing a visual
 
 ## Accessibility notes
 
-The ProductSlider supports the use of the keyboard (Tab/alt+Tab) to navigate through images.
+The ProductSlider supports the use of the keyboard (Tab/shift+Tab) to navigate through images.
 
 ## Basic ProductSlider
 

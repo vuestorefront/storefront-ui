@@ -17,7 +17,7 @@ The Gallery is primarily intended for use on product pages, where it serves as a
 
 ## Accessibility notes
 
-The Gallery supports the use of the keyboard (Tab/alt+Tab) to navigate through images.
+The Gallery supports the use of the keyboard (Tab/shift+Tab) to navigate through images.
 
 ## Product Gallery with vertical thumbnails
 
