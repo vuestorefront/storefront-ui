@@ -71,7 +71,7 @@ export default function GalleryVertical() {
       {products.map(({ id, name, price, img }) => (
         <div
           key={id}
-          className="first:ms-auto last:me-auto border border-neutral-200 shrink-0 rounded-md hover:shadow-lg w-[148px] lg:w-[192px]"
+          className="first:ms-auto last:me-auto ring-1 ring-inset ring-neutral-200 shrink-0 rounded-md hover:shadow-lg w-[148px] lg:w-[192px]"
         >
           <div className="relative">
             <SfLink href="#">

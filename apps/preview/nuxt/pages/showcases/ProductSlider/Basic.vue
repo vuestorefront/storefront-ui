@@ -36,7 +36,7 @@
           variant="tertiary"
           size="sm"
           square
-          class="absolute bottom-0 right-0 mr-2 mb-2 bg-white border border-neutral-200 !rounded-full"
+          class="absolute bottom-0 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full"
           aria-label="Add to wishlist"
         >
           <SfIconFavorite size="sm" />
