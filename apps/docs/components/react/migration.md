@@ -18,4 +18,4 @@ So if you're upgrading from [Storefront UI 1](https://docs.storefrontui.io/v1), 
 
 Some components like [`SfButton`](components/button) and [`SfInput`](components/input) serve similar functions to their Storefront UI 1 counterparts, however their API has changed significantly.
 
-Other Storefront UI 1 components like [`SfReview`](blocks/Review) and [`SfProductCard`](blocks/ProductCard) have been removed from our NPM package, and are now available as [Storefront UI Blocks](../blocks). These are specific UI examples that you can copy and paste into your own projects so that you can have full control over all of the styling.
+Other Storefront UI 1 components like [`SfReview`](blocks/Review) and [`SfProductCard`](blocks/ProductCard) have been removed from our NPM package, and are now available as [Storefront UI Blocks](../react/blocks.html). These are specific UI examples that you can copy and paste into your own projects so that you can have full control over all of the styling.
