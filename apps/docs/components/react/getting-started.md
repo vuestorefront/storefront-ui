@@ -1,8 +1,9 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-tabOptions: [next.js,vite,astro]
+tabOptions: [next.js, vite]
 ---
+
 # Installation
 
 Since Storefront UI is designed to fit seamlessly into your Tailwind CSS workflow, there will be different installation steps depending on your environment.
@@ -65,10 +66,10 @@ As a workaround, you can add `transpilePackages: ['@storefront-ui/react']` to yo
 // next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  transpilePackages: ['@storefront-ui/react']
-}
+  transpilePackages: ['@storefront-ui/react'],
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
 ```
 
 :::
@@ -137,7 +138,6 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/ap
 <<<../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
 
 </SourceCode>
-
 
 ::::::
 
@@ -210,7 +210,6 @@ export default {
   },
   plugins: [],
 };
-
 ```
 
 </SourceCode>
@@ -241,108 +240,4 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 </SourceCode>
 
 <Showcase showcase-name="Button/ButtonBlock" :show-source="false"/>
-::::::
-
-:::::: slot astro
-## Astro + React
-
-### Add React and Tailwind to Your Astro Project
-
-When working with Astro, you'll first need to configure your project to use Astro's React and Tailwind integrations.
-
-The simplest way to do this is use the `astro add` command, but you can manually configure these two integrations using the [Astro React](https://docs.astro.build/en/guides/integrations-guide/react/) and [Astro Tailwind](https://docs.astro.build/en/guides/integrations-guide/tailwind/) guides.
-
-```bash
-# npm
-npx astro add react tailwind
-
-# yarn
-yarn astro add react tailwind
-
-# pnpm
-pnpm astro add react tailwind
-```
-
-The `astro add` command will automatically install the necessary dependencies and add the necessary configuration to your project. Also, it will add a `tailwind.config.js` file to your project's root directory.
-
-### Install Storefront UI Dependencies
-
-Now that your Astro project is configured to use React and Tailwind, you'll need to install the Storefront UI React library and Tailwind preset.
-
-```bash
-# npm
-npm i -D @storefront-ui/react
-
-# yarn
-yarn add -D @storefront-ui/react
-
-# pnpm
-pnpm add -D @storefront-ui/react
-```
-
-### Modify Your Tailwind Configuration File
-
-Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.cjs` file.
-
-::: tip Add a path to your installed package
-
-In order for Tailwind to properly detect the utility classes used in Storefront UI components, you need to add a path to wherever your `node_modules` folder is located to the `content` property. In the example below, we're using the default location for `node_modules`, but this may change if you're working in a monorepo.
-:::
-
-<SourceCode>
-
-```js
-// tailwind.config.cjs
-const { tailwindConfig } = require('@storefront-ui/react/tailwind-config');
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-  presets: [tailwindConfig],
-  content: ['./index.html', './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/@storefront-ui/react/**/*.{js,mjs}'],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-```
-
-</SourceCode>
-
-### Add Tailwind to Your CSS
-
-Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
-
-
-```css
-/* src/style.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-```
-
-### You're Ready to Go!
-
-You can now import Storefront UI components inside your Astro project! You can either use them directly in your Astro components or import them into your React components.
-
-<SourceCode>
-
-<<<../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
-
-</SourceCode>
-
-<SourceCode>
-
-```md
----
-import { SfButton } from '@storefront-ui/react';
----
-
-<SfButton> Hello World </SfButton>
-```
-
-</SourceCode>
-
-::: tip Need interaction?
-If you need interaction, you can create your own React components that use Storefront UI components under the hood. You can then import these components into your Astro components and use them as you would any other React component. Read more about React components in Astro in Astro's [Framework Components guide](https://docs.astro.build/en/core-concepts/framework-components/).
-:::
 ::::::
