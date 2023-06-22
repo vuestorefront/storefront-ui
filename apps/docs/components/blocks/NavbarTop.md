@@ -11,7 +11,7 @@ hideToc: true
 
 ## NavbarTop with white background
 
-<Showcase showcase-name="NavbarTop/NavbarTop" no-paddings style="min-height: 500px;">
+<Showcase showcase-name="NavbarTop/NavbarTop" no-paddings style="min-height: 150px;">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/NavbarTop/NavbarTop.vue
@@ -24,7 +24,7 @@ hideToc: true
 
 ## NavbarTop with filled background
 
-<Showcase showcase-name="NavbarTop/NavbarTopFilled" no-paddings style="min-height: 500px;">
+<Showcase showcase-name="NavbarTop/NavbarTopFilled" no-paddings style="min-height: 150px;">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopFilled.vue
@@ -41,7 +41,7 @@ The alternate NavbarTop variant designed to work seamlessly with the NavbarBotto
 
 By combining with the NavbarBottom, you can create a unified navigation structure that accommodates both top and bottom navigation elements on mobile devices. This ensures a smooth and intuitive user experience, allowing users to access important navigation options easily. 
 
-<Showcase showcase-name="NavbarTop/NavbarTopSimpleMobile" no-paddings style="min-height: 500px;">
+<Showcase showcase-name="NavbarTop/NavbarTopSimpleMobile" no-paddings style="min-height: 150px;">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopSimpleMobile.vue
@@ -54,7 +54,7 @@ By combining with the NavbarBottom, you can create a unified navigation structur
 
 ## NavbarTop with filled background and simple mobile bar
 
-<Showcase showcase-name="NavbarTop/NavbarTopFilledSimpleMobile" no-paddings style="min-height: 500px;">
+<Showcase showcase-name="NavbarTop/NavbarTopFilledSimpleMobile" no-paddings style="min-height: 150px;">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopFilledSimpleMobile.vue
