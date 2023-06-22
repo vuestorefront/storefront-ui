@@ -19,7 +19,8 @@ jobs:
       - name: Install dependencies
         run: yarn --immutable
       - name: Publish Production version
-        run: yarn changeset publish
+        # run: yarn changeset publish
+        run: echo publish package
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
@@ -29,7 +30,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          gh pr create -B v2-develop --title 'Automatic Sync v2->v2-develop PR' --body 'This Pull Request is generated automatically with changes pushed into `v2` branch. `v2` and `v2-develop` branches should be in-sync.' --label automerge || true
+          gh pr create -B v2-develop --title 'chore: automatic Sync v2->v2-develop PR' --body 'This Pull Request is generated automatically with changes pushed into `v2` branch. `v2` and `v2-develop` branches should be in-sync.' --label automerge || true
       - name: Merge created PR
         env:
           GH_TOKEN: ${{ github.token }}
