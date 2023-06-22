@@ -4,6 +4,8 @@
       :drag="state.drag"
       :direction="state.direction"
       :buttons-placement="state.buttonsPlacement"
+      :button-prev-aria-label="state.buttonPrevAriaLabel"
+      :button-next-aria-label="state.buttonNextAriaLabel"
       class="w-full items-center"
     >
       <div
@@ -54,12 +56,28 @@ const { controlsAttrs, state } = prepareControls(
       propDefaultValue: '10',
       description: 'Only for demonstration purposes. Total number of items',
     },
+    {
+      type: 'text',
+      modelName: 'buttonPrevAriaLabel',
+      propType: 'string',
+      propDefaultValue: 'Previous',
+      description: 'Sets aria label for the previous button',
+    },
+    {
+      type: 'text',
+      modelName: 'buttonNextAriaLabel',
+      propType: 'string',
+      propDefaultValue: 'Next',
+      description: 'Sets aria label for the next button',
+    },
   ],
   {
     direction: ref(SfScrollableDirection.horizontal),
     buttonsPlacement: ref(SfScrollableButtonsPlacement.block),
     drag: ref(),
     totalItems: ref('20'),
+    buttonPrevAriaLabel: ref('Previous element'),
+    buttonNextAriaLabel: ref('Next element'),
   },
 );
 </script>
