@@ -1,5 +1,11 @@
 # @storefront-ui/vue
 
+## 2.4.1
+
+### Patch Changes
+
+- fixing publish error with workspaces protocol handling
+
 ## 2.4.0
 
 ### Minor Changes
