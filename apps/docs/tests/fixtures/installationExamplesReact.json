@@ -8,10 +8,5 @@
     "button": "Vite",
     "app": "Vite + React",
     "framework": "vite-react"
-  },
-  {
-    "button": "Astro",
-    "app": "Astro + React",
-    "framework": "astro-react"
   }
 ]
