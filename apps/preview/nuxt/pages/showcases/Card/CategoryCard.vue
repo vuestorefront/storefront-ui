@@ -1,5 +1,5 @@
 <template>
-  <div className="flex flex-wrap gap-4 lg:gap-6 lg:flex-no-wrap">
+  <div class="flex flex-wrap gap-4 lg:gap-6 lg:flex-no-wrap">
     <div
       v-for="{ title, image } in categories"
       :key="title"
