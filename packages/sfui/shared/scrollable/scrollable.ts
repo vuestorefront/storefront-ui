@@ -186,6 +186,7 @@ export default class Scrollable {
       isDragged: false,
       swipeLeft: this.dragDistance > -10,
       swipeRight: this.dragDistance < 10,
+      elementInCenterIndex: () => this.elementInCenterIndex()
     });
   }
 
@@ -242,6 +243,17 @@ export default class Scrollable {
 
   private onScrollHandler() {
     this.refresh(this.options.onScroll);
+    this.elementInCenterIndex();
+  }
+
+  private elementInCenterIndex(): number  {
+    const containerHorizontalCenter = this.container.scrollLeft + this.container.getBoundingClientRect().width / 2 
+    const centeredElementIndex = Array.from(this.container.children).findIndex(item => {
+      console.log(item.offsetLeft, containerHorizontalCenter, item.offsetLeft + item.offsetWidth)
+      item.offsetLeft <= containerHorizontalCenter && containerHorizontalCenter >= item.offsetLeft + item.offsetWidth;
+    })
+    console.log(centeredElementIndex)
+    return centeredElementIndex;
   }
 
   private get hasNext() {
