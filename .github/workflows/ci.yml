@@ -214,7 +214,7 @@ jobs:
       - name: Build package
         run: yarn build:release
       - name: Publish canary version
-        run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish --access public --tag canary
+        run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish --tag canary
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
