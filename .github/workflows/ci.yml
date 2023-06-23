@@ -207,6 +207,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Set yarn config
+        run: |
+          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
+          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
+          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Bump package version
         run: yarn changeset version --snapshot
         env:
@@ -214,14 +219,12 @@ jobs:
       - name: Build package
         run: yarn build:release
       - name: Publish canary version
-        run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish --tag canary
+        run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish --tag canary || true
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
-      - name: Add git tag
-        run: yarn changeset tag
 
   release-rc:
     name: Release RC package
@@ -239,13 +242,18 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Set yarn config
+        run: |
+          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
+          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
+          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Save head commit message
         id: commit_message
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
       - name: Publish release-candidate version
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
         if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: version packages (rc)' ) }}"
-        run: yarn changeset publish
+        run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish --tag rc || true
         env:
           # Needs access to publish to npm
           # refresh token before Saturday, May 25, 2024
