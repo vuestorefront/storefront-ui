@@ -50,24 +50,6 @@ You can wrap `SfDrawer` in a <!-- vue -->[`<transition>`](https://vuejs.org/guid
 <!-- end react -->
 </Showcase>
 
-### Drawer transition from the right and trap focus
-
-You can wrap `SfDrawer` in a <!-- vue -->[`<transition>`](https://vuejs.org/guide/built-ins/transition.html#the-transition-component)<!-- end vue --><!-- react -->[`<CSSTransition>`](https://reactcommunity.org/react-transition-group/css-transition)<!-- end react --> component to add enter/exit animations. Additionally, you can use the `useTrapFocus` <!-- vue -->composable<!-- end vue --><!-- react -->hook<!-- end react --> for better control of focusable elements inside.
-
-<Showcase showcase-name="Drawer/TransitionAndCloseButtonRight" style="min-height: 400px;">
-
-<!-- vue -->
-
-<<<../../preview/nuxt/pages/showcases/Drawer/TransitionAndCloseButtonRight.vue
-
-<!-- end vue -->
-<!-- react -->
-
-<<<../../preview/next/pages/showcases/Drawer/TransitionAndCloseButtonRight.tsx#source
-
-<!-- end react -->
-</Showcase>
-
 ## Playground
 
 <Generate style="height: 600px"/>

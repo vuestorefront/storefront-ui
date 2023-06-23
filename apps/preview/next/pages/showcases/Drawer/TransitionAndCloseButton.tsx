@@ -1,12 +1,22 @@
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { SfDrawer, SfButton, SfIconFavorite, SfIconClose, useTrapFocus } from '@storefront-ui/react';
+import {
+  SfDrawer,
+  SfButton,
+  SfRadio,
+  SfIconFavorite,
+  SfIconClose,
+  useTrapFocus,
+  SfDrawerProps,
+} from '@storefront-ui/react';
 import { useState, useRef } from 'react';
 import { Transition } from 'react-transition-group';
 import classNames from 'classnames';
 
 export default function DrawerWithTransition() {
   const [open, setOpen] = useState(false);
+  const [checkedPlacement, setCheckedPlacement] = useState<SfDrawerProps['placement']>('left');
   const nodeRef = useRef(null);
   const drawerRef = useRef(null);
 
@@ -14,23 +24,48 @@ export default function DrawerWithTransition() {
 
   return (
     <>
+      <fieldset>
+        <label className="flex items-center my-4 cursor-pointer">
+          <SfRadio
+            name="placement"
+            value="left"
+            checked={checkedPlacement === 'left'}
+            onChange={(event) => {
+              setCheckedPlacement(event.target.value as SfDrawerProps['placement']);
+            }}
+          />
+          <span className="ml-2">Left</span>
+        </label>
+        <label className="flex items-center my-4 cursor-pointer">
+          <SfRadio
+            name="placement"
+            value="right"
+            checked={checkedPlacement === 'right'}
+            onChange={(event) => {
+              setCheckedPlacement(event.target.value as SfDrawerProps['placement']);
+            }}
+          />
+          <span className="ml-2">Right</span>
+        </label>
+      </fieldset>
       <SfButton onClick={() => setOpen(true)} type="button">
         Open Drawer
       </SfButton>
 
-      <Transition ref={nodeRef} in={open} timeout={500} mountOnEnter>
+      <Transition ref={nodeRef} in={open} timeout={300}>
         {(state) => (
           <SfDrawer
             ref={drawerRef}
             open
+            placement={checkedPlacement}
             onClose={() => setOpen(false)}
             className={classNames(
               'bg-neutral-50 border border-gray-300 max-w-[370px] duration-500 transition ease-in-out',
               {
-                'transition-x-0': state === 'entered',
-                '-translate-x-full': state === 'entering',
-                '-translate-x-0': state === 'exiting',
-                '-translate-x-full': state === 'exited',
+                'transition-x-0': state === 'entered' && checkedPlacement === 'left',
+                '-translate-x-full': (state === 'entering' || state === 'exited') && checkedPlacement === 'left',
+                '-transition-x-0': state === 'entered' && checkedPlacement === 'right',
+                'translate-x-full': (state === 'entering' || state === 'exited') && checkedPlacement === 'right',
               },
             )}
           >
