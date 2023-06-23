@@ -28,18 +28,20 @@
       alt="Smartwatch"
       :width="100"
       :height="100"
-      class="mx-auto"
+      class="mx-auto border border-neutral-200 rounded-md"
     />
     <p id="modalDesc" class="mt-2 text-center">Smartwatch Fitness Tracker</p>
     <form class="mt-6">
-      <SfRatingButton aria-label="Select rating" size="lg" class="justify-center mb-8" />
-      <SfButton type="submit" class="w-full" @click="close">Rate Product</SfButton>
+      <SfRatingButton v-model="modelValue" aria-label="Select rating" size="lg" class="justify-center mb-8" />
+      <SfButton type="submit" class="w-full">Rate Product</SfButton>
     </form>
   </SfModal>
 </template>
 
 <script lang="ts" setup>
+import { ref } from 'vue';
 import { SfModal, SfButton, SfIconClose, useDisclosure, SfRatingButton } from '@storefront-ui/vue';
 
 const { isOpen, open, close } = useDisclosure({ initialValue: true });
+const modelValue = ref();
 </script>

@@ -1,9 +1,11 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
+import { useState } from 'react';
 import { SfModal, SfButton, SfIconClose, useDisclosure, SfRatingButton } from '@storefront-ui/react';
 
 export default function ProductRating() {
   const { isOpen, open, close } = useDisclosure({ initialValue: true });
+  const [rating, setRating] = useState(0);
 
   return (
     <>
@@ -38,14 +40,20 @@ export default function ProductRating() {
           alt="Smartwatch"
           width={100}
           height={100}
-          className="mx-auto"
+          className="mx-auto border border-neutral-200 rounded-md"
         />
         <p id="modalDesc" className="mt-2 text-center">
           Smartwatch Fitness Tracker
         </p>
         <form className="mt-6">
-          <SfRatingButton size="lg" aria-label="Select rating" className="justify-center mb-8" />
-          <SfButton type="submit" className="w-full" onClick={close}>
+          <SfRatingButton
+            value={rating}
+            size="lg"
+            aria-label="Select rating"
+            className="justify-center mb-8"
+            onChange={setRating}
+          />
+          <SfButton type="submit" className="w-full">
             Rate Product
           </SfButton>
         </form>
