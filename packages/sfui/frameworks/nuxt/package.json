@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/nuxt",
-  "version": "2.3.0",
+  "version": "2.3.1",
   "homepage": "https://docs.storefrontui.io/v2/",
   "installConfig": {
     "hoistingLimits": "workspaces"
