@@ -86,6 +86,8 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 | `prevDisabled` | `boolean`  |  |       |
 | `nextDisabled` | `boolean`  |  |       |
 | `isActiveIndexCentered` | `boolean`  |  |       |
+| `buttonPrevAriaLabel` | `string`  | `'Previous'` |       |
+| `buttonNextAriaLabel` | `string`  | `'Next'` |       |
 <!-- vue -->
 | `tag`       | `string`              | `'div'`        |                                    |
 <!-- end vue -->
