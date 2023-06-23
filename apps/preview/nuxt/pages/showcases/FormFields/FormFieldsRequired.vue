@@ -244,7 +244,10 @@
         <label
           v-for="({ label, value, hint, disabled }, index) in emailNotificationOptions"
           :key="`${value}-${index}`"
-          :class="['flex items-start mb-4 mr-6 rounded', disabled ? 'cursor-not-allowed' : 'cursor-pointer']"
+          :class="[
+            'flex items-start mb-4 mr-6 rounded first-of-type:mt-2 last-of-type:mb-6',
+            disabled ? 'cursor-not-allowed' : 'cursor-pointer',
+          ]"
         >
           <SfCheckbox v-model="emailNotificationsModelValue" :disabled="disabled" :value="value" class="m-0.5" />
           <span class="ml-2">

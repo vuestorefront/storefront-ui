@@ -62,7 +62,7 @@ ButtonNext.defaultProps = { disabled: false };
 export default function GalleryVertical() {
   return (
     <SfScrollable
-      className="m-auto items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+      className="m-auto py-4 items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       buttons-placement="floating"
       drag
       slotPreviousButton={<ButtonPrev />}
@@ -71,10 +71,10 @@ export default function GalleryVertical() {
       {products.map(({ id, name, price, img }) => (
         <div
           key={id}
-          className="first:ms-auto last:me-auto border border-neutral-200 shrink-0 rounded-md hover:shadow-lg w-[148px] lg:w-[192px]"
+          className="first:ms-auto last:me-auto ring-1 ring-inset ring-neutral-200 shrink-0 rounded-md hover:shadow-lg w-[148px] lg:w-[192px]"
         >
           <div className="relative">
-            <SfLink href="#">
+            <SfLink href="#" className="block">
               <img
                 src={img.src}
                 alt={img.alt}

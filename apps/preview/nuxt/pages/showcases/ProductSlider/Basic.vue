@@ -1,6 +1,6 @@
 <template>
   <SfScrollable
-    class="m-auto items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+    class="m-auto py-4 items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
     buttons-placement="floating"
     drag
   >
@@ -22,7 +22,7 @@
       class="first:ms-auto last:me-auto border border-neutral-200 shrink-0 rounded-md hover:shadow-lg w-[148px] lg:w-[192px]"
     >
       <div class="relative">
-        <SfLink href="#">
+        <SfLink href="#" class="block">
           <img
             :src="img.src"
             :alt="img.alt"
@@ -36,7 +36,7 @@
           variant="tertiary"
           size="sm"
           square
-          class="absolute bottom-0 right-0 mr-2 mb-2 bg-white border border-neutral-200 !rounded-full"
+          class="absolute bottom-0 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full"
           aria-label="Add to wishlist"
         >
           <SfIconFavorite size="sm" />
