@@ -4,6 +4,7 @@ on:
     branches:
       - v2
       - v2-develop
+      - '!changeset-release/**'
   pull_request:
     types:
       - opened
@@ -11,6 +12,10 @@ on:
       - synchronize
       - ready_for_review
       - edited
+
+env:
+  SONAR_TOKEN_REACT: ${{ secrets.SONAR_TOKEN_REACT }}
+  SONAR_TOKEN_VUE: ${{ secrets.SONAR_TOKEN_VUE }}
 
 jobs:
   cache:
@@ -26,22 +31,6 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
-
-  verify-collaborator:
-    name: Verify collaborator
-    needs: [cache]
-    runs-on: ubuntu-latest
-    outputs:
-      isCollaborator: ${{ steps.collaborator.outputs.isCollaborator }}
-    steps:
-      - id: collaborator
-        name: Check if user is a collaborator
-        run: |
-          curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
-               "https://api.github.com/repos/${{ github.repository }}/collaborators/${{ github.actor }}" \
-               | grep -q "Collaborator not found" \
-               && echo "isCollaborator=false" >> $GITHUB_OUTPUT \
-               || echo "isCollaborator=true" >> $GITHUB_OUTPUT
 
   commit-lint:
     name: Validate PR Title (conventional-commit)
@@ -131,7 +120,7 @@ jobs:
 
   cypress-vue:
     name: Run cypress tests(Vue)
-    needs: [cache, lint, verify-collaborator]
+    needs: [cache, lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -158,7 +147,7 @@ jobs:
       - name: Post-Cypress (generate coverage)
         run: cd apps/test/vue; yarn generate-coverage
       - name: SonarCloud Scan
-        if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
+        if: ${{ env.SONAR_TOKEN_VUE }}
         uses: SonarSource/sonarcloud-github-action@v1.9
         with:
           projectBaseDir: packages/sfui/frameworks/vue
@@ -168,7 +157,7 @@ jobs:
 
   cypress-react:
     name: Run cypress tests(React)
-    needs: [cache, lint, verify-collaborator]
+    needs: [cache, lint]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -193,7 +182,7 @@ jobs:
       - name: Post-Cypress (generate coverage)
         run: cd apps/test/react; yarn generate-coverage
       - name: SonarCloud Scan
-        if: ${{ needs.verify-collaborator.outputs.isCollaborator == 'true' && (success() || failure()) }}
+        if: ${{ env.SONAR_TOKEN_REACT }}
         uses: SonarSource/sonarcloud-github-action@v1.9
         with:
           projectBaseDir: packages/sfui/frameworks/react
@@ -232,18 +221,31 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
 
-  release-next:
-    name: Release release candidate
+  release-rc:
+    name: Release RC package
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: yarn --immutable
       - name: Save head commit message
         id: commit_message
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
-      - name: Publish release-candidate
-        # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "rc" suffix, logic can be found in "release-changeset-changelog.yml
-        if: ${{ startsWith( github.ref, 'refs/heads/v2-release' ) && steps.commit_message.output.result  == '[ci] - release rc' }}
-        run: echo "Publish now"
+      - name: Publish release-candidate version
+        # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
+        if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: version packages (rc)' ) }}"
+        run: yarn changeset publish
+        env:
+          # Needs access to publish to npm
+          # refresh token before Saturday, May 25, 2024
+          NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}

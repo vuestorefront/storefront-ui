@@ -31,7 +31,7 @@ export default function SfSelect(props: SfSelectProps) {
   };
 
   return (
-    <div
+    <span
       className={classNames(
         'relative flex flex-col rounded-md',
         {
@@ -50,7 +50,7 @@ export default function SfSelect(props: SfSelectProps) {
             'py-1.5': size === SfSelectSize.sm,
             'py-2': size === SfSelectSize.base,
             'py-3 text-base': size === SfSelectSize.lg,
-            '!ring-negative-600 ring-2': invalid && !disabled,
+            '!ring-negative-700 ring-2': invalid && !disabled,
           },
           className,
         )}
@@ -86,6 +86,6 @@ export default function SfSelect(props: SfSelectProps) {
           )}
         />
       )}
-    </div>
+    </span>
   );
 }

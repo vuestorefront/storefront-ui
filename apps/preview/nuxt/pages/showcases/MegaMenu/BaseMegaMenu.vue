@@ -3,13 +3,24 @@
     <div v-if="isOpen" class="fixed w-screen h-screen inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
     <header
       ref="menuRef"
-      class="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
+      class="flex flex-wrap md:flex-nowrap w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:h-20 md:z-10"
     >
-      <div class="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+      <div class="flex items-center justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+        <SfButton
+          class="block md:hidden text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+          type="button"
+          :aria-haspopup="true"
+          :aria-expanded="isOpen"
+          variant="tertiary"
+          square
+          @click="toggle()"
+        >
+          <SfIconMenu class="text-white" />
+        </SfButton>
         <a
           href="#"
           aria-label="SF Homepage"
-          class="flex shrink-0 text-white mr-2 md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          class="flex shrink-0 ml-4 md:ml-0 text-white mr-auto md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
         >
           <picture>
             <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -20,22 +31,23 @@
             />
           </picture>
         </a>
-        <nav class="flex w-full justify-between flex-nowrap" aria-label="SF Navigation">
+        <SfButton
+          class="hidden md:flex text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+          type="button"
+          :aria-haspopup="true"
+          :aria-expanded="isOpen"
+          variant="tertiary"
+          square
+          @click="toggle()"
+        >
+          <template #suffix>
+            <SfIconExpandMore class="hidden md:inline-flex" />
+          </template>
+          <span class="hidden md:inline-flex whitespace-nowrap px-2">Browse products</span>
+        </SfButton>
+        <nav>
           <ul>
             <li role="none">
-              <SfButton
-                class="block mr-auto text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-                type="button"
-                :aria-haspopup="true"
-                :aria-expanded="isOpen"
-                variant="tertiary"
-                @click="toggle()"
-              >
-                <template #suffix>
-                  <SfIconExpandMore />
-                </template>
-                <span class="hidden md:inline-flex">Browse products</span>
-              </SfButton>
               <transition
                 enter-active-class="transform transition duration-500 ease-in-out"
                 leave-active-class="transform transition duration-500 ease-in-out"
@@ -49,15 +61,17 @@
                   v-model="isOpen"
                   disable-click-away
                   placement="top"
-                  class="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-6"
+                  class="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white shadow-lg p-0 max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] max-w-[376px] md:max-w-full md:p-6 mr-[50px] md:mr-0"
                 >
-                  <div class="flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden">
+                  <div
+                    class="sticky top-0 flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden w-full max-w-[376px]"
+                  >
                     <div class="flex items-center typography-text-lg font-medium text-white">Browse products</div>
                     <SfButton
                       square
                       variant="tertiary"
                       aria-label="Close navigation menu"
-                      class="text-white"
+                      class="text-white ml-2"
                       @click="close()"
                       @keydown.enter.space="close()"
                     >
@@ -110,23 +124,77 @@
               </transition>
             </li>
           </ul>
-          <div class="flex flex-nowrap">
-            <SfButton
-              v-for="actionItem in actionItems"
-              :key="actionItem.ariaLabel"
-              class="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-              :aria-label="actionItem.ariaLabel"
-              variant="tertiary"
-              square
-            >
-              <template #prefix>
-                <Component :is="actionItem.icon" />
-              </template>
-              <span v-if="actionItem.role === 'login'" class="hidden md:inline-flex">{{ actionItem.label }}</span>
-            </SfButton>
-          </div>
+        </nav>
+        <form
+          role="search"
+          class="hidden md:flex flex-[100%] mt-2 md:mt-0 md:ml-10 pb-2 md:pb-0"
+          @submit.prevent="search"
+        >
+          <SfInput
+            v-model="inputValue"
+            type="search"
+            class="[&::-webkit-search-cancel-button]:appearance-none"
+            placeholder="Search"
+            wrapper-class="flex-1 h-10 pr-0"
+            size="base"
+          >
+            <template #suffix>
+              <span class="flex items-center">
+                <SfButton
+                  variant="tertiary"
+                  square
+                  aria-label="search"
+                  type="submit"
+                  class="rounded-l-none hover:bg-transparent active:bg-transparent"
+                >
+                  <SfIconSearch />
+                </SfButton>
+              </span>
+            </template>
+          </SfInput>
+        </form>
+        <nav class="flex flex-nowrap justify-end items-center md:ml-10 gap-x-1" aria-label="SF Navigation">
+          <SfButton
+            v-for="actionItem in actionItems"
+            :key="actionItem.ariaLabel"
+            class="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            :aria-label="actionItem.ariaLabel"
+            variant="tertiary"
+            square
+          >
+            <template #prefix>
+              <Component :is="actionItem.icon" />
+            </template>
+            <span v-if="actionItem.role === 'login'" class="hidden lg:inline-flex whitespace-nowrap pr-2">{{
+              actionItem.label
+            }}</span>
+          </SfButton>
         </nav>
       </div>
+      <form role="search" class="flex md:hidden flex-[100%] my-2 mx-4" @submit.prevent="search">
+        <SfInput
+          v-model="inputValue"
+          type="search"
+          class="[&::-webkit-search-cancel-button]:appearance-none"
+          placeholder="Search"
+          wrapper-class="flex-1 h-10 pr-0"
+          size="base"
+        >
+          <template #suffix>
+            <span class="flex items-center">
+              <SfButton
+                variant="tertiary"
+                square
+                aria-label="search"
+                type="submit"
+                class="rounded-l-none hover:bg-transparent active:bg-transparent"
+              >
+                <SfIconSearch />
+              </SfButton>
+            </span>
+          </template>
+        </SfInput>
+      </form>
     </header>
   </div>
 </template>
@@ -142,6 +210,9 @@ import {
   SfListItem,
   useDisclosure,
   useTrapFocus,
+  SfIconMenu,
+  SfInput,
+  SfIconSearch,
 } from '@storefront-ui/vue';
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
@@ -158,6 +229,12 @@ useTrapFocus(drawerRef, {
 onClickOutside(menuRef, () => {
   close();
 });
+
+const inputValue = ref('');
+
+const search = () => {
+  alert(`Successfully found 10 results for ${inputValue.value}`);
+};
 
 const actionItems = [
   {

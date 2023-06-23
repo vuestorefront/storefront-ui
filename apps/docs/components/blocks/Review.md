@@ -10,7 +10,7 @@ hideToc: true
 
 ## With Avatar
 
-Basic Review usage with avatar and [Rating](/vue/components/rating.html) base component.
+Basic Review usage with avatar and [Rating](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/components/rating.html) base component.
 
 <Showcase showcase-name="Review/WithAvatar" style="min-height:220px">
 

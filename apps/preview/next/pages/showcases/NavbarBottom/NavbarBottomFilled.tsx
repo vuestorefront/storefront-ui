@@ -5,9 +5,9 @@ import {
   SfButton,
   SfIconHome,
   SfIconMenu,
-  SfIconSearch,
   SfIconShoppingCart,
   SfIconFavorite,
+  SfIconPerson,
 } from '@storefront-ui/react';
 import { useState } from 'react';
 
@@ -22,16 +22,16 @@ export default function BottomNavFilled() {
       icon: <SfIconMenu />,
     },
     {
-      label: 'Search',
-      icon: <SfIconSearch />,
-    },
-    {
       label: 'Cart',
       icon: <SfIconShoppingCart />,
     },
     {
-      label: 'Wishlist',
+      label: 'Watchlist',
       icon: <SfIconFavorite />,
+    },
+    {
+      label: 'Account',
+      icon: <SfIconPerson />,
     },
   ];
 

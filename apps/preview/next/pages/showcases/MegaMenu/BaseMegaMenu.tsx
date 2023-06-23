@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
@@ -12,8 +13,11 @@ import {
   SfListItem,
   useDisclosure,
   useTrapFocus,
+  SfInput,
+  SfIconSearch,
+  SfIconMenu,
 } from '@storefront-ui/react';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useClickAway } from 'react-use';
 import { CSSTransition } from 'react-transition-group';
 
@@ -137,6 +141,7 @@ export default function BaseMegaMenu() {
   const { close, toggle, isOpen } = useDisclosure();
   const drawerRef = useRef(null);
   const menuRef = useRef(null);
+  const [inputValue, setInputValue] = useState('');
 
   useTrapFocus(drawerRef, {
     activeState: isOpen,
@@ -147,18 +152,34 @@ export default function BaseMegaMenu() {
     close();
   });
 
+  const search = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    alert(`Successfully found 10 results for ${inputValue}`);
+  };
+
   return (
     <div className="w-full h-full">
       {isOpen && <div className="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />}
       <header
         ref={menuRef}
-        className="flex justify-center w-full border-0 bg-primary-700 border-neutral-200 h-14 md:relative md:h-20 md:z-10"
+        className="flex flex-wrap md:flex-nowrap justify-center w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:z-10"
       >
-        <div className="flex items-center flex-nowrap justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+        <div className="flex items-center justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
+          <SfButton
+            className="block md:hidden text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            variant="tertiary"
+            onClick={toggle}
+            square
+          >
+            <SfIconMenu className=" text-white" />
+          </SfButton>
           <a
             href="#"
             aria-label="SF Homepage"
-            className="flex shrink-0 mr-2 text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            className="flex shrink-0 ml-4 md:ml-0 mr-2 md:mr-10 text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
               <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -169,20 +190,21 @@ export default function BaseMegaMenu() {
               />
             </picture>
           </a>
-          <nav className="flex justify-between w-full flex-nowrap" aria-label="SF Navigation">
+          <SfButton
+            className="hidden md:flex text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            type="button"
+            aria-haspopup="true"
+            aria-expanded={isOpen}
+            slotSuffix={<SfIconExpandMore className="hidden md:inline-flex" />}
+            variant="tertiary"
+            onClick={toggle}
+            square
+          >
+            <span className="hidden md:inline-flex whitespace-nowrap px-2">Browse products</span>
+          </SfButton>
+          <nav>
             <ul>
               <li role="none">
-                <SfButton
-                  className="block mr-auto text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-                  type="button"
-                  aria-haspopup="true"
-                  aria-expanded={isOpen}
-                  slotSuffix={<SfIconExpandMore />}
-                  variant="tertiary"
-                  onClick={toggle}
-                >
-                  <span className="hidden md:inline-flex">Browse products</span>
-                </SfButton>
                 <CSSTransition
                   in={isOpen}
                   timeout={500}
@@ -198,16 +220,16 @@ export default function BaseMegaMenu() {
                     open
                     disableClickAway
                     placement="top"
-                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white max-w-xs shadow-lg p-0 !fixed max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] md:max-w-full md:p-6"
+                    className="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white shadow-lg p-0 max-h-screen overflow-y-auto md:!absolute md:!top-20 max-w-[376px] md:max-w-full md:p-6 mr-[50px] md:mr-0"
                   >
-                    <div className="flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
+                    <div className="sticky top-0 flex items-center justify-between px-4 py-2 bg-primary-700 md:hidden">
                       <div className="flex items-center font-medium text-white typography-text-lg">Browse products</div>
                       <SfButton
                         square
                         variant="tertiary"
                         aria-label="Close navigation menu"
                         onClick={close}
-                        className="text-white"
+                        className="text-white ml-2"
                       >
                         <SfIconClose />
                       </SfButton>
@@ -258,22 +280,72 @@ export default function BaseMegaMenu() {
                 </CSSTransition>
               </li>
             </ul>
-            <div className="flex flex-nowrap">
-              {actionItems.map((actionItem) => (
-                <SfButton
-                  className="mr-2 -ml-0.5 text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-                  key={actionItem.ariaLabel}
-                  aria-label={actionItem.ariaLabel}
-                  variant="tertiary"
-                  slotPrefix={actionItem.icon}
-                  square
-                >
-                  {actionItem.role === 'login' && <p className="hidden md:inline-flex">{actionItem.label}</p>}
-                </SfButton>
-              ))}
-            </div>
+          </nav>
+          <form role="search" className="hidden md:flex flex-[100%] ml-10" onSubmit={search}>
+            <SfInput
+              value={inputValue}
+              type="search"
+              className="[&::-webkit-search-cancel-button]:appearance-none"
+              placeholder="Search"
+              wrapperClassName="flex-1 h-10 pr-0"
+              size="base"
+              slotSuffix={
+                <span className="flex items-center">
+                  <SfButton
+                    variant="tertiary"
+                    square
+                    aria-label="search"
+                    type="submit"
+                    className="rounded-l-none hover:bg-transparent active:bg-transparent"
+                  >
+                    <SfIconSearch />
+                  </SfButton>
+                </span>
+              }
+              onChange={(event) => setInputValue(event.target.value)}
+            />
+          </form>
+          <nav className="flex-1 flex flex-nowrap justify-end items-center md:ml-10 gap-x-1" aria-label="SF Navigation">
+            {actionItems.map((actionItem) => (
+              <SfButton
+                className="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+                key={actionItem.ariaLabel}
+                aria-label={actionItem.ariaLabel}
+                variant="tertiary"
+                slotPrefix={actionItem.icon}
+                square
+              >
+                {actionItem.role === 'login' && (
+                  <p className="hidden lg:inline-flex whitespace-nowrap pr-2">{actionItem.label}</p>
+                )}
+              </SfButton>
+            ))}
           </nav>
         </div>
+        <form role="search" className="flex md:hidden flex-[100%] my-2 mx-4" onSubmit={search}>
+          <SfInput
+            value={inputValue}
+            type="search"
+            className="[&::-webkit-search-cancel-button]:appearance-none"
+            placeholder="Search"
+            wrapperClassName="flex-1 h-10 pr-0"
+            size="base"
+            slotSuffix={
+              <span className="flex items-center">
+                <SfButton
+                  variant="tertiary"
+                  square
+                  aria-label="search"
+                  type="submit"
+                  className="rounded-l-none hover:bg-transparent active:bg-transparent"
+                >
+                  <SfIconSearch />
+                </SfButton>
+              </span>
+            }
+            onChange={(event) => setInputValue(event.target.value)}
+          />
+        </form>
       </header>
     </div>
   );

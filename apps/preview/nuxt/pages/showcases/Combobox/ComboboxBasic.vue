@@ -47,7 +47,7 @@
         ref="dropdownRef"
         role="listbox"
         aria-label="Country list"
-        class="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+        class="max-h-80 px-1 -mx-1 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md overflow-y-auto"
       >
         <template v-if="snippets.length > 0">
           <li v-for="option in snippets" :key="option.value">
@@ -73,7 +73,7 @@
           <span>No options</span>
         </p>
         <template v-else>
-          <li v-for="option in options" :key="option.value">
+          <li v-for="option in countriesList" :key="option.value">
             <SfListItem
               :id="`${listId}-${option.value}`"
               tag="button"
@@ -162,10 +162,10 @@ const handleReset = () => {
 };
 
 const handleBlur = () => {
-  isValid.value = !!options.find((option) => option.value.toLowerCase() === inputModel.value.toLowerCase());
+  isValid.value = !!countriesList.find((option) => option.value.toLowerCase() === inputModel.value.toLowerCase());
 };
 
-const handleInputKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+const handleInputKeyDown = (event: KeyboardEvent) => {
   if (event.key === 'Escape') handleReset();
   if (event.key === 'Enter') close();
   if (event.key === 'ArrowUp') {
@@ -214,7 +214,7 @@ type SelectOption = {
   label: string;
   value: string;
 };
-const options: SelectOption[] = [
+const countriesList: SelectOption[] = [
   {
     label: 'Afghanistan',
     value: 'afghanistan',
@@ -286,7 +286,9 @@ const options: SelectOption[] = [
 ];
 // Just for presentation purposes. Replace mock request with the actual API call.
 const mockAutocompleteRequest = (phrase: string) => {
-  const results = options.filter((option) => option.value.toLowerCase().startsWith(phrase.toLowerCase()));
+  const results = countriesList.filter((option: SelectOption) =>
+    option.value.toLowerCase().startsWith(phrase.toLowerCase()),
+  );
   return results;
 };
 </script>

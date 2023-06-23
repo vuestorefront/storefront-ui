@@ -22,6 +22,7 @@ export { default as SfIconCompareArrows } from './SfIconCompareArrows.vue';
 export { default as SfIconContactSupport } from './SfIconContactSupport.vue';
 export { default as SfIconCreditCard } from './SfIconCreditCard.vue';
 export { default as SfIconDelete } from './SfIconDelete.vue';
+export { default as SfIconEmail } from './SfIconEmail.vue';
 export { default as SfIconError } from './SfIconError.vue';
 export { default as SfIconExpandLess } from './SfIconExpandLess.vue';
 export { default as SfIconExpandMore } from './SfIconExpandMore.vue';

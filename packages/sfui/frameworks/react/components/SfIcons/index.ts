@@ -22,6 +22,7 @@ export { default as SfIconCompareArrows } from './SfIconCompareArrows';
 export { default as SfIconContactSupport } from './SfIconContactSupport';
 export { default as SfIconCreditCard } from './SfIconCreditCard';
 export { default as SfIconDelete } from './SfIconDelete';
+export { default as SfIconEmail } from './SfIconEmail';
 export { default as SfIconError } from './SfIconError';
 export { default as SfIconExpandLess } from './SfIconExpandLess';
 export { default as SfIconExpandMore } from './SfIconExpandMore';

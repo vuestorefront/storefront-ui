@@ -1402,7 +1402,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/assemble-release-plan@npm:^5.2.3":
+"@changesets/assemble-release-plan@npm:5.2.3":
   version: 5.2.3
   resolution: "@changesets/assemble-release-plan@npm:5.2.3"
   dependencies:
@@ -1413,6 +1413,20 @@ __metadata:
     "@manypkg/get-packages": ^1.1.3
     semver: ^5.4.1
   checksum: 2c61894414736b12e9a26903d73c387b65f4caba398e280488b885f4d0f4bb307aaa6bae140dfd754c85de6557bd07645accda2af6b8794837ab43823ba6215c
+  languageName: node
+  linkType: hard
+
+"@changesets/assemble-release-plan@patch:@changesets/assemble-release-plan@npm%3A5.2.3#./.yarn/patches/@changesets-assemble-release-plan-npm-5.2.3-296454a28f.patch::locator=%40storefront-ui%2Fmonorepo%40workspace%3A.":
+  version: 5.2.3
+  resolution: "@changesets/assemble-release-plan@patch:@changesets/assemble-release-plan@npm%3A5.2.3#./.yarn/patches/@changesets-assemble-release-plan-npm-5.2.3-296454a28f.patch::version=5.2.3&hash=c3c931&locator=%40storefront-ui%2Fmonorepo%40workspace%3A."
+  dependencies:
+    "@babel/runtime": ^7.20.1
+    "@changesets/errors": ^0.1.4
+    "@changesets/get-dependents-graph": ^1.3.5
+    "@changesets/types": ^5.2.1
+    "@manypkg/get-packages": ^1.1.3
+    semver: ^5.4.1
+  checksum: a9c5d7e2f8c20d546fe4c4b1f9a4223882841bf84236cdf5fe1135c49205da1008e424eb6d0aa07ea12ea11e057acedc688585250cf03b51c1b9da194c33786a
   languageName: node
   linkType: hard
 
@@ -2447,43 +2461,43 @@ __metadata:
   linkType: hard
 
 "@microsoft/api-documenter@npm:^7.21.5":
-  version: 7.22.7
-  resolution: "@microsoft/api-documenter@npm:7.22.7"
+  version: 7.22.12
+  resolution: "@microsoft/api-documenter@npm:7.22.12"
   dependencies:
-    "@microsoft/api-extractor-model": 7.27.1
+    "@microsoft/api-extractor-model": 7.27.2
     "@microsoft/tsdoc": 0.14.2
-    "@rushstack/node-core-library": 3.59.2
-    "@rushstack/ts-command-line": 4.13.3
+    "@rushstack/node-core-library": 3.59.3
+    "@rushstack/ts-command-line": 4.14.0
     colors: ~1.2.1
     js-yaml: ~3.13.1
     resolve: ~1.22.1
   bin:
     api-documenter: bin/api-documenter
-  checksum: 83e7df5a8b0c17750909420372e53d1ee3dcfb71cc8b74c1290d9c11ece5492cf2027803e1860516b96b4c22560720c04f9188220aaa8b9b32f7e11252728f42
+  checksum: c5409045f52cf330d4019fbb3efd7d734142f97097a90fa561462bdd7810669190150237b413ed3368060051acead906e9eb3943fd2c76a805f7bc3382c1840e
   languageName: node
   linkType: hard
 
-"@microsoft/api-extractor-model@npm:7.27.1":
-  version: 7.27.1
-  resolution: "@microsoft/api-extractor-model@npm:7.27.1"
+"@microsoft/api-extractor-model@npm:7.27.2":
+  version: 7.27.2
+  resolution: "@microsoft/api-extractor-model@npm:7.27.2"
   dependencies:
     "@microsoft/tsdoc": 0.14.2
     "@microsoft/tsdoc-config": ~0.16.1
-    "@rushstack/node-core-library": 3.59.2
-  checksum: 04592a862998e215a4346483cd5fca1a219474ae05edbabfa0fdf188b6b469721f4daab5f5d10aca511298f86891273ae64a7b28389b74725dc60f1447357370
+    "@rushstack/node-core-library": 3.59.3
+  checksum: 8348cbd7443effeef2a02794d232e5bc97d5a0afb0897b155749836194492b9511c903e1c025d50bf3e4320d0a0add86554ea9d8502e616c8f9dcab00bb81688
   languageName: node
   linkType: hard
 
 "@microsoft/api-extractor@npm:^7.34.4":
-  version: 7.35.1
-  resolution: "@microsoft/api-extractor@npm:7.35.1"
+  version: 7.35.2
+  resolution: "@microsoft/api-extractor@npm:7.35.2"
   dependencies:
-    "@microsoft/api-extractor-model": 7.27.1
+    "@microsoft/api-extractor-model": 7.27.2
     "@microsoft/tsdoc": 0.14.2
     "@microsoft/tsdoc-config": ~0.16.1
-    "@rushstack/node-core-library": 3.59.2
-    "@rushstack/rig-package": 0.3.19
-    "@rushstack/ts-command-line": 4.13.3
+    "@rushstack/node-core-library": 3.59.3
+    "@rushstack/rig-package": 0.3.20
+    "@rushstack/ts-command-line": 4.14.0
     colors: ~1.2.1
     lodash: ~4.17.15
     resolve: ~1.22.1
@@ -2492,7 +2506,7 @@ __metadata:
     typescript: ~5.0.4
   bin:
     api-extractor: bin/api-extractor
-  checksum: 136c46b45ac3120c569bc5ae2c91aac5b3eddddf914a23acf8bfb968d859a49bd20ed44b8861b65221738642f7d22d8c155a776ef580a364197da0ca5e3f53ff
+  checksum: eeb1635bec5d8b29b9f2b5712ec7c0d0e4eedb633cc62847dbfc6aa69ba9aa58100b7e93e266774d8946f83f32a60a42b7b9c52f8eed3dad3095bfaf2bcdc8f6
   languageName: node
   linkType: hard
 
@@ -2674,11 +2688,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.5.2, @nuxt/kit@npm:^3.3.2, @nuxt/kit@npm:^3.3.3, @nuxt/kit@npm:^3.4.3":
-  version: 3.5.2
-  resolution: "@nuxt/kit@npm:3.5.2"
+"@nuxt/kit@npm:3.5.3, @nuxt/kit@npm:^3.3.2, @nuxt/kit@npm:^3.3.3, @nuxt/kit@npm:^3.4.3":
+  version: 3.5.3
+  resolution: "@nuxt/kit@npm:3.5.3"
   dependencies:
-    "@nuxt/schema": 3.5.2
+    "@nuxt/schema": 3.5.3
     c12: ^1.4.1
     consola: ^3.1.0
     defu: ^6.1.2
@@ -2687,32 +2701,34 @@ __metadata:
     ignore: ^5.2.4
     jiti: ^1.18.2
     knitwork: ^1.0.0
-    lodash.template: ^4.5.0
     mlly: ^1.3.0
-    pathe: ^1.1.0
+    pathe: ^1.1.1
     pkg-types: ^1.0.3
     scule: ^1.0.0
     semver: ^7.5.1
     unctx: ^2.3.1
     unimport: ^3.0.7
     untyped: ^1.3.2
-  checksum: 114a75b6edf0d2911b20d44a4e17c0dc9cd8340b1920038d836941f7b7b4044be9674b87c039b37cd3d1f4f961351c5188a7b45ca89ba00976cb141a03d05660
+  checksum: 9ca83d488f77b52e51ec7ba2dec4ddc78172aa8f636fb5df22205c462872b8c235be2a4590d037a6f9bc4e85127da60cc2c5f5c81cadc4c678b717e895a4ab0e
   languageName: node
   linkType: hard
 
-"@nuxt/module-builder@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@nuxt/module-builder@npm:0.2.1"
+"@nuxt/module-builder@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "@nuxt/module-builder@npm:0.4.0"
   dependencies:
-    consola: ^2.15.3
-    mlly: ^1.0.0
+    consola: ^3.1.0
+    mlly: ^1.3.0
     mri: ^1.2.0
-    pathe: ^1.0.0
-    unbuild: ^1.0.1
+    pathe: ^1.1.0
+    unbuild: ^1.2.1
+  peerDependencies:
+    "@nuxt/kit": ^3.5.0
+    nuxi: ^3.5.0
   bin:
     nuxt-build-module: dist/cli.mjs
     nuxt-module-build: dist/cli.mjs
-  checksum: 47b800768026d0bc1ab30231d71c9519eb225d69c608da3a96bbd96c886577288cba113ea122d57d3fa61d2070d205cfc8cdb7be153f88350927d3f3d4833b47
+  checksum: 6af03be20ce692ab75042bdc1ce99dbb96e4ef2f333b5c721ad536cb54a3b2581c1478036d77849a38d4fdd28768401b79b22efd3ce6b4ac802f72ad11f2d106
   languageName: node
   linkType: hard
 
@@ -2732,20 +2748,20 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/schema@npm:3.5.2, @nuxt/schema@npm:^3.3.2":
-  version: 3.5.2
-  resolution: "@nuxt/schema@npm:3.5.2"
+"@nuxt/schema@npm:3.5.3, @nuxt/schema@npm:^3.3.2":
+  version: 3.5.3
+  resolution: "@nuxt/schema@npm:3.5.3"
   dependencies:
     defu: ^6.1.2
     hookable: ^5.5.3
-    pathe: ^1.1.0
+    pathe: ^1.1.1
     pkg-types: ^1.0.3
     postcss-import-resolver: ^2.0.0
     std-env: ^3.3.3
     ufo: ^1.1.2
     unimport: ^3.0.7
     untyped: ^1.3.2
-  checksum: 3ee7481b1ed9000ff9eb88bf3f0b8443b038a5bf6caf29c3e70e081b90a5d352184b900ef3db3f962f3ae5759b134350505d62ccf252e93dcd5ca9ddd7ff7a47
+  checksum: 615f51363a3b6b0877a6f65f53ec42d1c7683e92492fc9d67115517486ae92705abec77b73bcec73e9d5b2630766dba1eb25cdfedd11284700d40ed2c1fd10ab
   languageName: node
   linkType: hard
 
@@ -2786,11 +2802,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/vite-builder@npm:3.5.2":
-  version: 3.5.2
-  resolution: "@nuxt/vite-builder@npm:3.5.2"
+"@nuxt/vite-builder@npm:3.5.3":
+  version: 3.5.3
+  resolution: "@nuxt/vite-builder@npm:3.5.3"
   dependencies:
-    "@nuxt/kit": 3.5.2
+    "@nuxt/kit": 3.5.3
     "@rollup/plugin-replace": ^5.0.2
     "@vitejs/plugin-vue": ^4.2.3
     "@vitejs/plugin-vue-jsx": ^3.0.1
@@ -2810,7 +2826,7 @@ __metadata:
     magic-string: ^0.30.0
     mlly: ^1.3.0
     ohash: ^1.1.2
-    pathe: ^1.1.0
+    pathe: ^1.1.1
     perfect-debounce: ^1.0.0
     pkg-types: ^1.0.3
     postcss: ^8.4.24
@@ -2822,12 +2838,12 @@ __metadata:
     ufo: ^1.1.2
     unplugin: ^1.3.1
     vite: ~4.3.9
-    vite-node: ^0.31.1
+    vite-node: ^0.31.4
     vite-plugin-checker: ^0.6.0
     vue-bundle-renderer: ^1.0.3
   peerDependencies:
     vue: ^3.3.4
-  checksum: 0f09033aa829413bdb074eefdec417096e3ddc7abec803a5d7b395c4e2a5e71ad0dffc54c00b022edb3be9f751cad08ff93283755bf118621977f1fddf64a7d6
+  checksum: bc71f52d9ed7548ab579677d8fb9cd7d21bd97605f8d2f8dfda79f8b714637ae9970fcd5d68883c71c877bbe243d91ee3c8f962e8d0fefb60a8902e644cb93e0
   languageName: node
   linkType: hard
 
@@ -3247,9 +3263,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/node-core-library@npm:3.59.2":
-  version: 3.59.2
-  resolution: "@rushstack/node-core-library@npm:3.59.2"
+"@rushstack/node-core-library@npm:3.59.3":
+  version: 3.59.3
+  resolution: "@rushstack/node-core-library@npm:3.59.3"
   dependencies:
     colors: ~1.2.1
     fs-extra: ~7.0.1
@@ -3263,7 +3279,7 @@ __metadata:
   peerDependenciesMeta:
     "@types/node":
       optional: true
-  checksum: 209149349de55587f97aa1a3361f9e84f2ec2f341b8bbae12b05597f5a6a5e02e4a674df69a9cac2538da4350fb5dddd92bf1f54c7b29da0551dc01e05b1df89
+  checksum: 78463efbd5e9bc002b41bbdf6a2ce4aad783350bead33d7ba714db74703605fd8ebb269b757446006fd5926f6e52f74dd27c4c0883f5c2e271eaba516502de99
   languageName: node
   linkType: hard
 
@@ -3287,25 +3303,25 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rushstack/rig-package@npm:0.3.19":
-  version: 0.3.19
-  resolution: "@rushstack/rig-package@npm:0.3.19"
+"@rushstack/rig-package@npm:0.3.20":
+  version: 0.3.20
+  resolution: "@rushstack/rig-package@npm:0.3.20"
   dependencies:
     resolve: ~1.22.1
     strip-json-comments: ~3.1.1
-  checksum: f7af6a917325d09795b5e1207f5c5ebc92ce0a861252698064f16fa8815b6799cfb7df2b9adad08f07b9a8617211ce522f524edb55a638d30b6b4d4a2135e2d5
+  checksum: 91a902e89c14faed173a2d58a50458155748e3e679c98392cd17acddf54a225b863ba0f2939d270ea24701bc4d16b54c0429269580629d4a508381040cc72ff8
   languageName: node
   linkType: hard
 
-"@rushstack/ts-command-line@npm:4.13.3":
-  version: 4.13.3
-  resolution: "@rushstack/ts-command-line@npm:4.13.3"
+"@rushstack/ts-command-line@npm:4.14.0":
+  version: 4.14.0
+  resolution: "@rushstack/ts-command-line@npm:4.14.0"
   dependencies:
     "@types/argparse": 1.0.38
     argparse: ~1.0.9
     colors: ~1.2.1
     string-argv: ~0.3.1
-  checksum: bef8088712361d1051ca21027cded5358cdf73440d9ea7a7e517d868524a3e483cdac72f0fe0aa5e2ffd7a1feeddb7cff224b06f91e66c0846fdf3d126ec9248
+  checksum: a5a338cac75d0c5ddc347edc00139797a65d4466784c90623344c71a752229c0dd55dd0ccf16be0cd25591d7eebd7ff5c1d9ebdbbf2c335447b3357a6ed574ae
   languageName: node
   linkType: hard
 
@@ -3401,7 +3417,7 @@ __metadata:
   resolution: "@storefront-ui/nuxt@workspace:packages/sfui/frameworks/nuxt"
   dependencies:
     "@nuxt/kit": ^3.3.2
-    "@nuxt/module-builder": ^0.2.1
+    "@nuxt/module-builder": ^0.4.0
     "@nuxt/schema": ^3.3.2
     "@nuxtjs/tailwindcss": ^6.6.4
     "@storefront-ui/vue": "workspace:*"
@@ -4060,13 +4076,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:^18.0.28":
-  version: 18.2.7
-  resolution: "@types/react@npm:18.2.7"
+  version: 18.2.9
+  resolution: "@types/react@npm:18.2.9"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: caa5da4cf929766738ec789301dc6fb6624bd48dd317d851c4c9b84b1f47cd8ebe17fe01398cadaa0bc938cd4d502d67f4b9de9ff771dc132096bdc86228efba
+  checksum: f155256171a2d701eb962a1d3aa2a1c9ee36d9dd4a4aecb911d29e50717aab1a76914aef25242665147c455b9e8d081d1a60275d13ca81075c148ebd6607414a
   languageName: node
   linkType: hard
 
@@ -8475,7 +8491,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"consola@npm:^2.15.3, consola@npm:^2.6.0":
+"consola@npm:^2.6.0":
   version: 2.15.3
   resolution: "consola@npm:2.15.3"
   checksum: 8ef7a09b703ec67ac5c389a372a33b6dc97eda6c9876443a60d76a3076eea0259e7f67a4e54fd5a52f97df73690822d090cf8b7e102b5761348afef7c6d03e28
@@ -10211,9 +10227,9 @@ __metadata:
   linkType: hard
 
 "dotenv@npm:^16.0.3":
-  version: 16.0.3
-  resolution: "dotenv@npm:16.0.3"
-  checksum: afcf03f373d7a6d62c7e9afea6328e62851d627a4e73f2e12d0a8deae1cd375892004f3021883f8aec85932cd2834b091f568ced92b4774625b321db83b827f8
+  version: 16.1.4
+  resolution: "dotenv@npm:16.1.4"
+  checksum: c1b2e13df4d374a6a29e134c56c7b040ba20500677fe8b9939ea654f3b3badb9aaa0b172e40e4dfa1233a4177dbb8fb79d84cc79a50ac9c9641fe2ad98c14876
   languageName: node
   linkType: hard
 
@@ -17751,9 +17767,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxi@npm:3.5.2":
-  version: 3.5.2
-  resolution: "nuxi@npm:3.5.2"
+"nuxi@npm:3.5.3":
+  version: 3.5.3
+  resolution: "nuxi@npm:3.5.3"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -17761,20 +17777,20 @@ __metadata:
       optional: true
   bin:
     nuxi: bin/nuxi.mjs
-  checksum: 14651fa5d5da7e11a4d0398bba7145d77fbd492a2381fca914e32b25a118a48ef30ccaee359f6906e990b6573d68ff746df99b0953b5c7d991b5a32c287a8efb
+  checksum: 8be917219c4a64d2155e2792e52623593fab9f9b1c650ca7c4088d072064b8c79770dd1bba7bdce008a69aae50dd00a7737406b78339c3a0866be1edab642582
   languageName: node
   linkType: hard
 
 "nuxt@npm:^3.3.2":
-  version: 3.5.2
-  resolution: "nuxt@npm:3.5.2"
+  version: 3.5.3
+  resolution: "nuxt@npm:3.5.3"
   dependencies:
     "@nuxt/devalue": ^2.0.2
-    "@nuxt/kit": 3.5.2
-    "@nuxt/schema": 3.5.2
+    "@nuxt/kit": 3.5.3
+    "@nuxt/schema": 3.5.3
     "@nuxt/telemetry": ^2.2.0
     "@nuxt/ui-templates": ^1.1.1
-    "@nuxt/vite-builder": 3.5.2
+    "@nuxt/vite-builder": 3.5.3
     "@unhead/ssr": ^1.1.27
     "@unhead/vue": ^1.1.27
     "@vue/shared": ^3.3.4
@@ -17797,11 +17813,11 @@ __metadata:
     magic-string: ^0.30.0
     mlly: ^1.3.0
     nitropack: ^2.4.1
-    nuxi: 3.5.2
+    nuxi: 3.5.3
     nypm: ^0.2.0
     ofetch: ^1.0.1
     ohash: ^1.1.2
-    pathe: ^1.1.0
+    pathe: ^1.1.1
     perfect-debounce: ^1.0.0
     prompts: ^2.4.2
     scule: ^1.0.0
@@ -17828,7 +17844,7 @@ __metadata:
   bin:
     nuxi: bin/nuxt.mjs
     nuxt: bin/nuxt.mjs
-  checksum: 119bd9db8124eb0980fc99d8bfb984b5ac17a9c4b781d9a1aadc39f8c62b425e6b00387ab6d4a3fe072a18b5c6dd95126b722a4e75c1cc35d028f53f52d26745
+  checksum: f9fb163219a158137039b69be7d8dd7e58d0a6a81145f3bc31e4fde84d7f1a8f1e187ff7ee730f3c12c7ddd43ffad28699fc0205597dc4f6bdbb2a15124df322
   languageName: node
   linkType: hard
 
@@ -18739,6 +18755,13 @@ __metadata:
   version: 1.1.0
   resolution: "pathe@npm:1.1.0"
   checksum: 6b9be9968ea08a90c0824934799707a1c6a1ad22ac1f22080f377e3f75856d5e53a331b01d327329bfce538a14590587cfb250e8e7947f64408797c84c252056
+  languageName: node
+  linkType: hard
+
+"pathe@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "pathe@npm:1.1.1"
+  checksum: 34ab3da2e5aa832ebc6a330ffe3f73d7ba8aec6e899b53b8ec4f4018de08e40742802deb12cf5add9c73b7bf719b62c0778246bd376ca62b0fb23e0dde44b759
   languageName: node
   linkType: hard
 
@@ -21415,15 +21438,15 @@ __metadata:
   linkType: hard
 
 "sass@npm:^1.58.2":
-  version: 1.62.1
-  resolution: "sass@npm:1.62.1"
+  version: 1.63.2
+  resolution: "sass@npm:1.63.2"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: 1b1b3584b38a63dd94156b65f13b90e3f84b170a38c3d5e3fa578b7a32a37aeb349b4926b0eaf9448d48e955e86b1ee01b13993f19611dad8068af07a607c13b
+  checksum: 7ffc2b789aeae4637f09195f7d24e149fc590e2c69cb209c64fdf0ed0d7f09da28097c48fda7f36d257aeb7dd8e16a9ff77b50cf78830afe6f996e6dcd957280
   languageName: node
   linkType: hard
 
@@ -23911,7 +23934,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"unbuild@npm:^1.0.1":
+"unbuild@npm:^1.2.1":
   version: 1.2.1
   resolution: "unbuild@npm:1.2.1"
   dependencies:
@@ -24565,9 +24588,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite-node@npm:^0.31.1":
-  version: 0.31.1
-  resolution: "vite-node@npm:0.31.1"
+"vite-node@npm:^0.31.4":
+  version: 0.31.4
+  resolution: "vite-node@npm:0.31.4"
   dependencies:
     cac: ^6.7.14
     debug: ^4.3.4
@@ -24577,7 +24600,7 @@ __metadata:
     vite: ^3.0.0 || ^4.0.0
   bin:
     vite-node: vite-node.mjs
-  checksum: f70ffa3f6dcb4937cdc99f59bf360d42de83c556ba9a19eb1c3504ef20db4c1d1afa644d9a8e63240e851c0c95773b64c526bdb3eb4794b5e941ddcd57124aa9
+  checksum: 822457481fd58915eb41f18237d99ce163f7a45cc57ba0739876f6201f287c904ed00439c351a1a0fef82e4f256db06f4ae238c0519d4121e1ad14bc5dd4a39f
   languageName: node
   linkType: hard
 

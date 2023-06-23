@@ -15,6 +15,10 @@ The Gallery presents a visually appealing and user-friendly collection of images
 
 The Gallery is primarily intended for use on product pages, where it serves as an effective tool for showcasing product images. The choice between the vertical and horizontal variants should depend on the layout of the product page, ensuring optimal visual presentation. Additionally, the variant with bullets should be considered, particularly for mobile devices, as it offers a compact and easily accessible navigation format.
 
+## Accessibility notes
+
+The Gallery supports the use of the keyboard (Tab/shift+Tab) to navigate through images.
+
 ## Product Gallery with vertical thumbnails
 
 Changing an image is provided by hover on the thumbnail or dragging the main image. There are buttons to scroll thumbnails up and down.
@@ -74,7 +78,3 @@ In this block there is added arrow key navigation. When focus is on one of the t
 <!-- end react -->
 
 </Showcase>
-
-## Accessibility notes
-
-The Gallery supports the use of the keyboard (Tab/alt+Tab) to navigate through images.

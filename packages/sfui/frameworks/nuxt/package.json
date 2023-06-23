@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/nuxt",
-  "version": "1.0.0",
+  "version": "2.3.1",
   "homepage": "https://docs.storefrontui.io/v2/",
   "installConfig": {
     "hoistingLimits": "workspaces"
@@ -39,7 +39,7 @@
     "@storefront-ui/vue": "workspace:*"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.2.1",
+    "@nuxt/module-builder": "^0.4.0",
     "@nuxt/schema": "^3.3.2",
     "nuxt": "^3.3.2"
   }
