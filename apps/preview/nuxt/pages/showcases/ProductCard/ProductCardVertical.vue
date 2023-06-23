@@ -1,7 +1,7 @@
 <template>
   <div class="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
     <div class="relative">
-      <SfLink href="#">
+      <SfLink href="#" class="block">
         <img
           src="http://localhost:3100/@assets/sneakers.png"
           alt="Great product"
@@ -15,7 +15,7 @@
         variant="tertiary"
         size="sm"
         square
-        class="absolute bottom-0 right-0 mr-2 mb-2 bg-white border border-neutral-200 !rounded-full"
+        class="absolute bottom-0 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full"
         aria-label="Add to wishlist"
       >
         <SfIconFavorite size="sm" />
