@@ -1,13 +1,25 @@
 <template>
+  <fieldset>
+    <label class="flex items-center my-4 cursor-pointer"
+      ><SfRadio v-model="placement" class="flex items-center" name="placement" value="left" /><span class="ml-2"
+        >Slide from left</span
+      ></label
+    >
+    <label class="flex items-center my-4 cursor-pointer"
+      ><SfRadio v-model="placement" class="flex items-center" name="placement" value="right" /><span class="ml-2"
+        >Slide from right</span
+      ></label
+    >
+  </fieldset>
   <SfButton type="button" @click="open = true"> Open Drawer </SfButton>
 
   <transition
     enter-active-class="transition duration-500 ease-in-out"
     leave-active-class="transition duration-500 ease-in-out"
-    enter-from-class="-translate-x-full"
-    enter-to-class="translate-x-0"
-    leave-from-class="translate-x-0"
-    leave-to-class="-translate-x-full"
+    :enter-from-class="placement === 'left' ? '-translate-x-full' : 'translate-x-full'"
+    :enter-to-class="placement === 'left' ? 'translate-x-0' : '-translate-x-0'"
+    :leave-from-class="placement === 'left' ? 'translate-x-0' : '-translate-x-0'"
+    :leave-to-class="placement === 'left' ? '-translate-x-full' : 'translate-x-full'"
   >
     <SfDrawer
       ref="drawerRef"
@@ -39,7 +51,15 @@
 </template>
 
 <script lang="ts" setup>
-import { SfDrawer, SfDrawerPlacement, SfButton, SfIconFavorite, SfIconClose, useTrapFocus } from '@storefront-ui/vue';
+import {
+  SfDrawer,
+  SfDrawerPlacement,
+  SfButton,
+  SfRadio,
+  SfIconFavorite,
+  SfIconClose,
+  useTrapFocus,
+} from '@storefront-ui/vue';
 import { ref } from 'vue';
 
 const placement = ref<`${SfDrawerPlacement}`>('left');
