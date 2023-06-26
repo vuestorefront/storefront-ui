@@ -314,7 +314,7 @@ export default {
     },
     isAddedToCart: {
       type: Boolean,
-      deafult: false,
+      default: false,
     },
     addToCartDisabled: {
       type: Boolean,
