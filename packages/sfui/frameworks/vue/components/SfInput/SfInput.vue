@@ -11,7 +11,7 @@ const getSizeClasses = {
 
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { computed, ref, toRefs } from 'vue';
+import { computed, inject, ref, toRefs } from 'vue';
 import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
 
 const props = defineProps({
@@ -39,8 +39,18 @@ const props = defineProps({
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string | number): void;
 }>();
-const { modelValue, invalid } = toRefs(props);
+const { modelValue, invalid: propInvalid } = toRefs(props);
 const { isFocusVisible } = useFocusVisible({ isTextInput: true });
+const fieldDisabled = inject<boolean>('disabled', false);
+const fieldInvalid = inject<boolean>('invalid');
+// This kind of condition doesn't work when fieldInvalid is `true` and you want to override it with propInvalid `false`.
+// We may consider setting default value as `undefined`. It easily casts to `false`, so the default behaviour would stay the same.
+// At the same time we could check `typeof propInvalid === 'undefined'` to detect if prop is set and always prefer it over the injected value.
+const invalid = propInvalid.value || fieldInvalid;
+
+// We must somehow set an ID as well.
+// const fieldId = inject<string>('fieldId');
+// const id = $attrs.id || fieldId; // <- it does not work
 
 /*
 Internal state has been implemented due to useFocusVisible and how it works. Main reason is that
@@ -76,6 +86,7 @@ const inputValue = computed({
     <input
       v-model="inputValue"
       v-bind="$attrs"
+      :disabled="$attrs.disabled || fieldDisabled"
       class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
       :size="1"
       data-testid="input-field"
