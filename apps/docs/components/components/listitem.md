@@ -5,12 +5,6 @@ hideBreadcrumbs: true
 
 # ListItem
 
-ListItem is commonly used to display items in a structured and organized manner. It is typically part of a larger list or collection of items, such as a menu or filters.
-
-## Accessibility notes
-
-ListItem component can be rendered as an `<li>` or `<a>` or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When no tag provided, the component will render as an `<li>`.
-
 ::: slot usage
 
 `SfListItem` is a component that can be used in all sorts of menus. It comes with styles for common data states like `disabled` and `selected`.
@@ -72,6 +66,10 @@ For items with a lot of text content, you can use Tailwind's `truncate` class.
 
 <!-- end react -->
 </Showcase>
+
+## Accessibility notes
+
+ListItem component can be rendered as an `<li>` or `<a>` or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When no tag provided, the component will render as an `<li>`. To achieve proper accessibility it is important to implement required properies depending on the passed tag.
 
 ## Playground
 
