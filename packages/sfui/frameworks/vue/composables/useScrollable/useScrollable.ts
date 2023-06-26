@@ -26,7 +26,6 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
           options?.value?.onDragStart?.(data);
         },
       });
-
       unregister = scrollable.value?.register();
       const activeIndex = options?.value?.activeIndex;
       if (typeof activeIndex === 'number' && activeIndex >= 0 && options?.value?.isActiveIndexCentered) {
@@ -54,6 +53,7 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
     disabled: !state.value.hasNext,
   }));
 
+  const elementInCenterIndex = () => scrollable.value?.elementInCenterIndex;
   return {
     containerRef,
     getPrevButtonProps,
@@ -61,5 +61,6 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
     showNext,
     showPrev,
     state,
+    elementInCenterIndex,
   };
 }

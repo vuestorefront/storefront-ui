@@ -18,6 +18,7 @@ export default class Scrollable {
   private pointerDownOffsetTop: number;
   private dragDistance: number;
 
+
   private isDraggedPreviously: boolean = false;
   public get isDragged() {
     return this.isDraggedPreviously;
@@ -132,6 +133,14 @@ export default class Scrollable {
     }
   }
 
+  public get elementInCenterIndex(): number | null {
+    const containerHorizontalCenter = this.container.scrollLeft + this.container.getBoundingClientRect().width / 2
+    const centeredElementIndex = Array.from(this.container.children).findIndex(item => {
+      return item.offsetLeft <= containerHorizontalCenter && containerHorizontalCenter <= item.offsetLeft + item.offsetWidth;
+    })
+    return centeredElementIndex;
+  }
+
   public refresh(callback?: (data: SfScrollableOnScrollData) => void) {
     if (callback) {
       requestAnimationFrame(() => {
@@ -186,7 +195,6 @@ export default class Scrollable {
       isDragged: false,
       swipeLeft: this.dragDistance > -10,
       swipeRight: this.dragDistance < 10,
-      elementInCenterIndex: () => this.elementInCenterIndex()
     });
   }
 
@@ -223,7 +231,7 @@ export default class Scrollable {
 
   private scrollTo({ left, top }: { left?: number; top?: number }): void {
     const behavior = this.options.reduceMotion ? 'auto' : 'smooth';
-    this.container.scrollTo({ left, top, behavior });
+    this.container.scrollTo({ left, top, behavior });    
   }
 
   private onScroll(event: Event): void {
@@ -243,18 +251,8 @@ export default class Scrollable {
 
   private onScrollHandler() {
     this.refresh(this.options.onScroll);
-    this.elementInCenterIndex();
-  }
-
-  private elementInCenterIndex(): number  {
-    const containerHorizontalCenter = this.container.scrollLeft + this.container.getBoundingClientRect().width / 2 
-    const centeredElementIndex = Array.from(this.container.children).findIndex(item => {
-      console.log(item.offsetLeft, containerHorizontalCenter, item.offsetLeft + item.offsetWidth)
-      item.offsetLeft <= containerHorizontalCenter && containerHorizontalCenter >= item.offsetLeft + item.offsetWidth;
-    })
-    console.log(centeredElementIndex)
-    return centeredElementIndex;
-  }
+    console.log(this.elementInCenterIndex)
+  }  
 
   private get hasNext() {
     if (this.options.direction === SfScrollableDirection.vertical) {

@@ -5,9 +5,9 @@
       :active-index="activeIndex"
       wrapper-class="h-full min-h-0"
       buttons-placement="none"
-      :drag="{ containerWidth: true }"
+      drag
       is-active-index-centered
-      @on-drag-end="onDragged"
+      @pointerup="onDragged"
     >
       <div
         v-for="({ imageSrc, alt }, index) in images"
@@ -69,7 +69,8 @@ import {
   SfButton,
   SfIconChevronLeft,
   SfIconChevronRight,
-  type SfScrollableOnDragEndData,
+  useScrollable,
+  // type SfScrollableOnDragEndData,
 } from '@storefront-ui/vue';
 
 const withBase = (filepath: string) => `http://localhost:3100/@assets/gallery/${filepath}`;
@@ -88,13 +89,17 @@ const images = [
   { imageSrc: withBase('gallery_11.png'), imageThumbSrc: withBase('gallery_11_thumb.png'), alt: 'backpack11' },
 ];
 
+const { elementInCenterIndex } = useScrollable();
+
 const activeIndex = ref(0);
 
-const onDragged = (event: SfScrollableOnDragEndData) => {
-  if (event.swipeRight && activeIndex.value > 0) {
-    activeIndex.value -= 1;
-  } else if (event.swipeLeft && activeIndex.value < images.length - 1) {
-    activeIndex.value += 1;
-  }
+const onDragged = () => {
+  // if (event.swipeRight && activeIndex.value > 0) {
+  //   activeIndex.value -= 1;
+  // } else if (event.swipeLeft && activeIndex.value < images.length - 1) {
+  //   activeIndex.value += 1;
+  // }
+  console.log('pointer', elementInCenterIndex.value);
+  activeIndex.value = elementInCenterIndex.value;
 };
 </script>

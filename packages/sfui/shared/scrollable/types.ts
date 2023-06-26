@@ -16,7 +16,6 @@ export type SfScrollableOnDragStartData = {
 export type SfScrollableOnDragEndData = SfScrollableOnDragStartData & {
   swipeLeft: boolean;
   swipeRight: boolean;
-  elementInCenterIndex: number;
 };
 
 export type SfScrollableOnScrollData = {
