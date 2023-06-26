@@ -3,4 +3,4 @@
 '@storefront-ui/vue': major
 ---
 
-Breaking Change - Padding right in SfSelect changed from 14px to 12px
+Breaking Change - Padding left adn rigth in SfSelect changed from 14px and 16px to 12px
