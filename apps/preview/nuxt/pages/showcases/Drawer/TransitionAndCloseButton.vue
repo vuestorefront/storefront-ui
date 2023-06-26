@@ -17,8 +17,8 @@
     enter-active-class="transition duration-500 ease-in-out"
     leave-active-class="transition duration-500 ease-in-out"
     :enter-from-class="placement === 'left' ? '-translate-x-full' : 'translate-x-full'"
-    :enter-to-class="placement === 'left' ? 'translate-x-0' : '-translate-x-0'"
-    :leave-from-class="placement === 'left' ? 'translate-x-0' : '-translate-x-0'"
+    :enter-to-class="placement === 'left' ? 'translate-x-0' : 'translate-x-0'"
+    :leave-from-class="placement === 'left' ? 'translate-x-0' : 'translate-x-0'"
     :leave-to-class="placement === 'left' ? '-translate-x-full' : 'translate-x-full'"
   >
     <SfDrawer
