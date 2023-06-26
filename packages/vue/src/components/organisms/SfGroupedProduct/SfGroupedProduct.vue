@@ -81,6 +81,11 @@ export default {
   mounted() {
     this.$nextTick(this.glideMount);
   },
+  beforeDestroy() {
+    if (this.glide) {
+      this.glide.destroy();
+    }
+  },
   methods: {
     glideMount() {
       if (!this.$slots.default || !this.hasCarousel) return;
