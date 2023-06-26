@@ -45,7 +45,7 @@ export default function SfSelect(props: SfSelectProps) {
         required={required}
         disabled={disabled}
         className={classNames(
-          'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3 text-neutral-900 focus:ring-primary-700 focus:ring-2 outline-none bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
+          'appearance-none disabled:cursor-not-allowed cursor-pointer px-3 text-neutral-900 focus:ring-primary-700 focus:ring-2 outline-none bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
           {
             'py-1.5': size === SfSelectSize.sm,
             'py-2': size === SfSelectSize.base,
