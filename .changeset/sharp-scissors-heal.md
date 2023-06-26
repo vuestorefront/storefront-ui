@@ -3,4 +3,4 @@
 '@storefront-ui/vue': minor
 ---
 
-add Email icon
+Added props changing aria label for nav buttons in SfScrollable

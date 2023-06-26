@@ -6,7 +6,7 @@ export default function ProductCardVertical() {
   return (
     <div className="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
       <div className="relative">
-        <SfLink href="#">
+        <SfLink href="#" className="block">
           <img
             src="http://localhost:3100/@assets/sneakers.png"
             alt="Great product"
@@ -20,7 +20,7 @@ export default function ProductCardVertical() {
           variant="tertiary"
           size="sm"
           square
-          className="absolute bottom-0 right-0 mr-2 mb-2 bg-white border border-neutral-200 !rounded-full"
+          className="absolute bottom-0 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full"
           aria-label="Add to wishlist"
         >
           <SfIconFavorite size="sm" />

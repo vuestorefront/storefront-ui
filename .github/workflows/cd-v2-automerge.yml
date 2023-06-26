@@ -1,0 +1,25 @@
+name: Helper - Auto-merge PR with `automerge` label
+on:
+  pull_request:
+    types:
+      - opened
+      - labeled
+      - reopened
+      - synchronize
+      - ready_for_review
+      - edited
+    branches:
+      - v2-develop
+
+jobs:
+  automerge:
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.head_ref, 'v2' )}}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - id: automerge
+        name: automerge
+        uses: 'pascalgn/automerge-action@v0.15.6'
+        env:
+          GITHUB_TOKEN: '${{ secrets.GITHUB_TOKEN }}'

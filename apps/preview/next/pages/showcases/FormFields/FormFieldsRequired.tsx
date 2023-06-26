@@ -641,7 +641,7 @@ export default function FormFields() {
             <label
               key={value}
               className={classNames(
-                'flex items-start mb-4 mr-6 rounded',
+                'flex items-start mb-4 mr-6 rounded first-of-type:mt-2 last-of-type:mb-6',
                 disabled ? 'cursor-not-allowed' : 'cursor-pointer',
               )}
             >

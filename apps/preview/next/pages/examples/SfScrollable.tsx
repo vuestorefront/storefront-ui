@@ -35,12 +35,28 @@ function Example() {
         propDefaultValue: '10',
         description: 'Only for demonstration purposes. Total number of items',
       },
+      {
+        type: 'text',
+        modelName: 'buttonPrevAriaLabel',
+        propType: 'string',
+        propDefaultValue: 'Previous',
+        description: 'Sets aria label for the previous button',
+      },
+      {
+        type: 'text',
+        modelName: 'buttonNextAriaLabel',
+        propType: 'string',
+        propDefaultValue: 'Next',
+        description: 'Sets aria label for the next button',
+      },
     ],
     {
       direction: SfScrollableDirection.horizontal,
       buttonsPlacement: SfScrollableButtonsPlacement.block,
       drag: undefined,
       totalItems: '20',
+      buttonPrevAriaLabel: 'Previous element',
+      buttonNextAriaLabel: 'Next element',
     },
   );
 
@@ -50,6 +66,8 @@ function Example() {
         drag={state.get.drag}
         direction={state.get.direction}
         buttonsPlacement={state.get.buttonsPlacement}
+        buttonPrevAriaLabel={state.get.buttonPrevAriaLabel}
+        buttonNextAriaLabel={state.get.buttonNextAriaLabel}
         className="items-center w-full"
       >
         {Array.from({ length: Number(state.get.totalItems || 10) }, (_, i) => (

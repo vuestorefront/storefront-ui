@@ -42,7 +42,7 @@ You can [customize your color palette](../customization/theming.html) as a part 
 
 ::: tip Need more customization?
 
-If you need more customization beyond the built-in variants, we recommend copying the `SfLink` [source code](#source) and modifying it to your needs. This way, you can have all the custom styles for your design system, but still be able to easily use all of our [Blocks](../blocks.html).
+If you need more customization beyond the built-in variants, we recommend copying the `SfLink` [source code](#source) and modifying it to your needs. This way, you can have all the custom styles for your design system, but still be able to easily use all of our [Blocks](./blocks.html).
 :::
 
 <!-- react -->
