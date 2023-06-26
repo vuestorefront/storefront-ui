@@ -14,7 +14,7 @@ The Product Rating block serves as a basic yet effective solution for implementi
 
 It allows for customization through the use of RatingButton basic component. This feature permits users to provide more specific ratings, enhancing the granularity of their feedback.
 
-For additional customizations and more advanced functionality, you can consult our documentation on the Modal page.
+For additional customizations and more advanced functionality, you can consult our documentation on the [Modal](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/components/modal.html) page.
 
 <Showcase showcase-name="RatingForms/ProductRating" style="min-height: 600px">
 

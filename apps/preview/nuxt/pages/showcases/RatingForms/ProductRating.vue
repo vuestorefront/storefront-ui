@@ -7,8 +7,8 @@
     class="min-w-[376px] md:w-[480px]"
     tag="section"
     role="alertdialog"
-    aria-labelledby="modalTitle"
-    aria-describedby="modalDesc"
+    :aria-labelledby="modalTitle"
+    :aria-describedby="modalDesc"
   >
     <header>
       <SfButton
@@ -21,7 +21,7 @@
       >
         <SfIconClose size="sm" />
       </SfButton>
-      <h3 id="modalTitle" class="font-bold typography-headline-4 md:typography-headline-3 mb-8">Rate your purchase</h3>
+      <h3 :id="modalTitle" class="font-bold typography-headline-4 md:typography-headline-3 mb-8">Rate your purchase</h3>
     </header>
     <img
       src="http://localhost:3100/@assets/smartwatch.png"
@@ -30,7 +30,7 @@
       :height="100"
       class="mx-auto border border-neutral-200 rounded-md"
     />
-    <p id="modalDesc" class="mt-2 text-center">Smartwatch Fitness Tracker</p>
+    <p :id="modalDesc" class="mt-2 text-center">Smartwatch Fitness Tracker</p>
     <form class="mt-6">
       <SfRatingButton v-model="modelValue" aria-label="Select rating" size="lg" class="justify-center mb-8" />
       <SfButton type="submit" class="w-full">Rate Product</SfButton>
@@ -40,8 +40,10 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SfModal, SfButton, SfIconClose, useDisclosure, SfRatingButton } from '@storefront-ui/vue';
+import { SfModal, SfButton, SfIconClose, useDisclosure, SfRatingButton, useId } from '@storefront-ui/vue';
 
 const { isOpen, open, close } = useDisclosure({ initialValue: true });
 const modelValue = ref();
+const modalTitle = useId();
+const modalDesc = useId();
 </script>
