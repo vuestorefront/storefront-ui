@@ -47,7 +47,7 @@ export default function TopNavSimpleMobile() {
   return (
     <header className="flex justify-center w-full py-2 px-4 lg:py-5 lg:px-6 bg-white border-b border-neutral-200">
       <div className="flex flex-wrap justify-between lg:flex-nowrap items-center flex-row md:justify-start h-full max-w-[1536px] w-full">
-        <SfButton variant="tertiary" className="md:hidden" aria-label="Go back">
+        <SfButton variant="tertiary" square className="md:hidden" aria-label="Go back">
           <SfIconArrowBack />
         </SfButton>
         <a
@@ -61,7 +61,7 @@ export default function TopNavSimpleMobile() {
             className="w-[175px] md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]"
           />
         </a>
-        <SfButton variant="tertiary" className="md:hidden" aria-label="Search">
+        <SfButton variant="tertiary" square className="md:hidden" aria-label="Search">
           <SfIconSearch />
         </SfButton>
         <SfButton
