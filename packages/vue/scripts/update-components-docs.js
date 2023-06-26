@@ -188,7 +188,7 @@ function parseScssFile(contentScssFile) {
     Object.assign(cssVariablesList, {
       [cssVariable[0]]: {
         value: cssVariable[1],
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     });
