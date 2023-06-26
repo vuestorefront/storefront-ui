@@ -3,7 +3,7 @@
     <div
       class="flex flex-wrap justify-between lg:flex-nowrap items-center flex-row md:justify-start h-full max-w-[1536px] w-full"
     >
-      <SfButton variant="tertiary" class="md:hidden" aria-label="Go back">
+      <SfButton variant="tertiary" square class="md:hidden" aria-label="Go back">
         <SfIconArrowBack />
       </SfButton>
       <a
@@ -17,7 +17,7 @@
           class="w-[175px] md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]"
         />
       </a>
-      <SfButton variant="tertiary" class="md:hidden" aria-label="Search">
+      <SfButton variant="tertiary" class="md:hidden" square aria-label="Search">
         <SfIconSearch />
       </SfButton>
       <SfButton
