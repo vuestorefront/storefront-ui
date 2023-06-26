@@ -23,8 +23,8 @@ export default function ProductCardHorizontal() {
             className="w-full h-auto border rounded-md border-neutral-200"
             src="http://localhost:3100/@assets/smartwatch.png"
             alt="alt"
-            width={300}
-            height={300}
+            width="300"
+            height="300"
           />
         </SfLink>
         <div className="absolute top-0 left-0 text-white bg-secondary-600 py-1 pl-1.5 pr-2 text-xs font-medium">

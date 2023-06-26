@@ -8,36 +8,36 @@
 
 
 <p align="center">
-    <a href="https://discord.gg/vuestorefront">
-        <img alt="Chat with us on Discord" src="https://img.shields.io/discord/770285988244750366?label=join%20discord&logo=Discord&logoColor=white" />
-    </a>
-    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue">
-    <a href="http://commitizen.github.io/cz-cli/">
-        <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
-    </a>
-    <a href="https://github.com/vuestorefront/storefront-ui">
-        <img alt="License" src="https://img.shields.io/github/license/vuestorefront/storefront-ui" />
-    </a>
-    <a href="https://github.com/vuestorefront/storefront-ui/pulls">
-        <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
-    </a>
+  <a href="https://discord.gg/vuestorefront">
+      <img alt="Chat with us on Discord" src="https://img.shields.io/discord/770285988244750366?label=join%20discord&logo=Discord&logoColor=white" />
+  </a>
+  <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/vue">
+  <a href="http://commitizen.github.io/cz-cli/">
+      <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/vuestorefront/storefront-ui">
+      <img alt="License" src="https://img.shields.io/github/license/vuestorefront/storefront-ui" />
+  </a>
+  <a href="https://github.com/vuestorefront/storefront-ui/pulls">
+      <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
+  </a>
 </p>
 <hr>
 
 <div align="center">
-  <a href="https://docs.storefrontui.io/v2/vue/getting-started.html"><img alt="Vue Installation" height="40px" widh="120px" src="./_readme/vuebtn.svg" /></a>
-  <a href="https://docs.storefrontui.io/v2/react/getting-started.html"><img alt="React Installation" height="40px" widh="120px" src="./_readme/reactbtn.svg" /></a>
+  <a href="https://docs.storefrontui.io/v2/vue/getting-started.html"><img alt="Vue Installation" height="40" width="120" src="./_readme/vuebtn.svg" /></a>
+  <a href="https://docs.storefrontui.io/v2/react/getting-started.html"><img alt="React Installation" height="40" width="120" src="./_readme/reactbtn.svg" /></a>
 </div>
 
 <img src="./_readme/showcase.png">
 
-## What problems does Storefront UI solve? 
+## What problems does Storefront UI solve?
 
 Like any UI Library / Design System the main goal of Storefront UI is to **accelerate the development process** by providing an opinionated set of premade components, utilities and patterns.
 
 There is a lot of the things you have to take care of to build good user interfaces:
 
-🔹 **Developer/Designer workflow** - Storefront UI comes out of the box with Figma files - a pixel-perfect representation of your code that your design and engineering teams needs to stay aligned. 
+🔹 **Developer/Designer workflow** - Storefront UI comes out of the box with Figma files - a pixel-perfect representation of your code that your design and engineering teams needs to stay aligned.
 
 🔹 **Performance** - Poorly written and overcomplicated components are often the performance bottleneck ruining the experience of your users. **All standard eCommerce pages that we've built with Storefront UI hit 95-100 on Lighthouse**! (mobile performance measured using [PSI](https://pagespeed.web.dev/))
 
@@ -49,7 +49,7 @@ But let's be honest, almost all established UI libraries can solve that. **Here'
 
 In addition, Storefront UI fits perfectly complex UI setups where one library is inherited and customized by multiple projects differing visually.
 
-🔸 **Scaling** - The more your application grows the less maintainable your UI becomes. By providing the right building blocks and using Tailwind CSS we made sure that your UI will be easy to maintain and won't negatively impact your performance even on a large scale. 
+🔸 **Scaling** - The more your application grows the less maintainable your UI becomes. By providing the right building blocks and using Tailwind CSS we made sure that your UI will be easy to maintain and won't negatively impact your performance even on a large scale.
 
 🔸 **Focus on eCommerce** - Storefront UI comes out of the box with components specific to eCommerce like `ProductCard`, `QuantitySelector` and even checkout components
 
@@ -72,7 +72,7 @@ You can become contributor not only by writing code:
 
 - Contribute to documentation
 - Write an article or tutorial
-- Help others on our [Discord server](https://discord.vuestorefront.io) 
+- Help others on our [Discord server](https://discord.vuestorefront.io)
 - Report a bug
 - Do a talk about Storefront UI at your local meetup
 
@@ -80,17 +80,17 @@ We are grateful for all kind of contributions. If you don't know where to start 
 
 ## How to run project locally
 
-In the `root` directory of this project run `yarn` command to install all needed dependencies. 
+In the `root` directory of this project run `yarn` command to install all needed dependencies.
 After dependencies has been installed run `yarn dev` command to run this project.
 Now both (Nuxt preview for Vue and Next preview for React) projects are running locally and you can start working on them.
-If you need to run only one of them, you need to run a desired preview from its directory, so you need to go for Vue: `/apps/preview/nuxt` and for React: `/apps/preview/next`. 
+If you need to run only one of them, you need to run a desired preview from its directory, so you need to go for Vue: `/apps/preview/nuxt` and for React: `/apps/preview/next`.
 
 NOTE:
-Subdependencies have to be build, such as 
-- `@storefront-ui/shared` located in `/packages/sfui/shared` 
-- `@storefront-ui/tw-plugin-peer-next` located in `/packages/sfui/tw-plugin-peer-next` 
-- `@storefront-ui/typography` located in `/packages/sfui/typography` 
-  
+Subdependencies have to be build, such as
+- `@storefront-ui/shared` located in `/packages/sfui/shared`
+- `@storefront-ui/tw-plugin-peer-next` located in `/packages/sfui/tw-plugin-peer-next`
+- `@storefront-ui/typography` located in `/packages/sfui/typography`
+
 Knowing this we recommend using `yarn dev` in `root` directory.
 
 ## Links

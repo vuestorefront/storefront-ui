@@ -14,8 +14,8 @@
         class="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none"
         :src="image"
         :alt="title"
-        :width="240"
-        :height="240"
+        width="240"
+        height="240"
       />
       <div class="flex justify-center">
         <a

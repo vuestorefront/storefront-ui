@@ -6,8 +6,8 @@
           src="http://localhost:3100/@assets/sneakers.png"
           alt="Great product"
           class="block object-cover h-auto rounded-md aspect-square"
-          :width="300"
-          :height="300"
+          width="300"
+          height="300"
         />
       </SfLink>
       <SfButton
