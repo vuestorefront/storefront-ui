@@ -150,7 +150,7 @@ export default {
       },
       defaultValue: "sf-fade",
       description:
-        "Transition for input that creates password for account. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
+        "Transition for input that creates password for account. Could be one of [the default ones](https://docs.storefrontui.io/v1/?path=/docs/utilities-transitions-docs--page).",
     },
     createAccountCheckboxLabel: {
       control: "text",

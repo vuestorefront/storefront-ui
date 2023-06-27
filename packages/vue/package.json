@@ -101,6 +101,6 @@
     "*.css"
   ],
   "storybook": {
-    "url": "https://docs.storefrontui.io/"
+    "url": "https://docs.storefrontui.io/v1/"
   }
 }

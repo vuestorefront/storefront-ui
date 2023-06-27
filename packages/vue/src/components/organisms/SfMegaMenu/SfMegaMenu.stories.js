@@ -162,7 +162,7 @@ export default {
       },
       defaultValue: "sf-fade",
       description:
-        "Sets transition name. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
+        "Sets transition name. Could be one of [the default ones](https://docs.storefrontui.io/v1/?path=/docs/utilities-transitions-docs--page).",
     },
     asideTitle: {
       control: "text",
