@@ -12,9 +12,7 @@ hideToc: true
 
 The Product Rating block serves as a basic yet effective solution for implementing a 1-5 stars rating system commonly used in eCommerce platforms. It enables users to easily express their opinion about a particular item or experience.
 
-It allows for customization through the use of RatingButton basic component. This feature permits users to provide more specific ratings, enhancing the granularity of their feedback.
-
-For additional customizations and more advanced functionality, you can consult our documentation on the [Modal](/<!-- vue -->vue<!-- end vue --><!-- react -->react<!-- end react -->/components/modal.html) page.
+This block is implemented using `SfRatingButton` and `SfModal` components. If you need further customizations, see their docs pages.
 
 <Showcase showcase-name="RatingForms/ProductRating" style="min-height: 600px">
 

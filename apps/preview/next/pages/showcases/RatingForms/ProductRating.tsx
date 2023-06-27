@@ -6,8 +6,8 @@ import { SfModal, SfButton, SfIconClose, useDisclosure, SfRatingButton } from '@
 export default function ProductRating() {
   const { isOpen, open, close } = useDisclosure({ initialValue: true });
   const [rating, setRating] = useState(0);
-  const modalTitle = useId();
-  const modalDesc = useId();
+  const modalTitleId = useId();
+  const modalDescId = useId();
 
   return (
     <>
@@ -20,8 +20,8 @@ export default function ProductRating() {
         className="min-w-[376px] md:w-[480px]"
         as="section"
         role="alertdialog"
-        aria-labelledby={modalTitle}
-        aria-describedby={modalDesc}
+        aria-labelledby={modalTitleId}
+        aria-describedby={modalDescId}
       >
         <header>
           <SfButton
@@ -33,18 +33,18 @@ export default function ProductRating() {
           >
             <SfIconClose />
           </SfButton>
-          <h3 id={modalTitle} className="font-bold typography-headline-4 md:typography-headline-3 mb-8">
+          <h3 id={modalTitleId} className="font-bold typography-headline-4 md:typography-headline-3 mb-8">
             Rate your purchase
           </h3>
         </header>
         <img
           src="http://localhost:3100/@assets/smartwatch.png"
           alt="Smartwatch"
-          width={100}
-          height={100}
+          width="100"
+          height="100"
           className="mx-auto border border-neutral-200 rounded-md"
         />
-        <p id={modalDesc} className="mt-2 text-center">
+        <p id={modalDescId} className="mt-2 text-center">
           Smartwatch Fitness Tracker
         </p>
         <form className="mt-6">
