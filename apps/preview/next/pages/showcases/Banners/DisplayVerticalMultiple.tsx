@@ -71,7 +71,7 @@ export default function DisplayVerticalMultiple() {
                 <SfButton className="font-semibold !bg-neutral-900">{callToAction}</SfButton>
               </div>
               <div className="flex items-center w-full">
-                <img src={image} alt={title} width="100%" height="auto" />
+                <img src={image} alt={title} className="w-full" />
               </div>
             </div>
           ),

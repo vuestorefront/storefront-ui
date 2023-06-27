@@ -197,7 +197,7 @@ export default function SearchWithIcon() {
                     >
                       <p className="flex items-center text-left text-neutral-500">
                         {product.image ? (
-                          <img src={product.image} alt={product.name} className="rounded-sm" width={24} height={24} />
+                          <img src={product.image} alt={product.name} className="rounded-sm" width="24" height="24" />
                         ) : (
                           product.thumbnail
                         )}

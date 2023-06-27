@@ -22,7 +22,7 @@
         </SfButton>
       </div>
       <div class="flex items-center w-full">
-        <img :src="image" :alt="title" width="100%" height="auto" />
+        <img :src="image" :alt="title" class="w-full" />
       </div>
     </div>
   </div>

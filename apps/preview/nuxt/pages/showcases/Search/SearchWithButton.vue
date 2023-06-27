@@ -50,8 +50,8 @@
                 :src="product.image"
                 alt="product.name"
                 class="rounded-sm mr-2"
-                :width="24"
-                :height="24"
+                width="24"
+                height="24"
               />
               <Component :is="product.thumbnail" v-else class="mr-2 text-neutral-500" />
               <span>{{ highlight }}</span>
