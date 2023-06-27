@@ -97,7 +97,7 @@ export default {
       },
       defaultValue: "",
       description:
-        "Transition effect on opening modal. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
+        "Transition effect on opening modal. Could be one of [the default ones](https://docs.storefrontui.io/v1/?path=/docs/utilities-transitions-docs--page).",
     },
     title: {
       control: "text",

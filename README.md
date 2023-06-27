@@ -136,7 +136,7 @@ Customization-first, performance-oriented and elegant UI framework for eCommerce
 
 - [Website](http://storefrontui.io/)
 - [Storybook documentation](http://docs.storefrontui.io/)
-- [How to contribute](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page)
+- [How to contribute](https://docs.storefrontui.io/v1/?path=/docs/contributing-guide-guide-become-a-contributor--page)
 - [Discord server](https://discord.com/invite/TJpdzzN6q5)
   
 <p align="center">
@@ -167,7 +167,7 @@ We are building Storefront UI based on the following 6 fundamentals:
 Storefront UI is based on atomic design which means every component is built from tiny atoms that you can use in your application! You’re not limited to big UI components anymore. Use Storefront UI atoms to quickly build your own, great-looking components!
 
 
-Read [how it can be customized](https://docs.storefrontui.io/?path=/story/setup-css-customization--page).
+Read [how it can be customized](https://docs.storefrontui.io/v1/?path=/docs/getting-started-development-guide-css-customization--page).
 
 ![](https://i.ibb.co/VHTcyrw/1234.png)
 
@@ -181,7 +181,7 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 # Contributing
 
-We are currently in the process of building the library. If you want to help in shaping the future of Vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page) you can find all the required information.
+We are currently in the process of building the library. If you want to help in shaping the future of Vue and eCommerce UI's we'd be more than happy if you want to contribute! [Here](https://docs.storefrontui.io/v1/?path=/docs/contributing-guide-guide-become-a-contributor--page) you can find all the required information.
 
 
 # Supporters
@@ -198,5 +198,5 @@ We are currently in the process of building the library. If you want to help in 
 
 # Contributing
 
-Read [how to start](https://docs.storefrontui.io/?path=/story/contributing-guide-guide-become-a-contributor--page) and become a part of our amazing community ;)
+Read [how to start](https://docs.storefrontui.io/v1/?path=/docs/contributing-guide-guide-become-a-contributor--page) and become a part of our amazing community ;)
 

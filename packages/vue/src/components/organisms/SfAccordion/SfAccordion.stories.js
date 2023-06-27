@@ -161,7 +161,7 @@ export default {
       },
       defaultValue: "",
       description:
-        "Overlay transition effect. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
+        "Overlay transition effect. Could be one of [the default ones](https://docs.storefrontui.io/v1/?path=/docs/utilities-transitions-docs--page).",
     },
     showChevron: {
       control: "boolean",
