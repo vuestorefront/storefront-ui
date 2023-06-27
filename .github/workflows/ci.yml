@@ -191,7 +191,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_REACT }}
 
   release-canary:
-    name: Release canary package
+    name: Release Canary packages
     needs: [build, build-release, cypress-react, cypress-vue]
     if: ${{ github.ref == 'refs/heads/v2-develop' }}
     # Can't use 'configure-enviroment' because it fails on dev branch
@@ -216,7 +216,7 @@ jobs:
         run: yarn changeset version --snapshot
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build package
+      - name: Build packages
         run: yarn build:release
       - name: Publish canary version
         run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish --tag canary || true
@@ -227,7 +227,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
 
   release-rc:
-    name: Release RC package
+    name: Release RC packages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -250,6 +250,8 @@ jobs:
       - name: Save head commit message
         id: commit_message
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
+      - name: Build packages
+        run: yarn build:release
       - name: Publish release-candidate version
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
         if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: version packages (rc)' ) }}"
@@ -259,3 +261,45 @@ jobs:
           # refresh token before Saturday, May 25, 2024
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+
+  release-production:
+    name: Release Production packages
+    runs-on: ubuntu-latest
+    needs: [build, build-release, cypress-react, cypress-vue]
+    if: ${{ github.ref == 'refs/heads/v2' }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.node-version'
+          cache: 'yarn'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install dependencies
+        run: yarn --immutable
+      - name: Set yarn config
+        run: |
+          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
+          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
+          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
+      - name: Build packages
+        run: yarn build:release
+      - name: Publish Production version package
+        run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish || true
+        env:
+          # Needs access to publish to npm
+          # refresh token before Saturday, May 25, 2024
+          NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+      - name: Create PR to v2-develop branch
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create -B v2-develop --title 'chore: automatic sync v2->v2-develop' --body 'This Pull Request is generated automatically with changes pushed into `v2` branch. `v2` and `v2-develop` branches should be in-sync.' --label automerge || true
+      - name: Merge created PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh pr merge --auto --merge
