@@ -43,7 +43,7 @@ const sizeClasses = computed(() => {
     case SfButtonSize.sm:
       return [square.value ? 'p-1.5' : 'leading-5 text-sm py-1.5 px-3', 'gap-1.5'];
     case SfButtonSize.lg:
-      return [square.value ? 'p-4' : 'py-3 leading-6 px-6', 'gap-3'];
+      return [square.value ? 'p-3' : 'py-3 leading-6 px-6', 'gap-3'];
     default:
       return [square.value ? 'p-2' : 'py-2 leading-6 px-4', 'gap-2'];
   }
