@@ -5,7 +5,7 @@
       :active-index="activeIndex"
       wrapper-class="h-full min-h-0"
       buttons-placement="none"
-      drag
+      :drag="{ scrollBy: 2 }"
       is-active-index-centered
       @pointerup="onDragged"
     >
@@ -99,7 +99,6 @@ const onDragged = () => {
   // } else if (event.swipeLeft && activeIndex.value < images.length - 1) {
   //   activeIndex.value += 1;
   // }
-  console.log('pointer', elementInCenterIndex.value);
-  activeIndex.value = elementInCenterIndex.value;
+  activeIndex.value = elementInCenterIndex;
 };
 </script>

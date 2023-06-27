@@ -158,14 +158,19 @@ export default class Scrollable {
       typeof this.options.drag === 'object' && this.options.drag.sensitivity ? this.options.drag.sensitivity : 4;
     // container width options define that no matter how hard you drag x1 -> x2 you will swipe by one container width
     const scrollByOneWidth = typeof this.options.drag === 'object' ? this.options.drag.containerWidth : false;
+    
+    const scrollByMultipleElements = typeof this.options.drag === 'object' ? this.options.drag.scrollBy : null;
     // buffor for nor overshoot whole width/height of container becuase of subpixel, snap will cover unsufficient width/height
     const buffor = 10;
 
     if (options.direction === SfScrollableDirection.vertical) {
       const element = event.pageY - container.offsetTop;
       const scrolling = (element - this.dragScrollY) * sensitivity;
-
-      if (scrollByOneWidth) {
+      console.log('drag', !!scrollByMultipleElements, this.elementInCenterIndex)
+      if (!!scrollByMultipleElements) {
+        console.log('multipleElements')
+        this.dragDistance > -10 ? this.scrollToIndex(this.elementInCenterIndex + scrollByMultipleElements) : this.dragDistance < 10 ? this.scrollToIndex(this.elementInCenterIndex - scrollByMultipleElements) : null;
+      } else if (scrollByOneWidth) {
         // if user just touched not dragged at least 10px - do nothing
         if (Math.abs(this.dragDistance) < 10) return;
         container.scrollLeft =
@@ -177,8 +182,10 @@ export default class Scrollable {
     } else {
       const element = event.pageX - container.offsetLeft;
       const scrolling = (element - this.dragScrollX) * sensitivity;
-
-      if (scrollByOneWidth) {
+      if (!!scrollByMultipleElements) {
+        console.log('elementInCenter', this.elementInCenterIndex);
+        this.dragDistance > -10 ? this.scrollToIndex(this.elementInCenterIndex + scrollByMultipleElements) : this.dragDistance < 10 ? this.scrollToIndex(this.elementInCenterIndex - scrollByMultipleElements) : null;
+      } else if (scrollByOneWidth) {
         // if user just touched not dragged at least 10px - do nothing
         if (Math.abs(this.dragDistance) < 10) return;
         container.scrollLeft =
@@ -210,8 +217,13 @@ export default class Scrollable {
     this.pointerDownOffsetTop = event.offsetY;
 
     if (options.direction === SfScrollableDirection.vertical) {
-      this.dragScrollY = event.pageY - container.offsetTop;
-      this.dragScrollTop = container.scrollTop;
+      // if (!!this.options.drag?.scrollBy) {
+      //   this.scrollTo(this.options.drag?.scrollBy);
+      // } else {
+        this.dragScrollY = event.pageY - container.offsetTop;
+        this.dragScrollTop = container.scrollTop;
+      // }
+      
     } else {
       this.dragScrollX = event.pageX - container.offsetLeft;
       this.dragScrollLeft = container.scrollLeft;
@@ -251,7 +263,6 @@ export default class Scrollable {
 
   private onScrollHandler() {
     this.refresh(this.options.onScroll);
-    console.log(this.elementInCenterIndex)
   }  
 
   private get hasNext() {

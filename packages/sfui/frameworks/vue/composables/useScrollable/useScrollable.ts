@@ -5,7 +5,7 @@ import { noop, unrefElement } from '@vueuse/core';
 export function useScrollable<TElement extends HTMLElement>(options?: ComputedRef<Partial<UseScrollableOptions>>) {
   const containerRef = ref<TElement>();
   const scrollable = ref<Scrollable | null>(null);
-  const state = ref({ hasPrev: false, hasNext: false, isDragged: false });
+  const state = ref({ hasPrev: false, hasNext: false, isDragged: false, scrollBy: 0 });
 
   let unregister = noop;
   watch(
@@ -53,7 +53,8 @@ export function useScrollable<TElement extends HTMLElement>(options?: ComputedRe
     disabled: !state.value.hasNext,
   }));
 
-  const elementInCenterIndex = () => scrollable.value?.elementInCenterIndex;
+  const elementInCenterIndex = () => scrollable.value?.elementInCenterIndex();
+
   return {
     containerRef,
     getPrevButtonProps,
