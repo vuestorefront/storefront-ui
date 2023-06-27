@@ -21,7 +21,9 @@
       >
         <SfIconClose size="sm" />
       </SfButton>
-      <h3 :id="modalTitleId" class="font-bold typography-headline-4 md:typography-headline-3 mb-8">Rate your purchase</h3>
+      <h3 :id="modalTitleId" class="font-bold typography-headline-4 md:typography-headline-3 mb-8">
+        Rate your purchase
+      </h3>
     </header>
     <img
       src="http://localhost:3100/@assets/smartwatch.png"
