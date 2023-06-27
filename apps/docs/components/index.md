@@ -23,7 +23,7 @@ hideBreadcrumbs: true
     </div>
   </div>
   <div class="col-span-2 lg:col-span-1 order-1 lg:order-2">
-    <img src='./assets/sfui-hero.png' class='mx-auto max-w-xs sm:max-w-md'/>
+    <img src="./assets/sfui-hero.png" class="mx-auto max-w-xs sm:max-w-md" />
   </div>
 </div>
 
