@@ -3,15 +3,16 @@ import { SfTextareaSize, useFocusVisible } from '@storefront-ui/react';
 import type { SfTextareaProps } from './types';
 
 const sizeClasses = {
-  [SfTextareaSize.sm]: ' h-[32px]',
-  [SfTextareaSize.base]: 'h-[40px]',
-  [SfTextareaSize.lg]: 'h-[48px]',
+  [SfTextareaSize.sm]: ' h-[32px] py-[6px] pl-4 pr-3',
+  [SfTextareaSize.base]: 'h-[64px] py-2 pl-4 pr-3',
+  [SfTextareaSize.lg]: 'h-[72px], p-3 pl-4',
 };
 
 
 export default function SfTextarea({
   size = SfTextareaSize.base,
   invalid = false,
+  className,
   ...attributes
 }: SfTextareaProps): JSX.Element {
   const { isFocusVisible } = useFocusVisible({ isTextInput: true });
@@ -25,6 +26,7 @@ export default function SfTextarea({
         'focus-within:outline focus-within:outline-offset': isFocusVisible,
       },
       sizeClasses[size],
+      className
     ])}
     {...attributes}
      />

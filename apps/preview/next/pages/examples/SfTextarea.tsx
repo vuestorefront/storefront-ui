@@ -73,15 +73,15 @@ function Example() {
         invalid: false,
         readonly: undefined,
         placeholder: 'Placeholder text',
-        helpText: 'Help text',
+        helpText: 'Do not include personal or financial information.',
         requiredText: 'Required text',
-        errorText: 'Error text',
-        label: 'Label',
+        errorText: 'Error message',
+        label: 'Description',
         characterLimit: 12,
         value: '',
       });
 
-    function onChange(event: ChangeEvent<HTMLInputElement>) {
+    function onChange(event: ChangeEvent<HTMLTextAreaElement>) {
     state.set({ value: event.target.value });
   }
   const isAboveLimit = state.get.characterLimit ? state.get.value.length > state.get.characterLimit : false;
@@ -101,6 +101,7 @@ function Example() {
             {state.get.label}
         </span>
         <SfTextarea
+          name={state.get.label}
           size={state.get.size}
           value={state.get.value}
           invalid={state.get.invalid}
@@ -108,6 +109,7 @@ function Example() {
           disabled={state.get.disabled}
           readOnly={state.get.readonly}
           onChange={onChange}
+          className="w-full"
         />
       </label>
       <div className="flex justify-between">
