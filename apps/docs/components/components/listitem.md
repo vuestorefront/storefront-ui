@@ -69,7 +69,7 @@ For items with a lot of text content, you can use Tailwind's `truncate` class.
 
 ## Accessibility notes
 
-ListItem component can be rendered as an `<li>` or `<a>` or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When no tag provided, the component will render as an `<li>`. To achieve proper accessibility it is important to implement required properies depending on the passed tag.
+ListItem component can be rendered as an `<li>` or `<a>` or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When no tag provided, the component will render as an `<li>`. To achieve proper accessibility it is important to implement required properties depending on the passed tag.
 
 ## Playground
 
