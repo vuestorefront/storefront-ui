@@ -1,5 +1,6 @@
 import classNames from 'classnames';
 import { SfTextareaSize, useFocusVisible } from '@storefront-ui/react';
+import { forwardRef } from 'react';
 import type { SfTextareaProps } from './types';
 
 const sizeClasses = {
@@ -9,16 +10,18 @@ const sizeClasses = {
 };
 
 
-export default function SfTextarea({
+export default forwardRef<HTMLTextAreaElement, SfTextareaProps>(({
   size = SfTextareaSize.base,
   invalid = false,
   className,
   ...attributes
-}: SfTextareaProps): JSX.Element {
+}, ref) => {
   const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 
   return (
-    <textarea name="" id="" className={classNames([
+    <textarea 
+      ref={ref}
+      className={classNames([
       'flex items-center px-4 bg-white rounded-md text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
       {
         'ring-2 ring-negative-700': invalid,
@@ -31,4 +34,4 @@ export default function SfTextarea({
     {...attributes}
      />
   );
-}
+})

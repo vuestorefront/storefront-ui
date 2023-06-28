@@ -1,5 +1,5 @@
 
-import { SfTextarea, SfTextareaSize, type SfTextareaProps } from '@storefront-ui/react';
+import { SfTextarea, SfTextareaSize } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
@@ -72,7 +72,7 @@ function Example() {
         required: false,
         invalid: false,
         readonly: undefined,
-        placeholder: 'Placeholder text',
+        placeholder: 'Write something about yourself',
         helpText: 'Do not include personal or financial information.',
         requiredText: 'Required text',
         errorText: 'Error message',
