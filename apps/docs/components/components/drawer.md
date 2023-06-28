@@ -52,7 +52,7 @@ You can wrap `SfDrawer` in a <!-- vue -->[`<transition>`](https://vuejs.org/guid
 
 ## Accessibility notes
 
-The component is providiing keyboard accessibility with `@keydown.esc="onEscKeyDown"` and `onClickOutside` function which allows users to close the drawer by pressing the Escape key or click outside of the drawer.
+The component is providing keyboard accessibility with `@keydown.esc="onEscKeyDown"` and `onClickOutside` function which allows users to close the drawer by pressing the Escape key or click outside of the drawer.
 
 ## Playground
 
