@@ -58,7 +58,7 @@ If you need more customization beyond the built-in variants, we recommend copyin
 
 ## Accessibility notes
 
-Link component can be rendered as an `<a>` or <!-- vue -->`<NuxtLink>`<!-- end vue --><!-- react -->`<NextLink>`<!-- end react --> or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When no tag provided, the component will render as an `<a>`. To achieve proper accessibility it is important to implement required properies depending on the passed tag.
+Link component can be rendered as an `<a>` or <!-- vue -->`<NuxtLink>`<!-- end vue --><!-- react -->`<NextLink>`<!-- end react --> or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When no tag provided, the component will render as an `<a>`. To achieve proper accessibility it is important to implement required properties depending on the passed tag.
 
 ### Usage with NextJS Link
 
