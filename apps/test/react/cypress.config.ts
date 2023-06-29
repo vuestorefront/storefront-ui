@@ -21,8 +21,8 @@ export default defineConfig({
     },
     experimentalSingleTabRunMode: true,
     setupNodeEvents(on, config) {
+      initPlugin(on,config);
       isCoverageEnabled && codeCoverage(on, config);
-      initPlugin(on, config);
       return config;
     },
   },

@@ -20,8 +20,8 @@ export default defineConfig({
     },
     experimentalSingleTabRunMode: true,
     setupNodeEvents(on, config) {
+      initPlugin(on,config);
       isCoverageEnabled && require('@cypress/code-coverage/task')(on, config);
-      initPlugin(on, config);
       return config;
     },
   },

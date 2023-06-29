@@ -18,7 +18,6 @@ import './commands';
 import '../../styles/global.css';
 import '@percy/cypress';
 import '@cypress/code-coverage/support';
-import '@frsource/cypress-plugin-visual-regression-diff';
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
