@@ -1,5 +1,17 @@
 # @storefront-ui/vue
 
+## 3.0.0
+
+### Major Changes
+
+- [#2826](https://github.com/vuestorefront/storefront-ui/pull/2826) [`33935c6f7`](https://github.com/vuestorefront/storefront-ui/commit/33935c6f7d65892b6375a61ea0157367c6b12cd2) Thanks [@github-actions](https://github.com/apps/github-actions)! - Breaking Change - Padding size for square variant of SfButton changed
+
+- [#2864](https://github.com/vuestorefront/storefront-ui/pull/2864) [`a2bb3a20d`](https://github.com/vuestorefront/storefront-ui/commit/a2bb3a20d7e902211e0dbb9c39fed3043597721e) Thanks [@aniamusial](https://github.com/aniamusial)! - Breaking Change - Padding left and right in SfSelect changed from 14px and 16px to 12px
+
+### Minor Changes
+
+- [#2848](https://github.com/vuestorefront/storefront-ui/pull/2848) [`93107ab26`](https://github.com/vuestorefront/storefront-ui/commit/93107ab2664bd513e8074c2ee3069cf601fb8a17) Thanks [@AdamPawlinski](https://github.com/AdamPawlinski)! - Added props changing aria label for nav buttons in SfScrollable
+
 ## 2.4.1
 
 ### Patch Changes
