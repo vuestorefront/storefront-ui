@@ -84,7 +84,7 @@ describe('SfButton', () => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           initializeComponent({ size: componentSize });
-
+          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -96,7 +96,7 @@ describe('SfButton', () => {
       describe(`${componentVariant}`, () => {
         it(`should render correct ${componentVariant} variant`, () => {
           initializeComponent({ variant: componentVariant });
-
+          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -105,7 +105,7 @@ describe('SfButton', () => {
     describe('when prop disabled=true', () => {
       it(`should render as disabled`, () => {
         initializeComponent({ disabled: true });
-
+        cy.matchImage();
         page().isDisabled().makeSnapshot();
       });
     });
@@ -113,7 +113,7 @@ describe('SfButton', () => {
     describe('when prop square=true', () => {
       it(`should render as square button`, () => {
         initializeComponent({ square: true, size: SfButtonSize.base });
-
+        cy.matchImage();
         page().isSquare('p-2').makeSnapshot();
       });
     });
@@ -121,7 +121,7 @@ describe('SfButton', () => {
     describe('when only prefix', () => {
       it(`should render square button`, () => {
         initializeComponent({ slotPrefix: true, slotDefault: false });
-
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
@@ -129,7 +129,7 @@ describe('SfButton', () => {
     describe('when only suffix', () => {
       it(`should render square button`, () => {
         initializeComponent({ slotSuffix: true, slotDefault: false });
-
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
@@ -137,7 +137,7 @@ describe('SfButton', () => {
     describe('when suffix and prefix', () => {
       it(`should render button with same gaps`, () => {
         initializeComponent({ slotPrefix: true, slotSuffix: true, slotDefault: false });
-
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
@@ -145,7 +145,7 @@ describe('SfButton', () => {
     describe('when suffix, content and prefix', () => {
       it(`should render button with same gaps`, () => {
         initializeComponent({ slotPrefix: true, slotSuffix: true, slotDefault: true });
-
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
@@ -153,7 +153,7 @@ describe('SfButton', () => {
     describe('when prefix and content', () => {
       it(`should render button with prefix and content with correct gaps`, () => {
         initializeComponent({ slotPrefix: true, slotDefault: true });
-
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
@@ -161,7 +161,7 @@ describe('SfButton', () => {
     describe('when content and suffix', () => {
       it(`should render button with content and suffix with correct gaps`, () => {
         initializeComponent({ slotSuffix: true, slotDefault: true });
-
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
