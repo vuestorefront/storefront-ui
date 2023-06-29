@@ -3,6 +3,7 @@
     <h3 class="font-bold py-2 pl-4 pr-3 typography-headline-4">Leave a review</h3>
     <form
       class="grid grid-cols-[100px_1fr] py-2 px-4 gap-4 md:grid-cols-[176px_1fr] grid-rows-[100px_1fr] md:grid-rows-[28px_1fr] items-center md:items-start"
+      @submit.prevent="submitForm"
     >
       <img
         src="http://localhost:3100/@assets/smartwatch.png"
@@ -57,4 +58,9 @@ const reviewModelValue = ref('');
 const reviewCharacterLimit = ref(5000);
 const reviewIsAboveLimit = computed(() => reviewModelValue.value.length > reviewCharacterLimit.value);
 const reviewCharsCount = computed(() => reviewCharacterLimit.value - reviewModelValue.value.length);
+
+const submitForm = () =>
+  console.log(
+    `Form submitted with ${ratingModelValue.value} and ${reviewModelValue.value} by ${usernameModelValue.value}`,
+  );
 </script>

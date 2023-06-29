@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
@@ -15,10 +16,18 @@ export default function ProductRatingWithReview() {
   const reviewIsAboveLimit = review.length > reviewCharacterLimit;
   const reviewCharsCount = reviewCharacterLimit - review.length;
 
+  const submitForm = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    console.log(`Form submitted with ${rating} and ${review} by ${username}`);
+  };
+
   return (
     <div className="max-w-[376px] md:max-w-[768px]">
       <h3 className="font-bold py-2 pl-4 pr-3 typography-headline-4">Leave a review</h3>
-      <form className="grid grid-cols-[100px_1fr] py-2 px-4 gap-4 md:grid-cols-[176px_1fr] grid-rows-[100px_1fr] md:grid-rows-[28px_1fr] items-center md:items-start">
+      <form
+        className="grid grid-cols-[100px_1fr] py-2 px-4 gap-4 md:grid-cols-[176px_1fr] grid-rows-[100px_1fr] md:grid-rows-[28px_1fr] items-center md:items-start"
+        onSubmit={submitForm}
+      >
         <img
           src="http://localhost:3100/@assets/smartwatch.png"
           alt="Smartwatch"
