@@ -5,11 +5,11 @@ hideBreadcrumbs: true
 
 # Browser support
 
-This documentation provides information about the browser support for Storefront-ui, a powerful and versatile front-end UI framework. Understanding the browser compatibility of a UI framework is crucial for developers to ensure that their applications work seamlessly across different browsers and versions. This document will outline the supported browsers, their versions, and any specific considerations or known issues related to compatibility.
+Understanding the browser compatibility of a UI framework is crucial for developers to ensure that their applications work seamlessly across different browsers and versions. This document will outline the supported browsers, their versions, and any specific considerations or known issues related to compatibility.
 
 ## The following browsers are officially supported by Storefront-ui:
 
-**2 last stable versions of each browser**
+**The 2 latest stable versions of:**
 
 - Chrome
 - Chrome for Android
@@ -19,7 +19,7 @@ This documentation provides information about the browser support for Storefront
 - Safari on IOS
 - Opera
 
-**latest Firefox ESR (Extended Support Release) [Firefox Release Calendar](https://wiki.mozilla.org/index.php?title=Release_Management/Calendar&redirect=no)**
+**The latest Firefox ESR (Extended Support Release) [Firefox Release Calendar](https://wiki.mozilla.org/index.php?title=Release_Management/Calendar&redirect=no)**
 
 **No support for Internet Explorer**
 
