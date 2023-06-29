@@ -2,25 +2,30 @@
 layout: AtomLayout
 hideBreadcrumbs: true
 ---
+
 # Link
 
 :::::: slot usage
 
-`SfLink` is a component that allows you to create a consistent link style across your application. 
+`SfLink` is a component that allows you to create a consistent link style across your application.
 
 ## Examples
 
 ### Link variants
 
-`SfLink` supports 2 variants that can be set via `variant` prop: `'primary'`, `'secondary'`. 
+`SfLink` supports 2 variants that can be set via `variant` prop: `'primary'`, `'secondary'`.
 
 <Showcase showcase-name="Link/LinkVariants">
 
 <!-- vue -->
+
 <<<../../preview/nuxt/pages/showcases/Link/LinkVariants.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<<../../preview/next/pages/showcases/Link/LinkVariants.tsx#source
+
 <!-- end react -->
 </Showcase>
 
@@ -33,10 +38,14 @@ You can [customize your color palette](../customization/theming.html) as a part 
 <Showcase showcase-name="Link/Customization">
 
 <!-- vue -->
+
 <<<../../preview/nuxt/pages/showcases/Link/Customization.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<<../../preview/next/pages/showcases/Link/Customization.tsx#source
+
 <!-- end react -->
 </Showcase>
 
@@ -46,6 +55,11 @@ If you need more customization beyond the built-in variants, we recommend copyin
 :::
 
 <!-- react -->
+
+## Accessibility notes
+
+Link component can be rendered as an `<a>` or <!-- vue -->`<NuxtLink>`<!-- end vue --><!-- react -->`<NextLink>`<!-- end react --> or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When no tag provided, the component will render as an `<a>`. To achieve proper accessibility it is important to implement required properties depending on the passed tag.
+
 ### Usage with NextJS Link
 
 `SfLink` can be composed together with `NextJS` link component.
@@ -56,6 +70,7 @@ If you need more customization beyond the built-in variants, we recommend copyin
 <!-- end react -->
 
 <!-- vue -->
+
 ### Usage with Nuxt Link
 
 You can use the `tag` prop to render component as `NuxtLink`.
@@ -74,9 +89,9 @@ You can use the `tag` prop to render component as `NuxtLink`.
 
 ## Props
 
-| Prop name | Type             | Default value | Possible values    |
-| --------- | ---------------- | ------------- | ------------------ |
-| `variant`   | `SfLinkVariant`   | `'primary'`       | `'primary'`, `'secondary'` |
+| Prop name | Type            | Default value | Possible values            |
+| --------- | --------------- | ------------- | -------------------------- |
+| `variant` | `SfLinkVariant` | `'primary'`   | `'primary'`, `'secondary'` |
 <!-- vue -->
 | `tag` | `string` | `'a'` | |
 <!-- end vue -->
@@ -84,22 +99,25 @@ You can use the `tag` prop to render component as `NuxtLink`.
 | `as` | `ReactElement` | `'a'` | any tag name |
 | `children` | `ReactNode` | | Default slotted content |
 <!-- end react -->
-
 <!-- vue -->
 | Slot name | Description                  |
 | --------- | ---------------------------- |
-| `default`   | replaces the default content |
+| `default` | replaces the default content |
 <!-- end vue -->
-
 :::
 
 ::: slot source
 <SourceCode>
+
 <!-- vue -->
+
 <<<../../../packages/sfui/frameworks/vue/components/SfLink/SfLink.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<<../../../packages/sfui/frameworks/react/components/SfLink/SfLink.tsx
+
 <!-- end react -->
 </SourceCode>
 :::
