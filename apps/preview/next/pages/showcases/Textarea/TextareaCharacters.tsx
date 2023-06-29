@@ -7,14 +7,10 @@ import { ChangeEvent, useState } from 'react';
 
 export default function TextareaWithLimit() {
   const characterLimit = 25;
-  const label = 'Label';
-  const placeholder = 'placeholder';
   const disabled = false;
   const readonly = false;
   const invalid = false;
   const helpText = 'Help text';
-  const required = false;
-  const requiredText = 'Required';
   const errorText = 'Error';
 
   const [value, setValue] = useState('');
@@ -31,26 +27,13 @@ export default function TextareaWithLimit() {
     <>
       <label>
         <span
-          className={classNames('text-sm font-medium', {
-            'cursor-not-allowed text-disabled-500': disabled,
-          })}
-        >
-          {label}
-        </span>
+          className="text-sm font-medium"
+         />
         <SfTextarea
-          size="base"
           value={value}
-          invalid={false}
-          placeholder={placeholder}
-          disabled={disabled}
-          readOnly={readonly}
+          placeholder="Write something about yourself..."
           onChange={onChange}
-          className={classNames(
-            'w-full',
-            {
-              'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
-            })
-          }
+          className="w-full"
         />
       </label>
       <div className="flex justify-between">
@@ -61,9 +44,6 @@ export default function TextareaWithLimit() {
               {helpText}
             </p>
           )}
-          {requiredText && required ? (
-            <p className="mt-1 text-sm font-normal text-neutral-500 before:content-['*']">{requiredText}</p>
-          ) : null}
         </div>
         {characterLimit && !readonly ? (
           <p className={classNames('text-xs mt-0.5', disabled ? 'text-disabled-500' : getCharacterLimitClass())}>
