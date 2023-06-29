@@ -76,6 +76,7 @@ describe('SfButton', () => {
     initializeComponent();
 
     page().makeSnapshot();
+    cy.matchImage();
   });
 
   describe('when prop size is set to ', () => {

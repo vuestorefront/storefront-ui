@@ -1,5 +1,6 @@
 import { defineConfig } from 'cypress';
 import codeCoverage from '@cypress/code-coverage/task';
+import { initPlugin } from '@frsource/cypress-plugin-visual-regression-diff/plugins';
 
 const isCoverageEnabled = process.env.CYPRESS_COVERAGE === 'true';
 const singleFile = process.env.SPEC ? `${process.env.SPEC}/` : '';
@@ -21,6 +22,7 @@ export default defineConfig({
     experimentalSingleTabRunMode: true,
     setupNodeEvents(on, config) {
       isCoverageEnabled && codeCoverage(on, config);
+      initPlugin(on, config);
       return config;
     },
   },
