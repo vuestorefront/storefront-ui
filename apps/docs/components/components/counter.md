@@ -88,12 +88,9 @@ The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline ele
 | --------- | --------------- | ------------- | -------------------------------------------------- |
 | `size`    | `SfCounterSize` | `'base'`      | `'3xs'`, `'2xs'`, `'xs'`, `'sm'`, `'base'`, `'lg'` |
 | `pill`    | `boolean`       | `false`       |                                                    |
-
 <!-- react -->
-
 | `className` | `string` | | |
 | `children` | `ReactNode` | | |
-
 <!-- end react -->
 
 <!-- vue -->

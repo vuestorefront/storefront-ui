@@ -61,25 +61,18 @@ The floating content area has an `aria-hidden` attribute that reflects the visib
 
 | Prop name | Type | Default value | Possible values |
 | --------- | ---- | ------------- | --------------- |
-
 <!-- react -->
-
 | `open` | `boolean` | | |
 | `onClose`\* | `() => void` | | |
 | `trigger`\* | `ReactNode` | | |
 | `children` | `ReactNode` | | |
-
 <!-- end react -->
 <!-- vue -->
-
 | `modelValue` | `boolean` | | |
-
 <!-- end vue -->
-
 | `placement` | `SfPopoverPlacement` | `'bottom'` | Placement of floating element |
 | `middleware` | `UseFloatingProps['middleware']` | | Array of `@floating-ui` middlewares |
 | `strategy` | `SfPopoverStrategy` | `'absolute'` | Positioning strategy (`absolute` or `fixed`) |
-
 <!-- vue -->
 
 ## Slots

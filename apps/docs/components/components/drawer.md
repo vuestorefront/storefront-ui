@@ -66,29 +66,20 @@ The component is providing keyboard accessibility with `@keydown.esc="onEscKeyDo
 
 | Prop name | Type | Default value | Possible values |
 | --------- | ---- | ------------- | --------------- |
-
 <!-- vue -->
-
 | `modelValue` | `boolean` | `false` | |
 | `tag` | `string` | `'aside'` | |
-
 <!-- end vue -->
 <!-- react -->
-
 | `open`\* | `boolean` | `false` | |
 | `as` | `ReactElement` | `'aside'` | |
-
 <!-- end react -->
-
 | `placement` | `SfDrawerPlacement` | `'left'` | `'top'`, `'bottom'`, `'left'`, `'right'` |  
 | `disableClickAway` | `boolean` | `false` | |
 | `disableEsc` | `boolean` | `false` | |
-
 <!-- react -->
-
 | `onClose` | `Function` | | |
 | `children` | `ReactNode` | | |
-
 <!-- end react -->
 <!-- vue -->
 

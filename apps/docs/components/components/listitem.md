@@ -86,20 +86,15 @@ ListItem component can be rendered as an `<li>` or `<a>` or any other tag by pro
 | `size`      | `SfListItemSize` | `'base'`      | `'sm'`, `'base'`, `'lg'` |
 | `disabled ` | `boolean`        | `false`       |                          |
 | `selected`  | `boolean`        | `false`       |                          |
-
 <!-- vue -->
-
 | `tag` | `string` | `'li'` | any tag name |
-
 <!-- end vue -->
 <!-- react -->
-
 | `as` | `ReactElement` | `'li'` | any tag name |
 | `children` | `ReactNode` | | label content |
 | `slotPrefix` | `ReactNode` | | right side content |
 | `slotSuffix` | `ReactNode` | | left side content |
 | `className` | `string` | | |
-
 <!-- end react -->
 
 <!-- vue -->

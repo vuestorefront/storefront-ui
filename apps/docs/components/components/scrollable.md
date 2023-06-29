@@ -100,25 +100,21 @@ The previous and next buttons have `aria-label` attributes (`buttonPrevAriaLabel
 ## Props
 
 | Prop name               | Type                                               | Default value  | Possible values                   |
-| ----------------------- | -------------------------------------------------- | -------------- | --------------------------------- | --- |
+| ----------------------- | -------------------------------------------------- | -------------- | --------------------------------- |
 | `direction`             | `SfScrollableDirection`                            | `'horizontal'` | `'horizontal'`, `'vertical'`      |
 | `buttonsPlacement`      | `SfScrollableButtonsPlacement`                     | `'block'`      | `'block'`, `'floating'`, `'none'` |
 | `activeIndex`           | `number`                                           |                |                                   |
 | `reduceMotion`          | `boolean`                                          |                |                                   |
-| `drag`                  | `{ sensitivity: number; containerWidth: boolean; } | boolean`       |                                   |     |
+| `drag`                  | `{ sensitivity: number; containerWidth: boolean; } | boolean`       |                                   |
 | `prevDisabled`          | `boolean`                                          |                |                                   |
 | `nextDisabled`          | `boolean`                                          |                |                                   |
 | `isActiveIndexCentered` | `boolean`                                          |                |                                   |
 | `buttonPrevAriaLabel`   | `string`                                           | `'Previous'`   |                                   |
 | `buttonNextAriaLabel`   | `string`                                           | `'Next'`       |                                   |
-
 <!-- vue -->
-
 | `tag` | `string` | `'div'` | |
-
 <!-- end vue -->
 <!-- react -->
-
 | `as` | `ReactElement` | `'div'` | any tag name |
 | `children` | `ReactNode` | | Default slotted content |
 | `wrapperClassName` | `string` | | |
@@ -129,7 +125,6 @@ The previous and next buttons have `aria-label` attributes (`buttonPrevAriaLabel
 | `onScroll` | `(data: SfScrollableOnScrollData) => void` | | |
 | `onPrev` | `(data: SfScrollableOnPrevData) => void` | | |
 | `onNext` | `(data: SfScrollableOnNextData) => void` | | |
-
 <!-- end react -->
 
 `drag` prop is setting whether and how elements in a scrollable element can be dragged. By default is set to `false`, but when passing `object` you can set `sensitivity` to determine how far it should be dragged in response to mouse movement and `containerWith` to allow it to be moved exactly one container width.
