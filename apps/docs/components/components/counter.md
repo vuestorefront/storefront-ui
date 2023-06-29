@@ -2,6 +2,7 @@
 layout: AtomLayout
 hideBreadcrumbs: true
 ---
+
 # Counter
 
 ::: slot usage
@@ -19,10 +20,14 @@ By default, `SfCounter` will put parentheses around its children.
 <Showcase showcase-name="Counter/Counter">
 
 <!-- vue -->
+
 <<<../../preview/nuxt/pages/showcases/Counter/Counter.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<<../../preview/next/pages/showcases/Counter/Counter.tsx#source
+
 <!-- end react -->
 
 </Showcase>
@@ -34,10 +39,14 @@ By default, `SfCounter` will put parentheses around its children.
 <Showcase showcase-name="Counter/CounterPill">
 
 <!-- vue -->
+
 <<<../../preview/nuxt/pages/showcases/Counter/CounterPill.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<<../../preview/next/pages/showcases/Counter/CounterPill.tsx#source
+
 <!-- end react -->
 
 </Showcase>
@@ -49,15 +58,19 @@ You can customize the colors of `SfCounter` by passing Tailwind classes.
 <Showcase showcase-name="Counter/CounterCustomBackground">
 
 <!-- vue -->
+
 <<<../../preview/nuxt/pages/showcases/Counter/CounterCustomBackground.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<<../../preview/next/pages/showcases/Counter/CounterCustomBackground.tsx
+
 <!-- end react -->
 
 </Showcase>
 
-## Notes
+## Accessibility notes
 
 The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline element, you should avoid placing block elements (like `div` or `p`) inside of it.
 
@@ -68,34 +81,42 @@ The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline ele
 :::
 
 ::: slot api
+
 ## Props
 
-| Prop name | Type              | Default value | Possible values                       |
-|-----------|-------------------|---------------|---------------------------------------|
-| `size`      | `SfCounterSize` | `'base'`        | `'3xs'`, `'2xs'`, `'xs'`, `'sm'`, `'base'`, `'lg'` |
-| `pill`      | `boolean`         | `false`       |                                       |
+| Prop name | Type            | Default value | Possible values                                    |
+| --------- | --------------- | ------------- | -------------------------------------------------- |
+| `size`    | `SfCounterSize` | `'base'`      | `'3xs'`, `'2xs'`, `'xs'`, `'sm'`, `'base'`, `'lg'` |
+| `pill`    | `boolean`       | `false`       |                                                    |
 <!-- react -->
-| `className` | `string`          |               |                                       |
-| `children`  | `ReactNode`       |               |                                       |
+| `className` | `string` | | |
+| `children` | `ReactNode` | | |
 <!-- end react -->
 
 <!-- vue -->
+
 ## Slots
 
 | Slot name | Description                     |
 | --------- | ------------------------------- |
-| `default`   | To be filled with counter value |
+| `default` | To be filled with counter value |
+
 <!-- end vue -->
 
 :::
 
 ::: slot source
 <SourceCode>
+
 <!-- vue -->
+
 <<<../../../packages/sfui/frameworks/vue/components/SfCounter/SfCounter.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<< ../../../packages/sfui/frameworks/react/components/SfCounter/SfCounter.tsx
+
 <!-- end react -->
 </SourceCode>
 :::
