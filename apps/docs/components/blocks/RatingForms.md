@@ -38,4 +38,4 @@ The Product Rating With Review block provides users with the ability to rate a p
 <<<../../preview/next/pages/showcases/RatingForms/ProductRatingWithReview.tsx#source
 <!-- end react -->
 
-</Showcase>
+</Showcase> 
