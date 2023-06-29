@@ -1,1 +1,1 @@
-export interface SfTextareaProps {};
+export { SfTextareaSize } from '@storefront-ui/shared';

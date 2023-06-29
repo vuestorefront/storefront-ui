@@ -9,29 +9,26 @@ const sizeClasses = {
   [SfTextareaSize.lg]: 'h-[72px], p-3 pl-4',
 };
 
+export default forwardRef<HTMLTextAreaElement, SfTextareaProps>(
+  ({ size = SfTextareaSize.base, invalid = false, className, ...attributes }, ref) => {
+    const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 
-export default forwardRef<HTMLTextAreaElement, SfTextareaProps>(({
-  size = SfTextareaSize.base,
-  invalid = false,
-  className,
-  ...attributes
-}, ref) => {
-  const { isFocusVisible } = useFocusVisible({ isTextInput: true });
-
-  return (
-    <textarea 
-      ref={ref}
-      className={classNames([
-      'flex items-center px-4 bg-white rounded-md text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
-      {
-        'ring-2 ring-negative-700': invalid,
-        'ring-1 ring-neutral-200': !invalid,
-        'focus-within:outline focus-within:outline-offset': isFocusVisible,
-      },
-      sizeClasses[size],
-      className
-    ])}
-    {...attributes}
-     />
-  );
-})
+    return (
+      <textarea
+        ref={ref}
+        className={classNames([
+          'flex items-center px-4 bg-white rounded-md text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
+          {
+            'ring-2 ring-negative-700': invalid,
+            'ring-1 ring-neutral-200': !invalid,
+            'focus-within:outline focus-within:outline-offset': isFocusVisible,
+          },
+          sizeClasses[size],
+          className,
+        ])}
+        {...attributes}
+        data-testid="textarea"
+      />
+    );
+  },
+);

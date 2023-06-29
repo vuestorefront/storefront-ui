@@ -8,16 +8,14 @@ import { useEffect, useRef } from 'react';
 
 export default function TextareaAutoresize() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
-  useEffect(
-    () => {
-      attach(textareaRef.current);
-    }, []
-  )
+  useEffect(() => {
+    attach(textareaRef.current);
+  }, []);
   return (
     <>
       <label>
         <span className="text-sm font-medium">Description</span>
-        <SfTextarea ref={textareaRef} className="w-full" size="sm" aria-label="Label size sm" />
+        <SfTextarea ref={textareaRef} className="w-full h-max-[500px]" size="sm" aria-label="Label size sm" />
       </label>
       <div className="flex justify-between">
         <div>

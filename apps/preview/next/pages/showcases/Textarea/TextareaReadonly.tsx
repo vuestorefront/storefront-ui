@@ -8,7 +8,11 @@ export default function ReadonlyTextarea() {
     <>
       <label>
         <span className="text-sm font-medium">Description</span>
-        <SfTextarea value="Hello! I'm a passionate shopper and a regular user of this ecommerce platform." className="w-full !bg-disabled-100 !ring-disabled-300 !ring-1" readOnly />
+        <SfTextarea
+          value="Hello! I'm a passionate shopper and a regular user of this ecommerce platform."
+          className="w-full !bg-disabled-100 !ring-disabled-300 !ring-1"
+          readOnly
+        />
       </label>
       <div className="flex justify-between">
         <div>

@@ -1,4 +1,3 @@
-
 import { SfTextarea, SfTextareaSize } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { ChangeEvent } from 'react';
@@ -7,8 +6,9 @@ import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
 
 function Example() {
-  const { state, controls } = prepareControls([
-    {
+  const { state, controls } = prepareControls(
+    [
+      {
         type: 'select',
         modelName: 'size',
         propDefaultValue: 'SfInputSize.base',
@@ -65,23 +65,24 @@ function Example() {
         propType: 'boolean',
         modelName: 'readonly',
       },
-      ], 
-      {
-        size: SfTextareaSize.base,
-        disabled: false,
-        required: false,
-        invalid: false,
-        readonly: undefined,
-        placeholder: 'Write something about yourself',
-        helpText: 'Do not include personal or financial information.',
-        requiredText: 'Required text',
-        errorText: 'Error message',
-        label: 'Description',
-        characterLimit: 12,
-        value: '',
-      });
+    ],
+    {
+      size: SfTextareaSize.base,
+      disabled: false,
+      required: false,
+      invalid: false,
+      readonly: undefined,
+      placeholder: 'Write something about yourself',
+      helpText: 'Do not include personal or financial information.',
+      requiredText: 'Required text',
+      errorText: 'Error message',
+      label: 'Description',
+      characterLimit: 12,
+      value: '',
+    },
+  );
 
-    function onChange(event: ChangeEvent<HTMLTextAreaElement>) {
+  function onChange(event: ChangeEvent<HTMLTextAreaElement>) {
     state.set({ value: event.target.value });
   }
   const isAboveLimit = state.get.characterLimit ? state.get.value.length > state.get.characterLimit : false;
@@ -89,16 +90,15 @@ function Example() {
 
   const getCharacterLimitClass = () => (isAboveLimit ? 'text-negative-700 font-medium' : 'text-neutral-500');
 
-
   return (
     <ComponentExample controls={{ state, controls }}>
       <label>
         <span
-            className={classNames('text-sm font-medium', {
-              'cursor-not-allowed text-disabled-500': state.get.disabled,
-            })}
-          >
-            {state.get.label}
+          className={classNames('text-sm font-medium', {
+            'cursor-not-allowed text-disabled-500': state.get.disabled,
+          })}
+        >
+          {state.get.label}
         </span>
         <SfTextarea
           name={state.get.label}

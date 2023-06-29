@@ -8,7 +8,7 @@ export default function InvalidTextarea() {
     <>
       <label>
         <span className="text-sm font-medium">Description</span>
-        <SfTextarea invalid placeholder="Write something about yourself..." className="w-full"/>
+        <SfTextarea invalid placeholder="Write something about yourself..." className="w-full" />
       </label>
       <div className="flex justify-between">
         <div>

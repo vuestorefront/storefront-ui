@@ -8,7 +8,11 @@ export default function DisabledTextareaDemo() {
     <>
       <label>
         <span className="text-sm font-medium cursor-not-allowed text-disabled-900">Description</span>
-        <SfTextarea disabled placeholder="Write something about yourself..." className="w-full !bg-disabled-100 !ring-disabled-300 !ring-1" />
+        <SfTextarea
+          disabled
+          placeholder="Write something about yourself..."
+          className="w-full !bg-disabled-100 !ring-disabled-300 !ring-1"
+        />
       </label>
       <div className="flex justify-between">
         <div>

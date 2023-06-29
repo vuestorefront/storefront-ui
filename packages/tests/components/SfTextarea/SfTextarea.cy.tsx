@@ -1,24 +1,111 @@
 /// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
-import { mount, Wrapper, useComponent } from '../../utils/mount';
+import { SfTextareaSize } from '@storefront-ui/vue';
+import { mount, useComponent } from '../../utils/mount';
 
 const { vue: SfTextareaVue, react: SfTextareaReact } = useComponent('SfTextarea');
 import SfTextareaBaseObject from './SfTextarea.PageObject';
 
 describe('SfTextarea', () => {
-  const page = () => new SfTextareaBaseObject('');
+  let disabled: boolean;
+  let size: SfTextareaSize;
+  let placeholder: string;
+  let invalid: boolean;
+  let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
+  let value = '';
+  let readonly;
+
+  const page = () => new SfTextareaBaseObject('textarea');
 
   const initializeComponent = () => {
     return mount({
       vue: {
         component: SfTextareaVue,
-        props: {},
+        props: {
+          disabled,
+          size,
+          placeholder,
+          invalid,
+          readonly,
+          modelValue: value,
+          'onUpdate:modelValue': onChangeSpy,
+        },
       },
-      react: <Wrapper component={SfTextareaReact}> </Wrapper>,
+      react: (
+        <SfTextareaReact
+          value={value}
+          disabled={disabled}
+          placeholder={placeholder}
+          invalid={invalid}
+          size={size}
+          readOnly={readonly}
+          onChange={onChangeSpy}
+        />
+      ),
     });
   };
 
   it('initial state', () => {
     initializeComponent();
+    page().makeSnapshot();
+  });
+
+  describe('when prop size is set to ', () => {
+    Object.values(SfInputSize).forEach((componentSize) => {
+      describe(`${componentSize}`, () => {
+        it(`should render correct ${componentSize} size`, () => {
+          size = componentSize;
+          initializeComponent();
+
+          page().makeSnapshot();
+        });
+      });
+    });
+  });
+
+  describe('when prop disabled=true', () => {
+    before(() => (disabled = true));
+    after(() => (disabled = false));
+    it(`should render as disabled`, () => {
+      initializeComponent();
+
+      page().isDisabled();
+      page().makeSnapshot();
+    });
+  });
+
+  describe('when prop placeholder is filled in', () => {
+    before(() => {
+      placeholder = 'Select value';
+    });
+    it('should render with no placeholder', () => {
+      initializeComponent();
+
+      page().hasPlaceholder().makeSnapshot();
+    });
+  });
+
+  describe('when prop readonly is provided', () => {
+    before(() => {
+      readonly = true;
+    });
+    it(`should render as readonly input`, () => {
+      initializeComponent();
+
+      page().hasReadonly();
+      page().makeSnapshot();
+    });
+  });
+
+  describe('when input value change', () => {
+    before(() => {
+      value = 'abc';
+    });
+    it(`should render proper value`, () => {
+      initializeComponent();
+
+      page().hasValue(value);
+      page().makeSnapshot();
+    });
   });
 });
