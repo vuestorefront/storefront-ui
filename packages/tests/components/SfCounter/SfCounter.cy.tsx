@@ -33,7 +33,13 @@ describe('SfCounter', () => {
     });
   };
 
-  describe('When Pill is set to true', () => {
+  it('initial state', () => {
+    initializeComponent();
+
+    page().makeSnapshot();
+  });
+
+  describe('When pill is set to true', () => {
     it('pill should be visible', () => {
       pill = true;
       initializeComponent();
