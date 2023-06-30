@@ -38,6 +38,7 @@ describe('SfBadge', () => {
 
   it('initial state', () => {
     initializeComponent();
+
     page().makeSnapshot();
   });
 
@@ -46,6 +47,7 @@ describe('SfBadge', () => {
       describe(`${componentVariant}`, () => {
         it(`should render correct ${componentVariant} variant`, () => {
           initializeComponent({ variant: componentVariant });
+
           page().makeSnapshot();
         });
       });
@@ -57,6 +59,7 @@ describe('SfBadge', () => {
       describe(`${componentPlacement}`, () => {
         it(`should render correct ${componentPlacement} variant`, () => {
           initializeComponent({ placement: componentPlacement });
+
           page().makeSnapshot();
         });
       });
@@ -67,6 +70,7 @@ describe('SfBadge', () => {
     const maxValue = Math.floor(Math.random() * (99 - 20) + 22);
     it(`should render content within ${maxValue}`, () => {
       initializeComponent({ max: maxValue, content: 10 });
+
       page().hasContent(10).makeSnapshot();
     });
   });
@@ -99,7 +103,6 @@ describe('SfBadge', () => {
   describe('when prop variant is set to dot', () => {
     it(`should not render any content`, () => {
       initializeComponent({ variant: SfBadgeVariant.dot, content: 10 });
-      
       page().hasNoContent().makeSnapshot();
     });
   });

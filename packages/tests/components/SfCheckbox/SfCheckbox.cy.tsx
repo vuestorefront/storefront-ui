@@ -36,7 +36,7 @@ describe('SfCheckbox', () => {
 
   it('initial state', () => {
     initializeComponent({ invalid: true });
-    
+
     page().makeSnapshot();
   });
 
@@ -45,7 +45,6 @@ describe('SfCheckbox', () => {
     after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
-
       page().isDisabled().makeSnapshot();
     });
   });
@@ -57,7 +56,6 @@ describe('SfCheckbox', () => {
       page().isNotDisabled().isChecked();
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
-
         page().makeSnapshot();
       });
     });

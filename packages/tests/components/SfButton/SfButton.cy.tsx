@@ -83,7 +83,6 @@ describe('SfButton', () => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           initializeComponent({ size: componentSize });
-          
           page().makeSnapshot();
         });
       });

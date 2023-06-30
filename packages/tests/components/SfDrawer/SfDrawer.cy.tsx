@@ -59,6 +59,7 @@ describe('SfDrawer', () => {
   it('initial state', () => {
     const modelValue = ref(false);
     initializeComponent({ modelValue });
+
     page().isClosed();
   });
 
@@ -66,6 +67,7 @@ describe('SfDrawer', () => {
     it('should render properly closed and opened', () => {
       const modelValue = ref(false);
       initializeComponent({ modelValue });
+
       page().isClosed();
 
       cy.then(() => {
@@ -102,13 +104,12 @@ describe('SfDrawer', () => {
       const modelValue = ref(true);
       const disableClickAway = ref();
       initializeComponent({ modelValue, placement: SfDrawerPlacement.top, disableClickAway });
-      
+
       page().isOpened().clickOutside().isClosed();
 
       cy.then(() => {
         modelValue.value = true;
         disableClickAway.value = true;
-
         page().isOpened().clickOutside().isOpened();
       });
     });
