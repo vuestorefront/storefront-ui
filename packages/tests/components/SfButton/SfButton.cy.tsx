@@ -82,7 +82,7 @@ describe('SfButton', () => {
     Object.values(SfButtonSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
-          initializeComponent({ size: componentSize });;
+          initializeComponent({ size: componentSize });
           page().makeSnapshot();
         });
       });
