@@ -13,9 +13,8 @@ export default function ChipList() {
   return (
     <ul className="flex flex-wrap gap-4 sm:flex-row">
       {chipValues.map(({ label, value }) => (
-        <li>
+        <li key={value}>
           <SfChip
-            key={value}
             className="mr-2"
             slotPrefix={
               <SfThumbnail

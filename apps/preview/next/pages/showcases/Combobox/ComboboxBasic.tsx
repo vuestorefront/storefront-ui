@@ -1,4 +1,5 @@
 /* eslint-disable no-promise-executor-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { type ChangeEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';

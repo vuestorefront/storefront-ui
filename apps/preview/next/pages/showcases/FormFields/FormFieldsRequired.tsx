@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';

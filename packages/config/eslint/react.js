@@ -1,8 +1,8 @@
 module.exports = {
   parser: '@typescript-eslint/parser',
-  extends: ['airbnb', 'airbnb/hooks', 'eslint-config-airbnb-typescript', 'prettier'],
+  extends: ["@vue-storefront/eslint-config/react", "prettier"],
+  plugins: ["jsx-a11y"],
   settings: {
-    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
     'import/parsers': {
       '@typescript-eslint/parser': ['.ts', '.tsx'],
     },
@@ -14,22 +14,7 @@ module.exports = {
   },
   ignorePatterns: ['/*.*'],
   rules: {
-    'react-hooks/rules-of-hooks': 'warn',
-    'react-hooks/exhaustive-deps': 'warn',
-    'import/extensions': [
-      'error',
-      'ignorePackages',
-      {
-        js: 'never',
-        jsx: 'never',
-        ts: 'never',
-        tsx: 'never',
-      },
-    ],
     'import/no-extraneous-dependencies': 0,
-    'react/react-in-jsx-scope': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/jsx-no-bind': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
@@ -61,5 +46,6 @@ module.exports = {
     ],
     'react/button-has-type': ['error', { reset: true }],
     'import/prefer-default-export': 0,
+    'react/display-name': "off"
   },
 };

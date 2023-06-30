@@ -260,9 +260,8 @@ export default function FiltersSidepanel() {
             {section.type === 'size' && (
               <ul className="grid grid-cols-5 gap-2">
                 {section.details.map(({ id, label, value, counter }) => (
-                  <li>
+                  <li key={id}>
                     <SfChip
-                      key={id}
                       size="sm"
                       className="w-full"
                       inputProps={{

@@ -54,6 +54,7 @@
     "@storefront-ui/eslint-config": "workspace:*",
     "@storefront-ui/tests-shared": "workspace:*",
     "@vitejs/plugin-react": "^3.1.0",
+    "concurrently": "^8.2.0",
     "eslint": "^8.34.0",
     "prettier": "^2.8.8",
     "vite": "^4.3.0",

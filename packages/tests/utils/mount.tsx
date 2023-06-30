@@ -66,21 +66,21 @@ export const mount = (mountOptions: {
   />
 */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function Wrapper<T extends Record<string, any>>({
+export function Wrapper<Props extends Record<string, any>>({
   component,
   children,
   propCallbackPair,
   ...attributes
 }: {
-  component: (props: T) => JSX.Element;
-  propCallbackPair?: Partial<Record<keyof T, keyof T>>;
-} & { [k in keyof T]: T[k] | Ref<T[k]> }): JSX.Element {
-  const reactiveValuesInternal: Partial<Record<keyof T, unknown>> = {};
+  component: (props: Props) => JSX.Element;
+  propCallbackPair?: Partial<Record<keyof Props, keyof Props>>;
+} & { [key in keyof Props]: Props[key] | Ref<Props[key]> }): JSX.Element {
+  const reactiveValuesInternal: Partial<Record<keyof Props, unknown>> = {};
   const propCallbackPairInternal = { ...propCallbackPair };
 
   const onlyPropNamesNoCallbacks = Object.keys(attributes).filter(
     (attribute) => !attribute.startsWith('on'),
-  ) as (keyof T)[];
+  ) as (keyof Props)[];
 
   // Find dynamically all pairs prop(`open`)/callback(`onOpenSomething`)
   for (const attribute in attributes) {
@@ -91,7 +91,7 @@ export function Wrapper<T extends Record<string, any>>({
       if (propNamePair) propCallbackPairInternal[propNamePair] = attribute;
     } else {
       if (!(attribute in propCallbackPairInternal) && isRef(attributes[attribute])) {
-        propCallbackPairInternal[attribute as keyof T] = 'fake';
+        propCallbackPairInternal[attribute as keyof Props] = 'fake';
       }
     }
   }
