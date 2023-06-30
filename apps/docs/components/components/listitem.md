@@ -2,6 +2,7 @@
 layout: AtomLayout
 hideBreadcrumbs: true
 ---
+
 # ListItem
 
 ::: slot usage
@@ -19,24 +20,32 @@ For a great example of the `SfListItem` in action, check out the [Colors Filter]
 <Showcase showcase-name="ListItem/ListItemSizes" style="min-height:250px">
 
 <!-- vue -->
+
 <<<../../preview/nuxt/pages/showcases/ListItem/ListItemSizes.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<<../../preview/next/pages/showcases/ListItem/ListItemSizes.tsx#source
+
 <!-- end react -->
 </Showcase>
 
 ### ListItem slots
 
-`SfListItem` provides <!-- vue -->`prefix` and `suffix` slots<!-- end vue --><!-- react -->`slotPrefix` and `slotSuffix` props<!-- end react --> that you can use to add custom content before/after your default content. This can be useful for adding inputs, thumbnails, icons, or any other content to your list items. 
+`SfListItem` provides <!-- vue -->`prefix` and `suffix` slots<!-- end vue --><!-- react -->`slotPrefix` and `slotSuffix` props<!-- end react --> that you can use to add custom content before/after your default content. This can be useful for adding inputs, thumbnails, icons, or any other content to your list items.
 
 <Showcase showcase-name="ListItem/ListItemSlots" >
 
 <!-- vue -->
+
 <<<../../preview/nuxt/pages/showcases/ListItem/ListItemSlots.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<<../../preview/next/pages/showcases/ListItem/ListItemSlots.tsx#source
+
 <!-- end react -->
 </Showcase>
 
@@ -47,13 +56,20 @@ For items with a lot of text content, you can use Tailwind's `truncate` class.
 <Showcase showcase-name="ListItem/ListItemTruncated" >
 
 <!-- vue -->
+
 <<<../../preview/nuxt/pages/showcases/ListItem/ListItemTruncated.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<<../../preview/next/pages/showcases/ListItem/ListItemTruncated.tsx#source
+
 <!-- end react -->
 </Showcase>
 
+## Accessibility notes
+
+ListItem component can be rendered as an `<li>` or `<a>` or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When no tag provided, the component will render as an `<li>`. To achieve proper accessibility it is important to implement required properties depending on the passed tag.
 
 ## Playground
 
@@ -65,11 +81,11 @@ For items with a lot of text content, you can use Tailwind's `truncate` class.
 
 ## Props
 
-| Prop name          | Type          | Default value | Possible values            |
-| ------------------ | ------------  | ------------- | -------------------------- |
-| `size`               | `SfListItemSize`        | `'base'`          | `'sm'`, `'base'`, `'lg'`               |
-| `disabled `          | `boolean`      | `false`         |                            |
-| `selected`           | `boolean`       | `false`        |                            |
+| Prop name   | Type             | Default value | Possible values          |
+| ----------- | ---------------- | ------------- | ------------------------ |
+| `size`      | `SfListItemSize` | `'base'`      | `'sm'`, `'base'`, `'lg'` |
+| `disabled ` | `boolean`        | `false`       |                          |
+| `selected`  | `boolean`        | `false`       |                          |
 <!-- vue -->
 | `tag`                | `string`        | `'li'`           | any tag name               |
 | `childrenTag`        | `string`        | `'span'`            | any tag name               |
@@ -84,6 +100,7 @@ For items with a lot of text content, you can use Tailwind's `truncate` class.
 <!-- end react -->
 
 <!-- vue -->
+
 ## Slots
 
 | Slot name | Description        |
@@ -98,11 +115,16 @@ For items with a lot of text content, you can use Tailwind's `truncate` class.
 
 ::: slot source
 <SourceCode>
+
 <!-- vue -->
+
 <<<../../../packages/sfui/frameworks/vue/components/SfListItem/SfListItem.vue
+
 <!-- end vue -->
 <!-- react -->
+
 <<< ../../../packages/sfui/frameworks/react/components/SfListItem/SfListItem.tsx
+
 <!-- end react -->
 </SourceCode>
 :::
