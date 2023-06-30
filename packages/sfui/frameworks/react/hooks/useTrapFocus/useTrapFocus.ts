@@ -50,7 +50,7 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     ...options,
   };
 
-  const [currentlyFocused, setCurrentlyFocused] = useState<HTMLElement>();
+  const [currentlyFocused, setCurrentlyFocused] = useState<FocusableElement>();
   const [focusableElements, setFocusableElements] = useState<FocusableElement[]>([]);
   const focusPreviousItem = ({
     event,
@@ -58,13 +58,16 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
   }: {
     event?: KeyboardEvent;
     additionalData?: Record<string, unknown>;
-  }) =>
-    focusPrev({
+  }) => {
+    const focusedElement = focusPrev({
       current: currentlyFocused,
       focusables: focusableElements,
       event,
       ...additionalData,
     });
+    // This state should be set whenever focus has changed.
+    setCurrentlyFocused(focusedElement);
+  };
 
   const focusNextItem = ({
     event,
@@ -72,13 +75,15 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
   }: {
     event?: KeyboardEvent;
     additionalData?: Record<string, unknown>;
-  }) =>
-    focusNext({
+  }) => {
+    const focusedElement = focusNext({
       current: currentlyFocused,
       focusables: focusableElements,
       event,
       ...additionalData,
     });
+    setCurrentlyFocused(focusedElement);
+  };
 
   const onKeyDownListener = useCallback(
     (event: KeyboardEvent) => {

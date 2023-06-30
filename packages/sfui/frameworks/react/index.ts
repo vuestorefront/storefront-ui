@@ -7,6 +7,7 @@ export * from './hooks/useTooltip';
 export * from './hooks/useTrapFocus';
 export * from './hooks/useFocusVisible';
 export * from './hooks/usePagination';
+export * from './hooks/useVirtualFocus';
 
 // Shared
 export * from './shared';
