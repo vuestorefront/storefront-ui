@@ -8,6 +8,13 @@ export default class SfListItemObject extends BasePage {
     return this;
   }
 
+  childrenHaveTag(tagName: string) {
+    this.container.then((el) => {
+      expect(el[0].children[0].tagName).to.equal(tagName);
+    });
+    return this;
+  }
+
   hasContent(content: string) {
     this.container.contains(content);
     return this;

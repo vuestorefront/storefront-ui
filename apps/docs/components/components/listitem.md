@@ -72,10 +72,12 @@ For items with a lot of text content, you can use Tailwind's `truncate` class.
 | `selected`           | `boolean`       | `false`        |                            |
 <!-- vue -->
 | `tag`                | `string`        | `'li'`           | any tag name               |
+| `childrenTag`        | `string`        | `'span'`            | any tag name               |
 <!-- end vue -->
 <!-- react -->
 | `as`                 | `ReactElement`  | `'li'`            | any tag name               |
 | `children`           | `ReactNode`     |               | label content              |
+| `childrenTag`        | `ReactElement`  | `'span'`            | any tag name               |
 | `slotPrefix`         | `ReactNode`     |               | right side content         |
 | `slotSuffix`         | `ReactNode`     |               | left side content          |
 | `className`          | `string`        |               |                            |
