@@ -51,7 +51,7 @@ describe('SfDialog', () => {
 
   it('initial state', () => {
     initializeComponent({ modelValue: ref(false) });
-
+    cy.matchImage();
     page().isNotVisible();
   });
 
@@ -59,7 +59,7 @@ describe('SfDialog', () => {
     it('should be opened', () => {
       const modelValue = ref(true);
       initializeComponent({ modelValue });
-
+      cy.matchImage();
       page().isVisible().contains(dialogContent).makeSnapshot();
 
       cy.then(() => {
@@ -74,10 +74,10 @@ describe('SfDialog', () => {
   describe('when open and click outside', () => {
     it('should be opened and then close', () => {
       initializeComponent();
-
       page().isVisible().clickOutside();
 
       cy.then(() => {
+        cy.matchImage();
         page().isNotVisible();
       });
     });
@@ -86,10 +86,10 @@ describe('SfDialog', () => {
   describe('when open and press escape', () => {
     it('should be opened and then close', () => {
       initializeComponent();
-
       page().isVisible().pressEsc();
 
       cy.then(() => {
+        cy.matchImage();
         page().isNotVisible();
       });
     });
@@ -99,10 +99,10 @@ describe('SfDialog', () => {
     describe('when open and press escape', () => {
       it('should be opened and then close', () => {
         initializeComponent({ disableEsc: true });
-
         page().isVisible().pressEsc();
 
         cy.then(() => {
+          cy.matchImage();
           page().isVisible();
         });
       });
@@ -117,6 +117,7 @@ describe('SfDialog', () => {
         page().isVisible().clickOutside();
 
         cy.then(() => {
+          cy.matchImage();
           page().isVisible();
         });
       });

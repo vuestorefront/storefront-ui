@@ -86,7 +86,7 @@ describe('SfSelect', () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
           initializeComponent();
-
+          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -103,6 +103,7 @@ describe('SfSelect', () => {
       page().isNotDisabled().hasSelectedOption('red');
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
@@ -113,7 +114,7 @@ describe('SfSelect', () => {
     after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
-
+      cy.matchImage();
       page().isDisabled().makeSnapshot();
     });
   });
@@ -123,7 +124,7 @@ describe('SfSelect', () => {
     after(() => (required = false));
     it(`should render as required`, () => {
       initializeComponent();
-
+      cy.matchImage();
       page().isRequired().makeSnapshot();
     });
   });
@@ -134,7 +135,7 @@ describe('SfSelect', () => {
     });
     it('should render with no placeholder', () => {
       initializeComponent();
-
+      cy.matchImage();
       page().hasPlaceholder('Select value').makeSnapshot();
     });
   });

@@ -46,14 +46,14 @@ describe('sfIconBase', () => {
 
   it('when default slot is filled', () => {
     initializeComponent({ slotDefault: true });
-
+    cy.matchImage();
     page().hasXmlNamespace('http://www.w3.org/2000/svg').containsPathHTML(pathHTML).makeSnapshot();
   });
 
   if (isVue) {
     it('when svg content is provided via content prop', () => {
       initializeComponent({ content: pathHTML });
-
+      cy.matchImage();
       page().hasXmlNamespace('http://www.w3.org/2000/svg').containsPathHTML(pathHTML).makeSnapshot();
     });
   }
@@ -63,7 +63,7 @@ describe('sfIconBase', () => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           initializeComponent({ size: componentSize });
-
+          cy.matchImage();
           page().makeSnapshot();
         });
       });

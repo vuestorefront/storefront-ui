@@ -58,7 +58,7 @@ describe('SfChip', () => {
 
   it('initial state', () => {
     initializeComponent({});
-
+    cy.matchImage();
     page().makeSnapshot();
   });
 
@@ -69,6 +69,7 @@ describe('SfChip', () => {
       page().isNotDisabled().isSelected();
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
@@ -76,14 +77,14 @@ describe('SfChip', () => {
   describe('when  is set', () => {
     it(`should have correct attribute value `, () => {
       initializeComponent({ inputProps: { value: 'yellow' } });
-
+      cy.matchImage();
       page().isValueSet('yellow').makeSnapshot();
     });
   });
   describe('when prop disabled=true', () => {
     it(`should have correct attribute disabled `, () => {
       initializeComponent({ inputProps: { disabled: true } });
-
+      cy.matchImage();
       page().isDisabled().makeSnapshot();
     });
   });
@@ -92,7 +93,7 @@ describe('SfChip', () => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           initializeComponent({ size: componentSize });
-
+          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -101,7 +102,7 @@ describe('SfChip', () => {
   describe('when prop square=true', () => {
     it(`should render square chip`, () => {
       initializeComponent({ square: true });
-
+      cy.matchImage();
       page().hasClass('px-2').hasClass('py-2').makeSnapshot();
     });
   });

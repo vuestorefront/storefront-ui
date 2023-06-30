@@ -67,7 +67,7 @@ describe('SfListItem', () => {
 
   it('initial state', () => {
     initializeComponent();
-
+    cy.matchImage();
     page().makeSnapshot();
   });
 
@@ -76,7 +76,7 @@ describe('SfListItem', () => {
     after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
-
+      cy.matchImage();
       page().isDisabled();
       page().makeSnapshot();
     });
@@ -88,7 +88,7 @@ describe('SfListItem', () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
           initializeComponent();
-
+          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -98,7 +98,7 @@ describe('SfListItem', () => {
   describe('when default slot/children is filled in', () => {
     it(`should render with label`, () => {
       initializeComponent();
-
+      cy.matchImage();
       page().hasContent('Label').makeSnapshot();
     });
   });
@@ -108,7 +108,7 @@ describe('SfListItem', () => {
     after(() => (slotPrefix = false));
     it(`should render icon in prefix slot`, () => {
       initializeComponent();
-
+      cy.matchImage();
       page().hasPrefix().makeSnapshot();
     });
   });
@@ -118,7 +118,7 @@ describe('SfListItem', () => {
     after(() => (slotSuffix = false));
     it(`should render icon in suffix slot`, () => {
       initializeComponent();
-
+      cy.matchImage();
       page().hasSuffix().makeSnapshot();
     });
   });
@@ -132,6 +132,7 @@ describe('SfListItem', () => {
       page().click();
       cy.then(() => {
         expect(onChangeSpy);
+        cy.matchImage();
         page().makeSnapshot();
       });
     });

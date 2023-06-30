@@ -31,6 +31,7 @@ describe('SfLoaderCircular', () => {
 
   it('initial state', () => {
     initializeComponent();
+    cy.matchImage();
     page().makeSnapshot();
   });
 
@@ -41,7 +42,7 @@ describe('SfLoaderCircular', () => {
           size = componentSize;
 
           initializeComponent();
-
+          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -52,7 +53,7 @@ describe('SfLoaderCircular', () => {
     it('should render proper content', () => {
       ariaLabel = 'is loading';
       initializeComponent();
-
+      cy.matchImage();
       page().hasAriaLabel(ariaLabel).makeSnapshot();
     });
   });

@@ -59,7 +59,7 @@ describe('SfDrawer', () => {
   it('initial state', () => {
     const modelValue = ref(false);
     initializeComponent({ modelValue });
-
+    cy.matchImage();
     page().isClosed();
   });
 
@@ -67,11 +67,11 @@ describe('SfDrawer', () => {
     it('should render properly closed and opened', () => {
       const modelValue = ref(false);
       initializeComponent({ modelValue });
-
       page().isClosed();
 
       cy.then(() => {
         modelValue.value = true;
+        cy.matchImage();
         page().isOpened().makeSnapshot();
       }).then(() => {
         modelValue.value = false;
@@ -84,7 +84,7 @@ describe('SfDrawer', () => {
     describe(`when placement is: ${placement}`, () => {
       it(`should render correct ${placement} placement`, () => {
         initializeComponent({ placement });
-
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
@@ -94,7 +94,7 @@ describe('SfDrawer', () => {
     it('should change drawer tag', () => {
       const tag = 'section';
       initializeComponent({ tag });
-
+      cy.matchImage();
       page().hasTag(tag.toUpperCase());
     });
   });
@@ -104,12 +104,12 @@ describe('SfDrawer', () => {
       const modelValue = ref(true);
       const disableClickAway = ref();
       initializeComponent({ modelValue, placement: SfDrawerPlacement.top, disableClickAway });
-
       page().isOpened().clickOutside().isClosed();
 
       cy.then(() => {
         modelValue.value = true;
         disableClickAway.value = true;
+        cy.matchImage();
         page().isOpened().clickOutside().isOpened();
       });
     });
@@ -126,6 +126,7 @@ describe('SfDrawer', () => {
       cy.then(() => {
         modelValue.value = true;
         disableEsc.value = true;
+        cy.matchImage();
         page().isOpened().pressEsc().isOpened();
       });
     });

@@ -33,11 +33,17 @@ describe('SfCounter', () => {
     });
   };
 
-  describe('When Pill is set to true', () => {
+  it('initial state', () => {
+    initializeComponent();
+    cy.matchImage();
+    page().makeSnapshot();
+  });
+
+  describe('When pill is set to true', () => {
     it('pill should be visible', () => {
       pill = true;
       initializeComponent();
-
+      cy.matchImage();
       page().isPill().makeSnapshot();
     });
   });
@@ -48,7 +54,7 @@ describe('SfCounter', () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
           initializeComponent();
-
+          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -58,7 +64,7 @@ describe('SfCounter', () => {
   describe('when slots are loaded', () => {
     it('value is shown in the slots', () => {
       initializeComponent();
-
+      cy.matchImage();
       page().hasValue(slotDefaultContent).makeSnapshot();
     });
   });

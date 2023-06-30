@@ -36,7 +36,7 @@ describe('SfCheckbox', () => {
 
   it('initial state', () => {
     initializeComponent({ invalid: true });
-
+    cy.matchImage();
     page().makeSnapshot();
   });
 
@@ -45,7 +45,7 @@ describe('SfCheckbox', () => {
     after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
-
+      cy.matchImage();
       page().isDisabled().makeSnapshot();
     });
   });
@@ -57,6 +57,7 @@ describe('SfCheckbox', () => {
       page().isNotDisabled().isChecked();
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
+        cy.matchImage();
         page().makeSnapshot();
       });
     });
@@ -67,7 +68,7 @@ describe('SfCheckbox', () => {
     after(() => (invalid = false));
     it('should render with "invalid" style', () => {
       initializeComponent();
-
+      cy.matchImage();
       page().hasInvalidStyle().makeSnapshot();
     });
   });
