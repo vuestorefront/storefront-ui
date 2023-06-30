@@ -18,7 +18,7 @@
         :invalid="invalid"
         :placeholder="placeholder"
         :disabled="disabled"
-        :read-only="readonly"
+        :readonly="readonly"
         class="w-full"
       />
     </label>
