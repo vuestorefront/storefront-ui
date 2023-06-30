@@ -82,6 +82,7 @@ describe('SfDrawer', () => {
     describe(`when placement is: ${placement}`, () => {
       it(`should render correct ${placement} placement`, () => {
         initializeComponent({ placement });
+
         page().makeSnapshot();
       });
     });
@@ -91,6 +92,7 @@ describe('SfDrawer', () => {
     it('should change drawer tag', () => {
       const tag = 'section';
       initializeComponent({ tag });
+
       page().hasTag(tag.toUpperCase());
     });
   });
@@ -100,11 +102,13 @@ describe('SfDrawer', () => {
       const modelValue = ref(true);
       const disableClickAway = ref();
       initializeComponent({ modelValue, placement: SfDrawerPlacement.top, disableClickAway });
+      
       page().isOpened().clickOutside().isClosed();
 
       cy.then(() => {
         modelValue.value = true;
         disableClickAway.value = true;
+
         page().isOpened().clickOutside().isOpened();
       });
     });

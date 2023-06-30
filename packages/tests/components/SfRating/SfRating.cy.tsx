@@ -38,6 +38,7 @@ describe('SfRating', () => {
   it('initial state', () => {
     value = 2.5;
     initializeComponent();
+    
     page().hasFilledIconsCount(3).hasEmptyIconsCount(2).hasAriaLabel('2.5 out of 5').makeSnapshot();
   });
 
@@ -46,6 +47,7 @@ describe('SfRating', () => {
       value = 2.5;
       halfIncrement = true;
       initializeComponent();
+
       page().hasFilledIconsCount(2).hasEmptyIconsCount(2).hasHalfFilledIconsCount(1).makeSnapshot();
     });
   });
@@ -56,6 +58,7 @@ describe('SfRating', () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
           initializeComponent();
+
           page().makeSnapshot();
         });
       });
@@ -66,6 +69,7 @@ describe('SfRating', () => {
     it(`should render correct rating items`, () => {
       max = 7;
       initializeComponent();
+
       page().hasIconsCount(max).makeSnapshot();
     });
   });
@@ -74,6 +78,7 @@ describe('SfRating', () => {
     it(`should have 3 filled icons`, () => {
       value = 3;
       initializeComponent();
+
       page()
         .hasFilledIconsCount(value)
         .hasEmptyIconsCount(max - value)
@@ -85,6 +90,7 @@ describe('SfRating', () => {
     it(`should render ariaLabel attribute set`, () => {
       ariaLabel = 'new aria label';
       initializeComponent();
+
       page().hasAriaLabel(ariaLabel).makeSnapshot();
     });
   });

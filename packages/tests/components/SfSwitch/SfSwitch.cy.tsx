@@ -31,6 +31,7 @@ describe('SfSwitch', () => {
 
   it('initial state', () => {
     initializeComponent();
+    
     page().makeSnapshot();
   });
 

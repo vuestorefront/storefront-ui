@@ -86,6 +86,7 @@ describe('SfSelect', () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
           initializeComponent();
+          
           page().makeSnapshot();
         });
       });
@@ -112,6 +113,7 @@ describe('SfSelect', () => {
     after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
+
       page().isDisabled().makeSnapshot();
     });
   });
@@ -121,6 +123,7 @@ describe('SfSelect', () => {
     after(() => (required = false));
     it(`should render as required`, () => {
       initializeComponent();
+
       page().isRequired().makeSnapshot();
     });
   });
@@ -131,6 +134,7 @@ describe('SfSelect', () => {
     });
     it('should render with no placeholder', () => {
       initializeComponent();
+
       page().hasPlaceholder('Select value').makeSnapshot();
     });
   });

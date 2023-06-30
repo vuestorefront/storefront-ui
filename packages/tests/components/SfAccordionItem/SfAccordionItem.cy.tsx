@@ -60,6 +60,7 @@ describe('SfAccordionItem', () => {
     it('Should show given summary', () => {
       const props = { open: true, summary: 'Header text' };
       initializeComponent(props);
+      
       page().hasSummary(props.summary).makeSnapshot();
     });
   });
@@ -68,12 +69,14 @@ describe('SfAccordionItem', () => {
     it('Should hide content', () => {
       const props = { open: false, children: 'Content is hidden' };
       initializeComponent(props);
+
       page().isNotOpen().hasContent(props.children).makeSnapshot();
     });
 
     it('Should show given summary', () => {
       const props = { open: false, summary: 'Header text' };
       initializeComponent(props);
+
       page().hasSummary(props.summary).makeSnapshot();
     });
   });
@@ -82,6 +85,7 @@ describe('SfAccordionItem', () => {
     it('Should call toggle event handler', () => {
       const props = { onToggle: cy.spy(), open: false };
       initializeComponent(props);
+
       page().clickSummary(props.onToggle, !props.open);
     });
   });
@@ -90,6 +94,7 @@ describe('SfAccordionItem', () => {
     it('Should apply given classes to <details> element', () => {
       const props = { className: 'custom-class' };
       initializeComponent(props);
+
       page().hasClass(props.className);
     });
   });
@@ -98,6 +103,7 @@ describe('SfAccordionItem', () => {
     it('Should apply given classes to <summary> element', () => {
       const props = { summaryClassName: 'custom-summary-class' };
       initializeComponent(props);
+
       page().hasSummaryClassName(props.summaryClassName);
     });
   });

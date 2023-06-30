@@ -81,7 +81,7 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
     return this;
   }
 
-  makeSnapshot(config?: Parameters<typeof cy.matchImage>[1]) {
+  makeSnapshot(config?: Parameters<typeof cy.matchImage>[0]) {
     cy.matchImage(config);
     return this;
   }

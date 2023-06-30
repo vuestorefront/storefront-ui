@@ -46,6 +46,7 @@ describe('SfRatingButton', () => {
 
   it('initial state', () => {
     initializeComponent();
+    
     page().makeSnapshot();
   });
 
@@ -66,6 +67,7 @@ describe('SfRatingButton', () => {
     it('should display number of icons same as max value', () => {
       const props = { value: 6, max: 9 };
       initializeComponent(props);
+
       page().hasIconsByValue(props.value, props.max);
     });
   });
@@ -74,6 +76,7 @@ describe('SfRatingButton', () => {
     it('should pass given name to all inputs', () => {
       const props = { name: 'custom-name', max: 5 };
       initializeComponent(props);
+
       page().allInputsHaveAttr({ attr: 'name', expectedValue: props.name, max: props.max });
     });
   });
@@ -82,6 +85,7 @@ describe('SfRatingButton', () => {
     it('should not change value on click', () => {
       const props = { disabled: true, value: 1, onChange: cy.spy() };
       initializeComponent(props);
+
       page().hasValue(props.value).clickFilledIcon().hasValue(props.value);
       cy.then(() => {
         expect(props.onChange).not.to.be.called;
@@ -95,12 +99,14 @@ describe('SfRatingButton', () => {
     it('should be grey', () => {
       const props = { disabled: true };
       initializeComponent(props);
+
       page().makeSnapshot();
     });
 
     it('should be grey with filled icons', () => {
       const props = { disabled: true, value: 4, max: 5 };
       initializeComponent(props);
+
       page().makeSnapshot();
     });
   });
@@ -109,6 +115,7 @@ describe('SfRatingButton', () => {
     it('should pass given label to each input', () => {
       const props = { getLabelText: (value) => `${value} heart${value !== 1 ? 's' : ''}`, max: 5 };
       initializeComponent(props);
+
       page().allInputsHaveAttr({ attr: 'aria-label', expectedValue: props.getLabelText, max: props.max });
     });
   });
@@ -118,6 +125,7 @@ describe('SfRatingButton', () => {
       describe(`${size}`, () => {
         it(`should render correct ${size} size`, () => {
           initializeComponent({ size });
+
           page().makeSnapshot();
         });
       });
@@ -129,6 +137,7 @@ describe('SfRatingButton', () => {
       it('should pass props to render function', () => {
         const props = { children: cy.spy(), max: 5, size: SfRatingButtonSize.base };
         initializeComponent(props);
+
         cy.then(() => {
           expect(props.children).to.be.callCount(props.max);
           expect(props.children).to.be.calledWith({ isFilled: false, max: props.max, iconSize: 'lg' });

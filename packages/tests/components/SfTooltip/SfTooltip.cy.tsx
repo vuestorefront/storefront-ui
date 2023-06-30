@@ -40,6 +40,7 @@ describe('SfTooltip', () => {
   describe('When initailize', () => {
     it('Should not show the tooltip', () => {
       initializeComponent();
+      
       page().isTooltipHidden().makeSnapshot();
     });
   });
@@ -47,11 +48,13 @@ describe('SfTooltip', () => {
   describe('When hover', () => {
     it('Should show the tooltip', () => {
       initializeComponent();
+
       page().mouseOver().isTooltipVisible().makeSnapshot();
     });
 
     it('Should show the tooltip on enter and close on leave', () => {
       initializeComponent();
+
       page().mouseOver().isTooltipVisible().mouseOut().isTooltipHidden();
     });
   });
@@ -60,6 +63,7 @@ describe('SfTooltip', () => {
     it('Should tooltip has arrow', () => {
       const props = { showArrow: true };
       initializeComponent(props);
+
       page().mouseOver().makeSnapshot();
     });
   });
@@ -68,6 +72,7 @@ describe('SfTooltip', () => {
     it('Should not show the tooltip', () => {
       const props = { label: '' };
       initializeComponent(props);
+
       page().mouseOver().isTooltipHidden();
     });
   });
@@ -76,6 +81,7 @@ describe('SfTooltip', () => {
     it('Should apply given classes to outer element', () => {
       const props = { className: 'custom-class' };
       initializeComponent(props);
+
       page().hasClass(props.className);
     });
   });

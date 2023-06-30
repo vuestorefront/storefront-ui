@@ -75,6 +75,7 @@ describe('SfBadge', () => {
     const maxValue = Math.floor(Math.random() * 20);
     it(`should render max value: ${maxValue}`, () => {
       initializeComponent({ max: maxValue, content: 40 });
+
       page().hasContent(maxValue).makeSnapshot();
     });
   });
@@ -82,6 +83,7 @@ describe('SfBadge', () => {
   describe('when prop content is set to string', () => {
     it(`should render the passed string content `, () => {
       initializeComponent({ content: 'test' });
+
       page().hasContent('test').makeSnapshot();
     });
   });
@@ -89,6 +91,7 @@ describe('SfBadge', () => {
   describe('when prop content is set to number', () => {
     it(`should render the passed number content `, () => {
       initializeComponent({ content: 10 });
+
       page().hasContent(10).makeSnapshot();
     });
   });
@@ -96,7 +99,7 @@ describe('SfBadge', () => {
   describe('when prop variant is set to dot', () => {
     it(`should not render any content`, () => {
       initializeComponent({ variant: SfBadgeVariant.dot, content: 10 });
-      cy.matchImage();
+      
       page().hasNoContent().makeSnapshot();
     });
   });

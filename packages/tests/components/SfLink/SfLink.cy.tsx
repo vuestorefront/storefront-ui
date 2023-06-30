@@ -48,6 +48,7 @@ describe('SfLink', () => {
 
   it('initial state', () => {
     initializeComponent({});
+    
     page().contains(slotDefaultContent).makeSnapshot();
   });
 
@@ -56,6 +57,7 @@ describe('SfLink', () => {
       describe(`${componentVariant}`, () => {
         it(`should render correct ${componentVariant} variant`, () => {
           initializeComponent({ variant: componentVariant });
+
           page().makeSnapshot();
         });
       });
@@ -66,6 +68,7 @@ describe('SfLink', () => {
     it('should has href with prop value', () => {
       const href = '/home';
       initializeComponent({ href });
+
       page().hasHref(href);
     });
   });
@@ -73,6 +76,7 @@ describe('SfLink', () => {
   describe('when no default slot', () => {
     it('should be without content', () => {
       initializeComponent({ slotDefault: false });
+
       page().haveNoContent();
     });
   });
@@ -80,11 +84,13 @@ describe('SfLink', () => {
   describe('when prop tag', () => {
     it('should render as <a> by default', () => {
       initializeComponent();
+
       page().hasTag('A');
     });
 
     it('should render as <div> tag', () => {
       initializeComponent({ tag: 'div' });
+
       page().hasTag('DIV');
     });
   });
@@ -93,6 +99,7 @@ describe('SfLink', () => {
     it('should attach class to component root element', () => {
       const className = 'custom-class';
       initializeComponent({ className });
+
       page().hasClass(className);
     });
   });

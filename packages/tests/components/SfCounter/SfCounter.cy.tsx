@@ -35,6 +35,7 @@ describe('SfCounter', () => {
 
   it('initial state', () => {
     initializeComponent();
+    
     page().makeSnapshot();
   });
 
@@ -42,6 +43,7 @@ describe('SfCounter', () => {
     it('pill should be visible', () => {
       pill = true;
       initializeComponent();
+
       page().isPill().makeSnapshot();
     });
   });
@@ -52,6 +54,7 @@ describe('SfCounter', () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
           initializeComponent();
+
           page().makeSnapshot();
         });
       });
@@ -61,6 +64,7 @@ describe('SfCounter', () => {
   describe('when slots are loaded', () => {
     it('value is shown in the slots', () => {
       initializeComponent();
+
       page().hasValue(slotDefaultContent).makeSnapshot();
     });
   });

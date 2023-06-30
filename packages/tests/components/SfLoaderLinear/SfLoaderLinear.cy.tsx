@@ -35,6 +35,7 @@ describe('SfLoaderLinear', () => {
 
   it('initial state', () => {
     initializeComponent();
+    
     page().makeSnapshot();
   });
 
@@ -44,6 +45,7 @@ describe('SfLoaderLinear', () => {
         it('should render proper loader size', () => {
           size = componentSize;
           initializeComponent();
+
           page().makeSnapshot();
         });
       });
@@ -54,6 +56,7 @@ describe('SfLoaderLinear', () => {
     it('should render proper content', () => {
       ariaLabel = 'is loading';
       initializeComponent();
+
       page().hasAriaLabel(ariaLabel).makeSnapshot();
     });
   });

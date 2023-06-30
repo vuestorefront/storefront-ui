@@ -35,6 +35,7 @@ describe('SfProgressCircular', () => {
 
   it('initial state', () => {
     initializeComponent();
+    
     page().hasAriaLabel('Progress element').makeSnapshot();
   });
 
@@ -45,6 +46,7 @@ describe('SfProgressCircular', () => {
           size = componentSize;
           value = 50;
           initializeComponent();
+
           page().makeSnapshot();
         });
       });
@@ -57,6 +59,7 @@ describe('SfProgressCircular', () => {
     });
     it('should render with 90%', () => {
       initializeComponent();
+
       page().hasValue(90).makeSnapshot();
     });
   });
@@ -65,6 +68,7 @@ describe('SfProgressCircular', () => {
     it('should render with 90%', () => {
       ariaLabel = 'some value';
       initializeComponent();
+
       page().hasAriaLabel('some value').makeSnapshot();
     });
   });

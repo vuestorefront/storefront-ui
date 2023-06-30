@@ -53,12 +53,14 @@ describe('SfDropdown', () => {
     it('Should show dropdown children', () => {
       const props = { modelValue: ref(true), children: 'Visible' };
       initializeComponent(props);
+      
       page().isDropdownVisible().contains(props.children).makeSnapshot();
     });
 
     it('Should show trigger', () => {
       const props = { modelValue: ref(true), trigger: isVue ? '<button>Click</button>' : <button>Click</button> };
       initializeComponent(props);
+
       page().hasTriggerButton();
     });
   });
@@ -67,12 +69,14 @@ describe('SfDropdown', () => {
     it('Should hide dropdown children', () => {
       const props = { modelValue: ref(false), children: 'Hidden' };
       initializeComponent(props);
+
       page().isDropdownHidden().makeSnapshot();
     });
 
     it('Should show trigger', () => {
       const props = { modelValue: ref(false), trigger: isVue ? '<button>Click</button>' : <button>Click</button> };
       initializeComponent(props);
+
       page().hasTriggerButton();
     });
   });
@@ -81,6 +85,7 @@ describe('SfDropdown', () => {
     it('Should apply given classes to outer element', () => {
       const props = { className: 'custom-class' };
       initializeComponent(props);
+
       page().hasClass(props.className);
     });
   });
@@ -89,6 +94,7 @@ describe('SfDropdown', () => {
     it('Should call onClose', () => {
       const props = { onClose: cy.spy() };
       initializeComponent(props);
+
       page().clickAway(props.onClose);
     });
   });
@@ -97,6 +103,7 @@ describe('SfDropdown', () => {
     it('Should call onClose', () => {
       const props = { onClose: cy.spy(), trigger: isVue ? '<button>Mock</button>' : <button>Mock</button> };
       initializeComponent(props);
+
       page().clickEscape(props.onClose);
     });
   });
