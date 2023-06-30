@@ -16,7 +16,6 @@
 // Import commands.js using ES2015 syntax:
 import './commands';
 import '../../styles/global.css';
-import '@percy/cypress';
 import '@cypress/code-coverage/support';
 import '@frsource/cypress-plugin-visual-regression-diff';
 

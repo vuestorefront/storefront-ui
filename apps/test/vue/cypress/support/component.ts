@@ -18,7 +18,6 @@ import './commands';
 import '../../src/assets/global.css';
 
 import { mount } from 'cypress/vue';
-import '@percy/cypress';
 import '@cypress/code-coverage/support';
 import '@frsource/cypress-plugin-visual-regression-diff';
 
