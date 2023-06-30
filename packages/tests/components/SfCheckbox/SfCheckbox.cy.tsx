@@ -53,7 +53,7 @@ describe('SfCheckbox', () => {
   describe('when it is checked', () => {
     it('should change value/modelValue', () => {
       initializeComponent();
-
+      
       page().isNotDisabled().isChecked();
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
