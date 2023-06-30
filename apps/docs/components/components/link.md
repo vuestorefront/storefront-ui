@@ -54,12 +54,13 @@ You can [customize your color palette](../customization/theming.html) as a part 
 If you need more customization beyond the built-in variants, we recommend copying the `SfLink` [source code](#source) and modifying it to your needs. This way, you can have all the custom styles for your design system, but still be able to easily use all of our [Blocks](./blocks.html).
 :::
 
-<!-- react -->
+
 
 ## Accessibility notes
 
 Link component can be rendered as an `<a>` or <!-- vue -->`<NuxtLink>`<!-- end vue --><!-- react -->`<NextLink>`<!-- end react --> or any other tag by providing it with prop <!-- vue -->`tag`<!-- end vue --><!-- react -->`as`<!-- end react -->. When no tag provided, the component will render as an `<a>`. To achieve proper accessibility it is important to implement required properties depending on the passed tag.
 
+<!-- react -->
 ### Usage with NextJS Link
 
 `SfLink` can be composed together with `NextJS` link component.
