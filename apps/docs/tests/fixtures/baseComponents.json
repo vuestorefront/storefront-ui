@@ -73,29 +73,5 @@
   },
   {
     "url": "/components/tooltip.html"
-  },
-  {
-    "url": "/hooks/useDisclosure.html"
-  },
-  {
-    "url": "/hooks/useDropdown.html"
-  },
-  {
-    "url": "/hooks/useFocusVisible.html"
-  },
-  {
-    "url": "/hooks/usePagination.html"
-  },
-  {
-    "url": "/hooks/usePopover.html"
-  },
-  {
-    "url": "/hooks/useScrollable.html"
-  },
-  {
-    "url": "/hooks/useTooltip.html"
-  },
-  {
-    "url": "/hooks/useTrapFocus.html"
   }
 ]

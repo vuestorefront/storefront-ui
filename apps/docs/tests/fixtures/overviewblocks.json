@@ -13,14 +13,19 @@
     "url": "/blocks/Card.html"
   },
   {
- 
     "url": "/blocks/Checkout.html"
+  },
+  {
+    "url": "/blocks/Combobox.html"
   },
   {
     "url": "/blocks/Filters.html"
   },
   {
     "url": "/blocks/Footer.html"
+  },
+  {
+    "url": "/blocks/FormFields.html"
   },
   {
     "url": "/blocks/Gallery.html"
@@ -47,7 +52,13 @@
     "url": "/blocks/ProductCard.html"
   },
   {
+    "url": "/blocks/ProductSlider.html"
+  },
+  {
     "url": "/blocks/QuantitySelector.html"
+  },
+  {
+    "url": "/blocks/RatingForms.html"
   },
   {
     "url": "/blocks/Review.html"
