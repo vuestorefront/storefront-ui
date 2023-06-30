@@ -25,3 +25,17 @@ This block is implemented using `SfRatingButton` and `SfModal` components. If yo
 
 </Showcase>
 
+## Product Rating With Review
+
+The Product Rating With Review block provides users with the ability to rate a product using a 1-5 stars scale and share their detailed review. Users can express their opinion and provide more valuable feedback on the product's features, quality, and overall experience. By default, it is designed as a dedicated page using a responsive grid layout. However, it can also be displayed within a Modal or a Drawer. This form block can be seamlessly combined with the Review Truncate / Show more block.
+
+<Showcase showcase-name="RatingForms/ProductRatingWithReview" style="min-height: 600px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/RatingForms/ProductRatingWithReview.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/RatingForms/ProductRatingWithReview.tsx#source
+<!-- end react -->
+
+</Showcase> 
