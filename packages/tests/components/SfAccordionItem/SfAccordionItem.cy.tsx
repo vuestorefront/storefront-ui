@@ -60,6 +60,7 @@ describe('SfAccordionItem', () => {
     it('Should show given summary', () => {
       const props = { open: true, summary: 'Header text' };
       initializeComponent(props);
+      
       page().hasSummary(props.summary).makeSnapshot();
     });
   });
