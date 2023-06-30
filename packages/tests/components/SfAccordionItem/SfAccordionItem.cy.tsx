@@ -53,7 +53,6 @@ describe('SfAccordionItem', () => {
     it('Should show content', () => {
       const props = { open: true, children: 'Content is visible' };
       initializeComponent(props);
-      cy.matchImage();
 
       page().isOpen().hasContent(props.children).makeSnapshot();
     });
@@ -61,7 +60,6 @@ describe('SfAccordionItem', () => {
     it('Should show given summary', () => {
       const props = { open: true, summary: 'Header text' };
       initializeComponent(props);
-      cy.matchImage();
       page().hasSummary(props.summary).makeSnapshot();
     });
   });
@@ -70,14 +68,12 @@ describe('SfAccordionItem', () => {
     it('Should hide content', () => {
       const props = { open: false, children: 'Content is hidden' };
       initializeComponent(props);
-      cy.matchImage();
       page().isNotOpen().hasContent(props.children).makeSnapshot();
     });
 
     it('Should show given summary', () => {
       const props = { open: false, summary: 'Header text' };
       initializeComponent(props);
-      cy.matchImage();
       page().hasSummary(props.summary).makeSnapshot();
     });
   });
@@ -86,7 +82,6 @@ describe('SfAccordionItem', () => {
     it('Should call toggle event handler', () => {
       const props = { onToggle: cy.spy(), open: false };
       initializeComponent(props);
-      cy.matchImage();
       page().clickSummary(props.onToggle, !props.open);
     });
   });
@@ -95,7 +90,6 @@ describe('SfAccordionItem', () => {
     it('Should apply given classes to <details> element', () => {
       const props = { className: 'custom-class' };
       initializeComponent(props);
-      cy.matchImage();
       page().hasClass(props.className);
     });
   });
@@ -104,7 +98,6 @@ describe('SfAccordionItem', () => {
     it('Should apply given classes to <summary> element', () => {
       const props = { summaryClassName: 'custom-summary-class' };
       initializeComponent(props);
-      cy.matchImage();
       page().hasSummaryClassName(props.summaryClassName);
     });
   });

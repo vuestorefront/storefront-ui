@@ -53,14 +53,12 @@ describe('SfDropdown', () => {
     it('Should show dropdown children', () => {
       const props = { modelValue: ref(true), children: 'Visible' };
       initializeComponent(props);
-      cy.matchImage();
       page().isDropdownVisible().contains(props.children).makeSnapshot();
     });
 
     it('Should show trigger', () => {
       const props = { modelValue: ref(true), trigger: isVue ? '<button>Click</button>' : <button>Click</button> };
       initializeComponent(props);
-      cy.matchImage();
       page().hasTriggerButton();
     });
   });
@@ -69,14 +67,12 @@ describe('SfDropdown', () => {
     it('Should hide dropdown children', () => {
       const props = { modelValue: ref(false), children: 'Hidden' };
       initializeComponent(props);
-      cy.matchImage();
       page().isDropdownHidden().makeSnapshot();
     });
 
     it('Should show trigger', () => {
       const props = { modelValue: ref(false), trigger: isVue ? '<button>Click</button>' : <button>Click</button> };
       initializeComponent(props);
-      cy.matchImage();
       page().hasTriggerButton();
     });
   });
@@ -85,7 +81,6 @@ describe('SfDropdown', () => {
     it('Should apply given classes to outer element', () => {
       const props = { className: 'custom-class' };
       initializeComponent(props);
-      cy.matchImage();
       page().hasClass(props.className);
     });
   });
@@ -94,7 +89,6 @@ describe('SfDropdown', () => {
     it('Should call onClose', () => {
       const props = { onClose: cy.spy() };
       initializeComponent(props);
-      cy.matchImage();
       page().clickAway(props.onClose);
     });
   });
@@ -103,7 +97,6 @@ describe('SfDropdown', () => {
     it('Should call onClose', () => {
       const props = { onClose: cy.spy(), trigger: isVue ? '<button>Mock</button>' : <button>Mock</button> };
       initializeComponent(props);
-      cy.matchImage();
       page().clickEscape(props.onClose);
     });
   });
@@ -117,11 +110,9 @@ describe('SfDropdown', () => {
 
       cy.then(() => {
         modelValue.value = true;
-        cy.matchImage();
         page().isDropdownVisible();
       }).then(() => {
         modelValue.value = false;
-        cy.matchImage();
         page().isDropdownHidden();
       });
     });

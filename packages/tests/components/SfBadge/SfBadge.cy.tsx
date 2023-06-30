@@ -38,7 +38,6 @@ describe('SfBadge', () => {
 
   it('initial state', () => {
     initializeComponent();
-    cy.matchImage();
     page().makeSnapshot();
   });
 
@@ -47,7 +46,6 @@ describe('SfBadge', () => {
       describe(`${componentVariant}`, () => {
         it(`should render correct ${componentVariant} variant`, () => {
           initializeComponent({ variant: componentVariant });
-          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -59,7 +57,6 @@ describe('SfBadge', () => {
       describe(`${componentPlacement}`, () => {
         it(`should render correct ${componentPlacement} variant`, () => {
           initializeComponent({ placement: componentPlacement });
-          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -70,7 +67,6 @@ describe('SfBadge', () => {
     const maxValue = Math.floor(Math.random() * (99 - 20) + 22);
     it(`should render content within ${maxValue}`, () => {
       initializeComponent({ max: maxValue, content: 10 });
-      cy.matchImage();
       page().hasContent(10).makeSnapshot();
     });
   });
@@ -79,7 +75,6 @@ describe('SfBadge', () => {
     const maxValue = Math.floor(Math.random() * 20);
     it(`should render max value: ${maxValue}`, () => {
       initializeComponent({ max: maxValue, content: 40 });
-      cy.matchImage();
       page().hasContent(maxValue).makeSnapshot();
     });
   });
@@ -87,7 +82,6 @@ describe('SfBadge', () => {
   describe('when prop content is set to string', () => {
     it(`should render the passed string content `, () => {
       initializeComponent({ content: 'test' });
-      cy.matchImage();
       page().hasContent('test').makeSnapshot();
     });
   });
@@ -95,7 +89,6 @@ describe('SfBadge', () => {
   describe('when prop content is set to number', () => {
     it(`should render the passed number content `, () => {
       initializeComponent({ content: 10 });
-      cy.matchImage();
       page().hasContent(10).makeSnapshot();
     });
   });

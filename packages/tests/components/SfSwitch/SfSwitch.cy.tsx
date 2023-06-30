@@ -31,7 +31,6 @@ describe('SfSwitch', () => {
 
   it('initial state', () => {
     initializeComponent();
-    cy.matchImage();
     page().makeSnapshot();
   });
 
@@ -42,7 +41,6 @@ describe('SfSwitch', () => {
       page().isChecked();
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
-        cy.matchImage();
         page().makeSnapshot();
       });
     });

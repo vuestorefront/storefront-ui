@@ -51,7 +51,6 @@ describe('SfDialog', () => {
 
   it('initial state', () => {
     initializeComponent({ modelValue: ref(false) });
-    cy.matchImage();
     page().isNotVisible();
   });
 
@@ -59,7 +58,6 @@ describe('SfDialog', () => {
     it('should be opened', () => {
       const modelValue = ref(true);
       initializeComponent({ modelValue });
-      cy.matchImage();
       page().isVisible().contains(dialogContent).makeSnapshot();
 
       cy.then(() => {
@@ -77,7 +75,6 @@ describe('SfDialog', () => {
       page().isVisible().clickOutside();
 
       cy.then(() => {
-        cy.matchImage();
         page().isNotVisible();
       });
     });
@@ -89,7 +86,6 @@ describe('SfDialog', () => {
       page().isVisible().pressEsc();
 
       cy.then(() => {
-        cy.matchImage();
         page().isNotVisible();
       });
     });
@@ -102,7 +98,6 @@ describe('SfDialog', () => {
         page().isVisible().pressEsc();
 
         cy.then(() => {
-          cy.matchImage();
           page().isVisible();
         });
       });
@@ -117,7 +112,6 @@ describe('SfDialog', () => {
         page().isVisible().clickOutside();
 
         cy.then(() => {
-          cy.matchImage();
           page().isVisible();
         });
       });

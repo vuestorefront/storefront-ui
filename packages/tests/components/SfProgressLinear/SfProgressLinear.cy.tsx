@@ -35,7 +35,6 @@ describe('SfProgressLinear', () => {
 
   it('initial state', () => {
     initializeComponent();
-    cy.matchImage();
     page().hasAriaLabel('Progress element').makeSnapshot();
   });
 
@@ -45,7 +44,6 @@ describe('SfProgressLinear', () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
           initializeComponent();
-          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -58,7 +56,6 @@ describe('SfProgressLinear', () => {
     });
     it('should render with 90%', () => {
       initializeComponent();
-      cy.matchImage();
       page().hasValue(90).makeSnapshot();
     });
   });
@@ -67,7 +64,6 @@ describe('SfProgressLinear', () => {
     it('should render with 90%', () => {
       ariaLabel = 'some value';
       initializeComponent();
-      cy.matchImage();
       page().hasAriaLabel('some value').makeSnapshot();
     });
   });

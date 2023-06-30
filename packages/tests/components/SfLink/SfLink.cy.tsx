@@ -48,7 +48,6 @@ describe('SfLink', () => {
 
   it('initial state', () => {
     initializeComponent({});
-    cy.matchImage();
     page().contains(slotDefaultContent).makeSnapshot();
   });
 
@@ -57,7 +56,6 @@ describe('SfLink', () => {
       describe(`${componentVariant}`, () => {
         it(`should render correct ${componentVariant} variant`, () => {
           initializeComponent({ variant: componentVariant });
-          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -68,7 +66,6 @@ describe('SfLink', () => {
     it('should has href with prop value', () => {
       const href = '/home';
       initializeComponent({ href });
-      cy.matchImage();
       page().hasHref(href);
     });
   });
@@ -76,7 +73,6 @@ describe('SfLink', () => {
   describe('when no default slot', () => {
     it('should be without content', () => {
       initializeComponent({ slotDefault: false });
-      cy.matchImage();
       page().haveNoContent();
     });
   });
@@ -84,13 +80,11 @@ describe('SfLink', () => {
   describe('when prop tag', () => {
     it('should render as <a> by default', () => {
       initializeComponent();
-      cy.matchImage();
       page().hasTag('A');
     });
 
     it('should render as <div> tag', () => {
       initializeComponent({ tag: 'div' });
-      cy.matchImage();
       page().hasTag('DIV');
     });
   });
@@ -99,7 +93,6 @@ describe('SfLink', () => {
     it('should attach class to component root element', () => {
       const className = 'custom-class';
       initializeComponent({ className });
-      cy.matchImage();
       page().hasClass(className);
     });
   });

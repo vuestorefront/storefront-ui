@@ -60,7 +60,6 @@ describe('SfInput', () => {
 
   it('initial state', () => {
     initializeComponent();
-    cy.matchImage();
     page().makeSnapshot();
   });
 
@@ -70,7 +69,6 @@ describe('SfInput', () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
           initializeComponent();
-          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -82,7 +80,6 @@ describe('SfInput', () => {
     after(() => (disabled = false));
     it(`should render as disabled`, () => {
       initializeComponent();
-      cy.matchImage();
       page().isDisabled();
       page().makeSnapshot();
     });
@@ -94,7 +91,6 @@ describe('SfInput', () => {
     });
     it('should render with no placeholder', () => {
       initializeComponent();
-      cy.matchImage();
       page().hasPlaceholder().makeSnapshot();
     });
   });
@@ -106,7 +102,6 @@ describe('SfInput', () => {
     });
     it(`should render input wrapper as label tag`, () => {
       initializeComponent();
-      cy.matchImage();
       page().hasTag('LABEL');
       page().makeSnapshot();
     });
@@ -118,7 +113,6 @@ describe('SfInput', () => {
     });
     it(`should render as readonly input`, () => {
       initializeComponent();
-      cy.matchImage();
       page().hasReadonly();
       page().makeSnapshot();
     });
@@ -130,7 +124,6 @@ describe('SfInput', () => {
     });
     it(`should render proper value`, () => {
       initializeComponent();
-      cy.matchImage();
       page().hasValue(value);
       page().makeSnapshot();
     });

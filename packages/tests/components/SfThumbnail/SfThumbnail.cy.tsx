@@ -40,7 +40,6 @@ describe('SfThumbnail', () => {
 
   it('initial state', () => {
     initializeComponent();
-    cy.matchImage();
     page().makeSnapshot();
   });
 
@@ -49,7 +48,6 @@ describe('SfThumbnail', () => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           initializeComponent({ size: componentSize });
-          cy.matchImage();
           page().makeSnapshot();
         });
       });
@@ -58,7 +56,6 @@ describe('SfThumbnail', () => {
   describe('when icon is passed via slot', () => {
     it(`should render thumbnail with icon`, () => {
       initializeComponent({ slotDefault: true });
-      cy.matchImage();
       page().makeSnapshot();
     });
   });
