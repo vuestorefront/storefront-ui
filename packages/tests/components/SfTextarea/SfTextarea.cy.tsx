@@ -51,7 +51,7 @@ describe('SfTextarea', () => {
   });
 
   describe('when prop size is set to ', () => {
-    Object.values(SfInputSize).forEach((componentSize) => {
+    Object.values(SfTextareaSize).forEach((componentSize) => {
       describe(`${componentSize}`, () => {
         it(`should render correct ${componentSize} size`, () => {
           size = componentSize;
@@ -89,7 +89,7 @@ describe('SfTextarea', () => {
     before(() => {
       readonly = true;
     });
-    it(`should render as readonly input`, () => {
+    it(`should render as readonly textarea`, () => {
       initializeComponent();
 
       page().hasReadonly();
@@ -97,7 +97,7 @@ describe('SfTextarea', () => {
     });
   });
 
-  describe('when input value change', () => {
+  describe('when textarea value change', () => {
     before(() => {
       value = 'abc';
     });
