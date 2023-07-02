@@ -14,7 +14,7 @@ const displayDetails = [
     buttonText: 'Discover now',
     reverse: false,
     backgroundColor: 'bg-negative-200',
-    titleClass: 'md:typography-headline-2',
+    titleClass: 'md:typography-display-2',
     subtitleClass: 'md:typography-headline-6',
     descriptionClass: 'md:typography-text-lg',
   },
@@ -66,7 +66,7 @@ export default function DisplayHorizontalBlock() {
                 >
                   {subtitle}
                 </p>
-                <h2 className={classNames('mb-4 mt-2 font-bold typography-headline-3', titleClass)}>{title}</h2>
+                <h2 className={classNames('mb-4 mt-2 font-bold typography-display-3', titleClass)}>{title}</h2>
                 <p className="typography-text-base block mb-4">{description}</p>
                 <SfButton className="!bg-black">{buttonText}</SfButton>
               </div>

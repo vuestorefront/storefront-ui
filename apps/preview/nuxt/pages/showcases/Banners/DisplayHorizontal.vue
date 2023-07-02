@@ -28,7 +28,7 @@
           <p :class="['uppercase typography-text-xs block font-bold tracking-widest', subtitleClass]">
             {{ subtitle }}
           </p>
-          <h2 :class="['mb-4 mt-2 font-bold typography-headline-3', titleClass]">
+          <h2 :class="['mb-4 mt-2 font-bold typography-display-3', titleClass]">
             {{ title }}
           </h2>
           <p class="typography-text-base block mb-4">
@@ -54,7 +54,7 @@ const displayDetails = [
     buttonText: 'Discover now',
     reverse: false,
     backgroundColor: 'bg-negative-200',
-    titleClass: 'md:typography-headline-2',
+    titleClass: 'md:typography-display-2',
     subtitleClass: 'md:typography-headline-6',
     descriptionClass: 'md:typography-text-lg',
   },
