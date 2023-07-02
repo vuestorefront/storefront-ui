@@ -41,7 +41,7 @@ The Textarea is a multi-line text input control allows users to enter any combin
 
 If you pass the `invalid` prop, the Textarea will be styled to indicate an invalid state.
 
-<Showcase showcase-name="Textarea/TextareaInvalid" style="min-height: 200px;>
+<Showcase showcase-name="Textarea/TextareaInvalid" style="min-height: 200px;">
 
 <!-- vue -->
 <<<../../preview/nuxt/pages/showcases/Textarea/TextareaInvalid.vue
@@ -53,15 +53,29 @@ If you pass the `invalid` prop, the Textarea will be styled to indicate an inval
 
 ### Textarea with characters counter
 
-Here you can see Textarea with characters counter added. When number of characters exceeds limit it turns to red and have negative value. 
+The Textarea component provides the option to display a character count, allowing users to track the number of characters they have entered. This feature can be helpful when there are character limits or restrictions for the input.
 
-<Showcase showcase-name="Textarea/TextareaDisabled">
+<Showcase showcase-name="Textarea/TextareaCharacters">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/Textarea/TextareaDisabled.vue
+<<<../../preview/nuxt/pages/showcases/Textarea/TextareaCharacters.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/Textarea/TextareaDisabled.tsx#source
+<<<../../preview/next/pages/showcases/Textarea/TextareaCharacters.tsx#source
+<!-- end react -->
+</Showcase>
+
+### Textarea with autoresize
+
+The Textarea component supports autoresizing based on the content entered by the user. As the user types or deletes text, the height of the textarea adjusts automatically to fit the content, eliminating the need for scrollbars. In the example below we use [`@frsource/autoresize-textarea`](https://www.frsource.org/autoresize-textarea/) library to provide this feature. 
+
+<Showcase showcase-name="Textarea/TextareaAutoresize">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/Textarea/TextareaAutoresize.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/Textarea/TextareaAutoresize.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -83,8 +97,10 @@ Textarea is multi-line input, so Return or Enter key inserts a line break.
 | Prop name    | Type            | Default value | Possible values                        |
 | ------------ | --------        | ------------- | -------------------------------------- |
 | `size`         | `SfInputSize`  | `'base'`          | `'sm'`, `'base'`, `'lg'`                           |
-| `invalid`      | `boolean`         | `false`         |      
-                                 |
+| `invalid`      | `boolean`         | `false`         |  
+<!-- react -->
+| `className`      | `string`         |          |      
+<!-- end react --> 
 
 <!-- vue -->
 
@@ -94,7 +110,7 @@ Textarea is multi-line input, so Return or Enter key inserts a line break.
 | ----------------- | ----------------------------- |
 | `update:modelValue` | triggers v-model update event |
 
-<!-- end vue -->      |                                |
+<!-- end vue --> 
 
 :::
 

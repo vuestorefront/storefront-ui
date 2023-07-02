@@ -1,6 +1,6 @@
 <template>
   <label>
-    <span class="text-sm font-medium cursor-not-allowed text-disabled-900">Description</span>
+    <span class="text-sm font-medium">Description</span>
     <SfTextarea v-model="textareaValue" placeholder="Write something about yourself..." class="w-full" />
   </label>
   <div class="flex justify-between">

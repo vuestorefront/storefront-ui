@@ -26,7 +26,7 @@ export default function TextareaWithLimit() {
   return (
     <>
       <label>
-        <span className="text-sm font-medium" />
+        <span className="text-sm font-medium">Description</span>
         <SfTextarea
           value={value}
           placeholder="Write something about yourself..."

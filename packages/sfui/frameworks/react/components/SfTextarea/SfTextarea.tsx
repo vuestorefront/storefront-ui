@@ -10,7 +10,7 @@ const sizeClasses = {
 };
 
 export default forwardRef<HTMLTextAreaElement, SfTextareaProps>(
-  ({ size = SfTextareaSize.base, invalid = false, className, ...attributes }, ref) => {
+  ({ size = SfTextareaSize.base, invalid = false, className, ...attributes }, ref): JSX.Element => {
     const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 
     return (

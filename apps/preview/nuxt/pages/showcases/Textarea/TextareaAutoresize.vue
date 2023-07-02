@@ -10,15 +10,13 @@
   </div>
 </template>
 <script setup lang="ts">
-import { SfTextarea, waitForElementInDOM } from '@storefront-ui/vue';
+import { SfTextarea } from '@storefront-ui/vue';
 import { attach } from '@frsource/autoresize-textarea';
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
+import { unrefElement } from '@vueuse/core';
 
-const textareaRef = ref<HTMLTextAreaElement>();
-const attachAutoresize = async () => {
-  await waitForElementInDOM(textareaRef.value);
-  console.log(textareaRef);
-  attach(textareaRef);
-};
-attachAutoresize();
+const textareaRef = ref();
+onMounted(() => {
+  attach(unrefElement(textareaRef));
+});
 </script>

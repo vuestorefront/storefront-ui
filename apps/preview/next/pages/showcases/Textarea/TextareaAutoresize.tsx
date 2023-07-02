@@ -9,7 +9,7 @@ import { useEffect, useRef } from 'react';
 export default function TextareaAutoresize() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   useEffect(() => {
-    attach(textareaRef.current);
+    attach(textareaRef.current as HTMLTextAreaElement);
   }, []);
   return (
     <>
