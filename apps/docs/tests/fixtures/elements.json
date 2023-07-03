@@ -195,7 +195,6 @@
     "className": "card"
   },
   {
- 
     "url": "/blocks/Checkout.html",
     "name": "Checkout",
     "className": "checkout"
@@ -267,8 +266,13 @@
   },
   {
     "url": "/blocks/SelectDropdown.html",
-    "name": "Select Dropdown ",
+    "name": "Select Dropdown",
     "className": "select-dropdown"
+  },
+  {
+    "url": "/blocks/Typography.html",
+    "name": "Typography",
+    "className": "typography"
   },
   {
     "url": "/migration.html",
