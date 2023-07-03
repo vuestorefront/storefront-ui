@@ -19,7 +19,7 @@ export default function TextareaAutoresize() {
       </label>
       <div className="flex justify-between">
         <div>
-          <p className="text-xs text-disabled-500 mt-0.5">Do not include personal or financial information.</p>
+          <p className="text-xs text-neutral-500 mt-0.5">Do not include personal or financial information.</p>
         </div>
       </div>
     </>

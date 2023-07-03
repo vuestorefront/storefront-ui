@@ -11,16 +11,7 @@
       >
         {{ label }}
       </span>
-      <SfTextarea
-        :name="label"
-        :size="size"
-        :value="value"
-        :invalid="invalid"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        :readonly="readonly"
-        class="w-full"
-      />
+      <SfTextarea v-bind="state" v-model="value" class="w-full" />
     </label>
     <div class="flex justify-between">
       <div>
@@ -56,10 +47,10 @@ export default {
   },
   setup() {
     const characterLimit = ref(12);
-    const inputValue = ref('');
+    const textareaValue = ref('');
 
-    const isAboveLimit = computed(() => inputValue.value.length > characterLimit.value);
-    const charsCount = computed(() => characterLimit.value - inputValue.value.length);
+    const isAboveLimit = computed(() => textareaValue.value.length > characterLimit.value);
+    const charsCount = computed(() => characterLimit.value - textareaValue.value.length);
 
     const getCharacterLimitClass = computed(() =>
       isAboveLimit.value ? 'text-negative-700 font-medium' : 'text-neutral-500',
@@ -139,8 +130,8 @@ export default {
           requiredText: ref('Required text'),
           errorText: ref('Error message'),
           label: ref('Description'),
-          characterLimit: ref(12),
-          value: ref(''),
+          characterLimit: characterLimit,
+          value: textareaValue,
         },
       ),
     };
