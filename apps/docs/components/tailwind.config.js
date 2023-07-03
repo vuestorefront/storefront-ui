@@ -47,5 +47,5 @@ module.exports = {
       brightness: ['hover', 'focus'],
     },
   },
-  plugins: [require('@tailwindcss/typography')],
+  plugins: [],
 };

@@ -3531,7 +3531,6 @@ __metadata:
     "@microsoft/api-documenter": ^7.21.5
     "@microsoft/api-extractor": ^7.34.4
     "@storefront-ui/tailwind-config": "workspace:^"
-    "@tailwindcss/typography": ^0.5.9
     "@vuepress/plugin-active-header-links": ^1.9.8
     "@vuepress/plugin-back-to-top": ^1.9.8
     "@vuepress/plugin-medium-zoom": ^1.9.8
@@ -3631,6 +3630,7 @@ __metadata:
     "@storefront-ui/tests-shared": "workspace:*"
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
+    "@tailwindcss/typography": ^0.5.9
     "@types/lodash-es": ^4.17.6
     "@types/node": ^18.13.0
     "@types/react": ^18.0.28
@@ -3665,6 +3665,7 @@ __metadata:
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
     "@storefront-ui/vue": "workspace:*"
+    "@tailwindcss/typography": ^0.5.9
     "@types/lodash-es": ^4.17.6
     "@vueuse/core": ^9.12.0
     autoprefixer: ^10.4.13
@@ -3704,6 +3705,7 @@ __metadata:
     "@storefront-ui/tests-shared": "workspace:*"
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
+    "@tailwindcss/typography": ^0.5.9
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
     "@vitejs/plugin-react": ^4.0.0-beta.0
@@ -3841,6 +3843,7 @@ __metadata:
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
     "@storefront-ui/vue": "workspace:*"
+    "@tailwindcss/typography": ^0.5.9
     "@types/node": ^18.13.0
     "@vitejs/plugin-vue": ^4.0.0
     "@vue/tsconfig": ^0.1.3

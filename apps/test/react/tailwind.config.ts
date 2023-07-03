@@ -30,5 +30,5 @@ module.exports = {
       },
     },
   },
-  plugins: [sfTypography],
+  plugins: [sfTypography, require('@tailwindcss/typography')],
 };

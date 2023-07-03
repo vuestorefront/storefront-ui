@@ -12,5 +12,5 @@ export default <Config>{
       },
     },
   },
-  plugins: [sfTypography],
+  plugins: [sfTypography, require('@tailwindcss/typography')],
 };
