@@ -76,7 +76,7 @@
     "yarn": ">=1.22.19",
     "node": ">=16.0.0 <17.0.0"
   },
-  "packageManager": "yarn@3.6.0",
+  "packageManager": "yarn@3.6.1",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog",
