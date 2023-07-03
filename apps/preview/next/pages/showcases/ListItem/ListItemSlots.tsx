@@ -5,11 +5,11 @@ import { SfListItem, SfCounter, SfIconChevronRight, SfIconTune } from '@storefro
 export default function ListItemSlots() {
   return (
     <SfListItem className="max-w-sm" slotPrefix={<SfIconTune />} slotSuffix={<SfIconChevronRight />}>
-      <div className="break-words">
+      <span className="break-words">
         Label
         <SfCounter className="ml-2">123</SfCounter>
-      </div>
-      <span className="text-xs break-words text-neutral-500">Secondary text</span>
+      </span>
+      <span className="block text-xs break-words text-neutral-500">Secondary text</span>
     </SfListItem>
   );
 }
