@@ -1,5 +1,3 @@
 <template>
-  <div class="prose">
-    <p>Paragraph text</p>
-  </div>
+  <p class="prose">Paragraph text</p>
 </template>

@@ -1,8 +1,6 @@
 <template>
-  <div class="prose">
-    <figure>
+  <figure class="prose">
       <blockquote>Quote Text</blockquote>
       <figcaption>—Signature</figcaption>
-    </figure>
-  </div>
+  </figure>
 </template>
