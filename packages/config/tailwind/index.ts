@@ -1,6 +1,7 @@
 import { Config } from 'tailwindcss';
 import tailwindCssVariables from '@mertasan/tailwindcss-variables';
 import peerNextPlugin from '@storefront-ui/tw-plugin-peer-next';
+import tailwindTypography from '@tailwindcss/typography';
 
 export const tailwindConfig: Config = {
   content: [],
@@ -428,5 +429,5 @@ export const tailwindConfig: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/typography'), tailwindCssVariables, peerNextPlugin],
+  plugins: [tailwindTypography, tailwindCssVariables, peerNextPlugin],
 };
