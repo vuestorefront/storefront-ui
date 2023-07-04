@@ -46,7 +46,7 @@ const tabs: Tab[] = [
 
 export default function TabsBasic() {
   const tablistRef = useRef<HTMLDivElement>(null);
-  const [activeTab, setActiveTab] = useState<Tab>(tabs[2]);
+  const [activeTab, setActiveTab] = useState<Tab>(tabs[0]);
   const isActive = (tab: Tab) => activeTab.label === tab.label;
   const tabId = (label: string) => `${label}-tab`;
   const panelId = (label: string) => `${label}-panel`;

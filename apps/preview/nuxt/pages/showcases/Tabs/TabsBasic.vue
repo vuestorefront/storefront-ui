@@ -83,7 +83,7 @@ const tabs: Tab[] = [
 ];
 
 const tablistRef = ref<HTMLDivElement>();
-const activeTab = ref<Tab>(tabs[2]);
+const activeTab = ref<Tab>(tabs[0]);
 const isActive = computed(() => (tab: Tab) => activeTab.value.label === tab.label);
 const tabId = (label: string) => `${label}-tab`;
 const panelId = (label: string) => `${label}-panel`;
