@@ -6,7 +6,9 @@ hideToc: true
 ---
 # Typography
 
-{{ $frontmatter.description }}
+One of the prominent features of the Tailwind Typography plugin is the ```prose``` class. The ```prose``` class is designed to create a consistent and readable typographic style for large blocks of text, such as paragraphs, articles, blog posts, or any other content-heavy sections of your website.
+
+When you apply the prose class to a container element, it automatically applies a set of carefully crafted styles to enhance the readability and overall aesthetics of the text. Examples of the mentioned styles can be found below.
 
 ## Headings
 
