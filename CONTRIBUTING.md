@@ -15,8 +15,8 @@ Also, we label some issues with label `hackotoberfest` for easy and smooth start
 
 ## How to contribute
 
-1. Read [component composition rules](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-code-guidelines--page) and [how to work with our Figma designs](https://docs.storefrontui.io/?path=/story/introduction-design-principles--page).
-2. Pick an issue and read the [guidelines](https://docs.storefrontui.io/?path=/story/introduction-contributing-guide-create-edit-component--page). Write in the issue comment that you want to pick it if you can't assign yourself. **Please stay assigned to one issue at a time to not block others**
+1. Read [component composition rules](https://docs.storefrontui.io/v1/?path=/docs/contributing-guide-guide-code-guidelines--page) and [how to work with our Figma designs](https://docs.storefrontui.io/v1/?path=/docs/design-principles--page).
+2. Pick an issue and read the [guidelines](https://docs.storefrontui.io/v1/?path=/docs/contributing-guide-guide-create-edit-component--page). Write in the issue comment that you want to pick it if you can't assign yourself. **Please stay assigned to one issue at a time to not block others**
 3. Propose a Pull Request to **develop** branch containing issue number and component name.
 4. Add label `review required` so that our maintainers will know we can start reviewing it.
 5. Wait for review and adjust your PR according to it. **Please allow minimum 24 hours for someone to start reviewing. Rushing the maintainers is not accepted.**

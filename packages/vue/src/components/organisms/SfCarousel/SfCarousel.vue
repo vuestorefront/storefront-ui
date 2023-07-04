@@ -124,7 +124,9 @@ export default {
     });
   },
   beforeDestroy() {
-    this.glide.destroy();
+    if (this.glide) {
+      this.glide.destroy();
+    }
   },
   methods: {
     go(direct) {

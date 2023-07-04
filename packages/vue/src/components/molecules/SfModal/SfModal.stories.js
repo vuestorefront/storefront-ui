@@ -101,7 +101,7 @@ export default {
       },
       defaultValue: "sf-fade",
       description:
-        "Overlay transition effect. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
+        "Overlay transition effect. Could be one of [the default ones](https://docs.storefrontui.io/v1/?path=/docs/utilities-transitions-docs--page).",
     },
     transitionModal: {
       control: "text",
@@ -110,7 +110,7 @@ export default {
       },
       defaultValue: "sf-fade",
       description:
-        "Modal transition effect. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
+        "Modal transition effect. Could be one of [the default ones](https://docs.storefrontui.io/v1/?path=/docs/utilities-transitions-docs--page).",
     },
     "v-model": {
       control: "boolean",
