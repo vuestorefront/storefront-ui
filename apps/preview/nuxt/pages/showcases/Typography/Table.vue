@@ -16,7 +16,7 @@
           <td>Content</td>
           <td>Content</td>
         </tr>
-      </tbody> 
+      </tbody>
     </table>
   </div>
 </template>
