@@ -31,8 +31,8 @@ export default function CategoryCard() {
             className="rounded-full bg-neutral-100 group-hover:shadow-xl group-active:shadow-none"
             src={image}
             alt={title}
-            width={240}
-            height={240}
+            width="240"
+            height="240"
           />
           <div className="flex justify-center">
             <a className="mt-4 font-semibold no-underline text-normal-900 typography-text-base group-hover:underline group-hover:text-primary-800 group-hover:font-normal group-active:text-primary-800 group-active:font-normal">

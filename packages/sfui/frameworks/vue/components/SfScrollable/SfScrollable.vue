@@ -59,6 +59,14 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  buttonPrevAriaLabel: {
+    type: String,
+    default: 'Previous',
+  },
+  buttonNextAriaLabel: {
+    type: String,
+    default: 'Next',
+  },
 });
 const emit = defineEmits<{
   (e: 'onDragStart', data: SfScrollableOnDragStartData): void;
@@ -112,6 +120,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       ]"
       v-bind="getPrevButtonProps"
       :disabled="prevDisabled"
+      :aria-label="buttonPrevAriaLabel"
     >
       <SfIconChevronLeft />
     </SfButton>
@@ -150,6 +159,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       ]"
       v-bind="getNextButtonProps"
       :disabled="nextDisabled"
+      :aria-label="buttonNextAriaLabel"
     >
       <SfIconChevronRight />
     </SfButton>

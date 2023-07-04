@@ -61,6 +61,10 @@ A common use case for the Badge is to place it on a user's avatar.
 <!-- end react -->
 </Showcase>
 
+## Accessibility Notes
+
+The component itself does not provide any specific accessibility features. Please make sure that the content displayed in SfBadge component is meaningful and understandable by all users.
+
 ## Playground
 
 <Generate style="height: 380px" />

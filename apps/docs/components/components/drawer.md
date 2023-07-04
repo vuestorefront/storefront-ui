@@ -50,6 +50,10 @@ You can wrap `SfDrawer` in a <!-- vue -->[`<transition>`](https://vuejs.org/guid
 <!-- end react -->
 </Showcase>
 
+## Accessibility notes
+
+The component is providing keyboard accessibility with `@keydown.esc="onEscKeyDown"` and `onClickOutside` function which allows users to close the drawer by pressing the Escape key or click outside of the drawer.
+
 ## Playground
 
 <Generate style="height: 600px"/>
@@ -62,29 +66,20 @@ You can wrap `SfDrawer` in a <!-- vue -->[`<transition>`](https://vuejs.org/guid
 
 | Prop name | Type | Default value | Possible values |
 | --------- | ---- | ------------- | --------------- |
-
 <!-- vue -->
-
 | `modelValue` | `boolean` | `false` | |
 | `tag` | `string` | `'aside'` | |
-
 <!-- end vue -->
 <!-- react -->
-
 | `open`\* | `boolean` | `false` | |
 | `as` | `ReactElement` | `'aside'` | |
-
 <!-- end react -->
-
 | `placement` | `SfDrawerPlacement` | `'left'` | `'top'`, `'bottom'`, `'left'`, `'right'` |  
 | `disableClickAway` | `boolean` | `false` | |
 | `disableEsc` | `boolean` | `false` | |
-
 <!-- react -->
-
 | `onClose` | `Function` | | |
 | `children` | `ReactNode` | | |
-
 <!-- end react -->
 <!-- vue -->
 

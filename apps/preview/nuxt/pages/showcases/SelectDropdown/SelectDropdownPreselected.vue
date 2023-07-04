@@ -1,5 +1,5 @@
 <template>
-  <label className="font-medium typography-label-sm" :for="id">Product</label>
+  <label class="font-medium typography-label-sm" :for="id">Product</label>
   <div ref="referenceRef" class="relative">
     <div
       :id="id"
