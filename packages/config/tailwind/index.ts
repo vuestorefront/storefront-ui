@@ -11,7 +11,7 @@ export const tailwindConfig: Config = {
   },
   theme: {
     extend: {
-      typography: ( { theme } : ThemeConfig ) => ({
+      typography: ({ theme }: ThemeConfig) => ({
         DEFAULT: {
           css: [
             {
@@ -31,12 +31,14 @@ export const tailwindConfig: Config = {
                 color: theme('colors.neutral.900'),
               },
               blockquote: {
+                fontWeight: theme('fontWeight.medium'),
                 color: theme('colors.neutral.900'),
                 marginTop: '32px',
                 marginBottom: '32px',
                 paddingLeft: '20px',
               },
               'blockquote ~ figcaption ': {
+                fontWeight: theme('fontWeight.medium'),
                 color: theme('colors.neutral.900'),
                 fontStyle: 'italic',
               },
