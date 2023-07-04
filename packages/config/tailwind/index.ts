@@ -1,4 +1,5 @@
 import { Config } from 'tailwindcss';
+import { ThemeConfig } from 'tailwindcss/types/config';
 import tailwindCssVariables from '@mertasan/tailwindcss-variables';
 import peerNextPlugin from '@storefront-ui/tw-plugin-peer-next';
 import tailwindTypography from '@tailwindcss/typography';
@@ -10,7 +11,7 @@ export const tailwindConfig: Config = {
   },
   theme: {
     extend: {
-      typography: ({ theme }) => ({
+      typography: ( { theme } : ThemeConfig ) => ({
         DEFAULT: {
           css: [
             {
@@ -22,15 +23,22 @@ export const tailwindConfig: Config = {
                 marginBottom: '20px',
               },
               '[class~="lead"]': {
+                fontWeight: theme('fontWeight.medium'),
                 fontSize: '20px',
                 lineHeight: '32px',
                 marginTop: '24px',
                 marginBottom: '24px',
+                color: theme('colors.neutral.900'),
               },
               blockquote: {
+                color: theme('colors.neutral.900'),
                 marginTop: '32px',
                 marginBottom: '32px',
                 paddingLeft: '20px',
+              },
+              'blockquote ~ figcaption ': {
+                color: theme('colors.neutral.900'),
+                fontStyle: 'italic',
               },
               h1: {
                 fontSize: '36px',
@@ -76,6 +84,7 @@ export const tailwindConfig: Config = {
                 marginBottom: '0',
               },
               figcaption: {
+                fontWeight: theme('fontStyle.italic'),
                 fontSize: '14px',
                 lineHeight: '20px',
                 marginTop: '12px',
@@ -88,6 +97,9 @@ export const tailwindConfig: Config = {
               },
               'h3 code': {
                 fontSize: '18px',
+              },
+              strong: {
+                fontWeight: theme('fontWeight.medium'),
               },
               pre: {
                 fontSize: '14px',
@@ -163,6 +175,7 @@ export const tailwindConfig: Config = {
                 lineHeight: '24px',
               },
               'thead th': {
+                fontWeight: theme('fontWeight.medium'),
                 paddingRight: '8px',
                 paddingBottom: '8px',
                 paddingLeft: '8px',

@@ -38,13 +38,13 @@ export default function TypographyDefault() {
       <hr />
       <h3>Perfect for Any Occasion</h3>
       <p>
-        Whether you're hitting the gym, going for a run, or simply adding a stylish touch to your everyday outfits, the
+        Whether you are hitting the gym, going for a run, or simply adding a stylish touch to your everyday outfits, the
         Nike Air Max 270 is the perfect choice.
       </p>
       <p>
         With its versatile design and superior comfort, these sneakers are sure to become your go-to footwear option.
       </p>
-      <p>Don't compromise on style or performance. Step up your sneaker game with the Nike Air Max 270.</p>
+      <p>Do not compromise on style or performance. Step up your sneaker game with the Nike Air Max 270.</p>
       <hr />
       <h4>Where to buy</h4>
       <p>
@@ -52,7 +52,7 @@ export default function TypographyDefault() {
         pair of sneakers.
       </p>
       <hr />
-      <span className="prose-medium">Product Specifications</span>
+      <strong className="prose-medium">Product Specifications</strong>
       <table>
         <thead>
           <tr>

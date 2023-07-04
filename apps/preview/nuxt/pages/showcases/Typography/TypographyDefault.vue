@@ -22,35 +22,39 @@
     </ul>
     <hr />
     <h3>Perfect for Any Occasion</h3>
-    <p>Whether you're hitting the gym, going for a run, or simply adding a stylish touch to your everyday outfits, the Nike Air Max 270 is the perfect choice.</p>
+    <p>Whether you are hitting the gym, going for a run, or simply adding a stylish touch to your everyday outfits, the Nike Air Max 270 is the perfect choice.</p>
     <p>With its versatile design and superior comfort, these sneakers are sure to become your go-to footwear option.</p>
     <p>Don't compromise on style or performance. Step up your sneaker game with the Nike Air Max 270.</p>
     <hr />
     <h4>Where to buy</h4>
     <p>Find the Nike Air Max 270 at authorized retailers or shop online on our website to get your hands on this iconic pair of sneakers.</p>
     <hr />
-    <span class="prose-medium">Product Specifications</span>
+    <strong class="prose-medium">Product Specifications</strong>
     <table>
-      <tr>
-        <th>Feature</th>
-        <th>Details</th>
-      </tr>
-      <tr>
-        <td>Upper material</td>
-        <td>Leather and mesh</td>
-      </tr>
-      <tr>
-        <td>Sole material</td>
-        <td>Rubber</td>
-      </tr>
-      <tr>
-        <td>Closure Type</td>
-        <td>Lace up</td>
-      </tr>
-      <tr>
-        <td>Available Sizes</td>
-        <td>US 6-12</td>
-      </tr>
+      <thead>
+        <tr>
+          <th>Feature</th>
+          <th>Details</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>Upper material</td>
+          <td>Leather and mesh</td>
+        </tr>
+        <tr>
+          <td>Sole material</td>
+          <td>Rubber</td>
+        </tr>
+        <tr>
+          <td>Closure Type</td>
+          <td>Lace up</td>
+        </tr>
+        <tr>
+          <td>Available Sizes</td>
+          <td>US 6-12</td>
+        </tr>
+      </tbody>
     </table>
   </div>
 </template>
