@@ -1,6 +1,5 @@
 <template>
   <SfButton ref="buttonRef" type="button" @click="open">To Checkout</SfButton>
-
   <SfModal
     v-model="isOpen"
     class="max-w-[90%] md:max-w-lg"
@@ -32,10 +31,11 @@
 import { ref, watch } from 'vue';
 import { SfModal, SfButton, SfIconClose, useDisclosure } from '@storefront-ui/vue';
 import { useFocus } from '@vueuse/core';
+
 const buttonRef = ref();
 const { focused } = useFocus(buttonRef);
-const { isOpen, open, close } = useDisclosure({ initialValue: false });
+const { isOpen, open, close } = useDisclosure();
 watch(isOpen, (open) => {
-  open ? (focused.value = false) : (focused.value = true);
+  focused.value = !open;
 });
 </script>
