@@ -1,6 +1,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { useId, useRef } from 'react';
+import { useEffect, useId, useRef } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { SfModal, SfButton, SfIconClose, useDisclosure } from '@storefront-ui/react';
 
@@ -10,10 +10,12 @@ export default function ModalTransition() {
   const descriptionId = useId();
   const modalRef = useRef<HTMLElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef(null);
+  useEffect(() => (isOpen ? buttonRef.current?.blur() : buttonRef.current?.focus()), [isOpen]);
 
   return (
     <>
-      <SfButton type="button" onClick={open}>
+      <SfButton ref={buttonRef} type="button" onClick={open}>
         To Checkout
       </SfButton>
 

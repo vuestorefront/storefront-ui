@@ -41,7 +41,7 @@ const onEscKeyDown = () => {
 useTrapFocus(modalRef, {
   trapTabs: true,
   activeState: modelValue,
-  initialFocus: false,
+  initialFocus: 0,
   initialFocusContainerFallback: true,
 });
 </script>

@@ -1,13 +1,16 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfModal, SfButton, SfIconClose, useDisclosure } from '@storefront-ui/react';
+import { useEffect, useRef } from 'react';
 
 export default function ModalDemo() {
   const { isOpen, open, close } = useDisclosure({ initialValue: false });
+  const buttonRef = useRef(null);
 
+  useEffect(() => (isOpen ? buttonRef.current?.blur() : buttonRef.current?.focus()), [isOpen]);
   return (
     <>
-      <SfButton type="button" onClick={open}>
+      <SfButton ref={buttonRef} type="button" onClick={open}>
         To Checkout
       </SfButton>
 
