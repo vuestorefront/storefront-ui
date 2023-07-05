@@ -13,6 +13,7 @@ export default class SfTextareaBaseObject extends BasePage {
 
   hasReadonly() {
     this.container.should('have.attr', 'readonly');
+    return this;
   }
 
   hasPlaceholder() {
@@ -22,5 +23,6 @@ export default class SfTextareaBaseObject extends BasePage {
 
   hasValue(value: string) {
     this.container.should('have.value', value);
+    return this;
   }
 }

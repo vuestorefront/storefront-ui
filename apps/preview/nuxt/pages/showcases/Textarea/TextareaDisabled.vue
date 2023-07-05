@@ -1,6 +1,6 @@
 <template>
   <label>
-    <span class="text-sm font-medium cursor-not-allowed text-disabled-900">Description</span>
+    <span class="typography-text-sm font-medium cursor-not-allowed text-disabled-900">Description</span>
     <SfTextarea
       disabled
       placeholder="Write something about yourself..."
@@ -9,7 +9,7 @@
   </label>
   <div class="flex justify-between">
     <div>
-      <p class="text-xs text-disabled-500 mt-0.5">Do not include personal or financial information.</p>
+      <p class="typography-text-xs text-disabled-500 mt-0.5">Do not include personal or financial information.</p>
     </div>
   </div>
 </template>

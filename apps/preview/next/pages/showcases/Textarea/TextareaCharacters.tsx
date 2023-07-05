@@ -36,15 +36,22 @@ export default function TextareaWithLimit() {
       </label>
       <div className="flex justify-between">
         <div>
-          {invalid && !disabled && <p className="text-sm text-negative-700 font-medium mt-0.5">{errorText}</p>}
+          {invalid && !disabled && (
+            <p className="typography-text-sm text-negative-700 font-medium mt-0.5">{errorText}</p>
+          )}
           {helpText && (
-            <p className={classNames('text-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500')}>
+            <p className={classNames('typography-text-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500')}>
               {helpText}
             </p>
           )}
         </div>
         {characterLimit && !readonly ? (
-          <p className={classNames('text-xs mt-0.5', disabled ? 'text-disabled-500' : getCharacterLimitClass())}>
+          <p
+            className={classNames(
+              'typography-text-xs mt-0.5',
+              disabled ? 'text-disabled-500' : getCharacterLimitClass(),
+            )}
+          >
             {charsCount}
           </p>
         ) : null}

@@ -5,8 +5,8 @@
   </label>
   <div class="flex justify-between">
     <div>
-      <p class="text-sm text-negative-700 font-medium mt-0.5">The field cannot be empty</p>
-      <p class="text-xs text-neutral-500 mt-0.5">Do not include personal or financial information.</p>
+      <p class="typography-text-sm text-negative-700 font-medium mt-0.5">The field cannot be empty</p>
+      <p class="typography-text-xs text-neutral-500 mt-0.5">Do not include personal or financial information.</p>
     </div>
   </div>
 </template>

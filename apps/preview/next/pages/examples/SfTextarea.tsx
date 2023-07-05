@@ -94,7 +94,7 @@ function Example() {
     <ComponentExample controls={{ state, controls }}>
       <label>
         <span
-          className={classNames('text-sm font-medium', {
+          className={classNames('typography-text-sm font-medium', {
             'cursor-not-allowed text-disabled-500': state.get.disabled,
           })}
         >
@@ -115,21 +115,28 @@ function Example() {
       <div className="flex justify-between">
         <div>
           {state.get.invalid && !state.get.disabled && (
-            <p className="text-sm text-negative-700 font-medium mt-0.5">{state.get.errorText}</p>
+            <p className="typography-text-sm text-negative-700 font-medium mt-0.5">{state.get.errorText}</p>
           )}
           {state.get.helpText && (
-            <p className={classNames('text-xs mt-0.5', state.get.disabled ? 'text-disabled-500' : 'text-neutral-500')}>
+            <p
+              className={classNames(
+                'typography-text-xs mt-0.5',
+                state.get.disabled ? 'text-disabled-500' : 'text-neutral-500',
+              )}
+            >
               {state.get.helpText}
             </p>
           )}
           {state.get.requiredText && state.get.required ? (
-            <p className="mt-1 text-sm font-normal text-neutral-500 before:content-['*']">{state.get.requiredText}</p>
+            <p className="mt-1 typography-text-sm font-normal text-neutral-500 before:content-['*']">
+              {state.get.requiredText}
+            </p>
           ) : null}
         </div>
         {state.get.characterLimit && !state.get.readonly ? (
           <p
             className={classNames(
-              'text-xs mt-0.5',
+              'typography-text-xs mt-0.5',
               state.get.disabled ? 'text-disabled-500' : getCharacterLimitClass(),
             )}
           >

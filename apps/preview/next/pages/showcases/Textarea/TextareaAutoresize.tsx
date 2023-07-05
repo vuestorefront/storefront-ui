@@ -14,12 +14,14 @@ export default function TextareaAutoresize() {
   return (
     <>
       <label>
-        <span className="text-sm font-medium">Description</span>
+        <span className="typography-text-sm font-medium">Description</span>
         <SfTextarea ref={textareaRef} className="w-full h-max-[500px]" size="sm" aria-label="Label size sm" />
       </label>
       <div className="flex justify-between">
         <div>
-          <p className="text-xs text-neutral-500 mt-0.5">Do not include personal or financial information.</p>
+          <p className="typography-text-xs text-neutral-500 mt-0.5">
+            Do not include personal or financial information.
+          </p>
         </div>
       </div>
     </>

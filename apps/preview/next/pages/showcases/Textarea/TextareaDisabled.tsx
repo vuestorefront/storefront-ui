@@ -7,7 +7,7 @@ export default function DisabledTextareaDemo() {
   return (
     <>
       <label>
-        <span className="text-sm font-medium cursor-not-allowed text-disabled-900">Description</span>
+        <span className="typography-text-sm font-medium cursor-not-allowed text-disabled-900">Description</span>
         <SfTextarea
           disabled
           placeholder="Write something about yourself..."
@@ -16,7 +16,9 @@ export default function DisabledTextareaDemo() {
       </label>
       <div className="flex justify-between">
         <div>
-          <p className="text-xs text-disabled-500 mt-0.5">Do not include personal or financial information.</p>
+          <p className="typography-text-xs text-disabled-500 mt-0.5">
+            Do not include personal or financial information.
+          </p>
         </div>
       </div>
     </>

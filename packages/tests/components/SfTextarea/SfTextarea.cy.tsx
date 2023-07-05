@@ -69,8 +69,7 @@ describe('SfTextarea', () => {
     it(`should render as disabled`, () => {
       initializeComponent();
 
-      page().isDisabled();
-      page().makeSnapshot();
+      page().isDisabled().makeSnapshot();
     });
   });
 
@@ -92,8 +91,7 @@ describe('SfTextarea', () => {
     it(`should render as readonly textarea`, () => {
       initializeComponent();
 
-      page().hasReadonly();
-      page().makeSnapshot();
+      page().hasReadonly().makeSnapshot();
     });
   });
 
@@ -104,8 +102,7 @@ describe('SfTextarea', () => {
     it(`should render proper value`, () => {
       initializeComponent();
 
-      page().hasValue(value);
-      page().makeSnapshot();
+      page().hasValue(value).makeSnapshot();
     });
   });
 });
