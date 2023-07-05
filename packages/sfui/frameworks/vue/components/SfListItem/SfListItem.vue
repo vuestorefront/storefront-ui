@@ -44,7 +44,7 @@ defineProps({
     <span v-if="$slots.prefix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
       <slot name="prefix" />
     </span>
-    <span class="w-full min-w-0">
+    <span class="flex flex-col w-full min-w-0">
       <slot />
     </span>
     <span v-if="$slots.suffix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
