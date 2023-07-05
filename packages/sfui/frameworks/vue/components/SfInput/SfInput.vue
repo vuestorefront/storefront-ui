@@ -10,7 +10,7 @@ const getSizeClasses = {
 </script>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue';
+import type { PropType, ConcreteComponent } from 'vue';
 import { computed, ref, toRefs } from 'vue';
 import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
 
@@ -20,7 +20,7 @@ const props = defineProps({
     default: '',
   },
   wrapperTag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: 'span',
   },
   size: {
