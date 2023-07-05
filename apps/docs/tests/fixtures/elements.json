@@ -25,6 +25,11 @@
     "className": "accordionitem"
   },
   {
+    "url": "/components/badge.html",
+    "name": "Badge ",
+    "className": "badge"
+  },
+  {
     "url": "/components/button.html",
     "name": "Button",
     "className": "button"
@@ -108,6 +113,11 @@
     "url": "/components/rating.html",
     "name": "Rating",
     "className": "rating"
+  },
+  {
+    "url": "/components/ratingbutton.html",
+    "name": "RatingButton ",
+    "className": "ratingbutton"
   },
   {
     "url": "/components/scrollable.html",
@@ -195,10 +205,14 @@
     "className": "card"
   },
   {
- 
     "url": "/blocks/Checkout.html",
     "name": "Checkout",
     "className": "checkout"
+  },
+  {
+    "url": "/blocks/Combobox.html",
+    "name": "Combobox ",
+    "className": "combobox"
   },
   {
     "url": "/blocks/Filters.html",
@@ -209,6 +223,11 @@
     "url": "/blocks/Footer.html",
     "name": "Footer",
     "className": "footer"
+  },
+  {
+    "url": "/blocks/FormFields.html",
+    "name": "Form fields ",
+    "className": "form-fields"
   },
   {
     "url": "/blocks/Gallery.html",
@@ -251,9 +270,19 @@
     "className": "productcard"
   },
   {
+    "url": "/blocks/ProductSlider.html",
+    "name": "ProductSlider ",
+    "className": "productslider"
+  },
+  {
     "url": "/blocks/QuantitySelector.html",
     "name": "QuantitySelector",
     "className": "quantityselector"
+  },
+  {
+    "url": "/blocks/RatingForms.html",
+    "name": "Rating Forms",
+    "className": "rating-forms"
   },
   {
     "url": "/blocks/Review.html",

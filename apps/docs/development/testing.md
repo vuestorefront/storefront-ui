@@ -9,10 +9,30 @@ We run every test file against 2 different framework environments:
 
 ## Running tests
 
+### Component testing of vue, react components
+
 In the root directory of this repo run `yarn test` command to spin off 2 Cypress instances in parallel.
 
 For each of Cypress instance you need to choose different browser runner (e.g Edge and Chrome). That's because of the because of [Cypress bug](https://github.com/cypress-io/cypress/issues/5613).
 In opposition to running them simultaneously, framework test suites can also be run one-by-one. To do that navigate to either `apps/preview/next` (for `React` test suite) or `apps/preview/vue` (for `Vue` test suite) and run `yarn test` command.
+
+### E2E testing of documentation
+
+In order to run whole process:
+
+1. run development Nuxtjs so it would be available through http://localhost:3001
+2. run development Nextjs so it would be available through http://localhost:3002
+3. run documentation so it would be accessible through http://localhost:8080/v2
+4. wait for all above
+5. run cypress
+
+We can simply use script:
+
+`yarn test-e2e:docs`
+
+However if we want to run every part of pipeline manually we can run:
+
+`yarn dev` in one terminal, after that `yarn dev:docs` in second terminal and lastly `yarn test-docs` in third terminal.
 
 ## How to write tests
 
