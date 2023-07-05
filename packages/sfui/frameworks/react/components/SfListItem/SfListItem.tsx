@@ -42,7 +42,7 @@ const SfListItem = polymorphicForwardRef<typeof defaultListItemTag, SfListItemPr
       {...attributes}
     >
       {slotPrefix && <span className={disabled ? 'text-disabled-500' : 'text-neutral-500'}>{slotPrefix}</span>}
-      <span className="flex flex-col w-full min-w-0">{children}</span>
+      <span className="w-full min-w-0">{children}</span>
       {slotSuffix && <span className={disabled ? 'text-disabled-500' : 'text-neutral-500'}>{slotSuffix}</span>}
     </Tag>
   );
