@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { computed, toRefs, type PropType, reactive } from 'vue';
+import { computed, toRefs, type PropType, type ConcreteComponent, reactive } from 'vue';
 import {
   ClassProp,
   SfScrollableDirection,
@@ -23,7 +23,7 @@ import {
 
 const props = defineProps({
   tag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: 'div',
   },
   direction: {
