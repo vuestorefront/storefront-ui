@@ -15,7 +15,10 @@ const reactMenu = [
   {
     title: 'Getting Started',
     collapsable: true,
-    children: [['/react/getting-started', 'Installation']],
+    children: [
+      ['/react/getting-started', 'Installation'],
+      ['/react/browser-support', 'Browser support'],
+    ],
   },
   {
     title: 'Customization',
@@ -59,7 +62,10 @@ const vueMenu = [
   {
     title: 'Getting Started',
     collapsable: true,
-    children: [['/vue/getting-started', 'Installation']],
+    children: [
+      ['/vue/getting-started', 'Installation'],
+      ['/vue/browser-support', 'Browser support'],
+    ],
   },
   {
     title: 'Customization',

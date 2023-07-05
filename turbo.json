@@ -136,6 +136,10 @@
         "build:tailwind-config"
       ],
       "cache": false
+    },
+    "docs-test": {
+      "dependsOn": [],
+      "cache": false
     }
   }
 }
