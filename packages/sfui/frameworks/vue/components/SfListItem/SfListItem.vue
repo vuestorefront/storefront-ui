@@ -1,4 +1,4 @@
-<script lang="ts">
+<script lang="ts"> 
 export const sizeClasses = {
   [SfListItemSize.sm]: 'text-sm px-4 py-1',
   [SfListItemSize.base]: 'px-4 py-2',
