@@ -81,8 +81,8 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
     return this;
   }
 
-  makeSnapshot(name?: string, opts?: Parameters<typeof cy.percySnapshot>[1]) {
-    cy.percySnapshot(name, opts);
+  makeSnapshot(config?: Cypress.MatchImageOptions) {
+    cy.matchImage(config);
     return this;
   }
 

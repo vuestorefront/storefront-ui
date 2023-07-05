@@ -1,4 +1,3 @@
-/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { SfRatingButtonSize } from '@storefront-ui/shared';
 import { type SfRatingButtonProps } from '@storefront-ui/react';
