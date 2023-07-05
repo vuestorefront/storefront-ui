@@ -1,10 +1,9 @@
 <template>
   <fieldset>
-    <label v-for="{ label, value } in options" :key="value" class="flex items-center my-4 cursor-pointer"
-      ><SfRadio v-model="placement" class="flex items-center" name="placement" :value="value" /><span class="ml-2">{{
-        label
-      }}</span></label
-    >
+    <label v-for="{ label, value } in options" :key="value" class="flex items-center my-4 cursor-pointer">
+      <SfRadio v-model="placement" class="flex items-center" name="placement" :value="value" />
+      <span class="ml-2">{{ label }}</span>
+    </label>
   </fieldset>
   <SfButton type="button" @click="open = true"> Open Drawer </SfButton>
 
