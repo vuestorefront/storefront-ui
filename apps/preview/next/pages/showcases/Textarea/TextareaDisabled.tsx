@@ -14,11 +14,9 @@ export default function DisabledTextareaDemo() {
           className="w-full !bg-disabled-100 !ring-disabled-300 !ring-1"
         />
       </label>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-0.5">
         <div>
-          <p className="typography-text-xs text-disabled-500 mt-0.5">
-            Do not include personal or financial information.
-          </p>
+          <p className="typography-text-xs text-disabled-500">Do not include personal or financial information.</p>
         </div>
       </div>
     </>

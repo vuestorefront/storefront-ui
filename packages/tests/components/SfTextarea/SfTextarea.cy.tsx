@@ -1,4 +1,3 @@
-/// <reference path="../../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { SfTextareaSize } from '@storefront-ui/vue';
 import { mount, useComponent } from '../../utils/mount';
@@ -77,10 +76,10 @@ describe('SfTextarea', () => {
     before(() => {
       placeholder = 'Select value';
     });
-    it('should render with no placeholder', () => {
+    it('should render with set placeholder value', () => {
       initializeComponent();
 
-      page().hasPlaceholder().makeSnapshot();
+      page().hasPlaceholderValue(placeholder).makeSnapshot();
     });
   });
 

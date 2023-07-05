@@ -9,7 +9,9 @@ import { useEffect, useRef } from 'react';
 export default function TextareaAutoresize() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
   useEffect(() => {
-    attach(textareaRef.current as HTMLTextAreaElement);
+    if (textareaRef.current) {
+      attach(textareaRef.current);
+    }
   }, []);
   return (
     <>
@@ -17,11 +19,9 @@ export default function TextareaAutoresize() {
         <span className="typography-text-sm font-medium">Description</span>
         <SfTextarea ref={textareaRef} className="w-full h-max-[500px]" size="sm" aria-label="Label size sm" />
       </label>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-0.5">
         <div>
-          <p className="typography-text-xs text-neutral-500 mt-0.5">
-            Do not include personal or financial information.
-          </p>
+          <p className="typography-text-xs text-neutral-500">Do not include personal or financial information.</p>
         </div>
       </div>
     </>

@@ -7,9 +7,9 @@
       class="w-full !bg-disabled-100 !ring-disabled-300 !ring-1"
     />
   </label>
-  <div class="flex justify-between">
+  <div class="flex justify-between mt-0.5">
     <div>
-      <p class="typography-text-xs text-disabled-500 mt-0.5">Do not include personal or financial information.</p>
+      <p class="typography-text-xs text-disabled-500">Do not include personal or financial information.</p>
     </div>
   </div>
 </template>

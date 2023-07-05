@@ -30,28 +30,25 @@ export default function TextareaWithLimit() {
         <SfTextarea
           value={value}
           placeholder="Write something about yourself..."
+          invalid={invalid}
+          disabled={disabled}
           onChange={onChange}
-          className="w-full"
+          className="w-full mt-0.5"
         />
       </label>
-      <div className="flex justify-between">
+      <div className="flex justify-between mt-0.5">
         <div>
           {invalid && !disabled && (
             <p className="typography-text-sm text-negative-700 font-medium mt-0.5">{errorText}</p>
           )}
           {helpText && (
-            <p className={classNames('typography-text-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500')}>
+            <p className={classNames('typography-text-xs', disabled ? 'text-disabled-500' : 'text-neutral-500')}>
               {helpText}
             </p>
           )}
         </div>
         {characterLimit && !readonly ? (
-          <p
-            className={classNames(
-              'typography-text-xs mt-0.5',
-              disabled ? 'text-disabled-500' : getCharacterLimitClass(),
-            )}
-          >
+          <p className={classNames('typography-text-xs', disabled ? 'text-disabled-500' : getCharacterLimitClass())}>
             {charsCount}
           </p>
         ) : null}

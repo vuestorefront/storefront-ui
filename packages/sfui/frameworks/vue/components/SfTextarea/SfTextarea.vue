@@ -41,11 +41,11 @@ const textareaValue = computed({
   <textarea
     v-model="textareaValue"
     :class="[
-      'flex items-center px-4 bg-white rounded-md text-neutral-900 hover:ring-primary-800 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
+      'px-4 bg-white rounded-md text-neutral-900 hover:ring-primary-800 focus:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2',
       {
         'ring-2 ring-negative-700': invalid,
         'ring-1 ring-neutral-200': !invalid,
-        'focus-within:outline focus-within:outline-offset': isFocusVisible,
+        'focus:outline focus:outline-offset': isFocusVisible,
       },
       getSizeClasses[size],
     ]"

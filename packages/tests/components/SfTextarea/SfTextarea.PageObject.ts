@@ -16,8 +16,8 @@ export default class SfTextareaBaseObject extends BasePage {
     return this;
   }
 
-  hasPlaceholder() {
-    this.container.should('have.attr', 'placeholder');
+  hasPlaceholderValue(value: string) {
+    this.container.should('have.attr', 'placeholder').and('equal', value);
     return this;
   }
 

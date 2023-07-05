@@ -1,6 +1,6 @@
 import { SfTextarea, SfTextareaSize } from '@storefront-ui/react';
 import classNames from 'classnames';
-import { ChangeEvent } from 'react';
+import type { ChangeEvent } from 'react';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
