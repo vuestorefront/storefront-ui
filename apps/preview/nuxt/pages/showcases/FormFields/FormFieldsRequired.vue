@@ -63,7 +63,7 @@
           </p>
         </label>
         <span class="mt-4 md:mt-0 grow">
-          <label>
+          <label> 
             <span class="typography-label-sm font-medium"> Phone * </span>
             <SfInput
               v-model="phoneNumberModelValue"
