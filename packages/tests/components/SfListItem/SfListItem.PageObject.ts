@@ -13,10 +13,10 @@ export default class SfListItemObject extends BasePage {
       cy.wrap(el)
         .children()
         .each((child) => {
-          const childTagName = child[0].tagName; 
-          expect(childTagName).to.equal(tagName)
+          const childTagName = child[0].tagName;
+          expect(childTagName).to.equal(tagName);
         });
-    })
+    });
     return this;
   }
 
