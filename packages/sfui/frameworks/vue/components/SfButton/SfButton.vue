@@ -10,7 +10,7 @@ export const variantClasses = {
 </script>
 
 <script lang="ts" setup>
-import { type PropType, ConcreteComponent, computed, toRefs } from 'vue';
+import { type PropType, type ConcreteComponent, computed, toRefs } from 'vue';
 import { useAttrsRef, SfButtonSize, SfButtonVariant } from '@storefront-ui/vue';
 
 const props = defineProps({

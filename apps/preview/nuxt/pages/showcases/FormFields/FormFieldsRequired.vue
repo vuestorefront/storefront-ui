@@ -45,10 +45,9 @@
       </label>
       <fieldset class="flex flex-wrap my-4">
         <legend class="hidden">Phone number</legend>
-        <label class="typography-label-sm font-medium flex-[100%]" for="select-area-code">Phone *</label>
-        <span class="w-full md:w-[122px] md:mr-4">
+        <label class="w-full md:w-[122px] md:mr-4">
+          <span class="typography-label-sm font-medium"> Code * </span>
           <SfSelect
-            id="select-area-code"
             v-model="areaCode"
             required
             placeholder="--"
@@ -62,24 +61,24 @@
           <p v-if="areaCodeIsInvalid" class="mt-0.5 text-negative-700 typography-text-sm font-medium">
             No option selected
           </p>
-        </span>
+        </label>
         <span class="mt-4 md:mt-0 grow">
-          <SfInput
-            id="phone-number"
-            v-model="phoneNumberModelValue"
-            type="tel"
-            required
-            :invalid="phoneNumberIsInvalid"
-            placeholder="eg. 123 456 7890"
-            wrapper-class="w-full"
-            class="placeholder:text-neutral-500"
-            @update:model-value="phoneNumberIsInvalid = !phoneNumberModelValue"
-          />
-          <p v-if="phoneNumberIsInvalid" class="mt-0.5 text-negative-700 typography-text-sm font-medium">
-            The field cannot be empty
-          </p>
+          <label>
+            <span class="typography-label-sm font-medium"> Phone * </span>
+            <SfInput
+              v-model="phoneNumberModelValue"
+              type="tel"
+              required
+              :invalid="phoneNumberIsInvalid"
+              placeholder="eg. 123 456 7890"
+              class="placeholder:text-neutral-500"
+              @update:model-value="phoneNumberIsInvalid = !phoneNumberModelValue"
+            />
+            <p v-if="phoneNumberIsInvalid" class="mt-0.5 text-negative-700 typography-text-sm font-medium">
+              The field cannot be empty
+            </p>
+          </label>
         </span>
-        <label for="phone-number" class="hidden"> Phone number </label>
       </fieldset>
       <div ref="referenceRef" class="relative">
         <label :class="['font-medium typography-label-sm', { 'text-disabled-900': isDisabled }]" :for="id">

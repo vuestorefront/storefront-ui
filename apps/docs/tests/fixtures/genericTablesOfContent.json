@@ -7,6 +7,12 @@
         "table3":"#playground"
       },
       {
+        "url": "/components/badge.html",
+        "table1":"#examples",
+        "table2":"#accessibility-notes",
+        "table3":"#playground"
+      },
+      {
         "url": "/components/button.html",
         "table1":"#examples",
         "table2":"#accessibility-notes",
@@ -104,6 +110,12 @@
       },
       {
         "url": "/components/rating.html",
+        "table1":"#examples",
+        "table2":"#accessibility-notes",
+        "table3":"#playground"
+      },
+      {
+        "url": "/components/ratingbutton.html",
         "table1":"#examples",
         "table2":"#accessibility-notes",
         "table3":"#playground"
