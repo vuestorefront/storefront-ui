@@ -13,6 +13,7 @@ export * from './SfProgress';
 export * from './SfRating';
 export * from './SfRatingButton';
 export * from './SfSelect';
+export * from './SfTextarea';
 export * from './SfThumbnail';
 
 export * from './usePopover';

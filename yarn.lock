@@ -2514,6 +2514,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@frsource/autoresize-textarea@npm:^1.3.76":
+  version: 1.3.76
+  resolution: "@frsource/autoresize-textarea@npm:1.3.76"
+  checksum: 55217f8a2790cbe3cb1403b9057423414c3b25dbea949b5777f17da4cbf16788752c6c587e24699627d0cc07b2de8d79857cda1150577aaa0eab5713a3775333
+  languageName: node
+  linkType: hard
+
 "@frsource/base64@npm:1.0.17":
   version: 1.0.17
   resolution: "@frsource/base64@npm:1.0.17"
@@ -3659,6 +3666,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/preview-next@workspace:apps/preview/next"
   dependencies:
+    "@frsource/autoresize-textarea": ^1.3.76
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/example-style": "workspace:*"
     "@storefront-ui/preview-shared": "workspace:*"
@@ -3693,6 +3701,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/preview-nuxt@workspace:apps/preview/nuxt"
   dependencies:
+    "@frsource/autoresize-textarea": ^1.3.76
     "@nuxtjs/eslint-config-typescript": ^12.0.0
     "@nuxtjs/tailwindcss": ^6.6.5
     "@storefront-ui/eslint-config": "workspace:*"
