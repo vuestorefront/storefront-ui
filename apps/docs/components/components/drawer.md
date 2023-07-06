@@ -36,7 +36,7 @@ By default, `SfDrawer` will <!-- vue -->emit `update:modelValue`<!-- end vue -->
 
 You can wrap `SfDrawer` in a <!-- vue -->[`<transition>`](https://vuejs.org/guide/built-ins/transition.html#the-transition-component)<!-- end vue --><!-- react -->[`<CSSTransition>`](https://reactcommunity.org/react-transition-group/css-transition)<!-- end react --> component to add enter/exit animations. Additionally, you can use the `useTrapFocus` <!-- vue -->composable<!-- end vue --><!-- react -->hook<!-- end react --> for better control of focusable elements inside.
 
-<Showcase showcase-name="Drawer/TransitionAndCloseButton" style="min-height: 400px;">
+<Showcase showcase-name="Drawer/TransitionAndCloseButton" style="min-height: 400px;" no-scale>
 
 <!-- vue -->
 
