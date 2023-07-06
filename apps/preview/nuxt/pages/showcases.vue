@@ -53,7 +53,13 @@
       </ul>
     </div>
     <div class="e-page">
-      <div class="e-page-component" :class="[arePaddingsDisabled && 'e-page-component--no-paddings', areScaleDisabled && 'e-page-component--no-scale']">
+      <div
+        class="e-page-component"
+        :class="[
+          arePaddingsDisabled && 'e-page-component--no-paddings',
+          areScaleDisabled && 'e-page-component--no-scale',
+        ]"
+      >
         <NuxtPage />
       </div>
     </div>

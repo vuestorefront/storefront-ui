@@ -177,7 +177,12 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
         </div>
       ) : null}
       <div className="e-page">
-        <div className={classNames('e-page-component', { 'e-page-component--no-paddings': noPaddings, 'e-page-component--no-scale': noScale })}>
+        <div
+          className={classNames('e-page-component', {
+            'e-page-component--no-paddings': noPaddings,
+            'e-page-component--no-scale': noScale,
+          })}
+        >
           {children}
         </div>
       </div>
