@@ -10,8 +10,8 @@ import { SfPopoverPlacement, SfPopoverStrategy, type SfPopoverBasePlacement } fr
 
 export { SfPopoverPlacement, SfPopoverStrategy, type SfPopoverBasePlacement };
 
-export interface UsePopoverOptions<T extends ReferenceElement = ReferenceElement> {
-  referenceRef?: Readonly<Ref<MaybeElement<T>>>;
+export interface UsePopoverOptions<ReferenceEl extends ReferenceElement = ReferenceElement> {
+  referenceRef?: Readonly<Ref<MaybeElement<ReferenceEl>>>;
   floatingRef?: Readonly<Ref<MaybeElement<FloatingElement>>>;
   isOpen?: UseFloatingOptions['open'];
   placement?: MaybeReadonlyRef<`${SfPopoverPlacement}` | undefined>;

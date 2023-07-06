@@ -1,6 +1,5 @@
 /// <reference path="../../../node_modules/cypress/types/index.d.ts" />
-
-export class BasePage<T extends HTMLElement = HTMLElement> {
+export class BasePage<Element extends HTMLElement = HTMLElement> {
   protected containerTestId: string;
 
   constructor(containerTestId: string) {
@@ -8,7 +7,11 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
 
     // Log page object method name in cypress test, for easier readibility and debugging
     return new Proxy(this, {
-      get<T extends Parameters<typeof Reflect.get>[0]>(target: T, p: string | symbol, ...args: unknown[]) {
+      get<ProxyGet extends Parameters<typeof Reflect.get>[0]>(
+        target: ProxyGet,
+        p: string | symbol,
+        ...args: unknown[]
+      ) {
         const methodName = String(p);
         if (RegExp(/(^has|^does|^is|click|type)/i).exec(methodName)) {
           const className = target.constructor.name.replace('PageObject', '');
@@ -20,7 +23,9 @@ export class BasePage<T extends HTMLElement = HTMLElement> {
   }
 
   protected get container() {
-    return (cy.get<T>(`[data-testid="${this.containerTestId}"]`) || cy.get('body')) as Cypress.Chainable<JQuery<T>>;
+    return (cy.get<Element>(`[data-testid="${this.containerTestId}"]`) || cy.get('body')) as Cypress.Chainable<
+      JQuery<Element>
+    >;
   }
 
   protected findTestElement(containerTestId: string, container = this.container) {

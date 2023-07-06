@@ -61,6 +61,7 @@
     "@commitlint/config-conventional": "^17.0.0",
     "@frsource/frs-replace": "^4.1.1",
     "@storefront-ui/typescript-config": "workspace:*",
+    "@vue-storefront/prettier-config": "^2.0.0-rc.1",
     "babel-cli": "^6.26.0",
     "babel-preset-node": "^5.1.1",
     "commitizen": "^4.2.5",
