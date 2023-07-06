@@ -10,7 +10,7 @@ export default function ModalTransition() {
   const descriptionId = useId();
   const modalRef = useRef<HTMLElement>(null);
   const backdropRef = useRef<HTMLDivElement>(null);
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   useEffect(() => (isOpen ? buttonRef.current?.blur() : buttonRef.current?.focus()), [isOpen]);
 
   return (

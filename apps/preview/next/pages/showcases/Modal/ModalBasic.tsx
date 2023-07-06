@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 
 export default function ModalDemo() {
   const { isOpen, open, close } = useDisclosure({ initialValue: false });
-  const buttonRef = useRef(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => (isOpen ? buttonRef.current?.blur() : buttonRef.current?.focus()), [isOpen]);
   return (
