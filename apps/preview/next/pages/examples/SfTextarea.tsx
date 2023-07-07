@@ -109,7 +109,9 @@ function Example() {
           disabled={state.get.disabled}
           readOnly={state.get.readonly}
           onChange={onChange}
-          className="w-full"
+          className={classNames('w-full', {
+            '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': state.get.disabled || state.get.readonly,
+          })}
         />
       </label>
       <div className="flex justify-between">
