@@ -13,6 +13,10 @@ export default {
       type: String,
       default: undefined,
     },
+    noScale: {
+      type: Boolean,
+      default: false
+    },
     noPaddings: {
       type: Boolean,
       default: false
@@ -30,8 +34,9 @@ export default {
   mounted: function() {
     const iframeElement = this.$refs.iframeRef;
     window.addEventListener('message', (e) => {
-      if(e.data === 'loaded' && this.noPaddings) {
-        iframeElement?.contentWindow?.postMessage('no-paddings', "*")
+      if (e.data === 'loaded') {
+        if (this.noPaddings) iframeElement?.contentWindow?.postMessage('no-paddings', "*")
+        else if (this.noScale) iframeElement?.contentWindow?.postMessage('no-scale', "*"); 
       }
     }, false);
   },

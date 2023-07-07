@@ -53,7 +53,13 @@
       </ul>
     </div>
     <div class="e-page">
-      <div class="e-page-component" :class="[arePaddingsDisabled && 'e-page-component--no-paddings']">
+      <div
+        class="e-page-component"
+        :class="[
+          arePaddingsDisabled && 'e-page-component--no-paddings',
+          areScaleDisabled && 'e-page-component--no-scale',
+        ]"
+      >
         <NuxtPage />
       </div>
     </div>
@@ -108,6 +114,7 @@ const groups = reactive(
 const isOpen = ref(true);
 const isNotIframe = ref(false);
 const arePaddingsDisabled = ref(false);
+const areScaleDisabled = ref(false);
 const searchModelValue = ref('');
 
 const findGroup = (groups, currentRouteHref) =>
@@ -155,6 +162,7 @@ onBeforeMount(() => {
       'message',
       (e) => {
         if (e.data === 'no-paddings') arePaddingsDisabled.value = true;
+        else if (e.data === 'no-scale') areScaleDisabled.value = true;
       },
       false,
     );

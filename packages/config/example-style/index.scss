@@ -22,6 +22,10 @@
         &--no-paddings {
             padding: 0;
         }
+
+        &--no-scale {
+            transform: none;
+        }
     }
 
     &-examples {
