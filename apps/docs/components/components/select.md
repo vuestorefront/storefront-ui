@@ -4,9 +4,13 @@ hideBreadcrumbs: true
 ---
 # Select
 
-::: slot usage
+:::::: slot usage
 
 `SfSelect` is a wrapper around the native `<select>` element. It provides additional styles for different states of `<select>` element.
+
+::: read-more
+If you need to make this field required, it is crucial to communicate this intention clearly to your end users. You can find more information about [required form fields in our guide here](../blocks/FormFields.html).
+:::
 
 ## Examples
 
@@ -67,7 +71,7 @@ Since this component uses the native `<select>` element, it inherits its accessi
 
 <Generate />
 
-:::
+::::::
 
 ::: slot api
 
