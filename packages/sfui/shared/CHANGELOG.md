@@ -1,5 +1,11 @@
 # @storefront-ui/shared
 
+## 2.5.0
+
+### Minor Changes
+
+- [#2880](https://github.com/vuestorefront/storefront-ui/pull/2880) [`aa9c2f328`](https://github.com/vuestorefront/storefront-ui/commit/aa9c2f328df419a929f06aa7b2053baef9830d60) Thanks [@AdamPawlinski](https://github.com/AdamPawlinski)! - Added textarea base component
+
 ## 2.4.1
 
 ### Patch Changes

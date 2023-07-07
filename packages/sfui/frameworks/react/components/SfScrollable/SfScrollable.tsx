@@ -34,6 +34,8 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       wrapperClassName,
       prevDisabled,
       nextDisabled,
+      buttonPrevAriaLabel = 'Previous',
+      buttonNextAriaLabel = 'Next',
       style,
       children,
       slotPreviousButton,
@@ -88,6 +90,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             size: 'lg',
             disabled: prevDisabled,
             slotPrefix: <SfIconChevronLeft />,
+            ariaLabel: buttonPrevAriaLabel,
             className: classNames(
               'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',
               classNameButton,
@@ -109,6 +112,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             size: 'lg',
             disabled: nextDisabled,
             slotPrefix: <SfIconChevronRight />,
+            ariaLabel: buttonNextAriaLabel,
             className: classNames(
               'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',
               classNameButton,

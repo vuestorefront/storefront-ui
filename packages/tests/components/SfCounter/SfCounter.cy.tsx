@@ -1,4 +1,3 @@
-/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { SfCounterSize } from '@storefront-ui/vue';
 import { mount, useComponent } from '../../utils/mount';
@@ -33,7 +32,13 @@ describe('SfCounter', () => {
     });
   };
 
-  describe('When Pill is set to true', () => {
+  it('initial state', () => {
+    initializeComponent();
+
+    page().makeSnapshot();
+  });
+
+  describe('When pill is set to true', () => {
     it('pill should be visible', () => {
       pill = true;
       initializeComponent();

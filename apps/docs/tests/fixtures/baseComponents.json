@@ -1,0 +1,77 @@
+[
+  {
+    "url": "/components/accordionitem.html"
+  },
+  {
+    "url": "/components/badge.html"
+  },
+  {
+    "url": "/components/button.html"
+  },
+  {
+    "url": "/components/checkbox.html"
+  },
+  {
+    "url": "/components/chip.html"
+  },
+  {
+    "url": "/components/counter.html"
+  },
+  {
+    "url": "/components/drawer.html"
+  },
+  {
+    "url": "/components/dropdown.html"
+  },
+  {
+    "url": "/components/iconbase.html"
+  },
+  {
+    "url": "/components/input.html"
+  },
+  {
+    "url": "/components/link.html"
+  },
+  {
+    "url": "/components/listitem.html"
+  },
+  {
+    "url": "/components/loadercircular.html"
+  },
+  {
+    "url": "/components/loaderlinear.html"
+  },
+  {
+    "url": "/components/modal.html"
+  },
+  {
+    "url": "/components/progresscircular.html"
+  },
+  {
+    "url": "/components/progresslinear.html"
+  },
+  {
+    "url": "/components/radio.html"
+  },
+  {
+    "url": "/components/rating.html"
+  },
+  {
+    "url": "/components/ratingbutton.html"
+  },
+  {
+    "url": "/components/scrollable.html"
+  },
+  {
+    "url": "/components/select.html"
+  },
+  {
+    "url": "/components/switch.html"
+  },
+  {
+    "url": "/components/thumbnail.html"
+  },
+  {
+    "url": "/components/tooltip.html"
+  }
+]

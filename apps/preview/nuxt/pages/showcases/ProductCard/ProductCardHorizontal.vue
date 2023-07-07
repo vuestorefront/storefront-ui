@@ -6,8 +6,8 @@
           class="w-full h-auto border rounded-md border-neutral-200"
           src="http://localhost:3100/@assets/smartwatch.png"
           alt="Smartwatch Fitness Tracker"
-          :width="176"
-          :height="176"
+          width="176"
+          height="176"
         />
       </SfLink>
       <div class="absolute top-0 left-0 text-white bg-secondary-600 py-1 pl-1.5 pr-2 typography-text-xs font-medium">

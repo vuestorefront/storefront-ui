@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, toRefs } from 'vue';
+import { ref, toRefs, type PropType, type ConcreteComponent } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import { useTrapFocus } from '@storefront-ui/vue';
 
@@ -9,7 +9,7 @@ const props = defineProps({
     default: false,
   },
   tag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: '',
   },
   disableClickAway: {

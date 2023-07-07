@@ -66,12 +66,12 @@ export default function DisplayVerticalMultiple() {
               />
               <div className="flex flex-col items-center p-4 text-center md:p-10">
                 <p className="mb-2 font-bold tracking-widest uppercase typography-headline-6">{subtitle}</p>
-                <p className="mb-4 font-bold typography-headline-2">{title}</p>
+                <p className="mb-4 font-bold typography-display-2">{title}</p>
                 <p className="mb-4 typography-text-lg">{description}</p>
                 <SfButton className="font-semibold !bg-neutral-900">{callToAction}</SfButton>
               </div>
               <div className="flex items-center w-full">
-                <img src={image} alt={title} width="100%" height="auto" />
+                <img src={image} alt={title} className="w-full" />
               </div>
             </div>
           ),

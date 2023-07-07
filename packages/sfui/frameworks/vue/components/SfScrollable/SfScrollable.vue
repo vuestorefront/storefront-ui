@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { computed, toRefs, type PropType, reactive } from 'vue';
+import { computed, toRefs, type PropType, type ConcreteComponent, reactive } from 'vue';
 import {
   ClassProp,
   SfScrollableDirection,
@@ -23,7 +23,7 @@ import {
 
 const props = defineProps({
   tag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: 'div',
   },
   direction: {
@@ -58,6 +58,14 @@ const props = defineProps({
   isActiveIndexCentered: {
     type: Boolean,
     default: false,
+  },
+  buttonPrevAriaLabel: {
+    type: String,
+    default: 'Previous',
+  },
+  buttonNextAriaLabel: {
+    type: String,
+    default: 'Next',
   },
 });
 const emit = defineEmits<{
@@ -112,6 +120,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       ]"
       v-bind="getPrevButtonProps"
       :disabled="prevDisabled"
+      :aria-label="buttonPrevAriaLabel"
     >
       <SfIconChevronLeft />
     </SfButton>
@@ -150,6 +159,7 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       ]"
       v-bind="getNextButtonProps"
       :disabled="nextDisabled"
+      :aria-label="buttonNextAriaLabel"
     >
       <SfIconChevronRight />
     </SfButton>

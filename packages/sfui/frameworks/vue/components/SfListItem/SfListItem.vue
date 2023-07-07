@@ -7,7 +7,7 @@ export const sizeClasses = {
 </script>
 
 <script setup lang="ts">
-import { type PropType } from 'vue';
+import { type PropType, type ConcreteComponent } from 'vue';
 import { SfListItemSize } from '@storefront-ui/vue';
 
 defineProps({
@@ -24,7 +24,7 @@ defineProps({
     default: false,
   },
   tag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: undefined,
   },
 });

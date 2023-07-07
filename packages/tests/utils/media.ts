@@ -1,4 +1,3 @@
-/// <reference path="../../../node_modules/@percy/cypress/types/index.d.ts" />
 type FixtureEncoding = Parameters<(typeof cy)['fixture']>[1];
 
 export const useImage = (path: string, encoding: FixtureEncoding = 'base64') =>

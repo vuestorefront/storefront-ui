@@ -44,6 +44,8 @@
     "test:ci:vue": "yarn build:peer-next && turbo run test:ci:vue",
     "test:ci-pre:react": "yarn build:peer-next && turbo run test:ci-pre:react",
     "test:ci:react": "yarn build:peer-next && turbo run test:ci:react",
+    "test-docs": "yarn turbo run docs-test",
+    "test-e2e:docs": "concurrently \"yarn wait-on http://localhost:8080/v2 http://localhost:3001 http://localhost:3002 && yarn test-docs\" \"yarn dev\" \"yarn dev:docs\"",
     "clean": "rimraf ./**/node_modules && rm yarn.lock",
     "clean:total": "rimraf ./**/node_modules ./**/.cache ./**/.turbo && rm yarn.lock",
     "createVueIcons": "node createIcons framework=vue input=packages/sfui/assets/ output=packages/sfui/frameworks/vue/components/SfIcons/ absolutePathToIconBase=@storefront-ui/vue",
@@ -69,14 +71,15 @@
     "rimraf": "^5.0.0",
     "tailwindcss": "^3.1.8",
     "turbo": "latest",
-    "typescript": "^4.9.5"
+    "typescript": "^4.9.5",
+    "wait-on": "^7.0.1"
   },
   "engines": {
     "npm": ">=8.19.1",
     "yarn": ">=1.22.19",
     "node": ">=16.0.0 <17.0.0"
   },
-  "packageManager": "yarn@3.5.1",
+  "packageManager": "yarn@3.6.1",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog",

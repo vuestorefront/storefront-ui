@@ -1,9 +1,9 @@
 [
-  
-
   {
     "url": "/components/accordionitem.html"
-   
+  },
+  {
+    "url": "/components/badge.html"
   },
   {
     "url": "/components/button.html"
@@ -55,6 +55,9 @@
   },
   {
     "url": "/components/rating.html"
+  },
+  {
+    "url": "/components/ratingbutton.html"
   },
   {
     "url": "/components/scrollable.html"

@@ -420,12 +420,9 @@ export default function FormFields() {
         </label>
         <fieldset className="md:flex md:flex-wrap gap-x-4 md:space-x-0 my-4">
           <legend className="hidden">Phone number</legend>
-          <label className="typography-label-sm font-medium md:flex-[100%]" htmlFor="select-area-code">
-            Phone *
-          </label>
-          <span className="w-full md:w-[122px] md:mr-4">
+          <label className="w-full md:w-[122px] md:mr-4">
+            <span className="typography-label-sm font-medium"> Code * </span>
             <SfSelect
-              id="select-area-code"
               value={areaCode}
               invalid={areaCodeIsInvalid}
               placeholder="--"
@@ -442,27 +439,25 @@ export default function FormFields() {
             {areaCodeIsInvalid && (
               <p className="mt-0.5 text-negative-700 typography-text-sm font-medium">No option selected</p>
             )}
-          </span>
-          <span className="mt-4 md:mt-0 grow">
-            <label htmlFor="phone-number" className="hidden">
-              Phone number
+          </label>
+          <span className="block mt-4 md:mt-0 grow">
+            <label>
+              <span className="typography-label-sm font-medium">Phone *</span>
+              <SfInput
+                value={phoneNumber}
+                type="tel"
+                invalid={phoneNumberIsInvalid}
+                required
+                placeholder="eg. 123 456 7890"
+                className="placeholder:text-neutral-500"
+                onInput={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
+                onBlur={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
+                onChange={(event) => setPhoneNumber(event.target.value)}
+              />
+              {phoneNumberIsInvalid && (
+                <p className="mt-0.5 text-negative-700 typography-text-sm font-medium">The field cannot be empty</p>
+              )}
             </label>
-            <SfInput
-              value={phoneNumber}
-              type="tel"
-              invalid={phoneNumberIsInvalid}
-              required
-              id="phone-number"
-              placeholder="eg. 123 456 7890"
-              wrapperClassName="md:flex-grow mt-4 md:mt-0"
-              className="placeholder:text-neutral-500"
-              onInput={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
-              onBlur={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
-              onChange={(event) => setPhoneNumber(event.target.value)}
-            />
-            {phoneNumberIsInvalid && (
-              <p className="mt-0.5 text-negative-700 typography-text-sm font-medium">The field cannot be empty</p>
-            )}
           </span>
         </fieldset>
         <div ref={comboboxRefs.setReference} className="relative">

@@ -4,35 +4,35 @@
 </p>
 
 <h3 align="center">
-       Customizable typography solution for Tailwind
+  Customizable typography solution for Tailwind
 </h3>
 <p align="center">
-       Create your own typography palette that fits perfectly with the rest of design system.
+  Create your own typography palette that fits perfectly with the rest of design system.
 </p>
 
 <p align="center">
-    <img alt="GitHub Repository Stars Count" src="https://img.shields.io/github/stars/vuestorefront/storefront-ui?style=social" />
-    <a href="https://twitter.com/storefrontui">
-        <img alt="Follow Us on Twitter" src="https://img.shields.io/twitter/follow/storefrontui?style=social" />
-    </a>
-    <a href="https://www.youtube.com/c/VueStorefront">
-        <img alt="Subscribe on our Youtube Channel" src="https://img.shields.io/youtube/channel/subscribers/UCkm1F3Cglty3CE1QwKQUhhg?style=social" />
-    </a>
-    <a href="https://discord.gg/vuestorefront">
-        <img alt="Chat with us on Discord" src="https://img.shields.io/discord/770285988244750366?label=join%20discord&logo=Discord&logoColor=white" />
-    </a>
+  <img alt="GitHub Repository Stars Count" src="https://img.shields.io/github/stars/vuestorefront/storefront-ui?style=social" />
+  <a href="https://twitter.com/storefrontui">
+    <img alt="Follow Us on Twitter" src="https://img.shields.io/twitter/follow/storefrontui?style=social" />
+  </a>
+  <a href="https://www.youtube.com/c/VueStorefront">
+    <img alt="Subscribe on our Youtube Channel" src="https://img.shields.io/youtube/channel/subscribers/UCkm1F3Cglty3CE1QwKQUhhg?style=social" />
+  </a>
+  <a href="https://discord.gg/vuestorefront">
+    <img alt="Chat with us on Discord" src="https://img.shields.io/discord/770285988244750366?label=join%20discord&logo=Discord&logoColor=white" />
+  </a>
 </p>
 <p align="center">
-    <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/typography">
-    <a href="http://commitizen.github.io/cz-cli/">
-        <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
-    </a>
-    <a href="https://github.com/vuestorefront/storefront-ui">
-        <img alt="License" src="https://img.shields.io/github/license/vuestorefront/storefront-ui" />
-    </a>
-    <a href="https://github.com/vuestorefront/storefront-ui/pulls">
-        <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
-    </a>
+  <img alt="npm" src="https://img.shields.io/npm/v/@storefront-ui/typography">
+  <a href="http://commitizen.github.io/cz-cli/">
+    <img alt="Commitizen friendly" src="https://img.shields.io/badge/commitizen-friendly-brightgreen.svg" />
+  </a>
+  <a href="https://github.com/vuestorefront/storefront-ui">
+    <img alt="License" src="https://img.shields.io/github/license/vuestorefront/storefront-ui" />
+  </a>
+  <a href="https://github.com/vuestorefront/storefront-ui/pulls">
+    <img alt="PRs Welcome" src="https://img.shields.io/badge/PRs-welcome-brightgreen.svg" />
+  </a>
 </p>
 
 ---
@@ -41,31 +41,31 @@
 
 <div align="center">
 <p>
-       <img src="https://user-images.githubusercontent.com/1626923/155853691-d6d0a541-d3b9-40bf-b8f5-2d38303e9e49.png" />
+  <img src="https://user-images.githubusercontent.com/1626923/155853691-d6d0a541-d3b9-40bf-b8f5-2d38303e9e49.png" />
 </p>
-      <h2><strong>Russia’s military aggression against Ukraine.</strong></h2>
+<h2><strong>Russia’s military aggression against Ukraine.</strong></h2>
 <div align="left">
-      <h3>How can you support Ukrainian civil society?</h3>
-      All help is needed. If you are not able to help locally, by sheltering a fellow Ukrainian, you can also:
-      <ul>
-        <li>
-          Support the Ukraine Armed forces directly by sending funding to the special accounts.<br />
-          <a href="https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi" target="_blank">NBU Special Account to Raise Funds for Ukraine’s Armed Forces</a>
-        </li>
-        <li>
-          Help the ICRC (Red Cross) with donations.<br />
-          <a href="https://www.icrc.org/en/where-we-work/europe-central-asia/ukraine" target="_blank">Ukrainian Red Cross Society</a>
-        </li>
-        <li>
-          Donate to the United Help Ukraine.<br />
-          <a href="https://unitedhelpukraine.org/" target="_blank">United Help Ukraine</a>
-        </li>
-        <li>
-          Donate to Voices of Children<br />
-          <a href="https://voices.org.ua/en/" target="_blank">Voices of Children</a>
-        </li>
-        </div>
-          </div>
+  <h3>How can you support Ukrainian civil society?</h3>
+  All help is needed. If you are not able to help locally, by sheltering a fellow Ukrainian, you can also:
+  <ul>
+    <li>
+      Support the Ukraine Armed forces directly by sending funding to the special accounts.<br />
+      <a href="https://bank.gov.ua/en/news/all/natsionalniy-bank-vidkriv-spetsrahunok-dlya-zboru-koshtiv-na-potrebi-armiyi" target="_blank">NBU Special Account to Raise Funds for Ukraine’s Armed Forces</a>
+    </li>
+    <li>
+      Help the ICRC (Red Cross) with donations.<br />
+      <a href="https://www.icrc.org/en/where-we-work/europe-central-asia/ukraine" target="_blank">Ukrainian Red Cross Society</a>
+    </li>
+    <li>
+      Donate to the United Help Ukraine.<br />
+      <a href="https://unitedhelpukraine.org/" target="_blank">United Help Ukraine</a>
+    </li>
+    <li>
+      Donate to Voices of Children<br />
+      <a href="https://voices.org.ua/en/" target="_blank">Voices of Children</a>
+    </li>
+  </ul>
+</div>
 
 ---
 
