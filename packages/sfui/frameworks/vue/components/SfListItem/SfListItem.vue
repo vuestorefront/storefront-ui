@@ -27,6 +27,10 @@ defineProps({
     type: [String, Object] as PropType<string | ConcreteComponent>,
     default: undefined,
   },
+  childrenTag: {
+    type: String,
+    default: 'span',
+  },
 });
 </script>
 
@@ -41,14 +45,14 @@ defineProps({
     :disabled="disabled"
     data-testid="list-item"
   >
-    <span v-if="$slots.prefix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
+    <component :is="childrenTag" v-if="$slots.prefix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
       <slot name="prefix" />
-    </span>
-    <span class="flex flex-col w-full min-w-0">
+    </component>
+    <component :is="childrenTag" class="flex flex-col w-full min-w-0">
       <slot />
-    </span>
-    <span v-if="$slots.suffix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
+    </component>
+    <component :is="childrenTag" v-if="$slots.suffix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
       <slot name="suffix" />
-    </span>
+    </component>
   </component>
 </template>
