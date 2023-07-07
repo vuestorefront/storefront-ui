@@ -1,5 +1,18 @@
 # @storefront-ui/vue
 
+## 2.5.0
+
+### Minor Changes
+
+- [#2848](https://github.com/vuestorefront/storefront-ui/pull/2848) [`93107ab26`](https://github.com/vuestorefront/storefront-ui/commit/93107ab2664bd513e8074c2ee3069cf601fb8a17) Thanks [@AdamPawlinski](https://github.com/AdamPawlinski)! - Added props changing aria label for nav buttons in SfScrollable
+
+- [#2880](https://github.com/vuestorefront/storefront-ui/pull/2880) [`aa9c2f328`](https://github.com/vuestorefront/storefront-ui/commit/aa9c2f328df419a929f06aa7b2053baef9830d60) Thanks [@AdamPawlinski](https://github.com/AdamPawlinski)! - Added textarea base component
+
+### Patch Changes
+
+- Updated dependencies [[`aa9c2f328`](https://github.com/vuestorefront/storefront-ui/commit/aa9c2f328df419a929f06aa7b2053baef9830d60)]:
+  - @storefront-ui/shared@2.5.0
+
 ## 2.4.1
 
 ### Patch Changes

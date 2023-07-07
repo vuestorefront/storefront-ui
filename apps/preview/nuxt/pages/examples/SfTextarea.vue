@@ -11,7 +11,17 @@
       >
         {{ label }}
       </span>
-      <SfTextarea v-bind="state" v-model="value" class="w-full" />
+      <SfTextarea
+        v-bind="state"
+        v-model="value"
+        :class="[
+          'w-full',
+          {
+            '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled,
+            '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500': readonly,
+          },
+        ]"
+      />
     </label>
     <div class="flex justify-between">
       <div>
