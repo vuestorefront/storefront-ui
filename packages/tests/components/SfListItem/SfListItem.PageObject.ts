@@ -9,13 +9,9 @@ export default class SfListItemObject extends BasePage {
   }
 
   childrenHaveTag(tagName: string) {
-    this.container.then((el) => {
-      cy.wrap(el)
-        .children()
-        .each((child) => {
-          const childTagName = child[0].tagName;
-          expect(childTagName).to.equal(tagName);
-        });
+    this.container.children().each((child) => {
+      const childTagName = child[0].tagName;
+      expect(childTagName).to.equal(tagName);
     });
     return this;
   }
