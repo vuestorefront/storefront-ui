@@ -31,7 +31,7 @@ export default function DrawerWithTransition() {
     <>
       <fieldset>
         {options.map(({ label, value }) => (
-          <label className="flex items-center my-4 cursor-pointer">
+          <label className="flex items-center my-4 cursor-pointer" key={value}>
             <SfRadio
               name="placement"
               value={value}
