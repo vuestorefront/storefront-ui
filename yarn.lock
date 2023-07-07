@@ -3560,6 +3560,7 @@ __metadata:
     "@storefront-ui/tests-shared": "workspace:*"
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
+    "@tailwindcss/typography": ^0.5.9
     "@types/lodash-es": ^4.17.6
     "@types/node": ^18.13.0
     "@types/react": ^18.0.28
@@ -3596,6 +3597,7 @@ __metadata:
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
     "@storefront-ui/vue": "workspace:*"
+    "@tailwindcss/typography": ^0.5.9
     "@types/lodash-es": ^4.17.6
     "@vueuse/core": ^9.12.0
     autoprefixer: ^10.4.13
@@ -3634,6 +3636,7 @@ __metadata:
     "@storefront-ui/tests-shared": "workspace:*"
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
+    "@tailwindcss/typography": ^0.5.9
     "@types/react": ^18.0.28
     "@types/react-dom": ^18.0.11
     "@vitejs/plugin-react": ^4.0.0-beta.0
@@ -3771,6 +3774,7 @@ __metadata:
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
     "@storefront-ui/vue": "workspace:*"
+    "@tailwindcss/typography": ^0.5.9
     "@types/node": ^18.13.0
     "@vitejs/plugin-vue": ^4.0.0
     "@vue/tsconfig": ^0.1.3
@@ -3834,6 +3838,20 @@ __metadata:
   dependencies:
     defer-to-connect: ^1.0.1
   checksum: 4d9158061c5f397c57b4988cde33a163244e4f02df16364f103971957a32886beb104d6180902cbe8b38cb940e234d9f98a4e486200deca621923f62f50a06fe
+  languageName: node
+  linkType: hard
+
+"@tailwindcss/typography@npm:^0.5.9":
+  version: 0.5.9
+  resolution: "@tailwindcss/typography@npm:0.5.9"
+  dependencies:
+    lodash.castarray: ^4.4.0
+    lodash.isplainobject: ^4.0.6
+    lodash.merge: ^4.6.2
+    postcss-selector-parser: 6.0.10
+  peerDependencies:
+    tailwindcss: "*"
+  checksum: b98e21bdd1798d7e4683499893c5c20ad43fcc8955d5d6eefbe1d30e98e9b6c28949ae8f276d39be9a66fafe843597717196bc5a0a2ac0f87ef86aa051ab9611
   languageName: node
   linkType: hard
 
@@ -16715,6 +16733,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.castarray@npm:^4.4.0":
+  version: 4.4.0
+  resolution: "lodash.castarray@npm:4.4.0"
+  checksum: fca8c7047e0ae2738b0b2503fb00157ae0ff6d8a1b716f87ed715b22560e09de438c75b65e01a7e44ceb41c5b31dce2eb576e46db04beb9c699c498e03cbd00f
+  languageName: node
+  linkType: hard
+
 "lodash.clonedeep@npm:^4.5.0":
   version: 4.5.0
   resolution: "lodash.clonedeep@npm:4.5.0"
@@ -20723,6 +20748,16 @@ __metadata:
   dependencies:
     postcss: ^7.0.26
   checksum: b812832c06f9fc17b74b714f9c07de80fa770a1535a103b06b679f33b8e09caf60dff1e1eca489613f4ce2bb6439cd949b7d026c843aa9b45bb50f0168b75023
+  languageName: node
+  linkType: hard
+
+"postcss-selector-parser@npm:6.0.10":
+  version: 6.0.10
+  resolution: "postcss-selector-parser@npm:6.0.10"
+  dependencies:
+    cssesc: ^3.0.0
+    util-deprecate: ^1.0.2
+  checksum: 46afaa60e3d1998bd7adf6caa374baf857cc58d3ff944e29459c9a9e4680a7fe41597bd5b755fc81d7c388357e9bf67c0251d047c640a09f148e13606b8a8608
   languageName: node
   linkType: hard
 

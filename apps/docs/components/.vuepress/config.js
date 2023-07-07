@@ -27,6 +27,7 @@ const reactMenu = [
       ['/react/customization/theming', 'Theming'],
       ['/react/customization/overriding-default-styles', 'Overriding Default Styles'],
       ['/react/customization/typography', 'Typography'],
+      ['/react/customization/prose', 'Prose'],
     ],
   },
   {
@@ -74,6 +75,7 @@ const vueMenu = [
       ['/vue/customization/theming', 'Theming'],
       ['/vue/customization/overriding-default-styles', 'Overriding Default Styles'],
       ['/vue/customization/typography', 'Typography'],
+      ['/vue/customization/prose', 'Prose'],
     ],
   },
   {

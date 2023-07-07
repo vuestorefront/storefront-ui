@@ -22,6 +22,7 @@
     "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
     "@storefront-ui/vue": "workspace:*",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/lodash-es": "^4.17.6",
     "@vueuse/core": "^9.12.0",
     "autoprefixer": "^10.4.13",

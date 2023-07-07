@@ -1,6 +1,7 @@
 const sfTypography = require("@storefront-ui/typography");
 /** @type {import('tailwindcss').Config} */
 const { tailwindConfig } = require("@storefront-ui/tailwind-config");
+const tailwindTypography = require('@tailwindcss/typography');
 const { join } = require("path");
 
 module.exports = {
@@ -31,5 +32,5 @@ module.exports = {
       },
     },
   },
-  plugins: [sfTypography],
+  plugins: [sfTypography, tailwindTypography ],
 };

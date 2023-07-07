@@ -1,0 +1,22 @@
+<template>
+  <div class="prose">
+    <table>
+      <thead>
+        <tr>
+          <th>Header</th>
+          <th>Header</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Content</td>
+          <td>Content</td>
+        </tr>
+        <tr>
+          <td>Content</td>
+          <td>Content</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
