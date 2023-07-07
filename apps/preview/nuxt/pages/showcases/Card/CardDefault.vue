@@ -1,3 +1,4 @@
+<!-- eslint-disable vuejs-accessibility/anchor-has-content -->
 <template>
   <div class="flex flex-wrap gap-4 lg:gap-6 lg:flex-nowrap">
     <div

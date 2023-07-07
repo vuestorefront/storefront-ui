@@ -16,8 +16,8 @@
           ? 'bg-disabled-100 ring-disabled-300 cursor-not-allowed'
           : 'ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 cursor-pointer'
       "
-      :tabindex="isDisabled ? undefined : 0"
-      @keydown.space="toggle()"
+      tabindex="0"
+      @keydown.space="!isDisabled && toggle()"
       @click="!isDisabled && toggle()"
     >
       <template v-if="selectedOption">{{ selectedOption.label }}</template>
