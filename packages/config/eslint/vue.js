@@ -17,6 +17,7 @@ module.exports = {
       "required": {
         "some": ["nesting", "id"]
       }
-    }]
+    }],
+    "vuejs-accessibility/mouse-events-have-key-events": "off"
   }
 };
