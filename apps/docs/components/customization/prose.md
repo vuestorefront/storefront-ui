@@ -1,10 +1,9 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: Typography based on Tailwind Typography plugin
 hideToc: true
 ---
-# Typography
+# Prose styling
 
 One of the prominent features of the Tailwind Typography plugin is the ```prose``` class. The ```prose``` class is designed to create a consistent and readable typographic style for large blocks of text, such as paragraphs, articles, blog posts, or any other content-heavy sections of your website.
 

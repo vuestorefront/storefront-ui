@@ -15,6 +15,11 @@
     "className": "typography"
   },
   {
+    "url": "/customization/prose.html",
+    "name": "Prose",
+    "className": "prose"
+  },
+  {
     "url": "/components.html",
     "name": "Base Components",
     "className": "base-components"
@@ -268,11 +273,6 @@
     "url": "/blocks/SelectDropdown.html",
     "name": "Select Dropdown",
     "className": "select-dropdown"
-  },
-  {
-    "url": "/blocks/Typography.html",
-    "name": "Typography",
-    "className": "typography"
   },
   {
     "url": "/migration.html",
