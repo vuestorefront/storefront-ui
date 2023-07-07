@@ -17,9 +17,8 @@
         :class="[
           'w-full',
           {
-            '!bg-disabled-100 !ring-disabled-300 !ring-1': disabled || readonly,
-            '!text-disabled-500': disabled,
-            '!text-neutral-500': readonly,
+            '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled,
+            '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500': readonly,
           },
         ]"
       />
