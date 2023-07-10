@@ -28,6 +28,7 @@ const proxyChecked = computed({
 });
 </script>
 
+<!-- switchRef?.checked is used instead of model because model is value collection of multiple inputs, we need to have this one input check value -->
 <template>
   <input
     ref="switchRef"
