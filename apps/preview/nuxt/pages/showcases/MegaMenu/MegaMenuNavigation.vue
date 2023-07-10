@@ -1,3 +1,4 @@
+<!-- eslint-disable vuejs-accessibility/no-static-element-interactions -->
 <template>
   <div class="w-full h-full">
     <header ref="referenceRef" class="relative">

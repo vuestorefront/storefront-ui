@@ -3498,6 +3498,7 @@ __metadata:
     eslint-import-resolver-alias: ^1.1.2
     eslint-plugin-cypress: ^2.12.1
     eslint-plugin-vue: ^9.9.0
+    eslint-plugin-vuejs-accessibility: ^2.1.0
   languageName: unknown
   linkType: soft
 
@@ -6257,6 +6258,15 @@ __metadata:
   version: 2.0.1
   resolution: "argparse@npm:2.0.1"
   checksum: 83644b56493e89a254bae05702abf3a1101b4fa4d0ca31df1c9985275a5a5bd47b3c27b7fa0b71098d41114d8ca000e6ed90cad764b306f8a503665e4d517ced
+  languageName: node
+  linkType: hard
+
+"aria-query@npm:>=5.0.0":
+  version: 5.3.0
+  resolution: "aria-query@npm:5.3.0"
+  dependencies:
+    dequal: ^2.0.3
+  checksum: 305bd73c76756117b59aba121d08f413c7ff5e80fa1b98e217a3443fcddb9a232ee790e24e432b59ae7625aebcf4c47cb01c2cac872994f0b426f5bdfcd96ba9
   languageName: node
   linkType: hard
 
@@ -10357,6 +10367,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"dequal@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "dequal@npm:2.0.3"
+  checksum: 8679b850e1a3d0ebbc46ee780d5df7b478c23f335887464023a631d1b9af051ad4a6595a44220f9ff8ff95a8ddccf019b5ad778a976fd7bbf77383d36f412f90
+  languageName: node
+  linkType: hard
+
 "des.js@npm:^1.0.0":
   version: 1.0.1
   resolution: "des.js@npm:1.0.1"
@@ -10804,6 +10821,13 @@ __metadata:
     minimalistic-assert: ^1.0.1
     minimalistic-crypto-utils: ^1.0.1
   checksum: d56d21fd04e97869f7ffcc92e18903b9f67f2d4637a23c860492fbbff5a3155fd9ca0184ce0c865dd6eb2487d234ce9551335c021c376cd2d3b7cb749c7d10f4
+  languageName: node
+  linkType: hard
+
+"emoji-regex@npm:^10.0.0":
+  version: 10.2.1
+  resolution: "emoji-regex@npm:10.2.1"
+  checksum: 1aa2d16881c56531fdfc03d0b36f5c2b6221cc4097499a5665b88b711dc3fb4d5b8804f0ca6f00c56e5dcf89bac75f0487eee85da1da77df3a33accc6ecbe426
   languageName: node
   linkType: hard
 
@@ -12029,6 +12053,19 @@ __metadata:
   peerDependencies:
     eslint: ^6.2.0 || ^7.0.0 || ^8.0.0
   checksum: 63a7d90194fe36b605c74fcb43d0f4d41d996b0d8733b89e1979a5fe1d400ee8a6d74d9b5cc9fbdff532f1c0aec93019e93f775a1f1b693d703b97ad1b932543
+  languageName: node
+  linkType: hard
+
+"eslint-plugin-vuejs-accessibility@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "eslint-plugin-vuejs-accessibility@npm:2.1.0"
+  dependencies:
+    aria-query: ">=5.0.0"
+    emoji-regex: ^10.0.0
+    vue-eslint-parser: ^9.0.1
+  peerDependencies:
+    eslint: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
+  checksum: 03fab0f9ec70c297dd0c6148faec86138b025eb38cc9337adc01bc0036602f999b0be322a378822e282f8648c5f834fd2d01fc04f2b15d52f796cb0f9f4dd544
   languageName: node
   linkType: hard
 
@@ -26003,6 +26040,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vue-eslint-parser@npm:^9.0.1, vue-eslint-parser@npm:^9.1.1":
+  version: 9.3.1
+  resolution: "vue-eslint-parser@npm:9.3.1"
+  dependencies:
+    debug: ^4.3.4
+    eslint-scope: ^7.1.1
+    eslint-visitor-keys: ^3.3.0
+    espree: ^9.3.1
+    esquery: ^1.4.0
+    lodash: ^4.17.21
+    semver: ^7.3.6
+  peerDependencies:
+    eslint: ">=6.0.0"
+  checksum: 6d1476b45fcc5b456a1e5c0f33ec695cf1d392ca6113250d5e3441e6cf3b2a0ec28a9455699363641dfb7c48358f215db07856c98385a31ace9bc58196f4156e
+  languageName: node
+  linkType: hard
+
 "vue-eslint-parser@npm:^9.0.3, vue-eslint-parser@npm:^9.3.0":
   version: 9.3.0
   resolution: "vue-eslint-parser@npm:9.3.0"
@@ -26017,23 +26071,6 @@ __metadata:
   peerDependencies:
     eslint: ">=6.0.0"
   checksum: 9bdf375655c405f49a6e46e20127e42e2cb03ec63e811baf9798da7b881769653bb56aba7007d7e6584b8b22c14f0ffbdaf8fa3a902bd52ce9ff947b78e55188
-  languageName: node
-  linkType: hard
-
-"vue-eslint-parser@npm:^9.1.1":
-  version: 9.3.1
-  resolution: "vue-eslint-parser@npm:9.3.1"
-  dependencies:
-    debug: ^4.3.4
-    eslint-scope: ^7.1.1
-    eslint-visitor-keys: ^3.3.0
-    espree: ^9.3.1
-    esquery: ^1.4.0
-    lodash: ^4.17.21
-    semver: ^7.3.6
-  peerDependencies:
-    eslint: ">=6.0.0"
-  checksum: 6d1476b45fcc5b456a1e5c0f33ec695cf1d392ca6113250d5e3441e6cf3b2a0ec28a9455699363641dfb7c48358f215db07856c98385a31ace9bc58196f4156e
   languageName: node
   linkType: hard
 
