@@ -83,27 +83,27 @@ export default {
       "list-item-padding": {
         value:
           "var(--spacer-sm) var(--spacer-sm) var(--spacer-sm) var(--spacer-lg)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "list-item-border-width": {
         value: "0 0 1px 0",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "menu-item-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "list-item-margin": {
         value: "var(--spacer-sm) 0",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "menu-item-text-transform": {
         value: "uppercase",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "mega-menu-height": {

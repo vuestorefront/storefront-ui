@@ -13,12 +13,12 @@ export default {
       "chevron-translateX": { value: "", control: "text" },
       "chevron-rotate": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "chevron-translateY": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

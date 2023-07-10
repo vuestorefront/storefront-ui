@@ -61,27 +61,27 @@ export default {
       "header-navigation-item-width": { value: "", control: "text" },
       "link-text-decoration": {
         value: "var(--header-navigation-item-text-decoration, none) ",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "menu-item-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "menu-item-text-transform": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "header-navigation-item-border-color": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "link-color": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "header-navigation-menu-display": {
@@ -90,7 +90,7 @@ export default {
       },
       "sidebar-content-padding": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "header-navigation-sidebar-display": {
@@ -99,12 +99,12 @@ export default {
       },
       "image-width": {
         value: "var(--header-logo-width, auto)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "image-height": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "header-navigation-margin": {
@@ -113,7 +113,7 @@ export default {
       },
       "search-bar-display": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "header-search-flex": {
@@ -126,17 +126,17 @@ export default {
       },
       "icon-color": {
         value: "var(--c-dark-variant)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "icon-badge-top": {
         value: "-0.5rem",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "icon-badge-right": {
         value: "-0.5rem",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "header-wrapper-position": {
@@ -149,7 +149,7 @@ export default {
       },
       "header-wrapper-transition": {
         value: "transform 300ms ease-in-out",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "header-box-shadow": {

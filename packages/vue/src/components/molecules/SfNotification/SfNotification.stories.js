@@ -68,12 +68,12 @@ export default {
       },
       "icon-color": {
         value: "var(--c-white)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "icon-size": {
         value: "0.85rem",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

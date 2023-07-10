@@ -93,22 +93,22 @@ export default {
       "collected-product-box-shadow": { value: "", control: "text" },
       "icon-color": {
         value: "var(--c-white)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "quantity-selector-background": {
         value: "var(--c-light)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "link-text-decoration": {
         value: "none",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "collected-product-transition": {
         value: "box-shadow 150ms ease-in-out",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

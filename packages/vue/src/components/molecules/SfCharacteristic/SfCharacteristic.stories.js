@@ -50,12 +50,12 @@ export default {
       },
       "icon-color": {
         value: "var(--c-primary)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "icon-size": {
         value: "2rem",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

@@ -105,12 +105,12 @@ export default {
       "grouped-product-item-price-margin": { value: "", control: "text" },
       "quantity-selector-background": {
         value: "var(--c-light)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "link-text-decoration": {
         value: "none",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

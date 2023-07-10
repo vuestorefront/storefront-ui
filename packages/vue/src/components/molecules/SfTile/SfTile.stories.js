@@ -13,7 +13,7 @@ export default {
       },
       "font-tile-weight": {
         value: "var(--font-weight--semibold)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },
