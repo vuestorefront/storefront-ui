@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-gallery">
+  <div class="sf-gallery" :style="styles">
     <div class="sf-gallery__stage">
       <div ref="glide" class="glide">
         <div class="glide__track" data-glide-el="track">
@@ -33,6 +33,7 @@
                   :placeholder="picture.placeholder"
                   :width="imageWidth"
                   :height="imageHeight"
+                  :style="imageStyles"
                   :image-tag="imageTag"
                   :nuxt-img-config="nuxtImgConfig"
                   @click="$emit('click:stage', { picture, index })"
@@ -67,6 +68,7 @@
               :src="definedPicture.url"
               :width="imageWidth"
               :height="imageHeight"
+              :style="imageStyles"
               :lazy="false"
               :alt="definedPicture.alt"
               :placeholder="definedPicture.placeholder"
@@ -94,6 +96,7 @@
             :placeholder="image.placeholder"
             :width="thumbWidth"
             :height="thumbHeight"
+            :style="thumbStyles"
             :image-tag="thumbImageTag"
             :nuxt-img-config="thumbNuxtImgConfig"
           />
@@ -106,6 +109,10 @@
 import Glide from "@glidejs/glide";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
+
+const sizeHandler = (size) => {
+  return size === null ? null : `${size}px`;
+};
 
 export default {
   name: "SfGallery",
@@ -212,6 +219,26 @@ export default {
         ? (definedPicture.placeholder = this.pictureSelected?.placeholder)
         : null;
       return definedPicture ? definedPicture : "";
+    },
+    styles() {
+      return {
+        "--gallery-thumb-width": sizeHandler(this.thumbWidth),
+        "--gallery-stage-width": sizeHandler(this.imageWidth),
+        "--image-width": sizeHandler(this.imageWidth),
+        "--image-height": sizeHandler(this.imageHeight),
+      };
+    },
+    imageStyles() {
+      return {
+        "--image-width": sizeHandler(this.imageWidth),
+        "--image-height": sizeHandler(this.imageHeight),
+      };
+    },
+    thumbStyles() {
+      return {
+        "--image-width": sizeHandler(this.thumbWidth),
+        "--image-height": sizeHandler(this.thumbHeight),
+      };
     },
   },
   mounted() {
