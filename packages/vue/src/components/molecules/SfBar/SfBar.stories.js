@@ -22,7 +22,7 @@ export default {
       },
       "icon-width": {
         value: "0.875rem",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

@@ -62,12 +62,12 @@ export default {
       "tabs-chevron-display": { value: "", control: "text" },
       "chevron-color": {
         value: "var(--c-primary)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "tabs-title-border-color": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

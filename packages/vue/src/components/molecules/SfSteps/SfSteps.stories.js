@@ -43,7 +43,7 @@ export default {
       "steps-step-after-background": { value: "transparent", control: "text" },
       "step-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

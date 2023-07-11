@@ -144,22 +144,22 @@ export default {
       "banner-grid-col-margin": { value: "0", control: "text" },
       "banner-align-items": {
         value: "flex-start",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "banner-container-width": {
         value: "100%",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "banner-description-margin": {
         value: "var(--spacer-xl) 0",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "banner-height": {
         value: "510px",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

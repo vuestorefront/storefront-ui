@@ -23,22 +23,22 @@ export default {
       },
       "color-box-shadow-transition-duration": {
         value: "150ms",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "badge-padding": {
         value: "var(--spacer-2xs)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "badge-border-radius": {
         value: "100%",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "color-size": {
         value: "0.75rem",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },
