@@ -1,5 +1,5 @@
 <template>
-  <nav class="flex justify-between items-end" border-t border-neutral-200 role="navigation" aria-label="pagination">
+  <nav class="flex justify-between items-end border-t border-neutral-200" role="navigation" aria-label="pagination">
     <SfButton
       type="button"
       size="lg"
