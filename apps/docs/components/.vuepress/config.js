@@ -53,7 +53,7 @@ const reactMenu = [
     children: [
       ['/react/migration', 'Migration'],
       ['https://github.com/vuestorefront/storefront-ui/blob/v2/CONTRIBUTING.md', 'Contributing'],
-      ['https://github.com/vuestorefront/storefront-ui/blob/v2/CHANGELOG.md', 'Changelog'],
+      ['https://github.com/vuestorefront/storefront-ui/blob/v2/packages/sfui/frameworks/react/CHANGELOG.md', 'Changelog'],
     ],
   },
 ];
@@ -98,7 +98,7 @@ const vueMenu = [
     children: [
       ['/vue/migration', 'Migration'],
       ['https://github.com/vuestorefront/storefront-ui/blob/v2/CONTRIBUTING.md', 'Contributing'],
-      ['https://github.com/vuestorefront/storefront-ui/blob/v2/CHANGELOG.md', 'Changelog'],
+      ['https://github.com/vuestorefront/storefront-ui/blob/v2/packages/sfui/frameworks/vue/CHANGELOG.md', 'Changelog'],
     ],
   },
 ];
