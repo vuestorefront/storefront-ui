@@ -34,7 +34,7 @@
     "lint:script": "concurrently \"yarn eslint --max-warnings 0\" \"yarn prettier --check\"",
     "lint:script:fix": "yarn eslint --fix && yarn prettier --write",
     "eslint": "eslint \"{components,shared,hooks}/**/*.{ts,tsx}\"",
-    "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"{components,shared,hooks}/**/*.{ts,tsx}\""
+    "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"{components,shared,hooks}/**/*.{ts,tsx}\""
   },
   "files": [
     "dist"

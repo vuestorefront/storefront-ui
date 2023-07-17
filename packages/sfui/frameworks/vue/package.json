@@ -34,7 +34,7 @@
     "lint:script": "concurrently \"yarn eslint --max-warnings 0\" \"yarn prettier --check\" \"vue-tsc\"",
     "lint:script:fix": "yarn eslint --fix && yarn prettier --write",
     "eslint": "eslint \"{components,shared,composables}/**/*.{ts,vue}\"",
-    "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"{components,shared,composables}/**/*.{ts,vue}\""
+    "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"{components,shared,composables}/**/*.{ts,vue}\""
   },
   "files": [
     "dist"
