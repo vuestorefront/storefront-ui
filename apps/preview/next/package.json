@@ -10,7 +10,7 @@
     "lint": "yarn eslint --max-warnings 0 && yarn prettier --check",
     "lint:fix": "yarn eslint --fix && yarn prettier --write",
     "eslint": "next lint --ext .tsx,.ts",
-    "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"**/*.{ts,tsx}\""
+    "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"**/*.{ts,tsx}\""
   },
   "dependencies": {
     "@storefront-ui/preview-shared": "workspace:*",
