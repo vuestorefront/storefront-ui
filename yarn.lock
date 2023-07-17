@@ -4045,11 +4045,11 @@ __metadata:
   linkType: hard
 
 "@types/lodash-es@npm:^4.17.6":
-  version: 4.17.7
-  resolution: "@types/lodash-es@npm:4.17.7"
+  version: 4.17.8
+  resolution: "@types/lodash-es@npm:4.17.8"
   dependencies:
     "@types/lodash": "*"
-  checksum: 4b1f39fd1d921311c37a846c0e0df9d1fa23e27448a6ad1efd7574e703abd2b2fa5e8f3b5037146000f167ba231d0d01e52747d902654151b4ceeff9f2a9b380
+  checksum: 36356169a1862e2a1b09cde3b11b3790ab2c2e477778d70f825b216479ea93bd1a960767dbefcd00d6604312170a1b15209f0fa1c35ddf8861bc233c9b0d3e56
   languageName: node
   linkType: hard
 
@@ -4185,11 +4185,11 @@ __metadata:
   linkType: hard
 
 "@types/react-dom@npm:^18.0.11":
-  version: 18.2.6
-  resolution: "@types/react-dom@npm:18.2.6"
+  version: 18.2.7
+  resolution: "@types/react-dom@npm:18.2.7"
   dependencies:
     "@types/react": "*"
-  checksum: b56e42efab121a3a8013d2eb8c1688e6028a25ea6d33c4362d2846f0af3760b164b4d7c34846614024cfb8956cca70dd1743487f152e32ff89a00fe6fbd2be54
+  checksum: e02ea908289a7ad26053308248d2b87f6aeafd73d0e2de2a3d435947bcea0422599016ffd1c3e38ff36c42f5e1c87c7417f05b0a157e48649e4a02f21727d54f
   languageName: node
   linkType: hard
 
@@ -4203,13 +4203,13 @@ __metadata:
   linkType: hard
 
 "@types/react@npm:*, @types/react@npm:^18.0.28":
-  version: 18.2.14
-  resolution: "@types/react@npm:18.2.14"
+  version: 18.2.15
+  resolution: "@types/react@npm:18.2.15"
   dependencies:
     "@types/prop-types": "*"
     "@types/scheduler": "*"
     csstype: ^3.0.2
-  checksum: a6a5e8cc78f486b9020d1ad009aa6c56943c68c7c6376e0f8399e9cbcd950b7b8f5d73f00200f5379f5e58d31d57d8aed24357f301d8e86108cd438ce6c8b3dd
+  checksum: 36989f638201bfe2f4110b06c119180f6df9c0e13d7060481e82e7a745f81745a01ae543c478a25b61e0767cb52e82da2ad5b0dedacabf99339e523d06176705
   languageName: node
   linkType: hard
 
