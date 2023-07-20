@@ -17,7 +17,7 @@
       <li v-for="(category, index) in categories" :key="category.key">
         <SfListItem
           size="sm"
-          as="a"
+          tag="a"
           :href="category.link"
           :class="[
             'first-of-type:mt-2 rounded-md active:bg-primary-100',

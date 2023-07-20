@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { ref, type PropType } from 'vue';
+import { ref, type PropType, computed } from 'vue';
 import { SfSelectSize, SfIconExpandMore, useFocusVisible } from '@storefront-ui/vue';
 
 const props = defineProps({
@@ -28,7 +28,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  value: {
+  modelValue: {
     type: String,
     default: '',
   },
@@ -41,19 +41,16 @@ const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
 
-const selected = ref(props.value);
 const chevronRotated = ref(false);
 const { isFocusVisible } = useFocusVisible();
 
-const clickHandler = () => (chevronRotated.value = true);
-const blurHandler = () => (chevronRotated.value = false);
-const keydownHandler = () => (chevronRotated.value = true);
+const onOpen = () => (chevronRotated.value = true);
+const onClose = () => (chevronRotated.value = false);
 
-const changedValue = (event: Event) => {
-  selected.value = (event.target as HTMLSelectElement).value;
-  chevronRotated.value = false;
-  emit('update:modelValue', (event.target as HTMLSelectElement).value);
-};
+const modelProxy = computed({
+  get: () => props.modelValue,
+  set: (value: string) => emit('update:modelValue', value),
+});
 </script>
 
 <template>
@@ -69,8 +66,8 @@ const changedValue = (event: Event) => {
   >
     <select
       v-bind="$attrs"
-      :value="value || selected"
       :required="required"
+      v-model="modelProxy"
       :disabled="disabled"
       :class="[
         'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 ring-inset focus:ring-primary-700 focus:ring-2 outline-none bg-transparent rounded-md ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
@@ -82,10 +79,10 @@ const changedValue = (event: Event) => {
         },
       ]"
       data-testid="select-input"
-      @blur="blurHandler"
-      @click="clickHandler"
-      @change="changedValue"
-      @keydown.space="keydownHandler"
+      @blur="onClose"
+      @change="onClose"
+      @click="onOpen"
+      @keydown.space="onOpen"
     >
       <option
         v-if="placeholder"
