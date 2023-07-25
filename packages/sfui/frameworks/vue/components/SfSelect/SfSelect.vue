@@ -4,8 +4,8 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { ref, type PropType, computed } from 'vue';
-import { SfSelectSize, SfIconExpandMore, useFocusVisible } from '@storefront-ui/vue';
+import { type PropType, computed } from 'vue';
+import { SfSelectSize, SfIconExpandMore, useFocusVisible, useDisclosure } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -41,11 +41,8 @@ const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
 
-const chevronRotated = ref(false);
+const { isOpen, close, open } = useDisclosure();
 const { isFocusVisible } = useFocusVisible();
-
-const onOpen = () => (chevronRotated.value = true);
-const onClose = () => (chevronRotated.value = false);
 
 const modelProxy = computed({
   get: () => props.modelValue,
@@ -79,10 +76,10 @@ const modelProxy = computed({
         },
       ]"
       data-testid="select-input"
-      @blur="onClose"
-      @change="onClose"
-      @click="onOpen"
-      @keydown.space="onOpen"
+      @blur="close"
+      @change="close"
+      @click="open"
+      @keydown.space="open"
     >
       <option
         v-if="placeholder"
@@ -108,7 +105,7 @@ const modelProxy = computed({
         :class="[
           'absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
           disabled ? 'text-disabled-500' : 'text-neutral-500',
-          chevronRotated ? 'rotate-180' : '',
+          isOpen ? 'rotate-180' : '',
         ]"
       />
     </slot>
