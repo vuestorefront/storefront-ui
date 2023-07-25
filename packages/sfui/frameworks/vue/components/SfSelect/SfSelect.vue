@@ -4,8 +4,8 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { ref, type PropType } from 'vue';
-import { SfSelectSize, SfIconExpandMore, useFocusVisible } from '@storefront-ui/vue';
+import { type PropType, computed } from 'vue';
+import { SfSelectSize, SfIconExpandMore, useFocusVisible, useDisclosure } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -28,7 +28,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  value: {
+  modelValue: {
     type: String,
     default: '',
   },
@@ -41,19 +41,13 @@ const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
 
-const selected = ref(props.value);
-const chevronRotated = ref(false);
+const { isOpen, close, open } = useDisclosure();
 const { isFocusVisible } = useFocusVisible();
 
-const clickHandler = () => (chevronRotated.value = true);
-const blurHandler = () => (chevronRotated.value = false);
-const keydownHandler = () => (chevronRotated.value = true);
-
-const changedValue = (event: Event) => {
-  selected.value = (event.target as HTMLSelectElement).value;
-  chevronRotated.value = false;
-  emit('update:modelValue', (event.target as HTMLSelectElement).value);
-};
+const modelProxy = computed({
+  get: () => props.modelValue,
+  set: (value: string) => emit('update:modelValue', value),
+});
 </script>
 
 <template>
@@ -69,8 +63,8 @@ const changedValue = (event: Event) => {
   >
     <select
       v-bind="$attrs"
-      :value="value || selected"
       :required="required"
+      v-model="modelProxy"
       :disabled="disabled"
       :class="[
         'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 ring-inset focus:ring-primary-700 focus:ring-2 outline-none bg-transparent rounded-md ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
@@ -82,10 +76,10 @@ const changedValue = (event: Event) => {
         },
       ]"
       data-testid="select-input"
-      @blur="blurHandler"
-      @click="clickHandler"
-      @change="changedValue"
-      @keydown.space="keydownHandler"
+      @blur="close"
+      @change="close"
+      @click="open"
+      @keydown.space="open"
     >
       <option
         v-if="placeholder"
@@ -111,7 +105,7 @@ const changedValue = (event: Event) => {
         :class="[
           'absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
           disabled ? 'text-disabled-500' : 'text-neutral-500',
-          chevronRotated ? 'rotate-180' : '',
+          isOpen ? 'rotate-180' : '',
         ]"
       />
     </slot>

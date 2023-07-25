@@ -26,6 +26,7 @@ If you need to make this field required, it is crucial to communicate this inten
 <!-- react -->
 <<<../../preview/next/pages/showcases/Select/SelectSizes.tsx#source
 <!-- end react -->
+
 </Showcase>
 
 ### Custom chevron
@@ -40,6 +41,7 @@ You can replace the default chevron with your own custom content by using the <!
 <!-- react -->
 <<<../../preview/next/pages/showcases/Select/SelectCustomChevron.tsx#source
 <!-- end react -->
+
 </Showcase>
 
 ### Invalid state
@@ -54,14 +56,14 @@ You can replace the default chevron with your own custom content by using the <!
 <!-- react -->
 <<<../../preview/next/pages/showcases/Select/SelectInvalid.tsx#source
 <!-- end react -->
+
 </Showcase>
 
 ## Notes
 
-All non-prop attributes and styles added to `SfSelect` component are passed directly to native input element. This means that you can add all of the input attributes directly to `SfSelect`. If you want to style the wrapper `div`, you can pass your classes via the `wrapperClassName` prop. 
+All non-prop attributes and styles added to `SfSelect` component are passed directly to native input element. This means that you can add all of the input attributes directly to `SfSelect`. If you want to style the wrapper `div`, you can pass your classes via the `wrapperClassName` prop.
 
 If you only have a few options, consider using the [`Radio`](radio.html) component instead of `Select`.
-
 
 ## Accessibility notes
 
@@ -77,15 +79,20 @@ Since this component uses the native `<select>` element, it inherits its accessi
 
 ## Props
 
-| Prop name         | Type            | Default value | Possible values                        |
-| ----------------  | --------        | ------------- | -------------------------------------- |
-| `value`             | `string`          |            |                                        |
-| `size`              | `SfSelectSize`   | `'base'`          | `'sm'`, `'base'`,`'lg'`                           |
-| `disabled`         | `boolean`         | `false`         |                                        |
-| `invalid`           | `boolean`         | `false`         |                                        |
-| `required`          | `boolean`         | `false`         |                                        |
-| `placeholder`       | `string`          |             |                                        |
-| `wrapperClassName`  | `string`          |             |                                        |
+| Prop name           | Type              | Default value | Possible values                        |
+| ------------------- | ----------------- | ------------- | -------------------------------------- |
+<!-- vue -->
+| `modelValue`        | `boolean | string[]` |            |                                        |
+<!-- end vue -->
+<!-- react -->
+| `value`             | `string`          |               |                                        |
+<!-- end react -->
+| `size`              | `SfSelectSize`    | `'base'`      | `'sm'`, `'base'`,`'lg'`                |
+| `disabled`          | `boolean`         | `false`       |                                        |
+| `invalid`           | `boolean`         | `false`       |                                        |
+| `required`          | `boolean`         | `false`       |                                        |
+| `placeholder`       | `string`          |               |                                        |
+| `wrapperClassName`  | `string`          |               |                                        |
 <!-- react -->
 | `onChange`          | `Function`        |               |                                        |
 | `slotChevron`       | `ReactNode`       |               |                                        |
@@ -112,6 +119,7 @@ Since this component uses the native `<select>` element, it inherits its accessi
 
 ::: slot source
 <SourceCode>
+
 <!-- vue -->
 <<<../../../packages/sfui/frameworks/vue/components/SfSelect/SfSelect.vue
 <!-- end vue -->
@@ -119,5 +127,6 @@ Since this component uses the native `<select>` element, it inherits its accessi
 <!-- react -->
 <<< ../../../packages/sfui/frameworks/react/components/SfSelect/SfSelect.tsx
 <!-- end react -->
+
 </SourceCode>
 :::
