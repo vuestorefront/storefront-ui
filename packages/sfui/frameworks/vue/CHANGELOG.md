@@ -1,5 +1,17 @@
 # @storefront-ui/vue
 
+## 2.6.0
+
+### Minor Changes
+
+- [#2888](https://github.com/vuestorefront/storefront-ui/pull/2888) [`d5df1cd79`](https://github.com/vuestorefront/storefront-ui/commit/d5df1cd79ca123d54c70a17cfeb7cc4f50eac8f8) Thanks [@justyna-13](https://github.com/justyna-13)! - New prop for defining tags for children in SfListItem component
+
+### Patch Changes
+
+- [#2933](https://github.com/vuestorefront/storefront-ui/pull/2933) [`b227ddd8e`](https://github.com/vuestorefront/storefront-ui/commit/b227ddd8e46dbf10a9876e2aba266d68838087fc) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Correct usage of `v-model` in SfSelect
+
+- [#2936](https://github.com/vuestorefront/storefront-ui/pull/2936) [`6bf2b3fbc`](https://github.com/vuestorefront/storefront-ui/commit/6bf2b3fbc83810b00ff2a3b63976444497d0f277) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Unify code between vue and react, when buttons are disabled in floating button position mode they should be hidden
+
 ## 2.5.0
 
 ### Minor Changes
