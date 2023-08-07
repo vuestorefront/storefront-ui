@@ -1,4 +1,13 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>vuestorefront/.github:renovate-config"]
+  "extends": ["github>vuestorefront/.github:renovate-config"],
+  "packageRules": [
+    {
+      "#": "#TODO: check if eslint-config-next does not use anymore canary version (13.4.13 still uses) for eslint-plugin-react-hooks package",
+      "matchPackagePatterns": [
+        "eslint-config-next"
+      ],
+      "enabled": false
+    }
+  ]
 }
