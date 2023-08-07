@@ -84,7 +84,6 @@ const modelProxy = computed({
       <option
         v-if="placeholder"
         disabled
-        selected
         hidden
         class="text-sm bg-neutral-300"
         value=""
