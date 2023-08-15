@@ -7,9 +7,16 @@ interface UsePaginationParameters {
   currentPage?: number;
   pageSize?: number;
   maxPages?: number;
+  handler?: (currentPage?: number) => void;
 }
 
-export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxPages = 1 }: UsePaginationParameters) {
+export function usePagination({
+  totalItems,
+  currentPage = 1,
+  pageSize = 10,
+  maxPages = 1,
+  handler,
+}: UsePaginationParameters) {
   const [pagination, setPagination] = useState(paginate(totalItems, currentPage, pageSize, maxPages));
   const [selectedPage, setSelectedPage] = useState(currentPage);
 
@@ -21,6 +28,13 @@ export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxP
     setPagination(paginate(totalItems, selectedPage, pageSize, maxPages));
   }, [totalItems, selectedPage, pageSize, maxPages]);
 
+  const handlePageChange = (page: number) => {
+    setSelectedPage(page);
+    if (handler) {
+      handler(page);
+    }
+  };
+
   return {
     totalPages: pagination.totalPages,
     maxVisiblePages: maxPages,
@@ -29,8 +43,8 @@ export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxP
     selectedPage,
     endPage: pagination.endPage,
     startPage: pagination.startPage,
-    next: () => setSelectedPage((pagination.currentPage += 1)),
-    prev: () => setSelectedPage((pagination.currentPage -= 1)),
-    setPage: (newPage: number) => setSelectedPage((pagination.currentPage = newPage)),
+    next: () => handlePageChange((pagination.currentPage += 1)),
+    prev: () => handlePageChange((pagination.currentPage -= 1)),
+    setPage: (newPage: number) => handlePageChange((pagination.currentPage = newPage)),
   };
 }

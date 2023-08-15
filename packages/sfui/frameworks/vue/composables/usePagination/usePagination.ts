@@ -1,4 +1,4 @@
-import { ref, computed } from 'vue';
+import { ref, computed, watch } from 'vue';
 import paginate from 'jw-paginate';
 
 interface UsePaginationParameters {
@@ -6,13 +6,26 @@ interface UsePaginationParameters {
   currentPage?: number;
   pageSize?: number;
   maxPages?: number;
+  handler?: (page: number) => void;
 }
 
-export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxPages = 1 }: UsePaginationParameters) {
+export function usePagination({
+  totalItems,
+  currentPage = 1,
+  pageSize = 10,
+  maxPages = 1,
+  handler,
+}: UsePaginationParameters) {
   const activePage = ref(currentPage);
 
   const pagination = computed(() => {
     return paginate(totalItems, activePage.value, pageSize, maxPages);
+  });
+
+  watch(activePage, (page) => {
+    if (handler) {
+      handler(page);
+    }
   });
 
   return {
