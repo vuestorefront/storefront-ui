@@ -19,8 +19,12 @@ We're very excited to see that **you are thinking about contribution to Storefro
 ## Pull Request Guidelines
 
 - Learn about our branch structure [here](https://docs.vuestorefront.io/v2/contributing/branching-model.html).
+  <br>
+  **Important:**
+  <br>
+  For SFUI2 `main` branch is called `v2` and `develop` is `v2-develop`. `develop` and `master` branches **are used for SFUI1 maintenance**.
 
-- Checkout a topic branch from the relevant branch, e.g. `develop`, and merge back against that branch.
+- Checkout a topic branch from the relevant branch, e.g. `v2-develop`, and merge back against that branch.
 
 - Work in relevant place of repository and follow our [development guide](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/hello.md).
 
