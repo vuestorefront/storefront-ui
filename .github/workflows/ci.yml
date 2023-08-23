@@ -137,7 +137,7 @@ jobs:
       - name: Pre-Cypress (build all dependencies)
         run: yarn test:ci-pre:vue
       - name: Cypress run
-        uses: cypress-io/github-action@v5.8.3
+        uses: cypress-io/github-action@v5.8.4
         with:
           browser: chrome
           working-directory: apps/test/vue
@@ -172,7 +172,7 @@ jobs:
       - name: Pre-Cypress (build all dependencies)
         run: yarn test:ci-pre:react
       - name: Cypress run
-        uses: cypress-io/github-action@v5.8.3
+        uses: cypress-io/github-action@v5.8.4
         with:
           browser: chrome
           working-directory: apps/test/react
