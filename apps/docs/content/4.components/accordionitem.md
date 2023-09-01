@@ -40,7 +40,7 @@ This example only allows one item to be open at a time.
 <Showcase showcase-name="AccordionItem/CollapsableAccordion" style="min-height:400px">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/AccordionItem/CollapsableAccordion.vue
+<<<../../../preview/nuxt/pages/showcases/AccordionItem/CollapsableAccordion.vue
 <!-- end vue -->
 <!-- react -->
 <<<../../preview/next/pages/showcases/AccordionItem/CollapsableAccordion.tsx#source
@@ -55,10 +55,10 @@ Animate AccordionItem to give that nice feeling of smooth transition.
 <Showcase showcase-name="AccordionItem/AccordionAnimate" style="min-height:400px">
 
 <!-- vue -->
-<<<../../preview/nuxt/pages/showcases/AccordionItem/AccordionAnimate.vue
+<<<../../../preview/nuxt/pages/showcases/AccordionItem/AccordionAnimate.vue
 <!-- end vue -->
 <!-- react -->
-<<<../../preview/next/pages/showcases/AccordionItem/AccordionAnimate.tsx#source
+<<<../../../preview/next/pages/showcases/AccordionItem/AccordionAnimate.tsx
 <!-- end react -->
 
 </Showcase>
