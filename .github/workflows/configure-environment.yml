@@ -21,7 +21,7 @@ jobs:
       target-domain: ${{ steps.resolve-env.outputs.target-domain }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v1
+        uses: actions/checkout@v4
       - name: Determine environment
         shell: bash
         id: resolve-env

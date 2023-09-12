@@ -62,7 +62,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.11.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.20.12, @babel/core@npm:^7.21.4, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.4":
+"@babel/core@npm:^7.11.0, @babel/core@npm:^7.12.3, @babel/core@npm:^7.21.4, @babel/core@npm:^7.7.5, @babel/core@npm:^7.8.4":
   version: 7.21.8
   resolution: "@babel/core@npm:7.21.8"
   dependencies:
@@ -1341,7 +1341,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-react-jsx-self@npm:^7.18.6, @babel/plugin-transform-react-jsx-self@npm:^7.21.0":
+"@babel/plugin-transform-react-jsx-self@npm:^7.21.0":
   version: 7.21.0
   resolution: "@babel/plugin-transform-react-jsx-self@npm:7.21.0"
   dependencies:
@@ -1349,6 +1349,17 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 696f74c04a265409ccd46e333ff762e6011d394e6972128b5d97db4c1647289141bc7ebd45ab2bab99b60932f9793e8f89ee9432d3bde19962de2100456f6147
+  languageName: node
+  linkType: hard
+
+"@babel/plugin-transform-react-jsx-self@npm:^7.22.5":
+  version: 7.22.5
+  resolution: "@babel/plugin-transform-react-jsx-self@npm:7.22.5"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.22.5
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 671eebfabd14a0c7d6ae805fff7e289dfdb7ba984bb100ea2ef6dad1d6a665ebbb09199ab2e64fca7bc78bd0fdc80ca897b07996cf215fafc32c67bc564309af
   languageName: node
   linkType: hard
 
@@ -1360,6 +1371,17 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 1e9e29a4efc5b79840bd4f68e404f5ab7765ce48c7bd22f12f2b185f9c782c66933bdf54a1b21879e4e56e6b50b4e88aca82789ecb1f61123af6dfa9ab16c555
+  languageName: node
+  linkType: hard
+
+"@babel/plugin-transform-react-jsx-source@npm:^7.22.5":
+  version: 7.22.5
+  resolution: "@babel/plugin-transform-react-jsx-source@npm:7.22.5"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.22.5
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 4ca2bd62ca14f8bbdcda9139f3f799e1c1c1bae504b67c1ca9bca142c53d81926d1a2b811f66a625f20999b2d352131053d886601f1ba3c1e9378c104d884277
   languageName: node
   linkType: hard
 
@@ -2841,54 +2863,58 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/core@npm:^1.2.6":
-  version: 1.2.6
-  resolution: "@floating-ui/core@npm:1.2.6"
-  checksum: e4aa96c435277f1720d4bc939e17a79b1e1eebd589c20b622d3c646a5273590ff889b8c6e126f7be61873cf8c4d7db7d418895986ea19b8b0d0530de32504c3a
+"@floating-ui/core@npm:^1.4.1":
+  version: 1.4.1
+  resolution: "@floating-ui/core@npm:1.4.1"
+  dependencies:
+    "@floating-ui/utils": ^0.1.1
+  checksum: be4ab864fe17eeba5e205bd554c264b9a4895a57c573661bbf638357fa3108677fed7ba3269ec15b4da90e29274c9b626d5a15414e8d1fe691e210d02a03695c
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^1.2.1":
-  version: 1.2.8
-  resolution: "@floating-ui/dom@npm:1.2.8"
+"@floating-ui/dom@npm:^1.4.5, @floating-ui/dom@npm:^1.5.1":
+  version: 1.5.2
+  resolution: "@floating-ui/dom@npm:1.5.2"
   dependencies:
-    "@floating-ui/core": ^1.2.6
-  checksum: 02894774475a17baa498c86cd25d2825598e7de0734b8c08f7b8797b19c0bec13c4c726e529feb8bf26c6dee219c153ac1f90d8530a93534f765b3c04cfa3b4a
+    "@floating-ui/core": ^1.4.1
+    "@floating-ui/utils": ^0.1.1
+  checksum: 3c71eed50bb22cec8f1f31750ad3d42b3b7b4b29dc6e4351100ff05a62445a5404abb71c733320f8376a8c5e78852e1cfba1b81e22bfc4ca0728f50ca8998dc5
   languageName: node
   linkType: hard
 
-"@floating-ui/react-dom@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "@floating-ui/react-dom@npm:1.3.0"
+"@floating-ui/react-dom@npm:^2.0.0":
+  version: 2.0.2
+  resolution: "@floating-ui/react-dom@npm:2.0.2"
   dependencies:
-    "@floating-ui/dom": ^1.2.1
+    "@floating-ui/dom": ^1.5.1
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: ce0ad3e3bbe43cfd15a6a0d5cccede02175c845862bfab52027995ab99c6b29630180dc7d146f76ebb34730f90a6ab9bf193c8984fe8d7f56062308e4ca98f77
+  checksum: 4797e1f7a19c1e531ed0d578ccdcbe58970743e5a480ba30424857fc953063f36d481f8c5d69248a8f1d521b739e94bf5e1ffb35506400dea3d914f166ed2f7f
   languageName: node
   linkType: hard
 
-"@floating-ui/vue@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "@floating-ui/vue@npm:0.2.1"
+"@floating-ui/utils@npm:^0.1.1":
+  version: 0.1.2
+  resolution: "@floating-ui/utils@npm:0.1.2"
+  checksum: 3e29fd3c69be2d27bb95ebe54129a6a29ea2d8112b2cbb568168cf2f1e787e6ed6305d743598469476bec28122b7ea3ea4b54a1a2d59d30dc4b4307391472299
+  languageName: node
+  linkType: hard
+
+"@floating-ui/vue@npm:^1.0.0":
+  version: 1.0.2
+  resolution: "@floating-ui/vue@npm:1.0.2"
   dependencies:
-    "@floating-ui/dom": ^1.2.1
-    vue-demi: ^0.13.11
-  peerDependencies:
-    "@vue/composition-api": ^1.0.0-rc.1
-    vue: ^2.0.0 || >=3.0.0
-  peerDependenciesMeta:
-    "@vue/composition-api":
-      optional: true
-  checksum: 7af868ae47a4ddcc88428b751dfeca757ed86065c33ac51805955a2af7b33e5d0fdc364cf55efef6d4e4afca09a803be2eaf4103510d863bc0a01e7418cf0cae
+    "@floating-ui/dom": ^1.4.5
+    vue-demi: ">=0.13.0"
+  checksum: bf206a354a0a452a450350f38e48d5223f5331169ee62e7b479dd0b0d87b81172fa5ad9508f98f5e74fbbb1b8834a0b44d72757f90a2718d7c7372cbd5a72193
   languageName: node
   linkType: hard
 
-"@frsource/autoresize-textarea@npm:^1.3.76":
-  version: 1.3.90
-  resolution: "@frsource/autoresize-textarea@npm:1.3.90"
-  checksum: 3436a56563cdee70f3a5d089a9afd52131d24393fd9d8c561e584a0ace0e084fbe422a035d7c9d6a4df2db2d540dc9a4d3352877f36ef05825fc7f5b21b9e73a
+"@frsource/autoresize-textarea@npm:^2.0.0":
+  version: 2.0.8
+  resolution: "@frsource/autoresize-textarea@npm:2.0.8"
+  checksum: 870dc69be95c48f217cffbf6e81a701eba2e9142f295120ea20e6766dc3283c78c8ab5f919e12da31b9db30def3a6e0a8ac978e4b7c9c9eb583a5457a94dfc24
   languageName: node
   linkType: hard
 
@@ -3200,7 +3226,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@microsoft/api-extractor@npm:^7.34.4":
+"@microsoft/api-extractor@npm:^7.34.4, @microsoft/api-extractor@npm:^7.36.4":
   version: 7.36.4
   resolution: "@microsoft/api-extractor@npm:7.36.4"
   dependencies:
@@ -4115,10 +4141,10 @@ __metadata:
     "@vuepress/plugin-back-to-top": ^1.9.8
     "@vuepress/plugin-medium-zoom": ^1.9.8
     "@vuepress/plugin-search": ^1.9.8
-    autoprefixer: ^9
+    autoprefixer: ^10.0.0
     chokidar-cli: ^3.0.0
     command-line-args: ^5.2.1
-    concurrently: ^7.6.0
+    concurrently: ^8.0.0
     dotenv: ^16.0.3
     handlebars: ^4.7.7
     markdown-it-external-links: ^0.0.6
@@ -4127,8 +4153,8 @@ __metadata:
     rimraf: ^5.0.0
     sass-loader: ^13.0.0
     tailwindcss: "npm:@tailwindcss/postcss7-compat@^2.2.17"
-    typescript: ^4.9.5
-    vue: ^2.6.14
+    typescript: ^5.0.0
+    vue: ^3.0.0
     vue-multiselect: ^2.1.6
     vuepress: ^1.9.8
     vuepress-plugin-clean-urls: ^1.1.2
@@ -4176,14 +4202,14 @@ __metadata:
     babel-cli: ^6.26.0
     babel-preset-node: ^5.1.1
     commitizen: ^4.2.5
-    concurrently: ^7.4.0
+    concurrently: ^8.0.0
     husky: ^8.0.0
     hygen: ^6.2.8
     prettier: latest
     rimraf: ^5.0.0
     tailwindcss: ^3.1.8
     turbo: latest
-    typescript: ^4.9.5
+    typescript: ^5.0.0
     wait-on: ^7.0.1
   languageName: unknown
   linkType: soft
@@ -4205,7 +4231,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/preview-next@workspace:apps/preview/next"
   dependencies:
-    "@frsource/autoresize-textarea": ^1.3.76
+    "@frsource/autoresize-textarea": ^2.0.0
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/example-style": "workspace:*"
     "@storefront-ui/preview-shared": "workspace:*"
@@ -4242,7 +4268,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/preview-nuxt@workspace:apps/preview/nuxt"
   dependencies:
-    "@frsource/autoresize-textarea": ^1.3.76
+    "@frsource/autoresize-textarea": ^2.0.0
     "@nuxtjs/eslint-config-typescript": ^12.0.0
     "@nuxtjs/tailwindcss": ^6.6.5
     "@storefront-ui/eslint-config": "workspace:*"
@@ -4254,7 +4280,7 @@ __metadata:
     "@storefront-ui/vue": "workspace:*"
     "@tailwindcss/typography": ^0.5.9
     "@types/lodash-es": ^4.17.6
-    "@vueuse/core": ^9.12.0
+    "@vueuse/core": ^10.0.0
     autoprefixer: ^10.4.13
     eslint: ^8.34.0
     eslint-plugin-nuxt: ^4.0.0
@@ -4317,12 +4343,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/react@workspace:packages/sfui/frameworks/react"
   dependencies:
-    "@floating-ui/react-dom": ^1.3.0
+    "@floating-ui/react-dom": ^2.0.0
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/shared": "workspace:*"
     "@storefront-ui/tailwind-config": "workspace:*"
     "@storefront-ui/tests-shared": "workspace:*"
-    "@vitejs/plugin-react": ^3.1.0
+    "@vitejs/plugin-react": ^4.0.0
     classnames: ^2.3.2
     concurrently: ^8.2.0
     eslint: ^8.34.0
@@ -4333,7 +4359,7 @@ __metadata:
     react-use: ^17.4.0
     tabbable: ^6.1.1
     vite: ^4.3.0
-    vite-plugin-dts: ^2.0.0-beta.1
+    vite-plugin-dts: ^3.0.0
     vite-tsconfig-paths: ^4.0.5
   peerDependencies:
     react: ^18.2.0
@@ -4345,9 +4371,9 @@ __metadata:
   resolution: "@storefront-ui/shared@workspace:packages/sfui/shared"
   dependencies:
     tabbable: ^6.1.1
-    typescript: ^4.9.5
+    typescript: ^5.0.0
     vite: ^4.3.0
-    vite-plugin-dts: ^2.0.0-beta.1
+    vite-plugin-dts: ^3.0.0
     vue-tsc: ^1.1.2
   languageName: unknown
   linkType: soft
@@ -4358,9 +4384,9 @@ __metadata:
   dependencies:
     "@mertasan/tailwindcss-variables": ^2.5.2
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
-    typescript: ^4.9.5
+    typescript: ^5.0.0
     vite: ^4.3.0
-    vite-plugin-dts: ^2.0.0-beta.1
+    vite-plugin-dts: ^3.0.0
   languageName: unknown
   linkType: soft
 
@@ -4388,9 +4414,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/tw-plugin-peer-next@workspace:packages/sfui/tw-plugin-peer-next"
   dependencies:
-    typescript: ^4.9.5
+    typescript: ^5.0.0
     vite: ^4.3.0
-    vite-plugin-dts: ^2.0.0-beta.1
+    vite-plugin-dts: ^3.0.0
   peerDependencies:
     tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
   languageName: unknown
@@ -4406,9 +4432,9 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/typography@workspace:packages/sfui/typography"
   dependencies:
-    typescript: ^4.9.5
+    typescript: ^5.0.0
     vite: ^4.3.0
-    vite-plugin-dts: ^2.0.0-beta.1
+    vite-plugin-dts: ^3.0.0
   peerDependencies:
     tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
   languageName: unknown
@@ -4457,20 +4483,20 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/vue@workspace:packages/sfui/frameworks/vue"
   dependencies:
-    "@floating-ui/vue": ^0.2.1
+    "@floating-ui/vue": ^1.0.0
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/shared": "workspace:*"
     "@storefront-ui/tailwind-config": "workspace:*"
     "@storefront-ui/tests-shared": "workspace:*"
     "@vitejs/plugin-vue": ^4.0.0
-    "@vueuse/core": ^9.12.0
-    concurrently: ^7.6.0
+    "@vueuse/core": ^10.0.0
+    concurrently: ^8.0.0
     eslint: ^8.34.0
     jw-paginate: ^1.0.4
     prettier: ^2.8.8
     tabbable: ^6.1.1
     vite: ^4.3.0
-    vite-plugin-dts: ^2.0.0-beta.1
+    vite-plugin-dts: ^3.0.0
     vite-tsconfig-paths: ^4.0.5
     vue-tsc: ^1.1.2
   peerDependencies:
@@ -4983,10 +5009,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/web-bluetooth@npm:^0.0.16":
-  version: 0.0.16
-  resolution: "@types/web-bluetooth@npm:0.0.16"
-  checksum: f68a630d062202a25c46d48686ebae1cf429dc70b4578fcf13b8357b2db63e4aedfb6f6d752bd388366be46ebd19c1c9de45f8a15c2631bb79e904fdfc454f94
+"@types/web-bluetooth@npm:^0.0.17":
+  version: 0.0.17
+  resolution: "@types/web-bluetooth@npm:0.0.17"
+  checksum: 8c72ba8cd1d7abd3fcab608e1d8eb828420df23f67d783f1282d4a747f995e91a0c861f92fa195e9423edb22bb34854452028f8a68148a593b35915635a4f4db
   languageName: node
   linkType: hard
 
@@ -5444,18 +5470,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vitejs/plugin-react@npm:^3.1.0":
-  version: 3.1.0
-  resolution: "@vitejs/plugin-react@npm:3.1.0"
+"@vitejs/plugin-react@npm:^4.0.0":
+  version: 4.0.4
+  resolution: "@vitejs/plugin-react@npm:4.0.4"
   dependencies:
-    "@babel/core": ^7.20.12
-    "@babel/plugin-transform-react-jsx-self": ^7.18.6
-    "@babel/plugin-transform-react-jsx-source": ^7.19.6
-    magic-string: ^0.27.0
+    "@babel/core": ^7.22.9
+    "@babel/plugin-transform-react-jsx-self": ^7.22.5
+    "@babel/plugin-transform-react-jsx-source": ^7.22.5
     react-refresh: ^0.14.0
   peerDependencies:
-    vite: ^4.1.0-beta.0
-  checksum: 450fac79e67cba9e1581c860f78e687b44108ab4117663ef20db279316e03cd8e87f94fef376e27cc5e200bd52813dcc09b70ea570c7c7cc291fcd47eb260fbc
+    vite: ^4.2.0
+  checksum: ec25400dc7c5fce914122d1f57de0fbaff9216addb8cd6187308ad2c7a3d3b73ea3a6f2dd0a8c7ec5e90e56b37046fe90d3e0ec285a9446e73695cb174377f84
   languageName: node
   linkType: hard
 
@@ -5901,7 +5926,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vue/language-core@npm:1.8.10":
+"@vue/language-core@npm:1.8.10, @vue/language-core@npm:^1.8.8":
   version: 1.8.10
   resolution: "@vue/language-core@npm:1.8.10"
   dependencies:
@@ -6253,31 +6278,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:^9.12.0":
-  version: 9.13.0
-  resolution: "@vueuse/core@npm:9.13.0"
+"@vueuse/core@npm:^10.0.0":
+  version: 10.4.1
+  resolution: "@vueuse/core@npm:10.4.1"
   dependencies:
-    "@types/web-bluetooth": ^0.0.16
-    "@vueuse/metadata": 9.13.0
-    "@vueuse/shared": 9.13.0
-    vue-demi: "*"
-  checksum: 2b19d8ec4305f6c65650813c0fa9c15af6b322fc253ad656eb1c4bc8d7617a2ddd46a46d7ea359c4cdc5a5724aa5fc152fa7a3816ed6ebeaec4f7e58defb7153
+    "@types/web-bluetooth": ^0.0.17
+    "@vueuse/metadata": 10.4.1
+    "@vueuse/shared": 10.4.1
+    vue-demi: ">=0.14.5"
+  checksum: 2232ad6dd3af89aee80d38ffcbe6a3386d1f55f66ac212baac10c3a506f43ee58a4fffabaa7ec483e62dbf6f231ee7ce1fb82ab91f9312e2d9f8c554810d2773
   languageName: node
   linkType: hard
 
-"@vueuse/metadata@npm:9.13.0":
-  version: 9.13.0
-  resolution: "@vueuse/metadata@npm:9.13.0"
-  checksum: 91e137bf2fb1406587b523edae26b58b315d3a59797c9f2ed5dde9cb707026aa740b86da5955ea7f9662a93ce92249d0b3af763c65449b4a843bbd0725eb67f6
+"@vueuse/metadata@npm:10.4.1":
+  version: 10.4.1
+  resolution: "@vueuse/metadata@npm:10.4.1"
+  checksum: d9c584f4581eed4e7e81423916077dada73b22ee3f1e798682aac1ee640a91b0287088f26dc7e72d7b6ad2e6c8d630fd7ee8ba02ca5987c033ed8391e92b5542
   languageName: node
   linkType: hard
 
-"@vueuse/shared@npm:9.13.0":
-  version: 9.13.0
-  resolution: "@vueuse/shared@npm:9.13.0"
+"@vueuse/shared@npm:10.4.1":
+  version: 10.4.1
+  resolution: "@vueuse/shared@npm:10.4.1"
   dependencies:
-    vue-demi: "*"
-  checksum: e53e7312bdd2030b7970afcf4d3dc3f9a47f7721a92ccb51c364d23246233cb54758f7ddacbdb9ac63d1e86ec82e97d06cb53b05a4b8d43be877d16ab61dd9bb
+    vue-demi: ">=0.14.5"
+  checksum: e1cc0b970e0ce06c8bc2cbed3ce37a9ee7ff0667fc3f354398b4201259db1848da428d62c9ea19c3124f5eb80ce0b3f97328f537e3238ec68cdbb726ff3e3fe8
   languageName: node
   linkType: hard
 
@@ -7365,7 +7390,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"autoprefixer@npm:^10.2.5, autoprefixer@npm:^10.4.13, autoprefixer@npm:^10.4.14, autoprefixer@npm:^10.4.15":
+"autoprefixer@npm:^10.0.0, autoprefixer@npm:^10.2.5, autoprefixer@npm:^10.4.13, autoprefixer@npm:^10.4.14, autoprefixer@npm:^10.4.15":
   version: 10.4.15
   resolution: "autoprefixer@npm:10.4.15"
   dependencies:
@@ -9634,7 +9659,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concurrently@npm:^7.4.0, concurrently@npm:^7.6.0":
+"concurrently@npm:^7.6.0":
   version: 7.6.0
   resolution: "concurrently@npm:7.6.0"
   dependencies:
@@ -9654,7 +9679,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"concurrently@npm:^8.0.1, concurrently@npm:^8.2.0":
+"concurrently@npm:^8.0.0, concurrently@npm:^8.0.1, concurrently@npm:^8.2.0":
   version: 8.2.1
   resolution: "concurrently@npm:8.2.1"
   dependencies:
@@ -17616,7 +17641,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kolorist@npm:^1.7.0":
+"kolorist@npm:^1.7.0, kolorist@npm:^1.8.0":
   version: 1.8.0
   resolution: "kolorist@npm:1.8.0"
   checksum: b056de671acc8a17f1e78d6d46c47dae3e06481eabc9fed213dd9079a7454fd3a7ea1226ec718df81c9208877f7475d038ac27a400958fec278d975839e33643
@@ -26313,6 +26338,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"typescript@npm:^5.0.0":
+  version: 5.2.2
+  resolution: "typescript@npm:5.2.2"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 7912821dac4d962d315c36800fe387cdc0a6298dba7ec171b350b4a6e988b51d7b8f051317786db1094bd7431d526b648aba7da8236607febb26cf5b871d2d3c
+  languageName: node
+  linkType: hard
+
 "typescript@patch:typescript@^4.6.4 || ^5.0.0#~builtin<compat/typescript>, typescript@patch:typescript@^5.0.2#~builtin<compat/typescript>, typescript@patch:typescript@~5.0.4#~builtin<compat/typescript>":
   version: 5.0.4
   resolution: "typescript@patch:typescript@npm%3A5.0.4#~builtin<compat/typescript>::version=5.0.4&hash=b5f058"
@@ -26330,6 +26365,16 @@ __metadata:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 1f8f3b6aaea19f0f67cba79057674ba580438a7db55057eb89cc06950483c5d632115c14077f6663ea76fd09fce3c190e6414bb98582ec80aa5a4eaf345d5b68
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@^5.0.0#~builtin<compat/typescript>":
+  version: 5.2.2
+  resolution: "typescript@patch:typescript@npm%3A5.2.2#~builtin<compat/typescript>::version=5.2.2&hash=f3b441"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 0f4da2f15e6f1245e49db15801dbee52f2bbfb267e1c39225afdab5afee1a72839cd86000e65ee9d7e4dfaff12239d28beaf5ee431357fcced15fb08583d72ca
   languageName: node
   linkType: hard
 
@@ -27199,6 +27244,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"vite-plugin-dts@npm:^3.0.0":
+  version: 3.5.3
+  resolution: "vite-plugin-dts@npm:3.5.3"
+  dependencies:
+    "@microsoft/api-extractor": ^7.36.4
+    "@rollup/pluginutils": ^5.0.2
+    "@vue/language-core": ^1.8.8
+    debug: ^4.3.4
+    kolorist: ^1.8.0
+    vue-tsc: ^1.8.8
+  peerDependencies:
+    typescript: "*"
+    vite: "*"
+  peerDependenciesMeta:
+    vite:
+      optional: true
+  checksum: cb4a997565f0a2ecf446d7bc222484914644f85e8154b12c611cb56ec352495cab2cfda4438868a5bce4242799491a9bec45d6eb707e06fdafba596660a0f322
+  languageName: node
+  linkType: hard
+
 "vite-plugin-istanbul@npm:^4.0.0, vite-plugin-istanbul@npm:^4.0.1":
   version: 4.0.1
   resolution: "vite-plugin-istanbul@npm:4.0.1"
@@ -27345,9 +27410,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-demi@npm:*":
-  version: 0.14.5
-  resolution: "vue-demi@npm:0.14.5"
+"vue-demi@npm:>=0.13.0, vue-demi@npm:>=0.14.5":
+  version: 0.14.6
+  resolution: "vue-demi@npm:0.14.6"
   peerDependencies:
     "@vue/composition-api": ^1.0.0-rc.1
     vue: ^3.0.0-0 || ^2.6.0
@@ -27357,23 +27422,7 @@ __metadata:
   bin:
     vue-demi-fix: bin/vue-demi-fix.js
     vue-demi-switch: bin/vue-demi-switch.js
-  checksum: ff44b9372b8224590514252a2f73363cced6062205f9628a6b130dccb80e2023d55cd9d1da94aeb68d5539b7ea9eedcecf88ab281a3a9ff48b8db4c5366b9643
-  languageName: node
-  linkType: hard
-
-"vue-demi@npm:^0.13.11":
-  version: 0.13.11
-  resolution: "vue-demi@npm:0.13.11"
-  peerDependencies:
-    "@vue/composition-api": ^1.0.0-rc.1
-    vue: ^3.0.0-0 || ^2.6.0
-  peerDependenciesMeta:
-    "@vue/composition-api":
-      optional: true
-  bin:
-    vue-demi-fix: bin/vue-demi-fix.js
-    vue-demi-switch: bin/vue-demi-switch.js
-  checksum: 0fbe9bf8ab7fe498ffa2bbd0cfc8f6f43a6bbaa5eda3e20ef1b70dca7c8b0ddb216a7ff2f632b694fe0735805638975abb441c621ec0bd2e6d4656353f316c15
+  checksum: 424b1f340d5111fc4d4a0f8042c14ae836ba983bc968773a6d955d6846202d7e6f951993ac1525be8732b0cfe0c81d94ab88f427c97bfa86ead08db06491279b
   languageName: node
   linkType: hard
 
@@ -27525,7 +27574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-tsc@npm:^1.1.2":
+"vue-tsc@npm:^1.1.2, vue-tsc@npm:^1.8.8":
   version: 1.8.10
   resolution: "vue-tsc@npm:1.8.10"
   dependencies:
@@ -27540,7 +27589,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^2.6.10, vue@npm:^2.6.14":
+"vue@npm:^2.6.10":
   version: 2.7.14
   resolution: "vue@npm:2.7.14"
   dependencies:
@@ -27550,7 +27599,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.2.47, vue@npm:^3.3.4":
+"vue@npm:^3.0.0, vue@npm:^3.2.47, vue@npm:^3.3.4":
   version: 3.3.4
   resolution: "vue@npm:3.3.4"
   dependencies:
