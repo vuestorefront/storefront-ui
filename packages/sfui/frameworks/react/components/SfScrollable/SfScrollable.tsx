@@ -90,7 +90,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             size: 'lg',
             disabled: prevDisabled,
             slotPrefix: <SfIconChevronLeft />,
-            "aria-label": buttonPrevAriaLabel,
+            'aria-label': buttonPrevAriaLabel,
             className: classNames(
               classNameButton,
               isFloating ? 'disabled:hidden' : 'disabled:!ring-disabled-300 disabled:!text-disabled-500',
@@ -112,7 +112,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             size: 'lg',
             disabled: nextDisabled,
             slotPrefix: <SfIconChevronRight />,
-            "aria-label": buttonNextAriaLabel,
+            'aria-label': buttonNextAriaLabel,
             className: classNames(
               classNameButton,
               isFloating ? 'disabled:hidden' : 'disabled:!ring-disabled-300 disabled:!text-disabled-500',

@@ -98,7 +98,7 @@
           class="hidden md:flex px-6 py-2 bg-white border-b border-b-neutral-200 border-b-solid"
           @blur="
             (event) => {
-              if (!(event.currentTarget as Element).contains((event.relatedTarget as Element))) {
+              if (!(event.currentTarget as Element).contains(event.relatedTarget as Element)) {
                 close();
               }
             }
