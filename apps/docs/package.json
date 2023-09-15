@@ -37,7 +37,7 @@
     "vue-virtual-scroller": "^2.0.0-beta.8"
   },
   "dependencies": {
-    "sf-docs-base": "latest"
+    "sf-docs-base": "1.0.6"
   },
   "resolutions": {
     "@storefront-ui/eslint-config": "workspace:*",

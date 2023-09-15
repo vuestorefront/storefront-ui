@@ -3,7 +3,7 @@ import { dirname, join, resolve } from 'path';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  extends: ['../../../docs/packages/sf-docs-base'],
+  extends: ['sf-docs-base'],
 
   runtimeConfig: {
     public: {
