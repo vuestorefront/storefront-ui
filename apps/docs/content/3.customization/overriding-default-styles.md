@@ -4,9 +4,9 @@ By default, Storefront UI comes equipped with some styles that can help accelera
 
 ## Customization Methods
 
-<!-- vue -->
+::vue-only
 <iframe src="https://www.youtube-nocookie.com/embed/WkOHltQGDas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded aspect-video relative mt-8 custom-block"></iframe>
-<!-- end vue -->
+::
 
 ### Important Classes
 
@@ -17,14 +17,14 @@ For example, the `SfLoaderCircular` component defaults to using `primary-700` as
 <Showcase showcase-name="LoaderCircular/LoaderCircularColors" :show-source="false">
 </Showcase>
 
-<SourceCode>
-<!-- vue -->
-<<<../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularColors.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../preview/next/pages/showcases/LoaderCircular/LoaderCircularColors.tsx
-<!-- end react -->
-</SourceCode>
+
+::vue-only
+<<<../../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularColors.vue
+::
+::react-only
+<<<../../../preview/next/pages/showcases/LoaderCircular/LoaderCircularColors.tsx
+::
+
 
 
 
@@ -35,7 +35,7 @@ For global changes, you can customize the Tailwind configuration to make changes
 The most common use case for this is to change the default color palette to better match your design. Storefront UI adds additional colors to your Tailwind configuration, which can help you build out multiple themes for your site.
 
 :::read-more
-Learn all about Storefront UI's color palette and how to customize it in our <!-- react -->[Theming](/react/customization/theming)<!-- end react --><!-- vue -->[Theming](/vue/customization/theming)<!-- end vue -->  guide.
+Learn all about Storefront UI's color palette and how to customize it in our ::react-only[Theming](/react/customization/theming)::::vue-only[Theming](/vue/customization/theming)::  guide.
 :::
 
 

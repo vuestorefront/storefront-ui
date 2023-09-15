@@ -79,7 +79,7 @@ This means that you can use one typography class throughout your app, and if you
 By default, the plugin uses `typography-` as a prefix for all classes. You can change it by passing the `utilityPrefix` option when initializing the plugin. See the [Changing the class prefix](#changing-the-class-prefix) section for more details.
 :::
 
-<TypographyList />
+:typography-list
 
 ## Customization
 

@@ -6,7 +6,7 @@ To help you build your storefront, Storefront UI adds additional colors followin
 
 In addition to [Tailwind's default colors](https://tailwindcss.com/docs/customizing-colors#default-color-palette), Storefront UI adds the following colors to your theme:
 
-<ColorPalette/>
+:color-palette
 
 :::tip Want to see our default Tailwind preset?
 You can see all of the default colors, classes, variants, and more in our [Tailwind preset](https://github.com/vuestorefront/storefront-ui/blob/v2/packages/config/tailwind/index.ts)
@@ -57,7 +57,7 @@ The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}
 <details>
 <summary>Full List of CSS Variables</summary>
 
-<SourceCode>
+
 
 ```css
 :root {
@@ -146,7 +146,7 @@ The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}
   --colors-disabled-900: 24 24 27;
 }
 ```
-</SourceCode>
+
 </details>
 
 
@@ -154,7 +154,7 @@ The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}
 
 If you don't need to support multiple themes, or if you'd prefer to use Tailwind variants to implement your themes, you can customize Storefront UI's colors inside of your Tailwind configuration.
 
-<SourceCode>
+
 
 ```js
 export default {
@@ -180,7 +180,7 @@ export default {
   //...
 };
 ```
-</SourceCode>
+
 
 :::read-more
 To learn more about the different ways to declare colors in Tailwind, check out the [Tailwind documentation](https://tailwindcss.com/docs/customizing-colors#using-custom-colors).
