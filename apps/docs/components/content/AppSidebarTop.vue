@@ -6,6 +6,7 @@ const { isOpen, toggle } = useDisclosure();
 type Framework = {
   name: string;
   icon: string;
+  link?: string;
 };
 
 const frameworks: Framework[] = [
@@ -50,7 +51,10 @@ function selectFramework(framework: Framework) {
 </script>
 <template>
   <div class="relative mb-4">
-    <SfDropdown v-model="isOpen" class="[&>div]:w-[calc(100%-3rem)] [&>div]:border [&>div]:rounded">
+    <SfDropdown
+      v-model="isOpen"
+      class="[&>div]:w-[calc(100%-3rem)] [&>div]:!left-0 [&>div]:border [&>div]:rounded w-full"
+    >
       <template #trigger>
         <button
           @click="toggle()"
@@ -58,7 +62,7 @@ function selectFramework(framework: Framework) {
         >
           <Icon :name="selectedFramework.icon" class="w-4 h-4 mr-2" />
           {{ selectedFramework.name }}
-          <Icon name="ion:md-arrow-dropdown" class="w-4 h-4 ml-auto" />
+          <Icon name="ion:md-arrow-dropdown" class="w-4 h-4 ml-auto pl-4" />
         </button>
       </template>
       <ul class="rounded bg-gray-100 w-full dark:bg-neutral-800">

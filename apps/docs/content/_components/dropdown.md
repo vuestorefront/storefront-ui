@@ -4,14 +4,14 @@
 
 #tab-1
 
-The `SfDropdown` component is built on top of the `useDropdown` ::react-onlyhook::::vue-onlycomposable:: and accepts all its params.
+The `SfDropdown` component is built on top of `useDropdown`  and accepts all its params.
 
 
 ::react-only
-Learn more about `useDropdown` hook in the [Hooks > useDropdown docs](/react/hooks/useDropdown.html).
+Learn more about `useDropdown` hook in the [Hooks > useDropdown docs](/react/hooks/usedropdown).
 ::
 ::vue-only
-Learn more about `useDropdown` composable in the [Composables > useDropdown docs](/vue/hooks/useDropdown.html).
+Learn more about `useDropdown` composable in the [Composables > useDropdown docs](/vue/hooks/usedropdown).
 ::
 
 
