@@ -9,9 +9,17 @@
         Preview
       </button>
       <button
+        v-if="$slots.usage"
         @click="tab = 2"
         class="px-3 py-2 border-b-2 dark:border-zinc-700"
         :class="[tab === 2 ? 'text-black dark:text-white border-green dark:border-green' : '']"
+      >
+        Usage
+      </button>
+      <button
+        @click="tab = $slots.usage ? 3 : 2"
+        class="px-3 py-2 border-b-2 dark:border-zinc-700"
+        :class="[(tab === ($slots.usage ? 3 : 2)) ? 'text-black dark:text-white border-green dark:border-green' : '']"
       >
         Code
       </button>
@@ -30,7 +38,12 @@
           <iconify-icon icon="akar-icons:drag-vertical" class="pointer-events-none" />
         </div>
       </div>
-      <div v-show="tab === 2 && showSource" class="relative">
+      <div v-show="tab === 2" class="relative">
+        <SourceCode>
+          <slot name="usage" />
+        </SourceCode>
+      </div>
+      <div v-show="showSource && tab === ($slots.usage ? 3 : 2)" class="relative">
         <SourceCode>
           <slot />
         </SourceCode>
