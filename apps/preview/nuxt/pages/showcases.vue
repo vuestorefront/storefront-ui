@@ -80,12 +80,16 @@ import {
 } from '@storefront-ui/vue';
 import { ref, watch, reactive, onBeforeMount } from 'vue';
 import { useControlsSearchParams } from '~/composables/utils/useControlsSearchParams';
+import { showcasesFilter } from '@storefront-ui/preview-shared/utils/showcases.utils';
 
 const { currentRoute } = useRouter();
 
 const REST_GROUP_NAME = 'Rest';
 const files = import.meta.glob('./showcases/**');
-const paths = Object.keys(files);
+const paths = showcasesFilter({
+  files: Object.keys(files),
+  ext: '.vue',
+});
 const groupItemHref = (groupName, showcaseName) => {
   return `/showcases/${groupName !== REST_GROUP_NAME ? `${groupName}/` : ''}${showcaseName}`;
 };
