@@ -1,7 +1,7 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: Alert is a notification that keeps people informed of the status of the system and which may or not require the user respond.
+description: Alert is a notification that keeps people informed of the status of the system and which may or not require the user response.
 hideToc: true
 ---
 # Alert
@@ -10,7 +10,7 @@ hideToc: true
 
 ## Alert neutral
 
-Simple version of alert that has neutral grey color.
+A simple version of the alert that has a neutral grey color.
 
 <Showcase showcase-name="Alert/AlertNeutral" style="min-height:210px">
 
@@ -27,7 +27,7 @@ Simple version of alert that has neutral grey color.
 <<<../../preview/nuxt/pages/showcases/Alert/Alert.vue
 <!-- end vue -->
 <!-- react -->
-<!-- <<<../../preview/next/pages/showcases/Alert/Alert.tsx#source -->
+<<<../../preview/next/pages/showcases/Alert/Alert.tsx#source
 <!-- end react -->
 
 </Showcase>
@@ -49,13 +49,13 @@ This type is informative just like neutral except that its palette is more notic
 <<<../../preview/nuxt/pages/showcases/Alert/Alert.vue
 <!-- end vue -->
 <!-- react -->
-<!-- <<<../../preview/next/pages/showcases/Alert/Alert.tsx#source -->
+<<<../../preview/next/pages/showcases/Alert/Alert.tsx#source
 <!-- end react -->
 </Showcase>
 
 ## Alert positive
 
-Green color indicates that an action went successful.
+A green color indicates that an action was successful.
 
 <Showcase showcase-name="Alert/AlertPositive" style="min-height:230px">
 ::: slot usage
@@ -70,13 +70,13 @@ Green color indicates that an action went successful.
 <<<../../preview/nuxt/pages/showcases/Alert/Alert.vue
 <!-- end vue -->
 <!-- react -->
-<!-- <<<../../preview/next/pages/showcases/Alert/Alert.tsx#source -->
+<<<../../preview/next/pages/showcases/Alert/Alert.tsx#source
 <!-- end react -->
 </Showcase>
 
 ## Alert warning
 
-Alert can be more descriptive and its content can be splitted into title and description.
+Alert can be more descriptive and its content can be split into title and description.
 
 <Showcase showcase-name="Alert/AlertWarning" style="min-height:280px">
 ::: slot usage
@@ -91,7 +91,7 @@ Alert can be more descriptive and its content can be splitted into title and des
 <<<../../preview/nuxt/pages/showcases/Alert/Alert.vue
 <!-- end vue -->
 <!-- react -->
-<!-- <<<../../preview/next/pages/showcases/Alert/Alert.tsx#source -->
+<<<../../preview/next/pages/showcases/Alert/Alert.tsx#source
 <!-- end react -->
 </Showcase>
 
@@ -112,6 +112,6 @@ This type is usually used for information displayed when an important problem oc
 <<<../../preview/nuxt/pages/showcases/Alert/Alert.vue
 <!-- end vue -->
 <!-- react -->
-<!-- <<<../../preview/next/pages/showcases/Alert/Alert.tsx#source -->
+<<<../../preview/next/pages/showcases/Alert/Alert.tsx#source
 <!-- end react -->
 </Showcase>
