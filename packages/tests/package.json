@@ -12,6 +12,6 @@
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",
     "eslint": "^8.34.0",
-    "prettier": "^2.8.8"
+    "prettier": "^3.0.0"
   }
 }

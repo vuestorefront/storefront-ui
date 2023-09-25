@@ -17,22 +17,13 @@ const variantClasses = {
   neutral: 'border-neutral-200 bg-neutral-100',
 };
 
-export interface AlertProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    PropsWithStyle,
-    PropsWithChildren {
-  size?: keyof typeof sizeClasses,
-  variant?: keyof typeof variantClasses
+export interface AlertProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, PropsWithStyle, PropsWithChildren {
+  size?: keyof typeof sizeClasses;
+  variant?: keyof typeof variantClasses;
 }
 
 const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
-  const {
-    className,
-    size = 'base',
-    variant = 'neutral',
-    children,
-    ...attributes
-  } = props;
+  const { className, size = 'base', variant = 'neutral', children, ...attributes } = props;
 
   return (
     <div

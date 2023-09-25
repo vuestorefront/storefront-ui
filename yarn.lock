@@ -4562,7 +4562,7 @@ __metadata:
   dependencies:
     "@storefront-ui/eslint-config": "workspace:*"
     eslint: ^8.34.0
-    prettier: ^2.8.8
+    prettier: ^3.0.0
   languageName: unknown
   linkType: soft
 
@@ -22455,7 +22455,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prettier@npm:^1.18.2 || ^2.0.0, prettier@npm:^2.7.1, prettier@npm:^2.8.8":
+"prettier@npm:^1.18.2 || ^2.0.0, prettier@npm:^2.7.1":
   version: 2.8.8
   resolution: "prettier@npm:2.8.8"
   bin:

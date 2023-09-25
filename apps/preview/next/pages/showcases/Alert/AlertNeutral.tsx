@@ -8,7 +8,7 @@ export default function AlertNeutral() {
       <Alert variant="neutral" className="w-full max-w-[640px]">
         <p className="py-2">Happy shopping!</p>
       </Alert>
-  
+
       <Alert variant="neutral" size="sm" className="w-full max-w-[320px]">
         <p className="py-1.5">Happy shopping!</p>
       </Alert>

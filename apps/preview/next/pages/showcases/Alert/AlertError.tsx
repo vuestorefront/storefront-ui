@@ -23,7 +23,7 @@ export default function AlertError() {
           <SfIconClose />
         </button>
       </Alert>
-  
+
       <Alert variant="negative" size="sm" className="w-full max-w-[320px]">
         <SfIconError className="my-1.5 text-negative-700 shrink-0" size="sm" />
         <p className="py-2">The password change was failed.</p>

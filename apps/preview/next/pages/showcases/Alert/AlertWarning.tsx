@@ -19,7 +19,7 @@ export default function AlertWarning() {
           Update
         </button>
       </Alert>
-  
+
       <Alert variant="warning" size="sm" className="w-full max-w-[320px]">
         <SfIconWarning size="sm" className="my-1.5 text-warning-700 shrink-0" />
         <div className="py-1.5">

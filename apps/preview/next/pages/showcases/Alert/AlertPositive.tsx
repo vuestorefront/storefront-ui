@@ -17,7 +17,7 @@ export default function AlertPositive() {
           <SfIconClose />
         </button>
       </Alert>
-  
+
       <Alert variant="positive" className="w-full max-w-[320px]" size="sm">
         <SfIconCheckCircle size="sm" className="my-1.5 text-positive-700 shrink-0" />
         <p className="py-1.5">The product has been added to the cart.</p>
