@@ -1,4 +1,3 @@
-import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import type { PropsWithStyle } from '@storefront-ui/react';
 import { type PropsWithChildren, forwardRef } from 'react';
@@ -17,7 +16,7 @@ const variantClasses = {
   neutral: 'border-neutral-200 bg-neutral-100',
 };
 
-export interface AlertProps extends React.ButtonHTMLAttributes<HTMLButtonElement>, PropsWithStyle, PropsWithChildren {
+export interface AlertProps extends React.HTMLAttributes<HTMLDivElement>, PropsWithStyle, PropsWithChildren {
   size?: keyof typeof sizeClasses;
   variant?: keyof typeof variantClasses;
 }
@@ -44,4 +43,3 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
 
 export default Alert;
 // #endregion source
-Alert.getLayout = ShowcasePageLayout;
