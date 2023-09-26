@@ -30,7 +30,7 @@ const { placement, middleware, strategy } = toRefs(props);
 const { isOpen, triggerProps, tooltipProps, arrowProps } = useTooltip({ placement, middleware, strategy });
 </script>
 <template>
-  <span v-bind="triggerProps" data-testid="tooltip">
+  <span data-testid="tooltip" v-bind="triggerProps">
     <slot />
     <div
       v-if="label && isOpen"
