@@ -6,6 +6,6 @@
     "docs-test": "yarn cypress open --e2e"
   },
   "devDependencies": {
-    "cypress": "^12.16.0"
+    "cypress": "^13.2.0"
   }
 }
