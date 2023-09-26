@@ -43,7 +43,7 @@
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.0.1",
     "cpy-cli": "^4.2.0",
-    "cypress": "^12.9.0",
+    "cypress": "^13.2.0",
     "nyc": "^15.1.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
