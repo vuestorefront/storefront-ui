@@ -1,6 +1,6 @@
 <template>
   <div class="flex items-center">
-    <SfCheckbox id="checkbox" v-model="modelValue" value="value" class-name="peer" />
+    <SfCheckbox id="checkbox" v-model="modelValue" value="value" class="peer" />
     <label class="ml-3 text-base text-gray-900 cursor-pointer font-body peer-disabled:text-disabled-900" for="checkbox">
       Label
     </label>

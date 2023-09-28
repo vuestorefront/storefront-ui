@@ -1,11 +1,11 @@
 <template>
   <label>
-    <span className="typography-text-sm font-medium">Description</span>
+    <span class="typography-text-sm font-medium">Description</span>
     <SfTextarea ref="textareaRef" class="w-full h-max-[500px]" />
   </label>
-  <div className="flex justify-between mt-0.5">
+  <div class="flex justify-between mt-0.5">
     <div>
-      <p className="typography-text-xs text-neutral-500">Do not include personal or financial information.</p>
+      <p class="typography-text-xs text-neutral-500">Do not include personal or financial information.</p>
     </div>
   </div>
 </template>
