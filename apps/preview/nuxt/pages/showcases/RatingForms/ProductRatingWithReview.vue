@@ -39,7 +39,7 @@
           <SfInput v-model="usernameModelValue" />
         </label>
         <div class="flex justify-end gap-x-4">
-          <SfButton variant="secondary" type="button" class="flex-1 md:flex-initial">Cancel</SfButton>
+          <SfButton variant="secondary" class="flex-1 md:flex-initial">Cancel</SfButton>
           <SfButton type="submit" class="flex-1 md:flex-initial">Submit Review</SfButton>
         </div>
       </div>

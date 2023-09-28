@@ -1,7 +1,6 @@
 <template>
   <nav class="flex justify-between items-end border-t border-neutral-200" role="navigation" aria-label="pagination">
     <SfButton
-      type="button"
       size="lg"
       aria-label="Go to previous page"
       :disabled="selectedPage <= 1"
@@ -110,7 +109,6 @@
       </li>
     </ul>
     <SfButton
-      type="button"
       size="lg"
       aria-label="Go to next page"
       :disabled="selectedPage >= totalPages"

@@ -19,7 +19,6 @@ export default function QuantitySelector() {
     <div className="inline-flex flex-col items-center">
       <div className="flex">
         <SfButton
-          type="button"
           square
           className="!rounded-full"
           disabled={value <= min}
@@ -41,7 +40,6 @@ export default function QuantitySelector() {
         />
 
         <SfButton
-          type="button"
           square
           className="!rounded-full"
           disabled={value >= max}

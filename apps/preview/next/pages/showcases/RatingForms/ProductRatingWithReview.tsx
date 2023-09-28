@@ -72,7 +72,7 @@ export default function ProductRatingWithReview() {
             <SfInput value={username} onChange={(event) => setUsername(event.target.value)} />
           </label>
           <div className="flex justify-end gap-x-4">
-            <SfButton variant="secondary" type="button" className="flex-1 md:flex-initial">
+            <SfButton variant="secondary" className="flex-1 md:flex-initial">
               Cancel
             </SfButton>
             <SfButton type="submit" className="flex-1 md:flex-initial">

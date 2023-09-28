@@ -1,7 +1,6 @@
 <template>
   <div class="flex">
     <SfButton
-      type="button"
       square
       class="!rounded-full"
       :disabled="count <= min"
@@ -22,7 +21,6 @@
     />
 
     <SfButton
-      type="button"
       square
       class="!rounded-full"
       :disabled="count >= max"

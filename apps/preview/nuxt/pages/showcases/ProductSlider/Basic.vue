@@ -32,7 +32,6 @@
           />
         </SfLink>
         <SfButton
-          type="button"
           variant="tertiary"
           size="sm"
           square
