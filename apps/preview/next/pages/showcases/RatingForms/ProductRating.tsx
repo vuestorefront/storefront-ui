@@ -11,7 +11,7 @@ export default function ProductRating() {
 
   return (
     <>
-      <SfButton type="button" className="absolute right-1/2 top-1/2 translate-x-[50%]" onClick={open}>
+      <SfButton className="absolute right-1/2 top-1/2 translate-x-[50%]" onClick={open}>
         Open rating modal again
       </SfButton>
       <SfModal

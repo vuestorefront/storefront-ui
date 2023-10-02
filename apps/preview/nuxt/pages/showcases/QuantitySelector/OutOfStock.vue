@@ -1,7 +1,7 @@
 <template>
   <div class="inline-flex flex-col items-center">
     <div class="flex rounded-md border border-disabled-200 bg-disabled-100">
-      <SfButton variant="tertiary" type="button" square disabled :aria-controls="inputId" aria-label="Decrease value">
+      <SfButton variant="tertiary" square disabled :aria-controls="inputId" aria-label="Decrease value">
         <SfIconRemove />
       </SfButton>
       <input
@@ -14,7 +14,7 @@
         :max="max"
       />
 
-      <SfButton variant="tertiary" type="button" square disabled :aria-controls="inputId" aria-label="Increase value">
+      <SfButton variant="tertiary" square disabled :aria-controls="inputId" aria-label="Increase value">
         <SfIconAdd />
       </SfButton>
     </div>

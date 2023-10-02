@@ -1,10 +1,10 @@
 <template>
   <div class="flex flex-col items-center space-y-4 xs:block xs:space-x-4">
-    <SfButton type="button" size="sm">Hello</SfButton>
+    <SfButton size="sm">Hello</SfButton>
 
-    <SfButton type="button">Hello</SfButton>
+    <SfButton>Hello</SfButton>
 
-    <SfButton type="button" size="lg">Hello</SfButton>
+    <SfButton size="lg">Hello</SfButton>
   </div>
 </template>
 

@@ -36,7 +36,6 @@
         <div class="flex items-center justify-between mt-4 sm:mt-0">
           <div class="flex border border-neutral-300 rounded-md">
             <SfButton
-              type="button"
               variant="tertiary"
               :disabled="count <= min"
               square
@@ -57,7 +56,6 @@
               @input="handleOnChange"
             />
             <SfButton
-              type="button"
               variant="tertiary"
               :disabled="count >= max"
               square

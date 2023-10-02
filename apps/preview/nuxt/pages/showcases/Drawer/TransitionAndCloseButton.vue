@@ -5,7 +5,7 @@
       <span class="ml-2">{{ label }}</span>
     </label>
   </fieldset>
-  <SfButton type="button" @click="open = true"> Open Drawer </SfButton>
+  <SfButton @click="open = true"> Open Drawer </SfButton>
 
   <transition
     enter-active-class="transition duration-500 ease-in-out"

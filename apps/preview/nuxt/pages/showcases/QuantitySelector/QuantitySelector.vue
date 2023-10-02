@@ -2,7 +2,6 @@
   <div class="inline-flex flex-col items-center">
     <div class="flex border border-neutral-300 rounded-md">
       <SfButton
-        type="button"
         variant="tertiary"
         :disabled="count <= min"
         square
@@ -23,7 +22,6 @@
         @input="handleOnChange"
       />
       <SfButton
-        type="button"
         variant="tertiary"
         :disabled="count >= max"
         square

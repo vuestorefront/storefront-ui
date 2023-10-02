@@ -8,7 +8,7 @@
       <option value="left" selected>left</option>
     </select>
   </label>
-  <SfButton type="button" @click="open = true"> Open Drawer </SfButton>
+  <SfButton @click="open = true"> Open Drawer </SfButton>
 
   <SfDrawer
     v-model="open"

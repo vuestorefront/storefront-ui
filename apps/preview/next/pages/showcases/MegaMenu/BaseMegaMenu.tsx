@@ -167,7 +167,6 @@ export default function BaseMegaMenu() {
         <div className="flex items-center justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
           <SfButton
             className="block md:hidden text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-            type="button"
             aria-haspopup="true"
             aria-expanded={isOpen}
             variant="tertiary"
@@ -192,7 +191,6 @@ export default function BaseMegaMenu() {
           </a>
           <SfButton
             className="hidden md:flex text-white bg-transparent font-body hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-            type="button"
             aria-haspopup="true"
             aria-expanded={isOpen}
             slotSuffix={<SfIconExpandMore className="hidden md:inline-flex" />}
