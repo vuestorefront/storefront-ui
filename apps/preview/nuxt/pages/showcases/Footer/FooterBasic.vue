@@ -3,8 +3,8 @@
     <div
       class="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-[1536px] mx-auto"
     >
-      <div v-for="{ label, subcategories } in categories" :key="label" class="grid grid-cols xs:pb-4">
-        <div class="ml-4 text-lg font-medium leading-7 text-neutral-900 font-body">{{ label }}</div>
+      <ul v-for="{ label, subcategories } in categories" :key="label" class="grid grid-cols xs:pb-4">
+        <li class="ml-4 text-lg font-medium leading-7 text-neutral-900 font-body">{{ label }}</li>
         <SfListItem
           v-for="{ subcategoryLabel, link } in subcategories"
           :key="subcategoryLabel"
@@ -18,7 +18,7 @@
             {{ subcategoryLabel }}
           </SfLink>
         </SfListItem>
-      </div>
+      </ul>
     </div>
     <hr />
     <div class="py-10 md:flex md:mx-auto max-w-[1536px]">
