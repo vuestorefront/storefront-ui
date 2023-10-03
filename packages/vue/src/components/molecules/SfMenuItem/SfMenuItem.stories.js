@@ -40,17 +40,17 @@ export default {
       },
       "link-text-decoration": {
         value: "none",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "button-width": {
         value: "100%",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "icon-color": {
         value: "var(--c-gray)",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
     },

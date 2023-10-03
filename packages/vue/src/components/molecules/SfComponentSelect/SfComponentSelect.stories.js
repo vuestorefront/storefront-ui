@@ -46,12 +46,12 @@ export default {
       },
       "chevron-position": {
         value: "absolute",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "product-option-font": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "component-select-border-color": {
@@ -60,12 +60,12 @@ export default {
       },
       "button-background": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "button-color": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "component-select-border-width": {
@@ -82,7 +82,7 @@ export default {
       },
       "chevron-color": {
         value: "",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "component-select-label-color": {
@@ -95,7 +95,7 @@ export default {
       },
       "component-select-label-required": {
         value: '" *"',
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "chevron-display": {

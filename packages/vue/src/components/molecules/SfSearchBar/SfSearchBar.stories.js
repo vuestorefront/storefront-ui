@@ -49,7 +49,7 @@ export default {
       "search-bar-icon-flex-direction": { value: "", control: "text" },
       "icon-size": {
         value: "1.25rem",
-        description: "Overridden other component's CSS variable",
+        description: "Overrides other component's CSS variable",
         control: "text",
       },
       "search-bar-border-color": {
