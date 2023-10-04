@@ -8,7 +8,7 @@
     </template>
     <ul class="mt-2 mb-6">
       <li>
-        <SfListItem size="sm" as="button" type="button">
+        <SfListItem size="sm" tag="button" type="button">
           <div class="flex items-center">
             <SfIconArrowBack size="sm" class="text-neutral-500 mr-3" />Back to {{ categories[0].label }}
           </div>

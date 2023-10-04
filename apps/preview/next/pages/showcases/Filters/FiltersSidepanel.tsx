@@ -16,7 +16,7 @@ import {
   SfSelect,
   SfCheckbox,
 } from '@storefront-ui/react';
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import classNames from 'classnames';
 
 const sortOptions = [
@@ -240,9 +240,8 @@ export default function FiltersSidepanel() {
         Filter
       </h5>
       {filtersData.map((section) => (
-        <>
+        <Fragment key={section.id}>
           <SfAccordionItem
-            key={section.id}
             onToggle={handleToggle(section.id)}
             open={isAccordionItemOpen(section.id)}
             summary={
@@ -386,7 +385,7 @@ export default function FiltersSidepanel() {
                         value={value}
                         checked={price === value}
                         name="radio-price"
-                        onClick={() => setPrice(price === value ? null : value)}
+                        onChange={() => setPrice(price === value ? null : value)}
                       />
                     }
                   >
@@ -414,7 +413,7 @@ export default function FiltersSidepanel() {
                         value={value}
                         checked={rating === value}
                         name="radio-rating"
-                        onClick={() => setRating(rating === value ? null : value)}
+                        onChange={() => setRating(rating === value ? null : value)}
                       />
                     }
                   >
@@ -430,7 +429,7 @@ export default function FiltersSidepanel() {
             )}
           </SfAccordionItem>
           <hr className="my-4" />
-        </>
+        </Fragment>
       ))}
       <div className="flex justify-between">
         <SfButton variant="secondary" className="w-full mr-3" onClick={handleClearFilters}>
