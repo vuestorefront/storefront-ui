@@ -3,7 +3,7 @@ import { SfIconBase, SfIconSize } from '@storefront-ui/react';
 
 export default function SfIconInfo({ size = SfIconSize.base, viewBox = '0 0 24 24', ...attributes }: SfIconProps) {
   return (
-    <SfIconBase {...attributes} size={size} viewBox={viewBox} data-testid="info">
+    <SfIconBase size={size} viewBox={viewBox} data-testid="info" {...attributes}>
       <>
         <path d="M13.25 8a1.25 1.25 0 1 1-2.5 0 1.25 1.25 0 0 1 2.5 0ZM11 16a1 1 0 1 0 2 0v-4a1 1 0 1 0-2 0v4Z" />
         <path
