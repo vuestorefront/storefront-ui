@@ -12,7 +12,7 @@ export default function DisabledInputDemo() {
       </label>
       <div className="flex justify-between">
         <div>
-          <p className="text-xs text-disabled-500 mt-0.5">Help Text</p>
+          <p className="typography-hint-xs text-disabled-500 mt-0.5">Help Text</p>
         </div>
       </div>
     </>

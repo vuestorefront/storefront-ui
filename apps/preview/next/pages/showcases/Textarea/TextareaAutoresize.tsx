@@ -17,13 +17,9 @@ export default function TextareaAutoresize() {
     <>
       <label>
         <span className="typography-text-sm font-medium">Description</span>
-        <SfTextarea ref={textareaRef} className="w-full h-max-[500px]" size="sm" aria-label="Label size sm" />
+        <SfTextarea ref={textareaRef} className="w-full h-max-[500px] block" size="sm" aria-label="Label size sm" />
       </label>
-      <div className="flex justify-between mt-0.5">
-        <div>
-          <p className="typography-text-xs text-neutral-500">Do not include personal or financial information.</p>
-        </div>
-      </div>
+      <p className="typography-hint-xs text-neutral-500 mt-0.5">Do not include personal or financial information.</p>
     </>
   );
 }

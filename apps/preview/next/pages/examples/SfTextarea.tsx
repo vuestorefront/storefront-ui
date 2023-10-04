@@ -109,7 +109,7 @@ function Example() {
           disabled={state.get.disabled}
           readOnly={state.get.readonly}
           onChange={onChange}
-          className={classNames('w-full', {
+          className={classNames('w-full block', {
             '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': state.get.disabled,
             '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500': state.get.readonly,
           })}
@@ -118,12 +118,12 @@ function Example() {
       <div className="flex justify-between">
         <div>
           {state.get.invalid && !state.get.disabled && (
-            <p className="typography-text-sm text-negative-700 font-medium mt-0.5">{state.get.errorText}</p>
+            <p className="typography-error-sm text-negative-700 font-medium mt-0.5">{state.get.errorText}</p>
           )}
           {state.get.helpText && (
             <p
               className={classNames(
-                'typography-text-xs mt-0.5',
+                'typography-hint-xs mt-0.5',
                 state.get.disabled ? 'text-disabled-500' : 'text-neutral-500',
               )}
             >
@@ -139,7 +139,7 @@ function Example() {
         {state.get.characterLimit && !state.get.readonly ? (
           <p
             className={classNames(
-              'typography-text-xs mt-0.5',
+              'typography-error-xs mt-0.5',
               state.get.disabled ? 'text-disabled-500' : getCharacterLimitClass(),
             )}
           >

@@ -44,9 +44,11 @@ const typographyClasses = [
   ['error-lg', 'fontSize.lg', 'lineHeight.7'],
   ['error-base', 'fontSize.base', 'lineHeight.6'],
   ['error-sm', 'fontSize.sm', 'lineHeight.5'],
+  ['error-xs', 'fontSize.xs', 'lineHeight.4'],
   ['hint-lg', 'fontSize.lg', 'lineHeight.7'],
   ['hint-base', 'fontSize.base', 'lineHeight.6'],
   ['hint-sm', 'fontSize.sm', 'lineHeight.5'],
+  ['hint-xs', 'fontSize.xs', 'lineHeight.4'],
 ];
 
 export default {

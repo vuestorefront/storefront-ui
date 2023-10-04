@@ -321,7 +321,7 @@ export default function ComboboxBasic() {
       {!isDisabled && isValid === false && (
         <p className="text-negative-700 typography-text-sm font-medium mt-0.5">No option selected</p>
       )}
-      <p className="text-xs mt-0.5 text-neutral-500">Help text</p>
+      <p className="typography-hint-xs mt-0.5 text-neutral-500">Help text</p>
       <DisableSwitch
         className={classNames({ hidden: isOpen })}
         onChangeHandler={onDisabledChangeHandler}

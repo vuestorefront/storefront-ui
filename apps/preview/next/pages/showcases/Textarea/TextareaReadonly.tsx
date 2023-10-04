@@ -10,15 +10,11 @@ export default function ReadonlyTextarea() {
         <span className="typography-text-sm font-medium">Description</span>
         <SfTextarea
           value="Hello! I'm a passionate shopper and a regular user of this ecommerce platform."
-          className="w-full !bg-disabled-100 !ring-disabled-300 !ring-1"
+          className="w-full !bg-disabled-100 !ring-disabled-300 !ring-1 block"
           readOnly
         />
       </label>
-      <div className="flex justify-between mt-0.5">
-        <div>
-          <p className="typography-text-xs text-neutral-500">Do not include personal or financial information.</p>
-        </div>
-      </div>
+      <p className="typography-hint-xs text-neutral-500 mt-0.5">Do not include personal or financial information.</p>
     </>
   );
 }

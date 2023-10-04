@@ -656,7 +656,7 @@ export default function FormFields() {
                 >
                   {label}
                 </span>
-                <span className={classNames('typography-text-xs block', { 'text-disabled-500': disabled })}>
+                <span className={classNames('typography-hint-xs block mt-0.5', { 'text-disabled-500': disabled })}>
                   {hint}
                 </span>
               </span>
