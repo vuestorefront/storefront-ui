@@ -30,9 +30,9 @@ export default function SfIconBase({
 }: SfIconBaseProps) {
   return (
     <svg
-      {...attributes}
       xmlns="http://www.w3.org/2000/svg"
       className={`inline-block fill-current ${getSizeClasses(size)} ${className}`}
+      {...attributes}
     >
       {children}
     </svg>
