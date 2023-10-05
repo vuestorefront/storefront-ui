@@ -86,7 +86,6 @@ const streetIsValid = ref(true);
 
 const onSubmit = (e: Event) => {
   /* your submit handler, e.g.: */
-  console.log(e);
   const form = e.target as HTMLFormElement;
 
   // data can be accessed in form of FormData
