@@ -40,7 +40,7 @@ export function Showcase() {
             >
               <button
                 type="button"
-                className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
+                className="min-w-[38px] px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900"
                 aria-current={selectedPage === 1}
                 onClick={() => setPage(1)}
               >
@@ -70,7 +70,7 @@ export function Showcase() {
                 <div className="flex pt-1 border-t-4 border-transparent">
                   <button
                     type="button"
-                    className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
+                    className="min-w-[38px] px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                     aria-current={endPage - 1 === selectedPage}
                     onClick={() => setPage(endPage - 1)}
                   >
@@ -88,7 +88,7 @@ export function Showcase() {
                 <button
                   type="button"
                   className={classNames(
-                    'px-3 sm:px-4 py-3 text-neutral-500 md:w-12 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
+                    'min-w-[38px] px-3 sm:px-4 py-3 text-neutral-500 md:w-12 rounded-md hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
                     { '!text-neutral-900 hover:!text-primary-800 active:!text-primary-900': selectedPage === page },
                   )}
                   aria-label={`Page ${page} of ${totalPages}`}
@@ -104,7 +104,7 @@ export function Showcase() {
                 <div className="flex pt-1 border-t-4 border-transparent">
                   <button
                     type="button"
-                    className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
+                    className="min-w-[38px] px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                     aria-current={selectedPage === 1}
                     onClick={() => setPage(2)}
                   >
@@ -138,7 +138,7 @@ export function Showcase() {
             >
               <button
                 type="button"
-                className="px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
+                className="min-w-[38px] px-3 sm:px-4 py-3 rounded-md text-neutral-500 md:w-12 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 "
                 aria-current={totalPages === selectedPage}
                 onClick={() => setPage(totalPages)}
               >
