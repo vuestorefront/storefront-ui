@@ -12,7 +12,7 @@ export default function ReadonlyInput() {
       </label>
       <div className="flex justify-between">
         <div>
-          <p className="text-xs text-neutral-500 mt-0.5">Help Text</p>
+          <p className="typography-hint-xs text-neutral-500 mt-0.5">Help Text</p>
         </div>
       </div>
     </>

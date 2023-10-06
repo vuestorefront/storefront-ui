@@ -54,7 +54,7 @@ export default function InputWithLimit() {
         <div>
           {invalid && !disabled && <p className="text-sm text-negative-700 font-medium mt-0.5">{errorText}</p>}
           {helpText && (
-            <p className={classNames('text-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500')}>
+            <p className={classNames('typography-hint-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500')}>
               {helpText}
             </p>
           )}
@@ -63,7 +63,12 @@ export default function InputWithLimit() {
           ) : null}
         </div>
         {characterLimit && !readonly ? (
-          <p className={classNames('text-xs mt-0.5', disabled ? 'text-disabled-500' : getCharacterLimitClass())}>
+          <p
+            className={classNames(
+              'typography-error-xs mt-0.5',
+              disabled ? 'text-disabled-500' : getCharacterLimitClass(),
+            )}
+          >
             {charsCount}
           </p>
         ) : null}

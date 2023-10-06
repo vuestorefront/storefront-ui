@@ -15,7 +15,7 @@
         v-bind="state"
         v-model="value"
         :class="[
-          'w-full',
+          'w-full block',
           {
             '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled,
             '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500': readonly,
@@ -28,7 +28,7 @@
         <p v-if="invalid && !disabled" class="typography-text-sm text-negative-700 font-medium mt-0.5">
           {{ errorText }}
         </p>
-        <p v-if="helpText" :class="['typography-text-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500']">
+        <p v-if="helpText" :class="['typography-hint-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500']">
           {{ helpText }}
         </p>
         <p
@@ -40,7 +40,7 @@
       </div>
       <p
         v-if="characterLimit && !readonly"
-        :class="['typography-text-xs mt-0.5', disabled ? 'text-disabled-500' : getCharacterLimitClass]"
+        :class="['typography-error-xs mt-0.5', disabled ? 'text-disabled-500' : getCharacterLimitClass]"
       >
         {{ charsCount }}
       </p>

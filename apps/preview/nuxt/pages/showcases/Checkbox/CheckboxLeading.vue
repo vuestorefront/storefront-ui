@@ -6,7 +6,7 @@
     </label>
   </div>
   <div class="flex justify-between ml-8">
-    <p class="text-xs mt-0.5 text-neutral-500">Help text</p>
+    <p class="typography-hint-xs mt-0.5 text-neutral-500">Help text</p>
   </div>
 </template>
 <script lang="ts" setup>

@@ -70,17 +70,22 @@ export default plugin.withOptions(
           ['error-lg', 'fontSize.lg', 'lineHeight.7'],
           ['error-base', 'fontSize.base', 'lineHeight.6'],
           ['error-sm', 'fontSize.sm', 'lineHeight.5'],
+          ['error-xs', 'fontSize.xs', 'lineHeight.4'],
           ['hint-lg', 'fontSize.lg', 'lineHeight.7'],
           ['hint-base', 'fontSize.base', 'lineHeight.6'],
           ['hint-sm', 'fontSize.sm', 'lineHeight.5'],
-        ].reduce((p, [name, fontSize, lineHeight, fontFamily]) => {
-          p[name] = {
-            fontSize: theme(fontSize),
-            lineHeight: theme(lineHeight),
-            fontFamily: fontFamily ? theme(fontFamily) : undefined,
-          };
-          return p;
-        }, {} as Record<string, ConfigValue>),
+          ['hint-xs', 'fontSize.xs', 'lineHeight.4'],
+        ].reduce(
+          (p, [name, fontSize, lineHeight, fontFamily]) => {
+            p[name] = {
+              fontSize: theme(fontSize),
+              lineHeight: theme(lineHeight),
+              fontFamily: fontFamily ? theme(fontFamily) : undefined,
+            };
+            return p;
+          },
+          {} as Record<string, ConfigValue>,
+        ),
     } as { [PLUGIN_CONFIG_KEY]: ResolvableTo<ConfigKeyValuePair> },
   }),
 );
