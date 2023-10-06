@@ -548,7 +548,8 @@ const {
 });
 
 useTrapFocus(floatingRef as Ref<HTMLUListElement>, {
-  arrowKeysOn: true,
+  arrowKeysLeftRight: true,
+  arrowKeysUpDown: true,
   activeState: dropdownOpen,
   initialFocusContainerFallback: true,
 });

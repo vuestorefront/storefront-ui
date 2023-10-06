@@ -15,11 +15,6 @@ type UseTrapFocusOptions = TabbableOptions &
     activeState?: boolean;
     initialFocus?: number | `${InitialFocusType}` | false;
     initialFocusContainerFallback?: boolean;
-    /**
-     * Enabling both `left` | `up` | `right` | `down` arrow keys.
-     * @deprecated Since version 2.3. Use arrowKeysLeftRight or/and arrowKeysUpDown options instead.
-     */
-    arrowKeysOn?: boolean;
     arrowKeysLeftRight?: boolean;
     arrowKeysUpDown?: boolean;
   };
@@ -29,7 +24,6 @@ const defaultOptions = {
   activeState: true,
   initialFocus: 0,
   initialFocusContainerFallback: false,
-  arrowKeysOn: false,
   arrowKeysLeftRight: false,
   arrowKeysUpDown: false,
 };
@@ -41,7 +35,6 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
     includeContainer,
     activeState,
     initialFocus,
-    arrowKeysOn,
     arrowKeysLeftRight,
     arrowKeysUpDown,
     initialFocusContainerFallback,
@@ -85,9 +78,6 @@ export const useTrapFocus = (containerElementRef: RefObject<HTMLElement | null>,
       const isAnyGroupElement =
         arrowFocusGroupSelector && containerElementRef.current?.querySelector(arrowFocusGroupSelector);
       const additionalData = isAnyGroupElement ? { arrowFocusGroupSelector } : {};
-
-      if (arrowKeysOn && (event.key === 'ArrowLeft' || event.key === 'ArrowUp')) focusPreviousItem({ additionalData });
-      if (arrowKeysOn && (event.key === 'ArrowRight' || event.key === 'ArrowDown')) focusNextItem({ additionalData });
 
       if (arrowKeysLeftRight && event.key === 'ArrowLeft') focusPreviousItem({ additionalData });
       if (arrowKeysLeftRight && event.key === 'ArrowRight') focusNextItem({ additionalData });
