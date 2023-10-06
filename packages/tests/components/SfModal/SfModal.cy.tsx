@@ -3,15 +3,15 @@ import React from 'react';
 import { ref } from 'vue';
 import type { Ref } from 'vue';
 import { mount, useComponent, Wrapper } from '../../utils/mount';
-import SfDialogBaseObject from './SfModal.PageObject';
+import SfModalBaseObject from './SfModal.PageObject';
 import { waitForRerender } from '../../utils/waitForRerender';
 
 const { vue: SfModalVue, react: SfModalReact } = useComponent('SfModal');
 
-describe('SfDialog', () => {
+describe('SfModal', () => {
   const dialogContent = 'this is some dialog content';
 
-  const page = () => new SfDialogBaseObject('modal');
+  const page = () => new SfModalBaseObject('modal');
 
   const initializeComponent = ({
     modelValue = ref(true),

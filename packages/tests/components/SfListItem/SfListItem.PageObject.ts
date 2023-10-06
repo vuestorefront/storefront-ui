@@ -18,8 +18,18 @@ export default class SfListItemObject extends BasePage {
     return this;
   }
 
+  hasDisabledPrefix() {
+    this.container.children().first().should('have.class', 'text-disabled-500');
+    return this;
+  }
+
   hasSuffix() {
     this.container.children().last().should('have.class', 'text-neutral-500');
+    return this;
+  }
+
+  hasDisabledSuffix() {
+    this.container.children().last().should('have.class', 'text-disabled-500');
     return this;
   }
 
