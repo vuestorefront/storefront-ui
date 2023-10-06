@@ -111,15 +111,43 @@ describe('SfListItem', () => {
 
       page().hasPrefix().makeSnapshot();
     });
+
+    describe('when disabled=true', () => {
+      before(() => {
+        disabled = true;
+      });
+      afterEach(() => {
+        disabled = false;
+      });
+      it('should place text-disabled-500 class on prefix element', () => {
+        initializeComponent();
+
+        page().hasDisabledPrefix().makeSnapshot();
+      });
+    });
   });
 
   describe('when only suffix', () => {
-    before(() => (slotSuffix = true));
-    after(() => (slotSuffix = false));
+    beforeEach(() => (slotSuffix = true));
+    afterEach(() => (slotSuffix = false));
     it(`should render icon in suffix slot`, () => {
       initializeComponent();
 
       page().hasSuffix().makeSnapshot();
+    });
+
+    describe('when disabled=true', () => {
+      before(() => {
+        disabled = true;
+      });
+      afterEach(() => {
+        disabled = false;
+      });
+      it('should place text-disabled-500 class on suffix element', () => {
+        initializeComponent();
+
+        page().hasDisabledSuffix().makeSnapshot();
+      });
     });
   });
 
