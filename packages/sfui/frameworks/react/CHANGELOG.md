@@ -1,5 +1,23 @@
 # @storefront-ui/react
 
+## 3.0.0
+
+### Major Changes
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`33935c6f7`](https://github.com/vuestorefront/storefront-ui/commit/33935c6f7d65892b6375a61ea0157367c6b12cd2) Thanks [@FRSgit](https://github.com/FRSgit)! - Breaking Change - Padding size for square variant of SfButton changed
+
+- [#2902](https://github.com/vuestorefront/storefront-ui/pull/2902) [`bbec9e1b2`](https://github.com/vuestorefront/storefront-ui/commit/bbec9e1b2a1e915fbbca23a1d5c94230652ac861) Thanks [@justyna-13](https://github.com/justyna-13)! - Breaking Change - removed flex classes from wrapper for slot in SfListItem
+
+- [#2864](https://github.com/vuestorefront/storefront-ui/pull/2864) [`a2bb3a20d`](https://github.com/vuestorefront/storefront-ui/commit/a2bb3a20d7e902211e0dbb9c39fed3043597721e) Thanks [@aniamusial](https://github.com/aniamusial)! - Breaking Change - Padding left and right in SfSelect changed from 14px and 16px to 12px
+
+- [#3008](https://github.com/vuestorefront/storefront-ui/pull/3008) [`727a19298`](https://github.com/vuestorefront/storefront-ui/commit/727a1929871eb9c8b7ea857b3f5cebdd3e51cf95) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - BREAKING CHANGE: Deprecated option `arrowKeysOn` from `useTrapFocus` is removed.
+  This option was separated and replaced by two more specialised options `arrowKeysLeftRight` and `arrowKeysUpDown`.
+  In order to migrate please one of those options or both.
+
+### Minor Changes
+
+- [#2848](https://github.com/vuestorefront/storefront-ui/pull/2848) [`93107ab26`](https://github.com/vuestorefront/storefront-ui/commit/93107ab2664bd513e8074c2ee3069cf601fb8a17) Thanks [@AdamPawlinski](https://github.com/AdamPawlinski)! - Added props changing aria label for nav buttons in SfScrollable
+
 ## 2.4.1
 
 ### Patch Changes
