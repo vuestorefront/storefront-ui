@@ -132,6 +132,8 @@ function Example() {
         })}
         childrenTag={state.get.childrenTag}
         onClick={() => state.set((currentState) => ({ ...currentState, selected: !currentState.selected }))}
+        disabled={state.get.disabled}
+        selected={state.get.selected}
       >
         <span className="break-words">
           {state.get.label}
