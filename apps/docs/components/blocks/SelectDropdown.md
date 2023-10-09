@@ -10,6 +10,10 @@ The SelectDropdown is a visually customized version of the Select component, eli
 
 Please note that the example block provided can also serve as a base component, offering flexibility for implementation within the project based on specific requirements and design considerations.
 
+::: read-more
+If you need to make this field required, it is crucial to communicate this intention clearly to your end users. You can find more information about [required form fields in our guide here](../blocks/FormFields.html).
+:::
+
 ## Accessibility notes
 
 The SelectDropdown fully supports the use of the keyboard.
@@ -40,21 +44,6 @@ Adding placeholder might be helpful and informative for end users.
 <!-- react -->
 <<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.tsx#source
 <!-- end react -->
-</Showcase>
-
-## With required text
-
-By adding a sublabel, the user can easily see if this field is required. Remember to add `aria-required` to help users that use assistive technologies.
-
-<Showcase showcase-name="SelectDropdown/SelectDropdownRequired" style="min-height:300px">
-
-<!-- vue -->
-<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownRequired.vue
-<!-- end vue -->
-<!-- react -->
-<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownRequired.tsx#source
-<!-- end react -->
-
 </Showcase>
 
 ## Invalid state

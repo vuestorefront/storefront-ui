@@ -41,7 +41,7 @@
           <template v-if="type === 'category'">
             <ul class="mt-2 mb-6">
               <li>
-                <SfListItem size="sm" as="button" type="button">
+                <SfListItem size="sm" tag="button" type="button">
                   <div class="flex items-center">
                     <SfIconArrowBack size="sm" class="text-neutral-500 mr-3" />
                     Back to {{ details[0].label }}
@@ -51,7 +51,7 @@
               <li v-for="({ id, link, label, counter }, categoryIndex) in details" :key="id">
                 <SfListItem
                   size="sm"
-                  as="a"
+                  tag="a"
                   :href="link"
                   :class="[
                     'first-of-type:mt-2 rounded-md active:bg-primary-100',

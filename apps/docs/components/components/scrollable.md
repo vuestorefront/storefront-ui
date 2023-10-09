@@ -15,14 +15,10 @@ This component is shipped in our NPM package, but its API might change based on 
 ::: read-more
 
 <!-- react -->
-
 Learn more about `useScrollable` hook in the [Hooks > useScrollable docs](/react/hooks/useScrollable.html).
-
 <!-- end react -->
 <!-- vue -->
-
 Learn more about `useScrollable` composable in the [Composables > useScrollable docs](/vue/hooks/useScrollable.html).
-
 <!-- end vue -->
 
 :::
@@ -36,14 +32,10 @@ Can be setup that will be without scrollbar
 <Showcase showcase-name="Scrollable/HideScrollbar" style="min-height:240px">
 
 <!-- vue -->
-
 <<<../../preview/nuxt/pages/showcases/Scrollable/HideScrollbar.vue
-
 <!-- end vue -->
 <!-- react -->
-
 <<<../../preview/next/pages/showcases/Scrollable/HideScrollbar.tsx#source
-
 <!-- end react -->
 
 </Showcase>
@@ -55,14 +47,10 @@ Can be setup that will be without scrollbar
 <Showcase showcase-name="Scrollable/SnapCenter" style="min-height:260px">
 
 <!-- vue -->
-
 <<<../../preview/nuxt/pages/showcases/Scrollable/SnapCenter.vue
-
 <!-- end vue -->
 <!-- react -->
-
 <<<../../preview/next/pages/showcases/Scrollable/SnapCenter.tsx#source
-
 <!-- end react -->
 
 </Showcase>
@@ -74,14 +62,10 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 <Showcase showcase-name="Scrollable/ScrollByOneItem" style="min-height:260px">
 
 <!-- vue -->
-
 <<<../../preview/nuxt/pages/showcases/Scrollable/ScrollByOneItem.vue
-
 <!-- end vue -->
 <!-- react -->
-
 <<<../../preview/next/pages/showcases/Scrollable/ScrollByOneItem.tsx#source
-
 <!-- end react -->
 
 </Showcase>
@@ -157,14 +141,11 @@ The previous and next buttons have `aria-label` attributes (`buttonPrevAriaLabel
 <SourceCode>
 
 <!-- vue -->
-
 <<<../../../packages/sfui/frameworks/vue/components/SfScrollable/SfScrollable.vue
-
 <!-- end vue -->
 <!-- react -->
-
 <<< ../../../packages/sfui/frameworks/react/components/SfScrollable/SfScrollable.tsx
-
 <!-- end react -->
+
 </SourceCode>
 ::::::

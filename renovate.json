@@ -1,4 +1,12 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>vuestorefront/.github:renovate-config"]
+  "extends": ["github>vuestorefront/.github:renovate-config"],
+  "packageRules": [
+    {
+      "matchPackagePatterns": [
+        "eslint-config-next"
+      ],
+      "enabled": false
+    }
+  ]
 }

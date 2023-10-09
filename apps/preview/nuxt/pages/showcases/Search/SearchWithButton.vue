@@ -19,8 +19,9 @@
             class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
             @click="reset"
           >
-            <SfIconCancel /></button
-        ></template>
+            <SfIconCancel />
+          </button>
+        </template>
       </SfInput>
       <SfButton type="submit" class="rounded-l-none">Search</SfButton>
     </div>

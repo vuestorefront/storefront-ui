@@ -19,12 +19,13 @@
             class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
             @click="reset"
           >
-            <SfIconCancel /></button
-        ></template>
+            <SfIconCancel />
+          </button>
+        </template>
       </SfInput>
-      <SfButton type="submit" square aria-label="Search for a specific phrase on the page" class="rounded-l-none"
-        ><SfIconSearch
-      /></SfButton>
+      <SfButton type="submit" square aria-label="Search for a specific phrase on the page" class="rounded-l-none">
+        <SfIconSearch />
+      </SfButton>
     </div>
     <div v-if="isOpen" ref="floatingRef" :style="style" class="left-0 right-0">
       <div

@@ -10,7 +10,7 @@
     "lint": "yarn eslint --max-warnings 0 && yarn prettier --check",
     "lint:fix": "yarn eslint --fix && yarn prettier --write",
     "eslint": "eslint \"**/*.{js,ts,vue}\"",
-    "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"**/*.{js,ts,vue}\""
+    "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"**/*.{js,ts,vue}\""
   },
   "devDependencies": {
     "@frsource/autoresize-textarea": "^1.3.76",
@@ -22,6 +22,7 @@
     "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
     "@storefront-ui/vue": "workspace:*",
+    "@tailwindcss/typography": "^0.5.9",
     "@types/lodash-es": "^4.17.6",
     "@vueuse/core": "^9.12.0",
     "autoprefixer": "^10.4.13",
@@ -29,7 +30,7 @@
     "eslint-plugin-nuxt": "^4.0.0",
     "nuxt": "^3.3.2",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "sass": "^1.58.2",
     "sass-loader": "^13.2.0"
   },

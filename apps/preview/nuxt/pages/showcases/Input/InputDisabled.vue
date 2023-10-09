@@ -5,7 +5,7 @@
   </label>
   <div class="flex justify-between">
     <div>
-      <p class="text-xs text-disabled-500 mt-0.5">Help Text</p>
+      <p class="typography-hint-xs text-disabled-500 mt-0.5">Help Text</p>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/react",
-  "version": "2.5.0",
+  "version": "2.6.0",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -34,7 +34,7 @@
     "lint:script": "concurrently \"yarn eslint --max-warnings 0\" \"yarn prettier --check\"",
     "lint:script:fix": "yarn eslint --fix && yarn prettier --write",
     "eslint": "eslint \"{components,shared,hooks}/**/*.{ts,tsx}\"",
-    "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"{components,shared,hooks}/**/*.{ts,tsx}\""
+    "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"{components,shared,hooks}/**/*.{ts,tsx}\""
   },
   "files": [
     "dist"
@@ -54,8 +54,9 @@
     "@storefront-ui/eslint-config": "workspace:*",
     "@storefront-ui/tests-shared": "workspace:*",
     "@vitejs/plugin-react": "^3.1.0",
+    "concurrently": "^8.2.0",
     "eslint": "^8.34.0",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "vite": "^4.3.0",
     "vite-plugin-dts": "^2.0.0-beta.1",
     "vite-tsconfig-paths": "^4.0.5"

@@ -25,5 +25,6 @@ const options = ref([
   { label: 'Customer Rating', value: 'customer rating' },
   { label: 'Bestsellers', value: 'bestsellers' },
 ]);
-const selected = ref('');
+
+const selected = ref(options.value[0].value);
 </script>

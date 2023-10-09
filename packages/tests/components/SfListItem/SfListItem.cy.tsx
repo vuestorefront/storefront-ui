@@ -15,6 +15,7 @@ describe('SfListItem', () => {
   let selected: boolean;
   let slotPrefix: boolean;
   let slotSuffix: boolean;
+  let childrenTag: string | React.ElementType;
   let onChangeSpy: Cypress.Agent<sinon.SinonSpy>;
 
   const page = () => new SfListItemBaseObject('list-item');
@@ -33,6 +34,7 @@ describe('SfListItem', () => {
           disabled,
           size,
           selected,
+          childrenTag,
           onClick: onChangeSpy,
         },
         slots: {
@@ -46,6 +48,7 @@ describe('SfListItem', () => {
           disabled={disabled}
           selected={selected}
           size={size}
+          childrenTag={childrenTag}
           slotPrefix={slotPrefix && <SfIconCheckCircleReact />}
           slotSuffix={slotSuffix && <SfIconCircleReact />}
           onClick={onChangeSpy}
@@ -119,6 +122,16 @@ describe('SfListItem', () => {
       initializeComponent();
 
       page().hasSuffix().makeSnapshot();
+    });
+  });
+
+  describe('when childrenTag is set to div', () => {
+    before(() => (childrenTag = 'div'));
+    after(() => (childrenTag = 'span'));
+    it(`should render child as div tag`, () => {
+      initializeComponent();
+
+      page().childrenHaveTag('DIV').makeSnapshot();
     });
   });
 

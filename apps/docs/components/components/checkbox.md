@@ -5,11 +5,15 @@ description: A checkbox is an input that has three possible values - true, false
 ---
 # Checkbox
 
-::: slot usage
+:::::: slot usage
 
 `SfCheckbox` is a wrapper around `<input type="checkbox">` with additional styles for different states . It can be used for forms or expressing consents. 
 
 The root element is an `<input>` so any attributes that can be used on an `<input>` can be used on `SfCheckbox`.
+
+::: read-more
+If you need to make this field required, it is crucial to communicate this intention clearly to your end users. You can find more information about [required form fields in our guide here](../blocks/FormFields.html).
+:::
 
 ## Examples
 
@@ -65,7 +69,7 @@ It's focusable and can be toggled with `Space`.
 
 <Generate style="height: 450px" />
 
-:::
+::::::
 
 ::: slot api
 

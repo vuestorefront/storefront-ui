@@ -1,4 +1,5 @@
 /* eslint-disable no-promise-executor-return */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { type ChangeEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';
@@ -320,8 +321,7 @@ export default function ComboboxBasic() {
       {!isDisabled && isValid === false && (
         <p className="text-negative-700 typography-text-sm font-medium mt-0.5">No option selected</p>
       )}
-      <p className="text-xs mt-0.5 text-neutral-500">Help text</p>
-      <p className="mt-2 text-neutral-500 typography-text-sm">*Required</p>
+      <p className="typography-hint-xs mt-0.5 text-neutral-500">Help text</p>
       <DisableSwitch
         className={classNames({ hidden: isOpen })}
         onChangeHandler={onDisabledChangeHandler}

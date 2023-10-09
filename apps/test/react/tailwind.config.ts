@@ -2,6 +2,7 @@
 import { join } from 'path';
 import sfTypography from '@storefront-ui/typography';
 import { tailwindConfig } from '@storefront-ui/tailwind-config';
+import tailwindTypography from '@tailwindcss/typography';
 
 module.exports = {
   presets: [tailwindConfig],
@@ -30,5 +31,5 @@ module.exports = {
       },
     },
   },
-  plugins: [sfTypography],
+  plugins: [sfTypography, tailwindTypography],
 };

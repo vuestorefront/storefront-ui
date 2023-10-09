@@ -2,7 +2,9 @@ import { ref, unref, computed } from 'vue';
 import { arrow, flip, offset, shift, type ReferenceElement, type Side } from '@floating-ui/vue';
 import { type UseTooltipOptions, usePopover, useDisclosure } from '@storefront-ui/vue';
 
-export function useTooltip<T extends ReferenceElement = ReferenceElement>(options?: UseTooltipOptions<T>) {
+export function useTooltip<ReferenceEl extends ReferenceElement = ReferenceElement>(
+  options?: UseTooltipOptions<ReferenceEl>,
+) {
   const {
     placement: initialPlacement = 'top',
     strategy,

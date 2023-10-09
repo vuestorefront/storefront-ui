@@ -64,7 +64,6 @@ export default function ProductDetails() {
           <div className="flex flex-col items-stretch xs:items-center xs:inline-flex">
             <div className="flex border border-neutral-300 rounded-md">
               <SfButton
-                type="button"
                 variant="tertiary"
                 square
                 className="rounded-r-none p-3"
@@ -86,7 +85,6 @@ export default function ProductDetails() {
                 onChange={handleOnChange}
               />
               <SfButton
-                type="button"
                 variant="tertiary"
                 square
                 className="rounded-l-none p-3"
@@ -102,15 +100,15 @@ export default function ProductDetails() {
               <strong className="text-neutral-900">{max}</strong> in stock
             </p>
           </div>
-          <SfButton type="button" size="lg" className="w-full xs:ml-4" slotPrefix={<SfIconShoppingCart size="sm" />}>
+          <SfButton size="lg" className="w-full xs:ml-4" slotPrefix={<SfIconShoppingCart size="sm" />}>
             Add to cart
           </SfButton>
         </div>
         <div className="flex justify-center mt-4 gap-x-4">
-          <SfButton type="button" size="sm" variant="tertiary" slotPrefix={<SfIconCompareArrows size="sm" />}>
+          <SfButton size="sm" variant="tertiary" slotPrefix={<SfIconCompareArrows size="sm" />}>
             Compare
           </SfButton>
-          <SfButton type="button" size="sm" variant="tertiary" slotPrefix={<SfIconFavorite size="sm" />}>
+          <SfButton size="sm" variant="tertiary" slotPrefix={<SfIconFavorite size="sm" />}>
             Add to list
           </SfButton>
         </div>

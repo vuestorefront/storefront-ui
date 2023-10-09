@@ -84,7 +84,6 @@ export default function GalleryVertical() {
               />
             </SfLink>
             <SfButton
-              type="button"
               variant="tertiary"
               size="sm"
               square

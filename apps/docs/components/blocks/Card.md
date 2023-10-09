@@ -1,7 +1,7 @@
 ---
 layout: DefaultLayout
 hideBreadcrumbs: true
-description: The Card component contains content and actions that inform about a single subject. 
+description: The Card component contains content and actions that inform about a single subject.
 hideToc: true
 ---
 # Card
@@ -11,6 +11,10 @@ hideToc: true
 ## Default Card
 
 The default card view with a rectangle shaped image, a title, a description and a button for some additional actions.
+
+::: tip
+This block contain empty `anchor` element, this specific manipulation adds possibility to navigate with `tab` through whole card. With this structure we can click buttons inside or whole card itself. If root card element would be `anchor` element, we would not have possibility to click `button` inside.
+:::
 
 <Showcase showcase-name="Card/CardDefault" style="min-height: 600px">
 

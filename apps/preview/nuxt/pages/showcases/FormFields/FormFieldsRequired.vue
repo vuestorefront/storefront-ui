@@ -253,7 +253,7 @@
             <span :class="['typography-text-base font-normal leading-6 font-body', { 'text-disabled-900': disabled }]">
               {{ label }}
             </span>
-            <span :class="['typography-text-xs block', { 'text-disabled-500': disabled }]">{{ hint }}</span>
+            <span :class="['typography-hint-xs block mt-0.5', { 'text-disabled-500': disabled }]">{{ hint }}</span>
           </span>
         </label>
       </fieldset>
@@ -276,7 +276,7 @@
       </fieldset>
       <p class="text-neutral-500 typography-text-sm mt-8">* marked fields are required</p>
       <div class="flex gap-x-4 md:justify-end mt-6">
-        <SfButton type="button" variant="secondary" class="flex-grow md:flex-grow-0"> Clear all </SfButton>
+        <SfButton variant="secondary" class="flex-grow md:flex-grow-0"> Clear all </SfButton>
         <SfButton type="submit" class="flex-grow md:flex-grow-0"> Submit </SfButton>
       </div>
     </form>

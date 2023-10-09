@@ -29,6 +29,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
   const [isOpen, setIsOpen] = useState(true);
   const [isNotIframe, setIsNotIframe] = useState(false);
   const [noPaddings, setNoPaddings] = useState(false);
+  const [noScale, setNoScale] = useState(false);
   const [groups, setGroups] = useState<GroupsInterface>({});
   const [search, setSearch] = useState('');
 
@@ -99,6 +100,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
         'message',
         (e) => {
           if (e.data === 'no-paddings') setNoPaddings(true);
+          else if (e.data === 'no-scale') setNoScale(true);
         },
         false,
       );
@@ -175,7 +177,12 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
         </div>
       ) : null}
       <div className="e-page">
-        <div className={classNames('e-page-component', { 'e-page-component--no-paddings': noPaddings })}>
+        <div
+          className={classNames('e-page-component', {
+            'e-page-component--no-paddings': noPaddings,
+            'e-page-component--no-scale': noScale,
+          })}
+        >
           {children}
         </div>
       </div>

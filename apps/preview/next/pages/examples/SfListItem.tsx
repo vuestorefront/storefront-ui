@@ -45,6 +45,11 @@ function Example() {
       },
       {
         type: 'text',
+        modelName: 'childrenTag',
+        description: 'Change a tag for children to any other tag',
+      },
+      {
+        type: 'text',
         modelName: 'label',
         propType: 'string',
         description: 'Set label value',
@@ -99,6 +104,7 @@ function Example() {
     ],
     {
       as: 'li',
+      childrenTag: 'span',
       label: 'Label',
       size: SfListItemSize.base,
       counter: 123,
@@ -124,6 +130,7 @@ function Example() {
         slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)?.({
           size: state.get.size === 'sm' ? 'sm' : 'base',
         })}
+        childrenTag={state.get.childrenTag}
         onClick={() => state.set((currentState) => ({ ...currentState, selected: !currentState.selected }))}
         disabled={state.get.disabled}
         selected={state.get.selected}

@@ -24,16 +24,4 @@ module.exports = {
       },
     ],
   },
-  /*rules: {
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-multiple-empty-lines': ['error', { max: 2 }],
-    'comma-dangle': ['error', 'never'],
-    'quotes': ['error', 'single'],
-    'no-trailing-spaces': ['error'],
-    'semi': ['error', 'always'],
-    'eol-last': ['error', 'always'],
-    'space-before-function-paren': ['error', 'never'],
-    'indent': [2, 2],
-    'no-unneeded-ternary': ['error', { 'defaultAssignment': false }]
-  },*/
 };

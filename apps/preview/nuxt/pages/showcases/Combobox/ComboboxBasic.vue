@@ -96,8 +96,7 @@
   <p v-if="!isDisabled && isValid === false" class="text-negative-700 typography-text-sm font-medium mt-0.5">
     No option selected
   </p>
-  <p class="text-xs mt-0.5 text-neutral-500">Help text</p>
-  <p class="mt-2 text-neutral-500 typography-text-sm">*Required</p>
+  <p class="typography-hint-xs mt-0.5 text-neutral-500">Help text</p>
   <div v-if="!isOpen" class="mt-4">
     <label class="flex items-center">
       <SfSwitch :checked="isDisabled" value="disabled" @change="isDisabled = !isDisabled" />

@@ -64,7 +64,6 @@ export default function SfSelect(props: SfSelectProps) {
         {placeholder && (
           <option
             disabled
-            selected
             hidden
             value=""
             className={classNames('bg-neutral-300 text-sm', {

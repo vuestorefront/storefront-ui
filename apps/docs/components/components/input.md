@@ -4,9 +4,13 @@ hideBreadcrumbs: true
 ---
 # Input
 
-::: slot usage
+:::::: slot usage
 
 `SfInput` is a single-line text field allows users to enter any combination of letters, numbers, or symbols. It adds default styles to the native `<input type="text">` and supports supports adding content before/after the text input.
+
+::: read-more
+If you need to make this field required, it is crucial to communicate this intention clearly to your end users. You can find more information about [required form fields in our guide here](../blocks/FormFields.html).
+:::
 
 ## Examples
 
@@ -113,7 +117,7 @@ Avoid adding `div` tags to slots. If an input element is wrapped in `label` tag 
 
 <Generate style="height: 600px;"/>
 
-:::
+::::::
 
 ::: slot api
 
