@@ -5,6 +5,9 @@
   "installConfig": {
     "hoistingLimits": "workspaces"
   },
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vuestorefront/storefront-ui.git",
