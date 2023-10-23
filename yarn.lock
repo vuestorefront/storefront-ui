@@ -27182,8 +27182,6 @@ __metadata:
     schema-utils: ^1.0.0
   peerDependencies:
     webpack: ^3.0.0 || ^4.0.0
-  bin:
-    url-loader: ""
   checksum: 4bce3d5502863b208d5645df247c6f66c75050d32890970e11d33dbdad1d13218cefeef975f9fce98bd1c043314b182aea7e714c67a913755f9bf6af92965701
   languageName: node
   linkType: hard
