@@ -35,7 +35,7 @@
     "handlebars": "^4.7.7",
     "rimraf": "^5.0.0",
     "typescript": "^4.9.5",
-    "vue": "^2.6.14",
+    "vue": "2.7.14",
     "vuepress": "^1.9.8",
     "vuepress-plugin-clean-urls": "^1.1.2"
   },

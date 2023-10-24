@@ -4937,7 +4937,7 @@ __metadata:
     sass-loader: ^13.0.0
     tailwindcss: "npm:@tailwindcss/postcss7-compat@^2.2.17"
     typescript: ^4.9.5
-    vue: ^2.6.14
+    vue: 2.7.14
     vue-multiselect: ^2.1.6
     vuepress: ^1.9.8
     vuepress-plugin-clean-urls: ^1.1.2
@@ -6678,6 +6678,17 @@ __metadata:
     "@vue/compiler-core": 3.3.6
     "@vue/shared": 3.3.6
   checksum: e9545abc4da6aa6e926cd1ca2727d79581692cb961e0cfadd946db72a31957352611be2f91ebb7bf9627d5cf2f0d4fbecdc3bb9918c555cae1e8d10e4ea76a8d
+  languageName: node
+  linkType: hard
+
+"@vue/compiler-sfc@npm:2.7.14":
+  version: 2.7.14
+  resolution: "@vue/compiler-sfc@npm:2.7.14"
+  dependencies:
+    "@babel/parser": ^7.18.4
+    postcss: ^8.4.14
+    source-map: ^0.6.1
+  checksum: 25e00abaecb311f1effbf539bc3e4fdeedb39d35f9c2947b2640187a047e6a7400e693fd7da1d3a98977b9078c5bf629ca47f8b9a59dc14a080c0a1e1dd06a49
   languageName: node
   linkType: hard
 
@@ -29464,7 +29475,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^2.6.10, vue@npm:^2.6.14":
+"vue@npm:2.7.14":
+  version: 2.7.14
+  resolution: "vue@npm:2.7.14"
+  dependencies:
+    "@vue/compiler-sfc": 2.7.14
+    csstype: ^3.1.0
+  checksum: 8b06da67cc40870c66a30b7a6bc2874950cd4383792c371eb30497dd14fc7b41cf308b1c4517368d8f0e7ac16198c08de19236f6a79fe43f4bdbc4a1d9d4ad07
+  languageName: node
+  linkType: hard
+
+"vue@npm:^2.6.10":
   version: 2.7.15
   resolution: "vue@npm:2.7.15"
   dependencies:
