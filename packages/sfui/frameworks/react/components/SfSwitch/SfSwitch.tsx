@@ -15,9 +15,9 @@ const SfSwitch = forwardRef<HTMLInputElement, SfSwitchProps>(
       )}
       type="checkbox"
       role="switch"
-      {...attributes}
       data-testid="switch"
       aria-checked={attributes?.checked}
+      {...attributes}
     />
   ),
 );
