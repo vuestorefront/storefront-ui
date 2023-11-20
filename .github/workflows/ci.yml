@@ -148,7 +148,7 @@ jobs:
         run: cd apps/test/vue; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ env.SONAR_TOKEN_VUE }}
-        uses: SonarSource/sonarcloud-github-action@v1.9
+        uses: SonarSource/sonarcloud-github-action@v2.0.2
         with:
           projectBaseDir: packages/sfui/frameworks/vue
         env:
@@ -183,7 +183,7 @@ jobs:
         run: cd apps/test/react; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ env.SONAR_TOKEN_REACT }}
-        uses: SonarSource/sonarcloud-github-action@v1.9
+        uses: SonarSource/sonarcloud-github-action@v2.0.2
         with:
           projectBaseDir: packages/sfui/frameworks/react
         env:
