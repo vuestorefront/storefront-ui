@@ -1,0 +1,12 @@
+[
+  {
+    "button": "Next.js",
+    "app": "Next.js",
+    "framework": "next-js"
+  },
+  {
+    "button": "Vite",
+    "app": "Vite + React",
+    "framework": "vite-react"
+  }
+]
