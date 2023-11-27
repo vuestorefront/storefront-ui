@@ -18,6 +18,11 @@ const frameworks: Framework[] = [
     name: 'react',
     icon: 'logos:react',
   },
+  {
+    name: 'qwik',
+    icon: 'logos:qwik',
+    link: 'https://qwik-storefront-ui.pages.dev',
+  },
 ];
 
 const selectedFramework = useCookie('framework', {
@@ -32,6 +37,9 @@ watch(
   () => {
     const framework = frameworks.find((framework) => route.path.includes(framework.name.toLowerCase()));
     if (framework) {
+      if (framework.link) {
+        useRouter().push(framework.link);
+      }
       selectedFramework.value = framework;
     }
   },
@@ -44,17 +52,16 @@ function selectFramework(framework: Framework) {
   const previousFramework = selectedFramework.value.name.toLowerCase();
   selectedFramework.value = framework;
   isOpen.value = false;
-  if (route.path.includes(previousFramework)) {
+  if (selectedFramework.value.link) {
+    useRouter().push(selectedFramework.value.link);
+  } else if (route.path.includes(previousFramework)) {
     router.push(route.path.replace(previousFramework, framework.name.toLowerCase()));
   }
 }
 </script>
 <template>
   <div class="relative mb-4">
-    <SfDropdown
-      v-model="isOpen"
-      class="[&>div]:w-[calc(100%-3rem)] [&>div]:!left-0 [&>div]:border [&>div]:rounded w-full"
-    >
+    <SfDropdown v-model="isOpen" class="[&>div]:w-full [&>div]:!left-0 [&>div]:border [&>div]:rounded !w-full z-50">
       <template #trigger>
         <button
           @click="toggle()"
@@ -65,18 +72,20 @@ function selectFramework(framework: Framework) {
           <Icon name="ion:md-arrow-dropdown" class="w-4 h-4 ml-auto pl-4" />
         </button>
       </template>
-      <ul class="rounded bg-gray-100 w-full dark:bg-neutral-800">
+      <ul class="rounded bg-gray-100 w-full dark:bg-neutral-800 z-50">
         <li
           v-for="(framework, index) in frameworks"
           :key="framework.name"
-          class=""
+          class="relative z-50"
           :class="{
             'border-t': index > 0,
           }"
         >
-          <button
+          <component
+            :is="framework.link ? 'a' : 'button'"
+            :href="framework.link"
             @click="selectFramework(framework)"
-            class="w-full py-2 px-4 dark:hover:bg-neutral-700 hover:bg-gray-50 flex items-center capitalize"
+            class="w-full py-2 px-4 bg-gray-100 w-full dark:bg-neutral-800 dark:hover:bg-neutral-700 hover:bg-gray-50 flex items-center capitalize"
           >
             <Icon :name="framework.icon" class="w-4 h-4 mr-2" />
             {{ framework.name }}
@@ -85,7 +94,7 @@ function selectFramework(framework: Framework) {
               name="ion:md-checkmark"
               class="w-4 h-4 ml-auto text-primary-500"
             />
-          </button>
+          </component>
         </li>
       </ul>
     </SfDropdown>
