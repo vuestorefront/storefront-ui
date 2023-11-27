@@ -12,6 +12,9 @@ module.exports = {
         react: {
           DEFAULT: '#61DBFB',
         },
+        qwik: {
+          DEFAULT: '#AC7EF4',
+        },
         green: {
           DEFAULT: '#00C652',
           50: '#7FFFB4',
