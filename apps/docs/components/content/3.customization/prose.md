@@ -10,6 +10,12 @@ Styles for `<h1>`, `<h2>`, `<h3>` and `<h4>` are applied out of the box when ```
 
 ::showcase{showcase-name="Typography/Headings" style="min-height:400px"}
 
+::vue-only
+<<<../../../preview/nuxt/pages/showcases/Typography/Headings.vue
+::
+::react-only
+<<<../../../preview/next/pages/showcases/Typography/Headings.tsx
+::
 
 ::
 

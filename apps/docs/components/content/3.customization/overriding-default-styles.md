@@ -19,10 +19,10 @@ For example, the `SfLoaderCircular` component defaults to using `primary-700` as
 
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularColors.vue
+<<<../../../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularColors.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/LoaderCircular/LoaderCircularColors.tsx
+<<<../../../../preview/next/pages/showcases/LoaderCircular/LoaderCircularColors.tsx
 ::
 
 
@@ -34,8 +34,10 @@ For global changes, you can customize the Tailwind configuration to make changes
 
 The most common use case for this is to change the default color palette to better match your design. Storefront UI adds additional colors to your Tailwind configuration, which can help you build out multiple themes for your site.
 
+
+
 :::read-more
-Learn all about Storefront UI's color palette and how to customize it in our ::react-only[Theming](/react/customization/theming)::::vue-only[Theming](/vue/customization/theming)::  guide.
+Learn all about Storefront UI's color palette and how to customize it in our [Theming](/customization/theming) guide.
 :::
 
 
