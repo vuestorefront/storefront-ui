@@ -20,7 +20,7 @@ hideBreadcrumbs: true
         Install for React
         <iconify-icon icon="mingcute:arrow-right-fill" height="14px" class="ml-1"/>
       </RouterLink>
-      <a href="https://qwik-storefront-ui.pages.dev" target="_blank" rel="noopener" class=" px-4 py-2 rounded-lg font-medium bg-[#ac7ef4] ml-2 text-white text-opacity-80 flex items-center filter hover:brightness-110 transition-all">
+      <a href="https://qwik-storefront-ui.pages.dev" target="_blank" rel="noopener" class=" px-4 py-2 rounded-lg font-medium bg-qwik ml-2 text-white  flex items-center filter hover:brightness-110 transition-all">
         Qwik (beta)
         <iconify-icon icon="mingcute:arrow-right-fill" height="14px" class="ml-1"/>
       </a>
