@@ -9,10 +9,10 @@ Ease the checkout process for users by providing them with well-structured addre
 <Showcase showcase-name="Checkout/CheckoutAddressForm" style="min-height:600px">
 
 ::vue-only
-<<<../../preview/nuxt/pages/showcases/Checkout/CheckoutAddressForm.vue
+<<<../../../preview/nuxt/pages/showcases/Checkout/CheckoutAddressForm.vue
 ::
 ::react-only
-<<<../../preview/next/pages/showcases/Checkout/CheckoutAddressForm.tsx
+<<<../../../preview/next/pages/showcases/Checkout/CheckoutAddressForm.tsx
 ::
 
 </Showcase>
@@ -24,10 +24,10 @@ Present possible delivery options in a way where your customers can easily see d
 <Showcase showcase-name="Checkout/CheckoutDeliveryOptions" style="min-height: 300px;">
 
 ::vue-only
-<<<../../preview/nuxt/pages/showcases/Checkout/CheckoutDeliveryOptions.vue
+<<<../../../preview/nuxt/pages/showcases/Checkout/CheckoutDeliveryOptions.vue
 ::
 ::react-only
-<<<../../preview/next/pages/showcases/Checkout/CheckoutDeliveryOptions.tsx
+<<<../../../preview/next/pages/showcases/Checkout/CheckoutDeliveryOptions.tsx
 ::
 
 </Showcase>
@@ -39,10 +39,10 @@ Let your users pick a payment method of their choice in a nice and clear way.
 <Showcase showcase-name="Checkout/CheckoutPaymentMethod" style="min-height:320px" >
 
 ::vue-only
-<<<../../preview/nuxt/pages/showcases/Checkout/CheckoutPaymentMethod.vue
+<<<../../../preview/nuxt/pages/showcases/Checkout/CheckoutPaymentMethod.vue
 ::
 ::react-only
-<<<../../preview/next/pages/showcases/Checkout/CheckoutPaymentMethod.tsx
+<<<../../../preview/next/pages/showcases/Checkout/CheckoutPaymentMethod.tsx
 ::
 
 </Showcase>
@@ -54,10 +54,10 @@ The contact form for customers provides the way to send email (field with simple
 <Showcase showcase-name="Checkout/CheckoutContactForm" style="min-height: 400px;">
 
 ::vue-only
-<<<../../preview/nuxt/pages/showcases/Checkout/CheckoutContactForm.vue
+<<<../../../preview/nuxt/pages/showcases/Checkout/CheckoutContactForm.vue
 ::
 ::react-only
-<<<../../preview/next/pages/showcases/Checkout/CheckoutContactForm.tsx
+<<<../../../preview/next/pages/showcases/Checkout/CheckoutContactForm.tsx
 ::
 
 </Showcase>

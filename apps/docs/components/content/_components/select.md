@@ -23,10 +23,10 @@ If you need to make this field required, it is crucial to communicate this inten
 <Showcase showcase-name="Select/SelectSizes" style="min-height:350px" >
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Select/SelectSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/Select/SelectSizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Select/SelectSizes.tsx
+<<<../../../../preview/next/pages/showcases/Select/SelectSizes.tsx
 ::
 
 </Showcase>
@@ -38,10 +38,10 @@ You can replace the default chevron with your own custom content by using the ::
 <Showcase showcase-name="Select/SelectCustomChevron">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Select/SelectCustomChevron.vue
+<<<../../../../preview/nuxt/pages/showcases/Select/SelectCustomChevron.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Select/SelectCustomChevron.tsx
+<<<../../../../preview/next/pages/showcases/Select/SelectCustomChevron.tsx
 ::
 
 </Showcase>
@@ -53,10 +53,10 @@ You can replace the default chevron with your own custom content by using the ::
 <Showcase showcase-name="Select/SelectInvalid">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Select/SelectInvalid.vue
+<<<../../../../preview/nuxt/pages/showcases/Select/SelectInvalid.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Select/SelectInvalid.tsx
+<<<../../../../preview/next/pages/showcases/Select/SelectInvalid.tsx
 ::
 
 </Showcase>
@@ -124,11 +124,11 @@ Since this component uses the native `<select>` element, it inherits its accessi
 
 #tab-3
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfSelect/SfSelect.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfSelect/SfSelect.vue
 ::
 
 ::react-only
-<<< ../../../../packages/sfui/frameworks/react/components/SfSelect/SfSelect.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfSelect/SfSelect.tsx
 ::
 
 

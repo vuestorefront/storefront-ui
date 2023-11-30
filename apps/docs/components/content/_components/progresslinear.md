@@ -15,10 +15,10 @@
 <Showcase showcase-name="ProgressLinear/ProgressLinearSizes" style="min-height:300px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/ProgressLinear/ProgressLinearSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/ProgressLinear/ProgressLinearSizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/ProgressLinear/ProgressLinearSizes.tsx
+<<<../../../../preview/next/pages/showcases/ProgressLinear/ProgressLinearSizes.tsx
 ::
 
 </Showcase>
@@ -34,10 +34,10 @@ Learn more about [overriding default styles](/customization/overriding-default-s
 <Showcase showcase-name="ProgressLinear/ProgressLinearColors">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/ProgressLinear/ProgressLinearColors.vue
+<<<../../../../preview/nuxt/pages/showcases/ProgressLinear/ProgressLinearColors.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/ProgressLinear/ProgressLinearColors.tsx
+<<<../../../../preview/next/pages/showcases/ProgressLinear/ProgressLinearColors.tsx
 ::
 
 </Showcase>
@@ -49,10 +49,10 @@ Learn more about [overriding default styles](/customization/overriding-default-s
 <Showcase showcase-name="ProgressLinear/ProgressLinearLabel">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/ProgressLinear/ProgressLinearLabel.vue
+<<<../../../../preview/nuxt/pages/showcases/ProgressLinear/ProgressLinearLabel.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/ProgressLinear/ProgressLinearLabel.tsx
+<<<../../../../preview/next/pages/showcases/ProgressLinear/ProgressLinearLabel.tsx
 ::
 
 </Showcase>
@@ -87,10 +87,10 @@ ProgressLinear uses native [`<progress>`](https://developer.mozilla.org/en-US/do
 
 #tab-3
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfProgressLinear/SfProgressLinear.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfProgressLinear/SfProgressLinear.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfProgressLinear/SfProgressLinear.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfProgressLinear/SfProgressLinear.tsx
 ::
 
 ::

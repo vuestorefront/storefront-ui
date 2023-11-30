@@ -25,12 +25,12 @@ By default, the floating content of `SfDropdown` will be placed below your trigg
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/Dropdown/BasicDropdown.vue
+<<<../../../../preview/nuxt/pages/showcases/Dropdown/BasicDropdown.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/Dropdown/BasicDropdown.tsx
+<<<../../../../preview/next/pages/showcases/Dropdown/BasicDropdown.tsx
 
 ::
 
@@ -92,12 +92,12 @@ The floating content area has an `aria-hidden` attribute that reflects the visib
 
 ::vue-only
 
-<<<../../../../packages/sfui/frameworks/vue/components/SfDropdown/SfDropdown.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfDropdown/SfDropdown.vue
 
 ::
 ::react-only
 
-<<< ../../../../packages/sfui/frameworks/react/components/SfDropdown/SfDropdown.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfDropdown/SfDropdown.tsx
 
 ::
 

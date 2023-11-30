@@ -17,10 +17,10 @@ If you need to support partial stars, you can show half-filled star icons by pas
 <Showcase showcase-name="Rating/RatingValues">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Rating/RatingValues.vue
+<<<../../../../preview/nuxt/pages/showcases/Rating/RatingValues.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Rating/RatingValues.tsx
+<<<../../../../preview/next/pages/showcases/Rating/RatingValues.tsx
 ::
 
 </Showcase>
@@ -32,10 +32,10 @@ If you need to support partial stars, you can show half-filled star icons by pas
 <Showcase showcase-name="Rating/RatingSizes" style="min-height:250px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Rating/RatingSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/Rating/RatingSizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Rating/RatingSizes.tsx
+<<<../../../../preview/next/pages/showcases/Rating/RatingSizes.tsx
 ::
 
 </Showcase>
@@ -47,10 +47,10 @@ Rating by default uses a `warning-500` for filled and partially filled stars and
 <Showcase showcase-name="Rating/RatingColors">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Rating/RatingColors.vue
+<<<../../../../preview/nuxt/pages/showcases/Rating/RatingColors.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Rating/RatingColors.tsx
+<<<../../../../preview/next/pages/showcases/Rating/RatingColors.tsx
 ::
 
 </Showcase>
@@ -62,10 +62,10 @@ For a more minimal look, you can also present ratings a single star icon with a 
 <Showcase showcase-name="Rating/SingleStar" style="min-height:220px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Rating/SingleStar.vue
+<<<../../../../preview/nuxt/pages/showcases/Rating/SingleStar.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Rating/SingleStar.tsx
+<<<../../../../preview/next/pages/showcases/Rating/SingleStar.tsx
 ::
 
 </Showcase>
@@ -92,10 +92,10 @@ For better out-of-the-box accessibility, `SfRating` adds `role="img"` and an `ar
 #tab-3
 
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfRating/SfRating.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfRating/SfRating.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfRating/SfRating.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfRating/SfRating.tsx
 ::
 
 ::

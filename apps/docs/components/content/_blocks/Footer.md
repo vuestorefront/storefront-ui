@@ -7,10 +7,10 @@ The Footer block is used as navigation. Usually it's at the bottom of a page and
 <Showcase showcase-name="Footer/FooterBasic" style="min-height: 701px;" no-paddings>
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Footer/FooterBasic.vue
+<<<../../../../preview/nuxt/pages/showcases/Footer/FooterBasic.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Footer/FooterBasic.tsx
+<<<../../../../preview/next/pages/showcases/Footer/FooterBasic.tsx
 ::
 
 </Showcase>

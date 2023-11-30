@@ -15,10 +15,10 @@
 <Showcase showcase-name="LoaderCircular/LoaderCircularSizes" style="min-height:320px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularSizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/LoaderCircular/LoaderCircularSizes.tsx
+<<<../../../../preview/next/pages/showcases/LoaderCircular/LoaderCircularSizes.tsx
 ::
 
 </Showcase>
@@ -34,10 +34,10 @@ Learn more about [overriding default styles](/customization/overriding-default-s
 <Showcase showcase-name="LoaderCircular/LoaderCircularColors">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularColors.vue
+<<<../../../../preview/nuxt/pages/showcases/LoaderCircular/LoaderCircularColors.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/LoaderCircular/LoaderCircularColors.tsx
+<<<../../../../preview/next/pages/showcases/LoaderCircular/LoaderCircularColors.tsx
 ::
 
 </Showcase>
@@ -74,9 +74,9 @@ It's important to properly set `aria-label` for screen readers to read proper in
 #tab-3
 
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfLoaderCircular/SfLoaderCircular.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfLoaderCircular/SfLoaderCircular.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfLoaderCircular/SfLoaderCircular.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfLoaderCircular/SfLoaderCircular.tsx
 ::
 ::

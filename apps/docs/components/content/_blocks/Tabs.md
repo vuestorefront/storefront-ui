@@ -15,10 +15,10 @@ The Basic block offers essential tab functionality. This particular variant auto
 <Showcase showcase-name="Tabs/TabsBasic" style="min-height: 350px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Tabs/TabsBasic.vue
+<<<../../../../preview/nuxt/pages/showcases/Tabs/TabsBasic.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Tabs/TabsBasic.tsx
+<<<../../../../preview/next/pages/showcases/Tabs/TabsBasic.tsx
 ::
 
 </Showcase>

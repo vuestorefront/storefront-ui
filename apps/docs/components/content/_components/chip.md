@@ -21,10 +21,10 @@ Internally, `SfChip` uses a hidden `<input type="checkbox">` element to handle t
 <Showcase showcase-name="Chip/ChipSizes">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Chip/ChipSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/Chip/ChipSizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Chip/ChipSizes.tsx
+<<<../../../../preview/next/pages/showcases/Chip/ChipSizes.tsx
 ::
 
 </Showcase>
@@ -35,12 +35,14 @@ Internally, `SfChip` uses a hidden `<input type="checkbox">` element to handle t
 `SfChip` provides ::vue-only`prefix` and `suffix` slots::::react-only`slotPrefix` and `slotSuffix` props:: that you can use to add custom content before/after your default content. This can be useful for adding things like icons, badges, or `SfThumbnail` to your toggleable chip.
 
 <Showcase showcase-name="Chip/ChipWithThumbnail">
+
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Chip/ChipWithThumbnail.vue
+<<<../../../../preview/nuxt/pages/showcases/Chip/ChipWithThumbnail.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Chip/ChipWithThumbnail.tsx
+<<<../../../../preview/next/pages/showcases/Chip/ChipWithThumbnail.tsx
 ::
+
 </Showcase>
 
 
@@ -52,10 +54,10 @@ We can set attributes in the hidden checkbox input by passing an object to the `
 <Showcase showcase-name="Chip/ListOfChips">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Chip/ListOfChips.vue
+<<<../../../../preview/nuxt/pages/showcases/Chip/ListOfChips.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Chip/ListOfChips.tsx
+<<<../../../../preview/next/pages/showcases/Chip/ListOfChips.tsx
 ::
 
 </Showcase>
@@ -68,10 +70,10 @@ By adding listeners for change events, we can make `SfChip` act as a deletable i
 <Showcase showcase-name="Chip/Deletable">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Chip/Deletable.vue
+<<<../../../../preview/nuxt/pages/showcases/Chip/Deletable.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Chip/Deletable.tsx
+<<<../../../../preview/next/pages/showcases/Chip/Deletable.tsx
 ::
 
 </Showcase>
@@ -83,10 +85,10 @@ By adding listeners for change events, we can make `SfChip` act as a deletable i
 <Showcase showcase-name="Chip/WithoutLabel">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Chip/WithoutLabel.vue
+<<<../../../../preview/nuxt/pages/showcases/Chip/WithoutLabel.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Chip/WithoutLabel.tsx
+<<<../../../../preview/next/pages/showcases/Chip/WithoutLabel.tsx
 ::
 
 </Showcase>
@@ -138,10 +140,10 @@ When using `SfChip` without any text label/description inside, you should specif
 #tab-3
 
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfChip/SfChip.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfChip/SfChip.vue
 ::
 ::react-only
-<<< ../../../../packages/sfui/frameworks/react/components/SfChip/SfChip.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfChip/SfChip.tsx
 ::
 
 ::

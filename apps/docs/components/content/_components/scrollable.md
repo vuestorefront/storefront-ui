@@ -30,10 +30,10 @@ Can be setup that will be without scrollbar
 <Showcase showcase-name="Scrollable/HideScrollbar" style="min-height:240px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Scrollable/HideScrollbar.vue
+<<<../../../../preview/nuxt/pages/showcases/Scrollable/HideScrollbar.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Scrollable/HideScrollbar.tsx
+<<<../../../../preview/next/pages/showcases/Scrollable/HideScrollbar.tsx
 ::
 
 </Showcase>
@@ -45,10 +45,10 @@ Can be setup that will be without scrollbar
 <Showcase showcase-name="Scrollable/SnapCenter" style="min-height:260px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Scrollable/SnapCenter.vue
+<<<../../../../preview/nuxt/pages/showcases/Scrollable/SnapCenter.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Scrollable/SnapCenter.tsx
+<<<../../../../preview/next/pages/showcases/Scrollable/SnapCenter.tsx
 ::
 
 </Showcase>
@@ -60,10 +60,10 @@ By default `SfScrollable` scroll by one page of items, but can be modified that 
 <Showcase showcase-name="Scrollable/ScrollByOneItem" style="min-height:260px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Scrollable/ScrollByOneItem.vue
+<<<../../../../preview/nuxt/pages/showcases/Scrollable/ScrollByOneItem.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Scrollable/ScrollByOneItem.tsx
+<<<../../../../preview/next/pages/showcases/Scrollable/ScrollByOneItem.tsx
 ::
 
 </Showcase>
@@ -150,10 +150,10 @@ The `drag` prop is setting whether and how elements in a scrollable element can 
 
 
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfScrollable/SfScrollable.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfScrollable/SfScrollable.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfScrollable/SfScrollable.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfScrollable/SfScrollable.tsx
 ::
 
 ::

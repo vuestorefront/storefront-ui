@@ -19,10 +19,10 @@ Select Dropdown with preselected option.
 <Showcase showcase-name="SelectDropdown/SelectDropdownPreselected" style="min-height:300px">
 
 ::vue-only
-<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownPreselected.vue
+<<<../../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownPreselected.vue
 ::
 ::react-only
-<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownPreselected.tsx
+<<<../../../preview/next/pages/showcases/SelectDropdown/SelectDropdownPreselected.tsx
 ::
 
 </Showcase>
@@ -33,10 +33,10 @@ Adding placeholder might be helpful and informative for end users.
 
 <Showcase showcase-name="SelectDropdown/SelectDropdownWithPlaceholder" style="min-height:300px">
 ::vue-only
-<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.vue
+<<<../../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.vue
 ::
 ::react-only
-<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.tsx
+<<<../../../preview/next/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.tsx
 ::
 </Showcase>
 
@@ -47,10 +47,10 @@ Provide visual cues for end users to indicate occuring error.
 <Showcase showcase-name="SelectDropdown/SelectDropdownError" style="min-height:300px">
 
 ::vue-only
-<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownError.vue
+<<<../../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownError.vue
 ::
 ::react-only
-<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownError.tsx
+<<<../../../preview/next/pages/showcases/SelectDropdown/SelectDropdownError.tsx
 ::
 
 </Showcase>
@@ -62,10 +62,10 @@ Differentiate disabled state to smooth UX experience. In such case, keyboard nav
 <Showcase showcase-name="SelectDropdown/SelectDropdownDisabled" style="min-height:300px">
 
 ::vue-only
-<<<../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownDisabled.vue
+<<<../../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownDisabled.vue
 ::
 ::react-only
-<<<../../preview/next/pages/showcases/SelectDropdown/SelectDropdownDisabled.tsx
+<<<../../../preview/next/pages/showcases/SelectDropdown/SelectDropdownDisabled.tsx
 ::
 
 </Showcase>

@@ -7,10 +7,10 @@ The NavbarTop block is used as navigation. Usually it's at the top of a page and
 <Showcase showcase-name="NavbarTop/NavbarTop" no-paddings style="min-height: 150px;">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/NavbarTop/NavbarTop.vue
+<<<../../../../preview/nuxt/pages/showcases/NavbarTop/NavbarTop.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/NavbarTop/NavbarTop.tsx
+<<<../../../../preview/next/pages/showcases/NavbarTop/NavbarTop.tsx
 ::
 
 </Showcase>
@@ -20,10 +20,10 @@ The NavbarTop block is used as navigation. Usually it's at the top of a page and
 <Showcase showcase-name="NavbarTop/NavbarTopFilled" no-paddings style="min-height: 150px;">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopFilled.vue
+<<<../../../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopFilled.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/NavbarTop/NavbarTopFilled.tsx
+<<<../../../../preview/next/pages/showcases/NavbarTop/NavbarTopFilled.tsx
 ::
 
 </Showcase>
@@ -37,10 +37,10 @@ By combining with the NavbarBottom, you can create a unified navigation structur
 <Showcase showcase-name="NavbarTop/NavbarTopSimpleMobile" no-paddings style="min-height: 150px;">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopSimpleMobile.vue
+<<<../../../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopSimpleMobile.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/NavbarTop/NavbarTopSimpleMobile.tsx
+<<<../../../../preview/next/pages/showcases/NavbarTop/NavbarTopSimpleMobile.tsx
 ::
 
 </Showcase>
@@ -50,10 +50,10 @@ By combining with the NavbarBottom, you can create a unified navigation structur
 <Showcase showcase-name="NavbarTop/NavbarTopFilledSimpleMobile" no-paddings style="min-height: 150px;">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopFilledSimpleMobile.vue
+<<<../../../../preview/nuxt/pages/showcases/NavbarTop/NavbarTopFilledSimpleMobile.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/NavbarTop/NavbarTopFilledSimpleMobile.tsx
+<<<../../../../preview/next/pages/showcases/NavbarTop/NavbarTopFilledSimpleMobile.tsx
 ::
 
 </Showcase>

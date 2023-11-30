@@ -13,10 +13,10 @@ List of all icons shipped with Storefront UI below. Click on any of the icons to
 <Showcase showcase-name="IconBase/ListOfIcons"  allow="clipboard-write">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/IconBase/ListOfIcons.vue
+<<<../../../../preview/nuxt/pages/showcases/IconBase/ListOfIcons.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/IconBase/ListOfIcons.tsx
+<<<../../../../preview/next/pages/showcases/IconBase/ListOfIcons.tsx
 ::
 
 </Showcase>
@@ -30,10 +30,10 @@ All Icon components supports various sizes that can be set with the `size` prop:
 <Showcase showcase-name="IconBase/IconBaseSizes" style="min-height:300px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/IconBase/IconBaseSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/IconBase/IconBaseSizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/IconBase/IconBaseSizes.tsx
+<<<../../../../preview/next/pages/showcases/IconBase/IconBaseSizes.tsx
 ::
 
 </Showcase>
@@ -45,10 +45,10 @@ All Icon components inherit the current text color using Tailwind's [`fill-curre
 <Showcase showcase-name="IconBase/IconBaseColors">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/IconBase/IconBaseColors.vue
+<<<../../../../preview/nuxt/pages/showcases/IconBase/IconBaseColors.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/IconBase/IconBaseColors.tsx
+<<<../../../../preview/next/pages/showcases/IconBase/IconBaseColors.tsx
 ::
 
 </Showcase>
@@ -70,10 +70,10 @@ If you're using a custom icon, you need to specify either the `viewBox` or `widt
 <Showcase showcase-name="IconBase/CustomIcon">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/IconBase/CustomIcon.vue
+<<<../../../../preview/nuxt/pages/showcases/IconBase/CustomIcon.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/IconBase/CustomIcon.tsx
+<<<../../../../preview/next/pages/showcases/IconBase/CustomIcon.tsx
 ::
 
 </Showcase>
@@ -115,10 +115,10 @@ When using an Icon without any additional label and/or description, you should s
 ::
 #tab-3
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfIconBase/SfIconBase.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfIconBase/SfIconBase.vue
 ::
 ::react-only
-<<< ../../../../packages/sfui/frameworks/react/components/SfIconBase/SfIconBase.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfIconBase/SfIconBase.tsx
 ::
 
 ::

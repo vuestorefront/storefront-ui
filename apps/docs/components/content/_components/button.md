@@ -15,10 +15,10 @@
 <Showcase showcase-name="Button/ButtonSizes" style="min-height:250px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Button/ButtonSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonSizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Button/ButtonSizes.tsx
+<<<../../../../preview/next/pages/showcases/Button/ButtonSizes.tsx
 ::
 </Showcase>
 
@@ -29,10 +29,10 @@
 <Showcase showcase-name="Button/ButtonVariants" style="min-height:250px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Button/ButtonVariants.vue
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonVariants.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Button/ButtonVariants.tsx
+<<<../../../../preview/next/pages/showcases/Button/ButtonVariants.tsx
 ::
 </Showcase>
 
@@ -44,10 +44,10 @@ This component can be used as a link (or any other tag) that can be set via ::vu
 <Showcase showcase-name="Button/ButtonAsLink" style="min-height:250px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Button/ButtonAsLink.vue
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonAsLink.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Button/ButtonAsLink.tsx
+<<<../../../../preview/next/pages/showcases/Button/ButtonAsLink.tsx
 ::
 </Showcase>
 
@@ -58,10 +58,10 @@ You can create a full-width button with Tailwind's `w-full` class.
 <Showcase showcase-name="Button/ButtonBlock">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Button/ButtonBlock.tsx
+<<<../../../../preview/next/pages/showcases/Button/ButtonBlock.tsx
 ::
 </Showcase>
 
@@ -72,10 +72,10 @@ You can truncate button content with Tailwind using `max-w-` and `truncate` clas
 <Showcase showcase-name="Button/ButtonTruncation">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Button/ButtonTruncation.vue
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonTruncation.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Button/ButtonTruncation.tsx
+<<<../../../../preview/next/pages/showcases/Button/ButtonTruncation.tsx
 ::
 </Showcase>
 
@@ -86,10 +86,10 @@ You can truncate button content with Tailwind using `max-w-` and `truncate` clas
 <Showcase showcase-name="Button/ButtonContent" style="min-height:250px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Button/ButtonContent.vue
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonContent.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Button/ButtonContent.tsx
+<<<../../../../preview/next/pages/showcases/Button/ButtonContent.tsx
 ::
 </Showcase>
 
@@ -151,10 +151,10 @@ If you need to use Button with non-`<button>` tags like `<div>` you need to add 
 #tab-3
 
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfButton/SfButton.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfButton/SfButton.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfButton/SfButton.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfButton/SfButton.tsx
 ::
 
 ::

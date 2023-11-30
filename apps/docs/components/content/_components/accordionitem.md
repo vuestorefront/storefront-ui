@@ -27,10 +27,10 @@ To control the state of the accordion, you can use the `open` prop. This prop is
 <Showcase showcase-name="AccordionItem/BasicAccordion" style="min-height:400px">
 
 :::vue-only
-<<<../../../preview/nuxt/pages/showcases/AccordionItem/BasicAccordion.vue
+<<<../../../../preview/nuxt/pages/showcases/AccordionItem/BasicAccordion.vue
 :::
 :::react-only
-<<<../../../preview/next/pages/showcases/AccordionItem/BasicAccordion.tsx
+<<<../../../../preview/next/pages/showcases/AccordionItem/BasicAccordion.tsx
 :::
 
 </Showcase>
@@ -42,10 +42,10 @@ This example only allows one item to be open at a time.
 <Showcase showcase-name="AccordionItem/CollapsableAccordion" style="min-height:400px">
 
 :::vue-only
-<<<../../../preview/nuxt/pages/showcases/AccordionItem/CollapsableAccordion.vue
+<<<../../../../preview/nuxt/pages/showcases/AccordionItem/CollapsableAccordion.vue
 :::
 :::react-only
-<<<../../preview/next/pages/showcases/AccordionItem/CollapsableAccordion.tsx
+<<<../../../preview/next/pages/showcases/AccordionItem/CollapsableAccordion.tsx
 :::
 
 </Showcase>
@@ -57,11 +57,11 @@ Animate AccordionItem to give that nice feeling of smooth transition.
 <Showcase showcase-name="AccordionItem/AccordionAnimate" style="min-height:400px">
 
 :::vue-only
-<<<../../../preview/nuxt/pages/showcases/AccordionItem/AccordionAnimate.vue
+<<<../../../../preview/nuxt/pages/showcases/AccordionItem/AccordionAnimate.vue
 :::
 
 :::react-only
-<<<../../../preview/next/pages/showcases/AccordionItem/AccordionAnimate.tsx
+<<<../../../../preview/next/pages/showcases/AccordionItem/AccordionAnimate.tsx
 :::
 
 </Showcase>
@@ -116,10 +116,10 @@ For example, `<summary>` elements are focusable and can be activated by pressing
 ## Source code
 
 :::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfAccordionItem/SfAccordionItem.vue
+<<<../../../../../../packages/sfui/frameworks/vue/components/SfAccordionItem/SfAccordionItem.vue
 :::
 :::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfAccordionItem/SfAccordionItem.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfAccordionItem/SfAccordionItem.tsx
 :::
 
 ::

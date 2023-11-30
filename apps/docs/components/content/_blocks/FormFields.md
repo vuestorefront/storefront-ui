@@ -9,9 +9,9 @@ For further customization of layouts, we recommend referring to our documentatio
 <Showcase showcase-name="FormFields/FormFieldsRequired" style="min-height:600px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/FormFields/FormFieldsRequired.vue
+<<<../../../../preview/nuxt/pages/showcases/FormFields/FormFieldsRequired.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/FormFields/FormFieldsRequired.tsx
+<<<../../../../preview/next/pages/showcases/FormFields/FormFieldsRequired.tsx
 ::
 </Showcase>

@@ -16,12 +16,12 @@
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/Link/LinkVariants.vue
+<<<../../../../preview/nuxt/pages/showcases/Link/LinkVariants.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/Link/LinkVariants.tsx
+<<<../../../../preview/next/pages/showcases/Link/LinkVariants.tsx
 
 ::
 </Showcase>
@@ -36,12 +36,12 @@ You can [customize your color palette](../customization/theming.html) as a part 
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/Link/Customization.vue
+<<<../../../../preview/nuxt/pages/showcases/Link/Customization.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/Link/Customization.tsx
+<<<../../../../preview/next/pages/showcases/Link/Customization.tsx
 
 ::
 </Showcase>
@@ -73,7 +73,7 @@ When no tag provided, the component will render as an `<a>`. To achieve proper a
 `SfLink` can be composed together with `NextJS` link component.
 
 <Showcase showcase-name="Link/NextLink">
-<<<../../../preview/next/pages/showcases/Link/NextLink.tsx
+<<<../../../../preview/next/pages/showcases/Link/NextLink.tsx
 </Showcase>
 ::
 
@@ -84,7 +84,7 @@ When no tag provided, the component will render as an `<a>`. To achieve proper a
 You can use the `tag` prop to render component as `NuxtLink`.
 
 <Showcase showcase-name="Link/NuxtLink">
-<<<../../../preview/nuxt/pages/showcases/Link/NuxtLink.vue
+<<<../../../../preview/nuxt/pages/showcases/Link/NuxtLink.vue
 </Showcase>
 ::
 
@@ -121,12 +121,12 @@ You can use the `tag` prop to render component as `NuxtLink`.
 
 ::vue-only
 
-<<<../../../../packages/sfui/frameworks/vue/components/SfLink/SfLink.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfLink/SfLink.vue
 
 ::
 ::react-only
 
-<<<../../../../packages/sfui/frameworks/react/components/SfLink/SfLink.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfLink/SfLink.tsx
 
 ::
 ::

@@ -20,7 +20,7 @@ const frameworks: Framework[] = [
   },
   {
     name: 'qwik',
-    icon: 'logos:qwik',
+    icon: 'logos:qwik-icon',
     link: 'https://qwik-storefront-ui.pages.dev',
   },
 ];
@@ -37,10 +37,9 @@ watch(
   () => {
     const framework = frameworks.find((framework) => route.path.includes(framework.name.toLowerCase()));
     if (framework) {
-      if (framework.link) {
-        useRouter().push(framework.link);
+      if (!framework.link) {
+        selectedFramework.value = framework;
       }
-      selectedFramework.value = framework;
     }
   },
   {
@@ -50,13 +49,15 @@ watch(
 
 function selectFramework(framework: Framework) {
   const previousFramework = selectedFramework.value.name.toLowerCase();
-  selectedFramework.value = framework;
-  isOpen.value = false;
-  if (selectedFramework.value.link) {
-    useRouter().push(selectedFramework.value.link);
-  } else if (route.path.includes(previousFramework)) {
-    router.push(route.path.replace(previousFramework, framework.name.toLowerCase()));
+
+  if (!framework.link) {
+    if (route.path.includes(previousFramework)) {
+      router.push(route.path.replace(previousFramework, framework.name.toLowerCase()));
+    }
+    selectedFramework.value = framework;
   }
+
+  isOpen.value = false;
 }
 </script>
 <template>

@@ -5,7 +5,7 @@ import tailwindTypography from '@tailwindcss/typography';
 
 export default <Config>{
   presets: [tailwindConfig],
-  content: ['./**/*.vue', '../../../packages/sfui/frameworks/vue/**/*.vue'],
+  content: ['./**/*.vue', '../../../packages/sfui/frameworks/vue/**/*.vue', './content/**/*.md'],
   theme: {
     extend: {
       fontFamily: {

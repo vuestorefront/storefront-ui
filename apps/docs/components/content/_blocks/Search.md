@@ -15,10 +15,10 @@ Simple search with an autocomplete functionality. Give your users hints of what 
 <Showcase showcase-name="Search/SearchBasic" style="min-height: 350px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Search/SearchBasic.vue
+<<<../../../../preview/nuxt/pages/showcases/Search/SearchBasic.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Search/SearchBasic.tsx
+<<<../../../../preview/next/pages/showcases/Search/SearchBasic.tsx
 ::
 
 </Showcase>
@@ -30,10 +30,10 @@ This block enhances search functionality with a custom icon and categorized resu
 <Showcase showcase-name="Search/SearchWithIcon" style="min-height: 500px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Search/SearchWithIcon.vue
+<<<../../../../preview/nuxt/pages/showcases/Search/SearchWithIcon.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Search/SearchWithIcon.tsx
+<<<../../../../preview/next/pages/showcases/Search/SearchWithIcon.tsx
 ::
 
 </Showcase>
@@ -45,10 +45,10 @@ This block enhances search functionality with a custom button, categorized resul
 <Showcase showcase-name="Search/SearchWithButton" style="min-height: 500px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Search/SearchWithButton.vue
+<<<../../../../preview/nuxt/pages/showcases/Search/SearchWithButton.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Search/SearchWithButton.tsx
+<<<../../../../preview/next/pages/showcases/Search/SearchWithButton.tsx
 ::
 
 </Showcase>

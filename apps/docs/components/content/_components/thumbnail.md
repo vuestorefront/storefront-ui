@@ -15,10 +15,10 @@ Thumbnail supports various sizes that can be set with the `size` prop: `'sm'`, `
 <Showcase showcase-name="Thumbnail/Sizes">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Thumbnail/Sizes.vue
+<<<../../../../preview/nuxt/pages/showcases/Thumbnail/Sizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Thumbnail/Sizes.tsx
+<<<../../../../preview/next/pages/showcases/Thumbnail/Sizes.tsx
 ::
 </Showcase>
 
@@ -29,10 +29,10 @@ The most simple use case of thumbnail can be achieved by seting a single color w
 <Showcase showcase-name="Thumbnail/Color">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Thumbnail/Color.vue
+<<<../../../../preview/nuxt/pages/showcases/Thumbnail/Color.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Thumbnail/Color.tsx
+<<<../../../../preview/next/pages/showcases/Thumbnail/Color.tsx
 ::
 </Showcase>
 
@@ -43,10 +43,10 @@ Gradients can be applied with any of Tailwind's `bg-gradient-` classes.
 <Showcase showcase-name="Thumbnail/Gradient">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Thumbnail/Gradient.vue
+<<<../../../../preview/nuxt/pages/showcases/Thumbnail/Gradient.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Thumbnail/Gradient.tsx
+<<<../../../../preview/next/pages/showcases/Thumbnail/Gradient.tsx
 ::
 </Showcase>
 
@@ -57,10 +57,10 @@ You can pass an image ::vue-onlyinto the default slot:: ::react-onlyas children:
 <Showcase showcase-name="Thumbnail/Image">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Thumbnail/Image.vue
+<<<../../../../preview/nuxt/pages/showcases/Thumbnail/Image.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Thumbnail/Image.tsx
+<<<../../../../preview/next/pages/showcases/Thumbnail/Image.tsx
 ::
 </Showcase>
 
@@ -77,10 +77,10 @@ Similar to images, you can also pass an icon as children.
 <Showcase showcase-name="Thumbnail/Icon">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Thumbnail/Icon.vue
+<<<../../../../preview/nuxt/pages/showcases/Thumbnail/Icon.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Thumbnail/Icon.tsx
+<<<../../../../preview/next/pages/showcases/Thumbnail/Icon.tsx
 ::
 </Showcase>
 
@@ -117,10 +117,10 @@ Similar to images, you can also pass an icon as children.
 #tab-3
 
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfThumbnail/SfThumbnail.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfThumbnail/SfThumbnail.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfThumbnail/SfThumbnail.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfThumbnail/SfThumbnail.tsx
 ::
 
 ::

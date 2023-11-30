@@ -11,10 +11,10 @@ This block is implemented using `SfRatingButton` and `SfModal` components. If yo
 <Showcase showcase-name="RatingForms/ProductRating" style="min-height: 600px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/RatingForms/ProductRating.vue
+<<<../../../../preview/nuxt/pages/showcases/RatingForms/ProductRating.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/RatingForms/ProductRating.tsx
+<<<../../../../preview/next/pages/showcases/RatingForms/ProductRating.tsx
 ::
 
 </Showcase>
@@ -26,10 +26,10 @@ The Product Rating With Review block provides users with the ability to rate a p
 <Showcase showcase-name="RatingForms/ProductRatingWithReview" style="min-height: 600px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/RatingForms/ProductRatingWithReview.vue
+<<<../../../../preview/nuxt/pages/showcases/RatingForms/ProductRatingWithReview.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/RatingForms/ProductRatingWithReview.tsx
+<<<../../../../preview/next/pages/showcases/RatingForms/ProductRatingWithReview.tsx
 ::
 
 </Showcase> 

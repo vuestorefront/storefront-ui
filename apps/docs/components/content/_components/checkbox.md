@@ -23,10 +23,10 @@ You can use `v-model` with `SfCheckbox` to bind the value to a variable in your 
 <Showcase showcase-name="Checkbox/CheckboxWithoutLabel">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Checkbox/CheckboxWithoutLabel.vue
+<<<../../../../preview/nuxt/pages/showcases/Checkbox/CheckboxWithoutLabel.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Checkbox/CheckboxWithoutLabel.tsx
+<<<../../../../preview/next/pages/showcases/Checkbox/CheckboxWithoutLabel.tsx
 ::
 </Showcase>
 
@@ -37,10 +37,10 @@ When using `SfCheckbox` with a label, you can use Tailwind's `peer` modifiers to
 <Showcase showcase-name="Checkbox/CheckboxLeading">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Checkbox/CheckboxLeading.vue
+<<<../../../../preview/nuxt/pages/showcases/Checkbox/CheckboxLeading.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Checkbox/CheckboxLeading.tsx
+<<<../../../../preview/next/pages/showcases/Checkbox/CheckboxLeading.tsx
 ::
 </Showcase>
 
@@ -49,10 +49,10 @@ When using `SfCheckbox` with a label, you can use Tailwind's `peer` modifiers to
 <Showcase showcase-name="Checkbox/CheckboxTrailing">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Checkbox/CheckboxTrailing.vue
+<<<../../../../preview/nuxt/pages/showcases/Checkbox/CheckboxTrailing.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Checkbox/CheckboxTrailing.tsx
+<<<../../../../preview/next/pages/showcases/Checkbox/CheckboxTrailing.tsx
 ::
 </Showcase>
 
@@ -96,9 +96,9 @@ It's focusable and can be toggled with `Space`.
 
 #tab-3
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfCheckbox/SfCheckbox.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfCheckbox/SfCheckbox.vue
 ::
 ::react-only
-<<< ../../../../packages/sfui/frameworks/react/components/SfCheckbox/SfCheckbox.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfCheckbox/SfCheckbox.tsx
 ::
 ::

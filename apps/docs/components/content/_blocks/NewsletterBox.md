@@ -7,10 +7,10 @@ In this example there are two types of alerts: `positive` and `negative`. The fi
 <Showcase showcase-name="NewsletterBox/NewsletterBox" style="min-height:340px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/NewsletterBox/NewsletterBox.vue
+<<<../../../../preview/nuxt/pages/showcases/NewsletterBox/NewsletterBox.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/NewsletterBox/NewsletterBox.tsx
+<<<../../../../preview/next/pages/showcases/NewsletterBox/NewsletterBox.tsx
 ::
 
 </Showcase>

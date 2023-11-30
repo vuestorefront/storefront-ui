@@ -13,10 +13,10 @@ The Textarea is a multi-line text input control allows users to enter any combin
 <Showcase showcase-name="Textarea/TextareaDisabled">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Textarea/TextareaDisabled.vue
+<<<../../../../preview/nuxt/pages/showcases/Textarea/TextareaDisabled.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Textarea/TextareaDisabled.tsx
+<<<../../../../preview/next/pages/showcases/Textarea/TextareaDisabled.tsx
 ::
 </Showcase>
 
@@ -27,10 +27,10 @@ The Textarea is a multi-line text input control allows users to enter any combin
 <Showcase showcase-name="Textarea/TextareaReadonly">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Textarea/TextareaReadonly.vue
+<<<../../../../preview/nuxt/pages/showcases/Textarea/TextareaReadonly.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Textarea/TextareaReadonly.tsx
+<<<../../../../preview/next/pages/showcases/Textarea/TextareaReadonly.tsx
 ::
 </Showcase>
 
@@ -41,10 +41,10 @@ If you pass the `invalid` prop, the Textarea will be styled to indicate an inval
 <Showcase showcase-name="Textarea/TextareaInvalid" style="min-height: 200px;">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Textarea/TextareaInvalid.vue
+<<<../../../../preview/nuxt/pages/showcases/Textarea/TextareaInvalid.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Textarea/TextareaInvalid.tsx
+<<<../../../../preview/next/pages/showcases/Textarea/TextareaInvalid.tsx
 ::
 </Showcase>
 
@@ -55,10 +55,10 @@ The Textarea component provides the option to display a character count, allowin
 <Showcase showcase-name="Textarea/TextareaCharacters">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Textarea/TextareaCharacters.vue
+<<<../../../../preview/nuxt/pages/showcases/Textarea/TextareaCharacters.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Textarea/TextareaCharacters.tsx
+<<<../../../../preview/next/pages/showcases/Textarea/TextareaCharacters.tsx
 ::
 </Showcase>
 
@@ -69,10 +69,10 @@ The Textarea component supports autoresizing based on the content entered by the
 <Showcase showcase-name="Textarea/TextareaAutoresize">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Textarea/TextareaAutoresize.vue
+<<<../../../../preview/nuxt/pages/showcases/Textarea/TextareaAutoresize.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Textarea/TextareaAutoresize.tsx
+<<<../../../../preview/next/pages/showcases/Textarea/TextareaAutoresize.tsx
 ::
 </Showcase>
 
@@ -119,10 +119,10 @@ Textarea is multi-line input, so Return or Enter key inserts a line break.
 
 
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfTextarea/SfTextarea.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfTextarea/SfTextarea.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfTextarea/SfTextarea.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfTextarea/SfTextarea.tsx
 ::
 
 ::

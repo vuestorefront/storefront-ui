@@ -15,10 +15,10 @@ MegaMenu complies with the WCAG guidelines for accessibility for menus and menu 
 <Showcase showcase-name="MegaMenu/BaseMegaMenu" no-paddings style="min-height: 500px;">
 
 ::react-only
-<<<../../../preview/next/pages/showcases/MegaMenu/BaseMegaMenu.tsx
+<<<../../../../preview/next/pages/showcases/MegaMenu/BaseMegaMenu.tsx
 ::
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/MegaMenu/BaseMegaMenu.vue
+<<<../../../../preview/nuxt/pages/showcases/MegaMenu/BaseMegaMenu.vue
 ::
 
 </Showcase>
@@ -30,10 +30,10 @@ Additional navigation bar under the main header helps to find general categories
 <Showcase showcase-name="MegaMenu/MegaMenuNavigation" no-paddings style="min-height: 600px;">
 
 ::react-only
-<<<../../../preview/next/pages/showcases/MegaMenu/MegaMenuNavigation.tsx
+<<<../../../../preview/next/pages/showcases/MegaMenu/MegaMenuNavigation.tsx
 ::
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/MegaMenu/MegaMenuNavigation.vue
+<<<../../../../preview/nuxt/pages/showcases/MegaMenu/MegaMenuNavigation.vue
 ::
 
 </Showcase>

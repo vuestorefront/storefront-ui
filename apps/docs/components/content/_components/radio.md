@@ -17,10 +17,10 @@ If you need to make this field required, it is crucial to communicate this inten
 <Showcase showcase-name="Radio/RadioWithoutLabel">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Radio/RadioWithoutLabel.vue
+<<<../../../../preview/nuxt/pages/showcases/Radio/RadioWithoutLabel.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Radio/RadioWithoutLabel.tsx
+<<<../../../../preview/next/pages/showcases/Radio/RadioWithoutLabel.tsx
 ::
 </Showcase>
 
@@ -31,10 +31,10 @@ It's a best practice to use label with your `SfRadio` component so users can und
 <Showcase showcase-name="Radio/RadioLeading">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Radio/RadioLeading.vue
+<<<../../../../preview/nuxt/pages/showcases/Radio/RadioLeading.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Radio/RadioLeading.tsx
+<<<../../../../preview/next/pages/showcases/Radio/RadioLeading.tsx
 ::
 </Showcase>
 
@@ -43,10 +43,10 @@ It's a best practice to use label with your `SfRadio` component so users can und
 <Showcase showcase-name="Radio/RadioTrailing">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Radio/RadioTrailing.vue
+<<<../../../../preview/nuxt/pages/showcases/Radio/RadioTrailing.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Radio/RadioTrailing.tsx
+<<<../../../../preview/next/pages/showcases/Radio/RadioTrailing.tsx
 ::
 </Showcase>
 
@@ -57,10 +57,10 @@ Radio Group can have a `legend` tag, which represents a caption for the content 
 <Showcase showcase-name="RadioGroup/RadioGroupWithLegend">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/RadioGroup/RadioGroupWithLegend.vue
+<<<../../../../preview/nuxt/pages/showcases/RadioGroup/RadioGroupWithLegend.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/RadioGroup/RadioGroupWithLegend.tsx
+<<<../../../../preview/next/pages/showcases/RadioGroup/RadioGroupWithLegend.tsx
 ::
 
 </Showcase>
@@ -72,10 +72,10 @@ Radio components can be aligned inside RadioGroup in a `column` or in a `row`.
 <Showcase showcase-name="RadioGroup/RadioGroupAlignment" >
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/RadioGroup/RadioGroupAlignment.vue
+<<<../../../../preview/nuxt/pages/showcases/RadioGroup/RadioGroupAlignment.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/RadioGroup/RadioGroupAlignment.tsx
+<<<../../../../preview/next/pages/showcases/RadioGroup/RadioGroupAlignment.tsx
 ::
 
 </Showcase>
@@ -86,7 +86,7 @@ Radio components can be aligned inside RadioGroup in a `column` or in a `row`.
 
 <Showcase showcase-name="RadioGroup/RadioGroupUncontrolled" >
 
-<<<../../../preview/next/pages/showcases/RadioGroup/RadioGroupUncontrolled.tsx
+<<<../../../../preview/next/pages/showcases/RadioGroup/RadioGroupUncontrolled.tsx
 
 </Showcase>
 
@@ -139,11 +139,11 @@ If you have an element that is not an `<input type="radio">`, you should set the
 
 #tab-3
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfRadio/SfRadio.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfRadio/SfRadio.vue
 ::
 
 ::react-only
-<<< ../../../../packages/sfui/frameworks/react/components/SfRadio/SfRadio.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfRadio/SfRadio.tsx
 ::
 
 ::

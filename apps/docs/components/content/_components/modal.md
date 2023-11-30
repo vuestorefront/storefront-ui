@@ -30,10 +30,10 @@ This example also uses the [`useDisclosure`](../hooks/useDisclosure.html) functi
 <Showcase showcase-name="Modal/ModalBasic" style="min-height:400px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Modal/ModalBasic.vue
+<<<../../../../preview/nuxt/pages/showcases/Modal/ModalBasic.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Modal/ModalBasic.tsx
+<<<../../../../preview/next/pages/showcases/Modal/ModalBasic.tsx
 ::
 
 </Showcase>
@@ -45,10 +45,10 @@ You can make smooth transitions when the modal pops up.
 <Showcase showcase-name="Modal/ModalTransition" style="min-height:400px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Modal/ModalTransition.vue
+<<<../../../../preview/nuxt/pages/showcases/Modal/ModalTransition.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Modal/ModalTransition.tsx
+<<<../../../../preview/next/pages/showcases/Modal/ModalTransition.tsx
 ::
 
 </Showcase>
@@ -111,10 +111,10 @@ Both techniques can be seen in the code examples above.
 ::
 #tab-3
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfModal/SfModal.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfModal/SfModal.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfModal/SfModal.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfModal/SfModal.tsx
 ::
 
 ::

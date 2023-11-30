@@ -15,10 +15,10 @@
 <Showcase showcase-name="ProgressCircular/ProgressCircularSizes" style="min-height:320px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/ProgressCircular/ProgressCircularSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/ProgressCircular/ProgressCircularSizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/ProgressCircular/ProgressCircularSizes.tsx
+<<<../../../../preview/next/pages/showcases/ProgressCircular/ProgressCircularSizes.tsx
 ::
 
 </Showcase>
@@ -34,10 +34,10 @@ Learn more about [overriding default styles](/customization/overriding-default-s
 <Showcase showcase-name="ProgressCircular/ProgressCircularColors">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/ProgressCircular/ProgressCircularColors.vue
+<<<../../../../preview/nuxt/pages/showcases/ProgressCircular/ProgressCircularColors.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/ProgressCircular/ProgressCircularColors.tsx
+<<<../../../../preview/next/pages/showcases/ProgressCircular/ProgressCircularColors.tsx
 ::
 
 </Showcase>
@@ -58,10 +58,10 @@ You can add text to the center of the Progress Circle by providing content to th
 <Showcase showcase-name="ProgressCircular/ProgressCircularFloatingLabel">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/ProgressCircular/ProgressCircularFloatingLabel.vue
+<<<../../../../preview/nuxt/pages/showcases/ProgressCircular/ProgressCircularFloatingLabel.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/ProgressCircular/ProgressCircularFloatingLabel.tsx
+<<<../../../../preview/next/pages/showcases/ProgressCircular/ProgressCircularFloatingLabel.tsx
 ::
 
 </Showcase>
@@ -105,10 +105,10 @@ This component sets the `role="progressbar"` to [allow screen readers treat it a
 
 #tab-3
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfProgressCircular/SfProgressCircular.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfProgressCircular/SfProgressCircular.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfProgressCircular/SfProgressCircular.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfProgressCircular/SfProgressCircular.tsx
 ::
 
 ::

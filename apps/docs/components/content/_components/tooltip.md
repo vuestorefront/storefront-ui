@@ -23,10 +23,10 @@ Learn more about `useTooltip` composable in the [Composables > useTooltip docs](
 <Showcase showcase-name="Tooltip/BasicTooltip">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Tooltip/BasicTooltip.vue
+<<<../../../../preview/nuxt/pages/showcases/Tooltip/BasicTooltip.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Tooltip/BasicTooltip.tsx
+<<<../../../../preview/next/pages/showcases/Tooltip/BasicTooltip.tsx
 ::
 </Showcase>
 
@@ -71,10 +71,10 @@ By default, this component sets `role="tooltip"`.
 #tab-3
 
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfTooltip/SfTooltip.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfTooltip/SfTooltip.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfTooltip/SfTooltip.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfTooltip/SfTooltip.tsx
 ::
 
 ::

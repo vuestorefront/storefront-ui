@@ -18,12 +18,12 @@ By default, `SfCounter` will put parentheses around its children.
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/Counter/Counter.vue
+<<<../../../../preview/nuxt/pages/showcases/Counter/Counter.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/Counter/Counter.tsx
+<<<../../../../preview/next/pages/showcases/Counter/Counter.tsx
 
 ::
 
@@ -37,12 +37,12 @@ By default, `SfCounter` will put parentheses around its children.
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/Counter/CounterPill.vue
+<<<../../../../preview/nuxt/pages/showcases/Counter/CounterPill.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/Counter/CounterPill.tsx
+<<<../../../../preview/next/pages/showcases/Counter/CounterPill.tsx
 
 ::
 
@@ -56,12 +56,12 @@ You can customize the colors of `SfCounter` by passing Tailwind classes.
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/Counter/CounterCustomBackground.vue
+<<<../../../../preview/nuxt/pages/showcases/Counter/CounterCustomBackground.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/Counter/CounterCustomBackground.tsx
+<<<../../../../preview/next/pages/showcases/Counter/CounterCustomBackground.tsx
 
 ::
 
@@ -109,12 +109,12 @@ The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline ele
 
 ::vue-only
 
-<<<../../../../packages/sfui/frameworks/vue/components/SfCounter/SfCounter.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfCounter/SfCounter.vue
 
 ::
 ::react-only
 
-<<< ../../../../packages/sfui/frameworks/react/components/SfCounter/SfCounter.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfCounter/SfCounter.tsx
 
 ::
 

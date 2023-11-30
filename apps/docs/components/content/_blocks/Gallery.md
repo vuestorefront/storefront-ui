@@ -19,10 +19,10 @@ Changing an image is provided by hover on the thumbnail or dragging the main ima
 <Showcase showcase-name="Gallery/GalleryVertical" style="min-height:700px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Gallery/GalleryVertical.vue
+<<<../../../../preview/nuxt/pages/showcases/Gallery/GalleryVertical.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Gallery/GalleryVertical.tsx
+<<<../../../../preview/next/pages/showcases/Gallery/GalleryVertical.tsx
 ::
 
 </Showcase>
@@ -34,10 +34,10 @@ Changing an image is provided by click on the thumbnail or dragging the main ima
 <Showcase showcase-name="Gallery/GalleryHorizontal" style="min-height:700px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontal.vue
+<<<../../../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontal.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Gallery/GalleryHorizontal.tsx
+<<<../../../../preview/next/pages/showcases/Gallery/GalleryHorizontal.tsx
 ::
 
 </Showcase>
@@ -49,10 +49,10 @@ Changing an image is provided by click on the buttons which are visible after ho
 <Showcase showcase-name="Gallery/GalleryWithBullets" style="min-height:700px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Gallery/GalleryWithBullets.vue
+<<<../../../../preview/nuxt/pages/showcases/Gallery/GalleryWithBullets.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Gallery/GalleryWithBullets.tsx
+<<<../../../../preview/next/pages/showcases/Gallery/GalleryWithBullets.tsx
 ::
 
 </Showcase>
@@ -64,10 +64,10 @@ In this block there is added arrow key navigation. When focus is on one of the t
 <Showcase showcase-name="Gallery/GalleryHorizontalArrowKeyNavigation" style="min-height:700px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontalArrowKeyNavigation.vue
+<<<../../../../preview/nuxt/pages/showcases/Gallery/GalleryHorizontalArrowKeyNavigation.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Gallery/GalleryHorizontalArrowKeyNavigation.tsx
+<<<../../../../preview/next/pages/showcases/Gallery/GalleryHorizontalArrowKeyNavigation.tsx
 ::
 
 </Showcase>

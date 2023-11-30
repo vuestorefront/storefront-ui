@@ -16,11 +16,11 @@ To make the RatingButton work you just have to provide a state.
 <Showcase showcase-name="RatingButton/Basic" style="min-height:250px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/RatingButton/Basic.vue
+<<<../../../../preview/nuxt/pages/showcases/RatingButton/Basic.vue
 ::
 
 ::react-only
-<<<../../../preview/next/pages/showcases/RatingButton/Basic.tsx
+<<<../../../../preview/next/pages/showcases/RatingButton/Basic.tsx
 ::
 
 </Showcase>
@@ -36,10 +36,10 @@ RatingButton comes with three different sizes which are compatible with Storefro
 <Showcase showcase-name="RatingButton/Sizes" style="min-height:250px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/RatingButton/Sizes.vue
+<<<../../../../preview/nuxt/pages/showcases/RatingButton/Sizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/RatingButton/Sizes.tsx
+<<<../../../../preview/next/pages/showcases/RatingButton/Sizes.tsx
 ::
 
 </Showcase>
@@ -51,11 +51,11 @@ Set any number of stars using `max` prop. For example, if you increase the maxim
 <Showcase showcase-name="RatingButton/MaxNumber" style="min-height:250px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/RatingButton/MaxNumber.vue
+<<<../../../../preview/nuxt/pages/showcases/RatingButton/MaxNumber.vue
 ::
 
 ::react-only
-<<<../../../preview/next/pages/showcases/RatingButton/MaxNumber.tsx
+<<<../../../../preview/next/pages/showcases/RatingButton/MaxNumber.tsx
 ::
 
 </Showcase>
@@ -74,11 +74,11 @@ You can customize an icon of the RatingButton using a scoped slot.
 <Showcase showcase-name="RatingButton/CustomIcon" style="min-height:250px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/RatingButton/CustomIcon.vue
+<<<../../../../preview/nuxt/pages/showcases/RatingButton/CustomIcon.vue
 ::
 
 ::react-only
-<<<../../../preview/next/pages/showcases/RatingButton/CustomIcon.tsx
+<<<../../../../preview/next/pages/showcases/RatingButton/CustomIcon.tsx
 ::
 </Showcase>
 
@@ -164,10 +164,10 @@ SfRatingButtonRenderProps
 
 
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfRatingButton/SfRatingButton.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfRatingButton/SfRatingButton.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfRatingButton/SfRatingButton.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfRatingButton/SfRatingButton.tsx
 ::
 
 

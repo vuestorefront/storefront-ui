@@ -30,10 +30,10 @@ Each item in the navbar is an [`SfButton`](../components/button) component. This
 <Showcase showcase-name="NavbarBottom/NavbarBottom" no-paddings style="min-height:200px">
 
 ::react-only
-<<<../../../preview/next/pages/showcases/NavbarBottom/NavbarBottom.tsx
+<<<../../../../preview/next/pages/showcases/NavbarBottom/NavbarBottom.tsx
 ::
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/NavbarBottom/NavbarBottom.vue
+<<<../../../../preview/nuxt/pages/showcases/NavbarBottom/NavbarBottom.vue
 ::
 
 </Showcase>
@@ -43,10 +43,10 @@ Each item in the navbar is an [`SfButton`](../components/button) component. This
 <Showcase showcase-name="NavbarBottom/NavbarBottomFilled" no-paddings style="min-height:200px">
 
 ::react-only
-<<<../../../preview/next/pages/showcases/NavbarBottom/NavbarBottomFilled.tsx
+<<<../../../../preview/next/pages/showcases/NavbarBottom/NavbarBottomFilled.tsx
 ::
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/NavbarBottom/NavbarBottomFilled.vue
+<<<../../../../preview/nuxt/pages/showcases/NavbarBottom/NavbarBottomFilled.vue
 ::
 
 </Showcase>

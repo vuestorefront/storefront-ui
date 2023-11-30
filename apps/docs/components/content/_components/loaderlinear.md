@@ -15,10 +15,10 @@
 <Showcase showcase-name="LoaderLinear/LoaderLinearSizes" style="min-height:300px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/LoaderLinear/LoaderLinearSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/LoaderLinear/LoaderLinearSizes.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/LoaderLinear/LoaderLinearSizes.tsx
+<<<../../../../preview/next/pages/showcases/LoaderLinear/LoaderLinearSizes.tsx
 ::
 
 </Showcase>
@@ -35,10 +35,10 @@ Learn more about [overriding default styles](/customization/overriding-default-s
 <Showcase showcase-name="LoaderLinear/LoaderLinearColors">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/LoaderLinear/LoaderLinearColors.vue
+<<<../../../../preview/nuxt/pages/showcases/LoaderLinear/LoaderLinearColors.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/LoaderLinear/LoaderLinearColors.tsx
+<<<../../../../preview/next/pages/showcases/LoaderLinear/LoaderLinearColors.tsx
 ::
 
 </Showcase>
@@ -72,9 +72,9 @@ It's important to properly set `aria-label` for screen readers to read proper in
 ::
 #tab-3
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/components/SfLoaderLinear/SfLoaderLinear.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfLoaderLinear/SfLoaderLinear.vue
 ::
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/components/SfLoaderLinear/SfLoaderLinear.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfLoaderLinear/SfLoaderLinear.tsx
 ::
 ::

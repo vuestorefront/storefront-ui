@@ -9,10 +9,10 @@ Color filters are a type of product filter that allow online shoppers to narrow 
 <Showcase showcase-name="Filters/Color" style="min-height:400px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Filters/Color.vue
+<<<../../../../preview/nuxt/pages/showcases/Filters/Color.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Filters/Color.tsx
+<<<../../../../preview/next/pages/showcases/Filters/Color.tsx
 ::
 </Showcase>
 
@@ -23,10 +23,10 @@ Sizes in category pages are a feature that allows online shoppers to filter thei
 <Showcase showcase-name="Filters/Size" style="min-height:300px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Filters/Size.vue
+<<<../../../../preview/nuxt/pages/showcases/Filters/Size.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Filters/Size.tsx
+<<<../../../../preview/next/pages/showcases/Filters/Size.tsx
 ::
 </Showcase>
 
@@ -37,10 +37,10 @@ Brand in category pages are a feature that allows online shoppers to filter thei
 <Showcase showcase-name="Filters/Brand" style="min-height:300px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Filters/Brand.vue
+<<<../../../../preview/nuxt/pages/showcases/Filters/Brand.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Filters/Brand.tsx
+<<<../../../../preview/next/pages/showcases/Filters/Brand.tsx
 ::
 </Showcase>
 
@@ -51,10 +51,10 @@ Price in category pages are a feature that allows online shoppers to filter thei
 <Showcase showcase-name="Filters/Price" style="min-height:350px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Filters/Price.vue
+<<<../../../../preview/nuxt/pages/showcases/Filters/Price.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Filters/Price.tsx
+<<<../../../../preview/next/pages/showcases/Filters/Price.tsx
 ::
 </Showcase>
 
@@ -65,10 +65,10 @@ Sorting in category pages is a feature that allows online shoppers to arrange an
 <Showcase showcase-name="Filters/Sorting">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Filters/Sorting.vue
+<<<../../../../preview/nuxt/pages/showcases/Filters/Sorting.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Filters/Sorting.tsx
+<<<../../../../preview/next/pages/showcases/Filters/Sorting.tsx
 ::
 
 </Showcase>
@@ -80,10 +80,10 @@ Category list allows users to browse and select categories of content or product
 <Showcase showcase-name="Filters/Category" style="min-height:400px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Filters/Category.vue
+<<<../../../../preview/nuxt/pages/showcases/Filters/Category.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Filters/Category.tsx
+<<<../../../../preview/next/pages/showcases/Filters/Category.tsx
 ::
 
 </Showcase>
@@ -95,10 +95,10 @@ Ratings allows users to filter out specific ratings of products in category. Onl
 <Showcase showcase-name="Filters/Rating" style="min-height:300px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Filters/Rating.vue
+<<<../../../../preview/nuxt/pages/showcases/Filters/Rating.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Filters/Rating.tsx
+<<<../../../../preview/next/pages/showcases/Filters/Rating.tsx
 ::
 
 </Showcase>
@@ -110,10 +110,10 @@ Filters panel can be customized to suit the specific needs of different applicat
 <Showcase showcase-name="Filters/FiltersSidepanel" style="min-height:1500px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Filters/FiltersSidepanel.vue
+<<<../../../../preview/nuxt/pages/showcases/Filters/FiltersSidepanel.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Filters/FiltersSidepanel.tsx
+<<<../../../../preview/next/pages/showcases/Filters/FiltersSidepanel.tsx
 ::
 
 </Showcase>

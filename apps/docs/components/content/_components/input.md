@@ -20,10 +20,10 @@ If you need to make this field required, it is crucial to communicate this inten
 <Showcase showcase-name="Input/InputWithoutLabel" style="min-height:400px;">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Input/InputWithoutLabel.vue
+<<<../../../../preview/nuxt/pages/showcases/Input/InputWithoutLabel.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Input/InputWithoutLabel.tsx
+<<<../../../../preview/next/pages/showcases/Input/InputWithoutLabel.tsx
 ::
 </Showcase>
 
@@ -36,10 +36,10 @@ This can be useful for adding icons or buttons to your input.
 <Showcase showcase-name="Input/InputIcons">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Input/InputIcons.vue
+<<<../../../../preview/nuxt/pages/showcases/Input/InputIcons.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Input/InputIcons.tsx
+<<<../../../../preview/next/pages/showcases/Input/InputIcons.tsx
 ::
 </Showcase>
 
@@ -50,10 +50,10 @@ This can be useful for adding icons or buttons to your input.
 <Showcase showcase-name="Input/InputDisabled">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Input/InputDisabled.vue
+<<<../../../../preview/nuxt/pages/showcases/Input/InputDisabled.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Input/InputDisabled.tsx
+<<<../../../../preview/next/pages/showcases/Input/InputDisabled.tsx
 ::
 </Showcase>
 
@@ -64,10 +64,10 @@ This can be useful for adding icons or buttons to your input.
 <Showcase showcase-name="Input/InputReadonly">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Input/InputReadonly.vue
+<<<../../../../preview/nuxt/pages/showcases/Input/InputReadonly.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Input/InputReadonly.tsx
+<<<../../../../preview/next/pages/showcases/Input/InputReadonly.tsx
 ::
 </Showcase>
 
@@ -78,10 +78,10 @@ If you pass the `invalid` prop, the input will be styled to indicate an invalid 
 <Showcase showcase-name="Input/InputInvalid">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Input/InputInvalid.vue
+<<<../../../../preview/nuxt/pages/showcases/Input/InputInvalid.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Input/InputInvalid.tsx
+<<<../../../../preview/next/pages/showcases/Input/InputInvalid.tsx
 ::
 </Showcase>
 
@@ -92,10 +92,10 @@ This is an example of what `SfInput` might look like in your end code. It has a 
 <Showcase showcase-name="Input/InputCharacters">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Input/InputCharacters.vue
+<<<../../../../preview/nuxt/pages/showcases/Input/InputCharacters.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Input/InputCharacters.tsx
+<<<../../../../preview/next/pages/showcases/Input/InputCharacters.tsx
 ::
 </Showcase>
 
@@ -162,13 +162,13 @@ Avoid adding `div` tags to slots. If an input element is wrapped in `label` tag 
 #tab-3
 ::vue-only
 
-<<<../../../../packages/sfui/frameworks/vue/components/SfInput/SfInput.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfInput/SfInput.vue
 
 ::
 
 ::react-only
 
-<<< ../../../../packages/sfui/frameworks/react/components/SfInput/SfInput.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfInput/SfInput.tsx
 
 ::
 ::

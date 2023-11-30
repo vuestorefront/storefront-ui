@@ -17,10 +17,10 @@ Users can easily navigate through the cards by swiping or using navigation arrow
 <Showcase showcase-name="ProductSlider/Basic" style="min-height:380px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/ProductSlider/Basic.vue
+<<<../../../../preview/nuxt/pages/showcases/ProductSlider/Basic.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/ProductSlider/Basic.tsx
+<<<../../../../preview/next/pages/showcases/ProductSlider/Basic.tsx
 ::
 
 </Showcase>

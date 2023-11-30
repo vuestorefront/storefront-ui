@@ -27,12 +27,12 @@ By default, `SfDrawer` will trigger the close event when the user clicks outside
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/Drawer/Placement.vue
+<<<../../../../preview/nuxt/pages/showcases/Drawer/Placement.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/Drawer/Placement.tsx
+<<<../../../../preview/next/pages/showcases/Drawer/Placement.tsx
 
 ::
 
@@ -55,12 +55,12 @@ Additionally, you can use the `useTrapFocus` utility for better control of focus
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/Drawer/TransitionAndCloseButton.vue
+<<<../../../../preview/nuxt/pages/showcases/Drawer/TransitionAndCloseButton.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/Drawer/TransitionAndCloseButton.tsx
+<<<../../../../preview/next/pages/showcases/Drawer/TransitionAndCloseButton.tsx
 
 ::
 </Showcase>
@@ -119,12 +119,12 @@ The component is providing keyboard accessibility with `@keydown.esc="onEscKeyDo
 
 ::vue-only
 
-<<<../../../../packages/sfui/frameworks/vue/components/SfDrawer/SfDrawer.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfDrawer/SfDrawer.vue
 
 ::
 ::react-only
 
-<<<../../../../packages/sfui/frameworks/react/components/SfDrawer/SfDrawer.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfDrawer/SfDrawer.tsx
 
 ::
 

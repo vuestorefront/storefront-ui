@@ -15,10 +15,10 @@ In order to apply valid promo code use: `VSF2020`.
 <Showcase showcase-name="OrderSummary/OrderSummary" style="min-height:600px">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/OrderSummary/OrderSummary.vue
+<<<../../../../preview/nuxt/pages/showcases/OrderSummary/OrderSummary.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/OrderSummary/OrderSummary.tsx
+<<<../../../../preview/next/pages/showcases/OrderSummary/OrderSummary.tsx
 ::
 
 </Showcase>

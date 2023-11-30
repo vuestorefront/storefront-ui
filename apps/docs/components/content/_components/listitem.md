@@ -16,12 +16,12 @@
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/ListItem/ListItemSizes.vue
+<<<../../../../preview/nuxt/pages/showcases/ListItem/ListItemSizes.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/ListItem/ListItemSizes.tsx
+<<<../../../../preview/next/pages/showcases/ListItem/ListItemSizes.tsx
 
 ::
 </Showcase>
@@ -38,12 +38,12 @@
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/ListItem/ListItemSlots.vue
+<<<../../../../preview/nuxt/pages/showcases/ListItem/ListItemSlots.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/ListItem/ListItemSlots.tsx
+<<<../../../../preview/next/pages/showcases/ListItem/ListItemSlots.tsx
 
 ::
 </Showcase>
@@ -56,12 +56,12 @@ For items with a lot of text content, you can use Tailwind's `truncate` class.
 
 ::vue-only
 
-<<<../../../preview/nuxt/pages/showcases/ListItem/ListItemTruncated.vue
+<<<../../../../preview/nuxt/pages/showcases/ListItem/ListItemTruncated.vue
 
 ::
 ::react-only
 
-<<<../../../preview/next/pages/showcases/ListItem/ListItemTruncated.tsx
+<<<../../../../preview/next/pages/showcases/ListItem/ListItemTruncated.tsx
 
 ::
 </Showcase>
@@ -128,12 +128,12 @@ When no tag provided, the component will render as an `<li>`. To achieve proper 
 
 ::vue-only
 
-<<<../../../../packages/sfui/frameworks/vue/components/SfListItem/SfListItem.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfListItem/SfListItem.vue
 
 ::
 ::react-only
 
-<<< ../../../../packages/sfui/frameworks/react/components/SfListItem/SfListItem.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfListItem/SfListItem.tsx
 
 ::
 

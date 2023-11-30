@@ -19,10 +19,10 @@ The Basic Combobox block shows how to select one of the country's names from the
 <Showcase showcase-name="Combobox/ComboboxBasic" style="min-height: 350px">
 
 ::vue-only
-<<<../../preview/nuxt/pages/showcases/Combobox/ComboboxBasic.vue
+<<<../../../preview/nuxt/pages/showcases/Combobox/ComboboxBasic.vue
 ::
 ::react-only
-<<<../../preview/next/pages/showcases/Combobox/ComboboxBasic.tsx
+<<<../../../preview/next/pages/showcases/Combobox/ComboboxBasic.tsx
 ::
 
 </Showcase>

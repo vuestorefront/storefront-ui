@@ -13,11 +13,11 @@ The badge component must be wrapped with a container that has `class="relative"`
 <Showcase showcase-name="Badge/BadgeBasic">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Badge/BadgeBasic.vue
+<<<../../../../preview/nuxt/pages/showcases/Badge/BadgeBasic.vue
 ::
 
 ::react-only
-<<<../../../preview/next/pages/showcases/Badge/BadgeBasic.tsx
+<<<../../../../preview/next/pages/showcases/Badge/BadgeBasic.tsx
 ::
 </Showcase>
 
@@ -28,10 +28,10 @@ You can align the Badge in every corner of the container.
 <Showcase showcase-name="Badge/BadgePlacement">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Badge/BadgePlacement.vue
+<<<../../../../preview/nuxt/pages/showcases/Badge/BadgePlacement.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Badge/BadgePlacement.tsx
+<<<../../../../preview/next/pages/showcases/Badge/BadgePlacement.tsx
 ::
 
 </Showcase>
@@ -43,10 +43,10 @@ A nifty effect that makes the Badge a bit more attractive is to add an outline t
 <Showcase showcase-name="Badge/BadgeOutline">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Badge/BadgeOutline.vue
+<<<../../../../preview/nuxt/pages/showcases/Badge/BadgeOutline.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Badge/BadgeOutline.tsx
+<<<../../../../preview/next/pages/showcases/Badge/BadgeOutline.tsx
 ::
 
 </Showcase>
@@ -58,10 +58,10 @@ A common use case for the Badge is to place it on a user's avatar.
 <Showcase showcase-name="Badge/BadgeAvatar">
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Badge/BadgeAvatar.vue
+<<<../../../../preview/nuxt/pages/showcases/Badge/BadgeAvatar.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Badge/BadgeAvatar.tsx
+<<<../../../../preview/next/pages/showcases/Badge/BadgeAvatar.tsx
 ::
 
 </Showcase>
@@ -89,12 +89,12 @@ The component itself does not provide any specific accessibility features. Pleas
 
 ::vue-only
 
-<<<../../../../packages/sfui/frameworks/vue/components/SfBadge/SfBadge.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfBadge/SfBadge.vue
 
 ::
 ::react-only
 
-<<<../../../../packages/sfui/frameworks/react/components/SfBadge/SfBadge.tsx
+<<<../../../../../packages/sfui/frameworks/react/components/SfBadge/SfBadge.tsx
 
 ::
 
