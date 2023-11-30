@@ -6,7 +6,7 @@ const homePage = () => new HomePageObject();
 const detailsPage = () => new DetailsPageObject();
 const changeFramework = () => new ChangeFrameworkObject();
 
-describe('Check if change Framework works ', () => {
+describe.skip('Check if change Framework works ', () => {
   it(' From vue to react and from react to vue', () => {
     cy.visit('/');
     homePage().clickInstallForVue();

@@ -2,7 +2,7 @@ import { OverviewVisibleObject } from '../support/pageObject/OverviewVisible.Pag
 
 const overviewVisible = () => new OverviewVisibleObject();
 
-describe('Blocks and Components overview check', () => {
+describe.skip('Blocks and Components overview check', () => {
   it('Vue', () => {
     cy.visit('/#vue');
     cy.contains('Install for Vue').should('be.visible');

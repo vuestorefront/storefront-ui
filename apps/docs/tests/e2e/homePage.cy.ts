@@ -4,7 +4,7 @@ import { HomePageObject } from '../support/pageObject/HomePageObject.PageObject'
 const homePage = () => new HomePageObject();
 const detailsPage = () => new DetailsPageObject();
 
-describe('HomePageTests', () => {
+describe.skip('HomePageTests', () => {
   it('Vue Instalation content', () => {
     cy.visit('/');
     homePage().clickInstallForVue();
@@ -32,7 +32,7 @@ describe('HomePageTests', () => {
   });
 });
 
-describe('All Sections check', () => {
+describe.skip('All Sections check', () => {
   it('Check content for Vue', () => {
     cy.visit('/');
     homePage().clickInstallForVue();

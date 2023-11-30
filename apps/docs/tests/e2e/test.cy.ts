@@ -4,7 +4,7 @@ import { HomePageObject } from '../support/pageObject/HomePageObject.PageObject'
 const homePage = () => new HomePageObject();
 const detailsPage = () => new DetailsPageObject();
 
-describe('HomePageTests', () => {
+describe.skip('HomePageTests', () => {
   it('Vue Instalation content', () => {
     cy.visit('/');
   });

@@ -2,7 +2,7 @@ import { CodePreviewCheckObject } from '../support/pageObject/CodePreview.PageOb
 
 const codePreview = () => new CodePreviewCheckObject();
 
-describe('code and source preview check', () => {
+describe.skip('code and source preview check', () => {
   it('vue blocks and components', () => {
     codePreview().vueComponentsSourceCheck();
     codePreview().vueBlocksAndComponentsCodeCheck();

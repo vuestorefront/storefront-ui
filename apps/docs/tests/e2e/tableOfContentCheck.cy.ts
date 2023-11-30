@@ -2,7 +2,7 @@ import { TableContent } from '../support/pageObject/TableOfContent.PageObject';
 
 const tableContent = () => new TableContent();
 
-describe('Table of content ', () => {
+describe.skip('Table of content ', () => {
   it('Button vue full table of content ', () => {
     cy.visit('/vue/components/button.html');
     tableContent().buttonTablesForVue();

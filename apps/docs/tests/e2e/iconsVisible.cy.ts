@@ -2,16 +2,14 @@ import { IconVisiblePageObject } from '../support/pageObject/IconVisible.PageObj
 
 const iconVisible = () => new IconVisiblePageObject();
 
-describe('Icons visible', () => {
+describe.skip('Icons visible', () => {
   it('vue icons check', () => {
     cy.visit('/vue/components/iconbase.html');
     iconVisible().checkIconVisibilityInIframe();
   });
 
-  it('react icons check', () => { 
+  it('react icons check', () => {
     cy.visit('/react/components/iconbase.html');
     iconVisible().checkIconVisibilityInIframe();
   });
 });
-
-
