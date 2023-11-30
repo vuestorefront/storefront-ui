@@ -1,5 +1,23 @@
 # @storefront-ui/react
 
+## 2.6.0
+
+### Minor Changes
+
+- [#2888](https://github.com/vuestorefront/storefront-ui/pull/2888) [`d5df1cd79`](https://github.com/vuestorefront/storefront-ui/commit/d5df1cd79ca123d54c70a17cfeb7cc4f50eac8f8) Thanks [@justyna-13](https://github.com/justyna-13)! - New prop for defining tags for children in SfListItem component
+
+### Patch Changes
+
+- [#3005](https://github.com/vuestorefront/storefront-ui/pull/3005) [`e82aa920e`](https://github.com/vuestorefront/storefront-ui/commit/e82aa920ecaa58ec7bd50204a6e6a165d5341958) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Fix inhertiance of react icons, possibility to alter default attributes
+
+- [#2939](https://github.com/vuestorefront/storefront-ui/pull/2939) [`d57c3cfe3`](https://github.com/vuestorefront/storefront-ui/commit/d57c3cfe32ae3816c80e7a08efd8ae359cc02833) Thanks [@filrak](https://github.com/filrak)! - Import types from package in SfBadge
+
+- [#2936](https://github.com/vuestorefront/storefront-ui/pull/2936) [`6bf2b3fbc`](https://github.com/vuestorefront/storefront-ui/commit/6bf2b3fbc83810b00ff2a3b63976444497d0f277) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Unify code between vue and react, when buttons are disabled in floating button position mode they should be hidden
+
+- [#2946](https://github.com/vuestorefront/storefront-ui/pull/2946) [`979c29ee9`](https://github.com/vuestorefront/storefront-ui/commit/979c29ee91b3289e6514314ca7c841e457ca3ec0) Thanks [@jagoral](https://github.com/jagoral)! - Fix `aria-label` casing in `SfScrollable`
+
+- [#2947](https://github.com/vuestorefront/storefront-ui/pull/2947) [`1667e4fa2`](https://github.com/vuestorefront/storefront-ui/commit/1667e4fa2ccc495b38227930980c1eb52220f837) Thanks [@jagoral](https://github.com/jagoral)! - Remove redundant `selected` attribute from `SfSelect` placeholder
+
 ## 2.5.0
 
 ### Minor Changes

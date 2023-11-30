@@ -30,7 +30,7 @@
     "eslint-plugin-nuxt": "^4.0.0",
     "nuxt": "^3.3.2",
     "postcss": "^8.4.21",
-    "prettier": "^2.8.8",
+    "prettier": "^3.0.0",
     "sass": "^1.58.2",
     "sass-loader": "^13.2.0"
   },

@@ -19,7 +19,6 @@ export default function QuantitySelector() {
     <div className="inline-flex flex-col items-center">
       <div className="flex border border-neutral-300 rounded-md">
         <SfButton
-          type="button"
           variant="tertiary"
           square
           className="rounded-r-none"
@@ -41,7 +40,6 @@ export default function QuantitySelector() {
           onChange={handleOnChange}
         />
         <SfButton
-          type="button"
           variant="tertiary"
           square
           className="rounded-l-none"

@@ -62,7 +62,6 @@ const modelProxy = computed({
     data-testid="select"
   >
     <select
-      v-bind="$attrs"
       :required="required"
       v-model="modelProxy"
       :disabled="disabled"
@@ -80,11 +79,11 @@ const modelProxy = computed({
       @change="close"
       @click="open"
       @keydown.space="open"
+      v-bind="$attrs"
     >
       <option
         v-if="placeholder"
         disabled
-        selected
         hidden
         class="text-sm bg-neutral-300"
         value=""

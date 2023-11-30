@@ -44,9 +44,7 @@ export default function DrawerWithTransition() {
           </label>
         ))}
       </fieldset>
-      <SfButton onClick={() => setOpen(true)} type="button">
-        Open Drawer
-      </SfButton>
+      <SfButton onClick={() => setOpen(true)}>Open Drawer</SfButton>
 
       <Transition ref={nodeRef} in={open} timeout={300}>
         {(state) => (

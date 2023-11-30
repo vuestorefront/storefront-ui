@@ -7,7 +7,7 @@ export default function RatingValues() {
     <div className="flex flex-col">
       <SfRating value={0} />
       <SfRating value={3.5} />
-      <SfRating value={3.5} half-increment />
+      <SfRating value={3.5} halfIncrement />
       <SfRating value={6} max={8} />
     </div>
   );

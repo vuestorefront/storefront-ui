@@ -13,7 +13,7 @@
   <div class="flex justify-between">
     <div>
       <p v-if="invalid && !disabled" class="text-sm text-negative-700 font-medium mt-0.5">{{ errorText }}</p>
-      <p v-if="helpText" :class="['text-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500']">
+      <p v-if="helpText" :class="['typography-hint-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500']">
         {{ helpText }}
       </p>
       <p v-if="requiredText && required" class="mt-1 text-sm font-normal text-neutral-500 before:content-['*']">
@@ -23,7 +23,7 @@
     <p
       v-if="characterLimit && !readonly"
       :class="[
-        'text-xs mt-0.5',
+        'typography-error-xs mt-0.5',
         disabled ? 'text-disabled-500' : isAboveLimit ? 'text-negative-700 font-medium' : 'text-neutral-500',
       ]"
     >

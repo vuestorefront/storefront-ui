@@ -99,7 +99,7 @@ describe('SfSelect', () => {
     it('should change value/modelValue', () => {
       initializeComponent();
 
-      page().isNotDisabled().hasSelectedOption('red');
+      page().isNotDisabled().hasSelectedOption('blue');
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
         page().makeSnapshot();

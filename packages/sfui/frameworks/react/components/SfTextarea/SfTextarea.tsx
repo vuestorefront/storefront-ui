@@ -26,8 +26,8 @@ export default forwardRef<HTMLTextAreaElement, SfTextareaProps>(
           sizeClasses[size],
           className,
         ])}
-        {...attributes}
         data-testid="textarea"
+        {...attributes}
       />
     );
   },

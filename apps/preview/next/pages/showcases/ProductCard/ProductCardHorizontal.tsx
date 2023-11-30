@@ -53,7 +53,6 @@ export default function ProductCardHorizontal() {
           <div className="flex items-center justify-between mt-4 sm:mt-0">
             <div className="flex border border-neutral-300 rounded-md">
               <SfButton
-                type="button"
                 variant="tertiary"
                 square
                 className="rounded-r-none"
@@ -75,7 +74,6 @@ export default function ProductCardHorizontal() {
                 onChange={handleOnChange}
               />
               <SfButton
-                type="button"
                 variant="tertiary"
                 square
                 className="rounded-l-none"

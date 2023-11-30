@@ -656,7 +656,7 @@ export default function FormFields() {
                 >
                   {label}
                 </span>
-                <span className={classNames('typography-text-xs block', { 'text-disabled-500': disabled })}>
+                <span className={classNames('typography-hint-xs block mt-0.5', { 'text-disabled-500': disabled })}>
                   {hint}
                 </span>
               </span>
@@ -677,7 +677,7 @@ export default function FormFields() {
         </fieldset>
         <p className="text-neutral-500 typography-text-sm mt-8">* marked fields are required</p>
         <div className="flex gap-x-4 md:justify-end mt-6">
-          <SfButton type="button" variant="secondary" className="flex-grow md:flex-grow-0">
+          <SfButton variant="secondary" className="flex-grow md:flex-grow-0">
             Clear all
           </SfButton>
           <SfButton type="submit" className="flex-grow md:flex-grow-0">

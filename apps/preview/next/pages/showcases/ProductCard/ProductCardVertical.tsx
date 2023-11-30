@@ -16,7 +16,6 @@ export default function ProductCardVertical() {
           />
         </SfLink>
         <SfButton
-          type="button"
           variant="tertiary"
           size="sm"
           square
@@ -41,7 +40,7 @@ export default function ProductCardVertical() {
           Lightweight • Non slip • Flexible outsole • Easy to wear on and off
         </p>
         <span className="block pb-2 font-bold typography-text-lg">$2345,99</span>
-        <SfButton type="button" size="sm" slotPrefix={<SfIconShoppingCart size="sm" />}>
+        <SfButton size="sm" slotPrefix={<SfIconShoppingCart size="sm" />}>
           Add to cart
         </SfButton>
       </div>
