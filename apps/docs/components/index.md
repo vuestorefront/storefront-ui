@@ -20,10 +20,14 @@ hideBreadcrumbs: true
         Install for React
         <iconify-icon icon="mingcute:arrow-right-fill" height="14px" class="ml-1"/>
       </RouterLink>
+      <a href="https://qwik-storefront-ui.pages.dev" target="_blank" rel="noopener" class=" px-4 py-2 rounded-lg font-medium bg-qwik ml-2 text-white  flex items-center filter hover:brightness-110 transition-all">
+        Qwik (beta)
+        <iconify-icon icon="mingcute:arrow-right-fill" height="14px" class="ml-1"/>
+      </a>
     </div>
   </div>
   <div class="col-span-2 lg:col-span-1 order-1 lg:order-2">
-    <img src='./assets/sfui-hero.png' class=' mx-auto max-w-xs sm:max-w-md'/>
+    <img src="./assets/sfui-hero.png" class="mx-auto max-w-xs sm:max-w-md" />
   </div>
 </div>
 
@@ -39,7 +43,7 @@ Beautiful, fast, and fully accessible components that integrate with Tailwind CS
 
 <ComponentList framework="vue" type="components" hide-description />
 
-## Composables 
+## Composables
 
 Complex UI logic is extracted into composables, which you can use to build your own custom components.
 
