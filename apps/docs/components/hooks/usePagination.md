@@ -29,7 +29,6 @@ function CustomPagination() {
   return (
     <nav className="flex justify-between border-t border-neutral-200" role="navigation" aria-label="pagination">
       <SfButton
-        type="button"
         aria-label="Go to previous page"
         disabled={selectedPage <= 1}
         variant="tertiary"
@@ -150,7 +149,6 @@ function CustomPagination() {
         )}
       </ul>
       <SfButton
-        type="button"
         aria-label="Go to next page"
         disabled={selectedPage >= totalPages}
         variant="tertiary"
@@ -178,7 +176,6 @@ const { totalPages, pages, selectedPage, startPage, endPage, next, prev, setPage
 <nav class="flex justify-between border-t border-neutral-200" role="navigation" aria-label="pagination">
     {{ totalPages }}
     <SfButton
-      type="button"
       aria-label="Go to previous page"
       :disabled="selectedPage <= 1"
       variant="tertiary"
@@ -280,7 +277,6 @@ const { totalPages, pages, selectedPage, startPage, endPage, next, prev, setPage
       </li>
     </ul>
     <SfButton
-      type="button"
       aria-label="Go to next page"
       :disabled="selectedPage >= totalPages"
       variant="tertiary"
@@ -311,7 +307,7 @@ Listed parameters should be passed as object.
 | maxPages      | `number`            |  `1`          | maximum number of pages to display**       |
 
 **there is an additional page displayed when the default number (`1`) is passed. When the current number is `1` then page `2` and the last pages are visible. When the penultimate page is the current one then pages `1` and the last one are visible.
- 
+
 
 ## Return value
 

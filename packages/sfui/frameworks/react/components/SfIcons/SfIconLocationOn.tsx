@@ -7,7 +7,7 @@ export default function SfIconLocationOn({
   ...attributes
 }: SfIconProps) {
   return (
-    <SfIconBase {...attributes} size={size} viewBox={viewBox} data-testid="location-on">
+    <SfIconBase size={size} viewBox={viewBox} data-testid="location-on" {...attributes}>
       <>
         <path d="M10 10c0 1.1.9 2 2 2s2-.9 2-2-.9-2-2-2-2 .9-2 2Z" />
         <path

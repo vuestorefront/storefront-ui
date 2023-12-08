@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
@@ -69,7 +70,6 @@ export default function TopNav() {
         </SfButton>
         <SfButton
           className="hidden lg:flex lg:mr-4"
-          type="button"
           variant="tertiary"
           slotSuffix={<SfIconExpandMore className="hidden lg:block" />}
         >

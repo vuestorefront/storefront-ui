@@ -1,4 +1,4 @@
-import type { ReactNode, PropsWithChildren } from 'react';
+import type { ReactNode, PropsWithChildren, ElementType } from 'react';
 import type { PropsWithStyle } from '@storefront-ui/react';
 import { SfListItemSize } from '@storefront-ui/shared';
 
@@ -10,4 +10,5 @@ export interface SfListItemProps extends PropsWithChildren, PropsWithStyle {
   slotSuffix?: ReactNode;
   slotPrefix?: ReactNode;
   role?: string;
+  childrenTag?: ElementType;
 }

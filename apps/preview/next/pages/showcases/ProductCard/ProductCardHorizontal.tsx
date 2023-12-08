@@ -23,8 +23,8 @@ export default function ProductCardHorizontal() {
             className="w-full h-auto border rounded-md border-neutral-200"
             src="http://localhost:3100/@assets/smartwatch.png"
             alt="alt"
-            width={300}
-            height={300}
+            width="300"
+            height="300"
           />
         </SfLink>
         <div className="absolute top-0 left-0 text-white bg-secondary-600 py-1 pl-1.5 pr-2 text-xs font-medium">
@@ -53,7 +53,6 @@ export default function ProductCardHorizontal() {
           <div className="flex items-center justify-between mt-4 sm:mt-0">
             <div className="flex border border-neutral-300 rounded-md">
               <SfButton
-                type="button"
                 variant="tertiary"
                 square
                 className="rounded-r-none"
@@ -75,7 +74,6 @@ export default function ProductCardHorizontal() {
                 onChange={handleOnChange}
               />
               <SfButton
-                type="button"
                 variant="tertiary"
                 square
                 className="rounded-l-none"

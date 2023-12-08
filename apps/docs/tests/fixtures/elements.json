@@ -15,6 +15,11 @@
     "className": "typography"
   },
   {
+    "url": "/customization/prose.html",
+    "name": "Prose",
+    "className": "prose"
+  },
+  {
     "url": "/components.html",
     "name": "Base Components",
     "className": "base-components"
@@ -23,6 +28,11 @@
     "url": "/components/accordionitem.html",
     "name": "AccordionItem",
     "className": "accordionitem"
+  },
+  {
+    "url": "/components/badge.html",
+    "name": "Badge ",
+    "className": "badge"
   },
   {
     "url": "/components/button.html",
@@ -110,6 +120,11 @@
     "className": "rating"
   },
   {
+    "url": "/components/ratingbutton.html",
+    "name": "RatingButton ",
+    "className": "ratingbutton"
+  },
+  {
     "url": "/components/scrollable.html",
     "name": "Scrollable",
     "className": "scrollable"
@@ -186,8 +201,8 @@
   },
   {
     "url": "/blocks/Breadcrumbs.html",
-    "name": "Breadcrumbs page ",
-    "className": "breadcrumbs-page"
+    "name": "Breadcrumbs",
+    "className": "breadcrumbs"
   },
   {
     "url": "/blocks/Card.html",
@@ -196,8 +211,13 @@
   },
   {
     "url": "/blocks/Checkout.html",
-    "name": "Checkout page ",
-    "className": "checkout-page"
+    "name": "Checkout",
+    "className": "checkout"
+  },
+  {
+    "url": "/blocks/Combobox.html",
+    "name": "Combobox ",
+    "className": "combobox"
   },
   {
     "url": "/blocks/Filters.html",
@@ -208,6 +228,16 @@
     "url": "/blocks/Footer.html",
     "name": "Footer",
     "className": "footer"
+  },
+  {
+    "url": "/blocks/FormFields.html",
+    "name": "Form fields ",
+    "className": "form-fields"
+  },
+  {
+    "url": "/blocks/Gallery.html",
+    "name": "Gallery",
+    "className": "gallery"
   },
   {
     "url": "/blocks/MegaMenu.html",
@@ -245,9 +275,19 @@
     "className": "productcard"
   },
   {
+    "url": "/blocks/ProductSlider.html",
+    "name": "ProductSlider ",
+    "className": "productslider"
+  },
+  {
     "url": "/blocks/QuantitySelector.html",
     "name": "QuantitySelector",
     "className": "quantityselector"
+  },
+  {
+    "url": "/blocks/RatingForms.html",
+    "name": "Rating Forms",
+    "className": "rating-forms"
   },
   {
     "url": "/blocks/Review.html",
@@ -255,9 +295,14 @@
     "className": "review"
   },
   {
-    "url": "/migration.html",
-    "name": "Migration Guide",
-    "className": "migration-guide"
+    "url": "/blocks/Search.html",
+    "name": "Search ",
+    "className": "search"
+  },
+  {
+    "url": "/blocks/SelectDropdown.html",
+    "name": "Select Dropdown",
+    "className": "select-dropdown"
   },
   {
     "url": "/migration.html",

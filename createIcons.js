@@ -96,7 +96,7 @@ const vueIcon = (name, content, attributes) => `
     <SfIconBase :size="size" viewBox="${attributes.viewBox}" ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</SfIconBase>
 </template>
 <script lang="ts" setup>
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
 import { SfIconBase, SfIconSize } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}SfIconBase`)}';
 
 defineProps({
@@ -116,7 +116,7 @@ export default function SfIcon${camelCaseName}({
     viewBox = '${attributes.viewBox}',
     ...attributes
 }: SfIconProps) {
-    return <SfIconBase {...attributes} size={size} viewBox={viewBox} ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</SfIconBase>;
+    return <SfIconBase size={size} viewBox={viewBox} ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`} {...attributes}>${content}</SfIconBase>;
 }`;
 
 const vueExports = [];

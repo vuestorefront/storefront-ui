@@ -53,6 +53,7 @@ export const useTrapFocus = (
     includeContainer,
     activeState,
     initialFocus,
+    // eslint-disable-next-line etc/no-deprecated
     arrowKeysOn,
     arrowKeysLeftRight,
     arrowKeysUpDown,

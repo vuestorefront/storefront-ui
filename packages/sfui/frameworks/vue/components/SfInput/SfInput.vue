@@ -10,7 +10,7 @@ const getSizeClasses = {
 </script>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue';
+import type { PropType, ConcreteComponent } from 'vue';
 import { computed, ref, toRefs } from 'vue';
 import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
 
@@ -20,7 +20,7 @@ const props = defineProps({
     default: '',
   },
   wrapperTag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: 'span',
   },
   size: {
@@ -75,10 +75,10 @@ const inputValue = computed({
     <slot name="prefix" />
     <input
       v-model="inputValue"
-      v-bind="$attrs"
       class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
       :size="1"
       data-testid="input-field"
+      v-bind="$attrs"
     />
     <slot name="suffix" />
   </component>

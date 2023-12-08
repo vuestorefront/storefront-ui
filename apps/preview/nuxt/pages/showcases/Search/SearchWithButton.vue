@@ -8,6 +8,7 @@
         aria-label="Search"
         placeholder="Search 'jackets' or 'dresses'..."
         @focus="open"
+        @keydown="handleInputKeyDown"
       >
         <template #prefix><SfIconSearch /></template>
         <template #suffix>
@@ -18,8 +19,9 @@
             class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
             @click="reset"
           >
-            <SfIconCancel /></button
-        ></template>
+            <SfIconCancel />
+          </button>
+        </template>
       </SfInput>
       <SfButton type="submit" class="rounded-l-none">Search</SfButton>
     </div>
@@ -49,8 +51,8 @@
                 :src="product.image"
                 alt="product.name"
                 class="rounded-sm mr-2"
-                :width="24"
-                :height="24"
+                width="24"
+                height="24"
               />
               <Component :is="product.thumbnail" v-else class="mr-2 text-neutral-500" />
               <span>{{ highlight }}</span>
@@ -93,7 +95,12 @@ const { referenceRef, floatingRef, style } = useDropdown({
   placement: 'bottom-start',
   middleware: [offset(4)],
 });
-useTrapFocus(dropdownListRef as Ref<HTMLElement>, { arrowKeysUpDown: true, activeState: isOpen, initialFocus: false });
+const { focusables: focusableElements } = useTrapFocus(dropdownListRef as Ref<HTMLElement>, {
+  trapTabs: false,
+  arrowKeysUpDown: true,
+  activeState: isOpen,
+  initialFocus: false,
+});
 
 const submit = () => {
   close();
@@ -116,6 +123,22 @@ const selectValue = (phrase: string) => {
   inputModel.value = phrase;
   close();
   focusInput();
+};
+
+const handleInputKeyDown = (event: KeyboardEvent) => {
+  if (event.key === 'Escape') reset();
+  if (event.key === 'ArrowUp') {
+    open();
+    if (isOpen && focusableElements.value.length > 0) {
+      focusableElements.value[focusableElements.value.length - 1].focus();
+    }
+  }
+  if (event.key === 'ArrowDown') {
+    open();
+    if (isOpen && focusableElements.value.length > 0) {
+      focusableElements.value[0].focus();
+    }
+  }
 };
 
 watch(inputModel, () => {

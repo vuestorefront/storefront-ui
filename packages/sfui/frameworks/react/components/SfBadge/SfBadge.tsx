@@ -1,6 +1,6 @@
 import { SfBadgePlacement } from '@storefront-ui/shared';
 import classNames from 'classnames';
-import type { SfBadgeProps } from './types';
+import type { SfBadgeProps } from '@storefront-ui/react';
 
 export default function SfBadge({
   content,

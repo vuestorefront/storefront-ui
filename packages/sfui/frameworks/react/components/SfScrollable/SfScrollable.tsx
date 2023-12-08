@@ -34,6 +34,8 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       wrapperClassName,
       prevDisabled,
       nextDisabled,
+      buttonPrevAriaLabel = 'Previous',
+      buttonNextAriaLabel = 'Next',
       style,
       children,
       slotPreviousButton,
@@ -88,9 +90,10 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             size: 'lg',
             disabled: prevDisabled,
             slotPrefix: <SfIconChevronLeft />,
+            'aria-label': buttonPrevAriaLabel,
             className: classNames(
-              'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',
               classNameButton,
+              isFloating ? 'disabled:hidden' : 'disabled:!ring-disabled-300 disabled:!text-disabled-500',
             ),
           })}
         />
@@ -109,9 +112,10 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             size: 'lg',
             disabled: nextDisabled,
             slotPrefix: <SfIconChevronRight />,
+            'aria-label': buttonNextAriaLabel,
             className: classNames(
-              'hidden md:block !ring-neutral-500 !text-neutral-500 disabled:!ring-disabled-300 disabled:!text-disabled-500',
               classNameButton,
+              isFloating ? 'disabled:hidden' : 'disabled:!ring-disabled-300 disabled:!text-disabled-500',
             ),
           })}
         />
@@ -127,7 +131,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       >
         {buttonsPlacement !== SfScrollableButtonsPlacement.none && (
           <PreviousButton
-            classNameButton={classNames('!rounded-full bg-white', {
+            classNameButton={classNames('!rounded-full bg-white hidden md:block !ring-neutral-500 !text-neutral-500', {
               'mr-4': isBlock && isHorizontal,
               'mb-4 rotate-90': isBlock && !isHorizontal,
               'absolute left-4 z-10': isFloating && isHorizontal,
@@ -148,7 +152,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         </Tag>
         {buttonsPlacement !== SfScrollableButtonsPlacement.none && (
           <NextButton
-            classNameButton={classNames('!rounded-full bg-white', {
+            classNameButton={classNames('!rounded-full bg-white hidden md:block !ring-neutral-500 !text-neutral-500', {
               'ml-4': isBlock && isHorizontal,
               'mt-4 rotate-90': isBlock && !isHorizontal,
               'absolute right-4 z-10': isFloating && isHorizontal,

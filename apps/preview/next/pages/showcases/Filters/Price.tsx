@@ -45,7 +45,7 @@ export default function PriceFilter() {
                 value={value}
                 checked={price === value}
                 name="radio-price"
-                onClick={() => setPrice(price === value ? null : value)}
+                onChange={() => setPrice(price === value ? null : value)}
               />
             }
           >

@@ -1,21 +1,20 @@
 <template>
   <div class="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
     <div class="relative">
-      <SfLink href="#">
+      <SfLink href="#" class="block">
         <img
           src="http://localhost:3100/@assets/sneakers.png"
           alt="Great product"
           class="block object-cover h-auto rounded-md aspect-square"
-          :width="300"
-          :height="300"
+          width="300"
+          height="300"
         />
       </SfLink>
       <SfButton
-        type="button"
         variant="tertiary"
         size="sm"
         square
-        class="absolute bottom-0 right-0 mr-2 mb-2 bg-white border border-neutral-200 !rounded-full"
+        class="absolute bottom-0 right-0 mr-2 mb-2 bg-white ring-1 ring-inset ring-neutral-200 !rounded-full"
         aria-label="Add to wishlist"
       >
         <SfIconFavorite size="sm" />
@@ -34,7 +33,7 @@
         Lightweight • Non slip • Flexible outsole • Easy to wear on and off
       </p>
       <span class="block pb-2 font-bold typography-text-lg">$2345,99</span>
-      <SfButton type="button" size="sm">
+      <SfButton size="sm">
         <template #prefix>
           <SfIconShoppingCart size="sm" />
         </template>

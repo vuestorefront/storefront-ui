@@ -52,9 +52,24 @@ This example only allows one item to be open at a time.
 
 </Showcase>
 
+### Animated
+
+Animate AccordionItem to give that nice feeling of smooth transition.
+
+<Showcase showcase-name="AccordionItem/AccordionAnimate" style="min-height:400px">
+
+<!-- vue -->
+<<<../../preview/nuxt/pages/showcases/AccordionItem/AccordionAnimate.vue
+<!-- end vue -->
+<!-- react -->
+<<<../../preview/next/pages/showcases/AccordionItem/AccordionAnimate.tsx#source
+<!-- end react -->
+
+</Showcase>
+
 ## Accessibility Notes
 
-Since `SfAccordion` uses `<details>` and `<summary>` HTML elements, it inherits all of their accessibility features. 
+Since `SfAccordion` uses `<details>` and `<summary>` HTML elements, it inherits all of their accessibility features.
 
 For example, `<summary>` elements are focusable and can be activated by pressing the `Enter` or `Space` keys.
 

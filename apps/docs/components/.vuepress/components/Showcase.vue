@@ -25,7 +25,7 @@
         @touchstart="eventDownListener"
       >
         <div class="absolute inset-0" v-show="isHandlerDragging"></div>
-        <Generate :showcase-path="showcaseName" :allow="allow" class="flex-grow rounded" style="margin-top: 0" :no-paddings="noPaddings"/>
+        <Generate :showcase-path="showcaseName" :allow="allow" class="flex-grow rounded" style="margin-top: 0" :no-paddings="noPaddings" :no-scale="noScale"/>
         <div ref="handlerRef" class="select-none rounded-tr items-center hidden sm:flex" style="cursor: ew-resize">
           <iconify-icon icon="akar-icons:drag-vertical" class="pointer-events-none" />
         </div>
@@ -47,6 +47,10 @@ export default {
       default: undefined,
     },
     noPaddings: {
+      type: Boolean,
+      default: false
+    },
+    noScale: {
       type: Boolean,
       default: false
     },

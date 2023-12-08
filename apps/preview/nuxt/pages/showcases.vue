@@ -1,59 +1,72 @@
 <template>
   <div class="e-page-examples">
-    <div v-if="isNotIframe" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
-      <header class="sidebar-heading">
-        <h2>StorefrontUI v2</h2>
-        <h3>Vue Blocks</h3>
-      </header>
-      <SfButton
-        class="sidebar-toggle"
-        :variant="SfButtonVariant.tertiary"
-        :size="SfButtonSize.sm"
-        :aria-label="isOpen ? 'Hide sidebar' : 'Open sidebar'"
-        square
-        @click="isOpen = !isOpen"
-      >
-        <template #prefix>
-          <SfIconChevronLeft v-if="isOpen" />
-          <SfIconChevronRight v-else />
-        </template>
-      </SfButton>
-      <label class="sidebar-search">
-        <SfInput v-model="searchModelValue" placeholder="Search" />
-        <button type="button" class="sidebar-search__button" @click="searchModelValue = ''">
-          <SfIconCloseSm v-if="searchModelValue" class="sidebar-search__button-icon" />
-        </button>
-      </label>
-      <ul class="sidebar-list">
-        <template v-for="(groupValue, groupKey) in groups" :key="groupKey">
-          <li v-if="groupValue.visible" class="flex flex-col select-none">
-            <button
-              type="button"
-              class="text-left bg-gray-200 px-2 py-1 justify-between cursor-pointer"
-              @click="groupValue.open = !groupValue.open"
-            >
-              {{ groupKey }}<SfIconExpandMore :class="{ 'rotate-180': groupValue.open }" />
-            </button>
-            <ul v-if="groupValue.open">
-              <li v-for="showcaseName in groupValue.showcases" :key="groupKey + showcaseName">
-                <NuxtLink :key="showcaseName" v-slot="{ navigate }" :to="groupItemHref(groupKey, showcaseName)" custom>
-                  <SfListItem
-                    tag="span"
-                    :selected="currentRoute.path === groupItemHref(groupKey, showcaseName)"
-                    :class="{ 'font-medium': currentRoute.path === groupItemHref(groupKey, showcaseName) }"
-                    @click="navigate"
+    <ClientOnly>
+      <div v-if="isNotIframe" class="sidebar" :class="!isOpen && 'sidebar-collapsed'">
+        <header class="sidebar-heading">
+          <h2>StorefrontUI v2</h2>
+          <h3>Vue Blocks</h3>
+        </header>
+        <SfButton
+          class="sidebar-toggle"
+          :variant="SfButtonVariant.tertiary"
+          :size="SfButtonSize.sm"
+          :aria-label="isOpen ? 'Hide sidebar' : 'Open sidebar'"
+          square
+          @click="isOpen = !isOpen"
+        >
+          <template #prefix>
+            <SfIconChevronLeft v-if="isOpen" />
+            <SfIconChevronRight v-else />
+          </template>
+        </SfButton>
+        <label class="sidebar-search">
+          <SfInput v-model="searchModelValue" placeholder="Search" />
+          <button type="button" class="sidebar-search__button" @click="searchModelValue = ''">
+            <SfIconCloseSm v-if="searchModelValue" class="sidebar-search__button-icon" />
+          </button>
+        </label>
+        <ul class="sidebar-list">
+          <template v-for="(groupValue, groupKey) in groups" :key="groupKey">
+            <li v-if="groupValue.visible" class="flex flex-col select-none">
+              <button
+                type="button"
+                class="text-left bg-gray-200 px-2 py-1 justify-between cursor-pointer"
+                @click="groupValue.open = !groupValue.open"
+              >
+                {{ groupKey }}<SfIconExpandMore :class="{ 'rotate-180': groupValue.open }" />
+              </button>
+              <ul v-if="groupValue.open">
+                <li v-for="showcaseName in groupValue.showcases" :key="groupKey + showcaseName">
+                  <NuxtLink
+                    :key="showcaseName"
+                    v-slot="{ navigate }"
+                    :to="groupItemHref(groupKey, showcaseName)"
+                    custom
                   >
-                    {{ showcaseName }}
-                  </SfListItem>
-                </NuxtLink>
-              </li>
-            </ul>
-          </li>
-        </template>
-      </ul>
-    </div>
+                    <SfListItem
+                      tag="span"
+                      :selected="currentRoute.path === groupItemHref(groupKey, showcaseName)"
+                      :class="{ 'font-medium': currentRoute.path === groupItemHref(groupKey, showcaseName) }"
+                      @click="navigate"
+                    >
+                      {{ showcaseName }}
+                    </SfListItem>
+                  </NuxtLink>
+                </li>
+              </ul>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </ClientOnly>
     <div class="e-page">
-      <div class="e-page-component" :class="[arePaddingsDisabled && 'e-page-component--no-paddings']">
+      <div
+        class="e-page-component"
+        :class="[
+          arePaddingsDisabled && 'e-page-component--no-paddings',
+          areScaleDisabled && 'e-page-component--no-scale',
+        ]"
+      >
         <NuxtPage />
       </div>
     </div>
@@ -108,6 +121,7 @@ const groups = reactive(
 const isOpen = ref(true);
 const isNotIframe = ref(false);
 const arePaddingsDisabled = ref(false);
+const areScaleDisabled = ref(false);
 const searchModelValue = ref('');
 
 const findGroup = (groups, currentRouteHref) =>
@@ -155,6 +169,7 @@ onBeforeMount(() => {
       'message',
       (e) => {
         if (e.data === 'no-paddings') arePaddingsDisabled.value = true;
+        else if (e.data === 'no-scale') areScaleDisabled.value = true;
       },
       false,
     );

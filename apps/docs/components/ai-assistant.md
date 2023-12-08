@@ -4,7 +4,8 @@ layout: EmbedLayout
 
 <div class="custom-block">
 <iframe
-  src="https://chat.fwdoperators.com/?cid=e08b598e-3781-43f8-b899-e52bfc9c06cc"
+  src="https://chat.fwdoperators.com/?cid=3fd362f4-2a88-4d27-b2d7-d067265b0280"
   style="width: 100%; min-height: 90vh; border: none;"
+  allow="clipboard-write"
 />
 </div>

@@ -15,7 +15,10 @@ const reactMenu = [
   {
     title: 'Getting Started',
     collapsable: true,
-    children: [['/react/getting-started', 'Installation']],
+    children: [
+      ['/react/getting-started', 'Installation'],
+      ['/react/browser-support', 'Browser support'],
+    ],
   },
   {
     title: 'Customization',
@@ -24,6 +27,7 @@ const reactMenu = [
       ['/react/customization/theming', 'Theming'],
       ['/react/customization/overriding-default-styles', 'Overriding Default Styles'],
       ['/react/customization/typography', 'Typography'],
+      ['/react/customization/prose', 'Prose'],
     ],
   },
   {
@@ -50,7 +54,7 @@ const reactMenu = [
     children: [
       ['/react/migration', 'Migration'],
       ['https://github.com/vuestorefront/storefront-ui/blob/v2/CONTRIBUTING.md', 'Contributing'],
-      ['https://github.com/vuestorefront/storefront-ui/blob/v2/CHANGELOG.md', 'Changelog'],
+      ['https://github.com/vuestorefront/storefront-ui/blob/v2/packages/sfui/frameworks/react/CHANGELOG.md', 'Changelog'],
     ],
   },
 ];
@@ -59,7 +63,10 @@ const vueMenu = [
   {
     title: 'Getting Started',
     collapsable: true,
-    children: [['/vue/getting-started', 'Installation']],
+    children: [
+      ['/vue/getting-started', 'Installation'],
+      ['/vue/browser-support', 'Browser support'],
+    ],
   },
   {
     title: 'Customization',
@@ -68,6 +75,7 @@ const vueMenu = [
       ['/vue/customization/theming', 'Theming'],
       ['/vue/customization/overriding-default-styles', 'Overriding Default Styles'],
       ['/vue/customization/typography', 'Typography'],
+      ['/vue/customization/prose', 'Prose'],
     ],
   },
   {
@@ -92,7 +100,7 @@ const vueMenu = [
     children: [
       ['/vue/migration', 'Migration'],
       ['https://github.com/vuestorefront/storefront-ui/blob/v2/CONTRIBUTING.md', 'Contributing'],
-      ['https://github.com/vuestorefront/storefront-ui/blob/v2/CHANGELOG.md', 'Changelog'],
+      ['https://github.com/vuestorefront/storefront-ui/blob/v2/packages/sfui/frameworks/vue/CHANGELOG.md', 'Changelog'],
     ],
   },
 ];

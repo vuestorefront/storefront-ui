@@ -6,6 +6,7 @@
       aria-label="Search"
       placeholder="Search 'MacBook' or 'iPhone'..."
       @focus="open"
+      @keydown="handleInputKeyDown"
     >
       <template #prefix><SfIconSearch /></template>
       <template #suffix>
@@ -78,7 +79,12 @@ const { referenceRef, floatingRef, style } = useDropdown({
   placement: 'bottom-start',
   middleware: [offset(4)],
 });
-useTrapFocus(dropdownListRef as Ref<HTMLElement>, { arrowKeysUpDown: true, activeState: isOpen, initialFocus: false });
+const { focusables: focusableElements } = useTrapFocus(dropdownListRef as Ref<HTMLElement>, {
+  trapTabs: false,
+  arrowKeysUpDown: true,
+  activeState: isOpen,
+  initialFocus: false,
+});
 
 const submit = () => {
   close();
@@ -101,6 +107,22 @@ const selectValue = (phrase: string) => {
   inputModel.value = phrase;
   close();
   focusInput();
+};
+
+const handleInputKeyDown = (event: KeyboardEvent) => {
+  if (event.key === 'Escape') reset();
+  if (event.key === 'ArrowUp') {
+    open();
+    if (isOpen && focusableElements.value.length > 0) {
+      focusableElements.value[focusableElements.value.length - 1].focus();
+    }
+  }
+  if (event.key === 'ArrowDown') {
+    open();
+    if (isOpen && focusableElements.value.length > 0) {
+      focusableElements.value[0].focus();
+    }
+  }
 };
 
 watch(inputModel, () => {

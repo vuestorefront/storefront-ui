@@ -53,8 +53,8 @@ export default defineNuxtConfig({
         async transform(code, id) {
           // only for dev purposes in monorepo:
           // Because Nuxt does not respect proper order of imports in index.ts and on initial load types file are not available when import of component is loaded first
-          if (/\/sfui\/frameworks\/vue\/index\.ts/.test(id)) {
-            code = code.replace(/^export \* from '\.\/components\/([^']+?)';/gm, (_match, componentName) => {
+          if (/[\\\/]sfui[\\\/]frameworks[\\\/]vue[\\\/]index\.ts/.test(id)) {
+            code = code.replace(/^export \* from '\.[\\\/]components[\\\/]([^']+?)';/gm, (_match, componentName) => {
               const path = join(
                 __dirname,
                 '..',

@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <script lang="ts" setup>
-import { computed, toRefs, type PropType, reactive } from 'vue';
+import { computed, toRefs, type PropType, type ConcreteComponent, reactive } from 'vue';
 import {
   ClassProp,
   SfScrollableDirection,
@@ -23,7 +23,7 @@ import {
 
 const props = defineProps({
   tag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: 'div',
   },
   direction: {
@@ -44,7 +44,7 @@ const props = defineProps({
     default: undefined,
   },
   drag: {
-    type: [Object || Boolean] as PropType<ScrollableOptions['drag']>,
+    type: [Object, Boolean] as PropType<ScrollableOptions['drag']>,
     default: undefined,
   },
   prevDisabled: {
@@ -58,6 +58,14 @@ const props = defineProps({
   isActiveIndexCentered: {
     type: Boolean,
     default: false,
+  },
+  buttonPrevAriaLabel: {
+    type: String,
+    default: 'Previous',
+  },
+  buttonNextAriaLabel: {
+    type: String,
+    default: 'Next',
   },
 });
 const emit = defineEmits<{
@@ -86,9 +94,9 @@ const { containerRef, state, getNextButtonProps, getPrevButtonProps } = useScrol
   })),
 );
 
-const changeDisabledClass = (isDisabled: boolean) =>
-  isDisabled ? '!ring-disabled-300 !text-disabled-500' : '!ring-neutral-500 !text-neutral-500';
 const isHorizontal = computed(() => props.direction === SfScrollableDirection.horizontal);
+const isFloating = computed(() => props.buttonsPlacement === SfScrollableButtonsPlacement.floating);
+const isBlock = computed(() => props.buttonsPlacement === SfScrollableButtonsPlacement.block);
 </script>
 
 <template>
@@ -104,14 +112,18 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       size="lg"
       square
       :class="[
-        '!rounded-full bg-white hidden md:block',
-        buttonsPlacement === SfScrollableButtonsPlacement.block && (isHorizontal ? 'mr-4' : 'mb-4 rotate-90'),
-        buttonsPlacement === SfScrollableButtonsPlacement.floating && (isHorizontal ? 'left-4' : 'top-4 rotate-90'),
-        { 'absolute z-10': buttonsPlacement === SfScrollableButtonsPlacement.floating },
-        changeDisabledClass(typeof prevDisabled === 'boolean' ? prevDisabled : getPrevButtonProps.disabled),
+        '!rounded-full bg-white hidden md:block !ring-neutral-500 !text-neutral-500',
+        {
+          'mr-4': isBlock && isHorizontal,
+          'mb-4 rotate-90': isBlock && !isHorizontal,
+          'absolute left-4 z-10': isFloating && isHorizontal,
+          'absolute top-4 rotate-90 z-10': isFloating && !isHorizontal,
+        },
+        isFloating ? 'disabled:hidden' : 'disabled:!ring-disabled-300 disabled:!text-disabled-500',
       ]"
       v-bind="getPrevButtonProps"
-      :disabled="prevDisabled"
+      :disabled="prevDisabled || getPrevButtonProps.disabled"
+      :aria-label="buttonPrevAriaLabel"
     >
       <SfIconChevronLeft />
     </SfButton>
@@ -142,14 +154,18 @@ const isHorizontal = computed(() => props.direction === SfScrollableDirection.ho
       size="lg"
       square
       :class="[
-        '!rounded-full bg-white hidden md:block',
-        buttonsPlacement === SfScrollableButtonsPlacement.block && (isHorizontal ? 'ml-4' : 'mt-4 rotate-90'),
-        buttonsPlacement === SfScrollableButtonsPlacement.floating && (isHorizontal ? 'right-4' : 'bottom-4 rotate-90'),
-        { 'absolute z-10': buttonsPlacement === SfScrollableButtonsPlacement.floating },
-        changeDisabledClass(typeof nextDisabled === 'boolean' ? nextDisabled : getNextButtonProps.disabled),
+        '!rounded-full bg-white hidden md:block !ring-neutral-500 !text-neutral-500',
+        {
+          'ml-4': isBlock && isHorizontal,
+          'mt-4 rotate-90': isBlock && !isHorizontal,
+          'absolute right-4 z-10': isFloating && isHorizontal,
+          'absolute bottom-4 rotate-90 z-10': isFloating && !isHorizontal,
+        },
+        isFloating ? 'disabled:hidden' : 'disabled:!ring-disabled-300 disabled:!text-disabled-500',
       ]"
       v-bind="getNextButtonProps"
-      :disabled="nextDisabled"
+      :disabled="nextDisabled || getNextButtonProps.disabled"
+      :aria-label="buttonNextAriaLabel"
     >
       <SfIconChevronRight />
     </SfButton>

@@ -5,6 +5,7 @@
       <img
         src="http://localhost:3100/@assets/hero-bg-mobile.png"
         class="absolute w-full h-full z-[-1] md:object-cover"
+        alt="hero"
       />
     </picture>
     <div class="md:flex md:flex-row-reverse md:justify-center max-w[1536px] mx-auto md:min-h-[600px]">
@@ -19,7 +20,7 @@
         <p class="typography-text-xs md:typography-text-sm font-bold tracking-widest text-neutral-500 uppercase">
           Feel the music
         </p>
-        <h1 class="typography-headline-2 md:typography-headline-1 md:leading-[67.5px] font-bold mt-2 mb-4">
+        <h1 class="typography-display-2 md:typography-display-1 md:leading-[67.5px] font-bold mt-2 mb-4">
           New Wireless Pro
         </h1>
         <p class="typography-text-base md:typography-text-lg">

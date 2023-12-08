@@ -14,7 +14,7 @@
       Hello
     </SfButton>
 
-    <SfButton type="button" :square="true" aria-label="Add to cart">
+    <SfButton :square="true" aria-label="Add to cart">
       <SfIconAdd />
     </SfButton>
   </div>

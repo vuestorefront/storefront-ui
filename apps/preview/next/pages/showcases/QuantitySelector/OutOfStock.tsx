@@ -12,7 +12,6 @@ export default function OutOfStockDemo() {
       <div className="flex rounded-md border border-disabled-200 bg-disabled-100">
         <SfButton
           variant="tertiary"
-          type="button"
           square
           disabled
           aria-controls={inputId}
@@ -31,7 +30,7 @@ export default function OutOfStockDemo() {
           max={max}
         />
 
-        <SfButton variant="tertiary" type="button" square disabled aria-controls={inputId} aria-label="Increase value">
+        <SfButton variant="tertiary" square disabled aria-controls={inputId} aria-label="Increase value">
           <SfIconAdd />
         </SfButton>
       </div>

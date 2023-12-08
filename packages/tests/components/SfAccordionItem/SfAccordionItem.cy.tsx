@@ -1,4 +1,3 @@
-/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { noop } from '@storefront-ui/shared';
 import { mount, useComponent } from '../../utils/mount';
