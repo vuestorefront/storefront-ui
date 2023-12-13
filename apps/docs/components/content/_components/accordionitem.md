@@ -116,7 +116,7 @@ For example, `<summary>` elements are focusable and can be activated by pressing
 ## Source code
 
 :::vue-only
-<<<../../../../../../packages/sfui/frameworks/vue/components/SfAccordionItem/SfAccordionItem.vue
+<<<../../../../../packages/sfui/frameworks/vue/components/SfAccordionItem/SfAccordionItem.vue
 :::
 :::react-only
 <<<../../../../../packages/sfui/frameworks/react/components/SfAccordionItem/SfAccordionItem.tsx
