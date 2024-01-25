@@ -1,15 +1,20 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfIconInfo } from '@storefront-ui/react';
+import Alert from './Alert';
 
 export default function AlertSecondary() {
   return (
-    <div
-      role="alert"
-      className="flex items-center max-w-[600px] shadow-md bg-secondary-100 pr-2 pl-4 ring-1 ring-secondary-200 typography-text-sm md:typography-text-base py-1 rounded-md"
-    >
-      <SfIconInfo className="mr-2 text-secondary-700 shrink-0" />
-      <p className="py-2">Your cart will soon be full.</p>
+    <div className="flex flex-col gap-4">
+      <Alert variant="secondary" className="w-full max-w-[640px]">
+        <SfIconInfo className="my-2 text-secondary-700 shrink-0" />
+        <p className="py-2">Your cart will soon be full.</p>
+      </Alert>
+
+      <Alert variant="secondary" size="sm" className="w-full max-w-[320px]">
+        <SfIconInfo size="sm" className="my-1.5 text-secondary-700 shrink-0" />
+        <p className="py-1.5">Your cart will soon be full.</p>
+      </Alert>
     </div>
   );
 }

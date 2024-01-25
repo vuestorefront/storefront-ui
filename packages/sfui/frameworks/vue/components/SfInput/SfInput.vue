@@ -2,7 +2,7 @@
 export default {
   inheritAttrs: false,
 };
-const getSizeClasses = {
+const sizeClasses = {
   [SfInputSize.sm]: ' h-[32px]',
   [SfInputSize.base]: 'h-[40px]',
   [SfInputSize.lg]: 'h-[48px]',
@@ -67,7 +67,7 @@ const inputValue = computed({
         'ring-1 ring-neutral-200': !invalid,
         'focus-within:outline focus-within:outline-offset': isFocusVisible,
       },
-      getSizeClasses[size],
+      sizeClasses[size],
       wrapperClass,
     ]"
     data-testid="input"

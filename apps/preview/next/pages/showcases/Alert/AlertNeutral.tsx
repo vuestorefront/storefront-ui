@@ -1,13 +1,17 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
+import Alert from './Alert';
 
 export default function AlertNeutral() {
   return (
-    <div
-      role="alert"
-      className="bg-neutral-100 max-w-[600px] shadow-md pr-2 pl-4 ring-1 ring-neutral-300 typography-text-sm md:typography-text-base py-1 rounded-md"
-    >
-      <p className="py-2">Happy shopping!</p>
+    <div className="flex flex-col gap-4">
+      <Alert variant="neutral" className="w-full max-w-[640px]">
+        <p className="py-2">Happy shopping!</p>
+      </Alert>
+
+      <Alert variant="neutral" size="sm" className="w-full max-w-[320px]">
+        <p className="py-1.5">Happy shopping!</p>
+      </Alert>
     </div>
   );
 }

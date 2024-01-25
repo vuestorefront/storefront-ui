@@ -9,11 +9,19 @@
         Preview
       </button>
       <button
+        v-if="$slots.usage"
         @click="tab = 2"
         class="px-3 py-2 border-b-2 dark:border-zinc-700"
         :class="[tab === 2 ? 'text-black dark:text-white border-green dark:border-green' : '']"
       >
-        Code
+        Source
+      </button>
+      <button
+        @click="tab = $slots.usage ? 3 : 2"
+        class="px-3 py-2 border-b-2 dark:border-zinc-700 bg-green text-white"
+        :class="[tab === ($slots.usage ? 3 : 2) ? 'border-green dark:border-green' : 'opacity-80']"
+      >
+        Block Code
       </button>
     </div>
     <div ref="wrapperRef" class="relative flex-1 flex flex-col">
@@ -25,12 +33,24 @@
         @touchstart="eventDownListener"
       >
         <div class="absolute inset-0" v-show="isHandlerDragging"></div>
-        <Generate :showcase-path="showcaseName" :allow="allow" class="flex-grow rounded" style="margin-top: 0" :no-paddings="noPaddings" :no-scale="noScale"/>
+        <Generate
+          :showcase-path="showcaseName"
+          :allow="allow"
+          class="flex-grow rounded"
+          style="margin-top: 0"
+          :no-paddings="noPaddings"
+          :no-scale="noScale"
+        />
         <div ref="handlerRef" class="select-none rounded-tr items-center hidden sm:flex" style="cursor: ew-resize">
           <iconify-icon icon="akar-icons:drag-vertical" class="pointer-events-none" />
         </div>
       </div>
-      <div v-show="tab === 2 && showSource" class="relative">
+      <div v-show="tab === 2" class="relative">
+        <SourceCode>
+          <slot name="usage" />
+        </SourceCode>
+      </div>
+      <div v-show="showSource && tab === ($slots.usage ? 3 : 2)" class="relative">
         <SourceCode>
           <slot />
         </SourceCode>
@@ -48,11 +68,11 @@ export default {
     },
     noPaddings: {
       type: Boolean,
-      default: false
+      default: false,
     },
     noScale: {
       type: Boolean,
-      default: false
+      default: false,
     },
     allow: {
       type: String,
@@ -74,7 +94,7 @@ export default {
     document.addEventListener('mousemove', this.eventMoveListener);
     document.addEventListener('touchmove', this.eventMoveListener);
     document.addEventListener('mouseup', this.eventUpListener);
-    document.addEventListener('touchup', this.eventUpListener)
+    document.addEventListener('touchup', this.eventUpListener);
   },
   unmounted() {
     document.removeEventListener('mousemove', this.eventMoveListener);
