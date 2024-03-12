@@ -9,7 +9,7 @@ export default <Config>{
   theme: {
     extend: {
       fontFamily: {
-        sans: 'Inter Text, sans-serif',
+        sans: 'Inter, sans-serif',
       },
     },
   },
