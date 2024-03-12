@@ -28,7 +28,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: "Inter Text, sans-serif",
+        sans: "Inter, sans-serif",
       },
     },
   },
