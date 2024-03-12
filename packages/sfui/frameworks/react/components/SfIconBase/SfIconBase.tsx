@@ -1,5 +1,6 @@
 import type { SfIconBaseProps } from '@storefront-ui/react';
 import { SfIconSize } from '@storefront-ui/react';
+import classNames from 'classnames';
 
 const getSizeClasses = (size: SfIconBaseProps['size']) => {
   switch (size) {
@@ -31,7 +32,7 @@ export default function SfIconBase({
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      className={`inline-block fill-current ${getSizeClasses(size)} ${className}`}
+      className={classNames('inline-block fill-current', getSizeClasses(size), className)}
       {...attributes}
     >
       {children}

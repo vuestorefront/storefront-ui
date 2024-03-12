@@ -1,6 +1,8 @@
 export * from './types';
 export { default as SfIconAdd } from './SfIconAdd';
 export { default as SfIconAddShoppingCart } from './SfIconAddShoppingCart';
+export { default as SfIconAlokai } from './SfIconAlokai';
+export { default as SfIconAlokaiFull } from './SfIconAlokaiFull';
 export { default as SfIconArrowBack } from './SfIconArrowBack';
 export { default as SfIconArrowDownward } from './SfIconArrowDownward';
 export { default as SfIconArrowForward } from './SfIconArrowForward';

@@ -28,7 +28,7 @@ List of all icons shipped with Storefront UI below. Click on any of the icons to
 
 ### Sizes
 
-All Icon components supports various sizes that can be set with the `size` prop: `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, `'2xl'`, `'3xl'`, `'4xl'`.
+All Icon components supports various sizes that can be set with the `size` prop: `'xs'`, `'sm'`, `'base'`, `'lg'`, `'xl'`, `'2xl'`, `'3xl'`, `'4xl'` . Size can be overwritten by applying new styling on icon.
 
 <Showcase showcase-name="IconBase/IconBaseSizes" style="min-height:300px">
 
