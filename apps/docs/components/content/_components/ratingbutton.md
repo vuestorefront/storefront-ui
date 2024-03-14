@@ -80,6 +80,7 @@ You can customize an icon of the RatingButton using a scoped slot.
 ::react-only
 <<<../../../../preview/next/pages/showcases/RatingButton/CustomIcon.tsx
 ::
+
 </Showcase>
 
 ## Accessibility notes

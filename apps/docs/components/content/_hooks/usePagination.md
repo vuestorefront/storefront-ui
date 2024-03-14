@@ -326,10 +326,10 @@ There is an additional page displayed when the default number (`1`) is passed. W
 
 
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/hooks/usePagination/usePagination.ts
+<<<../../../../../packages/sfui/frameworks/react/hooks/usePagination/usePagination.ts
 ::
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/composables/usePagination/usePagination.ts
+<<<../../../../../packages/sfui/frameworks/vue/composables/usePagination/usePagination.ts
 ::
 
 

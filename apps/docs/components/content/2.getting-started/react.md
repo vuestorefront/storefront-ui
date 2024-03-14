@@ -133,7 +133,7 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/ap
 
 
 
-<<<../../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
+<<<../../../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
 
 
 
@@ -231,7 +231,7 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 
 
 
-<<<../../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
+<<<../../../../preview/next/pages/showcases/Button/ButtonBlock.tsx#source
 
 
 

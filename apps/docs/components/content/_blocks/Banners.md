@@ -20,12 +20,14 @@ Banners are components that deliver main image and content in various configurat
 Vertical display block with image and content below or above it.
 
 <Showcase showcase-name="Banners/DisplayVertical" style="min-height: 800px;">
+
 ::vue-only
 <<<../../../../preview/nuxt/pages/showcases/Banners/DisplayVertical.vue
 ::
 ::react-only
 <<<../../../../preview/next/pages/showcases/Banners/DisplayVertical.tsx
 ::
+
 </Showcase>
 
 ## Multiple vertical Displays
@@ -33,12 +35,14 @@ Vertical display block with image and content below or above it.
 Four vertical displays in row on desktop.
 
 <Showcase showcase-name="Banners/DisplayVerticalMultiple" style="min-height: 750px;">
+
 ::vue-only
 <<<../../../../preview/nuxt/pages/showcases/Banners/DisplayVerticalMultiple.vue
 ::
 ::react-only
 <<<../../../../preview/next/pages/showcases/Banners/DisplayVerticalMultiple.tsx
 ::
+
 </Showcase>
 
 ## Hero

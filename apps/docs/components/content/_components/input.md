@@ -25,6 +25,7 @@ If you need to make this field required, it is crucial to communicate this inten
 ::react-only
 <<<../../../../preview/next/pages/showcases/Input/InputWithoutLabel.tsx
 ::
+
 </Showcase>
 
 ### Input with icons
@@ -41,6 +42,7 @@ This can be useful for adding icons or buttons to your input.
 ::react-only
 <<<../../../../preview/next/pages/showcases/Input/InputIcons.tsx
 ::
+
 </Showcase>
 
 ### Input in disabled state
@@ -55,6 +57,7 @@ This can be useful for adding icons or buttons to your input.
 ::react-only
 <<<../../../../preview/next/pages/showcases/Input/InputDisabled.tsx
 ::
+
 </Showcase>
 
 ### Readonly Input
@@ -69,6 +72,7 @@ This can be useful for adding icons or buttons to your input.
 ::react-only
 <<<../../../../preview/next/pages/showcases/Input/InputReadonly.tsx
 ::
+
 </Showcase>
 
 ### Invalid State
@@ -83,6 +87,7 @@ If you pass the `invalid` prop, the input will be styled to indicate an invalid 
 ::react-only
 <<<../../../../preview/next/pages/showcases/Input/InputInvalid.tsx
 ::
+
 </Showcase>
 
 ### Full Example
@@ -97,6 +102,7 @@ This is an example of what `SfInput` might look like in your end code. It has a 
 ::react-only
 <<<../../../../preview/next/pages/showcases/Input/InputCharacters.tsx
 ::
+
 </Showcase>
 
 ## Notes

@@ -32,12 +32,14 @@ Select Dropdown with preselected option.
 Adding placeholder might be helpful and informative for end users.
 
 <Showcase showcase-name="SelectDropdown/SelectDropdownWithPlaceholder" style="min-height:300px">
+
 ::vue-only
 <<<../../../../preview/nuxt/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.vue
 ::
 ::react-only
 <<<../../../../preview/next/pages/showcases/SelectDropdown/SelectDropdownWithPlaceholder.tsx
 ::
+
 </Showcase>
 
 ## Invalid state

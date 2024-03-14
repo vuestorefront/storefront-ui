@@ -141,10 +141,10 @@ const { referenceRef, floatingRef, style } = usePopover({ isOpen });
 
 
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/hooks/usePopover/usePopover.ts
+<<<../../../../../packages/sfui/frameworks/react/hooks/usePopover/usePopover.ts
 ::
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/composables/usePopover/usePopover.ts
+<<<../../../../../packages/sfui/frameworks/vue/composables/usePopover/usePopover.ts
 ::
 
 

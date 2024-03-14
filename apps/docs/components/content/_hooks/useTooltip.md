@@ -166,10 +166,10 @@ const { isOpen, triggerProps, tooltipProps, arrowProps } = useTooltip();
 
 
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/hooks/useTooltip/useTooltip.ts
+<<<../../../../../packages/sfui/frameworks/react/hooks/useTooltip/useTooltip.ts
 ::
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/composables/useTooltip/useTooltip.ts
+<<<../../../../../packages/sfui/frameworks/vue/composables/useTooltip/useTooltip.ts
 ::
 
 

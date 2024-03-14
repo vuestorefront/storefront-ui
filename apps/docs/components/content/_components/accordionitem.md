@@ -45,7 +45,7 @@ This example only allows one item to be open at a time.
 <<<../../../../preview/nuxt/pages/showcases/AccordionItem/CollapsableAccordion.vue
 :::
 :::react-only
-<<<../../../preview/next/pages/showcases/AccordionItem/CollapsableAccordion.tsx
+<<<../../../../preview/next/pages/showcases/AccordionItem/CollapsableAccordion.tsx
 :::
 
 </Showcase>

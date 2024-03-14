@@ -13,10 +13,10 @@ Most browsers implements `:focus-visible` pseudo-class to activate on every focu
 <Showcase showcase-name="useFocusVisible/InputWithFocusVisible">
 
 ::react-only
-<<<../../../preview/next/pages/showcases/useFocusVisible/InputWithFocusVisible.tsx#source
+<<<../../../../preview/next/pages/showcases/useFocusVisible/InputWithFocusVisible.tsx#source
 ::
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/useFocusVisible/InputWithFocusVisible.vue
+<<<../../../../preview/nuxt/pages/showcases/useFocusVisible/InputWithFocusVisible.vue
 ::
 
 </Showcase>
@@ -41,10 +41,10 @@ Most browsers implements `:focus-visible` pseudo-class to activate on every focu
 
 
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/hooks/useFocusVisible/useFocusVisible.ts
+<<<../../../../../packages/sfui/frameworks/react/hooks/useFocusVisible/useFocusVisible.ts
 ::
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/composables/useFocusVisible/useFocusVisible.ts
+<<<../../../../../packages/sfui/frameworks/vue/composables/useFocusVisible/useFocusVisible.ts
 ::
 
 

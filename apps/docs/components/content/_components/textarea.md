@@ -18,6 +18,7 @@ The Textarea is a multi-line text input control allows users to enter any combin
 ::react-only
 <<<../../../../preview/next/pages/showcases/Textarea/TextareaDisabled.tsx
 ::
+
 </Showcase>
 
 ### Readonly Textarea
@@ -32,6 +33,7 @@ The Textarea is a multi-line text input control allows users to enter any combin
 ::react-only
 <<<../../../../preview/next/pages/showcases/Textarea/TextareaReadonly.tsx
 ::
+
 </Showcase>
 
 ### Invalid State
@@ -46,6 +48,7 @@ If you pass the `invalid` prop, the Textarea will be styled to indicate an inval
 ::react-only
 <<<../../../../preview/next/pages/showcases/Textarea/TextareaInvalid.tsx
 ::
+
 </Showcase>
 
 ### Textarea with characters counter
@@ -60,6 +63,7 @@ The Textarea component provides the option to display a character count, allowin
 ::react-only
 <<<../../../../preview/next/pages/showcases/Textarea/TextareaCharacters.tsx
 ::
+
 </Showcase>
 
 ### Textarea with autoresize
@@ -74,6 +78,7 @@ The Textarea component supports autoresizing based on the content entered by the
 ::react-only
 <<<../../../../preview/next/pages/showcases/Textarea/TextareaAutoresize.tsx
 ::
+
 </Showcase>
 
 

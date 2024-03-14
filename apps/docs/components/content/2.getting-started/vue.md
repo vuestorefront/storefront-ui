@@ -104,7 +104,7 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 
 
 
-<<<../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
 
 
 
@@ -181,7 +181,7 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 
 
 
-<<<../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
 
 
 
@@ -267,7 +267,7 @@ You can now import Storefront UI components inside your Astro project! You can e
 
 
 
-<<<../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
 
 
 

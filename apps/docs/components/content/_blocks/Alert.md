@@ -22,12 +22,14 @@ Simple version of alert that has neutral grey color.
 Green color indicates that an action went successful.
 
 <Showcase showcase-name="Alert/AlertPositive" >
+
 ::vue-only
 <<<../../../../preview/nuxt/pages/showcases/Alert/AlertPositive.vue
 ::
 ::react-only
 <<<../../../../preview/next/pages/showcases/Alert/AlertPositive.tsx
 ::
+
 </Showcase>
 
 ## Alert secondary
@@ -35,12 +37,14 @@ Green color indicates that an action went successful.
 This type is informative just like neutral except that its palette is more noticeable.
 
 <Showcase showcase-name="Alert/AlertSecondary" >
+
 ::vue-only
 <<<../../../../preview/nuxt/pages/showcases/Alert/AlertSecondary.vue
 ::
 ::react-only
 <<<../../../../preview/next/pages/showcases/Alert/AlertSecondary.tsx
 ::
+
 </Showcase>
 
 ## Alert warning

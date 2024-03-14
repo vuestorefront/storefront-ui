@@ -24,6 +24,7 @@
 <<<../../../../preview/next/pages/showcases/ListItem/ListItemSizes.tsx
 
 ::
+
 </Showcase>
 
 ### ListItem slots
@@ -46,6 +47,7 @@
 <<<../../../../preview/next/pages/showcases/ListItem/ListItemSlots.tsx
 
 ::
+
 </Showcase>
 
 ### ListItem truncate
@@ -64,6 +66,7 @@ For items with a lot of text content, you can use Tailwind's `truncate` class.
 <<<../../../../preview/next/pages/showcases/ListItem/ListItemTruncated.tsx
 
 ::
+
 </Showcase>
 
 ## Accessibility notes

@@ -28,6 +28,7 @@ You can use `v-model` with `SfCheckbox` to bind the value to a variable in your 
 ::react-only
 <<<../../../../preview/next/pages/showcases/Checkbox/CheckboxWithoutLabel.tsx
 ::
+
 </Showcase>
 
 ### Checkbox aligned to the left
@@ -42,6 +43,7 @@ When using `SfCheckbox` with a label, you can use Tailwind's `peer` modifiers to
 ::react-only
 <<<../../../../preview/next/pages/showcases/Checkbox/CheckboxLeading.tsx
 ::
+
 </Showcase>
 
 ### Checkbox aligned to the right
@@ -54,6 +56,7 @@ When using `SfCheckbox` with a label, you can use Tailwind's `peer` modifiers to
 ::react-only
 <<<../../../../preview/next/pages/showcases/Checkbox/CheckboxTrailing.tsx
 ::
+
 </Showcase>
 
 ## Accessibility notes

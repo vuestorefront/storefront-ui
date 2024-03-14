@@ -20,6 +20,7 @@
 ::react-only
 <<<../../../../preview/next/pages/showcases/Button/ButtonSizes.tsx
 ::
+
 </Showcase>
 
 ### Button variants
@@ -34,6 +35,7 @@
 ::react-only
 <<<../../../../preview/next/pages/showcases/Button/ButtonVariants.tsx
 ::
+
 </Showcase>
 
 ### Button as a link
@@ -49,6 +51,7 @@ This component can be used as a link (or any other tag) that can be set via ::vu
 ::react-only
 <<<../../../../preview/next/pages/showcases/Button/ButtonAsLink.tsx
 ::
+
 </Showcase>
 
 ### Button block
@@ -63,6 +66,7 @@ You can create a full-width button with Tailwind's `w-full` class.
 ::react-only
 <<<../../../../preview/next/pages/showcases/Button/ButtonBlock.tsx
 ::
+
 </Showcase>
 
 ### Button truncation
@@ -77,6 +81,7 @@ You can truncate button content with Tailwind using `max-w-` and `truncate` clas
 ::react-only
 <<<../../../../preview/next/pages/showcases/Button/ButtonTruncation.tsx
 ::
+
 </Showcase>
 
 ### Button content
@@ -91,6 +96,7 @@ You can truncate button content with Tailwind using `max-w-` and `truncate` clas
 ::react-only
 <<<../../../../preview/next/pages/showcases/Button/ButtonContent.tsx
 ::
+
 </Showcase>
 
 ## Accessibility notes

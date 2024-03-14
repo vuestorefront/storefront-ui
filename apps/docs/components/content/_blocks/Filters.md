@@ -14,6 +14,7 @@ Color filters are a type of product filter that allow online shoppers to narrow 
 ::react-only
 <<<../../../../preview/next/pages/showcases/Filters/Color.tsx
 ::
+
 </Showcase>
 
 ## Size
@@ -28,6 +29,7 @@ Sizes in category pages are a feature that allows online shoppers to filter thei
 ::react-only
 <<<../../../../preview/next/pages/showcases/Filters/Size.tsx
 ::
+
 </Showcase>
 
 ## Brand
@@ -42,6 +44,7 @@ Brand in category pages are a feature that allows online shoppers to filter thei
 ::react-only
 <<<../../../../preview/next/pages/showcases/Filters/Brand.tsx
 ::
+
 </Showcase>
 
 ## Price
@@ -56,6 +59,7 @@ Price in category pages are a feature that allows online shoppers to filter thei
 ::react-only
 <<<../../../../preview/next/pages/showcases/Filters/Price.tsx
 ::
+
 </Showcase>
 
 ## Sorting

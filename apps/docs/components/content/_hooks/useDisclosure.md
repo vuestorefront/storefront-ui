@@ -113,10 +113,10 @@ const { isOpen, toggle } = useDisclosure({
 
 
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/hooks/useDisclosure/useDisclosure.ts
+<<<../../../../../packages/sfui/frameworks/react/hooks/useDisclosure/useDisclosure.ts
 ::
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/composables/useDisclosure/useDisclosure.ts
+<<<../../../../../packages/sfui/frameworks/vue/composables/useDisclosure/useDisclosure.ts
 ::
 
 

@@ -20,6 +20,7 @@ Thumbnail supports various sizes that can be set with the `size` prop: `'sm'`, `
 ::react-only
 <<<../../../../preview/next/pages/showcases/Thumbnail/Sizes.tsx
 ::
+
 </Showcase>
 
 ### Single color
@@ -34,6 +35,7 @@ The most simple use case of thumbnail can be achieved by seting a single color w
 ::react-only
 <<<../../../../preview/next/pages/showcases/Thumbnail/Color.tsx
 ::
+
 </Showcase>
 
 ### Gradient
@@ -48,6 +50,7 @@ Gradients can be applied with any of Tailwind's `bg-gradient-` classes.
 ::react-only
 <<<../../../../preview/next/pages/showcases/Thumbnail/Gradient.tsx
 ::
+
 </Showcase>
 
 ### Image
@@ -62,6 +65,7 @@ You can pass an image ::vue-onlyinto the default slot:: ::react-onlyas children:
 ::react-only
 <<<../../../../preview/next/pages/showcases/Thumbnail/Image.tsx
 ::
+
 </Showcase>
 
 ### Icon
@@ -82,6 +86,7 @@ Similar to images, you can also pass an icon as children.
 ::react-only
 <<<../../../../preview/next/pages/showcases/Thumbnail/Icon.tsx
 ::
+
 </Showcase>
 
 ## Playground 

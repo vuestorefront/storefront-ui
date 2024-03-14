@@ -19,6 +19,7 @@ The badge component must be wrapped with a container that has `class="relative"`
 ::react-only
 <<<../../../../preview/next/pages/showcases/Badge/BadgeBasic.tsx
 ::
+
 </Showcase>
 
 ### Placement

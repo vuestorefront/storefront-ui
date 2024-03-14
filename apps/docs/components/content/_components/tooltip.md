@@ -28,6 +28,7 @@ Learn more about `useTooltip` composable in the [Composables > useTooltip docs](
 ::react-only
 <<<../../../../preview/next/pages/showcases/Tooltip/BasicTooltip.tsx
 ::
+
 </Showcase>
 
 ## Accessibility notes

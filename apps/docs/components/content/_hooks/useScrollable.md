@@ -195,10 +195,10 @@ const { containerRef, state, showNext, showPrev } = useScrollable()
 #tab-3
 
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/hooks/useScrollable/useScrollable.ts
+<<<../../../../../packages/sfui/frameworks/react/hooks/useScrollable/useScrollable.ts
 ::
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/composables/useScrollable/useScrollable.ts
+<<<../../../../../packages/sfui/frameworks/vue/composables/useScrollable/useScrollable.ts
 ::
 
 

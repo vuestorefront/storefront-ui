@@ -24,6 +24,7 @@
 <<<../../../../preview/next/pages/showcases/Link/LinkVariants.tsx
 
 ::
+
 </Showcase>
 
 ### Customization
@@ -44,6 +45,7 @@ You can [customize your color palette](../customization/theming.html) as a part 
 <<<../../../../preview/next/pages/showcases/Link/Customization.tsx
 
 ::
+
 </Showcase>
 
 ::tip Need more customization?

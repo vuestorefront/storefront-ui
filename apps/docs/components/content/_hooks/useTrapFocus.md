@@ -135,10 +135,10 @@ Parameter `arrowKeysOn` will be deprecated since version 2.3 and removed in next
 #tab-3
 
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/hooks/useTrapFocus/useTrapFocus.ts
+<<<../../../../../packages/sfui/frameworks/react/hooks/useTrapFocus/useTrapFocus.ts
 ::
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/composables/useTrapFocus/useTrapFocus.ts
+<<<../../../../../packages/sfui/frameworks/vue/composables/useTrapFocus/useTrapFocus.ts
 ::
 
 

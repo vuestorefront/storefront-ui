@@ -128,10 +128,10 @@ For a full list of the possible parameters and return values, see the API sectio
 
 
 ::react-only
-<<<../../../../packages/sfui/frameworks/react/hooks/useDropdown/useDropdown.ts
+<<<../../../../../packages/sfui/frameworks/react/hooks/useDropdown/useDropdown.ts
 ::
 ::vue-only
-<<<../../../../packages/sfui/frameworks/vue/composables/useDropdown/useDropdown.ts
+<<<../../../../../packages/sfui/frameworks/vue/composables/useDropdown/useDropdown.ts
 ::
 
 

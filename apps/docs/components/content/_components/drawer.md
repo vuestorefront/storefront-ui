@@ -63,6 +63,7 @@ Additionally, you can use the `useTrapFocus` utility for better control of focus
 <<<../../../../preview/next/pages/showcases/Drawer/TransitionAndCloseButton.tsx
 
 ::
+
 </Showcase>
 
 ## Accessibility notes

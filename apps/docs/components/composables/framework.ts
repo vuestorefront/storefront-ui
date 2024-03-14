@@ -37,21 +37,18 @@ export function useFramework() {
 
   const selectedFramework = computed(() => frameworks.find((f) => f.name === framework.value) ?? frameworks[0]);
 
-  onMounted(() => {
-    watch(
-      () => route.fullPath,
-      (path) => {
-        const foundFramework = frameworks.find((f) => route.path.includes(f.name.toLowerCase()));
-        if (foundFramework) {
-          console.log('change it!', foundFramework);
-          framework.value = foundFramework.name;
-        }
-      },
-      {
-        immediate: true,
-      },
-    );
-  });
+  watch(
+    () => route.fullPath,
+    (path) => {
+      const foundFramework = frameworks.find((f) => route.path.includes(f.name.toLowerCase()));
+      if (foundFramework) {
+        framework.value = foundFramework.name;
+      }
+    },
+    {
+      immediate: true,
+    },
+  );
 
   return {
     framework,
