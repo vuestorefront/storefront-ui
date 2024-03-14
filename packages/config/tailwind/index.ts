@@ -11,7 +11,7 @@ export const tailwindConfig: Config = {
   },
   theme: {
     extend: {
-      typography: ({ theme }: ThemeConfig) => ({
+      typography: ({ theme }: { theme: (s: string) => any }) => ({
         DEFAULT: {
           css: [
             {
