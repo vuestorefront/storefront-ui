@@ -1,68 +1,21 @@
 <script setup lang="ts">
-import { SfDropdown, useDisclosure, SfButton } from '@storefront-ui/vue';
+import { SfDropdown, useDisclosure } from '@storefront-ui/vue';
 
 const { isOpen, toggle } = useDisclosure();
 
-type Framework = {
-  name: string;
-  icon: string;
-  link?: string;
-};
+const { frameworks, selectedFramework, framework, setFramework } = useFramework();
 
-const frameworks: Framework[] = [
-  {
-    name: 'vue',
-    icon: 'logos:vue',
-  },
-  {
-    name: 'react',
-    icon: 'logos:react',
-  },
-  {
-    name: 'qwik',
-    icon: 'logos:qwik-icon',
-    link: 'https://qwik-storefront-ui.pages.dev',
-  },
-];
-
-const selectedFramework = useCookie('framework', {
-  default: () => frameworks[0],
-});
-
-const route = useRoute();
-const router = useRouter();
-
-watch(
-  () => route,
-  () => {
-    const framework = frameworks.find((framework) => route.path.includes(framework.name.toLowerCase()));
-    if (framework) {
-      if (!framework.link) {
-        selectedFramework.value = framework;
-      }
-    }
-  },
-  {
-    immediate: true,
-  },
-);
-
-function selectFramework(framework: Framework) {
-  const previousFramework = selectedFramework.value.name.toLowerCase();
-
-  if (!framework.link) {
-    if (route.path.includes(previousFramework)) {
-      router.push(route.path.replace(previousFramework, framework.name.toLowerCase()));
-    }
-    selectedFramework.value = framework;
-  }
-
-  isOpen.value = false;
+function selectFramework(frameworkName: string) {
+  setFramework(frameworkName);
+  toggle();
 }
 </script>
 <template>
   <div class="relative mb-4">
-    <SfDropdown v-model="isOpen" class="[&>div]:w-full [&>div]:!left-0 [&>div]:border [&>div]:rounded !w-full z-50">
+    <SfDropdown
+      v-model="isOpen"
+      class="[&>div]:w-[calc(100%-32px)] [&>div]:!left-4 [&>div]:border [&>div]:rounded !w-full z-50"
+    >
       <template #trigger>
         <button
           @click="toggle()"
@@ -70,7 +23,13 @@ function selectFramework(framework: Framework) {
         >
           <Icon :name="selectedFramework.icon" class="w-4 h-4 mr-2" />
           {{ selectedFramework.name }}
-          <Icon name="ion:md-arrow-dropdown" class="w-4 h-4 ml-auto pl-4" />
+          <Icon
+            name="ri:arrow-down-s-line"
+            class="w-4 h-4 ml-auto"
+            :class="{
+              'rotate-180': isOpen,
+            }"
+          />
         </button>
       </template>
       <ul class="rounded bg-gray-100 w-full dark:bg-neutral-800 z-50">
@@ -85,8 +44,9 @@ function selectFramework(framework: Framework) {
           <component
             :is="framework.link ? 'a' : 'button'"
             :href="framework.link"
-            @click="selectFramework(framework)"
-            class="w-full py-2 px-4 bg-gray-100 w-full dark:bg-neutral-800 dark:hover:bg-neutral-700 hover:bg-gray-50 flex items-center capitalize"
+            @click="selectFramework(framework.name)"
+            :target="framework.link ? '_blank' : '_self'"
+            class="py-2 px-4 bg-gray-100 w-full dark:bg-neutral-800 dark:hover:bg-neutral-700 hover:bg-gray-50 flex items-center capitalize"
           >
             <Icon :name="framework.icon" class="w-4 h-4 mr-2" />
             {{ framework.name }}
@@ -95,6 +55,7 @@ function selectFramework(framework: Framework) {
               name="ion:md-checkmark"
               class="w-4 h-4 ml-auto text-primary-500"
             />
+            <Icon v-else-if="framework.link" name="ri:external-link-line" class="ml-1 text-sm" />
           </component>
         </li>
       </ul>

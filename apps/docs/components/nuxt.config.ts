@@ -3,11 +3,11 @@ import { dirname, join, resolve } from 'path';
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  extends: ['sf-docs-base'],
-    // fix via https://github.com/nuxt/content/issues/2254
+  extends: ['../../../../docs/packages/sf-docs-base'],
+  // fix via https://github.com/nuxt/content/issues/2254
   alias: {
     'micromark/lib/preprocess.js': 'micromark',
-    'micromark/lib/postprocess.js': 'micromark'
+    'micromark/lib/postprocess.js': 'micromark',
   },
   runtimeConfig: {
     public: {
@@ -23,5 +23,4 @@ export default defineNuxtConfig({
       },
     },
   },
-
 });

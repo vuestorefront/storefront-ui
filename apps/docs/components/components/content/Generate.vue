@@ -46,15 +46,10 @@ onMounted(() => {
 
 const route = useRoute();
 
-const framework = useCookie('framework', {
-  default: () => ({
-    name: 'Vue',
-    icon: 'logos:vue',
-  }),
-});
+const { selectedFramework } = useFramework();
 
 const urlBasePath = computed(() => {
-  return framework.value.name.toLowerCase() === 'react'
+  return selectedFramework.value.name.toLowerCase() === 'react'
     ? config.public.DOCS_EXAMPLES_REACT_PATH
     : config.public.DOCS_EXAMPLES_VUE_PATH;
 });
@@ -64,7 +59,7 @@ const componentName = computed(() => {
 });
 
 const exampleUrl = computed(() => {
-  const componentNameFull = components[framework.value.name.toLowerCase()].find((component) =>
+  const componentNameFull = components[selectedFramework.value.name.toLowerCase()].find((component) =>
     component.toLowerCase().includes('sf' + componentName.value),
   );
 

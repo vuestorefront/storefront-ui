@@ -1,10 +1,5 @@
 <script setup lang="ts">
-const selectedFramework = useCookie('framework', {
-  default: () => ({
-    name: 'Vue',
-    icon: 'logos:vue',
-  }),
-});
+const { selectedFramework } = useFramework();
 </script>
 <template>
   <div>

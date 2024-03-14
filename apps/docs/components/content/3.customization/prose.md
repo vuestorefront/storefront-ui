@@ -11,10 +11,10 @@ Styles for `<h1>`, `<h2>`, `<h3>` and `<h4>` are applied out of the box when ```
 ::showcase{showcase-name="Typography/Headings" style="min-height:400px"}
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Typography/Headings.vue
+<<<../../../../preview/nuxt/pages/showcases/Typography/Headings.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Typography/Headings.tsx
+<<<../../../../preview/next/pages/showcases/Typography/Headings.tsx
 ::
 
 ::
@@ -26,10 +26,10 @@ To apply leading text style,```lead``` class must be assigned to the chosen tag.
 ::showcase{showcase-name="Typography/Leading" style="min-height:200px"}
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Typography/Leading.vue
+<<<../../../../preview/nuxt/pages/showcases/Typography/Leading.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Typography/Leading.tsx
+<<<../../../../preview/next/pages/showcases/Typography/Leading.tsx
 ::
 
 ::
@@ -41,10 +41,10 @@ Simple paragraph styling.
 ::showcase{showcase-name="Typography/Paragraph" style="min-height:200px"}
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Typography/Paragraph.vue
+<<<../../../../preview/nuxt/pages/showcases/Typography/Paragraph.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Typography/Paragraph.tsx
+<<<../../../../preview/next/pages/showcases/Typography/Paragraph.tsx
 ::
 
 ::
@@ -56,10 +56,10 @@ For quotes, please use `<blockquote>` tag and `<figcaption>` for signature.
 ::showcase{showcase-name="Typography/Quote" style="min-height:200px"}
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Typography/Quote.vue
+<<<../../../../preview/nuxt/pages/showcases/Typography/Quote.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Typography/Quote.tsx
+<<<../../../../preview/next/pages/showcases/Typography/Quote.tsx
 ::
 
 ::
@@ -71,10 +71,10 @@ Figure is an example of image using `<figcaption />` for capturing the picture.
 ::showcase{showcase-name="Typography/Figure" style="min-height:400px"}
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Typography/Figure.vue
+<<<../../../../preview/nuxt/pages/showcases/Typography/Figure.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Typography/Figure.tsx
+<<<../../../../preview/next/pages/showcases/Typography/Figure.tsx
 ::
 
 ::
@@ -86,10 +86,10 @@ Simple example of styling tables of contents.
 ::showcase{showcase-name="Typography/Table" style="min-height:200px"}
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Typography/Table.vue
+<<<../../../../preview/nuxt/pages/showcases/Typography/Table.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Typography/Table.tsx
+<<<../../../../preview/next/pages/showcases/Typography/Table.tsx
 ::
 
 ::
@@ -101,10 +101,10 @@ Simple example of styling the lists.
 ::showcase{showcase-name="Typography/List" style="min-height:200px"}
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Typography/List.vue
+<<<../../../../preview/nuxt/pages/showcases/Typography/List.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Typography/List.tsx
+<<<../../../../preview/next/pages/showcases/Typography/List.tsx
 ::
 
 ::
@@ -114,10 +114,10 @@ Simple example of styling the lists.
 ::showcase{showcase-name="Typography/TypographyDefault" style="min-height:1800px"}
 
 ::vue-only
-<<<../../../preview/nuxt/pages/showcases/Typography/TypographyDefault.vue
+<<<../../../../preview/nuxt/pages/showcases/Typography/TypographyDefault.vue
 ::
 ::react-only
-<<<../../../preview/next/pages/showcases/Typography/TypographyDefault.tsx
+<<<../../../../preview/next/pages/showcases/Typography/TypographyDefault.tsx
 ::
 
 ::
