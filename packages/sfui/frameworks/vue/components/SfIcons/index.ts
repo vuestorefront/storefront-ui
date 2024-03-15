@@ -1,6 +1,8 @@
 export * from './types';
 export { default as SfIconAdd } from './SfIconAdd.vue';
 export { default as SfIconAddShoppingCart } from './SfIconAddShoppingCart.vue';
+export { default as SfIconAlokai } from './SfIconAlokai.vue';
+export { default as SfIconAlokaiFull } from './SfIconAlokaiFull.vue';
 export { default as SfIconArrowBack } from './SfIconArrowBack.vue';
 export { default as SfIconArrowDownward } from './SfIconArrowDownward.vue';
 export { default as SfIconArrowForward } from './SfIconArrowForward.vue';
