@@ -319,7 +319,7 @@ export const tailwindConfig: Config = {
         },
       },
       fontFamily: {
-        headings: 'Inter Display, sans-serif',
+        headings: 'Inter, sans-serif',
         body: 'Inter, sans-serif',
       },
       screens: {
