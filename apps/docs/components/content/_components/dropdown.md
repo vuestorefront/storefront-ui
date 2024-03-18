@@ -42,7 +42,7 @@ The floating content area has an `aria-hidden` attribute that reflects the visib
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 

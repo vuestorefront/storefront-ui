@@ -84,7 +84,7 @@ When no tag provided, the component will render as an `<li>`. To achieve proper 
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 

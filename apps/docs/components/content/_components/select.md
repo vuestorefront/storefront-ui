@@ -78,7 +78,7 @@ Since this component uses the native `<select>` element, it inherits its accessi
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 

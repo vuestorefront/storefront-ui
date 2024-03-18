@@ -38,7 +38,7 @@ By default, this component sets `role="tooltip"`.
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 

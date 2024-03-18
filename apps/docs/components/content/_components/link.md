@@ -92,7 +92,7 @@ You can use the `tag` prop to render component as `NuxtLink`.
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 

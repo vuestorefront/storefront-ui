@@ -105,7 +105,7 @@ If you have an element that is not an `<input type="radio">`, you should set the
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 

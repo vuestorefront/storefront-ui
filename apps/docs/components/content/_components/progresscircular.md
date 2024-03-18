@@ -73,7 +73,7 @@ This component sets the `role="progressbar"` to [allow screen readers treat it a
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 ## Props

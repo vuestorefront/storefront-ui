@@ -63,7 +63,7 @@ ProgressLinear uses native [`<progress>`](https://developer.mozilla.org/en-US/do
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 

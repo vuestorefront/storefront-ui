@@ -73,7 +73,7 @@ The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline ele
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 

@@ -51,7 +51,7 @@ It's important to properly set `aria-label` for screen readers to read proper in
 
 ## Playground
 
-<Generate />
+<Generate style="height: 450px" />
 
 #tab-2
 
