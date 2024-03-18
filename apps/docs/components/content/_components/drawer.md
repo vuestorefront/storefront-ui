@@ -118,6 +118,8 @@ The component is providing keyboard accessibility with `@keydown.esc="onEscKeyDo
 
 #tab-3
 
+:partial{content="block-callout"}
+
 ::vue-only
 
 <<<../../../../../packages/sfui/frameworks/vue/components/SfDrawer/SfDrawer.vue

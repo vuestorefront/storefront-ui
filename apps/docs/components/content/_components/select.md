@@ -33,7 +33,12 @@ If you need to make this field required, it is crucial to communicate this inten
 
 ### Custom chevron
 
-You can replace the default chevron with your own custom content by using the ::vue-only`chevron` slot:: ::react-only`slotChevron` prop::.
+::vue-only
+You can replace the default chevron with your own custom content by using the `chevron` slot.
+::
+::react-only
+You can replace the default chevron with your own custom content by using the `slotChevron` prop.
+::
 
 <Showcase showcase-name="Select/SelectCustomChevron">
 
@@ -123,6 +128,9 @@ Since this component uses the native `<select>` element, it inherits its accessi
 ::
 
 #tab-3
+
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfSelect/SfSelect.vue
 ::

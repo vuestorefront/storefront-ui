@@ -90,6 +90,8 @@ The floating content area has an `aria-hidden` attribute that reflects the visib
 
 #tab-3
 
+:partial{content="block-callout"}
+
 ::vue-only
 
 <<<../../../../../packages/sfui/frameworks/vue/components/SfDropdown/SfDropdown.vue

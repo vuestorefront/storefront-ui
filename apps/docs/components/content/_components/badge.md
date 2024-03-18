@@ -88,6 +88,8 @@ The component itself does not provide any specific accessibility features. Pleas
 
 #tab-3
 
+:partial{content="block-callout"}
+
 ::vue-only
 
 <<<../../../../../packages/sfui/frameworks/vue/components/SfBadge/SfBadge.vue

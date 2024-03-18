@@ -91,6 +91,8 @@ For better out-of-the-box accessibility, `SfRating` adds `role="img"` and an `ar
 
 #tab-3
 
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfRating/SfRating.vue
 ::

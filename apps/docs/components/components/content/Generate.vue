@@ -1,6 +1,6 @@
 <template>
   <div class="custom-block">
-    <iframe ref="iframeRef" :src="exampleUrl" class="generate w-full h-full"></iframe>
+    <iframe ref="iframeRef" :src="exampleUrl" class="generate w-full h-full border"></iframe>
   </div>
 </template>
 
@@ -68,9 +68,3 @@ const exampleUrl = computed(() => {
   }`;
 });
 </script>
-
-<style scoped>
-.generate {
-  height: 500px;
-}
-</style>

@@ -121,6 +121,8 @@ You can use the `tag` prop to render component as `NuxtLink`.
 
 #tab-3
 
+:partial{content="block-callout"}
+
 ::vue-only
 
 <<<../../../../../packages/sfui/frameworks/vue/components/SfLink/SfLink.vue

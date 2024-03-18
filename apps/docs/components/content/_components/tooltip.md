@@ -71,6 +71,8 @@ By default, this component sets `role="tooltip"`.
 ::
 #tab-3
 
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfTooltip/SfTooltip.vue
 ::

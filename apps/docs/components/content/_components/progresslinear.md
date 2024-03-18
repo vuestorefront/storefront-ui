@@ -86,6 +86,9 @@ ProgressLinear uses native [`<progress>`](https://developer.mozilla.org/en-US/do
 ::
 
 #tab-3
+
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfProgressLinear/SfProgressLinear.vue
 ::

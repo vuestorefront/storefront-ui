@@ -30,7 +30,13 @@ If you need to make this field required, it is crucial to communicate this inten
 
 ### Input with icons
 
-You can insert content before and after your input using the ::vue-only `prefix` and `suffix` slots::::react-only`slotPrefix` and `slotSuffix` props::. 
+::vue-only
+You can insert content before and after your input using the `prefix` and `suffix` slots. 
+::
+::react-only
+You can insert content before and after your input using the `slotPrefix` and `slotSuffix` props. 
+::
+
 
 This can be useful for adding icons or buttons to your input.
 
@@ -107,7 +113,12 @@ This is an example of what `SfInput` might look like in your end code. It has a 
 
 ## Notes
 
-All non-prop attributes and styles added to `SfInput` component are passed directly to the native input element. This means that you can add all of the input attributes directly to `SfInput`. If you want to style the wrapper `div`, you can pass your classes via the ::vue-only`wrapperClass`::::react-only `wrapperClassName`::prop. 
+::vue-only
+All non-prop attributes and styles added to `SfInput` component are passed directly to the native input element. This means that you can add all of the input attributes directly to `SfInput`. If you want to style the wrapper `div`, you can pass your classes via the `wrapperClass` prop. 
+::
+::react-only
+All non-prop attributes and styles added to `SfInput` component are passed directly to the native input element. This means that you can add all of the input attributes directly to `SfInput`. If you want to style the wrapper `div`, you can pass your classes via the `wrapperClassName` prop. 
+::
 
 Since, `size` is a specified prop of `SfInput`, you won't be able to pass the native `size` attribute to your input element. Instead, you can use the `width` property with `ch` unit instead (eg. `width: 10ch`).
 
@@ -166,6 +177,9 @@ Avoid adding `div` tags to slots. If an input element is wrapped in `label` tag 
 
 
 #tab-3
+
+:partial{content="block-callout"}
+
 ::vue-only
 
 <<<../../../../../packages/sfui/frameworks/vue/components/SfInput/SfInput.vue

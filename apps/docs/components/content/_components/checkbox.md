@@ -98,6 +98,9 @@ It's focusable and can be toggled with `Space`.
 ::
 
 #tab-3
+
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfCheckbox/SfCheckbox.vue
 ::

@@ -128,6 +128,8 @@ When no tag provided, the component will render as an `<li>`. To achieve proper 
 
 #tab-3
 
+:partial{content="block-callout"}
+
 
 ::vue-only
 

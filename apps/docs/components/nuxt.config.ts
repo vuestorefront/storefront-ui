@@ -1,6 +1,3 @@
-import { fileURLToPath } from 'url';
-import { dirname, join, resolve } from 'path';
-
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   extends: ['sf-docs-base'],

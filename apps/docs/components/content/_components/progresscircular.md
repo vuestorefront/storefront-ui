@@ -104,6 +104,9 @@ This component sets the `role="progressbar"` to [allow screen readers treat it a
 ::
 
 #tab-3
+
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfProgressCircular/SfProgressCircular.vue
 ::

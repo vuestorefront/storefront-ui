@@ -114,6 +114,9 @@ When using an Icon without any additional label and/or description, you should s
 | `default`   | Content of an SVF, e.g. `<path d='...'/>`. Takes precedence over `content` prop |
 ::
 #tab-3
+
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfIconBase/SfIconBase.vue
 ::

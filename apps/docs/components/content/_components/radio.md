@@ -141,6 +141,9 @@ If you have an element that is not an `<input type="radio">`, you should set the
 ::
 
 #tab-3
+
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfRadio/SfRadio.vue
 ::

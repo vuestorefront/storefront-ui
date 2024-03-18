@@ -115,6 +115,8 @@ For example, `<summary>` elements are focusable and can be activated by pressing
 #tab-3
 ## Source code
 
+:partial{content="block-callout"}
+
 :::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfAccordionItem/SfAccordionItem.vue
 :::

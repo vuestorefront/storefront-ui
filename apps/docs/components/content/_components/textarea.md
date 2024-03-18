@@ -122,6 +122,8 @@ Textarea is multi-line input, so Return or Enter key inserts a line break.
 
 #tab-3
 
+:partial{content="block-callout"}
+
 
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfTextarea/SfTextarea.vue

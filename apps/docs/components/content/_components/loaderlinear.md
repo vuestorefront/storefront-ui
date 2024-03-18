@@ -71,6 +71,9 @@ It's important to properly set `aria-label` for screen readers to read proper in
 | `className`             |  `string`                    |               |                                  |            |
 ::
 #tab-3
+
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfLoaderLinear/SfLoaderLinear.vue
 ::

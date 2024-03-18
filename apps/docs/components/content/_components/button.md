@@ -40,8 +40,13 @@
 
 ### Button as a link
 
-<!-- TODO: only one name per framework -->
-This component can be used as a link (or any other tag) that can be set via ::vue-only`tag`::::react-only`as`:: prop.
+::vue-only
+This component can be used as a link (or any other tag) that can be set via the `tag` prop.
+::
+::react-only
+This component can be used as a link (or any other tag) that can be set via the `as` prop.
+
+::
 
 <Showcase showcase-name="Button/ButtonAsLink" style="min-height:250px">
 
@@ -86,7 +91,14 @@ You can truncate button content with Tailwind using `max-w-` and `truncate` clas
 
 ### Button content
 
-`SfButton` provides ::vue-only`prefix` and `suffix` slots::::react-only`slotPrefix` and `slotSuffix` props:: that you can use to add custom content before/after your default content. This can be useful for adding icons or badges to your buttons. 
+::vue-only
+`SfButton` provides `prefix` and `suffix` slots that you can use to add custom content before/after your default content. This can be useful for adding icons or badges to your buttons. 
+
+::
+::react-only
+`SfButton` provides `slotPrefix` and `slotSuffix` props that you can use to add custom content before/after your default content. This can be useful for adding icons or badges to your buttons. 
+
+::
 
 <Showcase showcase-name="Button/ButtonContent" style="min-height:250px">
 
@@ -101,7 +113,13 @@ You can truncate button content with Tailwind using `max-w-` and `truncate` clas
 
 ## Accessibility notes
 
-Button component can be rendered as `<button>` or `<a>` or any other tag by providing it with prop ::vue-only`tag`::::react-only`as`::. When rendered as `<button>` this component applies default `type='button'` if no other `type` is passed as a prop.
+
+::vue-only
+Button component can be rendered as `<button>` or `<a>` or any other tag by providing it with prop `tag`. When rendered as `<button>` this component applies default `type='button'` if no other `type` is passed as a prop.
+::
+::react-only
+Button component can be rendered as `<button>` or `<a>` or any other tag by providing it with prop `as`. When rendered as `<button>` this component applies default `type='button'` if no other `type` is passed as a prop.
+::
 
 ::warning
 Avoid using buttons to navigate the page. Use links or tabs.
@@ -155,6 +173,8 @@ If you need to use Button with non-`<button>` tags like `<div>` you need to add 
 ::
 
 #tab-3
+
+:partial{content="block-callout"}
 
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfButton/SfButton.vue

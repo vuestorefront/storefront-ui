@@ -107,6 +107,8 @@ The root element of `SfCounter` is a `<span>`. Since a `<span>` is an inline ele
 
 #tab-3
 
+:partial{content="block-callout"}
+
 ::vue-only
 
 <<<../../../../../packages/sfui/frameworks/vue/components/SfCounter/SfCounter.vue

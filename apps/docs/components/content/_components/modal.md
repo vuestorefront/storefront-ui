@@ -110,6 +110,9 @@ Both techniques can be seen in the code examples above.
 | `update:modelValue` | emits when hitting `esc` key (when `disableEsc` is set to `false`) and on click outside (when `disableClickAway` is set to `false`) |
 ::
 #tab-3
+
+:partial{content="block-callout"}
+
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfModal/SfModal.vue
 ::

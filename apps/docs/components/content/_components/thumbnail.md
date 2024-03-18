@@ -55,7 +55,12 @@ Gradients can be applied with any of Tailwind's `bg-gradient-` classes.
 
 ### Image
 
-You can pass an image ::vue-onlyinto the default slot:: ::react-onlyas children:: to achieve avatar-like look of thumbnail.
+::vue-only
+You can pass an image into the default slot to achieve avatar-like look of thumbnail.
+::
+::react-only
+You can pass an image as children to achieve avatar-like look of thumbnail.
+::
 
 <Showcase showcase-name="Thumbnail/Image">
 
@@ -120,6 +125,8 @@ Similar to images, you can also pass an icon as children.
 ::
 
 #tab-3
+
+:partial{content="block-callout"}
 
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfThumbnail/SfThumbnail.vue

@@ -148,6 +148,8 @@ The `drag` prop is setting whether and how elements in a scrollable element can 
 
 #tab-3
 
+:partial{content="block-callout"}
+
 
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfScrollable/SfScrollable.vue

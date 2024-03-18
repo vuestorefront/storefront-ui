@@ -163,6 +163,8 @@ SfRatingButtonRenderProps
 
 #tab-3
 
+:partial{content="block-callout"}
+
 
 ::vue-only
 <<<../../../../../packages/sfui/frameworks/vue/components/SfRatingButton/SfRatingButton.vue
