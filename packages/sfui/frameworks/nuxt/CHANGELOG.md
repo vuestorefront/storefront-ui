@@ -1,5 +1,12 @@
 # @storefront-ui/nuxt
 
+## 2.4.4
+
+### Patch Changes
+
+- Updated dependencies [[`e15a3f6cb`](https://github.com/vuestorefront/storefront-ui/commit/e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6)]:
+  - @storefront-ui/vue@2.6.1
+
 ## 2.4.3
 
 ### Patch Changes
