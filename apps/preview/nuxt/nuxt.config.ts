@@ -11,7 +11,7 @@ export default defineNuxtConfig({
       htmlAttrs: {
         lang: 'en',
       },
-      title: 'Vue Storefront UI v2',
+      title: 'Alokai UI v2',
     },
   },
   alias: {
