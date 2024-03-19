@@ -73,7 +73,7 @@
 
 Tailwind plugin that allows you to create fully customizable typography system. Ships with StorefrontUI typography by default.
 <br /><br />
-Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">Vue Storefront</a> team and contributors.
+Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">Alokai</a> team and contributors.
 
 ## Why?
 

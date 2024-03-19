@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/react",
-  "version": "2.6.0",
+  "version": "2.6.1",
   "license": "MIT",
   "sideEffects": false,
   "exports": {

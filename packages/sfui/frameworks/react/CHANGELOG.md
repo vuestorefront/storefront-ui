@@ -1,5 +1,16 @@
 # @storefront-ui/react
 
+## 2.6.1
+
+### Patch Changes
+
+- [#3028](https://github.com/vuestorefront/storefront-ui/pull/3028) [`dd5ab48d0`](https://github.com/vuestorefront/storefront-ui/commit/dd5ab48d0f3b153d719004350249a87a6a7335ee) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - fix order inherit of attributes
+
+- [#3070](https://github.com/vuestorefront/storefront-ui/pull/3070) [`e15a3f6cb`](https://github.com/vuestorefront/storefront-ui/commit/e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Add new alokai icon
+
+- Updated dependencies [[`a40579d26`](https://github.com/vuestorefront/storefront-ui/commit/a40579d26c2912c5d4d05e1a833801e3e87901b3), [`e15a3f6cb`](https://github.com/vuestorefront/storefront-ui/commit/e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6)]:
+  - @storefront-ui/tailwind-config@2.4.0
+
 ## 2.6.0
 
 ### Minor Changes

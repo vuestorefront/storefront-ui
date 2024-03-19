@@ -12,7 +12,7 @@ const SfAccordionItem = forwardRef<HTMLDetailsElement, SfAccordionItemProps>((pr
   };
 
   return (
-    <details ref={ref} open={open} {...attributes} data-testid="accordion-item">
+    <details ref={ref} open={open} data-testid="accordion-item" {...attributes}>
       <summary
         onClick={handleClick}
         className={classNames(

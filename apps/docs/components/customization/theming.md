@@ -5,7 +5,9 @@ hideBreadcrumbs: true
 
 # Theming
 
-To help you build your storefront, Storefront UI adds additional colors following Tailwind's shading conventions. These can be customized customized with CSS variables or Tailwind configuration to match your design system. 
+UI colors are based on 10-tone Tailwind default color palette, normalized so that each color at the same brightness level meets identical minimum accessibility requirements.
+
+To help you build your storefront, Storefront UI adds additional colors following Tailwind's shading conventions. These can be customized customized with CSS variables or Tailwind configuration to match your design system.
 
 ## Default Values
 
@@ -16,7 +18,6 @@ In addition to [Tailwind's default colors](https://tailwindcss.com/docs/customiz
 :::tip Want to see our default Tailwind preset?
 You can see all of the default colors, classes, variants, and more in our [Tailwind preset](https://github.com/vuestorefront/storefront-ui/blob/v2/packages/config/tailwind/index.ts)
 :::
-
 
 ## Customizing colors
 
@@ -67,88 +68,88 @@ The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}
 ```css
 :root {
   /* Primary */
-  --colors-primary-50: 240 253 244;
-  --colors-primary-100: 220 252 231;
-  --colors-primary-200: 187 247 208;
-  --colors-primary-300: 134 239 172;
-  --colors-primary-400: 74 222 128;
-  --colors-primary-500: 2 198 82;
-  --colors-primary-600: 10 171 69;
-  --colors-primary-700: 1 137 55;
-  --colors-primary-800: 22 101 52;
-  --colors-primary-900: 20 83 45;
+  --colors-primary-50: 235 255 242;
+  --colors-primary-100: 217 253 228;
+  --colors-primary-200: 171 241 192;
+  --colors-primary-300: 130 234 158;
+  --colors-primary-400: 60 224 120;
+  --colors-primary-500: 19 195 96;
+  --colors-primary-600: 7 161 79;
+  --colors-primary-700: 13 127 63;
+  --colors-primary-800: 16 86 46;
+  --colors-primary-900: 15 50 30;
 
   /* Secondary */
-  --colors-secondary-50: 245 243 255;
-  --colors-secondary-100: 237 233 254;
-  --colors-secondary-200: 221 214 254;
-  --colors-secondary-300: 196 181 253;
-  --colors-secondary-400: 167 139 250;
-  --colors-secondary-500: 135 92 246;
-  --colors-secondary-600: 111 64 236;
-  --colors-secondary-700: 97 49 221;
-  --colors-secondary-800: 83 30 211;
-  --colors-secondary-900: 68 21 178;
+  --colors-secondary-50: 247 245 253;
+  --colors-secondary-100: 239 236 251;
+  --colors-secondary-200: 225 218 246;
+  --colors-secondary-300: 216 203 245;
+  --colors-secondary-400: 198 177 246;
+  --colors-secondary-500: 180 151 249;
+  --colors-secondary-600: 151 111 238;
+  --colors-secondary-700: 119 79 209;
+  --colors-secondary-800: 82 52 153;
+  --colors-secondary-900: 48 32 86;
 
   /* Positive */
-  --colors-positive-50: 240 253 244;
-  --colors-positive-100: 220 252 231;
-  --colors-positive-200: 187 247 208;
-  --colors-positive-300: 134 239 172;
-  --colors-positive-400: 74 222 128;
-  --colors-positive-500: 2 198 82;
-  --colors-positive-600: 10 171 69;
-  --colors-positive-700: 1 137 55;
-  --colors-positive-800: 22 101 52;
-  --colors-positive-900: 20 83 45;
+  --colors-positive-50: 235 255 242;
+  --colors-positive-100: 217 253 228;
+  --colors-positive-200: 171 241 192;
+  --colors-positive-300: 130 234 158;
+  --colors-positive-400: 60 224 120;
+  --colors-positive-500: 19 195 96;
+  --colors-positive-600: 7 161 79;
+  --colors-positive-700: 13 127 63;
+  --colors-positive-800: 16 86 46;
+  --colors-positive-900: 15 50 30;
 
   /* Negative */
-  --colors-negative-50: 255 241 242;
-  --colors-negative-100: 255 228 230;
-  --colors-negative-200: 254 205 211;
-  --colors-negative-300: 253 164 175;
-  --colors-negative-400: 251 113 133;
-  --colors-negative-500: 244 63 94;
-  --colors-negative-600: 225 29 72;
-  --colors-negative-700: 190 18 60;
-  --colors-negative-800: 159 18 57;
-  --colors-negative-900: 136 19 55 1;
+  --colors-negative-50: 255 245 247;
+  --colors-negative-100: 255 232 237;
+  --colors-negative-200: 254 211 219;
+  --colors-negative-300: 253 193 202;
+  --colors-negative-400: 255 163 175;
+  --colors-negative-500: 255 127 143;
+  --colors-negative-600: 240 59 91;
+  --colors-negative-700: 208 13 48;
+  --colors-negative-800: 141 8 33;
+  --colors-negative-900: 76 15 23;
 
   /* Warning */
-  --colors-warning-50: 254 252 232;
-  --colors-warning-100: 254 249 195;
-  --colors-warning-200: 254 240 138;
-  --colors-warning-300: 253 224 71;
-  --colors-warning-400: 250 204 21;
-  --colors-warning-500: 234 179 8;
-  --colors-warning-600: 202 138 4;
-  --colors-warning-700: 161 98 7;
-  --colors-warning-800: 133 77 14;
-  --colors-warning-900: 113 63 18;
+  --colors-warning-50: 254 247 236;
+  --colors-warning-100: 255 238 211;
+  --colors-warning-200: 254 220 165;
+  --colors-warning-300: 254 202 132;
+  --colors-warning-400: 255 181 77;
+  --colors-warning-500: 237 153 14;
+  --colors-warning-600: 191 121 17;
+  --colors-warning-700: 157 93 3;
+  --colors-warning-800: 109 63 9;
+  --colors-warning-900: 62 35 10;
 
   /* Neutral */
-  --colors-neutral-50: 250 250 250;
-  --colors-neutral-100: 244 244 245;
-  --colors-neutral-200: 228 228 231;
-  --colors-neutral-300: 212 212 216;
-  --colors-neutral-400: 161 161 170;
-  --colors-neutral-500: 113 113 122;
-  --colors-neutral-600: 82 82 91;
-  --colors-neutral-700: 63 63 70;
-  --colors-neutral-800: 39 39 42;
-  --colors-neutral-900: 24 24 27;
+  --colors-neutral-50: 249 251 250;
+  --colors-neutral-100: 239 244 241;
+  --colors-neutral-200: 217 226 220;
+  --colors-neutral-300: 187 198 190;
+  --colors-neutral-400: 129 140 133;
+  --colors-neutral-500: 100 111 104;
+  --colors-neutral-600: 77 86 79;
+  --colors-neutral-700: 56 65 59;
+  --colors-neutral-800: 37 43 39;
+  --colors-neutral-900: 21 26 22;
 
   /* Disabled */
-  --colors-disabled-50: 250 250 250;
-  --colors-disabled-100: 244 244 245;
-  --colors-disabled-200: 228 228 231;
-  --colors-disabled-300: 212 212 216;
-  --colors-disabled-400: 161 161 170;
-  --colors-disabled-500: 113 113 122;
-  --colors-disabled-600: 82 82 91;
-  --colors-disabled-700: 63 63 70;
-  --colors-disabled-800: 39 39 42;
-  --colors-disabled-900: 24 24 27;
+  --colors-disabled-50: 249 251 250;
+  --colors-disabled-100: 239 244 241;
+  --colors-disabled-200: 217 226 220;
+  --colors-disabled-300: 187 198 190;
+  --colors-disabled-400: 129 140 133;
+  --colors-disabled-500: 100 111 104;
+  --colors-disabled-600: 77 86 79;
+  --colors-disabled-700: 56 65 59;
+  --colors-disabled-800: 37 43 39;
+  --colors-disabled-900: 21 26 22;
 }
 ```
 </SourceCode>

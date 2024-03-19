@@ -148,7 +148,7 @@ jobs:
         run: cd apps/test/vue; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ env.SONAR_TOKEN_VUE }}
-        uses: SonarSource/sonarcloud-github-action@v1.9
+        uses: SonarSource/sonarcloud-github-action@v2.1.1
         with:
           projectBaseDir: packages/sfui/frameworks/vue
         env:
@@ -183,7 +183,7 @@ jobs:
         run: cd apps/test/react; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ env.SONAR_TOKEN_REACT }}
-        uses: SonarSource/sonarcloud-github-action@v1.9
+        uses: SonarSource/sonarcloud-github-action@v2.1.1
         with:
           projectBaseDir: packages/sfui/frameworks/react
         env:
@@ -303,3 +303,22 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: gh pr merge --auto --merge
+
+  gg-scanning:
+    name: GitGuardian scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: GitGuardian scan
+        uses: GitGuardian/ggshield-action@v1.22.0
+        with:
+          args: -v
+        env:
+          GITHUB_PUSH_BEFORE_SHA: ${{ github.event.before }}
+          GITHUB_PUSH_BASE_SHA: ${{ github.event.base }}
+          GITHUB_PULL_BASE_SHA:  ${{ github.event.pull_request.base.sha }}
+          GITHUB_DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+          GITGUARDIAN_API_KEY: ${{ secrets.GITGUARDIAN_API_KEY }}

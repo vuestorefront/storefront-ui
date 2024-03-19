@@ -99,4 +99,4 @@ Knowing this we recommend using `yarn dev` in `root` directory.
 - [Playground Vue](https://play-vue.vuestorefront.io)
 - [Playground React](https://play-react.vuestorefront.io)
 - [Discord](https://discord.vuestorefront.io)
-- [Vue Storefront](https://vuestorefront.io)
+- [Alokai](https://vuestorefront.io)
