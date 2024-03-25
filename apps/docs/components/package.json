@@ -6,10 +6,11 @@
     "hoistingLimits": "workspaces"
   },
   "scripts": {
-    "build": "nuxt build",
+    "build:docs": "nuxt build",
     "dev:docs": "nuxt dev",
     "generate": "nuxt generate",
-    "preview": "nuxt preview"
+    "preview": "nuxt preview",
+    "serve": "node .output/server/index.mjs"
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.13.30",

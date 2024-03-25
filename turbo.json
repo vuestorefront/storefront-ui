@@ -34,7 +34,7 @@
       "dependsOn": ["^build:vue", "^build:typography", "build:tailwind-config"]
     },
     "build:docs": {
-      "dependsOn": ["^build:tailwind-config"],
+      "dependsOn": ["^build:vue", "^build:tailwind-config"],
       "cache": false
     },
     "build:react": {
@@ -88,7 +88,7 @@
     },
     "dev:docs": {
       "cache": false,
-      "dependsOn": ["^build:typography", "build:peer-next", "build:tailwind-config"]
+      "dependsOn": ["^build:vue", "^build:typography", "build:peer-next", "build:tailwind-config"]
     },
     "dev:shared": {
       "cache": false
