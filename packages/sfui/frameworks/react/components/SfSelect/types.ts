@@ -7,4 +7,5 @@ export interface SfSelectProps extends PropsWithChildren, Omit<React.SelectHTMLA
   invalid?: boolean;
   wrapperClassName?: string;
   slotChevron?: ReactNode;
+  placeholder?: string;
 }
