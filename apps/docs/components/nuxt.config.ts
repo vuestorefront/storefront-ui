@@ -1,8 +1,9 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+
 export default defineNuxtConfig({
   extends: ['sf-docs-base'],
   app: {
-    baseURL: process.env.VITE_DOCS_BASEPATH ? new URL(process.env.VITE_DOCS_BASEPATH).pathname : '',
+    baseURL: process.env.VITE_DOCS_BASEPATH ?? '',
   },
   // fix via https://github.com/nuxt/content/issues/2254
   alias: {
@@ -12,8 +13,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       storefrontUi: true,
-      DOCS_EXAMPLES_VUE_PATH: process.env.DOCS_EXAMPLES_VUE_PATH,
-      DOCS_EXAMPLES_REACT_PATH: process.env.DOCS_EXAMPLES_REACT_PATH,
+      DOCS_EXAMPLES_VUE_PATH: process.env.VITE_DOCS_EXAMPLES_VUE_PATH,
+      DOCS_EXAMPLES_REACT_PATH: process.env.VITE_DOCS_EXAMPLES_REACT_PATH,
     },
   },
   nitro: {
