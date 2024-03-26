@@ -137,6 +137,7 @@ module.exports = {
     DOCS_EXAMPLES_VUE_PATH,
     FIGMA_URL,
     coreDocs: false,
+    storefrontUi: true,
     title: 'Storefront UI',
     repo: 'https://github.com/vuestorefront/storefront-ui',
     docsRepoPath: 'https://github.com/vuestorefront/storefront-ui/tree/v2/apps/docs/components/', // used to generate direct edit links on docs pages.
