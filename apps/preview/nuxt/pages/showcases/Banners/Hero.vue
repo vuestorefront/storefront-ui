@@ -4,7 +4,7 @@
       <source srcset="http://localhost:3100/@assets/hero-bg.png" media="(min-width: 768px)" />
       <img
         src="http://localhost:3100/@assets/hero-bg-mobile.png"
-        class="absolute w-full h-full z-[-1] md:object-cover"
+        class="absolute w-full h-full z-[-1] object-cover"
         alt="hero"
       />
     </picture>

@@ -10,7 +10,7 @@ export default function Hero() {
         <source srcSet="http://localhost:3100/@assets/hero-bg.png" media="(min-width: 768px)" />
         <img
           src="http://localhost:3100/@assets/hero-bg-mobile.png"
-          className="absolute w-full h-full z-[-1] md:object-cover"
+          className="absolute w-full h-full z-[-1] object-cover"
         />
       </picture>
       <div className="md:flex md:flex-row-reverse md:justify-center min-h-[600px] max-w-[1536px] mx-auto">
