@@ -5,12 +5,12 @@ import { SfButton } from '@storefront-ui/react';
 
 export default function Hero() {
   return (
-    <div className="relative min-h-[600px]">
+    <div className="relative min-h-[576px]">
       <picture>
         <source srcSet="http://localhost:3100/@assets/hero-bg.png" media="(min-width: 768px)" />
         <img
           src="http://localhost:3100/@assets/hero-bg-mobile.png"
-          className="absolute w-full h-full z-[-1] md:object-cover"
+          className="absolute w-full h-full z-[-1] object-cover"
         />
       </picture>
       <div className="md:flex md:flex-row-reverse md:justify-center min-h-[600px] max-w-[1536px] mx-auto">

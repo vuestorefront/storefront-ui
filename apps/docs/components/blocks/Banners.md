@@ -49,7 +49,17 @@ Four vertical displays in row on desktop.
 
 ## Hero
 
-Hero acts like a layout for your hero section. You can provide main image and any content, as well as background images for mobile and desktop devices.
+The Hero component simplifies the process of creating stunning hero sections for your website. With Hero, you have the flexibility to seamlessly integrate a main image and customize your content to suit your needs. Additionally, Hero allows adding background images tailored for both mobile and desktop devices. To ensure an optimal blend of performance and visual appeal, we recommend adhering to the following image guidelines:
+
+Desktop Background Images:
+Minimum width: 3840px
+Aspect ratio: 4:1.5
+Example size: 3840px x 1440px
+
+Mobile Background Images:
+Minimum width: 768px
+Aspect ratio: 3:4
+Example size: 768px x 1024px
 
 <Showcase showcase-name="Banners/Hero" style="min-height:620px">
 
