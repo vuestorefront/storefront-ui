@@ -11,7 +11,7 @@ function selectFramework(frameworkName: string) {
 }
 </script>
 <template>
-  <div class="relative mb-4">
+  <div class="sticky top-10  bg-white dark:bg-neutral-900 z-50 pt-4 pb-4 -mt-8">
     <SfDropdown
       v-model="isOpen"
       class="[&>div]:w-[calc(100%-32px)] [&>div]:!left-4 [&>div]:border [&>div]:rounded !w-full z-50"
