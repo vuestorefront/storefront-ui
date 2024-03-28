@@ -57,22 +57,22 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.8",
     "@changesets/cli": "^2.26.1",
-    "@commitlint/cli": "^17.0.0",
-    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
     "@frsource/frs-replace": "^4.1.1",
     "@storefront-ui/typescript-config": "workspace:*",
     "@vue-storefront/prettier-config": "^2.0.0-rc.1",
     "babel-cli": "^6.26.0",
     "babel-preset-node": "^5.1.1",
     "commitizen": "^4.2.5",
-    "concurrently": "^7.4.0",
-    "husky": "^8.0.0",
+    "concurrently": "^8.0.0",
+    "husky": "^9.0.0",
     "hygen": "^6.2.8",
     "prettier": "latest",
     "rimraf": "^5.0.0",
     "tailwindcss": "^3.1.8",
     "turbo": "latest",
-    "typescript": "^4.9.5",
+    "typescript": "^5.0.0",
     "wait-on": "^7.0.1"
   },
   "engines": {
@@ -80,7 +80,7 @@
     "yarn": ">=1.22.19",
     "node": ">=16.0.0 <17.0.0"
   },
-  "packageManager": "yarn@3.7.0",
+  "packageManager": "yarn@4.1.1",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog",

@@ -17,7 +17,7 @@ jobs:
     if: ${{ startsWith(github.head_ref, 'v2' )}}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - id: automerge
         name: automerge
         uses: 'pascalgn/automerge-action@v0.15.6'

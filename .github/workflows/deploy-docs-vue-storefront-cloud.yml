@@ -26,19 +26,19 @@ jobs:
     needs: [build, configure-enviroment]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version-file: '.node-version'
           cache: 'yarn'
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
       - name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v1'
+        uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: ${{ secrets.GCP_SFUI_SHARED_SERVICE_ACCOUNT_KEY }}
       - name: 'Upload assets to env directory within SFUI GCP storage'
-        uses: 'google-github-actions/upload-cloud-storage@v1'
+        uses: 'google-github-actions/upload-cloud-storage@v2'
         with:
           path: 'apps/preview/shared/public/@assets'
           parent: false
