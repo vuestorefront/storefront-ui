@@ -15,7 +15,7 @@
   "devDependencies": {
     "@microsoft/api-documenter": "^7.13.30",
     "@microsoft/api-extractor": "7.18.1",
-    "@types/node": "^18",
+    "@types/node": "^20.0.0",
     "nuxt": "^3.6.2",
     "nuxt-gtag": "^0.5.7"
   },
@@ -29,7 +29,7 @@
     "@storefront-ui/typography": "^2.1.0",
     "@storefront-ui/vue": "^2.1.0",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/node": "^18.15.10",
+    "@types/node": "^20.0.0",
     "@vueuse/integrations": "^10.0.2",
     "@vueuse/nuxt": "^9.13.0",
     "ejs": "^3.1.9",
