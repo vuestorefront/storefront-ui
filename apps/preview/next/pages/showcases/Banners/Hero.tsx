@@ -13,7 +13,7 @@ export default function Hero() {
           className="absolute w-full h-full z-[-1] object-cover"
         />
       </picture>
-      <div className="md:flex md:flex-row-reverse md:justify-center min-h-[600px] max-w-[1536px] mx-auto">
+      <div className="md:flex md:flex-row-reverse md:justify-center min-h-[576px] max-w-[1536px] mx-auto">
         <div className="flex flex-col md:basis-2/4 md:items-stretch md:overflow-hidden">
           <img
             src="http://localhost:3100/@assets/hero-headphones.png"

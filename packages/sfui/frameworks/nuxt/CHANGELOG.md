@@ -1,5 +1,14 @@
 # @storefront-ui/nuxt
 
+## 2.4.5
+
+### Patch Changes
+
+- [#3091](https://github.com/vuestorefront/storefront-ui/pull/3091) [`91d17b5346e2706ce0551f897f8753207b7a703f`](https://github.com/vuestorefront/storefront-ui/commit/91d17b5346e2706ce0551f897f8753207b7a703f) Thanks [@mattmaribojoc](https://github.com/mattmaribojoc)! - Minor type fixes
+
+- Updated dependencies [[`e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6`](https://github.com/vuestorefront/storefront-ui/commit/e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6)]:
+  - @storefront-ui/vue@2.6.2
+
 ## 2.4.4
 
 ### Patch Changes

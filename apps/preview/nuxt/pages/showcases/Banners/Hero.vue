@@ -8,7 +8,7 @@
         alt="hero"
       />
     </picture>
-    <div class="md:flex md:flex-row-reverse md:justify-center max-w[1536px] mx-auto md:min-h-[600px]">
+    <div class="md:flex md:flex-row-reverse md:justify-center max-w[1536px] mx-auto md:min-h-[576px]">
       <div class="flex flex-col md:basis-2/4 md:items-stretch md:overflow-hidden">
         <img
           src="http://localhost:3100/@assets/hero-headphones.png"
