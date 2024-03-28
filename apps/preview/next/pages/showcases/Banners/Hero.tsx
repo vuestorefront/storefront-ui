@@ -5,7 +5,7 @@ import { SfButton } from '@storefront-ui/react';
 
 export default function Hero() {
   return (
-    <div className="relative min-h-[600px]">
+    <div className="relative min-h-[576px]">
       <picture>
         <source srcSet="http://localhost:3100/@assets/hero-bg.png" media="(min-width: 768px)" />
         <img

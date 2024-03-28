@@ -51,8 +51,8 @@ Four vertical displays in row on desktop.
 
 Hero acts like a layout for your hero section. You can add a main image and any content you want, along with background images for both mobile and desktop. To make the background images look better and load faster, it's best to use images that:
 
-- are 3840px wide with a 16:9 aspect ratio for desktop,
-- are 768px wide with a 1:2 aspect ratio for mobile.
+- are at least 3840px wide with a 4:1.5 aspect ratio for desktop, e.g. 3840px x 1440px,
+- are at least 768px wide with a 3:4 aspect ratio for mobile, e.g. 768px x 1024px.
 
 <Showcase showcase-name="Banners/Hero" style="min-height:620px">
 
