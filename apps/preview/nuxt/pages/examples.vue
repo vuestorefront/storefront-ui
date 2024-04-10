@@ -5,8 +5,13 @@
         <h2>StorefrontUI v2</h2>
         <h3>Vue components</h3>
       </header>
-      <SfButton class="sidebar-toggle" :variant="SfButtonVariant.tertiary" :size="SfButtonSize.sm"
-        :aria-label="isOpen ? 'Hide sidebar' : 'Open sidebar'" @click="isOpen = !isOpen">
+      <SfButton
+        class="sidebar-toggle"
+        :variant="SfButtonVariant.tertiary"
+        :size="SfButtonSize.sm"
+        :aria-label="isOpen ? 'Hide sidebar' : 'Open sidebar'"
+        @click="isOpen = !isOpen"
+      >
         <template #prefix>
           <SfIconChevronLeft v-if="isOpen" />
           <SfIconChevronRight v-else />
@@ -15,8 +20,12 @@
       <ul class="sidebar-list flex flex-col">
         <li v-for="component in components" :key="component">
           <NuxtLink v-slot="{ navigate }" :to="`/examples/${component}`" custom no-prefetch>
-            <SfListItem tag="span" :selected="currentRoute.path === `/examples/${component}`"
-              :class="{ 'font-medium': currentRoute.path === `/examples/${component}` }" @click="navigate">
+            <SfListItem
+              tag="span"
+              :selected="currentRoute.path === `/examples/${component}`"
+              :class="{ 'font-medium': currentRoute.path === `/examples/${component}` }"
+              @click="navigate"
+            >
               {{ component }}
             </SfListItem>
           </NuxtLink>
@@ -40,9 +49,10 @@ import { onBeforeMount } from 'vue';
 
 const { currentRoute, ...router } = useRouter();
 
-const components = router.getRoutes()
+const components = router
+  .getRoutes()
   .filter((route) => route.path.includes('examples/'))
-  .map((route) => route.path.replace('/examples/', ''))
+  .map((route) => route.path.replace('/examples/', ''));
 
 const isOpen = ref(true);
 const isNotIframe = ref(false);

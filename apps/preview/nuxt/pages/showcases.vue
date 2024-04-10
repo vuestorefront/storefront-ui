@@ -92,7 +92,8 @@ import { useControlsSearchParams } from '~/composables/utils/useControlsSearchPa
 const { currentRoute, ...router } = useRouter();
 
 const REST_GROUP_NAME = 'Rest';
-const paths = router.getRoutes()
+const paths = router
+  .getRoutes()
   .filter((route) => route.path.includes('showcases/'))
   .map((route) => route.path);
 const groupItemHref = (groupName, showcaseName) => {
