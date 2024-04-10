@@ -10,7 +10,7 @@ const { selectedFramework } = useFramework();
       :to="`/${selectedFramework.name.toLowerCase()}/blocks/${block.toLowerCase()}`"
       class="col-span-12 md:col-span-4 lg:col-span-3"
       :title="block.replace('Sf', '')"
-      :img="`/thumbnails/blocks/${block.replace('Sf', '')}.png`"
+      :img="`/v2/thumbnails/blocks/${block.replace('Sf', '')}.png`"
     />
   </div>
 </template>
