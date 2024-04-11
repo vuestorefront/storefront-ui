@@ -19,7 +19,7 @@
       </SfButton>
       <ul class="sidebar-list flex flex-col">
         <li v-for="component in components" :key="component">
-          <NuxtLink v-slot="{ navigate }" :to="`/examples/${component}`" custom>
+          <NuxtLink v-slot="{ navigate }" :to="`/examples/${component}`" custom no-prefetch>
             <SfListItem
               tag="span"
               :selected="currentRoute.path === `/examples/${component}`"
@@ -47,12 +47,12 @@ import {
 } from '@storefront-ui/vue';
 import { onBeforeMount } from 'vue';
 
-const { currentRoute } = useRouter();
+const { currentRoute, ...router } = useRouter();
 
-const files = import.meta.glob('./examples/*.vue');
-const components = Object.keys(files)
-  .map((file) => file.match(/([\w\d_-]*)\.?[^\\\/]*$/i)[1])
-  .sort();
+const components = router
+  .getRoutes()
+  .filter((route) => route.path.includes('examples/'))
+  .map((route) => route.path.replace('/examples/', ''));
 
 const isOpen = ref(true);
 const isNotIframe = ref(false);
