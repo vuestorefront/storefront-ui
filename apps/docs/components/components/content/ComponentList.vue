@@ -11,7 +11,7 @@ const { selectedFramework } = useFramework();
       :to="`/${selectedFramework.name.toLowerCase()}/components/${component.replace('Sf', '').toLowerCase()}`"
       class="col-span-12 md:col-span-4 lg:col-span-3"
       :title="component.replace('Sf', '')"
-      :img="`/thumbnails/components/${component.replace('Sf', '')}.png`"
+      :img="`/v2/thumbnails/components/${component.replace('Sf', '')}.png`"
     />
   </div>
 </template>

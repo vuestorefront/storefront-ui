@@ -4408,8 +4408,8 @@ __metadata:
     "@nuxtjs/algolia": ^1.8.0
     "@nuxtjs/color-mode": ^3.2.0
     "@nuxtjs/tailwindcss": ^6.7.0
-    "@storefront-ui/typography": ^2.1.0
-    "@storefront-ui/vue": ^2.1.0
+    "@storefront-ui/typography": ^2.6.0
+    "@storefront-ui/vue": ^2.6.2
     "@tailwindcss/typography": ^0.5.9
     "@types/node": ^18
     "@vueuse/integrations": ^10.0.2
@@ -4695,7 +4695,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/typography@^2.1.0, @storefront-ui/typography@workspace:*, @storefront-ui/typography@workspace:packages/sfui/typography":
+"@storefront-ui/typography@^2.1.0, @storefront-ui/typography@^2.6.0, @storefront-ui/typography@workspace:*, @storefront-ui/typography@workspace:packages/sfui/typography":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/typography@workspace:packages/sfui/typography"
   dependencies:
@@ -4746,7 +4746,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/vue@^2.1.0, @storefront-ui/vue@workspace:*, @storefront-ui/vue@workspace:packages/sfui/frameworks/vue":
+"@storefront-ui/vue@^2.1.0, @storefront-ui/vue@^2.6.2, @storefront-ui/vue@workspace:*, @storefront-ui/vue@workspace:packages/sfui/frameworks/vue":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/vue@workspace:packages/sfui/frameworks/vue"
   dependencies:

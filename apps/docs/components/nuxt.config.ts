@@ -4,6 +4,14 @@ export default defineNuxtConfig({
   extends: ['sf-docs-base'],
   app: {
     baseURL: process.env.VITE_DOCS_BASEPATH ?? '',
+    head: {
+      link: [
+        {
+          rel: 'icon',
+          href: '/v2/favicon.ico',
+        },
+      ],
+    },
   },
   // fix via https://github.com/nuxt/content/issues/2254
   alias: {
@@ -15,6 +23,9 @@ export default defineNuxtConfig({
       storefrontUi: true,
       DOCS_EXAMPLES_VUE_PATH: process.env.VITE_DOCS_EXAMPLES_VUE_PATH,
       DOCS_EXAMPLES_REACT_PATH: process.env.VITE_DOCS_EXAMPLES_REACT_PATH,
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://docs.storefrontui.io',
+      siteName: 'Storefront UI',
+      siteDescription: 'Fast, accessible, and fully customizable components built for e-commerce.',
     },
   },
   nitro: {

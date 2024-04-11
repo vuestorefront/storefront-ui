@@ -8,6 +8,6 @@ const route = useRoute();
 
 <template>
   <NuxtLayout name="fullscreen">
-    <ContentDoc :path="`/_hooks/${route.params.hook}`" />
+    <ContentDoc :path="`/_hooks/${route.params.hook.toString().toLowerCase()}`" />
   </NuxtLayout>
 </template>
