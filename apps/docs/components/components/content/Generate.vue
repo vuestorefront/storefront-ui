@@ -1,6 +1,6 @@
 <template>
   <div class="custom-block">
-    <iframe ref="iframeRef" :src="exampleUrl" class="generate w-full h-full border"></iframe>
+    <iframe ref="iframeRef" :src="exampleUrl" class="generate w-full h-full border" loading="lazy" />
   </div>
 </template>
 
