@@ -6,7 +6,7 @@
       class="relative flex-col min-w-[140px] max-w-[240px] justify-center group"
     >
       <a
-        class="absolute w-full h-full z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
+        class="absolute w-full h-full z-[1] focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
         href="#"
         :aria-label="title"
       />
