@@ -31,7 +31,11 @@ export default defineNuxtConfig({
   nitro: {
     routeRules: {
       '/figma': { redirect: 'https://www.figma.com/file/Q7Nr1NvjPdcGVhykkfDg2k/Storefront-UI-%7C-Design-Kit-v2.5-(public)?type=design&node-id=22913-91045&mode=design'}
-    }
+    },
+    prerender: {
+      crawlLinks: true,
+      failOnError: false,
+    },
   },
   vite: {
     server: {

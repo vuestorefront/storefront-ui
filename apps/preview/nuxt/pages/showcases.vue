@@ -42,6 +42,7 @@
                     v-slot="{ navigate }"
                     :to="groupItemHref(groupKey, showcaseName)"
                     custom
+                    no-prefetch
                   >
                     <SfListItem
                       tag="span"
@@ -88,19 +89,20 @@ import {
 import { ref, watch, reactive, onBeforeMount } from 'vue';
 import { useControlsSearchParams } from '~/composables/utils/useControlsSearchParams';
 
-const { currentRoute } = useRouter();
+const { currentRoute, ...router } = useRouter();
 
 const REST_GROUP_NAME = 'Rest';
-const files = import.meta.glob('./showcases/**');
-const paths = Object.keys(files);
+const paths = router
+  .getRoutes()
+  .filter((route) => route.path.includes('showcases/'))
+  .map((route) => route.path);
 const groupItemHref = (groupName, showcaseName) => {
   return `/showcases/${groupName !== REST_GROUP_NAME ? `${groupName}/` : ''}${showcaseName}`;
 };
 const groups = reactive(
   paths.reduce((prev, curr) => {
-    if (!curr.includes('.vue')) return prev;
-    const showcasePathArray = curr.replace('./showcases/', '').split('/');
-    const showcaseName = showcasePathArray[showcasePathArray.length - 1].replace('.vue', '');
+    const showcasePathArray = curr.replace('/showcases/', '').split('/');
+    const showcaseName = showcasePathArray[showcasePathArray.length - 1];
     const groupName = showcasePathArray.length === 2 ? showcasePathArray[0] : REST_GROUP_NAME;
 
     const isInUrl = currentRoute.value.href === groupItemHref(groupName, showcaseName);
