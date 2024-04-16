@@ -23,7 +23,7 @@ export default function CategoryCard() {
       {categories.map(({ title, image }) => (
         <div className="relative min-w-[180px] flex-col max-w-[240px] group" key={title}>
           <a
-            className="absolute w-full h-full z-1 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
+            className="absolute w-full h-full z-[1] focus-visible:outline focus-visible:outline-offset focus-visible:rounded-md"
             href="#"
             aria-label={title}
           />
