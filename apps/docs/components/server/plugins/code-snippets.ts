@@ -23,10 +23,10 @@ export default defineNitroPlugin((nitro: any) => {
 
         let filePath = resolver.resolve(normalizedSrc);
         if (import.meta.env.NODE_ENV === 'prerender') {
-          filePath = path.join(path.dirname(import.meta.url), '..', '..', '..', filePath).replace('file:/', '/');
+          filePath = path.join(path.dirname(import.meta.url), '..', '..', '..', '..', filePath).replace('file:/', '/');
           if (!fs.existsSync(filePath)) {
             filePath = path
-              .join(path.dirname(import.meta.url), '..', '..', '..', '..', resolver.resolve(normalizedSrc))
+              .join(path.dirname(import.meta.url), '..', '..', '..', '..', '..', resolver.resolve(normalizedSrc))
               .replace('file:/', '/');
           }
         }
