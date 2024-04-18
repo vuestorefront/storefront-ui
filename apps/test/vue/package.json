@@ -36,7 +36,7 @@
     "@storefront-ui/typography": "workspace:*",
     "@storefront-ui/vue": "workspace:*",
     "@tailwindcss/typography": "^0.5.9",
-    "@types/node": "^18.13.0",
+    "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vue/tsconfig": "^0.1.3",
     "autoprefixer": "^10.4.13",

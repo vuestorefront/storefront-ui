@@ -14,7 +14,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable

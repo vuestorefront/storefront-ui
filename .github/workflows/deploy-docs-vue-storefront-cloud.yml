@@ -9,8 +9,8 @@ on:
 
 jobs:
   configure-enviroment:
-      name: Setup enviroment
-      uses: vuestorefront/storefront-ui/.github/workflows/configure-environment.yml@v2-develop
+    name: Setup enviroment
+    uses: vuestorefront/storefront-ui/.github/workflows/configure-environment.yml@v2-develop
 
   build:
     needs: configure-enviroment
@@ -18,8 +18,8 @@ jobs:
     secrets: inherit
     with:
       DOCKER_NAMESPACE: ${{ needs.configure-enviroment.outputs.docker-namespace }}
-      ARTIFACT_TYPE: "sfui2-docs"
-      DOCKERFILE_PATH: "./.vuestorefrontcloud/docs/Dockerfile"
+      ARTIFACT_TYPE: 'sfui2-docs'
+      DOCKERFILE_PATH: './.vuestorefrontcloud/docs/Dockerfile'
       ENVIRONMENT: ${{ needs.configure-enviroment.outputs.environment }}
 
   sync-assets:
@@ -29,7 +29,7 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
@@ -42,7 +42,7 @@ jobs:
         with:
           path: 'apps/preview/shared/public/@assets'
           parent: false
-          destination: "sfui_docs_artifacts_bucket_public/${{ needs.configure-enviroment.outputs.environment }}"
+          destination: 'sfui_docs_artifacts_bucket_public/${{ needs.configure-enviroment.outputs.environment }}'
 
   deploy:
     needs: [build, configure-enviroment]
@@ -53,9 +53,9 @@ jobs:
     with:
       ENVIRONMENT: ${{ needs.configure-enviroment.outputs.environment }}
       TARGET_URL: ${{ needs.configure-enviroment.outputs.target-domain }}/v2
-      FARMER_NAMESPACE_NAME:  ${{ needs.configure-enviroment.outputs.farmer-instance-name }}
-      DOCS_NAME: "sfui2-docs"
+      FARMER_NAMESPACE_NAME: ${{ needs.configure-enviroment.outputs.farmer-instance-name }}
+      DOCS_NAME: 'sfui2-docs'
       DOCS_IMAGE: registry.storefrontcloud.io/${{ needs.configure-enviroment.outputs.docker-namespace }}/sfui2-docs
-      DOCS_SUBPATH: "/v2"
-      DOCS_PORT: "80"
-      HAS_BASE_PATH: "true"
+      DOCS_SUBPATH: '/v2'
+      DOCS_PORT: '80'
+      HAS_BASE_PATH: 'true'

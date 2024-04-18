@@ -27,7 +27,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
@@ -42,7 +42,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
@@ -60,7 +60,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
@@ -77,7 +77,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
@@ -94,7 +94,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
@@ -114,7 +114,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
@@ -133,7 +133,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
@@ -168,7 +168,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
@@ -205,7 +205,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
@@ -240,7 +240,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
@@ -278,7 +278,7 @@ jobs:
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
