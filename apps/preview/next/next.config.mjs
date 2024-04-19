@@ -6,7 +6,7 @@ const isProd = process.env.PROD === 'true';
 /** @type {import('next').NextConfig} */
 export default {
   env: {
-    DOCS_EXAMPLES_REACT_PATH: process.env.VITE_DOCS_EXAMPLES_REACT_PATH,
+    DOCS_EXAMPLES_REACT_PATH: process.env.VITE_DOCS_EXAMPLES_REACT_PATH || '',
   },
   basePath: process.env.VITE_DOCS_EXAMPLES_REACT_PATH
     ? new URL(process.env.VITE_DOCS_EXAMPLES_REACT_PATH).pathname
