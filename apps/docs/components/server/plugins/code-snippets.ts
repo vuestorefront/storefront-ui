@@ -1,11 +1,10 @@
-import { createResolver } from '@nuxt/kit';
+import { resolve, relative } from 'pathe';
 import * as fs from 'node:fs';
-import * as path from 'node:path';
 
 export default defineNitroPlugin((nitro: any) => {
   // will be configurable in the future
   const defaultPrefix = '<<<';
-  const resolver = createResolver(import.meta.url);
+
   nitro.hooks.hook('content:file:beforeParse', (file: any) => {
     if (file._id.endsWith('.md')) {
       const snippetMatch = file.body.match(new RegExp(`^${defaultPrefix}(?:\\s*)([^{\\s]+)`, 'gm'));
@@ -21,16 +20,8 @@ export default defineNitroPlugin((nitro: any) => {
         const normalizedSrc = filename.replace(/@/g, '.');
         const nameExt = normalizedSrc.split('.').pop().toLowerCase();
 
-        let filePath = resolver.resolve(normalizedSrc);
-        if (import.meta.env.NODE_ENV === 'prerender') {
-          filePath = path.join(path.dirname(import.meta.url), '..', '..', '..', '..', filePath).replace('file:/', '/');
-          if (!fs.existsSync(filePath)) {
-            filePath = path
-              .join(path.dirname(import.meta.url), '..', '..', '..', '..', '..', resolver.resolve(normalizedSrc))
-              .replace('file:/', '/');
-          }
-        }
-
+        let filePath = resolve(resolve(),  normalizedSrc.replace('../../../../', '../../'))
+       
         const isAFile = fs.existsSync(filePath);
         const escapedSnippet = snippet.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
