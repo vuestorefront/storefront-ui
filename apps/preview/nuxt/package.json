@@ -15,7 +15,7 @@
   "devDependencies": {
     "@frsource/autoresize-textarea": "^1.3.76",
     "@nuxtjs/eslint-config-typescript": "^12.0.0",
-    "@nuxtjs/tailwindcss": "^6.6.5",
+    "@nuxtjs/tailwindcss": "^6.12.0",
     "@storefront-ui/eslint-config": "workspace:*",
     "@storefront-ui/example-style": "workspace:*",
     "@storefront-ui/shared": "workspace:*",
@@ -25,14 +25,14 @@
     "@tailwindcss/typography": "^0.5.9",
     "@types/lodash-es": "^4.17.6",
     "@vueuse/core": "^9.12.0",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.19",
     "eslint": "^8.34.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "nuxt": "^3.3.2",
     "postcss": "^8.4.21",
     "prettier": "^3.0.0",
-    "sass": "^1.58.2",
-    "sass-loader": "^13.2.0"
+    "sass": "^1.75.0",
+    "sass-loader": "^13.3.3"
   },
   "dependencies": {
     "@storefront-ui/preview-shared": "workspace:^",
