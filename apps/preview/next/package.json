@@ -14,13 +14,13 @@
   },
   "dependencies": {
     "@storefront-ui/preview-shared": "workspace:*",
-    "classnames": "^2.3.2",
+    "classnames": "^2.5.1",
     "lodash-es": "^4.17.21",
     "next": "^13.3.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-transition-group": "^4.4.5",
-    "react-use": "^17.4.0",
+    "react-use": "^17.4.5",
     "swr": "^2.0.3"
   },
   "devDependencies": {
@@ -35,7 +35,7 @@
     "@storefront-ui/typography": "workspace:*",
     "@tailwindcss/typography": "^0.5.9",
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "^18.13.0",
+    "@types/node": "^20.12.7",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/react-transition-group": "^4.4.5",
@@ -43,7 +43,7 @@
     "prettier": "^3.0.0",
     "rimraf": "^5.0.0",
     "string-replace-loader": "^3.1.0",
-    "tailwindcss": "^3.2.7",
+    "tailwindcss": "^3.4.3",
     "ts-loader": "^9.4.2"
   }
 }
