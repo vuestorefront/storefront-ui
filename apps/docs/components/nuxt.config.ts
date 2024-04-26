@@ -4,6 +4,7 @@ export default defineNuxtConfig({
   extends: ['sf-docs-base'],
   app: {
     baseURL: process.env.VITE_DOCS_BASEPATH ?? '',
+
     head: {
       link: [
         {
@@ -12,6 +13,12 @@ export default defineNuxtConfig({
         },
       ],
     },
+  },
+  robots: {
+    enabled: false
+  },
+  sitemap: {
+    enabled: false
   },
   // fix via https://github.com/nuxt/content/issues/2254
   alias: {
