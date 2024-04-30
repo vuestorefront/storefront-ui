@@ -31,7 +31,7 @@
   "devDependencies": {
     "typescript": "^4.9.5",
     "vite": "^4.3.0",
-    "vite-plugin-dts": "^3.9.0"
+    "vite-plugin-dts": "^2.0.0-beta.1"
   },
   "dependencies": {
     "@mertasan/tailwindcss-variables": "^2.5.2",
