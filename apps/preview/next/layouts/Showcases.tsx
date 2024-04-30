@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Fragment, type ReactElement, useEffect, useState } from 'react';
+import { Fragment, type ReactElement, useEffect, useState, ChangeEvent } from 'react';
 import useSWR from 'swr';
 import {
   SfButton,
@@ -125,7 +125,11 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
             aria-label={isOpen ? 'Hide sidebar' : 'Open sidebar'}
           />
           <label className="sidebar-search">
-            <SfInput value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search" />
+            <SfInput
+              value={search}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}
+              placeholder="Search"
+            />
             <button type="button" className="sidebar-search__button" onClick={() => setSearch('')}>
               {search ? <SfIconCloseSm className="sidebar-search__button-icon" /> : undefined}
             </button>

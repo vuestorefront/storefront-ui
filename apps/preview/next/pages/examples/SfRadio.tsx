@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { prepareControls } from '../../components/utils/Controls';
 import ComponentExample from '../../components/utils/ComponentExample';
 import { ExamplePageLayout } from '../examples';
+import { type ChangeEvent } from 'react';
 
 function Example() {
   const { state, controls } = prepareControls(
@@ -71,7 +72,7 @@ function Example() {
             checked={state.get.checked === value}
             disabled={state.get.disabled}
             invalid={state.get.invalid}
-            onChange={(event) => {
+            onChange={(event: ChangeEvent<HTMLInputElement>) => {
               onChangeHandler(event.target.value);
             }}
           />

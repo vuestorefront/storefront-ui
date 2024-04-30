@@ -22,7 +22,7 @@ function Example() {
     <ComponentExample controls={{ state, controls }}>
       <SfAccordionItem
         open={state.get.open}
-        onToggle={(open) => state.set({ open })}
+        onToggle={(open: boolean) => state.set({ open })}
         summary={
           <div className="flex justify-between p-2 bg-gray-100">
             <p>Click me to see the content</p>
