@@ -717,14 +717,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/changelog-github@npm:^0.4.8":
-  version: 0.4.8
-  resolution: "@changesets/changelog-github@npm:0.4.8"
+"@changesets/changelog-github@npm:^0.5.0":
+  version: 0.5.0
+  resolution: "@changesets/changelog-github@npm:0.5.0"
   dependencies:
-    "@changesets/get-github-info": ^0.5.2
-    "@changesets/types": ^5.2.1
+    "@changesets/get-github-info": ^0.6.0
+    "@changesets/types": ^6.0.0
     dotenv: ^8.1.0
-  checksum: 8a357cc08757e0eeca267ee05141f68bef936582abef8b78a5d30d99f5a86e41b7d3debba70992b73b2f57b0fc6201ec1cc3c65116930167ee3197b427b865c5
+  checksum: 4ab43d8104693f970d878f2b1657ff67b4d4dcb7452ddf118575153bab74286cdfd125381c2ab92b205bce4b2c653c36552138bf2900f7165ac39a868b7fe22c
   languageName: node
   linkType: hard
 
@@ -807,13 +807,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/get-github-info@npm:^0.5.2":
-  version: 0.5.2
-  resolution: "@changesets/get-github-info@npm:0.5.2"
+"@changesets/get-github-info@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@changesets/get-github-info@npm:0.6.0"
   dependencies:
     dataloader: ^1.4.0
     node-fetch: ^2.5.0
-  checksum: 067e07eeaecdbedbd1c715513c4aa6206a941bd1d3af292d067792808c6fa6644caad2b35fba614a44892559c031c234df8028f8d2abd4cb2682d48080ef5df3
+  checksum: 753173bda536aa79cb0502f59ce13889b23ae8463d04893d43ff22966818060837d9db4052b6cbfbd95dfb242fbfd38890a38c56832948e83bf358a47812b708
   languageName: node
   linkType: hard
 
@@ -906,13 +906,6 @@ __metadata:
   version: 4.1.0
   resolution: "@changesets/types@npm:4.1.0"
   checksum: 72c1f58044178ca867dd9349ecc4b7c233ce3781bb03b5b72a70c3166fbbab54a2f2cb19a81f96b4649ba004442c8734569fba238be4dd737fb4624a135c6098
-  languageName: node
-  linkType: hard
-
-"@changesets/types@npm:^5.2.1":
-  version: 5.2.1
-  resolution: "@changesets/types@npm:5.2.1"
-  checksum: 527dc1aa41b040fe35bcd55f7d07bec710320b179b000c429723e25b87aac18be487daf5047d4fecf2781aad78f73abff111e76e411b652f7a2e812a464c69f2
   languageName: node
   linkType: hard
 
@@ -2175,9 +2168,9 @@ __metadata:
   linkType: hard
 
 "@frsource/autoresize-textarea@npm:^2.0.66":
-  version: 2.0.66
-  resolution: "@frsource/autoresize-textarea@npm:2.0.66"
-  checksum: 5410be71d3a6d4f08d229e6e7f4bc9dbf51a769b2e877448dd4df16189e68bc3b351dba0ab45f28e96fde35d47e73384cc89f54ec5158de02e8f656e20690e9c
+  version: 2.0.68
+  resolution: "@frsource/autoresize-textarea@npm:2.0.68"
+  checksum: eea561f8fe4fd18e8733c7c3a2fa7643da753d42d72ad59e21cbcedfba8fb6bf493ba1d7ef2f13809a6a14c5601daa5f660aa32b71b538f0453b31ac57140843
   languageName: node
   linkType: hard
 
@@ -3150,22 +3143,24 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/module-builder@npm:^0.5.0":
-  version: 0.5.5
-  resolution: "@nuxt/module-builder@npm:0.5.5"
+"@nuxt/module-builder@npm:^0.6.0":
+  version: 0.6.0
+  resolution: "@nuxt/module-builder@npm:0.6.0"
   dependencies:
-    citty: ^0.1.5
+    citty: ^0.1.6
     consola: ^3.2.3
-    mlly: ^1.4.2
-    pathe: ^1.1.1
+    defu: ^6.1.4
+    mlly: ^1.6.1
+    pathe: ^1.1.2
+    pkg-types: ^1.1.0
     unbuild: ^2.0.0
   peerDependencies:
-    "@nuxt/kit": ^3.8.2
-    nuxi: ^3.10.0
+    "@nuxt/kit": ^3.11.2
+    nuxi: ^3.11.1
   bin:
     nuxt-build-module: dist/cli.mjs
     nuxt-module-build: dist/cli.mjs
-  checksum: f17ef051735666b016ef92dc2d1681f04caf15d5181105d35c2a0a79661155facec7d54dd9072782a7f150fc534798df19de3dc2d97ceefb4e5d96056e27db12
+  checksum: a6631e6cb3d80618b27c6ae808a94c45a3a35ddcff832dd2c6edc966a6a54621111b25ea269342da0c536833e8386a9eb6cb8f5d98ed3c5e119d76480d189b51
   languageName: node
   linkType: hard
 
@@ -4379,7 +4374,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/monorepo@workspace:."
   dependencies:
-    "@changesets/changelog-github": ^0.4.8
+    "@changesets/changelog-github": ^0.5.0
     "@changesets/cli": ^2.26.1
     "@commitlint/cli": ^17.0.0
     "@commitlint/config-conventional": ^17.0.0
@@ -4406,7 +4401,7 @@ __metadata:
   resolution: "@storefront-ui/nuxt@workspace:packages/sfui/frameworks/nuxt"
   dependencies:
     "@nuxt/kit": ^3.3.2
-    "@nuxt/module-builder": ^0.5.0
+    "@nuxt/module-builder": ^0.6.0
     "@nuxt/schema": ^3.3.2
     "@nuxtjs/tailwindcss": ^6.12.0
     "@storefront-ui/vue": "workspace:*"
@@ -18190,8 +18185,8 @@ __metadata:
   linkType: hard
 
 "nuxt-content-assets@npm:^1.3.2, nuxt-content-assets@npm:^1.4.3":
-  version: 1.4.3
-  resolution: "nuxt-content-assets@npm:1.4.3"
+  version: 1.4.4
+  resolution: "nuxt-content-assets@npm:1.4.4"
   dependencies:
     "@nuxt/kit": ^3.11.2
     crosspath: ^2.0.0
@@ -18204,7 +18199,7 @@ __metadata:
     ws: ^8.13.0
   peerDependencies:
     "@nuxt/content": ^2.0.0
-  checksum: 13c9472d8adda19bab8cd1a922251fad6287371929cf1766dd33d514d74df1b7453bc45b831fe71af985b53508abe2aefd6bdb663d1357eed5ce9023bdbfad14
+  checksum: 127dc385d528d2d87b47ee52d686be592e2f550ea91e5f00367232201eb59962ff04fb85d67ff67ce64095aaecabb2688a4352546c90038b44cdc1ea604993cf
   languageName: node
   linkType: hard
 
@@ -21848,15 +21843,15 @@ __metadata:
   linkType: hard
 
 "sass@npm:^1.72.0, sass@npm:^1.75.0":
-  version: 1.75.0
-  resolution: "sass@npm:1.75.0"
+  version: 1.76.0
+  resolution: "sass@npm:1.76.0"
   dependencies:
     chokidar: ">=3.0.0 <4.0.0"
     immutable: ^4.0.0
     source-map-js: ">=0.6.2 <2.0.0"
   bin:
     sass: sass.js
-  checksum: bfb9f5ddb6a2e1fe0c1ba6191cdb17afa7b40c1eb892c7152f6a29ff2b06dc7a510bdb648f8cca0179dcb3965920ebeb8894f0710b0b450a99db563831345033
+  checksum: 5f3fa7e7a1be09b7cea842a397fb07b9413fa9903bf82ead2ea059aa56faea534c2a84ede5a140103ee18a1dec9162b2fa1413fe71bbe8f8074712bf3bd3a8c7
   languageName: node
   linkType: hard
 
