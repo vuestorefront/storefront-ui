@@ -18,7 +18,7 @@
   "scripts": {
     "postinstall": "node hasEnv NOT_GENERATE_ICON && yarn generate-icons",
     "generate-icons": "yarn createVueIcons && yarn createReactIcons && yarn lint:fix:sfui",
-    "prepare": "husky install",
+    "prepare": "husky",
     "build": "yarn update-browserlist-db && yarn generate-icons && yarn build:peer-next && turbo run build",
     "dev:docs": "yarn update-browserlist-db && turbo run dev:docs",
     "dev": "yarn update-browserlist-db && yarn build:typography && yarn build:peer-next && yarn build:tailwind-config && yarn build:test-utils && yarn build:react && turbo run dev --parallel",
@@ -66,7 +66,7 @@
     "babel-preset-node": "^5.1.1",
     "commitizen": "^4.2.5",
     "concurrently": "^7.4.0",
-    "husky": "^8.0.0",
+    "husky": "^9.0.11",
     "hygen": "^6.2.8",
     "prettier": "latest",
     "rimraf": "^5.0.0",
