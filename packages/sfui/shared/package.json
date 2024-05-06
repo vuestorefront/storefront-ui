@@ -12,6 +12,7 @@
     },
     "./*": "./*"
   },
+  "type": "module",
   "source": "index.ts",
   "main": "dist/index.mjs",
   "unpkg": "dist/index.umd.js",
@@ -25,7 +26,7 @@
     "tabbable": "^6.1.1",
     "typescript": "^5.4.5",
     "vite": "^5.2.1",
-    "vite-plugin-dts": "^2.0.0-beta.1",
+    "vite-plugin-dts": "^3.9.1",
     "vue-tsc": "^2.0.16"
   },
   "publishConfig": {

@@ -16,6 +16,7 @@
     "main": "dist/index.mjs",
     "unpkg": "dist/index.umd.js",
     "types": "dist/index.d.ts",
+    "type": "module",
     "scripts": {
         "dev-only": "vite build --watch",
         "build:peer-next": "vite build"
@@ -23,7 +24,7 @@
     "devDependencies": {
         "typescript": "^5.4.5",
         "vite": "^5.2.1",
-        "vite-plugin-dts": "^2.0.0-beta.1"
+        "vite-plugin-dts": "^3.9.1"
     },
     "peerDependencies": {
         "tailwindcss": ">=3.0.0 || >= 3.0.0-alpha.1"
