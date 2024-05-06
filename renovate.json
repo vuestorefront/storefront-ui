@@ -10,7 +10,7 @@
     },
     {
       "matchPackageNames": ["yarn"],
-      "allowedVersions": "<=4"
+      "allowedVersions": "/^[0-3]+\\.[0-9]+\\.[0-9]?$/"
     }
   ]
 }
