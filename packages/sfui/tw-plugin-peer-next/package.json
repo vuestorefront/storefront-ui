@@ -21,7 +21,7 @@
         "build:peer-next": "vite build"
     },
     "devDependencies": {
-        "typescript": "^4.9.5",
+        "typescript": "^5.4.5",
         "vite": "^5.2.1",
         "vite-plugin-dts": "^2.0.0-beta.1"
     },
