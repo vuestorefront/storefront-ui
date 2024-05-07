@@ -1,5 +1,14 @@
 # @storefront-ui/tailwind-config
 
+## 2.5.1
+
+### Patch Changes
+
+- [#3132](https://github.com/vuestorefront/storefront-ui/pull/3132) [`19fa774`](https://github.com/vuestorefront/storefront-ui/commit/19fa774b38a05801256ced7c8af7731ea19defb9) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Update dependencies
+
+- Updated dependencies [[`19fa774`](https://github.com/vuestorefront/storefront-ui/commit/19fa774b38a05801256ced7c8af7731ea19defb9)]:
+  - @storefront-ui/tw-plugin-peer-next@2.3.3
+
 ## 2.5.0
 
 ### Minor Changes
