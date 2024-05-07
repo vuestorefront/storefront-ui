@@ -21,7 +21,7 @@
     "test:ci:react": "yarn test:ci && CYPRESS_COVERAGE=true yarn cypress run --component && yarn generate-coverage"
   },
   "dependencies": {
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
