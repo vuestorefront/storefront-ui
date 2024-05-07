@@ -7,6 +7,10 @@
         "eslint-config-next"
       ],
       "enabled": false
+    },
+    {
+      "matchPackageNames": ["yarn"],
+      "allowedVersions": "/^[0-3]+\\.[0-9]+\\.[0-9]?$/"
     }
   ]
 }

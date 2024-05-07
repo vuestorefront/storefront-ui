@@ -22,7 +22,7 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@cypress/code-coverage": "^3.10.4",
@@ -35,13 +35,13 @@
     "@storefront-ui/tests-shared": "workspace:*",
     "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
-    "@tailwindcss/typography": "^0.5.9",
+    "@tailwindcss/typography": "^0.5.13",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.0.0-beta.0",
     "autoprefixer": "^10.4.19",
     "chokidar-cli": "^3.0.0",
-    "concurrently": "^8.0.1",
+    "concurrently": "^8.2.2",
     "cpy-cli": "^4.2.0",
     "cypress": "^13.2.0",
     "nyc": "^15.1.0",

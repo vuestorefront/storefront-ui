@@ -4,7 +4,7 @@ import { SfIconBase, SfIconSize } from '@storefront-ui/react';
 export default function SfIconWarehouse({ size = SfIconSize.base, viewBox = '0 0 24 24', ...attributes }: SfIconProps) {
   return (
     <SfIconBase size={size} viewBox={viewBox} data-testid="warehouse" {...attributes}>
-      <path d="m12 5.15-8 3.2V19h2v-6c0-.55.196-1.02.588-1.413A1.925 1.925 0 0 1 8 11h8c.55 0 1.021.196 1.413.587.391.392.587.863.587 1.413v6h2V8.35zM8 21H4c-.55 0-1.02-.195-1.412-.587A1.927 1.927 0 0 1 2 19V8.35A1.963 1.963 0 0 1 3.25 6.5l8-3.2c.233-.1.483-.15.75-.15s.517.05.75.15l8 3.2c.383.15.688.392.913.725.225.333.337.708.337 1.125V19a1.93 1.93 0 0 1-.587 1.413A1.928 1.928 0 0 1 20 21h-4v-8H8zm1 0v-2h2v2zm2-3v-2h2v2zm2 3v-2h2v2z" />
+      <path d="m12 5.15-8 3.2V19h2v-6q0-.824.588-1.413A1.93 1.93 0 0 1 8 11h8q.825 0 1.413.587Q18 12.175 18 13v6h2V8.35zM8 21H4q-.824 0-1.412-.587A1.93 1.93 0 0 1 2 19V8.35A1.96 1.96 0 0 1 3.25 6.5l8-3.2q.35-.15.75-.15t.75.15l8 3.2q.575.225.913.725.337.5.337 1.125V19q0 .825-.587 1.413A1.93 1.93 0 0 1 20 21h-4v-8H8zm1 0v-2h2v2zm2-3v-2h2v2zm2 3v-2h2v2z" />
     </SfIconBase>
   );
 }
