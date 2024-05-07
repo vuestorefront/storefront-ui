@@ -61,7 +61,7 @@
     "vue-tsc": "^2.0.16"
   },
   "peerDependencies": {
-    "vue": "^3.2.47"
+    "vue": "^3.4.27"
   },
   "publishConfig": {
     "access": "public"

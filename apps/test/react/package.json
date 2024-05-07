@@ -25,7 +25,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.10.4",
+    "@cypress/code-coverage": "^3.12.29",
     "@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
     "@frsource/frs-replace": "^4.1.1",
     "@storefront-ui/eslint-config": "workspace:*",
@@ -43,7 +43,7 @@
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
     "cpy-cli": "^4.2.0",
-    "cypress": "^13.2.0",
+    "cypress": "^13.8.1",
     "nyc": "^15.1.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",

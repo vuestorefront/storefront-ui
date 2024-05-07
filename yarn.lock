@@ -1463,9 +1463,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/code-coverage@npm:^3.10.0, @cypress/code-coverage@npm:^3.10.4":
-  version: 3.12.38
-  resolution: "@cypress/code-coverage@npm:3.12.38"
+"@cypress/code-coverage@npm:^3.12.29":
+  version: 3.12.39
+  resolution: "@cypress/code-coverage@npm:3.12.39"
   dependencies:
     "@cypress/webpack-preprocessor": ^6.0.0
     chalk: 4.1.2
@@ -1482,7 +1482,7 @@ __metadata:
     babel-loader: ^8.3 || ^9
     cypress: "*"
     webpack: ^4 || ^5
-  checksum: 26ae7069970641ee40d4adff28f288b82880b4cfb7978b191679a55ba60c2db788dc9bd8a1d204591932474c745d14e9526ec31488ac4be2ed321d27fcea4069
+  checksum: 535475f7430fbe1c3d2a63c82713707a9359ab5b3757103e84f159ac796cdb7f729df2baa16aeabbfd7dfec00ea1007ae86658de3f60c0445361b7d66a3b8463
   languageName: node
   linkType: hard
 
@@ -4374,7 +4374,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/react-test@workspace:apps/test/react"
   dependencies:
-    "@cypress/code-coverage": ^3.10.4
+    "@cypress/code-coverage": ^3.12.29
     "@frsource/cypress-plugin-visual-regression-diff": ^3.3.10
     "@frsource/frs-replace": ^4.1.1
     "@storefront-ui/eslint-config": "workspace:*"
@@ -4392,7 +4392,7 @@ __metadata:
     chokidar-cli: ^3.0.0
     concurrently: ^8.2.2
     cpy-cli: ^4.2.0
-    cypress: ^13.2.0
+    cypress: ^13.8.1
     nyc: ^15.1.0
     postcss: ^8.4.21
     postcss-import: ^15.1.0
@@ -4511,7 +4511,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/vue-test@workspace:apps/test/vue"
   dependencies:
-    "@cypress/code-coverage": ^3.10.0
+    "@cypress/code-coverage": ^3.12.29
     "@frsource/cypress-plugin-visual-regression-diff": ^3.3.10
     "@frsource/frs-replace": ^4.1.1
     "@rushstack/eslint-patch": ^1.2.0
@@ -4524,13 +4524,13 @@ __metadata:
     "@storefront-ui/vue": "workspace:*"
     "@tailwindcss/typography": ^0.5.13
     "@types/node": ^20.12.7
-    "@vitejs/plugin-vue": ^4.0.0
+    "@vitejs/plugin-vue": ^5.0.4
     "@vue/tsconfig": ^0.1.3
     autoprefixer: ^10.4.19
     chokidar-cli: ^3.0.0
     concurrently: ^8.2.2
     cpy-cli: ^4.2.0
-    cypress: ^13.2.0
+    cypress: ^13.8.1
     nyc: ^15.1.0
     postcss: ^8.4.21
     postcss-import: ^15.1.0
@@ -4540,8 +4540,8 @@ __metadata:
     typescript: ^5.4.5
     vite: ^5.2.1
     vite-plugin-istanbul: ^4.0.0
-    vue: ^3.2.47
-    vue-router: ^4.1.6
+    vue: ^3.4.27
+    vue-router: ^4.3.2
     vue-tsc: ^2.0.16
   languageName: unknown
   linkType: soft
@@ -4567,7 +4567,7 @@ __metadata:
     vite-tsconfig-paths: ^4.3.2
     vue-tsc: ^2.0.16
   peerDependencies:
-    vue: ^3.2.47
+    vue: ^3.4.27
   languageName: unknown
   linkType: soft
 
@@ -9833,7 +9833,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cypress@npm:^13.2.0":
+"cypress@npm:^13.8.1":
   version: 13.8.1
   resolution: "cypress@npm:13.8.1"
   dependencies:
@@ -25399,7 +25399,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue-router@npm:^4.1.6, vue-router@npm:^4.3.0":
+"vue-router@npm:^4.3.0, vue-router@npm:^4.3.2":
   version: 4.3.2
   resolution: "vue-router@npm:4.3.2"
   dependencies:
@@ -25463,7 +25463,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vue@npm:^3.2.47, vue@npm:^3.4.21, vue@npm:^3.4.8":
+"vue@npm:^3.4.21, vue@npm:^3.4.8":
   version: 3.4.26
   resolution: "vue@npm:3.4.26"
   dependencies:
