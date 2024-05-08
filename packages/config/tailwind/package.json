@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/tailwind-config",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -11,6 +11,7 @@
     },
     "./*": "./*"
   },
+  "type": "module",
   "source": "index.ts",
   "main": "dist/index.mjs",
   "unpkg": "dist/index.umd.js",
@@ -29,9 +30,9 @@
     "url": "https://github.com/vuestorefront/storefront-ui/issues"
   },
   "devDependencies": {
-    "typescript": "^4.9.5",
-    "vite": "^4.3.0",
-    "vite-plugin-dts": "^2.0.0-beta.1"
+    "typescript": "^5.4.5",
+    "vite": "^5.2.1",
+    "vite-plugin-dts": "^3.9.1"
   },
   "dependencies": {
     "@mertasan/tailwindcss-variables": "^2.5.2",

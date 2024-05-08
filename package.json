@@ -65,14 +65,14 @@
     "babel-cli": "^6.26.0",
     "babel-preset-node": "^5.1.1",
     "commitizen": "^4.2.5",
-    "concurrently": "^7.4.0",
+    "concurrently": "^8.2.2",
     "husky": "^9.0.11",
     "hygen": "^6.2.8",
     "prettier": "latest",
     "rimraf": "^5.0.0",
     "tailwindcss": "^3.4.3",
     "turbo": "latest",
-    "typescript": "^4.9.5",
+    "typescript": "^5.4.5",
     "wait-on": "^7.0.1"
   },
   "engines": {

@@ -27,8 +27,8 @@
     "@nuxtjs/color-mode": "^3.4.1",
     "@nuxtjs/seo": "^2.0.0-rc.10",
     "@nuxtjs/tailwindcss": "^6.12.0",
-    "@storefront-ui/typography": "^2.6.0",
-    "@storefront-ui/vue": "^2.6.2",
+    "@storefront-ui/typography": "^2.6.1",
+    "@storefront-ui/vue": "^2.6.3",
     "@tailwindcss/typography": "^0.5.13",
     "@vueuse/integrations": "^10.9.0",
     "@vueuse/nuxt": "^10.9.0",
@@ -40,7 +40,7 @@
     "sf-docs-base": "^1.2.4",
     "unstorage": "^1.10.1",
     "vite-svg-loader": "^5.1.0",
-    "vue": "^3.4.26"
+    "vue": "^3.4.27"
   },
   "resolutions": {
     "@storefront-ui/eslint-config": "workspace:*",

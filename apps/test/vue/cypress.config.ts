@@ -1,5 +1,6 @@
 import { defineConfig } from 'cypress';
 import { initPlugin } from '@frsource/cypress-plugin-visual-regression-diff/plugins';
+import coverageTask from '@cypress/code-coverage/task';
 
 const isCoverageEnabled = process.env.CYPRESS_COVERAGE === 'true';
 const singleFile = process.env.SPEC ? `${process.env.SPEC}/` : '';
@@ -21,7 +22,7 @@ export default defineConfig({
     experimentalSingleTabRunMode: true,
     setupNodeEvents(on, config) {
       initPlugin(on, config);
-      isCoverageEnabled && require('@cypress/code-coverage/task')(on, config);
+      isCoverageEnabled && coverageTask(on, config);
       return config;
     },
   },

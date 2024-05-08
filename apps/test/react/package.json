@@ -21,11 +21,11 @@
     "test:ci:react": "yarn test:ci && CYPRESS_COVERAGE=true yarn cypress run --component && yarn generate-coverage"
   },
   "dependencies": {
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.10.4",
+    "@cypress/code-coverage": "^3.12.29",
     "@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
     "@frsource/frs-replace": "^4.1.1",
     "@storefront-ui/eslint-config": "workspace:*",
@@ -43,14 +43,14 @@
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
     "cpy-cli": "^4.2.0",
-    "cypress": "^13.2.0",
+    "cypress": "^13.8.1",
     "nyc": "^15.1.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
     "rimraf": "^5.0.0",
     "tailwindcss": "^3.4.3",
-    "typescript": "^5.0.2",
-    "vite": "^4.3.0",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.1",
     "vite-plugin-istanbul": "^4.0.1"
   }
 }
