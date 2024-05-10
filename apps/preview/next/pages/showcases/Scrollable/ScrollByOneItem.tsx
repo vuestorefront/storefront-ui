@@ -11,7 +11,7 @@ export default function ScrollableMoveByOne() {
   return (
     <SfScrollable
       wrapperClassName="min-w-0"
-      className="items-center w-full"
+      className="items-center w-full snap-x snap-mandatory"
       activeIndex={activeIndex}
       prevDisabled={activeIndex === 0}
       nextDisabled={activeIndex === itemsLength - 1}
@@ -29,7 +29,7 @@ export default function ScrollableMoveByOne() {
         <div
           key={i}
           className={classNames(
-            'flex items-center justify-center text-gray-500 border w-36 h-36 shrink-0 border-negative-300',
+            'flex items-center justify-center text-gray-500 border w-36 h-36 shrink-0 border-negative-300 snap-start snap-always',
             i === activeIndex ? 'border-solid bg-neutral-200' : 'border-dashed bg-neutral-100',
           )}
         >

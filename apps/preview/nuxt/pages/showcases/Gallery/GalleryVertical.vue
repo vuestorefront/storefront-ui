@@ -52,7 +52,7 @@
       </template>
     </SfScrollable>
     <SfScrollable
-      class="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+      class="w-full h-full snap-y snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       :active-index="activeIndex"
       direction="vertical"
       wrapper-class="h-full m-auto"
@@ -64,7 +64,7 @@
       <div
         v-for="({ imageSrc, alt }, index) in images"
         :key="`${alt}-${index}`"
-        class="flex justify-center h-full basis-full shrink-0 grow snap-center"
+        class="flex justify-center h-full basis-full shrink-0 grow snap-center snap-always"
       >
         <img
           :aria-label="alt"
