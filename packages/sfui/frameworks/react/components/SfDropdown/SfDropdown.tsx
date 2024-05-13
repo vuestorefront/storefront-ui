@@ -1,3 +1,4 @@
+'use client';
 import classNames from 'classnames';
 import { useDropdown } from '@storefront-ui/react';
 import type { SfDropdownProps } from '@storefront-ui/react';
