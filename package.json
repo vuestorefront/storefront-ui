@@ -79,7 +79,7 @@
   "engines": {
     "npm": ">=8.19.1",
     "yarn": ">=1.22.19",
-    "node": ">=16.0.0 <17.0.0"
+    "node": ">=18.0.0"
   },
   "packageManager": "yarn@3.8.2",
   "config": {
