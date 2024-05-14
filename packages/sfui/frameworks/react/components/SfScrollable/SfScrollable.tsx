@@ -1,3 +1,4 @@
+'use client';
 /* eslint-disable react/require-default-props */
 import { cloneElement, useMemo } from 'react';
 import classNames from 'classnames';

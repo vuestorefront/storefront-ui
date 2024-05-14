@@ -70,6 +70,7 @@
     "hygen": "^6.2.8",
     "prettier": "latest",
     "rimraf": "^5.0.0",
+    "rollup-plugin-preserve-directives": "^0.4.0",
     "tailwindcss": "^3.4.3",
     "turbo": "latest",
     "typescript": "^5.4.5",
@@ -78,7 +79,7 @@
   "engines": {
     "npm": ">=8.19.1",
     "yarn": ">=1.22.19",
-    "node": ">=16.0.0 <17.0.0"
+    "node": ">=18.0.0"
   },
   "packageManager": "yarn@3.8.2",
   "config": {
