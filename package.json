@@ -88,6 +88,6 @@
     }
   },
   "resolutions": {
-    "@changesets/assemble-release-plan@^5.2.3": "patch:@changesets/assemble-release-plan@npm%3A5.2.3#./.yarn/patches/@changesets-assemble-release-plan-npm-5.2.3-296454a28f.patch"
+    "@changesets/assemble-release-plan@^6.0.0": "patch:@changesets/assemble-release-plan@npm%3A6.0.0#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.0-f7b3005037.patch"
   }
 }

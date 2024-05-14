@@ -52,7 +52,10 @@ export default function GalleryHorizontal() {
         onDragEnd={onDragged}
       >
         {images.map(({ imageSrc, alt }, index) => (
-          <div key={`${alt}-${index}`} className="flex justify-center h-full basis-full shrink-0 grow snap-center">
+          <div
+            key={`${alt}-${index}`}
+            className="flex justify-center h-full basis-full shrink-0 grow snap-center snap-always"
+          >
             <img
               aria-label={alt}
               aria-hidden={activeIndex !== index}

@@ -40,7 +40,7 @@ Can be setup that will be without scrollbar
 
 ### Snap
 
-`SfScrollbale` can be configured with center snap while dragging.
+`SfScrollable` can be configured with center snap while dragging.
 
 <Showcase showcase-name="Scrollable/SnapCenter" style="min-height:260px">
 
@@ -55,7 +55,7 @@ Can be setup that will be without scrollbar
 
 ### Scroll by one item
 
-By default `SfScrollable` scroll by one page of items, but can be modified that every `next` and `previous` button will change active item directly.
+Normally, the `SfScrollable` scrolls one page of items at a time, but you can change it so each time you press the `next` or `previous` button, it will switch an active item accordingly.
 
 <Showcase showcase-name="Scrollable/ScrollByOneItem" style="min-height:260px">
 
