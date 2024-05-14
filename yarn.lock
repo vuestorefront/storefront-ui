@@ -2925,7 +2925,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.11.2, @nuxt/kit@npm:^3.10.0, @nuxt/kit@npm:^3.10.1, @nuxt/kit@npm:^3.10.2, @nuxt/kit@npm:^3.10.3, @nuxt/kit@npm:^3.11.1, @nuxt/kit@npm:^3.11.2, @nuxt/kit@npm:^3.2.0, @nuxt/kit@npm:^3.3.1, @nuxt/kit@npm:^3.3.2, @nuxt/kit@npm:^3.4.2, @nuxt/kit@npm:^3.5.1, @nuxt/kit@npm:^3.6.1, @nuxt/kit@npm:^3.6.5, @nuxt/kit@npm:^3.7.0, @nuxt/kit@npm:^3.7.1":
+"@nuxt/kit@npm:3.11.2, @nuxt/kit@npm:^3.10.0, @nuxt/kit@npm:^3.10.1, @nuxt/kit@npm:^3.10.2, @nuxt/kit@npm:^3.10.3, @nuxt/kit@npm:^3.11.1, @nuxt/kit@npm:^3.11.2, @nuxt/kit@npm:^3.2.0, @nuxt/kit@npm:^3.3.1, @nuxt/kit@npm:^3.4.2, @nuxt/kit@npm:^3.5.1, @nuxt/kit@npm:^3.6.1, @nuxt/kit@npm:^3.6.5, @nuxt/kit@npm:^3.7.0, @nuxt/kit@npm:^3.7.1":
   version: 3.11.2
   resolution: "@nuxt/kit@npm:3.11.2"
   dependencies:
@@ -3023,7 +3023,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/schema@npm:3.11.2, @nuxt/schema@npm:^3.10.3, @nuxt/schema@npm:^3.11.2, @nuxt/schema@npm:^3.3.2":
+"@nuxt/schema@npm:3.11.2, @nuxt/schema@npm:^3.10.3, @nuxt/schema@npm:^3.11.2":
   version: 3.11.2
   resolution: "@nuxt/schema@npm:3.11.2"
   dependencies:
@@ -4285,12 +4285,14 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/nuxt@workspace:packages/sfui/frameworks/nuxt"
   dependencies:
-    "@nuxt/kit": ^3.3.2
+    "@nuxt/kit": ^3.11.2
     "@nuxt/module-builder": ^0.6.0
-    "@nuxt/schema": ^3.3.2
+    "@nuxt/schema": ^3.11.2
     "@nuxtjs/tailwindcss": ^6.12.0
+    "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/vue": "workspace:*"
-    nuxt: ^3.3.2
+    eslint: ^8.34.0
+    nuxt: ^3.11.2
   languageName: unknown
   linkType: soft
 
@@ -18417,7 +18419,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt@npm:^3.11.2, nuxt@npm:^3.3.2":
+"nuxt@npm:^3.11.2":
   version: 3.11.2
   resolution: "nuxt@npm:3.11.2"
   dependencies:
