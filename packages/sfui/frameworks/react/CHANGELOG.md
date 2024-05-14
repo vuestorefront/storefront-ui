@@ -1,5 +1,20 @@
 # @storefront-ui/react
 
+## 2.7.0-rc.0
+
+### Minor Changes
+
+- [#3148](https://github.com/vuestorefront/storefront-ui/pull/3148) [`34b7107`](https://github.com/vuestorefront/storefront-ui/commit/34b7107053521733301a719822383ea056a96f4c) Thanks [@Razz21](https://github.com/Razz21)! - [CHANGED] Implemented `use client` directive in components:
+  - `SfAccordionItem`
+  - `SfDrawer`
+  - `SfDropdown`
+  - `SfModal`
+  - `SfRatingButton`
+  - `SfScrollable`
+  - `SfSelect`
+  - `SfTextarea`
+  - `SfTooltip`
+
 ## 2.6.3
 
 ### Patch Changes
