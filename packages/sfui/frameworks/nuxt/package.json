@@ -31,7 +31,7 @@
     "dist"
   ],
   "scripts": {
-    "build:nuxt-module": "nuxi prepare playground && nuxt-module-build",
+    "build:nuxt-module": "nuxt-module-build build && nuxi prepare playground",
     "dev:playground": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
@@ -41,7 +41,8 @@
   "dependencies": {
     "@nuxt/kit": "^3.11.2",
     "@nuxtjs/tailwindcss": "^6.12.0",
-    "@storefront-ui/vue": "workspace:*"
+    "@storefront-ui/vue": "workspace:*",
+    "defu": "^6.1.4"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.6.0",

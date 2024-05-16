@@ -1,6 +1,8 @@
 import { defineNuxtConfig } from 'nuxt/config';
 import { join, resolve } from 'path';
 import { existsSync } from 'fs';
+import sfTypography from '@storefront-ui/typography';
+import tailwindTypography from '@tailwindcss/typography';
 
 const isProd = process.env.PROD === 'true';
 
@@ -80,7 +82,7 @@ export default defineNuxtConfig({
       },
     ],
   },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@storefront-ui/nuxt'],
   css: ['@storefront-ui/example-style/index.scss', '@storefront-ui/example-style/controls.scss'],
   imports: {
     transform: {

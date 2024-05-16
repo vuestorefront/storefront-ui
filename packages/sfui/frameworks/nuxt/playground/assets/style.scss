@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+__nuxt,
+#nuxt-test {
+  @apply isolate;
+}

@@ -12,7 +12,8 @@
       "packages/*",
       "packages/config/*",
       "packages/sfui/*",
-      "packages/sfui/frameworks/*"
+      "packages/sfui/frameworks/*",
+      "packages/sfui/frameworks/nuxt/playground"
     ]
   },
   "scripts": {

@@ -134,9 +134,19 @@ export default defineNuxtConfig({
 })
 ```
 
-### Modify your `tailwind.config.ts`
+### Tailwind configuration
 
+Since we use `@nuxtjs/tailwindcss` under the hood, there is possibility to use `tailwindcss` property in `nuxt.config.ts` file. Other than that there is default `tailwind` way to create config via `tailwind.config.ts` file.
+
+Priority of reading configuration, in most important from top to bottom:
+
+1. `tailwind.config.ts` file
+2. `nuxt.config.ts` file with `tailwindcss` property
+3. default configuration inside module
+
+::tip Add a path to your installed package
 In order for Tailwind to properly detect the utility classes used in Storefront UI components, you need to add a path to wherever your `node_modules` folder is located to the `content` property. In the example below, we're using the default location for `node_modules`, but this may change if you're working in a monorepo.
+::
 
 ```ts
 // tailwind.config.ts
