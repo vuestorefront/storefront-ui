@@ -35,7 +35,7 @@
     "build:nuxt-module": "turbo run build:nuxt-module",
     "build:react": "turbo run build:react",
     "build:vue": "turbo run build:vue",
-    "build:release": "turbo run build:release",
+    "build:release": "turbo run build:release && turbo run build:nuxt-module",
     "build:tailwind-config": "turbo run build:tailwind-config",
     "build:typography": "turbo run build:typography",
     "build:peer-next": "turbo run build:peer-next",

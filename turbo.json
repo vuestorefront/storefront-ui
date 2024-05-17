@@ -51,7 +51,6 @@
         "build:react",
         "build:vue",
         "build:tailwind-config",
-        "build:nuxt-module",
         "build:typography",
         "build:peer-next",
         "build:shared"
