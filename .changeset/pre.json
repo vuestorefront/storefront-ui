@@ -20,5 +20,8 @@
     "@storefront-ui/typography": "2.6.1",
     "@storefront-ui/tests": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "few-panthers-approve",
+    "rich-numbers-end"
+  ]
 }
