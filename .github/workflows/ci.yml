@@ -257,7 +257,7 @@ jobs:
         run: yarn build:release
       - name: Publish release-candidate version
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
-        if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: version packages (rc)' ) }}"
+        if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: version packages ' ) && contains( steps.commit_message.outputs.result, ' (rc)' ) }}"
         run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish --tag rc || true
         env:
           # Needs access to publish to npm
