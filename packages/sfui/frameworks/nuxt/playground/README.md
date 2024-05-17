@@ -6,4 +6,3 @@ Priority of config load is:
 1. tailwind.config
 2. nuxt.config
 3. default config
-

@@ -4485,15 +4485,6 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/nuxt-playground@workspace:packages/sfui/frameworks/nuxt/playground":
-  version: 0.0.0-use.local
-  resolution: "@storefront-ui/nuxt-playground@workspace:packages/sfui/frameworks/nuxt/playground"
-  dependencies:
-    "@storefront-ui/nuxt": "workspace:*"
-    "@storefront-ui/vue": "workspace:*"
-  languageName: unknown
-  linkType: soft
-
 "@storefront-ui/nuxt@workspace:*, @storefront-ui/nuxt@workspace:packages/sfui/frameworks/nuxt":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/nuxt@workspace:packages/sfui/frameworks/nuxt"

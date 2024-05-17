@@ -1,8 +1,4 @@
 {
   "private": true,
-  "name": "@storefront-ui/nuxt-playground",
-  "dependencies": {
-    "@storefront-ui/nuxt": "workspace:*",
-    "@storefront-ui/vue": "workspace:*"
-  }
+  "name": "@storefront-ui/nuxt-playground"
 }
