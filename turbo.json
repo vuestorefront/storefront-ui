@@ -6,7 +6,6 @@
       "dependsOn": [
         "^build:shared",
         "^build:typography",
-        "^build:nuxt-module",
         "build:tailwind-config",
         "build:release",
         "build:next",
@@ -32,7 +31,7 @@
     },
     "build:nuxt": {
       "cache": false,
-      "dependsOn": ["^build:vue", "^build:typography", "build:tailwind-config", "^build:nuxt-module"]
+      "dependsOn": ["^build:typography", "build:tailwind-config", "^build:nuxt-module"]
     },
     "build:docs": {
       "dependsOn": ["^build:vue", "^build:tailwind-config"],

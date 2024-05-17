@@ -3059,7 +3059,7 @@ __metadata:
 
 "@nuxt/module-builder@patch:@nuxt/module-builder@npm%3A0.6.0#./.yarn/patches/@nuxt-module-builder-npm-0.6.0-755acb37c3.patch::locator=%40storefront-ui%2Fmonorepo%40workspace%3A.":
   version: 0.6.0
-  resolution: "@nuxt/module-builder@patch:@nuxt/module-builder@npm%3A0.6.0#./.yarn/patches/@nuxt-module-builder-npm-0.6.0-755acb37c3.patch::version=0.6.0&hash=a04edd&locator=%40storefront-ui%2Fmonorepo%40workspace%3A."
+  resolution: "@nuxt/module-builder@patch:@nuxt/module-builder@npm%3A0.6.0#./.yarn/patches/@nuxt-module-builder-npm-0.6.0-755acb37c3.patch::version=0.6.0&hash=799efc&locator=%40storefront-ui%2Fmonorepo%40workspace%3A."
   dependencies:
     citty: ^0.1.6
     consola: ^3.2.3
@@ -3074,7 +3074,7 @@ __metadata:
   bin:
     nuxt-build-module: dist/cli.mjs
     nuxt-module-build: dist/cli.mjs
-  checksum: 47d6ae522b147b3f756388abc9c755435afe7faa2861796433ba97ab2179b1282a0357c6ebdd3af0d60c23e97b56a32a44ccd4a5bf349056489592d014863dc1
+  checksum: 859cc611b401eb81f9f109e7d1a4643fdeaa516e893770b26501ae9e7a4c8e603691257c6c5dff8a3617a24714d5dd0bd2bc01c7d363664be23021fed4e0870a
   languageName: node
   linkType: hard
 
