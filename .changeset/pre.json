@@ -21,6 +21,7 @@
     "@storefront-ui/tests": "0.0.0"
   },
   "changesets": [
+    "few-panthers-approve",
     "rich-numbers-end"
   ]
 }
