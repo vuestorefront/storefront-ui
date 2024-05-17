@@ -3036,7 +3036,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/module-builder@npm:^0.6.0":
+"@nuxt/module-builder@npm:0.6.0":
   version: 0.6.0
   resolution: "@nuxt/module-builder@npm:0.6.0"
   dependencies:
@@ -3054,6 +3054,27 @@ __metadata:
     nuxt-build-module: dist/cli.mjs
     nuxt-module-build: dist/cli.mjs
   checksum: a6631e6cb3d80618b27c6ae808a94c45a3a35ddcff832dd2c6edc966a6a54621111b25ea269342da0c536833e8386a9eb6cb8f5d98ed3c5e119d76480d189b51
+  languageName: node
+  linkType: hard
+
+"@nuxt/module-builder@patch:@nuxt/module-builder@npm%3A0.6.0#./.yarn/patches/@nuxt-module-builder-npm-0.6.0-755acb37c3.patch::locator=%40storefront-ui%2Fmonorepo%40workspace%3A.":
+  version: 0.6.0
+  resolution: "@nuxt/module-builder@patch:@nuxt/module-builder@npm%3A0.6.0#./.yarn/patches/@nuxt-module-builder-npm-0.6.0-755acb37c3.patch::version=0.6.0&hash=a04edd&locator=%40storefront-ui%2Fmonorepo%40workspace%3A."
+  dependencies:
+    citty: ^0.1.6
+    consola: ^3.2.3
+    defu: ^6.1.4
+    mlly: ^1.6.1
+    pathe: ^1.1.2
+    pkg-types: ^1.1.0
+    unbuild: ^2.0.0
+  peerDependencies:
+    "@nuxt/kit": ^3.11.2
+    nuxi: ^3.11.1
+  bin:
+    nuxt-build-module: dist/cli.mjs
+    nuxt-module-build: dist/cli.mjs
+  checksum: 47d6ae522b147b3f756388abc9c755435afe7faa2861796433ba97ab2179b1282a0357c6ebdd3af0d60c23e97b56a32a44ccd4a5bf349056489592d014863dc1
   languageName: node
   linkType: hard
 

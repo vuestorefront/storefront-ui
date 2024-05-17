@@ -1,5 +1,5 @@
 {
-  "extends": ["@storefront-ui/typescript-config/base.json"],
+  "extends": "@storefront-ui/typescript-config/base.json",
   "include": ["**/*.ts"],
   "exclude": ["dist/**/*", "playground/**/*", "node_modules"]
 }
