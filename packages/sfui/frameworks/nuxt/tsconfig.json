@@ -1,5 +1,5 @@
 {
-  "extends": "./playground/.nuxt/tsconfig.json",
+  "extends": ["@storefront-ui/typescript-config/base.json"],
   "include": ["**/*.ts"],
-  "exclude": ["dist/**/*", "playground"]
+  "exclude": ["dist/**/*", "playground/**/*", "node_modules"]
 }
