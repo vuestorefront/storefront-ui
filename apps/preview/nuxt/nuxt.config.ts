@@ -1,8 +1,6 @@
 import { defineNuxtConfig } from 'nuxt/config';
 import { join, resolve } from 'path';
 import { existsSync } from 'fs';
-import sfTypography from '@storefront-ui/typography';
-import tailwindTypography from '@tailwindcss/typography';
 
 const isProd = process.env.PROD === 'true';
 
