@@ -110,19 +110,17 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 
 ### Install all dependencies
 
-With Nuxt 3, the fastest way to get started is to use the `@storefront-ui/nuxt` module. The [Storefront-io Nuxt module](https://www.npmjs.com/package/@storefront-ui/nuxt) will automatically install `@nuxtjs/tailwindcss` and storefront-ui tailwindcss presets.
-
-Additionally, you'll need to install the Storefront UI's Vue library and NuxtJs Tailwindcss Module.
+With Nuxt 3, the fastest way to get started is to use the `@storefront-ui/nuxt` module. The [Storefront-io Nuxt module](https://www.npmjs.com/package/@storefront-ui/nuxt) will automatically install `@nuxtjs/tailwindcss` inside `nuxt` and storefront-ui tailwindcss presets.
 
 ```bash
 # npm
-npm i -D @storefront-ui/nuxt @storefront-ui/vue @nuxtjs/tailwindcss
+npm i -D @storefront-ui/nuxt
 
 # yarn
-yarn add -D @storefront-ui/nuxt @storefront-ui/vue @nuxtjs/tailwindcss
+yarn add -D @storefront-ui/nuxt
 
 # pnpm
-pnpm add -D @storefront-ui/nuxt @storefront-ui/vue @nuxtjs/tailwindcss
+pnpm add -D @storefront-ui/nuxt
 ```
 
 ### Add the Nuxt Tailwind module to your `nuxt.config.ts`
