@@ -168,7 +168,7 @@ If you're going to create your own Tailwind CSS file, make sure to add the @tail
 
 ### You're ready to go
 
-Now, you can import Storefront UI components in your app and all the Tailwind utilities from the `@storefront-ui/vue` library will be available in your project. Because `storefront-ui` is served as well from module, `@storefront-ui/vue` is available from [nuxt autoimport](https://nuxt.com/docs/guide/concepts/auto-imports).
+Now, you can import Storefront UI components in your app and all the Tailwind utilities from the `@storefront-ui/vue` library will be available in your project. Because `storefront-ui` is served as well from module, `@storefront-ui/vue` is available from [Nuxt autoimport](https://nuxt.com/docs/guide/concepts/auto-imports).
 
 <<<../../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
 
