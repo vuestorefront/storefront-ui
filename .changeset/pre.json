@@ -1,0 +1,24 @@
+{
+  "mode": "pre",
+  "tag": "rc",
+  "initialVersions": {
+    "@storefront-ui/docs": "0.0.0",
+    "@storefront-ui/preview-next": "0.1.0",
+    "@storefront-ui/preview-nuxt": "0.0.0",
+    "@storefront-ui/preview-shared": "0.0.0",
+    "@storefront-ui/react-test": "0.0.0",
+    "@storefront-ui/vue-test": "0.0.0",
+    "@storefront-ui/eslint-config": "0.0.0",
+    "@storefront-ui/example-style": "0.0.0",
+    "@storefront-ui/tailwind-config": "2.5.1",
+    "@storefront-ui/typescript-config": "0.0.0",
+    "@storefront-ui/nuxt": "2.4.6",
+    "@storefront-ui/react": "2.6.3",
+    "@storefront-ui/vue": "2.6.3",
+    "@storefront-ui/shared": "2.5.1",
+    "@storefront-ui/tw-plugin-peer-next": "2.3.3",
+    "@storefront-ui/typography": "2.6.1",
+    "@storefront-ui/tests": "0.0.0"
+  },
+  "changesets": []
+}

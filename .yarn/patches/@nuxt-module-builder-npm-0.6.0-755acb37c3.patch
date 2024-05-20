@@ -1,0 +1,39 @@
+diff --git a/dist/chunks/build.mjs b/dist/chunks/build.mjs
+index 103067eb77b600e58143d0f1ab9eeb570a882af5..b88a7d7d435df0c1348a1ec821fbdcb16340f9c6 100644
+--- a/dist/chunks/build.mjs
++++ b/dist/chunks/build.mjs
+@@ -1,6 +1,7 @@
+ import { promises, existsSync } from 'node:fs';
+ import { pathToFileURL } from 'node:url';
+-import { resolve, dirname } from 'pathe';
++import { createRequire } from 'node:module';
++import { resolve, isAbsolute } from 'pathe';
+ import { readPackageJSON, readTSConfig } from 'pkg-types';
+ import { defu } from 'defu';
+ import { consola } from 'consola';
+@@ -210,7 +211,24 @@ async function loadTSCompilerOptions(path) {
+     });
+   }
+   const files = Array.isArray(config.extends) ? config.extends : config.extends ? [config.extends] : [];
+-  return defu(config.compilerOptions, ...await Promise.all(files.map((file) => loadTSCompilerOptions(dirname(resolve(path, file))))));
++  return defu(config.compilerOptions, ...await Promise.all(files.map((file) => loadTSCompilerOptions(resolveExtends(file, path)))));
+ }
+ 
++function resolveExtends(extended, from) {
++  // see https://github.com/dominikg/tsconfck/issues/149
++	if (extended === '..') extended = '../tsconfig.json';
++	const req = createRequire(from);
++  let error;
++	try {
++		return req.resolve(extended);
++	} catch (e) {
++    error = e;
++  }
++	if (extended[0] !== '.' && !isAbsolute(extended)) {
++    return req.resolve(`${extended}/tsconfig.json`);
++	}
++
++  throw error;
++ }
++
+ export { build as default };

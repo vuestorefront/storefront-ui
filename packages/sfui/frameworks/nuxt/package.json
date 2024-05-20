@@ -31,19 +31,24 @@
     "dist"
   ],
   "scripts": {
-    "build:nuxt-module": "nuxi prepare playground && nuxt-module-build",
+    "build:nuxt-module": "nuxt-module-build build",
     "dev:playground": "nuxi dev playground",
     "dev:build": "nuxi build playground",
-    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground"
+    "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
+    "lint": "eslint --ext .vue,js,.ts .",
+    "lint:fix": "eslint --fix --ext .vue,.js,.ts ."
   },
   "dependencies": {
-    "@nuxt/kit": "^3.3.2",
+    "@nuxt/kit": "^3.11.2",
     "@nuxtjs/tailwindcss": "^6.12.0",
-    "@storefront-ui/vue": "workspace:*"
+    "@storefront-ui/vue": "workspace:*",
+    "defu": "^6.1.4"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.6.0",
-    "@nuxt/schema": "^3.3.2",
-    "nuxt": "^3.3.2"
+    "@nuxt/schema": "^3.11.2",
+    "@storefront-ui/eslint-config": "workspace:*",
+    "eslint": "^8.34.0",
+    "nuxt": "^3.11.2"
   }
 }
