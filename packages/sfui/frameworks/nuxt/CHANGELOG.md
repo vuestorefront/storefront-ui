@@ -1,5 +1,11 @@
 # @storefront-ui/nuxt
 
+## 2.5.0
+
+### Minor Changes
+
+- [#3155](https://github.com/vuestorefront/storefront-ui/pull/3155) [`a754c14`](https://github.com/vuestorefront/storefront-ui/commit/a754c147597bdc9a5af9fb635d59add8873f7178) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [FIXED] `nuxt` module package is working, installation documentation of storefront-ui on nuxt is set to use module by default, add `eslint` lint, add `README.md` file. Previously nuxt module on npm contained only `CHANGELOG.md` and `package.json` files.
+
 ## 2.5.0-rc.0
 
 ### Minor Changes
