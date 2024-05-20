@@ -140,7 +140,7 @@ Internally, `@nuxtjs/tailwindcss` will merge the three places that  you can add 
 
 1. `tailwind.config.ts` file
 2. `nuxt.config.ts` file with `tailwindcss` property
-3. default configuration inside module
+3. Storefront UI [default configuration](https://github.com/vuestorefront/storefront-ui/blob/v2-develop/packages/config/tailwind/index.ts)
 
 ::tip Add a path to your installed package
 In order for Tailwind to properly detect the utility classes used in Storefront UI components, you need to add a path to wherever your `node_modules` folder is located to the `content` property. In the example below, we're using the default location for `node_modules`, but this may change if you're working in a monorepo.
