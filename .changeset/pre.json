@@ -20,5 +20,7 @@
     "@storefront-ui/typography": "2.6.1",
     "@storefront-ui/tests": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "slow-carpets-fold"
+  ]
 }
