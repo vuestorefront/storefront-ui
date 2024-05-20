@@ -80,7 +80,7 @@ export default defineNuxtConfig({
       },
     ],
   },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@storefront-ui/nuxt'],
   css: ['@storefront-ui/example-style/index.scss', '@storefront-ui/example-style/controls.scss'],
   imports: {
     transform: {

@@ -1,7 +1,11 @@
-import { defineNuxtModule, addComponent, addImportsSources, installModule, addImports } from '@nuxt/kit';
-import { NuxtOptions } from '@nuxt/schema';
+import { defineNuxtModule, addComponent, addImportsSources, installModule } from '@nuxt/kit';
 import * as storefrontUi from '@storefront-ui/vue';
+import { defu } from 'defu';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
+import { type Config } from 'tailwindcss';
+import '@nuxtjs/tailwindcss';
+// import to get all typings schema so `tailwindcss` is available on NuxtOptions
+import type { NuxtOptions } from '@nuxt/schema';
 
 // Module options TypeScript interface definition
 export interface ModuleOptions {
@@ -24,32 +28,31 @@ export default defineNuxtModule<ModuleOptions>({
     const { contentPath } = options;
     const nuxtOptions = nuxt.options;
 
-    const content = [];
+    const defaultTailwindConfig: Config = {
+      presets: [tailwindConfig],
+      content: [contentPath ?? ''],
+    };
 
-    if (Array.isArray(nuxtOptions.tailwindcss?.config?.content)) {
-      content.push(...(nuxtOptions.tailwindcss?.config?.content as Array<string>));
-    }
-    if (Array.isArray(nuxtOptions.tailwindcss?.config?.content)) {
-      content.push(...nuxtOptions.tailwindcss?.config?.content!);
-    }
-    if (contentPath) content.push(contentPath);
+    const nuxtConfigTailwindConfig = structuredClone(nuxtOptions.tailwindcss?.config);
+
+    nuxt.hook('tailwindcss:config', function (tailwindFileConfig) {
+      // tailwindFileConfig are data coming from tailwind.config.ts
+      // priority
+      // 1. tailwind.config
+      // 2. nuxt.config
+      // 3. default config
+      const mergeDefaultWithNuxtConfig = defu(nuxtConfigTailwindConfig, defaultTailwindConfig);
+      Object.assign(tailwindFileConfig, defu(tailwindFileConfig, mergeDefaultWithNuxtConfig));
+    });
 
     nuxtOptions.tailwindcss = {
-      ...nuxtOptions.tailwindcss,
       config: {
-        presets: [tailwindConfig],
-        content: [contentPath ?? ''],
-        ...nuxtOptions.tailwindcss?.config,
-        // if content is already defined, we need to merge it with the new one
-        ...(Array.isArray(nuxtOptions.tailwindcss?.config?.content) && contentPath
-          ? { content: [...nuxtOptions.tailwindcss?.config?.content!, contentPath] }
-          : {}),
+        plugins: [() => {}], // DO NOT REMOVE/HACK - this property need to exists otherwise whole plugin won't work. Reason is that if there is no plugin set by default, tailwind on nuxt create template inside `.nuxt` directory that is reused later. Tailwind cant do it, because then it stringify plugins that contains functions to `plugins: [null, null]` which means any plugin we load thorugh our preset won't work. https://github.com/nuxt-modules/tailwindcss/blob/fb8fafb98cbf3ea824a1645156d6484ff6c5eda1/src/context.ts#L47. There is switch if there is no `plugins` property on initial load, config is generated, so any plugin cannot be added.
+        // TODO: on 6.12.1 should be fixed https://github.com/nuxt-modules/tailwindcss/blob/main/src/context.ts#L87
       },
     } as unknown as NuxtOptions['tailwindcss'];
 
-    if (!nuxt.options.modules.includes('@nuxtjs/tailwindcss')) {
-      await installModule('@nuxtjs/tailwindcss');
-    }
+    await installModule('@nuxtjs/tailwindcss');
 
     const components: string[] = [];
     const composables: string[] = [];
@@ -59,7 +62,8 @@ export default defineNuxtModule<ModuleOptions>({
       if (key.startsWith('Sf') && (storefrontUi[key].__name || storefrontUi[key].name)) {
         components.push(key);
       } else if (key.startsWith('use')) {
-        composables.push(key);
+        // `useId` is already available in nuxtjs, we omit `useId` because of duplication warning
+        if (key !== 'useId') composables.push(key);
       }
     });
 
