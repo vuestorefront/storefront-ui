@@ -7,7 +7,7 @@
     "lint:fix": "yarn lint:script:fix",
     "lint:script": "eslint . --max-warnings 0 && yarn prettier --check",
     "lint:script:fix": "eslint --fix . && yarn prettier --write",
-    "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"**/*.{ts,tsx}\""
+    "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"**/*.{ts,tsx}\""
   },
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",
