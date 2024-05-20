@@ -31,7 +31,7 @@
     },
     "build:nuxt": {
       "cache": false,
-      "dependsOn": ["^build:vue", "^build:typography", "build:tailwind-config"]
+      "dependsOn": ["^build:typography", "build:tailwind-config", "^build:nuxt-module"]
     },
     "build:docs": {
       "dependsOn": ["^build:vue", "^build:tailwind-config"],
@@ -51,7 +51,6 @@
         "build:react",
         "build:vue",
         "build:tailwind-config",
-        "^build:nuxt-module",
         "build:typography",
         "build:peer-next",
         "build:shared"
@@ -66,10 +65,7 @@
     },
     "build:nuxt-module": {
       "cache": false,
-      "dependsOn": [
-        "build:vue",
-        "build:tailwind-config"
-      ]
+      "dependsOn": ["build:tailwind-config", "^build:vue"]
     },
     "build:peer-next": {
       "cache": false

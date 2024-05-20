@@ -13,7 +13,6 @@ You can try out Storefront UI in your browser with our online playground.
 <a href="http://play-vue.vuestorefront.io/" target="_blank" rel="noopener noreferrer" class="custom-block dark:text-white font-medium px-4 py-2 border-green border-2 rounded-lg hover:bg-green transition-colors hover:text-white">Stackblitz playground</a>
 </div>
 
-
 ::tabs{:titles='["Vite", "Nuxt", "Astro"]' class="mt-8"}
 
 #tab-1
@@ -90,7 +89,6 @@ export default {
 
 Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
 
-
 ```css
 /* src/style.css */
 @tailwind base;
@@ -102,11 +100,7 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/st
 
 Now, you can import Storefront UI components in your app and all the Tailwind utilities from the `@storefront-ui/vue` library will be available in your project.
 
-
-
 <<<../../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
-
-
 
 <Showcase showcase-name="Button/ButtonBlock" :show-source="false"/>
 
@@ -114,25 +108,19 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 
 ## Nuxt 3
 
-If you prefer video guides, we have a quick video that can help you set up Storefront UI in your Nuxt 3 project.
-
-<iframe src="https://www.youtube-nocookie.com/embed/YamdPmZexto" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded aspect-video relative mt-8 custom-block"></iframe>
-
 ### Install all dependencies
 
-With Nuxt 3, the fastest way to get started is to use the `@nuxtjs/tailwindcss` module. The [Nuxt Tailwind module](https://tailwindcss.nuxtjs.org/) will automatically install Tailwind CSS and PostCSS for you.
-
-Additionally, you'll need to install the Storefront UI's Vue library and Tailwind preset.
+With Nuxt 3, the fastest way to get started is to use the `@storefront-ui/nuxt` module. The [Storefront-io Nuxt module](https://www.npmjs.com/package/@storefront-ui/nuxt) will automatically install `@nuxtjs/tailwindcss` inside `nuxt` and storefront-ui tailwindcss presets.
 
 ```bash
 # npm
-npm i -D @nuxtjs/tailwindcss @storefront-ui/vue
+npm i -D @storefront-ui/nuxt
 
 # yarn
-yarn add -D @nuxtjs/tailwindcss @storefront-ui/vue
+yarn add -D @storefront-ui/nuxt
 
 # pnpm
-pnpm add -D @nuxtjs/tailwindcss @storefront-ui/vue
+pnpm add -D @storefront-ui/nuxt
 ```
 
 ### Add the Nuxt Tailwind module to your `nuxt.config.ts`
@@ -140,36 +128,39 @@ pnpm add -D @nuxtjs/tailwindcss @storefront-ui/vue
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ['@nuxtjs/tailwindcss']
+  modules: ['@storefront-ui/nuxt']
 })
 ```
 
-### Modify your `tailwind.config.ts`
+### Tailwind configuration
 
-Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.ts` file.
+Since we use `@nuxtjs/tailwindcss` under the hood, there is possibility to use `tailwindcss` property in `nuxt.config.ts` file. Other than that there is default `tailwind` way to create config via `tailwind.config.ts` file.
+
+Internally, `@nuxtjs/tailwindcss` will merge the three places that  you can add configurations. In order of priority, the options are:
+
+1. `tailwind.config.ts` file
+2. `nuxt.config.ts` file with `tailwindcss` property
+3. Storefront UI [default configuration](https://github.com/vuestorefront/storefront-ui/blob/v2-develop/packages/config/tailwind/index.ts)
 
 ::tip Add a path to your installed package
-
 In order for Tailwind to properly detect the utility classes used in Storefront UI components, you need to add a path to wherever your `node_modules` folder is located to the `content` property. In the example below, we're using the default location for `node_modules`, but this may change if you're working in a monorepo.
 ::
 
 ```ts
 // tailwind.config.ts
 import type { Config } from 'tailwindcss';
-import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 
 export default <Config>{
-  presets: [tailwindConfig],
   content: ['./**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
 };
 ```
-### Add Tailwind to Your CSS
 
-Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
+### Custom `tailwind.css` file
 
+If you're going to create your own Tailwind CSS file, make sure to add the @tailwind directives for each of Tailwind’s layer types (base, components, and utilities).
 
 ```css
-/* src/style.css */
+/* ~/assets/css/tailwind.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -177,13 +168,9 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/st
 
 ### You're ready to go
 
-Now, you can import Storefront UI components in your app and all the Tailwind utilities from the `@storefront-ui/vue` library will be available in your project.
-
-
+Now, you can import Storefront UI components in your app and all the Tailwind utilities from the `@storefront-ui/vue` library will be available in your project. Because `storefront-ui` is served as well from module, `@storefront-ui/vue` is available from [Nuxt autoimport](https://nuxt.com/docs/guide/concepts/auto-imports).
 
 <<<../../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
-
-
 
 <Showcase showcase-name="Button/ButtonBlock" :show-source="false"/>
 
@@ -253,7 +240,6 @@ module.exports = {
 
 Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
 
-
 ```css
 /* src/style.css */
 @tailwind base;
@@ -265,13 +251,7 @@ Finally, you'll need to add CSS directives to add each Tailwind layer to `src/st
 
 You can now import Storefront UI components inside your Astro project! You can either use them directly in your Astro components or import them into your Vue components.
 
-
-
 <<<../../../../preview/nuxt/pages/showcases/Button/ButtonBlock.vue
-
-
-
-
 
 ```md
 ---
@@ -280,8 +260,6 @@ import { SfButton } from '@storefront-ui/vue';
 
 <SfButton> Hello </SfButton>
 ```
-
-
 
 ::tip Need interaction?
 If you need interaction, you can create your own Vue components that use Storefront UI components under the hood. You can then import these components into your Astro components and use them as you would any other Vue component. Read more about Vue components in Astro in Astro's [Framework Components guide](https://docs.astro.build/en/core-concepts/framework-components/).
