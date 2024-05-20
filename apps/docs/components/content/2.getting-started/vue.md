@@ -136,7 +136,7 @@ export default defineNuxtConfig({
 
 Since we use `@nuxtjs/tailwindcss` under the hood, there is possibility to use `tailwindcss` property in `nuxt.config.ts` file. Other than that there is default `tailwind` way to create config via `tailwind.config.ts` file.
 
-Priority of reading configuration, in most important from top to bottom:
+Internally, `@nuxtjs/tailwindcss` will merge the three places that  you can add configurations. In order of priority, the options are:
 
 1. `tailwind.config.ts` file
 2. `nuxt.config.ts` file with `tailwindcss` property
