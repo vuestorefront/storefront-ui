@@ -1,5 +1,11 @@
 # @storefront-ui/nuxt
 
+## 2.5.1
+
+### Patch Changes
+
+- [#3166](https://github.com/vuestorefront/storefront-ui/pull/3166) [`2f0cc80`](https://github.com/vuestorefront/storefront-ui/commit/2f0cc80431bdcffd39b3f04544ff0d8319295a42) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [FIXED] README.md file update, especially instalation process and required dependencies
+
 ## 2.5.0
 
 ### Minor Changes
