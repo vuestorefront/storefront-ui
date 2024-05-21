@@ -1,19 +1,16 @@
-
 ### Install all dependencies
 
-With Nuxt 3, the fastest way to get started is to use the `@storefront-ui/nuxt` module. The [Storefront-io Nuxt module](https://www.npmjs.com/package/@storefront-ui/nuxt) will automatically install `@nuxtjs/tailwindcss` and storefront-ui tailwindcss presets.
-
-Additionally, you'll need to install the Storefront UI's Vue library and NuxtJs Tailwindcss Module.
+With Nuxt 3, the fastest way to get started is to use the `@storefront-ui/nuxt` module. The [Storefront-io Nuxt module](https://www.npmjs.com/package/@storefront-ui/nuxt) will automatically install `@nuxtjs/tailwindcss` inside `nuxt` and storefront-ui tailwindcss presets.
 
 ```bash
 # npm
-npm i -D @storefront-ui/nuxt @storefront-ui/vue @nuxtjs/tailwindcss
+npm i -D @storefront-ui/nuxt
 
 # yarn
-yarn add -D @storefront-ui/nuxt @storefront-ui/vue @nuxtjs/tailwindcss
+yarn add -D @storefront-ui/nuxt
 
 # pnpm
-pnpm add -D @storefront-ui/nuxt @storefront-ui/vue @nuxtjs/tailwindcss
+pnpm add -D @storefront-ui/nuxt
 ```
 
 ### Add the Nuxt Tailwind module to your `nuxt.config.ts`
@@ -29,11 +26,11 @@ export default defineNuxtConfig({
 
 Since we use `@nuxtjs/tailwindcss` under the hood, there is possibility to use `tailwindcss` property in `nuxt.config.ts` file. Other than that there is default `tailwind` way to create config via `tailwind.config.ts` file.
 
-Priority of reading configuration, in most important from top to bottom:
+Internally, `@nuxtjs/tailwindcss` will merge the three places that  you can add configurations. In order of priority, the options are:
 
 1. `tailwind.config.ts` file
 2. `nuxt.config.ts` file with `tailwindcss` property
-3. default configuration inside module
+3. Storefront UI [default configuration](https://github.com/vuestorefront/storefront-ui/blob/v2-develop/packages/config/tailwind/index.ts)
 
 ::tip Add a path to your installed package
 In order for Tailwind to properly detect the utility classes used in Storefront UI components, you need to add a path to wherever your `node_modules` folder is located to the `content` property. In the example below, we're using the default location for `node_modules`, but this may change if you're working in a monorepo.
@@ -61,4 +58,4 @@ If you're going to create your own Tailwind CSS file, make sure to add the @tail
 
 ### You're ready to go
 
-Now, you can import Storefront UI components in your app and all the Tailwind utilities from the `@storefront-ui/vue` library will be available in your project. Because `storefront-ui` is served as well from module, `@storefront-ui/vue` is available from [nuxt autoimport](https://nuxt.com/docs/guide/concepts/auto-imports).
+Now, you can import Storefront UI components in your app and all the Tailwind utilities from the `@storefront-ui/vue` library will be available in your project. Because `storefront-ui` is served as well from module, `@storefront-ui/vue` is available from [Nuxt autoimport](https://nuxt.com/docs/guide/concepts/auto-imports).
