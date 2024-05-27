@@ -41,7 +41,7 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 import type { Config } from 'tailwindcss';
 
 export default <Config>{
-  content: ['./**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
+  content: ['./**/*.vue'],
 };
 ```
 
