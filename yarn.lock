@@ -1951,15 +1951,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/react-dom@npm:^2.0.9":
-  version: 2.0.9
-  resolution: "@floating-ui/react-dom@npm:2.0.9"
+"@floating-ui/react-dom@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@floating-ui/react-dom@npm:2.1.0"
   dependencies:
     "@floating-ui/dom": ^1.0.0
   peerDependencies:
     react: ">=16.8.0"
     react-dom: ">=16.8.0"
-  checksum: f7a05c90955c713fc2851f74f87bdde9bd91df5f264f061f489bd3b6ce74c78dda204c3e71a09adc56b64f5324f2c2f23c01382e5ec897ee7e8e5235c41b45a9
+  checksum: 371ab3b14627026c637f4a2b8ca3dbfb7f67f1d51e74af5448b8e5bc76b8ccf30fed5e66d855f1ac1a6de28d79acc6dffcbcca4744a327a5e8d47f3515b0b52a
   languageName: node
   linkType: hard
 
@@ -4639,7 +4639,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/react@workspace:packages/sfui/frameworks/react"
   dependencies:
-    "@floating-ui/react-dom": ^2.0.9
+    "@floating-ui/react-dom": ^2.1.0
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/shared": "workspace:*"
     "@storefront-ui/tailwind-config": "workspace:*"

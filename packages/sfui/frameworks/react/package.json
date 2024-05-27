@@ -40,7 +40,7 @@
     "dist"
   ],
   "dependencies": {
-    "@floating-ui/react-dom": "^2.0.9",
+    "@floating-ui/react-dom": "^2.1.0",
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
     "classnames": "^2.5.1",
