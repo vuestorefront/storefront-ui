@@ -4533,7 +4533,6 @@ __metadata:
     "@storefront-ui/react": "workspace:*"
     "@storefront-ui/shared": "workspace:*"
     "@storefront-ui/tailwind-config": "workspace:*"
-    "@storefront-ui/tests-shared": "workspace:*"
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     "@storefront-ui/typography": "workspace:*"
     "@tailwindcss/typography": ^0.5.13
