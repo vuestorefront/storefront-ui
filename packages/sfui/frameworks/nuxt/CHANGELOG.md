@@ -1,5 +1,14 @@
 # @storefront-ui/nuxt
 
+## 2.5.2
+
+### Patch Changes
+
+- [#3176](https://github.com/vuestorefront/storefront-ui/pull/3176) [`295a3f7`](https://github.com/vuestorefront/storefront-ui/commit/295a3f7de88fe1100d3f0e9d5fced6924cb342e0) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [CHANGED] Update documentatnion/readme, extand default content path to `js` extension
+
+- Updated dependencies [[`55a0d36`](https://github.com/vuestorefront/storefront-ui/commit/55a0d360c95bf3359dfc5a740cfcde6ca473b23f)]:
+  - @storefront-ui/vue@2.6.4
+
 ## 2.5.1
 
 ### Patch Changes

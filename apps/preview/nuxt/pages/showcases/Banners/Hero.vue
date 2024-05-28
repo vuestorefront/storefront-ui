@@ -13,7 +13,7 @@
         <img
           src="http://localhost:3100/@assets/hero-headphones.png"
           alt="Headphones"
-          class="h-full object-cover object-left"
+          class="h-full w-full object-cover object-left"
         />
       </div>
       <div class="p-4 md:p-10 md:max-w-[768px] md:flex md:flex-col md:justify-center md:items-start md:basis-2/4">

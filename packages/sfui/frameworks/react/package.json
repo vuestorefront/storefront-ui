@@ -1,8 +1,9 @@
 {
   "name": "@storefront-ui/react",
-  "version": "2.6.3",
+  "version": "2.6.4",
   "license": "MIT",
   "sideEffects": false,
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -53,7 +54,7 @@
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",
     "@storefront-ui/tests-shared": "workspace:*",
-    "@vitejs/plugin-react": "^3.1.0",
+    "@vitejs/plugin-react": "^4.3.0",
     "concurrently": "^8.2.0",
     "eslint": "^8.34.0",
     "prettier": "^3.0.0",

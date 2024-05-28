@@ -12,7 +12,7 @@
   "dependencies": {
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
-    "@vue-storefront/eslint-config": "^2.0.0-rc.7",
+    "@vue-storefront/eslint-config": "^3.0.0",
     "@vue/eslint-config-standard": "^8.0.1",
     "eslint": "^8.34.0",
     "eslint-config-airbnb": "^19.0.4",

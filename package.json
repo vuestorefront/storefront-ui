@@ -21,7 +21,7 @@
     "prepare": "husky",
     "build": "yarn update-browserlist-db && yarn generate-icons && yarn build:peer-next && turbo run build",
     "dev:docs": "yarn update-browserlist-db && turbo run dev:docs",
-    "dev": "yarn update-browserlist-db && yarn build:typography && yarn build:peer-next && yarn build:tailwind-config && yarn build:test-utils && yarn build:react && turbo run dev --parallel",
+    "dev": "yarn update-browserlist-db && yarn build:peer-next && yarn build:nuxt-module && yarn build:react && turbo run dev --parallel",
     "dev:shared": "turbo run dev:shared",
     "update-browserlist-db": "yarn dlx browserslist@latest",
     "lint": "yarn build:typography && yarn build:peer-next && yarn build:tailwind-config && yarn build:vue && turbo run lint",
@@ -88,7 +88,6 @@
     }
   },
   "resolutions": {
-    "@changesets/assemble-release-plan@^6.0.0": "patch:@changesets/assemble-release-plan@npm%3A6.0.0#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.0-f7b3005037.patch",
-    "@nuxt/module-builder@^0.6.0": "patch:@nuxt/module-builder@npm%3A0.6.0#./.yarn/patches/@nuxt-module-builder-npm-0.6.0-755acb37c3.patch"
+    "@changesets/assemble-release-plan@^6.0.0": "patch:@changesets/assemble-release-plan@npm%3A6.0.0#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.0-f7b3005037.patch"
   }
 }

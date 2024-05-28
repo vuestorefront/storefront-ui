@@ -22,7 +22,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   // Default configuration options of the Nuxt module
   defaults: {
-    contentPath: './node_modules/@storefront-ui/vue/**/*.mjs',
+    contentPath: './node_modules/@storefront-ui/vue/**/*.{js,mjs}',
   },
   async setup(options, nuxt) {
     const { contentPath } = options;

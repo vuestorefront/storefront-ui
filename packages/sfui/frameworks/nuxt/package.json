@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/nuxt",
-  "version": "2.5.1",
+  "version": "2.5.2",
   "homepage": "https://docs.storefrontui.io/v2/",
   "installConfig": {
     "hoistingLimits": "workspaces"
@@ -45,7 +45,7 @@
     "defu": "^6.1.4"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.6.0",
+    "@nuxt/module-builder": "^0.7.0",
     "@nuxt/schema": "^3.11.2",
     "@storefront-ui/eslint-config": "workspace:*",
     "eslint": "^8.34.0",
