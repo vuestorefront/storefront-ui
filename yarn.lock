@@ -4651,7 +4651,7 @@ __metadata:
     "@nuxtjs/seo": ^2.0.0-rc.10
     "@nuxtjs/tailwindcss": ^6.12.0
     "@storefront-ui/typography": ^2.6.1
-    "@storefront-ui/vue": ^2.6.3
+    "@storefront-ui/vue": ^2.6.4
     "@tailwindcss/typography": ^0.5.13
     "@types/node": ^20.12.7
     "@vueuse/integrations": ^10.9.0
@@ -4990,7 +4990,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/vue@^2.1.0, @storefront-ui/vue@^2.6.3, @storefront-ui/vue@workspace:*, @storefront-ui/vue@workspace:packages/sfui/frameworks/vue":
+"@storefront-ui/vue@^2.1.0, @storefront-ui/vue@^2.6.4, @storefront-ui/vue@workspace:*, @storefront-ui/vue@workspace:packages/sfui/frameworks/vue":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/vue@workspace:packages/sfui/frameworks/vue"
   dependencies:
