@@ -88,7 +88,6 @@
     }
   },
   "resolutions": {
-    "@changesets/assemble-release-plan@^6.0.0": "patch:@changesets/assemble-release-plan@npm%3A6.0.0#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.0-f7b3005037.patch",
-    "@nuxt/module-builder@^0.6.0": "patch:@nuxt/module-builder@npm%3A0.6.0#./.yarn/patches/@nuxt-module-builder-npm-0.6.0-755acb37c3.patch"
+    "@changesets/assemble-release-plan@^6.0.0": "patch:@changesets/assemble-release-plan@npm%3A6.0.0#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.0-f7b3005037.patch"
   }
 }
