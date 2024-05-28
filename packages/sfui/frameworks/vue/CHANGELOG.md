@@ -1,5 +1,11 @@
 # @storefront-ui/vue
 
+## 2.6.4
+
+### Patch Changes
+
+- [#3170](https://github.com/vuestorefront/storefront-ui/pull/3170) [`55a0d36`](https://github.com/vuestorefront/storefront-ui/commit/55a0d360c95bf3359dfc5a740cfcde6ca473b23f) Thanks [@jagoral](https://github.com/jagoral)! - [CHANGED] Aligned ring color of Input component with Figma
+
 ## 2.6.3
 
 ### Patch Changes
