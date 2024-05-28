@@ -3,4 +3,4 @@
 "@storefront-ui/vue": patch
 ---
 
-Aligned ring color of Input component with Figma
+[CHANGED] Aligned ring color of Input component with Figma
