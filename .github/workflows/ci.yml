@@ -301,11 +301,10 @@ jobs:
           # refresh token before Saturday, May 25, 2024
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
-      - name: Create Release Pull Request
-        # Create release notes
-        uses: changesets/action@v1
+      - name: Create Release Notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node releaseNotes.mjs
       - name: Create PR to v2-develop branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
