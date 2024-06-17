@@ -39,9 +39,7 @@ export default defineConfig({
       plugins: [preserveDirectives()],
       onwarn(warning, warn) {
         // https://github.com/vitejs/vite-plugin-react/issues/137
-        if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
-          return;
-        }
+        if (warning.code === 'MODULE_LEVEL_DIRECTIVE') return;
         warn(warning);
       },
     },
