@@ -4,7 +4,7 @@ const { isOpen, toggle } = useDisclosure();
 
 <template>
   <div>
-    <div class="bg-pink-200">You can use Tailwind colors!</div>
+    <div class="bg-brand prose lg:prose-xl">You can use Tailwind colors!</div>
     <div v-if="isOpen">hello</div>
     <SfButton @click="toggle()">Toggle</SfButton>
   </div>

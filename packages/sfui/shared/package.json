@@ -18,7 +18,6 @@
   "unpkg": "dist/index.umd.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "dev": "vite build --watch",
     "dev:shared": "vite build --watch",
     "build:shared": "vite build"
   },

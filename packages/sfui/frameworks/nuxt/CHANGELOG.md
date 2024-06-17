@@ -1,5 +1,32 @@
 # @storefront-ui/nuxt
 
+## 2.5.2
+
+### Patch Changes
+
+- [#3176](https://github.com/vuestorefront/storefront-ui/pull/3176) [`295a3f7`](https://github.com/vuestorefront/storefront-ui/commit/295a3f7de88fe1100d3f0e9d5fced6924cb342e0) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [CHANGED] Update documentatnion/readme, extand default content path to `js` extension
+
+- Updated dependencies [[`55a0d36`](https://github.com/vuestorefront/storefront-ui/commit/55a0d360c95bf3359dfc5a740cfcde6ca473b23f)]:
+  - @storefront-ui/vue@2.6.4
+
+## 2.5.1
+
+### Patch Changes
+
+- [#3166](https://github.com/vuestorefront/storefront-ui/pull/3166) [`2f0cc80`](https://github.com/vuestorefront/storefront-ui/commit/2f0cc80431bdcffd39b3f04544ff0d8319295a42) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [FIXED] README.md file update, especially instalation process and required dependencies
+
+## 2.5.0
+
+### Minor Changes
+
+- [#3155](https://github.com/vuestorefront/storefront-ui/pull/3155) [`a754c14`](https://github.com/vuestorefront/storefront-ui/commit/a754c147597bdc9a5af9fb635d59add8873f7178) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [FIXED] `nuxt` module package is working, installation documentation of storefront-ui on nuxt is set to use module by default, add `eslint` lint, add `README.md` file. Previously nuxt module on npm contained only `CHANGELOG.md` and `package.json` files.
+
+## 2.5.0-rc.0
+
+### Minor Changes
+
+- [#3155](https://github.com/vuestorefront/storefront-ui/pull/3155) [`a754c14`](https://github.com/vuestorefront/storefront-ui/commit/a754c147597bdc9a5af9fb635d59add8873f7178) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [FIXED] `nuxt` module package is working, installation documentation of storefront-ui on nuxt is set to use module by default, add `eslint` lint, add `README.md` file. Previously nuxt module on npm contained only `CHANGELOG.md` and `package.json` files.
+
 ## 2.4.6
 
 ### Patch Changes
