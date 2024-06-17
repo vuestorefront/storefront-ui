@@ -1,3 +1,4 @@
+'use client';
 import { forwardRef } from 'react';
 import type { MouseEvent } from 'react';
 import classNames from 'classnames';

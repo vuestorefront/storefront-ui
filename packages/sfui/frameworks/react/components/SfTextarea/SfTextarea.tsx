@@ -1,3 +1,4 @@
+'use client';
 import classNames from 'classnames';
 import { SfTextareaSize, useFocusVisible } from '@storefront-ui/react';
 import { forwardRef } from 'react';

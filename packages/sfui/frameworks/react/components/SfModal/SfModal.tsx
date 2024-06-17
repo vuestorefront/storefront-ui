@@ -1,3 +1,4 @@
+'use client';
 import classNames from 'classnames';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
