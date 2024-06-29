@@ -14,14 +14,14 @@
   },
   "devDependencies": {
     "@microsoft/api-documenter": "^7.24.2",
-    "@microsoft/api-extractor": "7.44.1",
+    "@microsoft/api-extractor": "7.47.0",
     "@types/node": "^20.12.7",
     "nuxt": "^3.11.2",
     "nuxt-gtag": "^2.0.5"
   },
   "dependencies": {
     "@microsoft/api-extractor-model": "^7.28.14",
-    "@microsoft/tsdoc": "^0.14.2",
+    "@microsoft/tsdoc": "^0.15.0",
     "@nuxt/content": "^2.12.1",
     "@nuxtjs/algolia": "^1.10.2",
     "@nuxtjs/color-mode": "^3.4.1",
