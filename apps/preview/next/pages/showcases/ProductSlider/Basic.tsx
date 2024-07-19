@@ -59,7 +59,7 @@ function ButtonNext({ disabled, ...attributes }: { disabled?: boolean }) {
 
 ButtonNext.defaultProps = { disabled: false };
 
-export default function GalleryVertical() {
+export default function ProductSliderBasic() {
   return (
     <SfScrollable
       className="m-auto py-4 items-center w-full [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
@@ -106,4 +106,4 @@ export default function GalleryVertical() {
 }
 // #endregion source
 
-GalleryVertical.getLayout = ShowcasePageLayout;
+ProductSliderBasic.getLayout = ShowcasePageLayout;
