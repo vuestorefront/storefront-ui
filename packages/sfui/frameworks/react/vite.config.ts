@@ -3,7 +3,7 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
-
+import preserveDirectives from 'rollup-plugin-preserve-directives';
 import pkg from './package.json';
 
 export default defineConfig({
@@ -35,6 +35,12 @@ export default defineConfig({
       output: {
         preserveModules: true,
         preserveModulesRoot: './',
+      },
+      plugins: [preserveDirectives()],
+      onwarn(warning, warn) {
+        // https://github.com/vitejs/vite-plugin-react/issues/137
+        if (warning.code === 'MODULE_LEVEL_DIRECTIVE') return;
+        warn(warning);
       },
     },
   },

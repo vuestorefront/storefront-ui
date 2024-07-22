@@ -1,3 +1,4 @@
+'use client';
 import { useTooltip } from '@storefront-ui/react';
 import type { SfTooltipProps } from '@storefront-ui/react';
 
