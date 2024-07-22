@@ -1,5 +1,45 @@
 # @storefront-ui/react
 
+## 2.7.0
+
+### Minor Changes
+
+- [#3148](https://github.com/vuestorefront/storefront-ui/pull/3148) [`34b7107`](https://github.com/vuestorefront/storefront-ui/commit/34b7107053521733301a719822383ea056a96f4c) Thanks [@Razz21](https://github.com/Razz21)! - [CHANGED] Implemented `use client` directive in components:
+  - `SfAccordionItem`
+  - `SfDrawer`
+  - `SfDropdown`
+  - `SfModal`
+  - `SfRatingButton`
+  - `SfScrollable`
+  - `SfSelect`
+  - `SfTextarea`
+  - `SfTooltip`
+
+### Patch Changes
+
+- [#3157](https://github.com/vuestorefront/storefront-ui/pull/3157) [`a9cd099`](https://github.com/vuestorefront/storefront-ui/commit/a9cd09921c29decf8647e486b4ee573cb89d8fe8) Thanks [@Razz21](https://github.com/Razz21)! - [FIXED] Mark SfInput as client component
+
+## 2.7.0-rc.1
+
+### Patch Changes
+
+- [#3157](https://github.com/vuestorefront/storefront-ui/pull/3157) [`a9cd099`](https://github.com/vuestorefront/storefront-ui/commit/a9cd09921c29decf8647e486b4ee573cb89d8fe8) Thanks [@Razz21](https://github.com/Razz21)! - [FIXED] Mark SfInput as client component
+
+## 2.7.0-rc.0
+
+### Minor Changes
+
+- [#3148](https://github.com/vuestorefront/storefront-ui/pull/3148) [`34b7107`](https://github.com/vuestorefront/storefront-ui/commit/34b7107053521733301a719822383ea056a96f4c) Thanks [@Razz21](https://github.com/Razz21)! - [CHANGED] Implemented `use client` directive in components:
+  - `SfAccordionItem`
+  - `SfDrawer`
+  - `SfDropdown`
+  - `SfModal`
+  - `SfRatingButton`
+  - `SfScrollable`
+  - `SfSelect`
+  - `SfTextarea`
+  - `SfTooltip`
+
 ## 2.6.4
 
 ### Patch Changes

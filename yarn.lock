@@ -4711,6 +4711,7 @@ __metadata:
     remark-parse: ^11.0.0
     remark-stringify: ^11.0.0
     rimraf: ^5.0.0
+    rollup-plugin-preserve-directives: ^0.4.0
     tailwindcss: ^3.4.3
     turbo: latest
     typescript: ^5.4.5
@@ -20077,6 +20078,18 @@ __metadata:
     "@babel/code-frame":
       optional: true
   checksum: a90f8e975e4515734c84fa17e0feaf8fdd9ed9368722c3908687875903a393cba4d07d9934bae9b91a0c1b6c63ac1ef0ccd7363d3e6e4dc10eabca3540be9f11
+  languageName: node
+  linkType: hard
+
+"rollup-plugin-preserve-directives@npm:^0.4.0":
+  version: 0.4.0
+  resolution: "rollup-plugin-preserve-directives@npm:0.4.0"
+  dependencies:
+    "@rollup/pluginutils": ^5.1.0
+    magic-string: ^0.30.5
+  peerDependencies:
+    rollup: 2.x || 3.x || 4.x
+  checksum: 457ca1f60d2cdbe5485339dbc4b228bec5684a99b6589c771bc2268ffaeb29dce2d248f83a85da2fbf572a23cc592d7f59e6485369965210df1035f22ce67feb
   languageName: node
   linkType: hard
 

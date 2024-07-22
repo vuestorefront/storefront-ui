@@ -1,3 +1,4 @@
+'use client';
 import classNames from 'classnames';
 import { SfInputSize, useFocusVisible, type SfInputProps, polymorphicForwardRef } from '@storefront-ui/react';
 

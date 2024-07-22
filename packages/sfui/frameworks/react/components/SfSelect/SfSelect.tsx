@@ -1,3 +1,4 @@
+'use client';
 import { KeyboardEvent, useState } from 'react';
 import classNames from 'classnames';
 import { SfSelectSize, SfIconExpandMore, composeHandlers, useFocusVisible } from '@storefront-ui/react';
