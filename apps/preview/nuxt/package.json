@@ -13,7 +13,7 @@
     "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"**/*.{js,ts,vue}\""
   },
   "devDependencies": {
-    "@frsource/autoresize-textarea": "^2.0.68",
+    "@frsource/autoresize-textarea": "^2.0.87",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "^6.12.0",
     "@storefront-ui/eslint-config": "workspace:*",
