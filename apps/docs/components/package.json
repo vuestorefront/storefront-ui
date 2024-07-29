@@ -16,7 +16,7 @@
     "@microsoft/api-documenter": "^7.24.2",
     "@microsoft/api-extractor": "7.44.1",
     "@types/node": "^20.12.7",
-    "nuxt": "^3.11.2",
+    "nuxt": "^3.12.4",
     "nuxt-gtag": "^2.0.5"
   },
   "dependencies": {
@@ -30,16 +30,15 @@
     "@storefront-ui/typography": "^2.6.1",
     "@storefront-ui/vue": "^2.6.4",
     "@tailwindcss/typography": "^0.5.13",
-    "@vueuse/integrations": "^10.9.0",
-    "@vueuse/nuxt": "^10.9.0",
+    "@vueuse/integrations": "^10.11.0",
+    "@vueuse/nuxt": "^10.11.0",
     "focus-trap": "^7.5.4",
     "marked": "^12.0.2",
     "nuxt-content-assets": "^1.4.3",
     "nuxt-icon": "^0.6.10",
     "sf-docs-base": "^1.2.6",
     "unstorage": "^1.10.1",
-    "vite-svg-loader": "^5.1.0",
-    "vue": "^3.4.27"
+    "vite-svg-loader": "^5.1.0"
   },
   "resolutions": {
     "@storefront-ui/eslint-config": "workspace:*",
