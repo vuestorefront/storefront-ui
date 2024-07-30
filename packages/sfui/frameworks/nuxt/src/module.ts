@@ -3,8 +3,6 @@ import * as storefrontUi from '@storefront-ui/vue';
 import { defu } from 'defu';
 import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
 import { type Config } from 'tailwindcss';
-import '@nuxtjs/tailwindcss';
-// import to get all typings schema so `tailwindcss` is available on NuxtOptions
 import type { NuxtOptions } from '@nuxt/schema';
 
 // Module options TypeScript interface definition

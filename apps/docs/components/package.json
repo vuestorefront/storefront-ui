@@ -13,31 +13,31 @@
     "serve": "PORT=80 node .output/server/index.mjs"
   },
   "devDependencies": {
-    "@microsoft/api-documenter": "^7.24.2",
-    "@microsoft/api-extractor": "7.44.1",
+    "@microsoft/api-documenter": "^7.25.9",
+    "@microsoft/api-extractor": "^7.47.4",
     "@types/node": "^20.12.7",
     "nuxt": "^3.12.4",
-    "nuxt-gtag": "^2.0.5"
+    "nuxt-gtag": "^2.1.0"
   },
   "dependencies": {
-    "@microsoft/api-extractor-model": "^7.28.14",
-    "@microsoft/tsdoc": "^0.14.2",
+    "@microsoft/api-extractor-model": "^7.29.4",
+    "@microsoft/tsdoc": "^0.15.0",
     "@nuxt/content": "^2.12.1",
     "@nuxtjs/algolia": "^1.10.2",
-    "@nuxtjs/color-mode": "^3.4.1",
+    "@nuxtjs/color-mode": "^3.4.2",
     "@nuxtjs/seo": "^2.0.0-rc.10",
-    "@nuxtjs/tailwindcss": "^6.12.0",
+    "@nuxtjs/tailwindcss": "^6.12.1",
     "@storefront-ui/typography": "^2.6.1",
     "@storefront-ui/vue": "^2.6.4",
     "@tailwindcss/typography": "^0.5.13",
     "@vueuse/integrations": "^10.11.0",
     "@vueuse/nuxt": "^10.11.0",
     "focus-trap": "^7.5.4",
-    "marked": "^12.0.2",
+    "marked": "^13.0.3",
     "nuxt-content-assets": "^1.4.3",
     "nuxt-icon": "^0.6.10",
-    "sf-docs-base": "^1.2.6",
-    "unstorage": "^1.10.1",
+    "sf-docs-base": "^1.3.1",
+    "unstorage": "^1.10.2",
     "vite-svg-loader": "^5.1.0"
   },
   "resolutions": {
