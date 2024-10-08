@@ -3802,7 +3802,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@nuxt/kit@npm:3.13.2, @nuxt/kit@npm:^3.12.3, @nuxt/kit@npm:^3.13.1, @nuxt/kit@npm:^3.13.2":
+"@nuxt/kit@npm:3.13.2, @nuxt/kit@npm:^3.12.3, @nuxt/kit@npm:^3.13.0, @nuxt/kit@npm:^3.13.1, @nuxt/kit@npm:^3.13.2":
   version: 3.13.2
   resolution: "@nuxt/kit@npm:3.13.2"
   dependencies:
@@ -5487,7 +5487,7 @@ __metadata:
     marked: ^13.0.3
     nuxt: ^3.13.2
     nuxt-content-assets: ^1.4.3
-    nuxt-gtag: ^2.0.5
+    nuxt-gtag: ^3.0.1
     nuxt-icon: ^0.6.10
     sf-docs-base: ^1.3.1
     unstorage: ^1.10.2
@@ -19022,15 +19022,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nuxt-gtag@npm:^2.0.5":
-  version: 2.0.6
-  resolution: "nuxt-gtag@npm:2.0.6"
+"nuxt-gtag@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "nuxt-gtag@npm:3.0.1"
   dependencies:
-    "@nuxt/kit": ^3.11.2
+    "@nuxt/kit": ^3.13.0
     defu: ^6.1.4
     pathe: ^1.1.2
-    ufo: ^1.5.3
-  checksum: b77f14931392a089b191fdfaf28d0da2764f27a6f97c85b5f4f7ba5f4bb5e481cd89ea9150949d7c748deef205ca9dd5cb2ff34467768e9dfc1b1755730c53db
+    ufo: ^1.5.4
+  checksum: 2bd12678d0d8e618c70b8f97dbf023054315f0216720c02e7936ff69bfade29a3142d5f53803fa400eec559507275f979a40b8a4e924b220ab26dd1b76d6e9ce
   languageName: node
   linkType: hard
 
