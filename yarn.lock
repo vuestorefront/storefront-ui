@@ -5674,7 +5674,7 @@ __metadata:
     rimraf: ^6.0.1
     tailwindcss: ^3.4.7
     typescript: ^5.5.4
-    vite: ^5.3.5
+    vite: ^5.3.6
     vite-plugin-istanbul: ^4.0.1
   languageName: unknown
   linkType: soft
@@ -5698,7 +5698,7 @@ __metadata:
     react-transition-group: ^4.4.5
     react-use: ^17.5.1
     tabbable: ^6.1.1
-    vite: ^5.3.5
+    vite: ^5.3.6
     vite-plugin-dts: ^3.9.1
     vite-tsconfig-paths: ^4.3.2
   peerDependencies:
@@ -5712,7 +5712,7 @@ __metadata:
   dependencies:
     tabbable: ^6.1.1
     typescript: ^5.5.4
-    vite: ^5.3.5
+    vite: ^5.3.6
     vite-plugin-dts: ^3.9.1
     vue-tsc: ^2.0.29
   languageName: unknown
@@ -5725,7 +5725,7 @@ __metadata:
     "@mertasan/tailwindcss-variables": ^2.5.2
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
     typescript: ^5.5.4
-    vite: ^5.3.5
+    vite: ^5.3.6
     vite-plugin-dts: ^3.9.1
   languageName: unknown
   linkType: soft
@@ -5735,7 +5735,7 @@ __metadata:
   resolution: "@storefront-ui/tests-shared@workspace:packages/config/tests"
   dependencies:
     typescript: ^5.5.4
-    vite: ^5.3.5
+    vite: ^5.3.6
     vite-plugin-dts: ^3.9.1
   languageName: unknown
   linkType: soft
@@ -5755,7 +5755,7 @@ __metadata:
   resolution: "@storefront-ui/tw-plugin-peer-next@workspace:packages/sfui/tw-plugin-peer-next"
   dependencies:
     typescript: ^5.5.4
-    vite: ^5.3.5
+    vite: ^5.3.6
     vite-plugin-dts: ^3.9.1
   peerDependencies:
     tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
@@ -5773,7 +5773,7 @@ __metadata:
   resolution: "@storefront-ui/typography@workspace:packages/sfui/typography"
   dependencies:
     typescript: ^5.5.4
-    vite: ^5.3.5
+    vite: ^5.3.6
     vite-plugin-dts: ^3.9.1
   peerDependencies:
     tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
@@ -5811,7 +5811,7 @@ __metadata:
     sass: ^1.77.8
     tailwindcss: ^3.4.7
     typescript: ^5.5.4
-    vite: ^5.3.5
+    vite: ^5.3.6
     vite-plugin-istanbul: ^4.0.0
     vue: ^3.4.27
     vue-router: ^4.3.2
@@ -5835,7 +5835,7 @@ __metadata:
     jw-paginate: ^1.0.4
     prettier: ^3.0.0
     tabbable: ^6.1.1
-    vite: ^5.3.5
+    vite: ^5.3.6
     vite-plugin-dts: ^3.9.1
     vite-tsconfig-paths: ^4.3.2
     vue-tsc: ^2.0.29
@@ -20925,17 +20925,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.39":
-  version: 8.4.40
-  resolution: "postcss@npm:8.4.40"
-  dependencies:
-    nanoid: ^3.3.7
-    picocolors: ^1.0.1
-    source-map-js: ^1.2.0
-  checksum: afd0cc49d2169dcd96c0f17e155c5d75de048956306a3017f1cfa6a7d66b941592245bed20f7796ceeccb2d8967749b623be2c7b010a74f67ea10fb5bdb8ba28
-  languageName: node
-  linkType: hard
-
 "postcss@npm:^8.4.43, postcss@npm:^8.4.47":
   version: 8.4.47
   resolution: "postcss@npm:8.4.47"
@@ -26026,47 +26015,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"vite@npm:^5.3.5":
-  version: 5.3.5
-  resolution: "vite@npm:5.3.5"
-  dependencies:
-    esbuild: ^0.21.3
-    fsevents: ~2.3.3
-    postcss: ^8.4.39
-    rollup: ^4.13.0
-  peerDependencies:
-    "@types/node": ^18.0.0 || >=20.0.0
-    less: "*"
-    lightningcss: ^1.21.0
-    sass: "*"
-    stylus: "*"
-    sugarss: "*"
-    terser: ^5.4.0
-  dependenciesMeta:
-    fsevents:
-      optional: true
-  peerDependenciesMeta:
-    "@types/node":
-      optional: true
-    less:
-      optional: true
-    lightningcss:
-      optional: true
-    sass:
-      optional: true
-    stylus:
-      optional: true
-    sugarss:
-      optional: true
-    terser:
-      optional: true
-  bin:
-    vite: bin/vite.js
-  checksum: 5412700159e8906fc5ec5ac2cbcbee8a11180803b4a7c85494ae024a4f38d77eb5ab19b556a58745d6981361f8d2e181486f115f8abd4dc6ec3761fcd895e1b2
-  languageName: node
-  linkType: hard
-
-"vite@npm:^5.4.5":
+"vite@npm:^5.3.6, vite@npm:^5.4.5":
   version: 5.4.8
   resolution: "vite@npm:5.4.8"
   dependencies:
