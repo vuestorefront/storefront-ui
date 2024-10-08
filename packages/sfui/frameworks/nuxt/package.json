@@ -39,16 +39,16 @@
     "lint:fix": "eslint --fix --ext .vue,.js,.ts ."
   },
   "dependencies": {
-    "@nuxt/kit": "^3.11.2",
+    "@nuxt/kit": "^3.13.2",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@storefront-ui/vue": "workspace:*",
     "defu": "^6.1.4"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.7.0",
-    "@nuxt/schema": "^3.11.2",
+    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/schema": "^3.13.2",
     "@storefront-ui/eslint-config": "workspace:*",
     "eslint": "^8.34.0",
-    "nuxt": "^3.12.4"
+    "nuxt": "^3.13.2"
   }
 }
