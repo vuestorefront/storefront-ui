@@ -24,7 +24,7 @@
     "devDependencies": {
         "typescript": "^5.5.4",
         "vite": "^5.3.5",
-        "vite-plugin-dts": "^3.9.1"
+        "vite-plugin-dts": "^4.0.0"
     },
     "peerDependencies": {
         "tailwindcss": ">=3.0.0 || >= 3.0.0-alpha.1"
