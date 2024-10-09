@@ -144,7 +144,7 @@ jobs:
       - name: Pre-Cypress (build all dependencies)
         run: yarn test:ci-pre:vue
       - name: Cypress run
-        uses: cypress-io/github-action@v6.6.1
+        uses: cypress-io/github-action@v6.7.2
         with:
           browser: chrome
           working-directory: apps/test/vue
@@ -155,7 +155,7 @@ jobs:
         run: cd apps/test/vue; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ env.SONAR_TOKEN_VUE }}
-        uses: SonarSource/sonarcloud-github-action@v2.1.1
+        uses: SonarSource/sonarcloud-github-action@v2.3.0
         with:
           projectBaseDir: packages/sfui/frameworks/vue
         env:
@@ -179,7 +179,7 @@ jobs:
       - name: Pre-Cypress (build all dependencies)
         run: yarn test:ci-pre:react
       - name: Cypress run
-        uses: cypress-io/github-action@v6.6.1
+        uses: cypress-io/github-action@v6.7.2
         with:
           browser: chrome
           working-directory: apps/test/react
@@ -190,7 +190,7 @@ jobs:
         run: cd apps/test/react; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ env.SONAR_TOKEN_REACT }}
-        uses: SonarSource/sonarcloud-github-action@v2.1.1
+        uses: SonarSource/sonarcloud-github-action@v2.3.0
         with:
           projectBaseDir: packages/sfui/frameworks/react
         env:
@@ -214,17 +214,17 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Set yarn config
-        run: |
-          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
-          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
-          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Bump package version
         run: yarn changeset version --snapshot
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build packages
         run: yarn build:release
+      - name: Set yarn config
+        run: |
+          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
+          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
+          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Publish canary version
         run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish --tag canary || true
         env:
@@ -249,16 +249,16 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Set yarn config
-        run: |
-          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
-          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
-          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Save head commit message
         id: commit_message
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
       - name: Build packages
         run: yarn build:release
+      - name: Set yarn config
+        run: |
+          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
+          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
+          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Publish release-candidate version
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
         if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: version packages (rc)' ) }}"
@@ -287,13 +287,13 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Build packages
+        run: yarn build:release
       - name: Set yarn config
         run: |
           yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
           yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
           yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
-      - name: Build packages
-        run: yarn build:release
       - name: Publish Production version package
         run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish || true
         env:
@@ -324,7 +324,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: GitGuardian scan
-        uses: GitGuardian/ggshield-action@v1.27.0
+        uses: GitGuardian/ggshield-action@v1.29.0
         with:
           args: -v
         env:
