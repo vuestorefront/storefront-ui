@@ -1,5 +1,11 @@
 # @storefront-ui/nuxt
 
+## 2.5.3
+
+### Patch Changes
+
+- [#3232](https://github.com/vuestorefront/storefront-ui/pull/3232) [`30bfa9a`](https://github.com/vuestorefront/storefront-ui/commit/30bfa9a327a0da0adb02bfda26a756e75ff80c83) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [CHANGED] Migrate nuxt module to newest version `@nuxtjs/tailwindss@6.12.1` enabling HMR
+
 ## 2.5.2
 
 ### Patch Changes
