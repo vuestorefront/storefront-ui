@@ -27,7 +27,7 @@
     "@types/lodash-es": "^4.17.12",
     "@vueuse/core": "^10.11.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "^8.34.0",
+    "eslint": "^9.0.0",
     "eslint-plugin-nuxt": "^4.0.0",
     "nuxt": "^3.13.2",
     "postcss": "^8.4.21",
