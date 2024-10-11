@@ -41,7 +41,7 @@
     "dist"
   ],
   "dependencies": {
-    "@floating-ui/vue": "^1.0.6",
+    "@floating-ui/vue": "1.0.6",
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
     "@vueuse/core": "^10.11.0",
