@@ -48,7 +48,7 @@
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^3.13.2",
     "@storefront-ui/eslint-config": "workspace:*",
-    "eslint": "^8.34.0",
+    "eslint": "^9.0.0",
     "nuxt": "^3.13.2"
   }
 }
