@@ -57,14 +57,14 @@
   "devDependencies": {
     "@changesets/changelog-github": "^0.5.0",
     "@changesets/cli": "^2.26.1",
-    "@commitlint/cli": "^17.0.0",
-    "@commitlint/config-conventional": "^17.0.0",
+    "@commitlint/cli": "^19.0.0",
+    "@commitlint/config-conventional": "^19.0.0",
     "@frsource/frs-replace": "^4.1.1",
     "@octokit/core": "^6.1.2",
     "@storefront-ui/typescript-config": "workspace:*",
     "@vue-storefront/prettier-config": "^2.0.0-rc.1",
     "commitizen": "^4.2.5",
-    "concurrently": "^8.2.2",
+    "concurrently": "^9.0.0",
     "husky": "^9.1.4",
     "hygen": "^6.2.8",
     "mdast-util-to-string": "^4.0.0",
@@ -77,14 +77,14 @@
     "turbo": "^2.0.9",
     "typescript": "^5.5.4",
     "unified": "^11.0.5",
-    "wait-on": "^7.0.1"
+    "wait-on": "^8.0.0"
   },
   "engines": {
     "npm": ">=8.19.1",
     "yarn": ">=1.22.19",
     "node": ">=16.0.0"
   },
-  "packageManager": "yarn@3.8.3",
+  "packageManager": "yarn@4.5.1",
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog",
