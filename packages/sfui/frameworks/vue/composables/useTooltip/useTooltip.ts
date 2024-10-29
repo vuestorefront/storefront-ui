@@ -1,4 +1,4 @@
-import { ref, unref, computed } from 'vue';
+import { ref, unref, computed, toValue } from 'vue';
 import { arrow, flip, offset, shift, type ReferenceElement, type Side } from '@floating-ui/vue';
 import { type UseTooltipOptions, usePopover, useDisclosure } from '@storefront-ui/vue';
 
@@ -25,7 +25,10 @@ export function useTooltip<ReferenceEl extends ReferenceElement = ReferenceEleme
     isOpen,
     placement: initialPlacement,
     strategy,
-    middleware: computed(() => [...(unref(middleware) || [offset(8), shift(), flip()]), arrow({ element: arrowRef })]),
+    middleware: computed(() => [
+      ...(toValue(middleware) || [offset(8), shift(), flip()]),
+      arrow({ element: arrowRef }),
+    ]),
     ...popoverOptions,
   });
 

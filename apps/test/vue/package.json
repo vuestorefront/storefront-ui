@@ -21,7 +21,7 @@
     "test:ci:vue": "yarn test:ci && CYPRESS_COVERAGE=true yarn cypress run --component && yarn generate-coverage"
   },
   "dependencies": {
-    "vue": "^3.4.27",
+    "vue": "^3.5.12",
     "vue-router": "^4.3.2"
   },
   "devDependencies": {

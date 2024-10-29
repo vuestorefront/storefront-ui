@@ -29,7 +29,7 @@
     "autoprefixer": "^10.4.19",
     "eslint": "^8.34.0",
     "eslint-plugin-nuxt": "^4.0.0",
-    "nuxt": "^3.13.2",
+    "nuxt": "^3.14.159",
     "postcss": "^8.4.21",
     "prettier": "^3.0.0",
     "sass": "^1.77.8",

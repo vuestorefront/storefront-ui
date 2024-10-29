@@ -1,4 +1,4 @@
-import { computed, unref } from 'vue';
+import { computed, toValue } from 'vue';
 import { onClickOutside, onKeyStroke, type MaybeElementRef, type MaybeRefOrGetter } from '@vueuse/core';
 import { flip, offset, shift } from '@floating-ui/vue';
 import { type UseDropdownOptions, usePopover } from '@storefront-ui/vue';
@@ -8,7 +8,7 @@ export function useDropdown(options: UseDropdownOptions) {
 
   const { floatingRef, referenceRef, style } = usePopover({
     placement,
-    middleware: computed(() => unref(middleware) || [offset(8), shift(), flip()]),
+    middleware: computed(() => toValue(middleware) || [offset(8), shift(), flip()]),
     isOpen,
     ...popoverOptions,
   });

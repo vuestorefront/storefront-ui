@@ -92,6 +92,8 @@
     }
   },
   "resolutions": {
-    "@changesets/assemble-release-plan@^6.0.0": "patch:@changesets/assemble-release-plan@npm%3A6.0.0#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.0-f7b3005037.patch"
+    "@changesets/assemble-release-plan@^6.0.0": "patch:@changesets/assemble-release-plan@npm%3A6.0.0#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.0-f7b3005037.patch",
+    "#sf-docs-base": "old vue with version 3.4. causing missing renderer",
+    "vue": "3.5.12"
   }
 }
