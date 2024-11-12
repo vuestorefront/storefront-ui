@@ -21,6 +21,7 @@ jobs:
       ARTIFACT_TYPE: 'sfui2-docs'
       DOCKERFILE_PATH: './.vuestorefrontcloud/docs/Dockerfile'
       ENVIRONMENT: ${{ needs.configure-enviroment.outputs.environment }}
+      TARGET_DOMAIN: ${{ needs.configure-enviroment.outputs.target-domain }}
 
   sync-assets:
     needs: [build, configure-enviroment]

@@ -14,6 +14,9 @@ on:
       ENVIRONMENT:
         required: true
         type: string
+      TARGET_DOMAIN:
+        required: true
+        type: string
 
 jobs:
   build:
@@ -29,6 +32,7 @@ jobs:
         uses: elgohr/Publish-Docker-Github-Action@v5
         env:
           ENVIRONMENT: ${{ inputs.ENVIRONMENT }}
+          TARGET_DOMAIN: ${{ inputs.TARGET_DOMAIN }}
         with:
           name: ${{ inputs.DOCKER_NAMESPACE }}/${{ inputs.ARTIFACT_TYPE }}:${{ github.sha }}
           registry: registry.storefrontcloud.io
@@ -36,4 +40,4 @@ jobs:
           password: ${{ secrets.CLOUD_PASSWORD }}
           dockerfile: ${{ inputs.DOCKERFILE_PATH }}
           buildoptions: '--compress'
-          buildargs: VITE_DOCS_BASEPATH,VITE_DOCS_EXAMPLES_REACT_PATH,VITE_DOCS_EXAMPLES_VUE_PATH,ENVIRONMENT
+          buildargs: VITE_DOCS_BASEPATH,VITE_DOCS_EXAMPLES_REACT_PATH,VITE_DOCS_EXAMPLES_VUE_PATH,ENVIRONMENT,TARGET_DOMAIN

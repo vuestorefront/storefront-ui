@@ -8,6 +8,6 @@ server {
 
   # https://www.oliverdavies.uk/blog/nginx-redirects-query-string-arguments
   location / {
-    return 301 https://docs.storefrontui.io/v2$uri$is_args$args;
+    return 301 ${TARGET_DOMAIN}/v2$uri$is_args$args;
   }
 }
