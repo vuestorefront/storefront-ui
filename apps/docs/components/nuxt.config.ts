@@ -26,8 +26,8 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       storefrontUi: true,
-      DOCS_EXAMPLES_VUE_PATH: process.env.VITE_DOCS_EXAMPLES_VUE_PATH,
-      DOCS_EXAMPLES_REACT_PATH: process.env.VITE_DOCS_EXAMPLES_REACT_PATH,
+      DOCS_EXAMPLES_VUE_PATH: process.env.NUXT_DOCS_EXAMPLES_VUE_PATH,
+      DOCS_EXAMPLES_REACT_PATH: process.env.NUXT_DOCS_EXAMPLES_REACT_PATH,
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || 'https://docs.storefrontui.io',
       siteName: 'Storefront UI',
       siteDescription: 'Fast, accessible, and fully customizable components built for e-commerce.',
