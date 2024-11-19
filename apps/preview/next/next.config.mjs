@@ -6,10 +6,10 @@ const isProd = process.env.PROD === 'true';
 /** @type {import('next').NextConfig} */
 export default {
   env: {
-    DOCS_EXAMPLES_REACT_PATH: process.env.VITE_DOCS_EXAMPLES_REACT_PATH || '',
+    DOCS_EXAMPLES_REACT_PATH: process.env.NEXT_DOCS_EXAMPLES_REACT_PATH || '',
   },
-  basePath: process.env.VITE_DOCS_EXAMPLES_REACT_PATH
-    ? new URL(process.env.VITE_DOCS_EXAMPLES_REACT_PATH).pathname
+  basePath: process.env.NEXT_DOCS_EXAMPLES_REACT_PATH
+    ? new URL(process.env.NEXT_DOCS_EXAMPLES_REACT_PATH).pathname
     : '',
   reactStrictMode: true,
   swcMinify: true,
@@ -49,14 +49,24 @@ export default {
         },
       });
 
-      const reactPackage = resolve(process.cwd(), '..', '..', '..', 'packages', 'sfui', 'frameworks', 'react', 'index.ts');
+      const reactPackage = resolve(
+        process.cwd(),
+        '..',
+        '..',
+        '..',
+        'packages',
+        'sfui',
+        'frameworks',
+        'react',
+        'index.ts',
+      );
       config.resolve.alias = {
         ...config.resolve.alias,
         '@storefront-ui/react': reactPackage,
         '@storefront-ui/vue': reactPackage,
-      }
+      };
     }
 
     return config;
-  }
+  },
 };

@@ -27,3 +27,13 @@ An alternative to robots.txt in this case could be using the built-in Farmer fea
 However, I went with creating the "nginx + robots.txt file" container here anyways. I'm forced to create a container for nginx so might as well put the robots.txt file here.
 
 That's a lot of work to do such a simple thing, but the situation is what it is.
+
+## Debugging
+
+You can debug dockerized docs image by following steps below:
+
+- run `docs` docker image,
+- run terminal in `root` directory,
+- build image using `DOCKER_BUILDKIT=1 docker build -t docs-router --build-arg TARGET_DOMAIN=http://localhost:3004 -f .vuestorefrontcloud/router/docker/Dockerfile .`,
+- run image using `docker run -t -i -p 3000:3000 docs-router nginx-debug -g 'daemon off;'`, (flags `i` and `t` allows to run command and then kill it with `ctrl+c` https://github.com/moby/moby/issues/2838#issuecomment-29205965)
+- open browser and go to the address `http://localhost:3004` to see the app page running.
