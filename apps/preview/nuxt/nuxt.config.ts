@@ -42,6 +42,12 @@ export default defineNuxtConfig({
         }
       : {}),
   },
+  nitro: {
+    prerender: {
+      routes: ['/'],
+      crawlLinks: true,
+    },
+  },
   vite: {
     plugins: [
       {
