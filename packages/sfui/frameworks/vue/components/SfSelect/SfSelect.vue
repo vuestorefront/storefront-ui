@@ -51,7 +51,7 @@ keep it here, or to always pass modelValue to the component.
 */
 const internalState = ref<string>(modelValue.value);
 const selectModel = computed({
-  get: () => modelValue.value ||  internalState.value,
+  get: () => modelValue.value || internalState.value,
   set: (value) => {
     emit('update:modelValue', value);
     internalState.value = value;
