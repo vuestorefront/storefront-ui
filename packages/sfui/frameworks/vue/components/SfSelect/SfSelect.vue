@@ -92,7 +92,6 @@ const selectModel = computed({
     >
       <option
         v-if="placeholder"
-        disabled
         hidden
         class="text-sm bg-neutral-300"
         value=""
