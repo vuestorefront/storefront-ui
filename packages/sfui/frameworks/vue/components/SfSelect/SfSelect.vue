@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { type PropType, watch, ref } from 'vue';
+import { type PropType, ref, toRefs, computed } from 'vue';
 import { SfSelectSize, SfIconExpandMore, useFocusVisible, useDisclosure } from '@storefront-ui/vue';
 
 defineOptions({
@@ -40,12 +40,23 @@ const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
 
+const { modelValue } = toRefs(props);
 const { isOpen, close, open } = useDisclosure();
 const { isFocusVisible } = useFocusVisible();
 
-const internalValue = ref(props.modelValue);
-
-watch(internalValue, (value) => emit('update:modelValue', value));
+/*
+Internal state has been implemented due to native select's element
+value disappearing under certain circumstances. It's important to
+keep it here, or to always pass modelValue to the component.
+*/
+const internalState = ref<string>(modelValue.value);
+const selectModel = computed({
+  get: () => modelValue.value ||  internalState.value,
+  set: (value) => {
+    emit('update:modelValue', value);
+    internalState.value = value;
+  },
+});
 </script>
 
 <template>
@@ -60,7 +71,7 @@ watch(internalValue, (value) => emit('update:modelValue', value));
     data-testid="select"
   >
     <select
-      v-model="internalValue"
+      v-model="selectModel"
       :required="required"
       :disabled="disabled"
       :class="[
