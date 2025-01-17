@@ -1,15 +1,13 @@
-<script lang="ts">
+<script lang="ts" setup>
+import type { PropType } from 'vue';
+import { computed, toRefs } from 'vue';
+import { SfTextareaSize, useFocusVisible } from '@storefront-ui/vue';
+
 const getSizeClasses = {
   [SfTextareaSize.sm]: ' h-[56px] py-[6px] pl-4 pr-3',
   [SfTextareaSize.base]: 'h-[64px] py-2 pl-4 pr-3',
   [SfTextareaSize.lg]: 'h-[72px], p-3 pl-4',
 };
-</script>
-
-<script lang="ts" setup>
-import type { PropType } from 'vue';
-import { computed, toRefs } from 'vue';
-import { SfTextareaSize, useFocusVisible } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {

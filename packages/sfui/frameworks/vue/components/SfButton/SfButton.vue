@@ -1,4 +1,7 @@
-<script lang="ts">
+<script lang="ts" setup>
+import { type PropType, type ConcreteComponent, computed, toRefs } from 'vue';
+import { useAttrsRef, SfButtonSize, SfButtonVariant } from '@storefront-ui/vue';
+
 export const variantClasses = {
   [SfButtonVariant.primary]:
     'text-white shadow hover:shadow-md active:shadow bg-primary-700 hover:bg-primary-800 active:bg-primary-900 disabled:bg-disabled-300',
@@ -7,11 +10,6 @@ export const variantClasses = {
   [SfButtonVariant.tertiary]:
     'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 disabled:bg-transparent',
 };
-</script>
-
-<script lang="ts" setup>
-import { type PropType, type ConcreteComponent, computed, toRefs } from 'vue';
-import { useAttrsRef, SfButtonSize, SfButtonVariant } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {

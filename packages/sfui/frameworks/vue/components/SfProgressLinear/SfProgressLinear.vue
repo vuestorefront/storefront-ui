@@ -1,4 +1,7 @@
-<script lang="ts">
+<script lang="ts" setup>
+import { type PropType } from 'vue';
+import { SfProgressSize, SfProgressLinearSize } from '@storefront-ui/vue';
+
 const sizeClasses = {
   [SfProgressLinearSize.minimal]: 'h-1',
   [SfProgressSize.xs]: 'h-4',
@@ -10,11 +13,6 @@ const sizeClasses = {
   [SfProgressSize['3xl']]: 'h-24',
   [SfProgressSize['4xl']]: 'h-48',
 };
-</script>
-
-<script lang="ts" setup>
-import { type PropType } from 'vue';
-import { SfProgressSize, SfProgressLinearSize } from '@storefront-ui/vue';
 
 defineProps({
   value: {

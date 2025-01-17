@@ -1,4 +1,7 @@
-<script lang="ts">
+<script lang="ts" setup>
+import { type PropType } from 'vue';
+import { SfLoaderSize } from '@storefront-ui/vue';
+
 const sizeClasses = {
   [SfLoaderSize.xs]: 'h-4 w-4 ring-2',
   [SfLoaderSize.sm]: 'h-5 w-5 ring-2',
@@ -19,11 +22,6 @@ const strokeSizeClass = {
   [SfLoaderSize['3xl']]: 'stroke-2',
   [SfLoaderSize['4xl']]: 'stroke-2',
 };
-</script>
-
-<script lang="ts" setup>
-import { type PropType } from 'vue';
-import { SfLoaderSize } from '@storefront-ui/vue';
 
 defineProps({
   size: {

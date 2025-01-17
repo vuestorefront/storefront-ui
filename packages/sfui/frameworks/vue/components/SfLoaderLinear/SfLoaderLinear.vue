@@ -1,4 +1,7 @@
-<script lang="ts">
+<script lang="ts" setup>
+import { type PropType } from 'vue';
+import { SfLoaderLinearSize, SfLoaderSize } from '@storefront-ui/vue';
+
 const sizeClasses = {
   [SfLoaderLinearSize.minimal]: 'h-1',
   [SfLoaderSize.xs]: 'h-4',
@@ -10,11 +13,6 @@ const sizeClasses = {
   [SfLoaderSize['3xl']]: 'h-24',
   [SfLoaderSize['4xl']]: 'h-48',
 };
-</script>
-
-<script lang="ts" setup>
-import { type PropType } from 'vue';
-import { SfLoaderLinearSize, SfLoaderSize } from '@storefront-ui/vue';
 
 defineProps({
   size: {
