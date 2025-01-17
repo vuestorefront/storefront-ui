@@ -1,3 +1,8 @@
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+};
+</script>
 <script lang="ts" setup>
 import { computed, toRefs, type PropType, type ConcreteComponent, reactive } from 'vue';
 import {
@@ -15,10 +20,6 @@ import {
   type SfScrollableOnDragEndData,
   type ScrollableOptions,
 } from '@storefront-ui/vue';
-
-defineOptions({
-  inheritAttrs: false,
-});
 
 const props = defineProps({
   tag: {

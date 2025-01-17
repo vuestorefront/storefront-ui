@@ -1,13 +1,14 @@
-<script lang="ts" setup>
-import type { PropType } from 'vue';
-import { SfThumbnailSize } from '@storefront-ui/vue';
-
+<script lang="ts">
 const sizeClasses = {
   [SfThumbnailSize.sm]: 'w-5 h-5',
   [SfThumbnailSize.base]: 'w-6 h-6',
   [SfThumbnailSize.lg]: 'w-10 h-10',
   [SfThumbnailSize.xl]: 'w-14 h-14',
 };
+</script>
+<script lang="ts" setup>
+import type { PropType } from 'vue';
+import { SfThumbnailSize } from '@storefront-ui/vue';
 
 defineProps({
   size: {

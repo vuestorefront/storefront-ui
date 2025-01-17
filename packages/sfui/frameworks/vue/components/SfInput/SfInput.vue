@@ -1,17 +1,18 @@
-<script lang="ts" setup>
-import type { PropType, ConcreteComponent } from 'vue';
-import { computed, ref, toRefs } from 'vue';
-import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
-
-defineOptions({
+<script lang="ts">
+export default {
   inheritAttrs: false,
-});
-
+};
 const getSizeClasses = {
   [SfInputSize.sm]: ' h-[32px]',
   [SfInputSize.base]: 'h-[40px]',
   [SfInputSize.lg]: 'h-[48px]',
 };
+</script>
+
+<script lang="ts" setup>
+import type { PropType, ConcreteComponent } from 'vue';
+import { computed, ref, toRefs } from 'vue';
+import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {

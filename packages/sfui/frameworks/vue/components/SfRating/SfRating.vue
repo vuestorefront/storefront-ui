@@ -1,8 +1,4 @@
-<script lang="ts" setup>
-import { computed, toRefs, type PropType } from 'vue';
-import { clamp, roundToNearest } from '@storefront-ui/shared';
-import { SfRatingSize, SfIconStarFilled, SfIconStar, SfIconStarHalf } from '@storefront-ui/vue';
-
+<script lang="ts">
 const sizeClasses = {
   [SfRatingSize.xs]: 'text-xs',
   [SfRatingSize.sm]: 'text-sm',
@@ -10,6 +6,12 @@ const sizeClasses = {
   [SfRatingSize.lg]: 'text-lg',
   [SfRatingSize.xl]: 'text-xl',
 };
+</script>
+
+<script lang="ts" setup>
+import { computed, toRefs, type PropType } from 'vue';
+import { clamp, roundToNearest } from '@storefront-ui/shared';
+import { SfRatingSize, SfIconStarFilled, SfIconStar, SfIconStarHalf } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {

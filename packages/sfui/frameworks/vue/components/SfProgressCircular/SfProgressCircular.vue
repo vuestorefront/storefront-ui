@@ -1,7 +1,4 @@
-<script lang="ts" setup>
-import { computed, toRefs, type PropType } from 'vue';
-import { SfProgressSize } from '@storefront-ui/vue';
-
+<script lang="ts">
 const sizeClasses = {
   [SfProgressSize.xs]: 'h-4 w-4 ring-2',
   [SfProgressSize.sm]: 'h-5 w-5 ring-2',
@@ -22,6 +19,11 @@ const strokeSizeClass = {
   [SfProgressSize['3xl']]: 'stroke-2',
   [SfProgressSize['4xl']]: 'stroke-2',
 };
+</script>
+
+<script lang="ts" setup>
+import { computed, toRefs, type PropType } from 'vue';
+import { SfProgressSize } from '@storefront-ui/vue';
 
 const props = defineProps({
   value: {

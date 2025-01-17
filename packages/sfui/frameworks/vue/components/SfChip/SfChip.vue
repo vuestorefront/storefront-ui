@@ -1,12 +1,13 @@
-<script lang="ts" setup>
-import { type PropType, type InputHTMLAttributes } from 'vue';
-import { toRefs, computed } from 'vue';
-import { useId, SfChipSize, useSlotsRef } from '@storefront-ui/vue';
-
+<script lang="ts">
 const sizeClasses = {
   [SfChipSize.sm]: 'text-sm py-1.5 gap-1.5',
   [SfChipSize.base]: 'text-base py-2 gap-2',
 };
+</script>
+<script lang="ts" setup>
+import { type PropType, type InputHTMLAttributes } from 'vue';
+import { toRefs, computed } from 'vue';
+import { useId, SfChipSize, useSlotsRef } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
