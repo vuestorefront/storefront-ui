@@ -1,5 +1,11 @@
 # @storefront-ui/vue
 
+## 2.6.5
+
+### Patch Changes
+
+- [#3263](https://github.com/vuestorefront/storefront-ui/pull/3263) [`f534058`](https://github.com/vuestorefront/storefront-ui/commit/f534058e4be50f1fb4f3394c6aab525f901b3ee4) Thanks [@lsliwaradioluz](https://github.com/lsliwaradioluz)! - [FIXED] Fixed `<SfSelect />` value not updated when no `v-model` is used on the component.
+
 ## 2.6.4
 
 ### Patch Changes
