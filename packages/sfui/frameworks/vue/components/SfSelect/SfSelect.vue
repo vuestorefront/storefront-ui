@@ -1,11 +1,10 @@
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
-</script>
 <script lang="ts" setup>
-import { type PropType, computed } from 'vue';
+import { type PropType, ref, toRefs, computed } from 'vue';
 import { SfSelectSize, SfIconExpandMore, useFocusVisible, useDisclosure } from '@storefront-ui/vue';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps({
   size: {
@@ -41,12 +40,22 @@ const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
 
+const { modelValue } = toRefs(props);
 const { isOpen, close, open } = useDisclosure();
 const { isFocusVisible } = useFocusVisible();
 
-const modelProxy = computed({
-  get: () => props.modelValue,
-  set: (value: string) => emit('update:modelValue', value),
+/*
+Internal state has been implemented due to native select's element
+value disappearing under certain circumstances. It's important to
+keep it here, or to always pass modelValue to the component.
+*/
+const internalState = ref<string>(modelValue.value);
+const selectModel = computed({
+  get: () => modelValue.value ||  internalState.value,
+  set: (value) => {
+    emit('update:modelValue', value);
+    internalState.value = value;
+  },
 });
 </script>
 
@@ -62,8 +71,8 @@ const modelProxy = computed({
     data-testid="select"
   >
     <select
+      v-model="selectModel"
       :required="required"
-      v-model="modelProxy"
       :disabled="disabled"
       :class="[
         'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 ring-inset focus:ring-primary-700 focus:ring-2 outline-none bg-transparent rounded-md ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
@@ -83,7 +92,6 @@ const modelProxy = computed({
     >
       <option
         v-if="placeholder"
-        disabled
         hidden
         class="text-sm bg-neutral-300"
         value=""
