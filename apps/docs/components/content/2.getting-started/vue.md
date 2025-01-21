@@ -123,7 +123,7 @@ yarn add -D @storefront-ui/nuxt
 pnpm add -D @storefront-ui/nuxt
 ```
 
-### Add the Nuxt Tailwind module to your `nuxt.config.ts`
+### Add the Nuxt Storefront module to your `nuxt.config.ts`
 
 ```ts
 // nuxt.config.ts
