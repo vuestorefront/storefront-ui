@@ -1,8 +1,6 @@
 export * from './types';
 export { default as SfIconAdd } from './SfIconAdd.vue';
 export { default as SfIconAddShoppingCart } from './SfIconAddShoppingCart.vue';
-export { default as SfIconAlokai } from './SfIconAlokai.vue';
-export { default as SfIconAlokaiFull } from './SfIconAlokaiFull.vue';
 export { default as SfIconArrowBack } from './SfIconArrowBack.vue';
 export { default as SfIconArrowDownward } from './SfIconArrowDownward.vue';
 export { default as SfIconArrowForward } from './SfIconArrowForward.vue';
@@ -56,6 +54,8 @@ export { default as SfIconPackage } from './SfIconPackage.vue';
 export { default as SfIconPercent } from './SfIconPercent.vue';
 export { default as SfIconPerson } from './SfIconPerson.vue';
 export { default as SfIconPinterest } from './SfIconPinterest.vue';
+export { default as SfIconPlayhouse } from './SfIconPlayhouse.vue';
+export { default as SfIconPlayhouseFull } from './SfIconPlayhouseFull.vue';
 export { default as SfIconPublishedWithChanges } from './SfIconPublishedWithChanges.vue';
 export { default as SfIconRadioButtonChecked } from './SfIconRadioButtonChecked.vue';
 export { default as SfIconRadioButtonUnchecked } from './SfIconRadioButtonUnchecked.vue';

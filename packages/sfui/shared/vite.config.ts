@@ -13,6 +13,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'index.ts'),
       name: 'storefront-ui-shared',
+      formats: ['es', 'umd'], // Explicitly define formats
       fileName: (format) => format === 'es' ? `index.mjs` : `index.${format}.js`,
     },
   },

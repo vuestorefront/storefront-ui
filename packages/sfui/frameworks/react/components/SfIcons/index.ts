@@ -1,8 +1,6 @@
 export * from './types';
 export { default as SfIconAdd } from './SfIconAdd';
 export { default as SfIconAddShoppingCart } from './SfIconAddShoppingCart';
-export { default as SfIconAlokai } from './SfIconAlokai';
-export { default as SfIconAlokaiFull } from './SfIconAlokaiFull';
 export { default as SfIconArrowBack } from './SfIconArrowBack';
 export { default as SfIconArrowDownward } from './SfIconArrowDownward';
 export { default as SfIconArrowForward } from './SfIconArrowForward';
@@ -56,6 +54,8 @@ export { default as SfIconPackage } from './SfIconPackage';
 export { default as SfIconPercent } from './SfIconPercent';
 export { default as SfIconPerson } from './SfIconPerson';
 export { default as SfIconPinterest } from './SfIconPinterest';
+export { default as SfIconPlayhouse } from './SfIconPlayhouse';
+export { default as SfIconPlayhouseFull } from './SfIconPlayhouseFull';
 export { default as SfIconPublishedWithChanges } from './SfIconPublishedWithChanges';
 export { default as SfIconRadioButtonChecked } from './SfIconRadioButtonChecked';
 export { default as SfIconRadioButtonUnchecked } from './SfIconRadioButtonUnchecked';
