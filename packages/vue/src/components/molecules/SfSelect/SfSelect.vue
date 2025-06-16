@@ -26,7 +26,6 @@
         id="sfSelect"
         v-focus
         tabindex="0"
-        role="listbox"
         class="sf-select__selected sf-select-option"
         v-html="html"
       ></div>
@@ -40,7 +39,11 @@
       </slot>
 
       <transition name="sf-select">
-        <div v-show="open" role="list" class="sf-select__dropdown">
+        <div 
+          v-show="open"
+          role="listbox"
+          class="sf-select__dropdown"
+        >
           <!--  sf-select__option -->
           <ul
             ref="scrollableList"
