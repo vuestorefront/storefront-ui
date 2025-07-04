@@ -2146,18 +2146,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mertasan/tailwindcss-variables@npm:^2.5.2":
-  version: 2.7.0
-  resolution: "@mertasan/tailwindcss-variables@npm:2.7.0"
-  dependencies:
-    lodash: ^4.17.21
-  peerDependencies:
-    autoprefixer: ^10.0.2
-    postcss: ^8.0.9
-  checksum: 1e38761078a9d5466231069228e8e72d1fc4a721a80dd19d9259b39bdda7d0397e048ba82d46ecee2f031ecab78a6a2dff593d95ba7ae107e05d709584e43159
-  languageName: node
-  linkType: hard
-
 "@microsoft/api-documenter@npm:^7.25.9":
   version: 7.25.21
   resolution: "@microsoft/api-documenter@npm:7.25.21"
@@ -4260,7 +4248,7 @@ __metadata:
     remark-stringify: ^11.0.0
     rimraf: ^6.0.1
     rollup-plugin-preserve-directives: ^0.4.0
-    tailwindcss: ^3.4.7
+    tailwindcss: 4.1.11
     turbo: ^2.0.9
     typescript: ^5.5.4
     unified: ^11.0.5
@@ -4315,7 +4303,7 @@ __metadata:
     rimraf: ^6.0.1
     string-replace-loader: ^3.1.0
     swr: ^2.2.5
-    tailwindcss: ^3.4.7
+    tailwindcss: 4.1.11
     ts-loader: ^9.4.2
   languageName: unknown
   linkType: soft
@@ -4389,7 +4377,7 @@ __metadata:
     react: ^18.3.1
     react-dom: ^18.3.1
     rimraf: ^6.0.1
-    tailwindcss: ^3.4.7
+    tailwindcss: 4.1.11
     typescript: ^5.5.4
     vite: ^5.3.5
     vite-plugin-istanbul: ^4.0.1
@@ -4439,11 +4427,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/tailwind-config@workspace:packages/config/tailwind"
   dependencies:
-    "@mertasan/tailwindcss-variables": ^2.5.2
     "@storefront-ui/tw-plugin-peer-next": "workspace:*"
-    typescript: ^5.5.4
-    vite: ^5.3.5
-    vite-plugin-dts: ^3.9.1
+    "@storefront-ui/typography": "workspace:*"
   languageName: unknown
   linkType: soft
 
@@ -4526,7 +4511,7 @@ __metadata:
     postcss-import: ^15.1.0
     rimraf: ^6.0.1
     sass: ^1.77.8
-    tailwindcss: ^3.4.7
+    tailwindcss: 4.1.11
     typescript: ^5.5.4
     vite: ^5.3.5
     vite-plugin-istanbul: ^4.0.0
@@ -21279,7 +21264,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tailwindcss@npm:^3.4.7, tailwindcss@npm:~3.4.13":
+"tailwindcss@npm:4.1.11":
+  version: 4.1.11
+  resolution: "tailwindcss@npm:4.1.11"
+  checksum: db5883219aa7b4192aa13a028547867c5d6c18b3438b99c25ac7af64c3f9475d1b96970cb27f52f6f53789bb91d8fc4ed8e7f181c73ba7dda721cf5a44983804
+  languageName: node
+  linkType: hard
+
+"tailwindcss@npm:~3.4.13":
   version: 3.4.14
   resolution: "tailwindcss@npm:3.4.14"
   dependencies:

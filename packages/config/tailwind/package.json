@@ -15,7 +15,6 @@
   "source": "index.ts",
   "main": "dist/index.mjs",
   "unpkg": "dist/index.umd.js",
-  "types": "dist/index.d.ts",
   "scripts": {
     "dev-only": "vite build --watch",
     "build:tailwind-config": "vite build"
@@ -29,14 +28,9 @@
   "bugs": {
     "url": "https://github.com/vuestorefront/storefront-ui/issues"
   },
-  "devDependencies": {
-    "typescript": "^5.5.4",
-    "vite": "^5.3.5",
-    "vite-plugin-dts": "^3.9.1"
-  },
   "dependencies": {
-    "@mertasan/tailwindcss-variables": "^2.5.2",
-    "@storefront-ui/tw-plugin-peer-next": "workspace:*"
+    "@storefront-ui/tw-plugin-peer-next": "workspace:*",
+    "@storefront-ui/typography": "workspace:*"
   },
   "publishConfig": {
     "access": "public"
