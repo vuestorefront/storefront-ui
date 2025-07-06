@@ -1,6 +1,6 @@
 <template>
   <div class="w-full h-full">
-    <div v-if="isOpen" class="fixed w-screen h-screen inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />
+    <div v-if="isOpen" class="fixed w-screen h-screen inset-0 bg-neutral-500/50 transition-opacity" />
     <header
       ref="menuRef"
       class="flex flex-wrap md:flex-nowrap w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:h-20 md:z-10"
@@ -19,7 +19,7 @@
         <a
           href="#"
           aria-label="SF Homepage"
-          class="flex shrink-0 ml-4 md:ml-0 text-white mr-auto md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+          class="flex shrink-0 ml-4 md:ml-0 text-white mr-auto md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs"
         >
           <picture>
             <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />

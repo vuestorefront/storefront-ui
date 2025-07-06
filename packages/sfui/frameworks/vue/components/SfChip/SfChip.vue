@@ -54,7 +54,7 @@ const paddingForSize = computed(() => {
   <input
     :id="inputId"
     v-model="onSelected"
-    class="absolute w-0 outline-none appearance-none peer"
+    class="absolute w-0 outline-hidden appearance-none peer"
     type="checkbox"
     v-bind="inputProps"
   />

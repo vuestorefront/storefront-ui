@@ -5,7 +5,7 @@ By default, Storefront UI comes equipped with some styles that can help accelera
 ## Customization Methods
 
 ::vue-only
-<iframe src="https://www.youtube-nocookie.com/embed/WkOHltQGDas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded aspect-video relative mt-8 custom-block"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/WkOHltQGDas" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded-sm aspect-video relative mt-8 custom-block"></iframe>
 ::
 
 ### Important Classes

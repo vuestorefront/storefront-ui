@@ -75,7 +75,7 @@ export default function GalleryWithBullets() {
           </div>
         ))}
       </SfScrollable>
-      <div className="flex-shrink-0 basis-auto">
+      <div className="shrink-0 basis-auto">
         <div className="flex-row w-full flex gap-0.5 mt [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
           {images.map(({ alt }, index) => (
             <button

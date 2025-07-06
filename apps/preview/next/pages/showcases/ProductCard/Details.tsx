@@ -78,7 +78,7 @@ export default function ProductDetails() {
                 id={inputId}
                 type="number"
                 role="spinbutton"
-                className="grow appearance-none mx-2 w-8 text-center bg-transparent font-medium [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-inner-spin-button]:display-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:display-none [&::-webkit-outer-spin-button]:m-0 [-moz-appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none disabled:placeholder-disabled-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+                className="grow appearance-none mx-2 w-8 text-center bg-transparent font-medium [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-inner-spin-button]:display-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-outer-spin-button]:display-none [&::-webkit-outer-spin-button]:m-0 [-moz-appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none disabled:placeholder-disabled-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs"
                 min={min}
                 max={max}
                 value={value}
@@ -114,7 +114,7 @@ export default function ProductDetails() {
         </div>
       </div>
       <div className="flex first:mt-4">
-        <SfIconPackage size="sm" className="flex-shrink-0 mr-1 text-neutral-500" />
+        <SfIconPackage size="sm" className="shrink-0 mr-1 text-neutral-500" />
         <p className="text-sm">
           Free shipping, arrives by Thu, Apr 7. Want it faster?
           <SfLink href="#" variant="secondary" className="mx-1">
@@ -124,7 +124,7 @@ export default function ProductDetails() {
         </p>
       </div>
       <div className="flex mt-4">
-        <SfIconWarehouse size="sm" className="flex-shrink-0 mr-1 text-neutral-500" />
+        <SfIconWarehouse size="sm" className="shrink-0 mr-1 text-neutral-500" />
         <p className="text-sm">
           Pickup not available at your shop.
           <SfLink href="#" variant="secondary" className="ml-1">
@@ -133,7 +133,7 @@ export default function ProductDetails() {
         </p>
       </div>
       <div className="flex mt-4">
-        <SfIconSafetyCheck size="sm" className="flex-shrink-0 mr-1 text-neutral-500" />
+        <SfIconSafetyCheck size="sm" className="shrink-0 mr-1 text-neutral-500" />
         <p className="text-sm">
           Free 30-days returns.
           <SfLink href="#" variant="secondary" className="ml-1">

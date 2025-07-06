@@ -17,7 +17,7 @@ const SfLink = polymorphicForwardRef<typeof defaultLinkTag, SfLinkProps>((props,
     <Tag
       ref={ref}
       className={classNames(
-        'focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm',
+        'focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs',
         variantClasses[variant],
         className,
       )}

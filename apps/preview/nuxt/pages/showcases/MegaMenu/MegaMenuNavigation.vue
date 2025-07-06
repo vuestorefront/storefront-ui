@@ -18,7 +18,7 @@
           <a
             href="#"
             aria-label="SF Homepage"
-            class="flex shrink-0 w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem] items-center mr-auto text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            class="flex shrink-0 w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem] items-center mr-auto text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs"
           >
             <picture>
               <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -123,7 +123,7 @@
               :key="activeMenu.key"
               ref="megaMenuRef"
               :style="style"
-              class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-none"
+              class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-hidden"
               tabindex="0"
               @mouseleave="close()"
               @keydown.esc="focusTrigger(index)"
@@ -164,7 +164,7 @@
       </nav>
 
       <!-- Mobile drawer -->
-      <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50" />
+      <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500/50" />
       <SfDrawer
         ref="drawerRef"
         v-model="isOpen"

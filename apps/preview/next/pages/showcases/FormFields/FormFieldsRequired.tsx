@@ -637,7 +637,7 @@ export default function FormFields() {
             <label
               key={value}
               className={classNames(
-                'flex items-start mb-4 mr-6 rounded first-of-type:mt-2 last-of-type:mb-6',
+                'flex items-start mb-4 mr-6 rounded-sm first-of-type:mt-2 last-of-type:mb-6',
                 disabled ? 'cursor-not-allowed' : 'cursor-pointer',
               )}
             >
@@ -668,7 +668,7 @@ export default function FormFields() {
           {radioOptions.map(({ label, name, value }) => (
             <label
               key={value}
-              className="flex items-center mb-4 mr-6 rounded cursor-pointer first-of-type:mt-2 last-of-type:mb-2"
+              className="flex items-center mb-4 mr-6 rounded-sm cursor-pointer first-of-type:mt-2 last-of-type:mb-2"
             >
               <SfRadio value={value} name={name} required onChange={() => setPushNotifications(value)} />
               <span className="ml-2 text-base font-normal leading-6 font-body">{label}</span>
@@ -677,10 +677,10 @@ export default function FormFields() {
         </fieldset>
         <p className="text-neutral-500 typography-text-sm mt-8">* marked fields are required</p>
         <div className="flex gap-x-4 md:justify-end mt-6">
-          <SfButton variant="secondary" className="flex-grow md:flex-grow-0">
+          <SfButton variant="secondary" className="flex-grow md:grow-0">
             Clear all
           </SfButton>
-          <SfButton type="submit" className="flex-grow md:flex-grow-0">
+          <SfButton type="submit" className="flex-grow md:grow-0">
             Submit
           </SfButton>
         </div>

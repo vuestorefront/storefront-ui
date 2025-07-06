@@ -1,7 +1,7 @@
 <template>
   <div role="button" tabindex="0" @click="copyColorToClipboard" @keydown.enter="copyColorToClipboard">
     <div
-      class="h-10 rounded border dark:border-zinc-700 mb-1"
+      class="h-10 rounded-sm border dark:border-zinc-700 mb-1"
       :style="{
         backgroundColor: `rgb(${rgbColor})`,
       }"

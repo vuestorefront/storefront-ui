@@ -458,7 +458,7 @@ export default function MegaMenuNavigation() {
             <a
               href="#"
               aria-label="SF Homepage"
-              className="flex shrink-0 w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem] items-center text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+              className="flex shrink-0 w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem] items-center text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs"
             >
               <picture>
                 <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
@@ -555,7 +555,7 @@ export default function MegaMenuNavigation() {
                     key={activeMenu.key}
                     style={style}
                     ref={megaMenuRef}
-                    className="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-none"
+                    className="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-hidden"
                     tabIndex={0}
                     onMouseLeave={close}
                   >
@@ -611,7 +611,7 @@ export default function MegaMenuNavigation() {
         {/* Mobile drawer */}
         {isOpen && (
           <>
-            <div className="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50" />
+            <div className="md:hidden fixed inset-0 bg-neutral-500/50" />
             <SfDrawer
               ref={drawerRef}
               open={isOpen}

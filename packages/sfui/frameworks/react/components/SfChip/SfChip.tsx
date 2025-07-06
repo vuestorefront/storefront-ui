@@ -41,7 +41,7 @@ const SfChip = forwardRef<HTMLInputElement, SfChipProps>(
         <input
           id={chipId}
           ref={ref}
-          className="absolute w-0 outline-none appearance-none peer"
+          className="absolute w-0 outline-hidden appearance-none peer"
           type="checkbox"
           {...inputProps}
         />

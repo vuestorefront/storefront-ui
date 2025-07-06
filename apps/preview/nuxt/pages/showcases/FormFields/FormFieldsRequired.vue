@@ -244,7 +244,7 @@
           v-for="({ label, value, hint, disabled }, index) in emailNotificationOptions"
           :key="`${value}-${index}`"
           :class="[
-            'flex items-start mb-4 mr-6 rounded first-of-type:mt-2 last-of-type:mb-6',
+            'flex items-start mb-4 mr-6 rounded-sm first-of-type:mt-2 last-of-type:mb-6',
             disabled ? 'cursor-not-allowed' : 'cursor-pointer',
           ]"
         >
@@ -262,7 +262,7 @@
         <label
           v-for="{ label, name, value } in radioOptions"
           :key="`${value}-${name}`"
-          class="flex items-center mb-4 mr-6 rounded cursor-pointer first-of-type:mt-2 last-of-type:mb-2"
+          class="flex items-center mb-4 mr-6 rounded-sm cursor-pointer first-of-type:mt-2 last-of-type:mb-2"
         >
           <SfRadio
             v-model="pushNotificationsModelValue"
@@ -276,8 +276,8 @@
       </fieldset>
       <p class="text-neutral-500 typography-text-sm mt-8">* marked fields are required</p>
       <div class="flex gap-x-4 md:justify-end mt-6">
-        <SfButton variant="secondary" class="flex-grow md:flex-grow-0"> Clear all </SfButton>
-        <SfButton type="submit" class="flex-grow md:flex-grow-0"> Submit </SfButton>
+        <SfButton variant="secondary" class="flex-grow md:grow-0"> Clear all </SfButton>
+        <SfButton type="submit" class="flex-grow md:grow-0"> Submit </SfButton>
       </div>
     </form>
   </div>

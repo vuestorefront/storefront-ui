@@ -1,9 +1,9 @@
 <script lang="ts">
 const variantClasses = {
   [SfLinkVariant.primary]:
-    'text-primary-700 underline hover:text-primary-800 active:text-primary-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm',
+    'text-primary-700 underline hover:text-primary-800 active:text-primary-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs',
   [SfLinkVariant.secondary]:
-    'underline hover:text-primary-800 active:text-primary-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm',
+    'underline hover:text-primary-800 active:text-primary-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs',
 };
 </script>
 
@@ -26,7 +26,7 @@ defineProps({
 <template>
   <component
     :is="tag"
-    :class="['focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm', variantClasses[variant]]"
+    :class="['focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs', variantClasses[variant]]"
     data-testid="link"
   >
     <slot />

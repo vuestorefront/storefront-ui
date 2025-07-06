@@ -76,7 +76,7 @@ const inputValue = computed({
     <slot name="prefix" />
     <input
       v-model="inputValue"
-      class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
+      class="min-w-[80px] w-full text-base outline-hidden appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
       :size="1"
       data-testid="input-field"
       v-bind="$attrs"

@@ -54,7 +54,7 @@ useTrapFocus(modalRef, {
     aria-modal="true"
     data-testid="modal"
     tabindex="-1"
-    class="fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-xl outline-none"
+    class="fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-xl outline-hidden"
     @keydown.esc="onEscKeyDown"
   >
     <slot />

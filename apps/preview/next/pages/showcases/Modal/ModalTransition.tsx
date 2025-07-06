@@ -27,7 +27,7 @@ export default function ModalTransition() {
           exitActive: 'opacity-0 transition duration-200 ease-out',
         }}
       >
-        <div ref={backdropRef} className="fixed inset-0 bg-neutral-700 bg-opacity-50" />
+        <div ref={backdropRef} className="fixed inset-0 bg-neutral-700/50" />
       </CSSTransition>
 
       {/* Modal */}

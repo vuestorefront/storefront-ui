@@ -50,7 +50,7 @@ function CustomTooltip(props: Props) {
           <div
             {...getTooltipProps({
               style: transitionStyles[state],
-              className: 'bg-green-800 p-1 rounded text-white w-max transition-opacity duration-300',
+              className: 'bg-green-800 p-1 rounded-sm text-white w-max transition-opacity duration-300',
             })}
           >
             {label}
@@ -95,7 +95,7 @@ const { isOpen, triggerProps, tooltipProps, arrowProps } = useTooltip();
     <slot />
     <div
       v-if="label && isOpen"
-      class="bg-green-800 p-1 rounded text-white w-max transition-opacity duration-300"
+      class="bg-green-800 p-1 rounded-sm text-white w-max transition-opacity duration-300"
       v-bind="tooltipProps"
     >
       {{ label }}

@@ -35,7 +35,7 @@ const SfInput = polymorphicForwardRef<typeof defaultWrapperTag, SfInputProps>(
         {slotPrefix}
         <input
           className={classNames([
-            'min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent',
+            'min-w-[80px] w-full text-base outline-hidden appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent',
             className,
           ])}
           type="text"

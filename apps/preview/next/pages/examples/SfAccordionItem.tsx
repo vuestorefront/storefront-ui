@@ -29,7 +29,7 @@ function Example() {
             <SfIconChevronLeft className={`${state.get.open ? 'rotate-90' : '-rotate-90'}`} />
           </div>
         }
-        className="rounded border"
+        className="rounded-sm border"
       >
         <p className="p-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

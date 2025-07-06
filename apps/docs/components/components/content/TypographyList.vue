@@ -5,7 +5,7 @@
       <div v-for="[name, ...classes] in classes" :key="name" class="mt-4">
         <p
           :class="convertClassesArrayToClass(classes)"
-          class="bg-gray-100 dark:bg-zinc-800 p-4 rounded text-black dark:text-white"
+          class="bg-gray-100 dark:bg-zinc-800 p-4 rounded-sm text-black dark:text-white"
         >
           typography-{{ name }}
         </p>

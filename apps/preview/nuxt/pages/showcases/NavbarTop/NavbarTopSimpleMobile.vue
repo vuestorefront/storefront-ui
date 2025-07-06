@@ -9,7 +9,7 @@
       <a
         href="#"
         aria-label="SF Homepage"
-        class="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
+        class="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs shrink-0"
       >
         <img
           src="http://localhost:3100/@assets/vsf_logo.svg"

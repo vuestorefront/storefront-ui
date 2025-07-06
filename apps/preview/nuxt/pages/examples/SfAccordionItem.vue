@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <SfAccordionItem v-model="state.modelValue" class="rounded border">
+    <SfAccordionItem v-model="state.modelValue" class="rounded-sm border">
       <template #summary>
         <div class="flex justify-between p-2 bg-gray-100">
           <p>Click me to see the content</p>

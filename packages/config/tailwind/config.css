@@ -148,3 +148,10 @@
 @utility outline-offset {
   outline-offset: var(--default-outline-offset);
 }
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}

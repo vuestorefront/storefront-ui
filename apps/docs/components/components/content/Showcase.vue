@@ -23,7 +23,7 @@
     <div ref="wrapperRef" class="relative flex-1 flex flex-col">
       <div
         ref="previewElementRef"
-        class="pt-4 flex-grow rounded overflow-hidden"
+        class="pt-4 flex-grow rounded-sm overflow-hidden"
         :class="[tab === 1 ? 'flex' : 'hidden']"
         @mousedown="eventDownListener"
         @touchstart="eventDownListener"
@@ -32,7 +32,7 @@
         <Generate
           :showcase-path="showcaseName"
           :allow="allow"
-          class="flex-grow rounded"
+          class="flex-grow rounded-sm 
           style="margin-top: 0"
           :no-paddings="noPaddings"
           :no-scale="noScale"
