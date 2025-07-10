@@ -9,12 +9,10 @@
         buttonText,
         backgroundColor,
         reverse,
-        titleClass,
-        subtitleClass,
       } in displayDetails"
       :key="title"
       :class="[
-        'relative flex md:max-w-[1536px] md:[&:not(:first-of-type)]:flex-1 md:first-of-type:w-full',
+        'relative flex md:max-w-[1536px] md:[&:not(:first-of-type)]:flex-1 md:first-of-type:w-full @container group',
         backgroundColor,
       ]"
     >
@@ -24,17 +22,17 @@
         href="#"
       />
       <div :class="['flex justify-between overflow-hidden grow', { 'flex-row-reverse': reverse }]">
-        <div class="flex flex-col justify-center items-start p-6 lg:p-10 max-w-1/2">
-          <p :class="['uppercase typography-text-xs block font-bold tracking-widest', subtitleClass]">
+        <div class="flex flex-col justify-center items-start p-6 @3xl:p-10 max-w-1/2">
+          <p class="uppercase typography-text-xs block font-medium tracking-widest @3xl:typography-headline-6">
             {{ subtitle }}
           </p>
-          <h2 :class="['mb-4 mt-2 font-bold typography-display-3', titleClass]">
+          <h2 class="mb-4 mt-2 font-semibold typography-display-3 -tracking-wide @3xl:typography-display-1">
             {{ title }}
           </h2>
-          <p class="typography-text-base block mb-4">
+          <p class="typography-text-base block mb-4 @3xl:typography-text-lg">
             {{ description }}
           </p>
-          <SfButton class="!bg-black">{{ buttonText }}</SfButton>
+          <SfButton blank class="text-white bg-neutral-700 hover:bg-neutral-800 active:bg-neutral-900 group-hover:bg-neutral-800 group-active:bg-neutral-900">{{ buttonText }}</SfButton>
         </div>
         <img :src="image" :alt="title" class="w-1/2 self-end object-contain" />
       </div>
@@ -54,9 +52,6 @@ const displayDetails = [
     buttonText: 'Discover now',
     reverse: false,
     backgroundColor: 'bg-negative-200',
-    titleClass: 'md:typography-display-2',
-    subtitleClass: 'md:typography-headline-6',
-    descriptionClass: 'md:typography-text-lg',
   },
   {
     image: 'http://localhost:3100/@assets/display-2.png',
