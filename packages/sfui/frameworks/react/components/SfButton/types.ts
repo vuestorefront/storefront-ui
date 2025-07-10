@@ -12,5 +12,6 @@ export interface SfButtonProps
   slotSuffix?: ReactNode;
   size?: `${SfButtonSize}`;
   variant?: `${SfButtonVariant}`;
+  blank?: boolean;
   square?: boolean;
 }
