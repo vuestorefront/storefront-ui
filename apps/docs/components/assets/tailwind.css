@@ -1,0 +1,87 @@
+/* TODO: remove after release of new sf-docs-base version */
+/* needed to override tailwind color configuration coming from sf-docs-base */
+:root:root {
+  /* Primary */
+  --colors-primary-50: 0.982 0.027 157.322;
+  --colors-primary-100: 0.962 0.05 155.017;
+  --colors-primary-200: 0.899 0.097 153.574;
+  --colors-primary-300: 0.855 0.144 151.03;
+  --colors-primary-400: 0.801 0.196 150.807;
+  --colors-primary-500: 0.716 0.19 150.726;
+  --colors-primary-600: 0.621 0.165 151.142;
+  --colors-primary-700: 0.524 0.135 151.385;
+  --colors-primary-800: 0.401 0.095 152.918;
+  --colors-primary-900: 0.285 0.055 155.368;
+
+  /* Secondary */
+  --colors-secondary-50: 0.974 0.011 297.885;
+  --colors-secondary-100: 0.95 0.02 295.319;
+  --colors-secondary-200: 0.902 0.039 297.129;
+  --colors-secondary-300: 0.866 0.059 299.356;
+  --colors-secondary-400: 0.802 0.098 298.146;
+  --colors-secondary-500: 0.741 0.141 296.447;
+  --colors-secondary-600: 0.64 0.184 295.246;
+  --colors-secondary-700: 0.54 0.191 293.104;
+  --colors-secondary-800: 0.419 0.156 291.93;
+  --colors-secondary-900: 0.295 0.094 293.497;
+
+  /* Positive */
+  --colors-positive-50: 0.982 0.027 157.322;
+  --colors-positive-100: 0.962 0.05 155.017;
+  --colors-positive-200: 0.899 0.097 153.574;
+  --colors-positive-300: 0.855 0.144 151.03;
+  --colors-positive-400: 0.801 0.196 150.807;
+  --colors-positive-500: 0.716 0.19 150.726;
+  --colors-positive-600: 0.621 0.165 151.142;
+  --colors-positive-700: 0.524 0.135 151.385;
+  --colors-positive-800: 0.401 0.095 152.918;
+  --colors-positive-900: 0.285 0.055 155.368;
+
+  /* Negative */
+  --colors-negative-50: 0.978 0.011 3.577;
+  --colors-negative-100: 0.951 0.026 2.797;
+  --colors-negative-200: 0.906 0.049 5.563;
+  --colors-negative-300: 0.867 0.07 8.609;
+  --colors-negative-400: 0.81 0.11 11.318;
+  --colors-negative-500: 0.746 0.156 13.807;
+  --colors-negative-600: 0.634 0.215 16.447;
+  --colors-negative-700: 0.545 0.215 22.13;
+  --colors-negative-800: 0.41 0.16 20.89;
+  --colors-negative-900: 0.28 0.09 18.166;
+
+  /* Warning */
+  --colors-warning-50: 0.979 0.016 79.212;
+  --colors-warning-100: 0.956 0.04 79.425;
+  --colors-warning-200: 0.91 0.08 79.414;
+  --colors-warning-300: 0.87 0.106 73.914;
+  --colors-warning-400: 0.825 0.145 72.253;
+  --colors-warning-500: 0.75 0.16 70.078;
+  --colors-warning-600: 0.636 0.135 68.487;
+  --colors-warning-700: 0.539 0.12 64.869;
+  --colors-warning-800: 0.415 0.089 62.994;
+  --colors-warning-900: 0.286 0.055 60.071;
+
+  /* Neutral */
+  --colors-neutral-50: 0.986 0.002 0;
+  --colors-neutral-100: 0.963 0.007 0;
+  --colors-neutral-200: 0.904 0.013 156.832;
+  --colors-neutral-300: 0.816 0.016 154.297;
+  --colors-neutral-400: 0.629 0.016 157.933;
+  --colors-neutral-500: 0.53 0.017 157.808;
+  --colors-neutral-600: 0.443 0.016 152.174;
+  --colors-neutral-700: 0.365 0.016 156.314;
+  --colors-neutral-800: 0.282 0.011 156.383;
+  --colors-neutral-900: 0.211 0.011 151.165;
+
+  /* Disabled */
+  --colors-disabled-50: 0.986 0.002 0;
+  --colors-disabled-100: 0.963 0.007 0;
+  --colors-disabled-200: 0.904 0.013 156.832;
+  --colors-disabled-300: 0.816 0.016 154.297;
+  --colors-disabled-400: 0.629 0.016 157.933;
+  --colors-disabled-500: 0.53 0.017 157.808;
+  --colors-disabled-600: 0.443 0.016 152.174;
+  --colors-disabled-700: 0.365 0.016 156.314;
+  --colors-disabled-800: 0.282 0.011 156.383;
+  --colors-disabled-900: 0.211 0.011 151.165;
+}

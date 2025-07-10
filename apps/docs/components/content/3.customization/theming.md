@@ -33,24 +33,23 @@ With CSS Variables, we can use one class and change the color by changing the CS
 ```
 :::
 
-To customize colors with CSS variables, you can set variables as different color channels. This syntax is required for [Tailwind's opacity modifier](https://tailwindcss.com/docs/customizing-colors#using-css-variables) syntax to work.
+Tailwind since version 4 uses OKLCH as a preferred color notation, pretty good explanation on benefits of OKLCH [can be found here](https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl). To customize colors with CSS variables, you can set variables as different color parameters. This syntax is required for [Tailwind's opacity modifier](https://tailwindcss.com/docs/customizing-colors#using-css-variables) syntax to work.
 
 :::warning Hex values will not work with Tailwind's opacity modifier
-
-The color channel syntax looks like `{red} {green} {blue}` with a number for each color value. If you use a hex color or CSS's `rgb()` function, Tailwind will not be able to modify the opacity of the color with Tailwind's `text-primary-400/100` syntax.
+The color syntax for CSS variable looks like `{lightness} {chroma} {hue}` with a number for each color value. If you use a hex color or CSS's `rgb()` or `oklch()` function, Tailwind will not be able to modify the opacity of the color with Tailwind's `text-primary-400/50` syntax.
 :::
 
 The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}-{shade}`. For example, changing `primary-500` for light/dark themes might look like this.
 
 ```css
 :root {
-  --colors-primary-500: 10 171 69;
+  --colors-primary-500: 0.741 0.141 296.447;
 }
 
 /* this may change depending on how you implement dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --colors-primary-500: 240 253 244;
+    --colors-primary-500: 0.95 0.02 295.319;
   }
 }
 ```
@@ -62,89 +61,91 @@ The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}
 
 ```css
 :root {
+
+
   /* Primary */
-  --colors-primary-50: 235 255 242;
-  --colors-primary-100: 217 253 228;
-  --colors-primary-200: 171 241 192;
-  --colors-primary-300: 130 234 158;
-  --colors-primary-400: 60 224 120;
-  --colors-primary-500: 19 195 96;
-  --colors-primary-600: 7 161 79;
-  --colors-primary-700: 13 127 63;
-  --colors-primary-800: 16 86 46;
-  --colors-primary-900: 15 50 30;
+  --colors-primary-50: 0.98 0.02 156.735;
+  --colors-primary-100: 0.945 0.028 162.02;
+  --colors-primary-200: 0.887 0.047 164.988;
+  --colors-primary-300: 0.804 0.062 163.425;
+  --colors-primary-400: 0.727 0.054 162.969;
+  --colors-primary-500: 0.634 0.048 162.931;
+  --colors-primary-600: 0.525 0.041 162.018;
+  --colors-primary-700: 0.466 0.035 162.976;
+  --colors-primary-800: 0.365 0.026 164.592;
+  --colors-primary-900: 0.27 0.017 163.365;
 
   /* Secondary */
-  --colors-secondary-50: 247 245 253;
-  --colors-secondary-100: 239 236 251;
-  --colors-secondary-200: 225 218 246;
-  --colors-secondary-300: 216 203 245;
-  --colors-secondary-400: 198 177 246;
-  --colors-secondary-500: 180 151 249;
-  --colors-secondary-600: 151 111 238;
-  --colors-secondary-700: 119 79 209;
-  --colors-secondary-800: 82 52 153;
-  --colors-secondary-900: 48 32 86;
+  --colors-secondary-50: 0.982 0.027 157.322;
+  --colors-secondary-100: 0.962 0.05 155.017;
+  --colors-secondary-200: 0.899 0.097 153.574;
+  --colors-secondary-300: 0.855 0.144 151.03;
+  --colors-secondary-400: 0.801 0.196 150.807;
+  --colors-secondary-500: 0.716 0.19 150.726;
+  --colors-secondary-600: 0.621 0.165 151.142;
+  --colors-secondary-700: 0.524 0.135 151.385;
+  --colors-secondary-800: 0.401 0.095 152.918;
+  --colors-secondary-900: 0.285 0.055 155.368;
 
   /* Positive */
-  --colors-positive-50: 235 255 242;
-  --colors-positive-100: 217 253 228;
-  --colors-positive-200: 171 241 192;
-  --colors-positive-300: 130 234 158;
-  --colors-positive-400: 60 224 120;
-  --colors-positive-500: 19 195 96;
-  --colors-positive-600: 7 161 79;
-  --colors-positive-700: 13 127 63;
-  --colors-positive-800: 16 86 46;
-  --colors-positive-900: 15 50 30;
+  --colors-positive-50: 0.982 0.027 157.322;
+  --colors-positive-100: 0.962 0.05 155.017;
+  --colors-positive-200: 0.899 0.097 153.574;
+  --colors-positive-300: 0.855 0.144 151.03;
+  --colors-positive-400: 0.801 0.196 150.807;
+  --colors-positive-500: 0.716 0.19 150.726;
+  --colors-positive-600: 0.621 0.165 151.142;
+  --colors-positive-700: 0.524 0.135 151.385;
+  --colors-positive-800: 0.401 0.095 152.918;
+  --colors-positive-900: 0.285 0.055 155.368;
 
   /* Negative */
-  --colors-negative-50: 255 245 247;
-  --colors-negative-100: 255 232 237;
-  --colors-negative-200: 254 211 219;
-  --colors-negative-300: 253 193 202;
-  --colors-negative-400: 255 163 175;
-  --colors-negative-500: 255 127 143;
-  --colors-negative-600: 240 59 91;
-  --colors-negative-700: 208 13 48;
-  --colors-negative-800: 141 8 33;
-  --colors-negative-900: 76 15 23;
+  --colors-negative-50: 0.978 0.011 3.577;
+  --colors-negative-100: 0.951 0.026 2.797;
+  --colors-negative-200: 0.906 0.049 5.563;
+  --colors-negative-300: 0.867 0.07 8.609;
+  --colors-negative-400: 0.81 0.11 11.318;
+  --colors-negative-500: 0.746 0.156 13.807;
+  --colors-negative-600: 0.634 0.215 16.447;
+  --colors-negative-700: 0.545 0.215 22.13;
+  --colors-negative-800: 0.41 0.16 20.89;
+  --colors-negative-900: 0.28 0.09 18.166;
 
   /* Warning */
-  --colors-warning-50: 254 247 236;
-  --colors-warning-100: 255 238 211;
-  --colors-warning-200: 254 220 165;
-  --colors-warning-300: 254 202 132;
-  --colors-warning-400: 255 181 77;
-  --colors-warning-500: 237 153 14;
-  --colors-warning-600: 191 121 17;
-  --colors-warning-700: 157 93 3;
-  --colors-warning-800: 109 63 9;
-  --colors-warning-900: 62 35 10;
+  --colors-warning-50: 0.979 0.016 79.212;
+  --colors-warning-100: 0.96 0.037 80.566;
+  --colors-warning-200: 0.91 0.08 79.414;
+  --colors-warning-300: 0.87 0.106 73.914;
+  --colors-warning-400: 0.825 0.145 72.253;
+  --colors-warning-500: 0.75 0.16 70.078;
+  --colors-warning-600: 0.636 0.135 68.487;
+  --colors-warning-700: 0.539 0.12 64.869;
+  --colors-warning-800: 0.415 0.089 62.994;
+  --colors-warning-900: 0.286 0.055 60.071;
 
   /* Neutral */
-  --colors-neutral-50: 249 251 250;
-  --colors-neutral-100: 239 244 241;
-  --colors-neutral-200: 217 226 220;
-  --colors-neutral-300: 187 198 190;
-  --colors-neutral-400: 129 140 133;
-  --colors-neutral-500: 100 111 104;
-  --colors-neutral-600: 77 86 79;
-  --colors-neutral-700: 56 65 59;
-  --colors-neutral-800: 37 43 39;
-  --colors-neutral-900: 21 26 22;
+  --colors-neutral-50: 0.986 0.002 0;
+  --colors-neutral-100: 0.963 0.007 0;
+  --colors-neutral-200: 0.904 0.013 156.832;
+  --colors-neutral-300: 0.816 0.016 154.297;
+  --colors-neutral-400: 0.629 0.016 157.933;
+  --colors-neutral-500: 0.53 0.017 157.808;
+  --colors-neutral-600: 0.443 0.016 152.174;
+  --colors-neutral-700: 0.365 0.016 156.314;
+  --colors-neutral-800: 0.282 0.011 156.383;
+  --colors-neutral-900: 0.211 0.011 151.165;
 
   /* Disabled */
-  --colors-disabled-50: 249 251 250;
-  --colors-disabled-100: 239 244 241;
-  --colors-disabled-200: 217 226 220;
-  --colors-disabled-300: 187 198 190;
-  --colors-disabled-400: 129 140 133;
-  --colors-disabled-500: 100 111 104;
-  --colors-disabled-600: 77 86 79;
-  --colors-disabled-700: 56 65 59;
-  --colors-disabled-800: 37 43 39;
-  --colors-disabled-900: 21 26 22;
+  --colors-disabled-50: 0.986 0.002 0;
+  --colors-disabled-100: 0.963 0.007 0;
+  --colors-disabled-200: 0.904 0.013 156.832;
+  --colors-disabled-300: 0.816 0.016 154.297;
+  --colors-disabled-400: 0.629 0.016 157.933;
+  --colors-disabled-500: 0.53 0.017 157.808;
+  --colors-disabled-600: 0.443 0.016 152.174;
+  --colors-disabled-700: 0.365 0.016 156.314;
+  --colors-disabled-800: 0.282 0.011 156.383;
+  --colors-disabled-900: 0.211 0.011 151.165;
 }
 ```
 
