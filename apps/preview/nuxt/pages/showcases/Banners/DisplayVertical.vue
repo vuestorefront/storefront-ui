@@ -23,7 +23,11 @@
         <p class="typography-text-base block mb-4 @3xl:typography-text-lg">
           {{ description }}
         </p>
-        <SfButton blank class="text-white bg-neutral-700 hover:bg-neutral-800 active:bg-neutral-900 group-hover:bg-neutral-800 group-active:bg-neutral-900">
+        <SfButton
+          blank
+          class="text-white bg-neutral-700 hover:bg-neutral-800 active:bg-neutral-900 group-hover:bg-neutral-800 group-active:bg-neutral-900 group-has-[:focus-visible]:outline group-has-[:focus-visible]:outline-offset pointer-events-none"
+          tabindex="-1"
+        >
           {{ callToAction }}
         </SfButton>
       </div>

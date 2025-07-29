@@ -2,7 +2,24 @@
 
 Banners are components that deliver main image and content in various configurations.
 
+## Reponsive Display
+
+Display blocks that switch between horitonzal/vertical arrengement based on [parent container's size](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries).
+
+<Showcase showcase-name="Banners/DisplayResponsive" style="min-height:800px">
+
+::vue-only
+<<<../../../../preview/nuxt/pages/showcases/Banners/DisplayResponsive.vue
+::
+::react-only
+<<<../../../../preview/next/pages/showcases/Banners/DisplayResponsive.tsx
+::
+
+</Showcase>
+
 ## Horizontal Display
+
+Horizontal display block with image and content to the side.
 
 <Showcase showcase-name="Banners/DisplayHorizontal" style="min-height:800px">
 
