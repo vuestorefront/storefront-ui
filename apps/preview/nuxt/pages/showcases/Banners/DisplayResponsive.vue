@@ -1,20 +1,27 @@
 <template>
-  <div class="flex flex-col gap-6 md:flex-row">
-    <div class="flex flex-col flex-grow gap-6 md:flex-row">
+  <div class="grid md:flex md:flex-row flex-wrap gap-6 max-w-[1540px]">
+    <div
+      v-for="{ image, title, subtitle, description, buttonText, backgroundColor, reverse } in displayDetails"
+      :key="title"
+      :class="[
+        'relative flex md:max-w-[1536px] md:[&:not(:first-of-type)]:flex-1 md:first-of-type:w-full @container group',
+        backgroundColor,
+      ]"
+    >
+      <a
+        class="absolute w-full h-full z-1 focus-visible:outline focus-visible:rounded-lg"
+        :aria-label="title"
+        href="#"
+      />
       <div
-        v-for="{ title, subtitle, description, callToAction, image, backgroundColor, reverse } in displayDetails"
-        :key="title"
         :class="[
-          `relative flex flex-col justify-between rounded-md md:items-center md:basis-1/2 ${backgroundColor} @container group`,
-          { 'flex-col-reverse': reverse },
+          'flex justify-between overflow-hidden grow flex-col @md:flex-row',
+          { '@md:flex-row-reverse flex-col-reverse': reverse },
         ]"
       >
-        <a
-          class="absolute w-full h-full z-1 focus-visible:outline focus-visible:rounded-lg"
-          :aria-label="title"
-          href="#"
-        />
-        <div class="flex flex-col p-6 text-center items-center @3xl:p-10">
+        <div
+          class="grow flex flex-col justify-center items-start p-6 @3xl:p-10 max-w-1/2 items-center text-center @md:items-start @md:text-start"
+        >
           <p class="uppercase typography-text-xs block font-medium tracking-widest @3xl:typography-headline-6">
             {{ subtitle }}
           </p>
@@ -28,11 +35,10 @@
             blank
             class="text-white bg-neutral-700 hover:bg-neutral-800 active:bg-neutral-900 group-hover:bg-neutral-800 group-active:bg-neutral-900 group-has-[:focus-visible]:outline group-has-[:focus-visible]:outline-offset pointer-events-none"
             tabindex="-1"
+            >{{ buttonText }}</SfButton
           >
-            {{ callToAction }}
-          </SfButton>
         </div>
-        <div class="flex items-center w-full">
+        <div class="flex flex-shrink-0 items-center w-full @md:w-1/2 @md:self-start @md:object-contain">
           <img :src="image" :alt="title" class="w-full" />
         </div>
       </div>
@@ -45,32 +51,22 @@ import { SfButton } from '@storefront-ui/vue';
 
 const displayDetails = [
   {
+    image: 'http://localhost:3100/@assets/display-2.png',
     title: 'Pack it Up',
     subtitle: 'Be active',
     description: 'Explore the great outdoors with our backpacks',
-    callToAction: 'Discover now',
-    image: 'http://localhost:3100/@assets/display-2.png',
+    buttonText: 'Discover now',
+    reverse: true,
     backgroundColor: 'bg-warning-200',
-    reverse: false,
   },
   {
+    image: 'http://localhost:3100/@assets/display.png',
     title: 'Sunny Days Ahead',
     subtitle: 'Be inspired',
     description: 'Step out in style with our sunglasses collection',
-    callToAction: 'Discover now',
-    image: 'http://localhost:3100/@assets/display.png',
-    backgroundColor: 'bg-negative-200',
+    buttonText: 'Discover now',
     reverse: true,
-  },
-
-  {
-    title: 'Fresh and Bold',
-    subtitle: 'New collection',
-    description: 'Add a pop up color to your outfit',
-    callToAction: 'Discover now',
-    image: 'http://localhost:3100/@assets/display-3.png',
-    backgroundColor: 'bg-secondary-200',
-    reverse: false,
+    backgroundColor: 'bg-negative-200',
   },
 ];
 </script>
