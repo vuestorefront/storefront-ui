@@ -1,5 +1,5 @@
 import { defineConfig } from 'cypress';
-import codeCoverage from '@cypress/code-coverage/task';
+import codeCoverage from '@cypress/code-coverage/task.js';
 import { initPlugin } from '@frsource/cypress-plugin-visual-regression-diff/plugins';
 
 const isCoverageEnabled = process.env.CYPRESS_COVERAGE === 'true';
