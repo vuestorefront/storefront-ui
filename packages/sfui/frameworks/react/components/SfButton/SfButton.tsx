@@ -4,16 +4,13 @@ import { type SfButtonProps, SfButtonSize, SfButtonVariant, polymorphicForwardRe
 const defaultButtonTag = 'button';
 
 export const variantClasses = {
-  [SfButtonVariant.primary]:
-    'shadow hover:shadow-md active:shadow disabled:bg-disabled-300',
+  [SfButtonVariant.primary]: 'shadow hover:shadow-md active:shadow disabled:bg-disabled-300',
   [SfButtonVariant.secondary]:
     'ring-1 ring-inset shadow hover:shadow-md active:shadow disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50',
-  [SfButtonVariant.tertiary]:
-    'disabled:bg-transparent',
+  [SfButtonVariant.tertiary]: 'disabled:bg-transparent',
 };
 export const variantColorClasses = {
-  [SfButtonVariant.primary]:
-    'text-white bg-primary-700 hover:bg-primary-800 active:bg-primary-900',
+  [SfButtonVariant.primary]: 'text-white bg-primary-700 hover:bg-primary-800 active:bg-primary-900',
   [SfButtonVariant.secondary]:
     'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ring-primary-700 hover:ring-primary-800 active:ring-primary-900',
   [SfButtonVariant.tertiary]:
