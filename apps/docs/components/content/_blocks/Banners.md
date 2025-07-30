@@ -2,9 +2,9 @@
 
 Banners are components that deliver main image and content in various configurations.
 
-## Reponsive Display
+## Responsive Display
 
-Display blocks that switch between horitonzal/vertical arrengement based on [parent container's size](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries).
+Display blocks that switch between horizontal/vertical arrangement based on [parent container's size](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries).
 
 <Showcase showcase-name="Banners/DisplayResponsive" style="min-height:800px">
 
@@ -58,6 +58,21 @@ Four vertical displays in row on desktop.
 ::
 ::react-only
 <<<../../../../preview/next/pages/showcases/Banners/DisplayVerticalMultiple.tsx
+::
+
+</Showcase>
+
+## Display With Image Overlay
+
+Display block with image filling all of its background area.
+
+<Showcase showcase-name="Banners/DisplayWithImageOverlay" style="min-height:800px">
+
+::vue-only
+<<<../../../../preview/nuxt/pages/showcases/Banners/DisplayWithImageOverlay.vue
+::
+::react-only
+<<<../../../../preview/next/pages/showcases/Banners/DisplayWithImageOverlay.tsx
 ::
 
 </Showcase>
