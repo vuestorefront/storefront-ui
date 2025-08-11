@@ -3,7 +3,6 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { SfButton } from '@storefront-ui/react';
-import classNames from 'classnames';
 
 const displayDetails = [
   {
@@ -11,15 +10,14 @@ const displayDetails = [
     subtitle: 'Special Offer',
     description: 'Score serious style points with our Open Capsule collection',
     buttonText: 'Browse offers',
-    reverse: false,
     backgroundImage: 'http://localhost:3100/@assets/display-overlay.png',
   },
 ];
 
-export default function DisplayHorizontalBlock() {
+export default function DisplayWithImageOverlay() {
   return (
-    <div className="grid md:flex md:flex-row flex-wrap gap-6 max-w-[1540px]">
-      {displayDetails.map(({ title, subtitle, description, buttonText, backgroundImage, reverse }) => (
+    <div className="max-w-[1540px]">
+      {displayDetails.map(({ title, subtitle, description, buttonText, backgroundImage }) => (
         <div key={title} className="relative flex text-white max-w-[1536px] @container group">
           <a
             className="absolute w-full h-full z-1 focus-visible:outline focus-visible:rounded-lg"
@@ -54,4 +52,5 @@ export default function DisplayHorizontalBlock() {
   );
 }
 // #endregion source
-DisplayHorizontalBlock.getLayout = ShowcasePageLayout;
+
+DisplayWithImageOverlay.getLayout = ShowcasePageLayout;
