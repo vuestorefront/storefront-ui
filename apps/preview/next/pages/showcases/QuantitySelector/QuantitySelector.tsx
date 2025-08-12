@@ -17,7 +17,7 @@ export default function QuantitySelector() {
   }
   return (
     <div className="inline-flex flex-col items-center">
-      <div className="flex border border-neutral-300 rounded-md">
+      <div className="flex border border-neutral-300 rounded-full bg-white">
         <SfButton
           variant="tertiary"
           square

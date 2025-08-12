@@ -1,6 +1,6 @@
 <template>
   <div class="inline-flex flex-col items-center">
-    <div class="flex border border-neutral-300 rounded-md">
+    <div class="flex border border-neutral-300 rounded-full bg-white">
       <SfButton
         variant="tertiary"
         :disabled="count <= min"
