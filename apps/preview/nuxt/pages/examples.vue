@@ -45,7 +45,7 @@ import {
   SfIconChevronLeft,
   SfIconChevronRight,
 } from '@storefront-ui/vue';
-import { onBeforeMount } from 'vue';
+import { onMounted } from 'vue';
 
 const { currentRoute, ...router } = useRouter();
 
@@ -57,7 +57,7 @@ const components = router
 const isOpen = ref(true);
 const isNotIframe = ref(false);
 
-onBeforeMount(() => {
+onMounted(() => {
   if (window.self === window.top) {
     isNotIframe.value = true;
   }
