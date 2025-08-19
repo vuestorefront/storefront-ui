@@ -16,6 +16,7 @@ describe('SfButton', () => {
   type InitializeComponentParams = {
     size?: SfButtonSize;
     variant?: SfButtonVariant;
+    blank?: boolean;
     disabled?: boolean;
     square?: boolean;
     slotPrefix?: boolean;
@@ -25,6 +26,7 @@ describe('SfButton', () => {
   const initializeComponent = ({
     size = SfButtonSize.base,
     variant = SfButtonVariant.primary,
+    blank,
     disabled,
     square,
     slotPrefix,
@@ -43,6 +45,7 @@ describe('SfButton', () => {
         props: {
           size,
           variant,
+          blank,
           disabled,
           square,
         },
@@ -96,6 +99,14 @@ describe('SfButton', () => {
           initializeComponent({ variant: componentVariant });
 
           page().makeSnapshot();
+        });
+
+        describe('when prop blank=true', () => {
+          it(`should render correct ${componentVariant} variant`, () => {
+            initializeComponent({ variant: componentVariant, blank: true });
+
+            page().makeSnapshot();
+          });
         });
       });
     });
