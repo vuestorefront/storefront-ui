@@ -1189,7 +1189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/code-coverage@npm:3.13.4, @cypress/code-coverage@npm:^3.12.29":
+"@cypress/code-coverage@npm:3.13.4":
   version: 3.13.4
   resolution: "@cypress/code-coverage@npm:3.13.4"
   dependencies:
@@ -4532,7 +4532,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@storefront-ui/vue-test@workspace:apps/test/vue"
   dependencies:
-    "@cypress/code-coverage": ^3.12.29
+    "@cypress/code-coverage": 3.13.4
     "@frsource/cypress-plugin-visual-regression-diff": ^3.3.10
     "@frsource/frs-replace": ^4.1.1
     "@rushstack/eslint-patch": ^1.2.0
