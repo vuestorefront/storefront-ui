@@ -13,8 +13,15 @@
         :aria-label="title"
         href="#"
       />
-      <div :class="['flex justify-between overflow-hidden grow', { 'flex-row-reverse': reverse }]">
-        <div class="grow flex flex-col justify-center items-start p-4 @sm:p-6 @3xl:p-10 max-w-1/2">
+      <div
+        :class="[
+          'flex justify-between overflow-hidden grow flex-col @md:flex-row',
+          { '@md:flex-row-reverse flex-col-reverse': reverse },
+        ]"
+      >
+        <div
+          class="grow flex flex-col justify-center items-start p-4 @sm:p-6 @3xl:p-10 max-w-1/2 items-center text-center @md:items-start @md:text-start"
+        >
           <p class="uppercase typography-text-xs block font-medium tracking-widest @3xl:typography-headline-6">
             {{ subtitle }}
           </p>
@@ -31,7 +38,7 @@
             >{{ buttonText }}</SfButton
           >
         </div>
-        <div class="flex-shrink-0 w-1/2 self-start object-contain">
+        <div class="flex flex-shrink-0 items-center w-full @md:w-1/2 @md:self-start @md:object-contain">
           <img :src="image" :alt="title" class="w-full" />
         </div>
       </div>
@@ -44,15 +51,6 @@ import { SfButton } from '@storefront-ui/vue';
 
 const displayDetails = [
   {
-    image: 'http://localhost:3100/@assets/display.png',
-    title: 'Sunny Days Ahead',
-    subtitle: 'Be inspired',
-    description: 'Step out in style with our sunglasses collection',
-    buttonText: 'Discover now',
-    reverse: false,
-    backgroundColor: 'bg-negative-200',
-  },
-  {
     image: 'http://localhost:3100/@assets/display-2.png',
     title: 'Pack it Up',
     subtitle: 'Be active',
@@ -62,13 +60,13 @@ const displayDetails = [
     backgroundColor: 'bg-warning-200',
   },
   {
-    image: 'http://localhost:3100/@assets/display-3.png',
-    title: 'Fresh and Bold',
-    subtitle: 'New collection',
-    description: 'Add a pop up color to your outfit',
+    image: 'http://localhost:3100/@assets/display.png',
+    title: 'Sunny Days Ahead',
+    subtitle: 'Be inspired',
+    description: 'Step out in style with our sunglasses collection',
     buttonText: 'Discover now',
-    reverse: false,
-    backgroundColor: 'bg-secondary-200',
+    reverse: true,
+    backgroundColor: 'bg-negative-200',
   },
 ];
 </script>
