@@ -1189,7 +1189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cypress/code-coverage@npm:3.13.4, @cypress/code-coverage@npm:^3.12.29":
+"@cypress/code-coverage@npm:3.13.4":
   version: 3.13.4
   resolution: "@cypress/code-coverage@npm:3.13.4"
   dependencies:
