@@ -42,7 +42,7 @@ export default function DisplayVertical() {
             aria-label={title}
             href="#"
           />
-          <div className="flex flex-col items-center p-6 text-center @3xl:p-10">
+          <div className="flex flex-col items-center p-4 @sm:p-6 text-center @3xl:p-10">
             <p className="uppercase typography-text-xs block font-medium tracking-widest @3xl:typography-headline-6">
               {subtitle}
             </p>

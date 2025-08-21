@@ -56,7 +56,7 @@ export default function DisplayHorizontalBlock() {
               'flex-row-reverse': reverse,
             })}
           >
-            <div className="grow flex flex-col justify-center items-start p-6 @3xl:p-10 max-w-1/2">
+            <div className="grow flex flex-col justify-center items-start p-4 @sm:p-6 @3xl:p-10 max-w-1/2">
               <p className="uppercase typography-text-xs block font-medium tracking-widest @3xl:typography-headline-6">
                 {subtitle}
               </p>

@@ -11,7 +11,7 @@
         href="#"
       />
       <div class="h-[680px] @3xl:h-auto @3xl:aspect-[2] flex justify-between overflow-hidden grow">
-        <div class="grow flex flex-col justify-center items-center text-center p-6 @3xl:p-10 max-w-1/2">
+        <div class="grow flex flex-col justify-center items-center text-center p-4 @sm:p-6 @3xl:p-10 max-w-1/2">
           <p class="uppercase typography-text-xs block font-medium tracking-widest @3xl:typography-headline-6">
             {{ subtitle }}
           </p>
