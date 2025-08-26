@@ -1,24 +1,31 @@
 <template>
-  <div class="relative h-dvh w-dvh">
-    <picture class="before:absolute before:inset-0 before:bg-primary-900 before:-z-10">
-      <source srcset="http://localhost:3100/@assets/hero-bg-2.png" media="(min-width: 768px)" />
-      <img
-        src="http://localhost:3100/@assets/hero-bg-mobile-2.png"
-        class="absolute w-full h-full z-[-1] object-cover opacity-50"
-        alt="hero"
-      />
+  <div class="relative h-dvh w-dvh shrink-0">
+    <picture>
+      <source :srcset="backgroundImage" media="(min-width: 768px)" />
+      <img :src="backgroundImageMobile" class="absolute w-full h-full z-[-1] object-cover" alt="hero" />
     </picture>
     <div
-      class="h-full w-full max-w-[1536px] mx-auto p-4 md:px-10 flex flex-col justify-end md:justify-center text-white"
+      class="h-full w-full max-w-[1536px] mx-auto flex flex-col justify-end md:justify-center"
+      :class="variant === 'light' ? 'text-white' : 'text-neutral-900'"
     >
-      <p class="typography-text-xs md:typography-text-sm font-bold tracking-widest uppercase">New collection</p>
-      <h1 class="typography-display-2 md:typography-display-1 md:leading-[67.5px] font-bold mt-2 mb-4">
-        Made to move. Built to win.
-      </h1>
-      <p class="typography-text-base md:typography-text-lg">The new sport collection is now in store.</p>
-      <div class="flex flex-col md:flex-row gap-4 mt-6">
-        <SfButton size="lg" variant="secondary" class="bg-white"> Order now </SfButton>
-        <SfButton size="lg"> Show more </SfButton>
+      <div class="p-4 md:p-10 flex flex-col">
+        <p class="typography-text-xs md:typography-text-sm font-bold tracking-widest uppercase">
+          {{ headline }}
+        </p>
+        <h1 class="mt-2 mb-4 typography-display-2 md:typography-display-1 md:leading-[67.5px] font-bold">
+          {{ title }}
+        </h1>
+        <p class="typography-text-base md:typography-text-lg">
+          {{ description }}
+        </p>
+        <div class="mt-6 flex flex-col md:flex-row gap-4">
+          <SfButton size="lg" variant="secondary" class="bg-white">
+            {{ callToAction }}
+          </SfButton>
+          <SfButton size="lg">
+            {{ callToActionSecondary }}
+          </SfButton>
+        </div>
       </div>
     </div>
   </div>
@@ -26,4 +33,28 @@
 
 <script lang="ts" setup>
 import { SfButton } from '@storefront-ui/vue';
+
+const {
+  headline,
+  title,
+  description,
+  callToAction,
+  callToActionSecondary,
+  backgroundImage,
+  backgroundImageMobile,
+  image,
+  imageAlt,
+  variant,
+} = {
+  headline: 'New collection',
+  title: 'Made to move. Built to win.',
+  description: 'The new sport collection is now in store.',
+  callToAction: 'Order now',
+  callToActionSecondary: 'Show more',
+  backgroundImage: 'http://localhost:3100/@assets/hero-bg-2.png',
+  backgroundImageMobile: 'http://localhost:3100/@assets/hero-bg-mobile-2.png',
+  image: undefined,
+  imageAlt: undefined,
+  variant: 'light',
+};
 </script>
