@@ -7,7 +7,7 @@
 
     <SfButton class="relative" square variant="tertiary">
       <SfIconShoppingCart />
-      <SfBadge :content="content" :max="99" placement="bottom-right" />
+      <SfBadge :content="content" :max="99" placement="bottom-left" />
     </SfButton>
 
     <SfButton class="relative" square variant="tertiary">
@@ -17,7 +17,7 @@
 
     <SfButton class="relative" square variant="tertiary">
       <SfIconShoppingCart />
-      <SfBadge :content="content" :max="99" placement="bottom-left" />
+      <SfBadge :content="content" :max="99" placement="bottom-right" />
     </SfButton>
   </div>
 </template>
