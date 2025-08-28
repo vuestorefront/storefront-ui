@@ -6,7 +6,7 @@
     </picture>
     <div
       class="h-full w-full max-w-[1536px] mx-auto flex flex-col justify-end md:justify-center"
-      :class="variant === 'light' ? 'text-white' : 'text-neutral-900'"
+      :class="variant === 'dark' ? 'text-white' : 'text-neutral-900'"
     >
       <div class="p-4 md:p-10 flex flex-col">
         <p class="typography-text-xs md:typography-text-sm font-bold tracking-widest uppercase">
@@ -55,6 +55,6 @@ const {
   backgroundImageMobile: 'http://localhost:3100/@assets/hero-bg-mobile-2.png',
   image: undefined,
   imageAlt: undefined,
-  variant: 'light',
+  variant: 'dark',
 };
 </script>

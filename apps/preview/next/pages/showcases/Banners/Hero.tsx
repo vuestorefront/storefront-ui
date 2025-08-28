@@ -14,7 +14,7 @@ const heroDetails = {
   backgroundImageMobile: 'http://localhost:3100/@assets/hero-bg-mobile-2.png',
   image: undefined,
   imageAlt: undefined,
-  variant: 'light',
+  variant: 'dark',
 };
 
 export default function Hero() {
@@ -39,7 +39,7 @@ export default function Hero() {
       <div
         className={classNames(
           'h-full w-full max-w-[1536px] mx-auto flex flex-col justify-end md:justify-center',
-          variant === 'light' ? 'text-white' : 'text-neutral-900',
+          variant === 'dark' ? 'text-white' : 'text-neutral-900',
         )}
       >
         <div className="p-4 md:p-10 flex flex-col">

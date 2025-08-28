@@ -6,7 +6,7 @@
     </picture>
     <div
       class="h-full w-full max-w-[1536px] mx-auto flex flex-col md:flex-row-reverse md:justify-center"
-      :class="variant === 'light' ? 'text-white' : 'text-neutral-900'"
+      :class="variant === 'dark' ? 'text-white' : 'text-neutral-900'"
     >
       <div class="flex flex-col md:basis-2/4 md:items-stretch">
         <img :src="image" :alt="imageAlt" class="h-full object-cover object-left overflow-visible" />

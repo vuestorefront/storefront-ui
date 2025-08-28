@@ -39,7 +39,7 @@ export default function Hero() {
       <div
         className={classNames(
           'h-full w-full max-w-[1536px] mx-auto flex flex-col md:flex-row-reverse md:justify-center',
-          variant === 'light' ? 'text-white' : 'text-neutral-900',
+          variant === 'dark' ? 'text-white' : 'text-neutral-900',
         )}
       >
         <div className="flex flex-col md:basis-2/4 md:items-stretch">
