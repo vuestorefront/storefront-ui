@@ -1,7 +1,7 @@
 <template>
   <label>
     <span class="text-sm font-medium">Label</span>
-    <SfInput invalid />
+    <SfInput invalid wrapper-class="mt-0.5" />
   </label>
   <div class="flex justify-between">
     <div>

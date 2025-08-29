@@ -1,6 +1,6 @@
 <template>
   <div class="inline-flex flex-col items-center">
-    <div class="flex rounded-md border border-disabled-200 bg-disabled-100">
+    <div class="flex rounded-full border border-disabled-200 bg-disabled-100">
       <SfButton variant="tertiary" square disabled :aria-controls="inputId" aria-label="Decrease value">
         <SfIconRemove />
       </SfButton>

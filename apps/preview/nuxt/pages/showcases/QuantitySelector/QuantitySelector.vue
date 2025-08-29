@@ -1,6 +1,6 @@
 <template>
   <div class="inline-flex flex-col items-center">
-    <div class="flex border border-neutral-300 rounded-md">
+    <div class="flex border border-neutral-300 rounded-full bg-white">
       <SfButton
         variant="tertiary"
         :disabled="count <= min"
@@ -46,7 +46,7 @@ import { useCounter } from '@vueuse/core';
 import { SfButton, SfIconAdd, SfIconRemove, useId } from '@storefront-ui/vue';
 
 const min = ref(1);
-const max = ref(999);
+const max = ref(10);
 const inputId = useId();
 const { count, inc, dec, set } = useCounter(1, { min: min.value, max: max.value });
 

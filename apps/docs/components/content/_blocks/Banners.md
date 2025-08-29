@@ -89,7 +89,7 @@ Mobile Background Images:
 Aspect ratio: 2:5
 Example size: 420 x 1050px
 
-<Showcase showcase-name="Banners/Hero" style="min-height:620px">
+<Showcase showcase-name="Banners/Hero" style="min-height:620px" no-paddings>
 
 ::vue-only
 <<<../../../../preview/nuxt/pages/showcases/Banners/Hero.vue
@@ -104,7 +104,7 @@ Example size: 420 x 1050px
 
 Enhance your Hero section with a contextual image on the side.
 
-<Showcase showcase-name="Banners/HeroWithImage" style="min-height:620px">
+<Showcase showcase-name="Banners/HeroWithImage" style="min-height:620px" no-paddings>
 
 ::vue-only
 <<<../../../../preview/nuxt/pages/showcases/Banners/HeroWithImage.vue

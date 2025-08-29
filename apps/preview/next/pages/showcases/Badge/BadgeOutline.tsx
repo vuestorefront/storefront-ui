@@ -1,13 +1,13 @@
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
-import { SfBadge, SfButton, SfIconShoppingCart } from '@storefront-ui/react';
+import { SfBadge, SfButton, SfIconFavoriteFilled } from '@storefront-ui/react';
 
 export default function BadgeOutline() {
   return (
     <div className="flex gap-3">
       <div className="p-3 bg-white">
         <SfButton className="group relative" square variant="tertiary">
-          <SfIconShoppingCart />
+          <SfIconFavoriteFilled />
           <SfBadge
             content={100}
             max={99}
@@ -18,7 +18,7 @@ export default function BadgeOutline() {
 
       <div className="p-3 bg-primary-700">
         <SfButton className="group relative hover:bg-primary-800 active:bg-primary-900" square variant="tertiary">
-          <SfIconShoppingCart className="text-white" />
+          <SfIconFavoriteFilled className="text-white" />
           <SfBadge
             content={100}
             max={99}

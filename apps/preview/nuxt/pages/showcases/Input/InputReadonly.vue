@@ -1,7 +1,7 @@
 <template>
   <label>
     <span class="text-sm font-medium">Label</span>
-    <SfInput model-value="value" wrapper-class="!bg-disabled-100 !ring-disabled-300 !ring-1" readonly />
+    <SfInput model-value="value" wrapper-class="mt-0.5 !bg-disabled-100 !ring-disabled-300 !ring-1" readonly />
   </label>
   <div class="flex justify-between">
     <div>
