@@ -8,7 +8,7 @@ export const sizeClasses = {
 
 <script setup lang="ts">
 import { type PropType, type ConcreteComponent } from 'vue';
-import { SfListItemSize } from '@storefront-ui/vue';
+import { ClassProp, SfListItemSize } from '@storefront-ui/vue';
 
 defineProps({
   size: {
@@ -31,6 +31,8 @@ defineProps({
     type: String,
     default: 'span',
   },
+  prefixClass: ClassProp,
+  suffixClass: ClassProp,
 });
 </script>
 
@@ -45,13 +47,21 @@ defineProps({
     :disabled="disabled"
     data-testid="list-item"
   >
-    <component :is="childrenTag" v-if="$slots.prefix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
+    <component
+      :is="childrenTag"
+      v-if="$slots.prefix"
+      :class="[prefixClass, disabled ? 'text-disabled-500' : 'text-neutral-500']"
+    >
       <slot name="prefix" />
     </component>
     <component :is="childrenTag" class="flex flex-col w-full min-w-0">
       <slot />
     </component>
-    <component :is="childrenTag" v-if="$slots.suffix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
+    <component
+      :is="childrenTag"
+      v-if="$slots.suffix"
+      :class="[suffixClass, disabled ? 'text-disabled-500' : 'text-neutral-500']"
+    >
       <slot name="suffix" />
     </component>
   </component>

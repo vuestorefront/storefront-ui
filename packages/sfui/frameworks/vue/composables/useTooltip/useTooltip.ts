@@ -77,6 +77,7 @@ export function useTooltip<ReferenceEl extends ReferenceElement = ReferenceEleme
       floating: floatingStyle.value,
       arrow: arrowStyle(),
     })),
+    middlewareData,
     isOpen,
     open,
     close,
