@@ -22,6 +22,8 @@ const SfListItem = polymorphicForwardRef<typeof defaultListItemTag, SfListItemPr
     as,
     childrenTag,
     children,
+    prefixClassName,
+    suffixClassName,
     ...attributes
   } = props;
 
@@ -45,11 +47,15 @@ const SfListItem = polymorphicForwardRef<typeof defaultListItemTag, SfListItemPr
       {...attributes}
     >
       {slotPrefix && (
-        <ChildrenTag className={disabled ? 'text-disabled-500' : 'text-neutral-500'}>{slotPrefix}</ChildrenTag>
+        <ChildrenTag className={classNames(disabled ? 'text-disabled-500' : 'text-neutral-500', prefixClassName)}>
+          {slotPrefix}
+        </ChildrenTag>
       )}
       <ChildrenTag className="flex flex-col w-full min-w-0">{children}</ChildrenTag>
       {slotSuffix && (
-        <ChildrenTag className={disabled ? 'text-disabled-500' : 'text-neutral-500'}>{slotSuffix}</ChildrenTag>
+        <ChildrenTag className={classNames(disabled ? 'text-disabled-500' : 'text-neutral-500', suffixClassName)}>
+          {slotSuffix}
+        </ChildrenTag>
       )}
     </Tag>
   );
