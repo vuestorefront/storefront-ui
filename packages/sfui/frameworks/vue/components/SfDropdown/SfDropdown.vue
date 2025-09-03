@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { type PropType, toRefs } from 'vue';
 import type { Middleware } from '@floating-ui/vue';
-import { useDropdown, type SfPopoverPlacement, type SfPopoverStrategy } from '@storefront-ui/vue';
+import { ClassProp, useDropdown, type SfPopoverPlacement, type SfPopoverStrategy } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
@@ -20,6 +20,7 @@ const props = defineProps({
     type: String as PropType<`${SfPopoverStrategy}` | undefined>,
     default: undefined,
   },
+  wrapperClass: ClassProp,
 });
 
 const emit = defineEmits<{
@@ -48,6 +49,7 @@ const {
       :style="dropdownStyle"
       :aria-hidden="!modelValue || undefined"
       data-testid="dropdown-content"
+      :class="wrapperClass"
     >
       <slot />
     </div>

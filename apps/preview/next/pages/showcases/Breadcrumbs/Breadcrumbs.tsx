@@ -26,7 +26,7 @@ export function Showcase() {
 
   return (
     <nav className="inline-flex font-normal font-body typography-text-sm">
-      <ol className="flex items-center w-auto leading-none group md:flex-wrap">
+      <ol className="flex items-center w-auto leading-none md:flex-wrap">
         <li className="flex items-center sm:hidden text-neutral-500">
           <SfDropdown
             trigger={
