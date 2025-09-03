@@ -2,6 +2,7 @@
   "name": "@storefront-ui/vue-test",
   "version": "0.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev:not-run": "vite",
     "preview": "vite preview",
@@ -20,14 +21,13 @@
     "test:ci:vue": "yarn test:ci && CYPRESS_COVERAGE=true yarn cypress run --component && yarn generate-coverage"
   },
   "dependencies": {
-    "vue": "^3.2.47",
-    "vue-router": "^4.1.6"
+    "vue": "^3.5.12",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.10.0",
+    "@cypress/code-coverage": "3.13.4",
+    "@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
     "@frsource/frs-replace": "^4.1.1",
-    "@percy/cli": "^1.19.2",
-    "@percy/cypress": "^3.1.2",
     "@rushstack/eslint-patch": "^1.2.0",
     "@storefront-ui/eslint-config": "workspace:*",
     "@storefront-ui/shared": "workspace:*",
@@ -36,23 +36,24 @@
     "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
     "@storefront-ui/vue": "workspace:*",
-    "@types/node": "^18.13.0",
-    "@vitejs/plugin-vue": "^4.0.0",
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/node": "^20.12.7",
+    "@vitejs/plugin-vue": "^5.1.1",
     "@vue/tsconfig": "^0.1.3",
-    "autoprefixer": "^10.4.13",
+    "autoprefixer": "^10.4.19",
     "chokidar-cli": "^3.0.0",
-    "concurrently": "^7.6.0",
+    "concurrently": "^8.2.2",
     "cpy-cli": "^4.2.0",
-    "cypress": "^12.9.0",
+    "cypress": "^13.8.1",
     "nyc": "^15.1.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
-    "rimraf": "^4.1.2",
-    "sass": "^1.58.2",
-    "tailwindcss": "^3.2.7",
-    "typescript": "^4.9.5",
-    "vite": "^4.3.0",
+    "rimraf": "^6.0.1",
+    "sass": "^1.77.8",
+    "tailwindcss": "3.4.17",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
     "vite-plugin-istanbul": "^4.0.0",
-    "vue-tsc": "^1.1.2"
+    "vue-tsc": "^2.0.29"
   }
 }

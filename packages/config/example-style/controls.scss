@@ -10,7 +10,7 @@
     &--collapsed {
         height: 32px;
     }
-    
+
     .heading {
         padding: 4px 10px;
         flex-grow: 1;
@@ -105,10 +105,6 @@
 
 
     .switch {
-        &-wrapper {
-            display: flex;
-            align-items: center;
-        }
         position: relative;
         display: inline-block;
         width: 60px;
@@ -126,6 +122,11 @@
                     transform: translateX(36px);
                 }
             }
+        }
+
+        &-wrapper {
+            display: flex;
+            align-items: center;
         }
 
         .slider {

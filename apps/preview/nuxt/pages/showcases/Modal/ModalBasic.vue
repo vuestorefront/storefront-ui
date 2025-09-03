@@ -1,5 +1,5 @@
 <template>
-  <SfButton type="button" @click="open">To Checkout</SfButton>
+  <SfButton @click="open">To Checkout</SfButton>
 
   <SfModal
     v-model="isOpen"
@@ -22,8 +22,8 @@
       to checkout page?
     </p>
     <footer class="flex justify-end gap-4 mt-4">
-      <SfButton type="button" variant="secondary" @click="close">Skip</SfButton>
-      <SfButton type="button" @click="close">Yes!</SfButton>
+      <SfButton variant="secondary" @click="close">Skip</SfButton>
+      <SfButton @click="close">Yes!</SfButton>
     </footer>
   </SfModal>
 </template>

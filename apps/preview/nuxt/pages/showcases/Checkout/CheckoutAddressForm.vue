@@ -25,24 +25,26 @@
         <SfInput
           name="street"
           autocomplete="address-line1"
-          class="mt-.05"
+          class="mt-0.5"
           required
           :invalid="!streetIsValid"
           @blur="streetIsValid = !!$event.target.value"
           @update:model-value="streetIsValid = !!$event"
         />
       </label>
-      <strong v-if="!streetIsValid" class="typography-error-sm text-negative-700 font-medium">
-        Please provide a valid street name
-      </strong>
-      <small class="typography-text-xs text-neutral-500">Street address or P.O. Box</small>
+      <div class="flex flex-colr mt-0.5">
+        <strong v-if="!streetIsValid" class="typography-error-sm text-negative-700 font-medium">
+          Please provide a valid street name
+        </strong>
+        <small class="typography-hint-xs text-neutral-500">Street address or P.O. Box</small>
+      </div>
     </div>
     <div class="w-full flex flex-col gap-0.5 md:w-[120px]">
       <label>
         <span class="typography-text-sm font-medium">Apt#, Suite, etc</span>
         <SfInput name="aptNo" class="mt-0.5" />
       </label>
-      <small class="typography-text-xs text-neutral-500">Optional</small>
+      <small class="typography-hint-xs text-neutral-500 mt-0.5">Optional</small>
     </div>
     <label class="w-full flex flex-col gap-0.5">
       <span class="typography-text-sm font-medium">City</span>
@@ -66,7 +68,7 @@
 
     <div class="w-full flex gap-4 mt-4 md:mt-0 md:justify-end">
       <SfButton type="reset" variant="secondary" class="w-full md:w-auto">Clear all</SfButton>
-      <SfButton class="w-full md:w-auto">Save</SfButton>
+      <SfButton type="submit" class="w-full md:w-auto">Save</SfButton>
     </div>
   </form>
 </template>

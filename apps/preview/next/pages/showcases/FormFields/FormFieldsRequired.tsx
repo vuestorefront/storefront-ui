@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable jsx-a11y/no-noninteractive-element-to-interactive-role */
 /* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable react-hooks/exhaustive-deps */
 import { ShowcasePageLayout } from '../../showcases';
 // #region source
 import { type ChangeEvent, type FormEvent, type KeyboardEvent, useState, useRef, useId, useEffect } from 'react';
@@ -420,12 +421,9 @@ export default function FormFields() {
         </label>
         <fieldset className="md:flex md:flex-wrap gap-x-4 md:space-x-0 my-4">
           <legend className="hidden">Phone number</legend>
-          <label className="typography-label-sm font-medium md:flex-[100%]" htmlFor="select-area-code">
-            Phone *
-          </label>
-          <span className="w-full md:w-[122px] md:mr-4">
+          <label className="w-full md:w-[122px] md:mr-4">
+            <span className="typography-label-sm font-medium"> Code * </span>
             <SfSelect
-              id="select-area-code"
               value={areaCode}
               invalid={areaCodeIsInvalid}
               placeholder="--"
@@ -442,27 +440,25 @@ export default function FormFields() {
             {areaCodeIsInvalid && (
               <p className="mt-0.5 text-negative-700 typography-text-sm font-medium">No option selected</p>
             )}
-          </span>
-          <span className="mt-4 md:mt-0 grow">
-            <label htmlFor="phone-number" className="hidden">
-              Phone number
+          </label>
+          <span className="block mt-4 md:mt-0 grow">
+            <label>
+              <span className="typography-label-sm font-medium">Phone *</span>
+              <SfInput
+                value={phoneNumber}
+                type="tel"
+                invalid={phoneNumberIsInvalid}
+                required
+                placeholder="eg. 123 456 7890"
+                className="placeholder:text-neutral-500"
+                onInput={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
+                onBlur={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
+                onChange={(event) => setPhoneNumber(event.target.value)}
+              />
+              {phoneNumberIsInvalid && (
+                <p className="mt-0.5 text-negative-700 typography-text-sm font-medium">The field cannot be empty</p>
+              )}
             </label>
-            <SfInput
-              value={phoneNumber}
-              type="tel"
-              invalid={phoneNumberIsInvalid}
-              required
-              id="phone-number"
-              placeholder="eg. 123 456 7890"
-              wrapperClassName="md:flex-grow mt-4 md:mt-0"
-              className="placeholder:text-neutral-500"
-              onInput={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
-              onBlur={() => (phoneNumber ? setPhoneNumberIsInvalid(false) : setPhoneNumberIsInvalid(true))}
-              onChange={(event) => setPhoneNumber(event.target.value)}
-            />
-            {phoneNumberIsInvalid && (
-              <p className="mt-0.5 text-negative-700 typography-text-sm font-medium">The field cannot be empty</p>
-            )}
           </span>
         </fieldset>
         <div ref={comboboxRefs.setReference} className="relative">
@@ -660,7 +656,7 @@ export default function FormFields() {
                 >
                   {label}
                 </span>
-                <span className={classNames('typography-text-xs block', { 'text-disabled-500': disabled })}>
+                <span className={classNames('typography-hint-xs block mt-0.5', { 'text-disabled-500': disabled })}>
                   {hint}
                 </span>
               </span>
@@ -681,7 +677,7 @@ export default function FormFields() {
         </fieldset>
         <p className="text-neutral-500 typography-text-sm mt-8">* marked fields are required</p>
         <div className="flex gap-x-4 md:justify-end mt-6">
-          <SfButton type="button" variant="secondary" className="flex-grow md:flex-grow-0">
+          <SfButton variant="secondary" className="flex-grow md:flex-grow-0">
             Clear all
           </SfButton>
           <SfButton type="submit" className="flex-grow md:flex-grow-0">

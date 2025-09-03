@@ -9,7 +9,7 @@ export default function ButtonContent() {
 
       <SfButton slotSuffix={<SfIconStar />}>Hello</SfButton>
 
-      <SfButton type="button" square aria-label="Add to cart">
+      <SfButton square aria-label="Add to cart">
         <SfIconShoppingCart />
       </SfButton>
     </div>

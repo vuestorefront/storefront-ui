@@ -1,4 +1,3 @@
-/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { SfRatingButtonSize } from '@storefront-ui/shared';
 import { type SfRatingButtonProps } from '@storefront-ui/react';
@@ -12,7 +11,7 @@ describe('SfRatingButton', () => {
   const page = () => new SfRatingButtonBaseObject('ratingbutton');
 
   const initializeComponent = (props: SfRatingButtonProps = {}) => {
-    const { value, onChange, max, name, disabled, label, size, getLabelText, children } = props;
+    const { value, onChange, max, name, disabled, size, getLabelText, children } = props;
     return mount({
       vue: {
         component: SfRatingButtonVue,
@@ -22,7 +21,6 @@ describe('SfRatingButton', () => {
           max,
           name,
           disabled,
-          label,
           size,
           getLabelText,
         },
@@ -34,7 +32,6 @@ describe('SfRatingButton', () => {
           max={max}
           name={name}
           disabled={disabled}
-          label={label}
           size={size}
           getLabelText={getLabelText}
         >

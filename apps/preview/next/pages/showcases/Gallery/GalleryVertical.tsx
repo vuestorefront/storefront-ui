@@ -111,7 +111,7 @@ export default function GalleryVertical() {
         ))}
       </SfScrollable>
       <SfScrollable
-        className="w-full h-full snap-x snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="w-full h-full snap-y snap-mandatory [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
         activeIndex={activeIndex}
         direction="vertical"
         wrapperClassName="h-full m-auto"
@@ -121,7 +121,10 @@ export default function GalleryVertical() {
         onDragEnd={onDragged}
       >
         {images.map(({ imageSrc, alt }, index) => (
-          <div key={`${alt}-${index}`} className="flex justify-center h-full basis-full shrink-0 grow snap-center">
+          <div
+            key={`${alt}-${index}`}
+            className="flex justify-center h-full basis-full shrink-0 grow snap-center snap-always"
+          >
             <img
               aria-label={alt}
               aria-hidden={activeIndex !== index}

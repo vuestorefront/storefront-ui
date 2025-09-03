@@ -38,3 +38,4 @@ export * from './components/SfSwitch';
 export * from './components/SfTooltip';
 export * from './components/SfThumbnail';
 export * from './components/SfRatingButton';
+export * from './components/SfTextarea';

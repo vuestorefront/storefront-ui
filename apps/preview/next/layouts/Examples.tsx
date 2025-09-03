@@ -46,7 +46,7 @@ export default function ExampleLayout({ children }: { children: ReactElement }) 
           <ul className="sidebar-list">
             {components?.map((component) => (
               <li key={component} data-sidebar-component={component}>
-                <Link href={`/examples/${component}`} legacyBehavior>
+                <Link href={`/examples/${component}`} legacyBehavior prefetch={false}>
                   <SfListItem
                     className={classNames({ 'font-medium': router.pathname === `/examples/${component}` })}
                     selected={router.pathname === `/examples/${component}`}

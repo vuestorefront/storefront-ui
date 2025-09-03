@@ -1,4 +1,3 @@
-/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { SfSelectSize } from '@storefront-ui/vue';
 import { h } from 'vue';
@@ -100,7 +99,7 @@ describe('SfSelect', () => {
     it('should change value/modelValue', () => {
       initializeComponent();
 
-      page().isNotDisabled().hasSelectedOption('red');
+      page().isNotDisabled().hasSelectedOption('blue');
       cy.then(() => {
         expect(onChangeSpy).calledOnceWith();
         page().makeSnapshot();

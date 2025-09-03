@@ -6,12 +6,12 @@ const isProd = process.env.PROD === 'true';
 
 export default defineNuxtConfig({
   app: {
-    baseURL: process.env.VITE_DOCS_EXAMPLES_VUE_PATH ? new URL(process.env.VITE_DOCS_EXAMPLES_VUE_PATH).pathname : '',
+    baseURL: process.env.NUXT_DOCS_EXAMPLES_VUE_PATH ? new URL(process.env.NUXT_DOCS_EXAMPLES_VUE_PATH).pathname : '',
     head: {
       htmlAttrs: {
         lang: 'en',
       },
-      title: 'Vue Storefront UI v2',
+      title: 'Alokai UI v2',
     },
   },
   alias: {
@@ -41,6 +41,12 @@ export default defineNuxtConfig({
           ),
         }
       : {}),
+  },
+  nitro: {
+    prerender: {
+      routes: ['/'],
+      crawlLinks: true,
+    },
   },
   vite: {
     plugins: [
@@ -80,7 +86,7 @@ export default defineNuxtConfig({
       },
     ],
   },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@storefront-ui/nuxt'],
   css: ['@storefront-ui/example-style/index.scss', '@storefront-ui/example-style/controls.scss'],
   imports: {
     transform: {

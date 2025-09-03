@@ -9,8 +9,8 @@ on:
 
 jobs:
   configure-enviroment:
-      name: Setup enviroment
-      uses: vuestorefront/storefront-ui/.github/workflows/configure-environment.yml@v2-develop
+    name: Setup enviroment
+    uses: vuestorefront/storefront-ui/.github/workflows/configure-environment.yml@v2-develop
 
   build:
     needs: configure-enviroment
@@ -18,31 +18,32 @@ jobs:
     secrets: inherit
     with:
       DOCKER_NAMESPACE: ${{ needs.configure-enviroment.outputs.docker-namespace }}
-      ARTIFACT_TYPE: "sfui2-docs"
-      DOCKERFILE_PATH: "./.vuestorefrontcloud/docs/Dockerfile"
+      ARTIFACT_TYPE: 'sfui2-docs'
+      DOCKERFILE_PATH: './.vuestorefrontcloud/docs/Dockerfile'
       ENVIRONMENT: ${{ needs.configure-enviroment.outputs.environment }}
+      TARGET_DOMAIN: ${{ needs.configure-enviroment.outputs.target-domain }}
 
   sync-assets:
     needs: [build, configure-enviroment]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
       - name: 'Authenticate to Google Cloud'
-        uses: 'google-github-actions/auth@v1'
+        uses: 'google-github-actions/auth@v2'
         with:
           credentials_json: ${{ secrets.GCP_SFUI_SHARED_SERVICE_ACCOUNT_KEY }}
       - name: 'Upload assets to env directory within SFUI GCP storage'
-        uses: 'google-github-actions/upload-cloud-storage@v1'
+        uses: 'google-github-actions/upload-cloud-storage@v2'
         with:
           path: 'apps/preview/shared/public/@assets'
           parent: false
-          destination: "sfui_docs_artifacts_bucket_public/${{ needs.configure-enviroment.outputs.environment }}"
+          destination: 'sfui_docs_artifacts_bucket_public/${{ needs.configure-enviroment.outputs.environment }}'
 
   deploy:
     needs: [build, configure-enviroment]
@@ -53,9 +54,9 @@ jobs:
     with:
       ENVIRONMENT: ${{ needs.configure-enviroment.outputs.environment }}
       TARGET_URL: ${{ needs.configure-enviroment.outputs.target-domain }}/v2
-      FARMER_NAMESPACE_NAME:  ${{ needs.configure-enviroment.outputs.farmer-instance-name }}
-      DOCS_NAME: "sfui2-docs"
+      FARMER_NAMESPACE_NAME: ${{ needs.configure-enviroment.outputs.farmer-instance-name }}
+      DOCS_NAME: 'sfui2-docs'
       DOCS_IMAGE: registry.storefrontcloud.io/${{ needs.configure-enviroment.outputs.docker-namespace }}/sfui2-docs
-      DOCS_SUBPATH: "/v2"
-      DOCS_PORT: "80"
-      HAS_BASE_PATH: "true"
+      DOCS_SUBPATH: '/v2'
+      DOCS_PORT: '80'
+      HAS_BASE_PATH: 'true'

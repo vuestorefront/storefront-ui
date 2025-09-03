@@ -1,11 +1,10 @@
-<script lang="ts">
-export default {
-  inheritAttrs: false,
-};
-</script>
 <script lang="ts" setup>
-import { ref, type PropType } from 'vue';
-import { SfSelectSize, SfIconExpandMore, useFocusVisible } from '@storefront-ui/vue';
+import { type PropType, ref, toRefs, computed } from 'vue';
+import { SfSelectSize, SfIconExpandMore, useFocusVisible, useDisclosure } from '@storefront-ui/vue';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps({
   size: {
@@ -28,7 +27,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  value: {
+  modelValue: {
     type: String,
     default: '',
   },
@@ -41,19 +40,23 @@ const emit = defineEmits<{
   (event: 'update:modelValue', param: string): void;
 }>();
 
-const selected = ref(props.value);
-const chevronRotated = ref(false);
+const { modelValue } = toRefs(props);
+const { isOpen, close, open } = useDisclosure();
 const { isFocusVisible } = useFocusVisible();
 
-const clickHandler = () => (chevronRotated.value = true);
-const blurHandler = () => (chevronRotated.value = false);
-const keydownHandler = () => (chevronRotated.value = true);
-
-const changedValue = (event: Event) => {
-  selected.value = (event.target as HTMLSelectElement).value;
-  chevronRotated.value = false;
-  emit('update:modelValue', (event.target as HTMLSelectElement).value);
-};
+/*
+Internal state has been implemented due to native select's element
+value disappearing under certain circumstances. It's important to
+keep it here, or to always pass modelValue to the component.
+*/
+const internalState = ref<string>(modelValue.value);
+const selectModel = computed({
+  get: () => modelValue.value || internalState.value,
+  set: (value) => {
+    emit('update:modelValue', value);
+    internalState.value = value;
+  },
+});
 </script>
 
 <template>
@@ -68,8 +71,7 @@ const changedValue = (event: Event) => {
     data-testid="select"
   >
     <select
-      v-bind="$attrs"
-      :value="value || selected"
+      v-model="selectModel"
       :required="required"
       :disabled="disabled"
       :class="[
@@ -82,15 +84,14 @@ const changedValue = (event: Event) => {
         },
       ]"
       data-testid="select-input"
-      @blur="blurHandler"
-      @click="clickHandler"
-      @change="changedValue"
-      @keydown.space="keydownHandler"
+      @blur="close"
+      @change="close"
+      @click="open"
+      @keydown.space="open"
+      v-bind="$attrs"
     >
       <option
         v-if="placeholder"
-        disabled
-        selected
         hidden
         class="text-sm bg-neutral-300"
         value=""
@@ -111,7 +112,7 @@ const changedValue = (event: Event) => {
         :class="[
           'absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
           disabled ? 'text-disabled-500' : 'text-neutral-500',
-          chevronRotated ? 'rotate-180' : '',
+          isOpen ? 'rotate-180' : '',
         ]"
       />
     </slot>

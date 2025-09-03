@@ -1,5 +1,6 @@
 <script lang="ts" setup>
 import { ClassProp } from '@storefront-ui/vue';
+import { type HTMLAttributes, type PropType } from 'vue';
 
 defineProps({
   modelValue: {
@@ -7,6 +8,10 @@ defineProps({
     default: false,
   },
   summaryClass: ClassProp,
+  summaryAttrs: {
+    type: Object as PropType<HTMLAttributes>,
+    default: () => ({}),
+  },
 });
 
 defineEmits<{
@@ -14,9 +19,12 @@ defineEmits<{
 }>();
 </script>
 
+<!-- eslint-disable vuejs-accessibility/no-static-element-interactions -->
+<!-- eslint-disable vuejs-accessibility/click-events-have-key-events -->
 <template>
   <details :open="modelValue" data-testid="accordion-item">
     <summary
+      v-bind="summaryAttrs"
       :class="[
         summaryClass,
         'list-none [&::-webkit-details-marker]:hidden cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm',

@@ -76,6 +76,7 @@ export function useTooltip(options?: UseTooltipOptions) {
       floating: floatingStyle,
       arrow: arrowStyle(),
     },
+    middlewareData,
     isOpen,
     open,
     close,

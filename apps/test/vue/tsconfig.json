@@ -15,6 +15,7 @@
     "baseUrl": ".",
     "paths": {
       "@storefront-ui/vue": ["../../../packages/sfui/frameworks/vue/index.ts"]
-    }
+    },
+    "module": "ESNext"
   }
 }

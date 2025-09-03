@@ -53,6 +53,11 @@ const { controlsAttrs, state } = prepareControls(
     },
     {
       type: 'text',
+      modelName: 'childrenTag',
+      description: 'Change a tag for children to any other tag',
+    },
+    {
+      type: 'text',
       modelName: 'label',
       propType: 'string',
       description: 'Set label value',
@@ -105,6 +110,7 @@ const { controlsAttrs, state } = prepareControls(
   ],
   {
     tag: ref('li'),
+    childrenTag: ref('span'),
     label: ref<string>('Label'),
     size: ref<SfListItemSize>(SfListItemSize.base),
     counter: ref(123),

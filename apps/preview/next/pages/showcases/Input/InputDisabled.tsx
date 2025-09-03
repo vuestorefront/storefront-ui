@@ -8,11 +8,11 @@ export default function DisabledInputDemo() {
     <>
       <label>
         <span className="text-sm font-medium cursor-not-allowed text-disabled-900">Label</span>
-        <SfInput disabled wrapperClassName="!bg-disabled-100 !ring-disabled-300 !ring-1" />
+        <SfInput disabled wrapperClassName="mt-0.5 !bg-disabled-100 !ring-disabled-300 !ring-1" />
       </label>
       <div className="flex justify-between">
         <div>
-          <p className="text-xs text-disabled-500 mt-0.5">Help Text</p>
+          <p className="typography-hint-xs text-disabled-500 mt-0.5">Help Text</p>
         </div>
       </div>
     </>

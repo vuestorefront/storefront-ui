@@ -1,7 +1,7 @@
 <template>
   <label>
     <span class="text-sm font-medium">Label</span>
-    <SfInput>
+    <SfInput wrapper-class="mt-0.5">
       <template #prefix><SfIconPerson /></template>
       <template #suffix><SfIconLockOpen /></template>
     </SfInput>

@@ -64,17 +64,19 @@ export default function AddressForm() {
             invalid={!streetIsValid}
           />
         </label>
-        {!streetIsValid && (
-          <strong className="typography-error-sm text-negative-700 font-medium">Please provide a street name</strong>
-        )}
-        <small className="typography-text-xs text-neutral-500">Street address or P.O. Box</small>
+        <div className="flex flex-colr mt-0.5">
+          {!streetIsValid && (
+            <strong className="typography-error-sm text-negative-700 font-medium">Please provide a street name</strong>
+          )}
+          <small className="typography-hint-xs text-neutral-500 mt-0.5">Street address or P.O. Box</small>
+        </div>
       </div>
       <div className="w-full flex flex-col gap-0.5 md:w-[120px]">
         <label>
           <span className="typography-text-sm font-medium">Apt#, Suite, etc</span>
           <SfInput name="aptNo" className="mt-0.5" />
         </label>
-        <small className="typography-text-xs text-neutral-500">Optional</small>
+        <small className="typography-hint-xs text-neutral-500 mt-0.5">Optional</small>
       </div>
       <label className="w-full flex flex-col gap-0.5">
         <span className="typography-text-sm font-medium">City</span>
@@ -102,7 +104,9 @@ export default function AddressForm() {
         <SfButton type="reset" variant="secondary" className="w-full md:w-auto">
           Clear all
         </SfButton>
-        <SfButton className="w-full md:w-auto">Save</SfButton>
+        <SfButton type="submit" className="w-full md:w-auto">
+          Save
+        </SfButton>
       </div>
     </form>
   );

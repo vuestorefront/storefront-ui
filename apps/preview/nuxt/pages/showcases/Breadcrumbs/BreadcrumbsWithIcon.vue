@@ -7,7 +7,6 @@
             <SfButton
               class="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
               aria-label="More breadcrumbs"
-              type="button"
               variant="tertiary"
               square
               @click="toggle"

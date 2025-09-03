@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <SfButton type="button" @click="state.modelValue = !state.modelValue"> Open Drawer </SfButton>
+    <SfButton @click="state.modelValue = !state.modelValue"> Open Drawer </SfButton>
 
     <SfDrawer
       v-bind="state"

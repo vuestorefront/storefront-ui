@@ -7,9 +7,12 @@
       <SfInput
         v-bind="state"
         v-model="value"
-        :wrapper-class="{
-          'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
-        }"
+        :wrapper-class="[
+          ' mt-0.5',
+          {
+            'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
+          },
+        ]"
       >
         <template v-if="prefixSlotOptions.getValue(slotPrefix)" #prefix>
           <component :is="prefixSlotOptions.getValue(slotPrefix)" />
@@ -22,7 +25,7 @@
     <div class="flex justify-between">
       <div>
         <p v-if="invalid && !disabled" class="text-sm text-negative-700 font-medium mt-0.5">{{ errorText }}</p>
-        <p v-if="helpText" :class="['text-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500']">
+        <p v-if="helpText" :class="['typography-hint-xs mt-0.5', disabled ? 'text-disabled-500' : 'text-neutral-500']">
           {{ helpText }}
         </p>
         <p v-if="requiredText && required" class="mt-1 text-sm font-normal text-neutral-500 before:content-['*']">
@@ -31,7 +34,7 @@
       </div>
       <p
         v-if="characterLimit && !readonly"
-        :class="['text-xs mt-0.5', disabled ? 'text-disabled-500' : getCharacterLimitClass]"
+        :class="['typography-error-xs mt-0.5', disabled ? 'text-disabled-500' : getCharacterLimitClass]"
       >
         {{ charsCount }}
       </p>

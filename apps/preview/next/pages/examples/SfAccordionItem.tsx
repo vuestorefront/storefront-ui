@@ -22,14 +22,14 @@ function Example() {
     <ComponentExample controls={{ state, controls }}>
       <SfAccordionItem
         open={state.get.open}
-        onToggle={(open) => state.set({ open })}
+        onToggle={(open: boolean) => state.set({ open })}
         summary={
-          <div className="flex justify-between p-2 bg-gray-100">
+          <div className="flex justify-between p-4 font-medium hover:bg-neutral-100 active:neutral-100">
             <p>Click me to see the content</p>
-            <SfIconChevronLeft className={`${state.get.open ? 'rotate-90' : '-rotate-90'}`} />
+            <SfIconChevronLeft className={`text-neutral-500 ${state.get.open ? 'rotate-90' : '-rotate-90'}`} />
           </div>
         }
-        className="rounded border"
+        className="border border-neutral-200 rounded-md divide-y text-neutral-900"
       >
         <p className="p-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

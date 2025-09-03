@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Fragment, type ReactElement, useEffect, useState } from 'react';
+import { Fragment, type ReactElement, useEffect, useState, ChangeEvent } from 'react';
 import useSWR from 'swr';
 import {
   SfButton,
@@ -29,6 +29,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
   const [isOpen, setIsOpen] = useState(true);
   const [isNotIframe, setIsNotIframe] = useState(false);
   const [noPaddings, setNoPaddings] = useState(false);
+  const [noScale, setNoScale] = useState(false);
   const [groups, setGroups] = useState<GroupsInterface>({});
   const [search, setSearch] = useState('');
 
@@ -99,6 +100,7 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
         'message',
         (e) => {
           if (e.data === 'no-paddings') setNoPaddings(true);
+          else if (e.data === 'no-scale') setNoScale(true);
         },
         false,
       );
@@ -123,7 +125,11 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
             aria-label={isOpen ? 'Hide sidebar' : 'Open sidebar'}
           />
           <label className="sidebar-search">
-            <SfInput value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Search" />
+            <SfInput
+              value={search}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => setSearch(event.target.value)}
+              placeholder="Search"
+            />
             <button type="button" className="sidebar-search__button" onClick={() => setSearch('')}>
               {search ? <SfIconCloseSm className="sidebar-search__button-icon" /> : undefined}
             </button>
@@ -175,7 +181,12 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
         </div>
       ) : null}
       <div className="e-page">
-        <div className={classNames('e-page-component', { 'e-page-component--no-paddings': noPaddings })}>
+        <div
+          className={classNames('e-page-component', {
+            'e-page-component--no-paddings': noPaddings,
+            'e-page-component--no-scale': noScale,
+          })}
+        >
           {children}
         </div>
       </div>

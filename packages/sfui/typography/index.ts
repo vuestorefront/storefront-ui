@@ -50,9 +50,9 @@ export default plugin.withOptions(
           ['display-1', 'fontSize.6xl', 'lineHeight.extra-tight', 'fontFamily.headings'],
           ['display-2', 'fontSize.4xl', 'lineHeight.10', 'fontFamily.headings'],
           ['display-3', 'fontSize.2xl', 'lineHeight.8', 'fontFamily.headings'],
-          ['headline-1', 'fontSize.6xl', 'lineHeight.extra-tight', 'fontFamily.headings'],
-          ['headline-2', 'fontSize.4xl', 'lineHeight.10', 'fontFamily.headings'],
-          ['headline-3', 'fontSize.2xl', 'lineHeight.8', 'fontFamily.headings'],
+          ['headline-1', 'fontSize.4xl', 'lineHeight.8', 'fontFamily.headings'],
+          ['headline-2', 'fontSize.2xl', 'lineHeight.8', 'fontFamily.headings'],
+          ['headline-3', 'fontSize.xl', 'lineHeight.7', 'fontFamily.headings'],
           ['headline-4', 'fontSize.lg', 'lineHeight.7', 'fontFamily.headings'],
           ['headline-5', 'fontSize.base', 'lineHeight.6', 'fontFamily.headings'],
           ['headline-6', 'fontSize.sm', 'lineHeight.5', 'fontFamily.headings'],
@@ -70,17 +70,22 @@ export default plugin.withOptions(
           ['error-lg', 'fontSize.lg', 'lineHeight.7'],
           ['error-base', 'fontSize.base', 'lineHeight.6'],
           ['error-sm', 'fontSize.sm', 'lineHeight.5'],
+          ['error-xs', 'fontSize.xs', 'lineHeight.4'],
           ['hint-lg', 'fontSize.lg', 'lineHeight.7'],
           ['hint-base', 'fontSize.base', 'lineHeight.6'],
           ['hint-sm', 'fontSize.sm', 'lineHeight.5'],
-        ].reduce((p, [name, fontSize, lineHeight, fontFamily]) => {
-          p[name] = {
-            fontSize: theme(fontSize),
-            lineHeight: theme(lineHeight),
-            fontFamily: fontFamily ? theme(fontFamily) : undefined,
-          };
-          return p;
-        }, {} as Record<string, ConfigValue>),
+          ['hint-xs', 'fontSize.xs', 'lineHeight.4'],
+        ].reduce(
+          (p, [name, fontSize, lineHeight, fontFamily]) => {
+            p[name] = {
+              fontSize: theme(fontSize),
+              lineHeight: theme(lineHeight),
+              fontFamily: fontFamily ? theme(fontFamily) : undefined,
+            };
+            return p;
+          },
+          {} as Record<string, ConfigValue>,
+        ),
     } as { [PLUGIN_CONFIG_KEY]: ResolvableTo<ConfigKeyValuePair> },
   }),
 );

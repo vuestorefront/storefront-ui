@@ -72,6 +72,7 @@ const handleHoverOut = () => {
 };
 </script>
 
+<!-- eslint-disable vuejs-accessibility/no-static-element-interactions -->
 <template>
   <div role="radiogroup" class="flex" data-testid="ratingbutton">
     <label

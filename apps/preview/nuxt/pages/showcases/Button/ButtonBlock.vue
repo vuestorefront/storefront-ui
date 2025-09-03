@@ -1,5 +1,5 @@
 <template>
-  <SfButton type="button" class="w-full"> Hello </SfButton>
+  <SfButton class="w-full"> Hello </SfButton>
 </template>
 
 <script lang="ts" setup>

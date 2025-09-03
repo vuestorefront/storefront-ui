@@ -16,12 +16,12 @@ export default function DeletableChips() {
 
     setChipList(newList);
   };
+
   return (
     <ul className="flex flex-wrap gap-4 sm:flex-row">
       {chipList.map(({ label, value }) => (
-        <li>
+        <li key={value}>
           <SfChip
-            key={value}
             className="mr-2"
             inputProps={{ checked: true, onChange: () => handleRemoveChip(value) }}
             slotPrefix={<SfThumbnail className={`bg-${value}-500`} />}

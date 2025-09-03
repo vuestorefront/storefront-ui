@@ -96,7 +96,7 @@ const vueIcon = (name, content, attributes) => `
     <SfIconBase :size="size" viewBox="${attributes.viewBox}" ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</SfIconBase>
 </template>
 <script lang="ts" setup>
-import { PropType } from 'vue';
+import type { PropType } from 'vue';
 import { SfIconBase, SfIconSize } from '${absolutePathToIconBase || (relativePathToIconBasePath && `${relativePathToIconBasePath}SfIconBase`)}';
 
 defineProps({
@@ -116,7 +116,7 @@ export default function SfIcon${camelCaseName}({
     viewBox = '${attributes.viewBox}',
     ...attributes
 }: SfIconProps) {
-    return <SfIconBase {...attributes} size={size} viewBox={viewBox} ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`}>${content}</SfIconBase>;
+    return <SfIconBase size={size} viewBox={viewBox} ${attributes.dataTestId && `data-testid="${attributes.dataTestId}"`} {...attributes}>${content}</SfIconBase>;
 }`;
 
 const vueExports = [];
@@ -125,10 +125,11 @@ const camelize = s => s.replace(/-./g, x => x[1].toUpperCase());
 const capitalize = s => s && s[0].toUpperCase() + s.slice(1);
 const getSvg = async (svgName, doOptimiziation) => {
     const svgPath = path.join(inputDirectoryPath, svgName);
-    let fileContent = await fsPromise.readFile(svgPath, 'utf8').catch(() => ({}));
+    const fileContent = await fsPromise.readFile(svgPath, 'utf8').catch(() => ({}));
+    let optimizedFileContent = fileContent;
     if (doOptimiziation) {
         try {
-            fileContent = optimize(fileContent, {
+            optimizedFileContent = optimize(optimizedFileContent, {
                 multipass: true,
                 svg2js: {
                     pretty: true
@@ -151,7 +152,7 @@ const getSvg = async (svgName, doOptimiziation) => {
     return {
         fileName: camelize(fileName),
         name: fileName,
-        content: fileContent.substring(fileContent.indexOf('>') + 1, fileContent.lastIndexOf('<')).replace(/"/g, "'"),
+        content: optimizedFileContent.substring(optimizedFileContent.indexOf('>') + 1, optimizedFileContent.lastIndexOf('<')).replace(/"/g, "'"),
         attrs: {
             viewBox: /viewBox="([^"]+)"/.exec(fileContent)?.[1]
         },

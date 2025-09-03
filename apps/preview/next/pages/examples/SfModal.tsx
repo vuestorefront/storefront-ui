@@ -51,10 +51,7 @@ function Example() {
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <SfButton
-        onClick={() => state.set((currentState) => ({ ...currentState, open: !currentState.open }))}
-        type="button"
-      >
+      <SfButton onClick={() => state.set((currentState) => ({ ...currentState, open: !currentState.open }))}>
         Open Modal
       </SfButton>
 

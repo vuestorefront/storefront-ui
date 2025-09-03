@@ -19,6 +19,7 @@ export default function RadioWithoutLabel() {
     <>
       {radioOptions.map(({ name, value }) => (
         <SfRadio
+          key={value}
           name={name}
           value={value}
           className="block mb-4"

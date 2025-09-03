@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, toRefs } from 'vue';
+import { ref, toRefs, type PropType, type ConcreteComponent } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import { useTrapFocus } from '@storefront-ui/vue';
 
@@ -9,7 +9,7 @@ const props = defineProps({
     default: false,
   },
   tag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: '',
   },
   disableClickAway: {
@@ -54,7 +54,7 @@ useTrapFocus(modalRef, {
     aria-modal="true"
     data-testid="modal"
     tabindex="-1"
-    class="fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-xl outline-none"
+    class="fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-3xl outline-none"
     @keydown.esc="onEscKeyDown"
   >
     <slot />

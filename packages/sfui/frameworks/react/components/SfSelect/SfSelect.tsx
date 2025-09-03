@@ -1,3 +1,4 @@
+'use client';
 import { KeyboardEvent, useState } from 'react';
 import classNames from 'classnames';
 import { SfSelectSize, SfIconExpandMore, composeHandlers, useFocusVisible } from '@storefront-ui/react';
@@ -63,8 +64,6 @@ export default function SfSelect(props: SfSelectProps) {
       >
         {placeholder && (
           <option
-            disabled
-            selected
             hidden
             value=""
             className={classNames('bg-neutral-300 text-sm', {

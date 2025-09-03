@@ -1,5 +1,5 @@
-import { computed, unref } from 'vue';
-import { onClickOutside, onKeyStroke, type MaybeElementRef, type MaybeComputedRef } from '@vueuse/core';
+import { computed, toValue } from 'vue';
+import { onClickOutside, onKeyStroke, type MaybeElementRef, type MaybeRefOrGetter } from '@vueuse/core';
 import { flip, offset, shift } from '@floating-ui/vue';
 import { type UseDropdownOptions, usePopover } from '@storefront-ui/vue';
 
@@ -8,13 +8,13 @@ export function useDropdown(options: UseDropdownOptions) {
 
   const { floatingRef, referenceRef, style } = usePopover({
     placement,
-    middleware: computed(() => unref(middleware) || [offset(8), shift(), flip()]),
+    middleware: computed(() => toValue(middleware) || [offset(8), shift(), flip()]),
     isOpen,
     ...popoverOptions,
   });
 
   onClickOutside(referenceRef as MaybeElementRef, onClose);
-  onKeyStroke('Escape', onClose, { target: referenceRef as MaybeComputedRef<EventTarget | null | undefined> });
+  onKeyStroke('Escape', onClose, { target: referenceRef as MaybeRefOrGetter<EventTarget | null | undefined> });
 
   return { floatingRef, referenceRef, style };
 }

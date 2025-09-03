@@ -1,7 +1,4 @@
 <script lang="ts">
-export default {
-  inheritAttrs: false,
-};
 const getSizeClasses = {
   [SfInputSize.sm]: ' h-[32px]',
   [SfInputSize.base]: 'h-[40px]',
@@ -10,9 +7,13 @@ const getSizeClasses = {
 </script>
 
 <script lang="ts" setup>
-import type { PropType } from 'vue';
+import type { PropType, ConcreteComponent } from 'vue';
 import { computed, ref, toRefs } from 'vue';
 import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
+
+defineOptions({
+  inheritAttrs: false,
+});
 
 const props = defineProps({
   modelValue: {
@@ -20,7 +21,7 @@ const props = defineProps({
     default: '',
   },
   wrapperTag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: 'span',
   },
   size: {
@@ -61,10 +62,10 @@ const inputValue = computed({
   <component
     :is="wrapperTag"
     :class="[
-      'flex items-center gap-2 px-4 bg-white rounded-md ring-1 text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
+      'flex items-center gap-2 px-4 bg-white rounded-xl text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
       {
         'ring-2 ring-negative-700': invalid,
-        'ring-1 ring-neutral-200': !invalid,
+        'ring-1 ring-neutral-300': !invalid,
         'focus-within:outline focus-within:outline-offset': isFocusVisible,
       },
       getSizeClasses[size],
@@ -75,10 +76,10 @@ const inputValue = computed({
     <slot name="prefix" />
     <input
       v-model="inputValue"
-      v-bind="$attrs"
       class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
       :size="1"
       data-testid="input-field"
+      v-bind="$attrs"
     />
     <slot name="suffix" />
   </component>

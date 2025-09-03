@@ -8,7 +8,6 @@
       <div class="flex items-center justify-start h-full max-w-[1536px] w-full px-4 md:px-10">
         <SfButton
           class="block md:hidden text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-          type="button"
           :aria-haspopup="true"
           :aria-expanded="isOpen"
           variant="tertiary"
@@ -33,7 +32,6 @@
         </a>
         <SfButton
           class="hidden md:flex text-white font-body bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
-          type="button"
           :aria-haspopup="true"
           :aria-expanded="isOpen"
           variant="tertiary"

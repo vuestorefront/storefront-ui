@@ -1,0 +1,13 @@
+server {
+    listen       3000;
+    server_name  _;
+
+  location /robots.txt {
+    return 200 "User-agent: *\nDisallow: /v2-rc-3/\nDisallow: /v2-rc-3-vue/\nDisallow: /v2-rc-3-react/";
+  }
+
+  # https://www.oliverdavies.uk/blog/nginx-redirects-query-string-arguments
+  location / {
+    return 301 ${TARGET_DOMAIN}/v2$uri$is_args$args;
+  }
+}

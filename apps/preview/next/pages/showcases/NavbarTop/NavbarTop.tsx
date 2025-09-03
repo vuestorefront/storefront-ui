@@ -70,7 +70,6 @@ export default function TopNav() {
         </SfButton>
         <SfButton
           className="hidden lg:flex lg:mr-4"
-          type="button"
           variant="tertiary"
           slotSuffix={<SfIconExpandMore className="hidden lg:block" />}
         >

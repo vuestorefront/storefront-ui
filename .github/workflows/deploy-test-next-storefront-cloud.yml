@@ -21,6 +21,7 @@ jobs:
       ARTIFACT_TYPE: "sfui2-docs-react"
       DOCKERFILE_PATH: ".vuestorefrontcloud/test-next/docker/Dockerfile"
       ENVIRONMENT: ${{ needs.configure-enviroment.outputs.environment }}
+      TARGET_DOMAIN: ${{ needs.configure-enviroment.outputs.target-domain }}
 
   deploy:
     needs: [ build, configure-enviroment ]

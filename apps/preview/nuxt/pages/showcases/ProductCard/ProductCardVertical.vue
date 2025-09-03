@@ -11,7 +11,6 @@
         />
       </SfLink>
       <SfButton
-        type="button"
         variant="tertiary"
         size="sm"
         square
@@ -34,7 +33,7 @@
         Lightweight • Non slip • Flexible outsole • Easy to wear on and off
       </p>
       <span class="block pb-2 font-bold typography-text-lg">$2345,99</span>
-      <SfButton type="button" size="sm">
+      <SfButton size="sm">
         <template #prefix>
           <SfIconShoppingCart size="sm" />
         </template>

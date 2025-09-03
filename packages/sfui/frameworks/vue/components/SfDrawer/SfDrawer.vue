@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { type PropType, ref, toRefs, computed } from 'vue';
+import { type PropType, type ConcreteComponent, ref, toRefs, computed } from 'vue';
 import { onClickOutside } from '@vueuse/core';
 import { SfDrawerPlacement } from '@storefront-ui/vue';
 
@@ -13,7 +13,7 @@ const props = defineProps({
     default: SfDrawerPlacement.left,
   },
   tag: {
-    type: String,
+    type: [String, Object] as PropType<string | ConcreteComponent>,
     default: 'aside',
   },
   disableClickAway: {

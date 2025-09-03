@@ -73,7 +73,6 @@ export default function TopNavFilled() {
         </SfButton>
         <SfButton
           className="hidden lg:flex lg:mr-4 text-white hover:text-white active:text-white hover:bg-primary-800 active:bg-primary-900"
-          type="button"
           variant="tertiary"
           slotSuffix={<SfIconExpandMore className="hidden lg:block" />}
         >

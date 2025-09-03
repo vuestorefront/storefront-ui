@@ -1,5 +1,122 @@
 # @storefront-ui/react
 
+## 2.7.1
+
+### Patch Changes
+
+- [#3263](https://github.com/vuestorefront/storefront-ui/pull/3263) [`f534058`](https://github.com/vuestorefront/storefront-ui/commit/f534058e4be50f1fb4f3394c6aab525f901b3ee4) Thanks [@lsliwaradioluz](https://github.com/lsliwaradioluz)! - [FIXED] Fixed `<SfSelect />` placeholder not appearing initially when no value had been selected.
+
+## 2.7.0
+
+### Minor Changes
+
+- [#3148](https://github.com/vuestorefront/storefront-ui/pull/3148) [`34b7107`](https://github.com/vuestorefront/storefront-ui/commit/34b7107053521733301a719822383ea056a96f4c) Thanks [@Razz21](https://github.com/Razz21)! - [CHANGED] Implemented `use client` directive in components:
+  - `SfAccordionItem`
+  - `SfDrawer`
+  - `SfDropdown`
+  - `SfModal`
+  - `SfRatingButton`
+  - `SfScrollable`
+  - `SfSelect`
+  - `SfTextarea`
+  - `SfTooltip`
+
+### Patch Changes
+
+- [#3157](https://github.com/vuestorefront/storefront-ui/pull/3157) [`a9cd099`](https://github.com/vuestorefront/storefront-ui/commit/a9cd09921c29decf8647e486b4ee573cb89d8fe8) Thanks [@Razz21](https://github.com/Razz21)! - [FIXED] Mark SfInput as client component
+
+## 2.7.0-rc.1
+
+### Patch Changes
+
+- [#3157](https://github.com/vuestorefront/storefront-ui/pull/3157) [`a9cd099`](https://github.com/vuestorefront/storefront-ui/commit/a9cd09921c29decf8647e486b4ee573cb89d8fe8) Thanks [@Razz21](https://github.com/Razz21)! - [FIXED] Mark SfInput as client component
+
+## 2.7.0-rc.0
+
+### Minor Changes
+
+- [#3148](https://github.com/vuestorefront/storefront-ui/pull/3148) [`34b7107`](https://github.com/vuestorefront/storefront-ui/commit/34b7107053521733301a719822383ea056a96f4c) Thanks [@Razz21](https://github.com/Razz21)! - [CHANGED] Implemented `use client` directive in components:
+  - `SfAccordionItem`
+  - `SfDrawer`
+  - `SfDropdown`
+  - `SfModal`
+  - `SfRatingButton`
+  - `SfScrollable`
+  - `SfSelect`
+  - `SfTextarea`
+  - `SfTooltip`
+
+## 2.6.4
+
+### Patch Changes
+
+- [#3170](https://github.com/vuestorefront/storefront-ui/pull/3170) [`55a0d36`](https://github.com/vuestorefront/storefront-ui/commit/55a0d360c95bf3359dfc5a740cfcde6ca473b23f) Thanks [@jagoral](https://github.com/jagoral)! - [CHANGED] Aligned ring color of Input component with Figma
+
+## 2.6.3
+
+### Patch Changes
+
+- [#3132](https://github.com/vuestorefront/storefront-ui/pull/3132) [`19fa774`](https://github.com/vuestorefront/storefront-ui/commit/19fa774b38a05801256ced7c8af7731ea19defb9) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Update dependencies
+
+- Updated dependencies [[`19fa774`](https://github.com/vuestorefront/storefront-ui/commit/19fa774b38a05801256ced7c8af7731ea19defb9)]:
+  - @storefront-ui/tailwind-config@2.5.1
+  - @storefront-ui/shared@2.5.1
+
+## 2.6.2
+
+### Patch Changes
+
+- [#3028](https://github.com/vuestorefront/storefront-ui/pull/3028) [`dd5ab48d0f3b153d719004350249a87a6a7335ee`](https://github.com/vuestorefront/storefront-ui/commit/dd5ab48d0f3b153d719004350249a87a6a7335ee) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - fix order inherit of attributes
+
+- [#3091](https://github.com/vuestorefront/storefront-ui/pull/3091) [`91d17b5346e2706ce0551f897f8753207b7a703f`](https://github.com/vuestorefront/storefront-ui/commit/91d17b5346e2706ce0551f897f8753207b7a703f) Thanks [@mattmaribojoc](https://github.com/mattmaribojoc)! - Minor type fixes
+
+- [#3070](https://github.com/vuestorefront/storefront-ui/pull/3070) [`e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6`](https://github.com/vuestorefront/storefront-ui/commit/e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Add new alokai icon
+
+- Updated dependencies [[`a40579d26c2912c5d4d05e1a833801e3e87901b3`](https://github.com/vuestorefront/storefront-ui/commit/a40579d26c2912c5d4d05e1a833801e3e87901b3), [`91d17b5346e2706ce0551f897f8753207b7a703f`](https://github.com/vuestorefront/storefront-ui/commit/91d17b5346e2706ce0551f897f8753207b7a703f), [`e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6`](https://github.com/vuestorefront/storefront-ui/commit/e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6)]:
+  - @storefront-ui/tailwind-config@2.5.0
+
+## 2.6.1
+
+### Patch Changes
+
+- [#3028](https://github.com/vuestorefront/storefront-ui/pull/3028) [`dd5ab48d0`](https://github.com/vuestorefront/storefront-ui/commit/dd5ab48d0f3b153d719004350249a87a6a7335ee) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - fix order inherit of attributes
+
+- [#3070](https://github.com/vuestorefront/storefront-ui/pull/3070) [`e15a3f6cb`](https://github.com/vuestorefront/storefront-ui/commit/e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Add new alokai icon
+
+- Updated dependencies [[`a40579d26`](https://github.com/vuestorefront/storefront-ui/commit/a40579d26c2912c5d4d05e1a833801e3e87901b3), [`e15a3f6cb`](https://github.com/vuestorefront/storefront-ui/commit/e15a3f6cb56fd28b2e9a0bd525e9fcbde44d29f6)]:
+  - @storefront-ui/tailwind-config@2.4.0
+
+## 2.6.0
+
+### Minor Changes
+
+- [#2888](https://github.com/vuestorefront/storefront-ui/pull/2888) [`d5df1cd79`](https://github.com/vuestorefront/storefront-ui/commit/d5df1cd79ca123d54c70a17cfeb7cc4f50eac8f8) Thanks [@justyna-13](https://github.com/justyna-13)! - New prop for defining tags for children in SfListItem component
+
+### Patch Changes
+
+- [#3005](https://github.com/vuestorefront/storefront-ui/pull/3005) [`e82aa920e`](https://github.com/vuestorefront/storefront-ui/commit/e82aa920ecaa58ec7bd50204a6e6a165d5341958) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Fix inhertiance of react icons, possibility to alter default attributes
+
+- [#2939](https://github.com/vuestorefront/storefront-ui/pull/2939) [`d57c3cfe3`](https://github.com/vuestorefront/storefront-ui/commit/d57c3cfe32ae3816c80e7a08efd8ae359cc02833) Thanks [@filrak](https://github.com/filrak)! - Import types from package in SfBadge
+
+- [#2936](https://github.com/vuestorefront/storefront-ui/pull/2936) [`6bf2b3fbc`](https://github.com/vuestorefront/storefront-ui/commit/6bf2b3fbc83810b00ff2a3b63976444497d0f277) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - Unify code between vue and react, when buttons are disabled in floating button position mode they should be hidden
+
+- [#2946](https://github.com/vuestorefront/storefront-ui/pull/2946) [`979c29ee9`](https://github.com/vuestorefront/storefront-ui/commit/979c29ee91b3289e6514314ca7c841e457ca3ec0) Thanks [@jagoral](https://github.com/jagoral)! - Fix `aria-label` casing in `SfScrollable`
+
+- [#2947](https://github.com/vuestorefront/storefront-ui/pull/2947) [`1667e4fa2`](https://github.com/vuestorefront/storefront-ui/commit/1667e4fa2ccc495b38227930980c1eb52220f837) Thanks [@jagoral](https://github.com/jagoral)! - Remove redundant `selected` attribute from `SfSelect` placeholder
+
+## 2.5.0
+
+### Minor Changes
+
+- [#2848](https://github.com/vuestorefront/storefront-ui/pull/2848) [`93107ab26`](https://github.com/vuestorefront/storefront-ui/commit/93107ab2664bd513e8074c2ee3069cf601fb8a17) Thanks [@AdamPawlinski](https://github.com/AdamPawlinski)! - Added props changing aria label for nav buttons in SfScrollable
+
+- [#2880](https://github.com/vuestorefront/storefront-ui/pull/2880) [`aa9c2f328`](https://github.com/vuestorefront/storefront-ui/commit/aa9c2f328df419a929f06aa7b2053baef9830d60) Thanks [@AdamPawlinski](https://github.com/AdamPawlinski)! - Added textarea base component
+
+### Patch Changes
+
+- Updated dependencies [[`aa9c2f328`](https://github.com/vuestorefront/storefront-ui/commit/aa9c2f328df419a929f06aa7b2053baef9830d60)]:
+  - @storefront-ui/shared@2.5.0
+
 ## 2.4.1
 
 ### Patch Changes

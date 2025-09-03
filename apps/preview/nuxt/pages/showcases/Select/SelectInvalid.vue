@@ -1,7 +1,7 @@
 <template>
   <label>
     <span class="pb-1 text-sm font-medium text-neutral-900 font-body"> Label </span>
-    <SfSelect :invalid="true" placeholder="-- Select --">
+    <SfSelect invalid placeholder="-- Select --">
       <option v-for="{ value, label } in options" :key="value" :value="value">
         {{ label }}
       </option>

@@ -35,9 +35,9 @@ hideBreadcrumbs: true
 
 ## Source code
 
-<!-- vue -->
+::vue-only
 <<<../../../packages/sfui/frameworks/vue/components/<%= name %>/<%= name %>.vue
-<!-- end vue -->
-<!-- react -->
+::
+::react-only
 <<<../../../packages/sfui/frameworks/react/components/<%= name %>/<%= name %>.tsx
-<!-- end react -->
+::

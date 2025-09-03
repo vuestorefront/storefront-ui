@@ -13,7 +13,7 @@ export default defineConfig({
     dts({
       insertTypesEntry: true,
     }),
-    tsconfigPaths(),
+    tsconfigPaths({ root: './' }),
   ],
   build: {
     lib: {

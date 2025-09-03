@@ -1,3 +1,4 @@
+'use client';
 import { useState, type ChangeEvent } from 'react';
 import classnames from 'classnames';
 import {
@@ -25,7 +26,6 @@ const renderDefaultIcon = ({ isFilled, iconSize }: SfRatingButtonRenderProps) =>
   }
   return (
     <SfIconStar
-      data-testid="ratingbutton-icon-empty"
       role="none"
       className="text-neutral-500 cursor-pointer peer-disabled:cursor-default peer-disabled:text-disabled-500 peer-focus-visible:outline"
       size={iconSize}

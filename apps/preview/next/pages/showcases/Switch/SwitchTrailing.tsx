@@ -18,7 +18,7 @@ export default function SwitchAlignment() {
           }}
         />
       </label>
-      <span className="text-xs mt-0.5 block text-gray-500">Help text</span>
+      <span className="typography-hint-xs mt-0.5 block text-gray-500">Help text</span>
     </>
   );
 }

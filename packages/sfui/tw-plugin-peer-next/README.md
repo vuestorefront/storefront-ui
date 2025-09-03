@@ -70,7 +70,7 @@
 
 Extend of `peer` tailwind class but with `+` (first next sibling). Original `peer` class is for `~` (every following sibling).
 <br /><br />
-Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">Vue Storefront</a> team and contributors.
+Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">Alokai</a> team and contributors.
 
 ## Why?
 

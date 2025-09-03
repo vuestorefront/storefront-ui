@@ -12,7 +12,7 @@ export default function BadgePlacement() {
 
       <SfButton className="relative" square variant="tertiary">
         <SfIconShoppingCart />
-        <SfBadge content={100} max={99} placement="bottom-right" />
+        <SfBadge content={100} max={99} placement="bottom-left" />
       </SfButton>
 
       <SfButton className="relative" square variant="tertiary">
@@ -22,7 +22,7 @@ export default function BadgePlacement() {
 
       <SfButton className="relative" square variant="tertiary">
         <SfIconShoppingCart />
-        <SfBadge content={100} max={99} placement="bottom-left" />
+        <SfBadge content={100} max={99} placement="bottom-right" />
       </SfButton>
     </div>
   );

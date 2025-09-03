@@ -1,4 +1,3 @@
-/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { ref } from 'vue';
 import type { Ref } from 'vue';

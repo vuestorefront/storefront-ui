@@ -48,7 +48,7 @@ export default function RatingFilter() {
                 className="flex items-center"
                 checked={rating === value}
                 name="radio-rating"
-                onClick={() => setRating(rating === value ? null : value)}
+                onChange={() => setRating(rating === value ? null : value)}
               />
             }
           >

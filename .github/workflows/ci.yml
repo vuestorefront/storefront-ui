@@ -13,6 +13,10 @@ on:
       - ready_for_review
       - edited
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 env:
   SONAR_TOKEN_REACT: ${{ secrets.SONAR_TOKEN_REACT }}
   SONAR_TOKEN_VUE: ${{ secrets.SONAR_TOKEN_VUE }}
@@ -23,11 +27,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
@@ -38,11 +42,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: NOT_GENERATE_ICON=true && yarn --immutable
@@ -56,11 +60,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
@@ -73,11 +77,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
@@ -90,16 +94,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
       - name: Run build
         run: yarn build:docs
+        env:
+          DOCS_EXAMPLES_VUE_PATH: 'https://docs.storefrontui.io/v2-vue'
+          DOCS_EXAMPLES_REACT_PATH: 'https://docs.storefrontui.io/v2-react'
 
   build-release:
     name: Build packages for release
@@ -107,11 +114,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
@@ -124,20 +131,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
       - name: Pre-Cypress (build all dependencies)
         run: yarn test:ci-pre:vue
       - name: Cypress run
-        uses: cypress-io/github-action@v5.7.2
+        uses: cypress-io/github-action@v6.10.2
         with:
           browser: chrome
           working-directory: apps/test/vue
@@ -148,7 +155,7 @@ jobs:
         run: cd apps/test/vue; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ env.SONAR_TOKEN_VUE }}
-        uses: SonarSource/sonarcloud-github-action@v1.9
+        uses: SonarSource/sonarqube-scan-action@v5
         with:
           projectBaseDir: packages/sfui/frameworks/vue
         env:
@@ -161,18 +168,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
         run: yarn --immutable
       - name: Pre-Cypress (build all dependencies)
         run: yarn test:ci-pre:react
       - name: Cypress run
-        uses: cypress-io/github-action@v5.7.2
+        uses: cypress-io/github-action@v6.10.2
         with:
           browser: chrome
           working-directory: apps/test/react
@@ -183,7 +190,7 @@ jobs:
         run: cd apps/test/react; yarn generate-coverage
       - name: SonarCloud Scan
         if: ${{ env.SONAR_TOKEN_REACT }}
-        uses: SonarSource/sonarcloud-github-action@v1.9
+        uses: SonarSource/sonarqube-scan-action@v5
         with:
           projectBaseDir: packages/sfui/frameworks/react
         env:
@@ -198,31 +205,31 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Set yarn config
-        run: |
-          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
-          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
-          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Bump package version
         run: yarn changeset version --snapshot
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Build packages
         run: yarn build:release
+      - name: Set yarn config
+        run: |
+          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
+          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
+          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Publish canary version
         run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish --tag canary || true
         env:
           # Needs access to publish to npm
-          # refresh token before Saturday, May 25, 2024
+          # refresh token before 22.07.2026
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
 
@@ -231,27 +238,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn --immutable
-      - name: Set yarn config
-        run: |
-          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
-          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
-          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Save head commit message
         id: commit_message
         run: echo "result=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
       - name: Build packages
         run: yarn build:release
+      - name: Set yarn config
+        run: |
+          yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
+          yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
+          yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Publish release-candidate version
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
         if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: version packages (rc)' ) }}"
@@ -269,24 +276,24 @@ jobs:
     if: ${{ github.ref == 'refs/heads/v2' }}
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.sha }}
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version-file: '.node-version'
+          node-version-file: '.nvmrc'
           cache: 'yarn'
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: yarn --immutable
+      - name: Build packages
+        run: yarn build:release
       - name: Set yarn config
         run: |
           yarn config set npmScopes.storefront-ui.npmAuthToken "\${NODE_AUTH_TOKEN}"
           yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
           yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
-      - name: Build packages
-        run: yarn build:release
       - name: Publish Production version package
         run: yarn workspaces foreach --no-private --from '@storefront-ui/*' npm publish || true
         env:
@@ -294,6 +301,10 @@ jobs:
           # refresh token before Saturday, May 25, 2024
           NPM_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_RELEASE_TOKEN }}
+      - name: Create Release Notes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node releaseNotes.mjs
       - name: Create PR to v2-develop branch
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

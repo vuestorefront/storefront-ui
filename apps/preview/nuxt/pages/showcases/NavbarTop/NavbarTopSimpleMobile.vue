@@ -28,7 +28,7 @@
       >
         <SfIconMenu />
       </SfButton>
-      <SfButton class="hidden lg:flex lg:mr-4" type="button" variant="tertiary">
+      <SfButton class="hidden lg:flex lg:mr-4" variant="tertiary">
         <template #suffix>
           <SfIconExpandMore class="hidden lg:block" />
         </template>

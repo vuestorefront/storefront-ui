@@ -9,6 +9,7 @@ const sizeClasses = {
 };
 
 const defaultListItemTag = 'li';
+const defaultChildrenTag = 'span';
 
 const SfListItem = polymorphicForwardRef<typeof defaultListItemTag, SfListItemProps>((props, ref) => {
   const {
@@ -19,11 +20,15 @@ const SfListItem = polymorphicForwardRef<typeof defaultListItemTag, SfListItemPr
     slotPrefix,
     slotSuffix,
     as,
+    childrenTag,
     children,
+    prefixClassName,
+    suffixClassName,
     ...attributes
   } = props;
 
   const Tag = as || defaultListItemTag;
+  const ChildrenTag = childrenTag || defaultChildrenTag;
 
   return (
     <Tag
@@ -41,9 +46,17 @@ const SfListItem = polymorphicForwardRef<typeof defaultListItemTag, SfListItemPr
       data-testid="list-item"
       {...attributes}
     >
-      {slotPrefix && <span className={disabled ? 'text-disabled-500' : 'text-neutral-500'}>{slotPrefix}</span>}
-      <span className="w-full min-w-0">{children}</span>
-      {slotSuffix && <span className={disabled ? 'text-disabled-500' : 'text-neutral-500'}>{slotSuffix}</span>}
+      {slotPrefix && (
+        <ChildrenTag className={classNames(disabled ? 'text-disabled-500' : 'text-neutral-500', prefixClassName)}>
+          {slotPrefix}
+        </ChildrenTag>
+      )}
+      <ChildrenTag className="flex flex-col w-full min-w-0">{children}</ChildrenTag>
+      {slotSuffix && (
+        <ChildrenTag className={classNames(disabled ? 'text-disabled-500' : 'text-neutral-500', suffixClassName)}>
+          {slotSuffix}
+        </ChildrenTag>
+      )}
     </Tag>
   );
 });

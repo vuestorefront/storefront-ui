@@ -60,9 +60,7 @@ function Example() {
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <SfButton onClick={() => state.set({ ...state.get, open: !state.get.open })} type="button">
-        Open Drawer
-      </SfButton>
+      <SfButton onClick={() => state.set({ ...state.get, open: !state.get.open })}>Open Drawer</SfButton>
 
       <SfDrawer
         {...state.get}

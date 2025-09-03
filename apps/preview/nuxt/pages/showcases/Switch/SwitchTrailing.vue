@@ -3,7 +3,7 @@
     <span class="text-base text-gray-900 cursor-pointer font-body">Label</span>
     <SfSwitch v-model="modelCheck" value="value" />
   </label>
-  <span class="text-xs mt-0.5 block text-gray-500">Help text</span>
+  <span class="typography-hint-xs mt-0.5 block text-gray-500">Help text</span>
 </template>
 
 <script lang="ts" setup>

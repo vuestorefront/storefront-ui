@@ -1,19 +1,23 @@
 module.exports = {
-  parser: 'vue-eslint-parser',
-  extends: ['plugin:@typescript-eslint/recommended', 'plugin:vue/vue3-recommended', 'prettier'],
-  plugins: ['import'],
-  parserOptions: {
-    ecmaVersion: 2020,
-    parser: '@typescript-eslint/parser',
-    sourceType: 'module',
-  },
-  ignorePatterns: ['/*.*'],
+  extends: ["@vue-storefront/eslint-config/vue3", "prettier", "plugin:vuejs-accessibility/recommended"],
+  plugins: ["vuejs-accessibility"],
   rules: {
-    'import/order': ['warn', { groups: [['builtin', 'external', 'internal']] }],
-    'vue/no-v-html': 0,
-    'import/no-extraneous-dependencies': 0,
-    'vue/multi-word-component-names': 0,
-    // needs to be reenabled after this gets merged: https://github.com/vuejs/eslint-plugin-vue/pull/2189 [evaluate after: 07-06-2023]
-    'vue/no-dupe-keys': 0
-  },
+    "vuejs-accessibility/form-control-has-label": [
+      "off",
+      {
+        labelComponents: [],
+        labelAttributes: [],
+        controlComponents: [],
+        assert: 'both',
+        depth: 25,
+      },
+    ],
+    // Bug https://github.com/vue-a11y/eslint-plugin-vuejs-accessibility/issues/54
+    "vuejs-accessibility/label-has-for": ["error", {
+      required: {
+        some: ["nesting", "id"],
+      }
+    }],
+    "vuejs-accessibility/mouse-events-have-key-events": "off"
+  }
 };

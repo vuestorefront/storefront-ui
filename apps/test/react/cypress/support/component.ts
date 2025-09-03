@@ -18,8 +18,8 @@ import './commands';
 import '../../src/index.css';
 
 import { mount } from 'cypress/react18';
-import '@percy/cypress';
 import '@cypress/code-coverage/support';
+import '@frsource/cypress-plugin-visual-regression-diff';
 
 // Augment the Cypress namespace to include type definitions for
 // your custom command.

@@ -21,6 +21,7 @@ jobs:
       ARTIFACT_TYPE: "vue-storefront"
       DOCKERFILE_PATH: ".vuestorefrontcloud/router/docker/Dockerfile"
       ENVIRONMENT: ${{ needs.configure-enviroment.outputs.environment }}
+      TARGET_DOMAIN: ${{ needs.configure-enviroment.outputs.target-domain }}
 
   deploy:
     runs-on: ubuntu-latest

@@ -160,7 +160,7 @@ function Example() {
           slotPrefix={prefixSlotOptions.getValue(state.get.slotPrefix)}
           slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
           onChange={onChange}
-          wrapperClassName={classNames({
+          wrapperClassName={classNames('mt-0.5', {
             'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500':
               state.get.disabled || state.get.readonly,
           })}
@@ -172,7 +172,12 @@ function Example() {
             <p className="text-sm text-negative-700 font-medium mt-0.5">{state.get.errorText}</p>
           )}
           {state.get.helpText && (
-            <p className={classNames('text-xs mt-0.5', state.get.disabled ? 'text-disabled-500' : 'text-neutral-500')}>
+            <p
+              className={classNames(
+                'typography-hint-xs mt-0.5',
+                state.get.disabled ? 'text-disabled-500' : 'text-neutral-500',
+              )}
+            >
               {state.get.helpText}
             </p>
           )}
@@ -183,7 +188,7 @@ function Example() {
         {state.get.characterLimit && !state.get.readonly ? (
           <p
             className={classNames(
-              'text-xs mt-0.5',
+              'typography-error-xs mt-0.5',
               state.get.disabled ? 'text-disabled-500' : getCharacterLimitClass(),
             )}
           >

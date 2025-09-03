@@ -43,9 +43,8 @@ export default function SizeFilter() {
     >
       <ul className="grid grid-cols-5 gap-2">
         {chipSizes.map(({ id, label, value, isAvailable }) => (
-          <li>
+          <li key={id}>
             <SfChip
-              key={id}
               size="sm"
               className="w-full"
               inputProps={{ value, disabled: !isAvailable, onChange: () => handleSizeSelection(value) }}

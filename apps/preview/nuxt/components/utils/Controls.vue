@@ -110,7 +110,9 @@
               <td class="propType">
                 <span>{{ control.propType }}</span>
               </td>
-              <td class="propDefaultValue">{{ control.propDefaultValue }}</td>
+              <td class="propDefaultValue">
+                {{ (control.propDefaultValue ?? control.type === 'boolean') ? 'false' : '' }}
+              </td>
               <td class="required">{{ control?.isRequired?.toString() }}</td>
               <td class="description">{{ control.description }}</td>
             </tr>

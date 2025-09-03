@@ -1,7 +1,5 @@
 <template>
-  <SfButton type="button" class="absolute right-1/2 top-1/2 translate-x-[50%]" @click="open">
-    Open rating modal again
-  </SfButton>
+  <SfButton class="absolute right-1/2 top-1/2 translate-x-[50%]" @click="open"> Open rating modal again </SfButton>
   <SfModal
     v-model="isOpen"
     class="min-w-[376px] md:w-[480px]"

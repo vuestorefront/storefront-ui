@@ -1,4 +1,4 @@
-import type { ReactNode, PropsWithChildren, DetailsHTMLAttributes } from 'react';
+import type { ReactNode, PropsWithChildren, DetailsHTMLAttributes, HTMLAttributes } from 'react';
 
 export interface SfAccordionItemProps
   extends Omit<DetailsHTMLAttributes<HTMLDetailsElement>, 'onToggle'>,
@@ -6,4 +6,5 @@ export interface SfAccordionItemProps
   onToggle?: (isOpen: boolean) => void;
   summary?: ReactNode;
   summaryClassName?: string;
+  summaryAttrs?: HTMLAttributes<HTMLElement>;
 }

@@ -8,12 +8,12 @@ export default function InvalidInput() {
     <>
       <label>
         <span className="text-sm font-medium">Label</span>
-        <SfInput invalid />
+        <SfInput invalid wrapperClassName="mt-0.5" />
       </label>
       <div className="flex justify-between">
         <div>
           <p className="text-sm text-negative-700 font-medium mt-0.5">Error</p>
-          <p className="text-xs text-neutral-500 mt-0.5">Help Text</p>
+          <p className="typography-hint-xs text-neutral-500 mt-0.5">Help Text</p>
         </div>
       </div>
     </>

@@ -2,9 +2,11 @@ import { autoUpdate, type FloatingElement, useFloating, type ReferenceElement } 
 import { ref, computed } from 'vue';
 import { SfPopoverPlacement, SfPopoverStrategy, type UsePopoverOptions } from '@storefront-ui/vue';
 
-export function usePopover<T extends ReferenceElement = ReferenceElement>(options: UsePopoverOptions<T>) {
+export function usePopover<ReferenceEl extends ReferenceElement = ReferenceElement>(
+  options: UsePopoverOptions<ReferenceEl>,
+) {
   const {
-    referenceRef = ref<T>(),
+    referenceRef = ref<ReferenceEl>(),
     floatingRef = ref<FloatingElement>(),
     isOpen = false,
     middleware,
@@ -12,7 +14,7 @@ export function usePopover<T extends ReferenceElement = ReferenceElement>(option
     strategy: initialStrategy = SfPopoverStrategy.absolute,
   } = options;
 
-  const { strategy, x, y, middlewareData, placement } = useFloating<T>(referenceRef, floatingRef, {
+  const { strategy, x, y, middlewareData, placement } = useFloating<ReferenceEl>(referenceRef, floatingRef, {
     strategy: initialStrategy,
     placement: initialPlacement,
     open: isOpen,

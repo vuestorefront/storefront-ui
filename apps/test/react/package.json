@@ -21,14 +21,13 @@
     "test:ci:react": "yarn test:ci && CYPRESS_COVERAGE=true yarn cypress run --component && yarn generate-coverage"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.10.4",
+    "@cypress/code-coverage": "3.13.4",
+    "@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
     "@frsource/frs-replace": "^4.1.1",
-    "@percy/cli": "^1.19.2",
-    "@percy/cypress": "^3.1.2",
     "@storefront-ui/eslint-config": "workspace:*",
     "@storefront-ui/react": "workspace:*",
     "@storefront-ui/shared": "workspace:*",
@@ -36,21 +35,22 @@
     "@storefront-ui/tests-shared": "workspace:*",
     "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
+    "@tailwindcss/typography": "^0.5.13",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
-    "@vitejs/plugin-react": "^4.0.0-beta.0",
-    "autoprefixer": "^10.4.13",
+    "@vitejs/plugin-react": "^4.3.1",
+    "autoprefixer": "^10.4.19",
     "chokidar-cli": "^3.0.0",
-    "concurrently": "^8.0.1",
+    "concurrently": "^8.2.2",
     "cpy-cli": "^4.2.0",
-    "cypress": "^12.9.0",
+    "cypress": "^13.8.1",
     "nyc": "^15.1.0",
     "postcss": "^8.4.21",
     "postcss-import": "^15.1.0",
-    "rimraf": "^5.0.0",
-    "tailwindcss": "^3.3.1",
-    "typescript": "^5.0.2",
-    "vite": "^4.3.0",
+    "rimraf": "^6.0.1",
+    "tailwindcss": "3.4.17",
+    "typescript": "^5.5.4",
+    "vite": "^5.3.5",
     "vite-plugin-istanbul": "^4.0.1"
   }
 }

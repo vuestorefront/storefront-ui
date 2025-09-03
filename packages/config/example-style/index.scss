@@ -1,4 +1,4 @@
-@import 'controls';
+@use 'controls';
 
 .e-page {
     width: 100%;
@@ -21,6 +21,10 @@
 
         &--no-paddings {
             padding: 0;
+        }
+
+        &--no-scale {
+            transform: none;
         }
     }
 

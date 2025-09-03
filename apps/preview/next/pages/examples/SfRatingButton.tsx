@@ -66,7 +66,7 @@ function Example() {
 
   return (
     <ComponentExample controls={{ state, controls }}>
-      <SfRatingButton {...state.get} onChange={(value) => state.set({ value })} />
+      <SfRatingButton {...state.get} onChange={(value: number) => state.set({ value })} />
     </ComponentExample>
   );
 }

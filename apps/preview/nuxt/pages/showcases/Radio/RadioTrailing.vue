@@ -9,8 +9,8 @@
       <SfRadio v-model="radioModel" :value="value" :name="name" />
     </label>
   </div>
-  <div class="flex justify-between mt-2">
-    <p class="text-xs text-neutral-500">Help text</p>
+  <div class="flex justify-between">
+    <p class="typography-hint-xs text-neutral-500 mt-0.5">Help text</p>
   </div>
 </template>
 

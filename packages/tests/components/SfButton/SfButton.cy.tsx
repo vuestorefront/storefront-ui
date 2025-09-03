@@ -1,4 +1,3 @@
-/// <reference path="../../../../node_modules/@percy/cypress/types/index.d.ts" />
 import React from 'react';
 import { SfButtonSize, SfButtonVariant } from '@storefront-ui/vue';
 import { mount, useComponent } from '../../utils/mount';
@@ -17,6 +16,7 @@ describe('SfButton', () => {
   type InitializeComponentParams = {
     size?: SfButtonSize;
     variant?: SfButtonVariant;
+    blank?: boolean;
     disabled?: boolean;
     square?: boolean;
     slotPrefix?: boolean;
@@ -25,8 +25,9 @@ describe('SfButton', () => {
     tag?: string;
   };
   const initializeComponent = ({
-    size,
-    variant,
+    size = SfButtonSize.base,
+    variant = SfButtonVariant.primary,
+    blank,
     disabled,
     square,
     slotPrefix,
@@ -46,6 +47,7 @@ describe('SfButton', () => {
         props: {
           size,
           variant,
+          blank,
           disabled,
           square,
           tag,
@@ -119,6 +121,14 @@ describe('SfButton', () => {
           initializeComponent({ variant: componentVariant });
 
           page().makeSnapshot();
+        });
+
+        describe('when prop blank=true', () => {
+          it(`should render correct ${componentVariant} variant`, () => {
+            initializeComponent({ variant: componentVariant, blank: true });
+
+            page().makeSnapshot();
+          });
         });
       });
     });

@@ -8,11 +8,11 @@ export default function ReadonlyInput() {
     <>
       <label>
         <span className="text-sm font-medium">Label</span>
-        <SfInput value="value" wrapperClassName="!bg-disabled-100 !ring-disabled-300 !ring-1" readOnly />
+        <SfInput value="value" wrapperClassName="mt-0.5 !bg-disabled-100 !ring-disabled-300 !ring-1" readOnly />
       </label>
       <div className="flex justify-between">
         <div>
-          <p className="text-xs text-neutral-500 mt-0.5">Help Text</p>
+          <p className="typography-hint-xs text-neutral-500 mt-0.5">Help Text</p>
         </div>
       </div>
     </>

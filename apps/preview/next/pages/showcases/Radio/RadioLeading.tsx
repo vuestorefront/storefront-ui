@@ -36,8 +36,8 @@ export default function RadioAlignment() {
           </label>
         ))}
       </div>
-      <div className="flex justify-between mt-2">
-        <p className="text-xs text-neutral-500">Help text</p>
+      <div className="flex justify-between">
+        <p className="typography-hint-xs text-neutral-500 mt-0.5">Help text</p>
       </div>
     </>
   );

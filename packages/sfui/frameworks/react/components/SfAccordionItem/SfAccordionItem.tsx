@@ -1,10 +1,11 @@
+'use client';
 import { forwardRef } from 'react';
 import type { MouseEvent } from 'react';
 import classNames from 'classnames';
 import type { SfAccordionItemProps } from '@storefront-ui/react';
 
 const SfAccordionItem = forwardRef<HTMLDetailsElement, SfAccordionItemProps>((props, ref) => {
-  const { open, onToggle, children, summary, summaryClassName, ...attributes } = props;
+  const { open, onToggle, children, summary, summaryClassName, summaryAttrs, ...attributes } = props;
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
     event.preventDefault();
@@ -12,8 +13,9 @@ const SfAccordionItem = forwardRef<HTMLDetailsElement, SfAccordionItemProps>((pr
   };
 
   return (
-    <details ref={ref} open={open} {...attributes} data-testid="accordion-item">
+    <details ref={ref} open={open} data-testid="accordion-item" {...attributes}>
       <summary
+        {...summaryAttrs}
         onClick={handleClick}
         className={classNames(
           summaryClassName,

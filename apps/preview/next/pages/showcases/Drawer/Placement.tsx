@@ -23,9 +23,7 @@ export default function DrawerDemo() {
           <option value="left">left</option>
         </select>
       </label>
-      <SfButton onClick={() => setOpen(true)} type="button">
-        Open Drawer
-      </SfButton>
+      <SfButton onClick={() => setOpen(true)}>Open Drawer</SfButton>
 
       <SfDrawer
         open={open}

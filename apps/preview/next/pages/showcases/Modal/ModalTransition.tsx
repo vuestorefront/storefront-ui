@@ -13,9 +13,7 @@ export default function ModalTransition() {
 
   return (
     <>
-      <SfButton type="button" onClick={open}>
-        To Checkout
-      </SfButton>
+      <SfButton onClick={open}>To Checkout</SfButton>
 
       {/* Backdrop */}
       <CSSTransition
@@ -67,12 +65,10 @@ export default function ModalTransition() {
             proceeding to checkout page?
           </p>
           <footer className="flex justify-end gap-4 mt-4">
-            <SfButton type="button" variant="secondary" onClick={close}>
+            <SfButton variant="secondary" onClick={close}>
               Skip
             </SfButton>
-            <SfButton type="button" onClick={close}>
-              Yes!
-            </SfButton>
+            <SfButton onClick={close}>Yes!</SfButton>
           </footer>
         </SfModal>
       </CSSTransition>
