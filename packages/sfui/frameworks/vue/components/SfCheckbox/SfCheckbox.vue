@@ -1,39 +1,66 @@
 <script setup lang="ts">
-import type { InputHTMLAttributes, PropType } from 'vue';
-import { computed, toRefs } from 'vue';
+import { nextTick, ref, useTemplateRef, watch, type InputHTMLAttributes } from 'vue';
+import { ClassProp, SfIconCheckBox, SfIconCheckBoxOutlineBlank, SfIconIndeterminateCheckBox } from '@storefront-ui/vue';
 
-const props = defineProps({
-  modelValue: {
-    type: [String, Array, Boolean] as PropType<InputHTMLAttributes['checked']>,
+const { indeterminate = false } = defineProps({
+  invalid: {
+    type: Boolean,
     default: false,
   },
-  invalid: {
+  labelClass: ClassProp,
+  indeterminate: {
     type: Boolean,
     default: false,
   },
 });
 
-const emit = defineEmits<{
-  (event: 'update:modelValue', param: InputHTMLAttributes['checked']): void;
-}>();
-
-const { modelValue } = toRefs(props);
-
-const proxyChecked = computed({
-  get: () => modelValue?.value,
-  set: (value) => emit('update:modelValue', value),
+defineOptions({
+  inheritAttrs: false,
 });
+const model = defineModel<InputHTMLAttributes['checked']>({ default: false });
+const checkboxRef = useTemplateRef('checkboxRef');
+
+const isChecked = ref();
+const isIndeterminate = ref();
+
+watch(
+  [model, () => indeterminate],
+  async () => {
+    await nextTick();
+    isChecked.value = checkboxRef.value?.checked;
+    isIndeterminate.value = checkboxRef.value?.indeterminate;
+  },
+  { immediate: true },
+);
 </script>
 
 <template>
-  <input
-    v-model="proxyChecked"
-    class="h-[18px] min-w-[18px] border-2 rounded-sm appearance-none cursor-pointer text-neutral-500 hover:indeterminate:text-primary-800 enabled:active:checked:text-primary-900 checked:text-primary-700 checked:bg-checked-checkbox-current border-current indeterminate:bg-indeterminate-checkbox-current indeterminate:text-primary-700 disabled:text-disabled-500 hover:text-primary-800 disabled:cursor-not-allowed enabled:hover:border-primary-800 enabled:active:border-primary-900 enabled:hover:checked:text-primary-800 enabled:hover:indeterminate:text-primary-800 enabled:checked:text-primary-700 enabled:indeterminate:text-primary-700 enabled:focus-visible:outline enabled:focus-visible:outline-offset"
-    :class="{
-      'border-negative-700 enabled:hover:border-negative-800 enabled:active:border-negative-900 indeterminate:bg-none':
-        invalid,
-    }"
-    type="checkbox"
-    data-testid="checkbox"
-  />
+  <label
+    :class="[
+      'flex cursor-pointer focus-visible:outline-primary-700 focus-visible:outline focus-visible:outline-offset-2 rounded-md',
+      {
+        'text-neutral-500 hover:text-primary-800 active:text-primary-900': !invalid && !$attrs.disabled,
+        'text-negative-700 hover:text-negative-800 active:text-negative-900': invalid && !$attrs.disabled,
+        'text-disabled-500 hover:text-disabled-600 active:text-disabled-700': $attrs.disabled,
+      },
+      labelClass,
+    ]"
+    tabindex="0"
+  >
+    <input
+      class="hidden"
+      type="checkbox"
+      data-testid="checkbox"
+      ref="checkboxRef"
+      :indeterminate="indeterminate"
+      :invalid="invalid"
+      v-bind="$attrs"
+      v-model="model"
+    />
+    <SfIconIndeterminateCheckBox v-if="isIndeterminate" />
+    <template v-else>
+      <SfIconCheckBox v-if="isChecked" />
+      <SfIconCheckBoxOutlineBlank v-else />
+    </template>
+  </label>
 </template>
