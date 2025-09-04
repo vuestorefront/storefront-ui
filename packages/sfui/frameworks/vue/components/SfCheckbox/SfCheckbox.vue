@@ -46,11 +46,11 @@ watch(
       labelClass,
     ]"
     tabindex="0"
+    data-testid="checkbox"
   >
     <input
       class="hidden"
       type="checkbox"
-      data-testid="checkbox"
       ref="checkboxRef"
       :indeterminate="indeterminate"
       :invalid="invalid"

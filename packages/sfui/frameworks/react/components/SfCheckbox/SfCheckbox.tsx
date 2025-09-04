@@ -22,12 +22,12 @@ const SfCheckbox = forwardRef<HTMLInputElement, SfCheckboxProps>(
           },
           labelClass,
         )}
+        data-testid="checkbox"
       >
         <input
           className={classNames('hidden', className)}
           type="checkbox"
           ref={mergeRefs([inputRef, ref])}
-          data-testid="checkbox"
           {...attributes}
         />
         {inputRef.current?.indeterminate ? (
