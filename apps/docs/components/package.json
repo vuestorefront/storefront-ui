@@ -16,7 +16,7 @@
     "@microsoft/api-documenter": "^7.25.9",
     "@microsoft/api-extractor": "^7.47.4",
     "@types/node": "^20.12.7",
-    "nuxt": "^3.14.159",
+    "nuxt": "^3.19.0",
     "nuxt-gtag": "^3.0.1"
   },
   "dependencies": {
