@@ -12,6 +12,10 @@ const { indeterminate = false } = defineProps({
     type: Boolean,
     default: false,
   },
+  tag: {
+    type: String,
+    default: 'label',
+  },
 });
 
 defineOptions({
@@ -35,7 +39,8 @@ watch(
 </script>
 
 <template>
-  <label
+  <component
+    :is="tag"
     :class="[
       'flex cursor-pointer focus-visible:outline-primary-700 focus-visible:outline focus-visible:outline-offset-2 rounded-md',
       {
@@ -62,5 +67,5 @@ watch(
       <SfIconCheckBox v-if="isChecked" />
       <SfIconCheckBoxOutlineBlank v-else />
     </template>
-  </label>
+  </component>
 </template>

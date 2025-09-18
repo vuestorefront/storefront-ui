@@ -7,12 +7,17 @@ import {
   SfIconIndeterminateCheckBox,
   type SfCheckboxProps,
 } from '@storefront-ui/react';
+import { polymorphicForwardRef } from 'dist';
 
-const SfCheckbox = forwardRef<HTMLInputElement, SfCheckboxProps>(
-  ({ invalid, labelClass, className, ...attributes }, ref): JSX.Element => {
+const defaultCheckboxTag = 'label';
+
+const SfCheckbox = polymorphicForwardRef<typeof defaultCheckboxTag, SfCheckboxProps>(
+  ({ invalid, labelClass, className, as, ...attributes }, ref): JSX.Element => {
     const inputRef = useRef<HTMLInputElement>(null);
+    const Tag = as || defaultCheckboxTag;
+
     return (
-      <label
+      <Tag
         className={classNames(
           'flex cursor-pointer focus-visible:outline-primary-700 focus-visible:outline focus-visible:outline-offset-2 rounded-md',
           {
@@ -37,7 +42,7 @@ const SfCheckbox = forwardRef<HTMLInputElement, SfCheckboxProps>(
         ) : (
           <SfIconCheckBoxOutlineBlank />
         )}
-      </label>
+      </Tag>
     );
   },
 );
