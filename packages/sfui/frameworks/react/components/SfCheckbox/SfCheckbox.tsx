@@ -11,7 +11,7 @@ import {
 
 const defaultWrapperTag = 'label';
 
-const SfCheckbox = polymorphicForwardRef<typeof defaultWrapperTag, SfCheckboxProps>(
+const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
   (
     { wrapperAs, invalid, labelClass, className, indeterminate: indeterminateProp, ...attributes },
     ref,
