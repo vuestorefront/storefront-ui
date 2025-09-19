@@ -4,7 +4,7 @@
 
 #tab-1
 
-`SfCheckbox` is a wrapper around `<input type="checkbox">` with additional styles for different states . It can be used for forms or expressing consents. 
+`SfCheckbox` is a wrapper around `<input type="checkbox">` with additional styles for different states . It can be used for forms or expressing consents.
 
 The root element is an `<input>` so any attributes that can be used on an `<input>` can be used on `SfCheckbox`.
 
@@ -75,18 +75,21 @@ It's focusable and can be toggled with `Space`.
 
 
 ::vue-only
-| Prop name    | Type                     | Default value | Possible values                        |
-| ------------ | ------------------------ | ------------- | -------------------------------------- |
+| Prop name      | Type                       | Default value   | Possible values                        |
+| -------------- | -------------------------- | --------------- | -------------------------------------- |
 | `modelValue`   | `boolean | string[]`       | `undefined`     |                                        |
 | `invalid`      | `boolean`                  | `false`         |                                        |
-
+| `indeterminate`| `boolean`                  | `false`         |                                        |
+| `wrapperTag`   | `string`                   | `label`         | Any tag name for checkbox wrapper      |
 ::
 
 ::react-only
-| Prop name    | Type                     | Default value | Possible values                        |
-| ------------ | ------------------------ | ------------- | -------------------------------------- |
-| `className`    | `string`                   |               |                                        |
-| `invalid`      | `boolean`                  | `false`         |                                        |
+| Prop name      | Type                   | Default value | Possible values                        |
+| -------------- | ---------------------- | ------------- | -------------------------------------- |
+| `className`    | `string`               |               |                                        |
+| `invalid`      | `boolean`              | `false`       |                                        |
+| `indeterminate`| `boolean`              | `false`       |                                        |
+| `wrapperAs`    | `string`               | `label`       | Any tag name for c wrapper             |
 ::
 
 ::vue-only

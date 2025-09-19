@@ -1,23 +1,43 @@
 import classNames from 'classnames';
-import { forwardRef, useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import {
   mergeRefs,
   SfIconCheckBox,
   SfIconCheckBoxOutlineBlank,
   SfIconIndeterminateCheckBox,
+  polymorphicForwardRef,
   type SfCheckboxProps,
 } from '@storefront-ui/react';
-import { polymorphicForwardRef } from 'dist';
 
-const defaultCheckboxTag = 'label';
+const defaultWrapperTag = 'label';
 
-const SfCheckbox = polymorphicForwardRef<typeof defaultCheckboxTag, SfCheckboxProps>(
-  ({ invalid, labelClass, className, as, ...attributes }, ref): JSX.Element => {
+const SfCheckbox = polymorphicForwardRef<typeof defaultWrapperTag, SfCheckboxProps>(
+  (
+    { wrapperAs, invalid, labelClass, className, indeterminate: indeterminateProp, ...attributes },
+    ref,
+  ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement>(null);
-    const Tag = as || defaultCheckboxTag;
+    const WrapperTag = wrapperAs || defaultWrapperTag;
+    const [isIndeterminate, setIsIndeterminate] = useState(indeterminateProp || false);
+    const [isChecked, setIsChecked] = useState(attributes.checked || false);
+
+    useEffect(() => {
+      if (inputRef.current) {
+        inputRef.current.indeterminate = indeterminateProp || false;
+        setIsIndeterminate(indeterminateProp || false);
+        setIsChecked(inputRef.current.checked);
+      }
+    }, [indeterminateProp, attributes.checked]);
+
+    const handleInputChange = () => {
+      if (inputRef.current) {
+        setIsIndeterminate(inputRef.current.indeterminate);
+        setIsChecked(inputRef.current.checked);
+      }
+    };
 
     return (
-      <Tag
+      <WrapperTag
         className={classNames(
           'flex cursor-pointer focus-visible:outline-primary-700 focus-visible:outline focus-visible:outline-offset-2 rounded-md',
           {
@@ -34,15 +54,19 @@ const SfCheckbox = polymorphicForwardRef<typeof defaultCheckboxTag, SfCheckboxPr
           type="checkbox"
           ref={mergeRefs([inputRef, ref])}
           {...attributes}
+          onChange={(e) => {
+            handleInputChange();
+            attributes.onChange?.(e);
+          }}
         />
-        {inputRef.current?.indeterminate ? (
+        {isIndeterminate ? (
           <SfIconIndeterminateCheckBox />
-        ) : inputRef.current?.checked ? (
+        ) : isChecked ? (
           <SfIconCheckBox />
         ) : (
           <SfIconCheckBoxOutlineBlank />
         )}
-      </Tag>
+      </WrapperTag>
     );
   },
 );

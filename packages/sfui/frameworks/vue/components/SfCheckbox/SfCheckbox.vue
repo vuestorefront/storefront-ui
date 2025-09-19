@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { nextTick, ref, useTemplateRef, watch, type InputHTMLAttributes } from 'vue';
+import { ref, useTemplateRef, watch, type InputHTMLAttributes } from 'vue';
 import { ClassProp, SfIconCheckBox, SfIconCheckBoxOutlineBlank, SfIconIndeterminateCheckBox } from '@storefront-ui/vue';
 
 const { indeterminate = false } = defineProps({
@@ -12,7 +12,7 @@ const { indeterminate = false } = defineProps({
     type: Boolean,
     default: false,
   },
-  tag: {
+  wrapperTag: {
     type: String,
     default: 'label',
   },
@@ -22,7 +22,7 @@ defineOptions({
   inheritAttrs: false,
 });
 const model = defineModel<InputHTMLAttributes['checked']>({ default: false });
-const checkboxRef = useTemplateRef('checkboxRef');
+const checkboxRef = useTemplateRef<HTMLInputElement>('checkboxRef');
 
 const isChecked = ref();
 const isIndeterminate = ref();
@@ -30,17 +30,16 @@ const isIndeterminate = ref();
 watch(
   [model, () => indeterminate],
   async () => {
-    await nextTick();
     isChecked.value = checkboxRef.value?.checked;
     isIndeterminate.value = checkboxRef.value?.indeterminate;
   },
-  { immediate: true },
+  { immediate: true, flush: 'post' },
 );
 </script>
 
 <template>
   <component
-    :is="tag"
+    :is="wrapperTag"
     :class="[
       'flex cursor-pointer focus-visible:outline-primary-700 focus-visible:outline focus-visible:outline-offset-2 rounded-md',
       {

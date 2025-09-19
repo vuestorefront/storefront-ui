@@ -57,6 +57,12 @@ export default defineComponent({
             description: '(not prop) example allows to add value attribute to input',
           },
           {
+            type: 'text',
+            propType: 'string',
+            propDefaultValue: 'label',
+            modelName: 'wrapperTag',
+          },
+          {
             type: 'boolean',
             modelName: 'indeterminate',
             propType: 'boolean',
@@ -80,6 +86,7 @@ export default defineComponent({
           disabled: disabled,
           invalid: invalid,
           value: ref('label'),
+          wrapperTag: ref(),
         },
       ),
       checkboxRef,

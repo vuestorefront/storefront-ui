@@ -25,6 +25,12 @@ function Example() {
         description: '(not prop) example allows to add value attribute to input',
       },
       {
+        type: 'text',
+        modelName: 'wrapperAs',
+        propDefaultValue: 'label',
+        description: 'Change checkbox wrapper tag',
+      },
+      {
         type: 'boolean',
         modelName: 'indeterminate',
         propType: 'boolean',
@@ -48,6 +54,7 @@ function Example() {
       disabled: false,
       invalid: false,
       checkedValue: [],
+      wrapperAs: 'label',
     },
   );
 
@@ -67,6 +74,7 @@ function Example() {
     if (state.get.invalid) {
       checkboxRef.current.indeterminate = false;
     } else {
+      console.log('state.get.indeterminate', state.get.indeterminate);
       checkboxRef.current.indeterminate = state.get.indeterminate;
     }
   }, [checkboxRef, state.get.indeterminate, state.get.invalid, state.get.disabled]);
@@ -78,6 +86,8 @@ function Example() {
           value={state.get.value}
           disabled={state.get.disabled}
           invalid={!state.get.disabled && state.get.invalid}
+          indeterminate={state.get.indeterminate}
+          wrapperAs={state.get.wrapperAs}
           ref={checkboxRef}
           onChange={onChange}
           className="peer"
