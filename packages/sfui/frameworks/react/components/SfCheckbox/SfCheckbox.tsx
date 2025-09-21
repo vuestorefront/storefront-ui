@@ -13,7 +13,7 @@ const defaultWrapperTag = 'label';
 
 const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
   (
-    { wrapperAs, invalid, labelClass, className, indeterminate: indeterminateProp, ...attributes },
+    { wrapperAs, invalid, className, indeterminate: indeterminateProp, wrapperClassName, ...attributes },
     ref,
   ): JSX.Element => {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -45,7 +45,7 @@ const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
             'text-negative-700 hover:text-negative-800 active:text-negative-900': invalid && !attributes.disabled,
             'text-disabled-500 hover:text-disabled-600 active:text-disabled-700': attributes.disabled,
           },
-          labelClass,
+          wrapperClassName,
         )}
         data-testid="checkbox"
       >

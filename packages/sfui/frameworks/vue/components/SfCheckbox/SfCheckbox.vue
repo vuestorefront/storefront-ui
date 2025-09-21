@@ -7,7 +7,6 @@ const { indeterminate = false } = defineProps({
     type: Boolean,
     default: false,
   },
-  labelClass: ClassProp,
   indeterminate: {
     type: Boolean,
     default: false,
@@ -16,6 +15,7 @@ const { indeterminate = false } = defineProps({
     type: String,
     default: 'label',
   },
+  wrapperClass: ClassProp,
 });
 
 defineOptions({
@@ -47,7 +47,7 @@ watch(
         'text-negative-700 hover:text-negative-800 active:text-negative-900': invalid && !$attrs.disabled,
         'text-disabled-500 hover:text-disabled-600 active:text-disabled-700': $attrs.disabled,
       },
-      labelClass,
+      wrapperClass,
     ]"
     tabindex="0"
     data-testid="checkbox"

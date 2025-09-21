@@ -8,6 +8,7 @@
         v-model="modelValue"
         :invalid="!disabled && invalid"
         class="peer"
+        :wrapper-class="wrapperClass"
       />
       <label
         for="checkbox"
@@ -63,6 +64,12 @@ export default defineComponent({
             modelName: 'wrapperTag',
           },
           {
+            type: 'text',
+            modelName: 'wrapperClass',
+            propType: 'string',
+            description: 'Change checkbox wrapper class',
+          },
+          {
             type: 'boolean',
             modelName: 'indeterminate',
             propType: 'boolean',
@@ -87,6 +94,7 @@ export default defineComponent({
           invalid: invalid,
           value: ref('label'),
           wrapperTag: ref(),
+          wrapperClass: ref(''),
         },
       ),
       checkboxRef,

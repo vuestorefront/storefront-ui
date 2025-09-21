@@ -31,6 +31,12 @@ function Example() {
         description: 'Change checkbox wrapper tag',
       },
       {
+        type: 'text',
+        modelName: 'wrapperClassName',
+        propType: 'string',
+        description: 'Change checkbox wrapper class',
+      },
+      {
         type: 'boolean',
         modelName: 'indeterminate',
         propType: 'boolean',
@@ -55,6 +61,7 @@ function Example() {
       invalid: false,
       checkedValue: [],
       wrapperAs: 'label',
+      wrapperClassName: '',
     },
   );
 
@@ -92,6 +99,7 @@ function Example() {
           onChange={onChange}
           className="peer"
           id="checkbox"
+          wrapperClassName={state.get.wrapperClassName}
         />
         <label
           htmlFor="checkbox"

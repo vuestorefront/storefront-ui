@@ -81,15 +81,17 @@ It's focusable and can be toggled with `Space`.
 | `invalid`      | `boolean`                  | `false`         |                                        |
 | `indeterminate`| `boolean`                  | `false`         |                                        |
 | `wrapperTag`   | `string`                   | `label`         | Any tag name for checkbox wrapper      |
+| `wrapperClass` | `string`                   |                 |                                        |
 ::
 
 ::react-only
-| Prop name      | Type                   | Default value | Possible values                        |
-| -------------- | ---------------------- | ------------- | -------------------------------------- |
-| `className`    | `string`               |               |                                        |
-| `invalid`      | `boolean`              | `false`       |                                        |
-| `indeterminate`| `boolean`              | `false`       |                                        |
-| `wrapperAs`    | `string`               | `label`       | Any tag name for c wrapper             |
+| Prop name          | Type                   | Default value | Possible values                        |
+| ------------------ | ---------------------- | ------------- | -------------------------------------- |
+| `className`        | `string`               |               |                                        |
+| `invalid`          | `boolean`              | `false`       |                                        |
+| `indeterminate`    | `boolean`              | `false`       |                                        |
+| `wrapperAs`        | `string`               | `label`       | Any tag name for c wrapper             |
+| `wrapperClassName` | `string`               |                 |                                        |
 ::
 
 ::vue-only
