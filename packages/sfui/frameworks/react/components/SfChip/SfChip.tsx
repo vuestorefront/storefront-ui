@@ -5,9 +5,9 @@ import { SfChipProps, SfChipSize, twMerge } from '@storefront-ui/react';
 const paddingForSize = (size: `${SfChipSize}`, square: boolean, slotPrefix: ReactNode, slotSuffix: ReactNode) => {
   switch (size) {
     case SfChipSize.sm:
-      return square ? 'px-1.5' : [slotPrefix ? 'pl-1.5' : 'pl-3', slotSuffix ? 'pr-1.5' : 'pr-3'];
+      return square ? ['px-1.5'] : [slotPrefix ? 'pl-1.5' : 'pl-3', slotSuffix ? 'pr-1.5' : 'pr-3'];
     default:
-      return square ? 'px-2' : [slotPrefix ? 'pl-2' : 'pl-4', slotSuffix ? 'pr-2' : 'pr-4'];
+      return square ? ['px-2'] : [slotPrefix ? 'pl-2' : 'pl-4', slotSuffix ? 'pr-2' : 'pr-4'];
   }
 };
 
@@ -41,9 +41,9 @@ const SfChip = forwardRef<HTMLInputElement, SfChipProps>(
         <input
           id={chipId}
           ref={ref}
-          className="absolute w-0 outline-none appearance-none peer"
           type="checkbox"
           {...inputProps}
+          className={twMerge('absolute w-0 outline-none appearance-none peer', inputProps?.className)}
         />
         <label
           htmlFor={chipId}

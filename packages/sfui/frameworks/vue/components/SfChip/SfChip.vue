@@ -47,9 +47,11 @@ const onSelected = computed({
 const paddingForSize = computed(() => {
   switch (size.value) {
     case SfChipSize.sm:
-      return square.value ? 'px-1.5' : [slots.value.prefix ? 'pl-1.5' : 'pl-3', slots.value.suffix ? 'pr-1.5' : 'pr-3'];
+      return square.value
+        ? ['px-1.5']
+        : [slots.value.prefix ? 'pl-1.5' : 'pl-3', slots.value.suffix ? 'pr-1.5' : 'pr-3'];
     default:
-      return square.value ? 'px-2' : [slots.value.prefix ? 'pl-2' : 'pl-4', slots.value.suffix ? 'pr-2' : 'pr-4'];
+      return square.value ? ['px-2'] : [slots.value.prefix ? 'pl-2' : 'pl-4', slots.value.suffix ? 'pr-2' : 'pr-4'];
   }
 });
 </script>
@@ -58,7 +60,7 @@ const paddingForSize = computed(() => {
   <input
     :id="inputId"
     v-model="onSelected"
-    :class="twMerge('absolute w-0 outline-none appearance-none peer', inputProps.class)"
+    :class="twMerge('absolute w-0 outline-none appearance-none peer', inputProps?.class)"
     type="checkbox"
     v-bind="inputProps"
   />
