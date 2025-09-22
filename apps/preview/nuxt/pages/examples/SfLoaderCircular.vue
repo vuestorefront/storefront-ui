@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <SfLoaderCircular class="w-10" v-bind="state" />
+    <SfLoaderCircular class="w-10 h-10" v-bind="state" />
   </ComponentExample>
 </template>
 

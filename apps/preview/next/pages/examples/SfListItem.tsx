@@ -139,7 +139,7 @@ function Example() {
           {state.get.label}
           {state.get.counter && (
             <SfCounter
-              className={classNames('ml-2 font-normal', { '!text-disabled-500': state.get.disabled })}
+              className={classNames('ml-2 font-normal', { 'text-disabled-500': state.get.disabled })}
               size={state.get.size === 'sm' ? 'sm' : 'base'}
             >
               {state.get.counter}
@@ -150,7 +150,7 @@ function Example() {
         <p
           className={classNames('text-xs text-neutral-500 break-words font-normal', {
             truncate: state.get.truncate,
-            '!text-disabled-500': state.get.disabled,
+            'text-disabled-500': state.get.disabled,
           })}
         >
           {state.get.secondaryText}

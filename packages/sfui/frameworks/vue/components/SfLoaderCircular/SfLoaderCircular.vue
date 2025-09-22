@@ -23,7 +23,7 @@ const strokeSizeClass = {
 
 <script lang="ts" setup>
 import { type PropType } from 'vue';
-import { SfLoaderSize } from '@storefront-ui/vue';
+import { ClassProp, SfLoaderSize, twMerge, useTwMergeRoot } from '@storefront-ui/vue';
 
 defineProps({
   size: {
@@ -34,21 +34,33 @@ defineProps({
     type: String,
     default: 'loading',
   },
+  circleClass: ClassProp,
 });
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 </script>
 
 <template>
   <svg
-    class="inline-block rounded-full ring-inset ring-neutral-300 text-primary-700 animate-spin-slow"
-    :class="sizeClasses[size]"
+    :class="
+      twMerge(
+        'inline-block rounded-full ring-inset ring-neutral-300 text-primary-700 animate-spin-slow',
+        sizeClasses[size],
+        $attrs.class,
+      )
+    "
     viewBox="25 25 50 50"
     aria-live="polite"
     :aria-label="ariaLabel"
     data-testid="loader-circular"
+    v-bind="attrsWithoutClass"
   >
     <circle
-      :class="strokeSizeClass[size]"
-      class="stroke-current stroke-2 fill-none animate-stroke-loader-circular"
+      :class="
+        twMerge('stroke-current stroke-2 fill-none animate-stroke-loader-circular', strokeSizeClass[size], circleClass)
+      "
       cx="50"
       cy="50"
       r="24"

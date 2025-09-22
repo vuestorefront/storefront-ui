@@ -1,7 +1,7 @@
 'use client';
 import { forwardRef } from 'react';
+import { twMerge } from 'tailwind-merge';
 import type { MouseEvent } from 'react';
-import classNames from 'classnames';
 import type { SfAccordionItemProps } from '@storefront-ui/react';
 
 const SfAccordionItem = forwardRef<HTMLDetailsElement, SfAccordionItemProps>((props, ref) => {
@@ -17,7 +17,7 @@ const SfAccordionItem = forwardRef<HTMLDetailsElement, SfAccordionItemProps>((pr
       <summary
         {...summaryAttrs}
         onClick={handleClick}
-        className={classNames(
+        className={twMerge(
           summaryClassName,
           'list-none [&::-webkit-details-marker]:hidden cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:outline focus-visible:rounded-sm',
         )}

@@ -13,4 +13,5 @@ export interface SfListItemProps extends PropsWithChildren, PropsWithStyle {
   childrenTag?: ElementType;
   prefixClassName?: string;
   suffixClassName?: string;
+  defaultClass?: string;
 }

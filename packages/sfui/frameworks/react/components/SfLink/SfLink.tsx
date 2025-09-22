@@ -1,5 +1,4 @@
-import classNames from 'classnames';
-import { SfLinkVariant, polymorphicForwardRef } from '@storefront-ui/react';
+import { SfLinkVariant, polymorphicForwardRef, twMerge } from '@storefront-ui/react';
 import type { SfLinkProps } from '@storefront-ui/react';
 
 const defaultLinkTag = 'a';
@@ -16,7 +15,7 @@ const SfLink = polymorphicForwardRef<typeof defaultLinkTag, SfLinkProps>((props,
   return (
     <Tag
       ref={ref}
-      className={classNames(
+      className={twMerge(
         'focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm',
         variantClasses[variant],
         className,

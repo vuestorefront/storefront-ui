@@ -1,8 +1,7 @@
 'use client';
-import classNames from 'classnames';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
-import { SfDrawerPlacement, polymorphicForwardRef, mergeRefs } from '@storefront-ui/react';
+import { SfDrawerPlacement, polymorphicForwardRef, mergeRefs, twMerge } from '@storefront-ui/react';
 import type { SfDrawerProps } from '@storefront-ui/react';
 
 const defaultDrawerTag = 'aside';
@@ -46,7 +45,7 @@ const SfDrawer = polymorphicForwardRef<typeof defaultDrawerTag, SfDrawerProps>(
     return open ? (
       <Tag
         ref={mergeRefs([drawerRef, ref])}
-        className={classNames('fixed', placementClasses(placement), className)}
+        className={twMerge('fixed', placementClasses(placement), className)}
         tabIndex="-1"
         data-testid="drawer"
         {...attributes}

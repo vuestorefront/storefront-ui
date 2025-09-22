@@ -1,5 +1,4 @@
-import classNames from 'classnames';
-import { SfListItemSize, polymorphicForwardRef } from '@storefront-ui/react';
+import { SfListItemSize, polymorphicForwardRef, twMerge } from '@storefront-ui/react';
 import type { SfListItemProps } from '@storefront-ui/react';
 
 const sizeClasses = {
@@ -24,6 +23,7 @@ const SfListItem = polymorphicForwardRef<typeof defaultListItemTag, SfListItemPr
     children,
     prefixClassName,
     suffixClassName,
+    defaultClass,
     ...attributes
   } = props;
 
@@ -33,7 +33,7 @@ const SfListItem = polymorphicForwardRef<typeof defaultListItemTag, SfListItemPr
   return (
     <Tag
       ref={ref}
-      className={classNames(
+      className={twMerge(
         'inline-flex items-center gap-2 w-full hover:bg-neutral-100 active:bg-neutral-200 cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:relative focus-visible:z-10',
         {
           'cursor-not-allowed pointer-events-none text-disabled-900': disabled,
@@ -47,13 +47,13 @@ const SfListItem = polymorphicForwardRef<typeof defaultListItemTag, SfListItemPr
       {...attributes}
     >
       {slotPrefix && (
-        <ChildrenTag className={classNames(disabled ? 'text-disabled-500' : 'text-neutral-500', prefixClassName)}>
+        <ChildrenTag className={twMerge(disabled ? 'text-disabled-500' : 'text-neutral-500', prefixClassName)}>
           {slotPrefix}
         </ChildrenTag>
       )}
-      <ChildrenTag className="flex flex-col w-full min-w-0">{children}</ChildrenTag>
+      <ChildrenTag className={twMerge('flex flex-col w-full min-w-0', defaultClass)}>{children}</ChildrenTag>
       {slotSuffix && (
-        <ChildrenTag className={classNames(disabled ? 'text-disabled-500' : 'text-neutral-500', suffixClassName)}>
+        <ChildrenTag className={twMerge(disabled ? 'text-disabled-500' : 'text-neutral-500', suffixClassName)}>
           {slotSuffix}
         </ChildrenTag>
       )}

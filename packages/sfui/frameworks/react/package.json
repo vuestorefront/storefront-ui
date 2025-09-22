@@ -49,7 +49,8 @@
     "react-polymorphed": "^2.1.0",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.5.1",
-    "tabbable": "^6.1.1"
+    "tabbable": "^6.1.1",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",

@@ -1,5 +1,10 @@
-import classNames from 'classnames';
-import { type SfButtonProps, SfButtonSize, SfButtonVariant, polymorphicForwardRef } from '@storefront-ui/react';
+import {
+  type SfButtonProps,
+  SfButtonSize,
+  SfButtonVariant,
+  polymorphicForwardRef,
+  twMerge,
+} from '@storefront-ui/react';
 
 const defaultButtonTag = 'button';
 
@@ -47,9 +52,9 @@ const SfButton = polymorphicForwardRef<typeof defaultButtonTag, SfButtonProps>((
     <Tag
       ref={ref}
       type={typeof Tag === 'string' && Tag.toLowerCase() === 'button' ? 'button' : undefined}
-      className={classNames(
+      className={twMerge(
         'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-full disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
-        getSizeClasses(size, square),
+        ...getSizeClasses(size, square),
         variantClasses[variant],
         { [variantColorClasses[variant]]: !blank },
         className,

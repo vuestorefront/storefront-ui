@@ -16,7 +16,7 @@ export const variantColorClasses = {
 
 <script lang="ts" setup>
 import { type PropType, type ConcreteComponent, computed, toRefs } from 'vue';
-import { useAttrsRef, SfButtonSize, SfButtonVariant } from '@storefront-ui/vue';
+import { useAttrsRef, SfButtonSize, SfButtonVariant, twMerge, useTwMergeRoot } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -44,6 +44,10 @@ const props = defineProps({
     default: undefined,
   },
 });
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 
 const { size, tag, square } = toRefs(props);
 
@@ -71,14 +75,18 @@ const type = computed(
 <template>
   <component
     :is="tagWithDefaults"
+    v-bind="attrsWithoutClass"
     :type="type"
     :disabled="disabled"
-    :class="[
-      'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-full disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
-      sizeClasses,
-      variantClasses[variant],
-      { [variantColorClasses[variant]]: !blank },
-    ]"
+    :class="
+      twMerge(
+        'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-full disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
+        ...sizeClasses,
+        variantClasses[variant],
+        { [variantColorClasses[variant]]: !blank },
+        $attrs.class,
+      )
+    "
     data-testid="button"
   >
     <slot v-if="$slots.prefix" name="prefix" />

@@ -7,4 +7,5 @@ export interface SfProgressCircularProps extends PropsWithStyle, PropsWithChildr
   value?: number;
   size?: `${SfProgressSize}`;
   ariaLabel?: string;
+  circleClassName?: string;
 }

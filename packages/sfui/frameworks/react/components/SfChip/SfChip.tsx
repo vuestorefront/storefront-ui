@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import { forwardRef, useId, type ReactNode } from 'react';
-import { SfChipProps, SfChipSize } from '@storefront-ui/react';
+import { SfChipProps, SfChipSize, twMerge } from '@storefront-ui/react';
 
 const paddingForSize = (size: `${SfChipSize}`, square: boolean, slotPrefix: ReactNode, slotSuffix: ReactNode) => {
   switch (size) {
@@ -47,10 +47,10 @@ const SfChip = forwardRef<HTMLInputElement, SfChipProps>(
         />
         <label
           htmlFor={chipId}
-          className={classNames(
+          className={twMerge(
             'cursor-pointer ring-1 ring-neutral-200 ring-inset rounded-full inline-flex items-center transition duration-300 justify-center outline-offset-2 outline-secondary-600 peer-next-checked:ring-2 peer-next-checked:ring-primary-700 hover:bg-primary-100 peer-next-hover:ring-primary-200 active:bg-primary-200 peer-next-active:ring-primary-300 peer-next-disabled:cursor-not-allowed peer-next-disabled:bg-disabled-100 peer-next-disabled:opacity-50 peer-next-disabled:ring-1 peer-next-disabled:ring-disabled-200 peer-next-disabled:hover:ring-disabled-200 peer-next-checked:hover:ring-primary-700 peer-next-checked:active:ring-primary-700 peer-next-focus-visible:outline',
             getSizeClasses(size),
-            paddingForSize(size, square, slotPrefix, slotSuffix),
+            ...paddingForSize(size, square, slotPrefix, slotSuffix),
             className,
           )}
           data-testid="chip"
