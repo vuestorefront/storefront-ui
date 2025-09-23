@@ -181,9 +181,9 @@ export default function BaseMegaMenu() {
             className="flex shrink-0 ml-4 md:ml-0 mr-2 md:mr-10 text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
           >
             <picture>
-              <source srcSet="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
+              <source srcSet="http://localhost:3100/@assets/alokai-logo-white.svg" media="(min-width: 1024px)" />
               <img
-                src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
+                src="http://localhost:3100/@assets/alokai-sign-white.svg"
                 alt="Sf Logo"
                 className="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
               />
