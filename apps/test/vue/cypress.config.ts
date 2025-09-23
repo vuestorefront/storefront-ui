@@ -1,6 +1,6 @@
 import { defineConfig } from 'cypress';
 import { initPlugin } from '@frsource/cypress-plugin-visual-regression-diff/plugins';
-import coverageTask from '@cypress/code-coverage/task';
+import coverageTask from '@cypress/code-coverage/task.js';
 
 const isCoverageEnabled = process.env.CYPRESS_COVERAGE === 'true';
 const singleFile = process.env.SPEC ? `${process.env.SPEC}/` : '';
