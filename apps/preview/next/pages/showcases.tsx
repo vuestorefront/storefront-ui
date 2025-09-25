@@ -2,7 +2,7 @@ import { ReactElement } from 'react';
 import ShowcaseLayout from '../layouts/Showcases';
 
 function ExamplePage() {
-  return <div>This is page with examples of all available components</div>;
+  return <div>This is page with showcases of all available components</div>;
 }
 
 export function ShowcasePageLayout(page: ReactElement) {
