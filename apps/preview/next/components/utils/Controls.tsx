@@ -217,7 +217,9 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                 <td className="propType">
                   <span>{control.propType}</span>
                 </td>
-                <td className="propDefaultValue">{control.propDefaultValue}</td>
+                <td className="propDefaultValue">
+                  {control.propDefaultValue ?? (control.type === 'boolean' ? 'false' : '')}
+                </td>
                 <td className="required">{control?.isRequired?.toString()}</td>
                 <td className="description">{control.description}</td>
               </tr>
