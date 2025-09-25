@@ -226,12 +226,6 @@ export const tailwindConfig: Config = {
         DEFAULT: '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.06)',
         md: '0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06)',
       },
-      backgroundImage: {
-        'checked-checkbox-current':
-          'linear-gradient(-45deg,transparent 65%, currentcolor 65.99%),linear-gradient(45deg,transparent 75%, currentcolor 75.99%),linear-gradient(-45deg, currentcolor 40%,transparent 40.99%),linear-gradient(45deg, currentcolor 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, currentcolor 50.99%)',
-        'indeterminate-checkbox-current':
-          'linear-gradient(90deg,transparent 80%, currentcolor 80%),linear-gradient(-90deg,transparent 80%, currentcolor 80%),linear-gradient(0deg, currentcolor 43%, white 43%, white 57%, currentcolor 57%)',
-      },
       colors: {
         brand: 'oklch(var(--colors-brand) / <alpha-value>)',
         neutral: {
@@ -371,7 +365,7 @@ export const tailwindConfig: Config = {
             '600': '0.443 0.016 152.174',
             '700': '0.365 0.016 156.314',
             '800': '0.282 0.011 156.383',
-            '900': '0.211 0.011 151.165'
+            '900': '0.211 0.011 151.165',
           },
           primary: {
             '50': '0.98 0.02 156.735',
@@ -383,7 +377,7 @@ export const tailwindConfig: Config = {
             '600': '0.525 0.041 162.018',
             '700': '0.466 0.035 162.976',
             '800': '0.365 0.026 164.592',
-            '900': '0.27 0.017 163.365'
+            '900': '0.27 0.017 163.365',
           },
           secondary: {
             '50': '0.982 0.027 157.322',
@@ -395,7 +389,7 @@ export const tailwindConfig: Config = {
             '600': '0.621 0.165 151.142',
             '700': '0.524 0.135 151.385',
             '800': '0.401 0.095 152.918',
-            '900': '0.285 0.055 155.368'
+            '900': '0.285 0.055 155.368',
           },
           positive: {
             '50': '0.982 0.027 157.322',
@@ -407,7 +401,7 @@ export const tailwindConfig: Config = {
             '600': '0.621 0.165 151.142',
             '700': '0.524 0.135 151.385',
             '800': '0.401 0.095 152.918',
-            '900': '0.285 0.055 155.368'
+            '900': '0.285 0.055 155.368',
           },
           negative: {
             '50': '0.978 0.011 3.577',
@@ -419,7 +413,7 @@ export const tailwindConfig: Config = {
             '600': '0.634 0.215 16.447',
             '700': '0.545 0.215 22.13',
             '800': '0.41 0.16 20.89',
-            '900': '0.28 0.09 18.166'
+            '900': '0.28 0.09 18.166',
           },
           warning: {
             '50': '0.979 0.016 79.212',
@@ -431,7 +425,7 @@ export const tailwindConfig: Config = {
             '600': '0.636 0.135 68.487',
             '700': '0.539 0.12 64.869',
             '800': '0.415 0.089 62.994',
-            '900': '0.286 0.055 60.071'
+            '900': '0.286 0.055 60.071',
           },
           disabled: {
             '50': '0.986 0.002 0',
@@ -443,7 +437,7 @@ export const tailwindConfig: Config = {
             '600': '0.443 0.016 152.174',
             '700': '0.365 0.016 156.314',
             '800': '0.282 0.011 156.383',
-            '900': '0.211 0.011 151.165'
+            '900': '0.211 0.011 151.165',
           },
         },
       },
