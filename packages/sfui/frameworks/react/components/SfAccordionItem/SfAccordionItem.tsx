@@ -1,8 +1,7 @@
 'use client';
 import { forwardRef } from 'react';
-import { twMerge } from 'tailwind-merge';
+import { twMerge, type SfAccordionItemProps } from '@storefront-ui/react';
 import type { MouseEvent } from 'react';
-import type { SfAccordionItemProps } from '@storefront-ui/react';
 
 const SfAccordionItem = forwardRef<HTMLDetailsElement, SfAccordionItemProps>((props, ref) => {
   const { open, onToggle, children, summary, summaryClassName, summaryAttrs, ...attributes } = props;
