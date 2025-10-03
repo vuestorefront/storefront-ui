@@ -1,5 +1,4 @@
-import classNames from 'classnames';
-import { SfProgressSize } from '@storefront-ui/react';
+import { SfProgressSize, twMerge } from '@storefront-ui/react';
 import type { SfProgressCircularProps } from '@storefront-ui/react';
 
 const sizeClasses = {
@@ -30,6 +29,7 @@ export default function SfProgressCircular({
   ariaLabel = 'Progress element',
   children,
   className,
+  circleClassName,
   ...attributes
 }: SfProgressCircularProps): JSX.Element {
   const strokeDasharray = `${(value / 100) * 151}, 150`;
@@ -40,7 +40,7 @@ export default function SfProgressCircular({
       aria-valuemax={100}
       aria-valuenow={value}
       aria-label={ariaLabel}
-      className={classNames(
+      className={twMerge(
         'inline-block ring-inset ring-neutral-300 text-primary-700 rounded-full transition-[stroke-dasharray] ease-in-out duration-500 text-sm',
         sizeClasses[size],
         className,
@@ -51,7 +51,11 @@ export default function SfProgressCircular({
       {...attributes}
     >
       <circle
-        className={classNames('origin-bottom-right -rotate-90 stroke-current fill-none', strokeSizeClass[size])}
+        className={twMerge(
+          'origin-bottom-right -rotate-90 stroke-current fill-none',
+          strokeSizeClass[size],
+          circleClassName,
+        )}
         cx="50"
         cy="50"
         r="24"

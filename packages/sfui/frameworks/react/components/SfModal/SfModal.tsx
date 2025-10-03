@@ -1,8 +1,7 @@
 'use client';
-import classNames from 'classnames';
 import { useRef } from 'react';
 import { useClickAway } from 'react-use';
-import { type SfModalProps, polymorphicForwardRef, useTrapFocus, mergeRefs } from '@storefront-ui/react';
+import { type SfModalProps, polymorphicForwardRef, useTrapFocus, mergeRefs, twMerge } from '@storefront-ui/react';
 
 const defaultModalTag = 'div';
 
@@ -33,7 +32,7 @@ const SfModal = polymorphicForwardRef<typeof defaultModalTag, SfModalProps>(
     return open ? (
       <Tag
         ref={mergeRefs([modalRef, ref])}
-        className={classNames(
+        className={twMerge(
           'fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-3xl outline-none',
           className,
         )}

@@ -1,7 +1,14 @@
 <script lang="ts" setup>
 import { type PropType, toRefs } from 'vue';
 import type { Middleware } from '@floating-ui/vue';
-import { ClassProp, useDropdown, type SfPopoverPlacement, type SfPopoverStrategy } from '@storefront-ui/vue';
+import {
+  ClassProp,
+  twMerge,
+  useDropdown,
+  useTwMergeRoot,
+  type SfPopoverPlacement,
+  type SfPopoverStrategy,
+} from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
@@ -22,6 +29,10 @@ const props = defineProps({
   },
   wrapperClass: ClassProp,
 });
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 
 const emit = defineEmits<{
   (e: 'update:modelValue', value: boolean): void;
@@ -41,7 +52,7 @@ const {
 });
 </script>
 <template>
-  <div ref="referenceRef" class="w-max" data-testid="dropdown">
+  <div ref="referenceRef" :class="twMerge('w-max', $attrs.class)" data-testid="dropdown" v-bind="attrsWithoutClass">
     <slot name="trigger" />
     <div
       v-if="modelValue"

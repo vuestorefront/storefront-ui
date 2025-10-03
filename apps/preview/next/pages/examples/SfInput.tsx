@@ -161,8 +161,7 @@ function Example() {
           slotSuffix={suffixSlotOptions.getValue(state.get.slotSuffix)}
           onChange={onChange}
           wrapperClassName={classNames('mt-0.5', {
-            'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500':
-              state.get.disabled || state.get.readonly,
+            'peer bg-disabled-100 ring-disabled-300 ring-1 text-disabled-500': state.get.disabled || state.get.readonly,
           })}
         />
       </label>

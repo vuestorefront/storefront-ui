@@ -110,8 +110,8 @@ function Example() {
           readOnly={state.get.readonly}
           onChange={onChange}
           className={classNames('w-full block', {
-            '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': state.get.disabled,
-            '!bg-disabled-100 !ring-disabled-300 !ring-1 !text-neutral-500': state.get.readonly,
+            'bg-disabled-100 ring-disabled-300 ring-1 text-disabled-500': state.get.disabled,
+            'bg-disabled-100 ring-disabled-300 ring-1 text-neutral-500': state.get.readonly,
           })}
         />
       </label>

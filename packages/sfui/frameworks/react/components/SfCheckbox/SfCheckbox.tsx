@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { useRef, useEffect, useState } from 'react';
 import {
   mergeRefs,
@@ -7,6 +6,7 @@ import {
   SfIconIndeterminateCheckBox,
   polymorphicForwardRef,
   type SfCheckboxProps,
+  twMerge,
 } from '@storefront-ui/react';
 
 const defaultWrapperTag = 'label';
@@ -38,7 +38,7 @@ const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
 
     return (
       <WrapperTag
-        className={classNames(
+        className={twMerge(
           'flex cursor-pointer focus-visible:outline-primary-700 focus-visible:outline focus-visible:outline-offset-2 rounded-md',
           {
             'text-neutral-500 hover:text-primary-800 active:text-primary-900': !invalid && !attributes.disabled,
@@ -50,7 +50,7 @@ const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
         data-testid="checkbox"
       >
         <input
-          className={classNames('hidden', className)}
+          className={twMerge('hidden', className)}
           type="checkbox"
           ref={mergeRefs([inputRef, ref])}
           {...attributes}

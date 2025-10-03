@@ -1,5 +1,4 @@
-import classNames from 'classnames';
-import { SfProgressSize, SfProgressLinearSize } from '@storefront-ui/react';
+import { SfProgressSize, SfProgressLinearSize, twMerge } from '@storefront-ui/react';
 import type { SfProgressLinearProps } from '@storefront-ui/react';
 
 const sizeClasses = {
@@ -25,7 +24,7 @@ export default function SfProgressLinear({
     <progress
       data-testid="progress-linear"
       max="100"
-      className={classNames(
+      className={twMerge(
         'bg-neutral-300 text-primary-700 [&::-webkit-progress-bar]:bg-inherit [&::-webkit-progress-value]:bg-current [&::-webkit-progress-value]:transition-[width] [&::-webkit-progress-value]:ease-in-out [&::-webkit-progress-value]:duration-200 [&::-moz-progress-bar]:bg-current',
         sizeClasses[size],
         className,

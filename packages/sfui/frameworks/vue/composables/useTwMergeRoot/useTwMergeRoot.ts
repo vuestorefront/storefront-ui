@@ -1,0 +1,33 @@
+import { twMerge as twMergeTailwind } from 'tailwind-merge';
+import { computed, useAttrs } from 'vue';
+
+export const useTwMergeRoot = () => {
+  const $attrs = useAttrs();
+
+  return {
+    attrsWithoutClass: computed(() => {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const { class: _, ...attrs } = $attrs;
+
+      return attrs;
+    }),
+  };
+};
+
+// twMerge accept only strings, this util imitates vue interal :class binding and merges classes
+// from objects and strings.
+export const twMerge = (...args: unknown[]) => {
+  return twMergeTailwind(
+    args.reduce((acc: string, prev: unknown) => {
+      if (!prev || typeof prev === 'boolean') return acc;
+      if (typeof prev === 'object') {
+        let objectClasses = '';
+        for (const [key, value] of Object.entries(prev as Record<string, unknown>)) {
+          if (value) objectClasses += `${key} `;
+        }
+        return (acc += `${objectClasses}`);
+      }
+      return (acc += `${prev} `);
+    }, ''),
+  );
+};

@@ -5,4 +5,5 @@ export { SfLoaderSize };
 export interface SfLoaderCircularProps extends PropsWithStyle {
   size?: `${SfLoaderSize}`;
   ariaLabel?: string;
+  circleClassName?: string;
 }

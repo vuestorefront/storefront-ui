@@ -1,6 +1,5 @@
 'use client';
-import classNames from 'classnames';
-import { useDropdown } from '@storefront-ui/react';
+import { twMerge, useDropdown } from '@storefront-ui/react';
 import type { SfDropdownProps } from '@storefront-ui/react';
 
 export default function SfDropdown(props: SfDropdownProps) {
@@ -16,12 +15,7 @@ export default function SfDropdown(props: SfDropdownProps) {
   const { refs, style: dropdownStyle } = useDropdown({ isOpen, ...dropdownOptions });
 
   return (
-    <div
-      ref={refs.setReference}
-      className={classNames('w-max', className)}
-      style={containerStyle}
-      data-testid="dropdown"
-    >
+    <div ref={refs.setReference} className={twMerge('w-max', className)} style={containerStyle} data-testid="dropdown">
       {trigger}
       {isOpen && (
         <div

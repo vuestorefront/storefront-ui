@@ -23,7 +23,7 @@ const strokeSizeClass = {
 
 <script lang="ts" setup>
 import { computed, toRefs, type PropType } from 'vue';
-import { SfProgressSize } from '@storefront-ui/vue';
+import { ClassProp, SfProgressSize, twMerge, useTwMergeRoot } from '@storefront-ui/vue';
 
 const props = defineProps({
   value: {
@@ -38,8 +38,14 @@ const props = defineProps({
     type: String,
     default: 'Progress element',
   },
+  circleClass: ClassProp,
 });
 const { value } = toRefs(props);
+
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 
 const strokeDasharray = computed(() => `${(value.value / 100) * 151}, 150`);
 </script>
@@ -51,15 +57,20 @@ const strokeDasharray = computed(() => `${(value.value / 100) * 151}, 150`);
     aria-valuemax="100"
     :aria-valuenow="value"
     :aria-label="ariaLabel"
-    class="inline-block ring-inset ring-neutral-300 text-primary-700 rounded-full transition-[stroke-dasharray] ease-in-out duration-500 text-sm"
-    :class="sizeClasses[size]"
+    :class="
+      twMerge(
+        'inline-block ring-inset ring-neutral-300 text-primary-700 rounded-full transition-[stroke-dasharray] ease-in-out duration-500 text-sm',
+        sizeClasses[size],
+        $attrs.class,
+      )
+    "
     viewBox="25 25 50 50"
     :stroke-dasharray="strokeDasharray"
     data-testid="progress"
+    v-bind="attrsWithoutClass"
   >
     <circle
-      :class="strokeSizeClass[size]"
-      class="origin-bottom-right -rotate-90 stroke-current fill-none"
+      :class="twMerge('origin-bottom-right -rotate-90 stroke-current fill-none', strokeSizeClass[size], circleClass)"
       cx="50"
       cy="50"
       r="24"
