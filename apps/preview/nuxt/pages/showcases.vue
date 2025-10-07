@@ -30,7 +30,7 @@
             <li v-if="groupValue.visible" class="flex flex-col select-none">
               <button
                 type="button"
-                class="text-left bg-gray-200 px-2 py-1 justify-between cursor-pointer"
+                class="justify-between px-2 py-1 text-left bg-gray-200 cursor-pointer"
                 @click="groupValue.open = !groupValue.open"
               >
                 {{ groupKey }}<SfIconExpandMore :class="{ 'rotate-180': groupValue.open }" />

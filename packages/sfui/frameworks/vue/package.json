@@ -44,9 +44,10 @@
     "@floating-ui/vue": "^1.0.6",
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
-    "@vueuse/core": "^10.11.0",
+    "@vueuse/core": "^12.8.0",
     "jw-paginate": "^1.0.4",
-    "tabbable": "^6.1.1"
+    "tabbable": "^6.1.1",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",

@@ -1,5 +1,4 @@
-import classNames from 'classnames';
-import { SfLoaderLinearSize, SfLoaderSize } from '@storefront-ui/react';
+import { SfLoaderLinearSize, SfLoaderSize, twMerge } from '@storefront-ui/react';
 import type { SfLoaderLinearProps } from '@storefront-ui/react';
 
 const sizeClasses = {
@@ -22,7 +21,7 @@ export default function SfLoaderLinear({
 }: SfLoaderLinearProps): JSX.Element {
   return (
     <span
-      className={classNames(
+      className={twMerge(
         'relative inline-block overflow-hidden bg-neutral-300 text-primary-700 after:absolute after:w-2.5 after:h-full after:animate-line after:bg-current after:block',
         sizeClasses[size],
         className,

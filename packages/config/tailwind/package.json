@@ -29,8 +29,10 @@
     "url": "https://github.com/vuestorefront/storefront-ui/issues"
   },
   "dependencies": {
+    "@mertasan/tailwindcss-variables": "^2.5.2",
     "@storefront-ui/tw-plugin-peer-next": "workspace:*",
-    "@storefront-ui/typography": "workspace:*"
+    "@storefront-ui/typography": "workspace:*",
+    "@tailwindcss/container-queries": "^0.1.1"
   },
   "publishConfig": {
     "access": "public"

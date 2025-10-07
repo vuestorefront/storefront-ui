@@ -2,6 +2,7 @@
 
 export default defineNuxtConfig({
   extends: ['sf-docs-base'],
+  css: ['~/assets/tailwind.css'],
   app: {
     head: {
       link: [

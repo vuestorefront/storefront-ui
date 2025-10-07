@@ -32,6 +32,21 @@ Green color indicates that an action went successful.
 
 </Showcase>
 
+## Alert primary
+
+This type is informative just like neutral except that its palette is more noticeable.
+
+<Showcase showcase-name="Alert/AlertPrimary" >
+
+::vue-only
+<<<../../../../preview/nuxt/pages/showcases/Alert/AlertPrimary.vue
+::
+::react-only
+<<<../../../../preview/next/pages/showcases/Alert/AlertPrimary.tsx
+::
+
+</Showcase>
+
 ## Alert secondary
 
 This type is informative just like neutral except that its palette is more noticeable.

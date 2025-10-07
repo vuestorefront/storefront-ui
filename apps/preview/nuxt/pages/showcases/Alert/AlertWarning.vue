@@ -1,7 +1,7 @@
 <template>
   <div
     role="alert"
-    class="flex items-start bg-warning-100 max-w-[600px] shadow-md pr-2 pl-4 ring-1 ring-warning-200 typography-text-sm md:typography-text-base py-1 rounded-md"
+    class="flex items-start bg-warning-200 max-w-[600px] shadow-md pr-2 pl-4 ring-1 ring-warning-200 typography-text-sm md:typography-text-base py-1 rounded-xl"
   >
     <SfIconWarning class="mt-2 mr-2 text-warning-700 shrink-0" />
     <div class="py-2 mr-2">

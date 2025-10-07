@@ -14,7 +14,7 @@ const sizeClasses = {
 
 <script lang="ts" setup>
 import { type PropType } from 'vue';
-import { SfProgressSize, SfProgressLinearSize } from '@storefront-ui/vue';
+import { SfProgressSize, SfProgressLinearSize, useTwMergeRoot, twMerge } from '@storefront-ui/vue';
 
 defineProps({
   value: {
@@ -30,15 +30,26 @@ defineProps({
     default: 'Progress element',
   },
 });
+
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 </script>
 
 <template>
   <progress
     data-testid="progress-linear"
     max="100"
-    class="bg-neutral-300 text-primary-700 [&::-webkit-progress-bar]:bg-inherit [&::-webkit-progress-value]:bg-current [&::-webkit-progress-value]:transition-[width] [&::-webkit-progress-value]:ease-in-out [&::-webkit-progress-value]:duration-200 [&::-moz-progress-bar]:bg-current"
-    :class="sizeClasses[size]"
+    :class="
+      twMerge(
+        'bg-neutral-300 text-primary-700 [&::-webkit-progress-bar]:bg-inherit [&::-webkit-progress-value]:bg-current [&::-webkit-progress-value]:transition-[width] [&::-webkit-progress-value]:ease-in-out [&::-webkit-progress-value]:duration-200 [&::-moz-progress-bar]:bg-current',
+        sizeClasses[size],
+        $attrs.class,
+      )
+    "
     :aria-label="ariaLabel"
     :value="value"
+    v-bind="attrsWithoutClass"
   />
 </template>

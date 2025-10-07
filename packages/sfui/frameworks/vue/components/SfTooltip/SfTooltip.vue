@@ -39,7 +39,7 @@ const { isOpen, triggerProps, tooltipProps, arrowProps } = useTooltip({ placemen
       v-bind="tooltipProps"
     >
       {{ label }}
-      <span v-if="showArrow" v-bind="arrowProps" class="bg-black rotate-45" />
+      <span v-if="showArrow" v-bind="arrowProps" class="rotate-45 bg-black" />
     </div>
   </span>
 </template>

@@ -33,7 +33,7 @@ export default function DisplayVertical() {
         <div
           key={title}
           className={classNames(
-            `relative flex flex-col justify-between rounded-md md:items-center md:basis-1/2 ${backgroundColor}`,
+            `relative flex flex-col justify-between rounded-md md:items-center md:basis-1/2 ${backgroundColor} @container group`,
             { 'flex-col-reverse': reverse },
           )}
         >
@@ -42,11 +42,21 @@ export default function DisplayVertical() {
             aria-label={title}
             href="#"
           />
-          <div className="flex flex-col items-center p-4 text-center md:p-10">
-            <p className="mb-2 font-bold tracking-widest uppercase typography-headline-6">{subtitle}</p>
-            <p className="mb-4 font-bold typography-display-2">{title}</p>
-            <p className="mb-4 typography-text-lg">{description}</p>
-            <SfButton className="font-semibold !bg-neutral-900">{callToAction}</SfButton>
+          <div className="flex flex-col items-center p-4 @sm:p-6 text-center @3xl:p-10">
+            <p className="uppercase typography-text-xs block font-medium tracking-widest @3xl:typography-headline-6">
+              {subtitle}
+            </p>
+            <h2 className="mb-4 mt-2 font-semibold typography-display-3 -tracking-wide @3xl:typography-display-1">
+              {title}
+            </h2>
+            <p className="typography-text-base block mb-4 @3xl:typography-text-lg">{description}</p>
+            <SfButton
+              blank
+              className="text-white bg-neutral-700 hover:bg-neutral-800 active:bg-neutral-900 group-hover:bg-neutral-800 group-active:bg-neutral-900 group-has-[:focus-visible]:outline group-has-[:focus-visible]:outline-offset pointer-events-none"
+              tabIndex={-1}
+            >
+              {callToAction}
+            </SfButton>
           </div>
           <div className="flex items-center w-full">
             <img src={image} alt={title} className="w-full" />

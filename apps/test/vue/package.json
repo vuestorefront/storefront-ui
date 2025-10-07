@@ -25,7 +25,7 @@
     "vue-router": "^4.3.2"
   },
   "devDependencies": {
-    "@cypress/code-coverage": "^3.12.29",
+    "@cypress/code-coverage": "3.13.4",
     "@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
     "@frsource/frs-replace": "^4.1.1",
     "@rushstack/eslint-patch": "^1.2.0",

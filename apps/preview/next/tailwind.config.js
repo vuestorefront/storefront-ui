@@ -1,9 +1,10 @@
-const sfTypography = require('@storefront-ui/typography');
+import sfTypography from '@storefront-ui/typography';
 /** @type {import('tailwindcss').Config} */
-const { tailwindConfig } = require('@storefront-ui/tailwind-config');
-const tailwindTypography = require('@tailwindcss/typography');
+import { tailwindConfig } from '@storefront-ui/tailwind-config';
+import tailwindTypography from '@tailwindcss/typography';
 
-module.exports = {
+/** @type {import('tailwindcss').Config} */
+export default {
   presets: [tailwindConfig],
   content: ['./**/*.ts', './**/*.tsx', '../../../node_modules/@storefront-ui/react/**/*.tsx'],
   theme: {

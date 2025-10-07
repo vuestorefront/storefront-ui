@@ -8,7 +8,7 @@ export const sizeClasses = {
 
 <script setup lang="ts">
 import { type PropType, type ConcreteComponent } from 'vue';
-import { SfListItemSize } from '@storefront-ui/vue';
+import { ClassProp, SfListItemSize, twMerge, useTwMergeRoot } from '@storefront-ui/vue';
 
 defineProps({
   size: {
@@ -31,27 +31,45 @@ defineProps({
     type: String,
     default: 'span',
   },
+  prefixClass: ClassProp,
+  suffixClass: ClassProp,
+  defaultClass: ClassProp,
 });
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 </script>
 
 <template>
   <component
     :is="tag || 'li'"
-    :class="[
-      'inline-flex items-center gap-2 w-full hover:bg-neutral-100 active:bg-neutral-200 cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:relative focus-visible:z-10',
-      sizeClasses[size],
-      { 'cursor-not-allowed pointer-events-none text-disabled-900': disabled, 'font-medium': selected },
-    ]"
+    :class="
+      twMerge(
+        'inline-flex items-center gap-2 w-full hover:bg-neutral-100 active:bg-neutral-200 cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:relative focus-visible:z-10',
+        sizeClasses[size],
+        { 'cursor-not-allowed pointer-events-none text-disabled-900': disabled, 'font-medium': selected },
+      )
+    "
     :disabled="disabled"
     data-testid="list-item"
+    v-bind="attrsWithoutClass"
   >
-    <component :is="childrenTag" v-if="$slots.prefix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
+    <component
+      :is="childrenTag"
+      v-if="$slots.prefix"
+      :class="twMerge(disabled ? 'text-disabled-500' : 'text-neutral-500', prefixClass)"
+    >
       <slot name="prefix" />
     </component>
-    <component :is="childrenTag" class="flex flex-col w-full min-w-0">
+    <component :is="childrenTag" :class="twMerge('flex flex-col w-full min-w-0', defaultClass)">
       <slot />
     </component>
-    <component :is="childrenTag" v-if="$slots.suffix" :class="disabled ? 'text-disabled-500' : 'text-neutral-500'">
+    <component
+      :is="childrenTag"
+      v-if="$slots.suffix"
+      :class="twMerge(disabled ? 'text-disabled-500' : 'text-neutral-500', suffixClass)"
+    >
       <slot name="suffix" />
     </component>
   </component>

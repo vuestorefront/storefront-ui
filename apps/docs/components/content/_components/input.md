@@ -31,10 +31,10 @@ If you need to make this field required, it is crucial to communicate this inten
 ### Input with icons
 
 ::vue-only
-You can insert content before and after your input using the `prefix` and `suffix` slots. 
+You can insert content before and after your input using the `prefix` and `suffix` slots.
 ::
 ::react-only
-You can insert content before and after your input using the `slotPrefix` and `slotSuffix` props. 
+You can insert content before and after your input using the `slotPrefix` and `slotSuffix` props.
 ::
 
 
@@ -114,10 +114,10 @@ This is an example of what `SfInput` might look like in your end code. It has a 
 ## Notes
 
 ::vue-only
-All non-prop attributes and styles added to `SfInput` component are passed directly to the native input element. This means that you can add all of the input attributes directly to `SfInput`. If you want to style the wrapper `div`, you can pass your classes via the `wrapperClass` prop. 
+All non-prop attributes and styles added to `SfInput` component are passed directly to the native input element. This means that you can add all of the input attributes directly to `SfInput`. If you want to style the wrapper `div`, you can pass your classes via the `wrapperClass` prop.
 ::
 ::react-only
-All non-prop attributes and styles added to `SfInput` component are passed directly to the native input element. This means that you can add all of the input attributes directly to `SfInput`. If you want to style the wrapper `div`, you can pass your classes via the `wrapperClassName` prop. 
+All non-prop attributes and styles added to `SfInput` component are passed directly to the native input element. This means that you can add all of the input attributes directly to `SfInput`. If you want to style the wrapper `div`, you can pass your classes via the `wrapperClassName` prop.
 ::
 
 Since, `size` is a specified prop of `SfInput`, you won't be able to pass the native `size` attribute to your input element. Instead, you can use the `width` property with `ch` unit instead (eg. `width: 10ch`).
@@ -149,7 +149,6 @@ Avoid adding `div` tags to slots. If an input element is wrapped in `label` tag 
 | ------------ | --------        | ------------- | -------------------------------------- |
 | `size`         | `SfInputSize`  | `'base'`          | `'sm'`, `'base'`, `'lg'`                           |
 | `invalid`      | `boolean`         | `false`         |                                        |
-| `wrapperTag`    | `string`         | `span`        | Any tag name for input wrapper         |
 | `wrapperAs`    | `string`          | `span`        | Any tag name for input wrapper         |
 | `className`    | `string`          |               |                                        |
 | `slotPrefix`   | `ReactNode`       |               |                                        |

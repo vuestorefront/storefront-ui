@@ -1,5 +1,6 @@
 <script lang="ts" setup>
-import { ClassProp } from '@storefront-ui/vue';
+import { ClassProp, twMerge } from '@storefront-ui/vue';
+import { type HTMLAttributes, type PropType } from 'vue';
 
 defineProps({
   modelValue: {
@@ -7,6 +8,10 @@ defineProps({
     default: false,
   },
   summaryClass: ClassProp,
+  summaryAttrs: {
+    type: Object as PropType<HTMLAttributes>,
+    default: () => ({}),
+  },
 });
 
 defineEmits<{
@@ -19,10 +24,13 @@ defineEmits<{
 <template>
   <details :open="modelValue" data-testid="accordion-item">
     <summary
-      :class="[
-        summaryClass,
-        'list-none [&::-webkit-details-marker]:hidden cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs',
-      ]"
+      v-bind="summaryAttrs"
+      :class="
+        twMerge(
+          summaryClass,
+          'list-none [&::-webkit-details-marker]:hidden cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs',
+        )
+      "
       @click.prevent="$emit('update:modelValue', !modelValue)"
     >
       <slot name="summary" />

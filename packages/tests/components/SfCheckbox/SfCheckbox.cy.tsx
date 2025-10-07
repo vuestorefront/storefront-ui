@@ -34,7 +34,7 @@ describe('SfCheckbox', () => {
   });
 
   it('initial state', () => {
-    initializeComponent({ invalid: true });
+    initializeComponent();
 
     page().makeSnapshot();
   });

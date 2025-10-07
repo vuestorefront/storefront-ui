@@ -22,9 +22,9 @@
           class="flex shrink-0 ml-4 md:ml-0 text-white mr-auto md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs"
         >
           <picture>
-            <source srcset="http://localhost:3100/@assets/vsf_logo_white.svg" media="(min-width: 1024px)" />
+            <source srcset="http://localhost:3100/@assets/alokai-logo-white.svg" media="(min-width: 1024px)" />
             <img
-              src="http://localhost:3100/@assets/vsf_logo_sign_white.svg"
+              src="http://localhost:3100/@assets/alokai-sign-white.svg"
               alt="Sf Logo"
               class="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
             />

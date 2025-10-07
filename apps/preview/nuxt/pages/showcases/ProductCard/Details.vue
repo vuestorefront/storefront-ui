@@ -22,14 +22,14 @@
     </ul>
     <div class="py-4 mb-4 border-gray-200 border-y">
       <div
-        class="bg-primary-100 text-primary-700 flex justify-center gap-1.5 py-1.5 typography-text-sm items-center mb-4 rounded-md"
+        class="bg-secondary-200 text-secondary-800 flex justify-center gap-1.5 py-1.5 typography-text-sm items-center mb-4 rounded-xl"
       >
         <SfIconShoppingCartCheckout />
         1 in cart
       </div>
-      <div class="items-start xs:flex">
-        <div class="flex flex-col items-stretch xs:items-center xs:inline-flex">
-          <div class="flex border border-neutral-300 rounded-md">
+      <div class="flex flex-wrap items-start gap-4">
+        <div class="flex-grow flex flex-col items-stretch xs:items-center xs:inline-flex sm:flex-grow-0">
+          <div class="flex border border-neutral-300 rounded-full w-full">
             <SfButton
               variant="tertiary"
               :disabled="count <= min"
@@ -62,11 +62,11 @@
               <SfIconAdd />
             </SfButton>
           </div>
-          <p class="self-center mt-1 mb-4 text-xs text-neutral-500 xs:mb-0">
+          <p class="self-center text-xs mt-2 text-neutral-500">
             <strong class="text-neutral-900">{{ max }}</strong> in stock
           </p>
         </div>
-        <SfButton size="lg" class="w-full xs:ml-4">
+        <SfButton size="lg" class="flex-grow-[9999]">
           <template #prefix>
             <SfIconShoppingCart size="sm" />
           </template>

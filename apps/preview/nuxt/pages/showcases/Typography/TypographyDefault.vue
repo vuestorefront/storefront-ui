@@ -1,6 +1,6 @@
 <template>
   <div class="prose">
-    <figcaption>The New Winner</figcaption>
+    <em>The New Winner</em>
     <h1>Nike Air Max 270</h1>
     <span class="lead">Experience ultimate comfort and style with the Nike Air Max 270 sneakers.</span>
     <p>Paragraph text</p>

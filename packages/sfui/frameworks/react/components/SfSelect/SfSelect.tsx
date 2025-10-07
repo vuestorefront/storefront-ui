@@ -1,7 +1,6 @@
 'use client';
 import { KeyboardEvent, useState } from 'react';
-import classNames from 'classnames';
-import { SfSelectSize, SfIconExpandMore, composeHandlers, useFocusVisible } from '@storefront-ui/react';
+import { SfSelectSize, SfIconExpandMore, composeHandlers, useFocusVisible, twMerge } from '@storefront-ui/react';
 
 import type { SfSelectProps } from './types';
 
@@ -33,7 +32,7 @@ export default function SfSelect(props: SfSelectProps) {
 
   return (
     <span
-      className={classNames(
+      className={twMerge(
         'relative flex flex-col rounded-md',
         {
           'focus-within:outline focus-within:outline-offset': isFocusVisible,
@@ -45,8 +44,8 @@ export default function SfSelect(props: SfSelectProps) {
       <select
         required={required}
         disabled={disabled}
-        className={classNames(
-          'appearance-none disabled:cursor-not-allowed cursor-pointer pl-4 pr-3.5 text-neutral-900 focus:ring-primary-700 focus:ring-2 outline-hidden bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
+        className={twMerge(
+          'appearance-none disabled:cursor-not-allowed cursor-pointer px-3 text-neutral-900 focus:ring-primary-700 focus:ring-2 outline-hidden bg-transparent rounded-md ring-1 ring-inset ring-neutral-300 hover:ring-primary-700 active:ring-2 active:ring-primary-700 disabled:bg-disabled-100 disabled:text-disabled-900 disabled:ring-disabled-200',
           {
             'py-1.5': size === SfSelectSize.sm,
             'py-2': size === SfSelectSize.base,
@@ -66,7 +65,7 @@ export default function SfSelect(props: SfSelectProps) {
           <option
             hidden
             value=""
-            className={classNames('bg-neutral-300 text-sm', {
+            className={twMerge('bg-neutral-300 text-sm', {
               'text-base': size === SfSelectSize.lg,
             })}
             data-testid="select-placeholder"
@@ -78,7 +77,7 @@ export default function SfSelect(props: SfSelectProps) {
       </select>
       {slotChevron || (
         <SfIconExpandMore
-          className={classNames(
+          className={twMerge(
             'box-border absolute -translate-y-1 pointer-events-none top-1/3 right-4 transition easy-in-out duration-0.5',
             disabled ? 'text-disabled-500' : 'text-neutral-500',
             { 'rotate-180': chevronRotated },

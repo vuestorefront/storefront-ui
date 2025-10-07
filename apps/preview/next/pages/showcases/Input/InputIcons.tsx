@@ -7,7 +7,7 @@ export default function InputWithPrefix() {
   return (
     <label>
       <span className="text-sm font-medium">Label</span>
-      <SfInput slotPrefix={<SfIconPerson />} slotSuffix={<SfIconLockOpen />} />
+      <SfInput wrapperClassName="mt-0.5" slotPrefix={<SfIconPerson />} slotSuffix={<SfIconLockOpen />} />
     </label>
   );
 }

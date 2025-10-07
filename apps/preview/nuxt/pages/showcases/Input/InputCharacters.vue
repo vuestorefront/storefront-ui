@@ -5,9 +5,12 @@
     </span>
     <SfInput
       v-model="inputValue"
-      :wrapper-class="{
-        'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
-      }"
+      :wrapper-class="[
+        'mt-0.5',
+        {
+          'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
+        },
+      ]"
     />
   </label>
   <div class="flex justify-between">

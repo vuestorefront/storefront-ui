@@ -56,7 +56,7 @@ export default function TopNavSimpleMobile() {
           className="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs shrink-0"
         >
           <img
-            src="http://localhost:3100/@assets/vsf_logo.svg"
+            src="http://localhost:3100/@assets/alokai-logo.svg"
             alt="Sf Logo"
             className="w-[175px] md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]"
           />

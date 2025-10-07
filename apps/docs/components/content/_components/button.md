@@ -38,6 +38,21 @@
 
 </Showcase>
 
+### Blank button variants
+
+You can remove the color styling from any variant by setting the `blank` prop to `true`, making it easy to create custom-styled buttons even for unique, one-off use cases in your codebase.
+
+<Showcase showcase-name="Button/ButtonVariants" style="min-height:250px">
+
+::vue-only
+<<<../../../../preview/nuxt/pages/showcases/Button/ButtonBlankVariants.vue
+::
+::react-only
+<<<../../../../preview/next/pages/showcases/Button/ButtonBlankVariants.tsx
+::
+
+</Showcase>
+
 ### Button as a link
 
 ::vue-only

@@ -11,8 +11,13 @@ export default class SfButtonBaseObject extends BasePage {
     return this;
   }
 
-  isSquare(value) {
+  hasClass(value: string) {
     this.container.should('have.class', value);
+    return this;
+  }
+
+  doesNotHaveType() {
+    this.container.should('not.have.attr', 'type');
     return this;
   }
 }
