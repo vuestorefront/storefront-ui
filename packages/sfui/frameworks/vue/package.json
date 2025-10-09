@@ -9,19 +9,8 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs.js"
     },
-    "./tailwind-config": {
-      "types": "./dist/tailwind-config.d.ts",
-      "import": "./dist/tailwind-config.mjs",
-      "require": "./dist/tailwind-config.cjs.js"
-    },
+    "./tailwind-config": "./tailwind-config.css",
     "./*": "./*"
-  },
-  "typesVersions": {
-    "*": {
-      "tailwind-config": [
-        "dist/tailwind-config"
-      ]
-    }
   },
   "type": "module",
   "source": "index.ts",
@@ -38,7 +27,8 @@
     "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"{components,shared,composables}/**/*.{ts,vue}\""
   },
   "files": [
-    "dist"
+    "dist",
+    "tailwind-config.css"
   ],
   "dependencies": {
     "@floating-ui/vue": "^1.0.6",

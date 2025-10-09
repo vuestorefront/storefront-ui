@@ -49,6 +49,23 @@ export default {
         },
       });
 
+      config.module.rules.push({
+        test: /[\\\/]sfui[\\\/]frameworks[\\\/]react[\\\/]components[\\\/]([a-zA-Z0-9]+)[\\\/]\1\.tsx/,
+        loader: 'string-replace-loader',
+        options: {
+          // only for dev purposes in monorepo:
+          // Search all polymorphicForwardRef imports and import it relatively from shared/utils
+          // (webpack has problem with import ordering when importing package from itself)
+          // import { polymorphicForwardRef } from '@storefront-ui/react';
+          // converted to:
+          // import { polymorphicForwardRef } from '../../shared/utils';
+          search: /^(import {[\S\s]*?)polymorphicForwardRef[,]?([\s\S]*?} from '@storefront-ui\/react';)/gm,
+          replace: (_match, prefix, suffix) => {
+            return `import { polymorphicForwardRef } from '../../shared/utils';\n${prefix}${suffix}`;
+          },
+        },
+      });
+      
       const reactPackage = resolve(
         process.cwd(),
         '..',

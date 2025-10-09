@@ -14,9 +14,21 @@ export default defineNuxtConfig({
       title: 'Alokai UI v2',
     },
   },
+
   alias: {
     ...(!isProd
       ? {
+          '@storefront-ui/vue/tailwind-config': resolve(
+            __dirname,
+            '..',
+            '..',
+            '..',
+            'packages',
+            'sfui',
+            'frameworks',
+            'vue',
+            'tailwind-config.css',
+          ),
           '@storefront-ui/vue': resolve(
             __dirname,
             '..',
@@ -42,12 +54,14 @@ export default defineNuxtConfig({
         }
       : {}),
   },
+
   nitro: {
     prerender: {
       routes: ['/'],
       crawlLinks: true,
     },
   },
+
   vite: {
     plugins: [
       {
@@ -86,8 +100,10 @@ export default defineNuxtConfig({
       },
     ],
   },
+
   modules: ['@storefront-ui/nuxt'],
   css: ['@storefront-ui/example-style/index.scss', '@storefront-ui/example-style/controls.scss'],
+
   imports: {
     transform: {
       // you could also add the path of your built library to prevent this happening
@@ -95,4 +111,6 @@ export default defineNuxtConfig({
       exclude: [/\bsfui\b/],
     },
   },
+
+  compatibilityDate: '2025-10-09',
 });

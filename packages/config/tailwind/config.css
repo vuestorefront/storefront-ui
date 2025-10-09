@@ -1,6 +1,5 @@
 @plugin "@storefront-ui/tw-plugin-peer-next";
 @plugin "@tailwindcss/typography";
-@plugin "@storefront-ui/typography";
 @config "./index.js";
 
 /* needs to be implemented: https://tailwindcss.com/docs/dark-mode#with-system-theme-support */
