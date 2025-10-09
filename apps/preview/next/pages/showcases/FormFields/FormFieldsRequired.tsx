@@ -677,10 +677,10 @@ export default function FormFields() {
         </fieldset>
         <p className="text-neutral-500 typography-text-sm mt-8">* marked fields are required</p>
         <div className="flex gap-x-4 md:justify-end mt-6">
-          <SfButton variant="secondary" className="flex-grow md:grow-0">
+          <SfButton variant="secondary" className="grow md:grow-0">
             Clear all
           </SfButton>
-          <SfButton type="submit" className="flex-grow md:grow-0">
+          <SfButton type="submit" className="grow md:grow-0">
             Submit
           </SfButton>
         </div>

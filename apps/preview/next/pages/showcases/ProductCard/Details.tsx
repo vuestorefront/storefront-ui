@@ -61,7 +61,7 @@ export default function ProductDetails() {
           <SfIconShoppingCartCheckout />1 in cart
         </div>
         <div className="flex flex-wrap items-start gap-4">
-          <div className="flex-grow flex flex-col items-stretch xs:items-center xs:inline-flex sm:flex-grow-0">
+          <div className="grow flex flex-col items-stretch xs:items-center xs:inline-flex sm:grow-0">
             <div className="flex border border-neutral-300 rounded-full w-full">
               <SfButton
                 variant="tertiary"
@@ -100,7 +100,7 @@ export default function ProductDetails() {
               <strong className="text-neutral-900">{max}</strong> in stock
             </p>
           </div>
-          <SfButton size="lg" className="flex-grow-[9999]" slotPrefix={<SfIconShoppingCart size="sm" />}>
+          <SfButton size="lg" className="grow-[9999]" slotPrefix={<SfIconShoppingCart size="sm" />}>
             Add to cart
           </SfButton>
         </div>

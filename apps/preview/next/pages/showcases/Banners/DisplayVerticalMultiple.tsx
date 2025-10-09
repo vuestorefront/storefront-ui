@@ -40,7 +40,7 @@ const displayDetails = [
 export default function DisplayVerticalMultiple() {
   return (
     <div className="flex flex-col gap-6 md:flex-row">
-      <div className="flex flex-col flex-grow gap-6 md:flex-row">
+      <div className="flex flex-col grow gap-6 md:flex-row">
         {displayDetails.map(
           ({ title, subtitle, description, callToAction, image, backgroundColor, reverse }, index) => (
             <div

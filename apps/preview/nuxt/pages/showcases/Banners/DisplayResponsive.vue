@@ -38,7 +38,7 @@
             >{{ buttonText }}</SfButton
           >
         </div>
-        <div class="flex flex-shrink-0 items-center w-full @md:w-1/2 @md:self-start @md:object-contain">
+        <div class="flex shrink-0 items-center w-full @md:w-1/2 @md:self-start @md:object-contain">
           <img :src="image" :alt="title" class="w-full" />
         </div>
       </div>

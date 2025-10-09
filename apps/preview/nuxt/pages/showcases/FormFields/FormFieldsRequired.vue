@@ -276,8 +276,8 @@
       </fieldset>
       <p class="text-neutral-500 typography-text-sm mt-8">* marked fields are required</p>
       <div class="flex gap-x-4 md:justify-end mt-6">
-        <SfButton variant="secondary" class="flex-grow md:grow-0"> Clear all </SfButton>
-        <SfButton type="submit" class="flex-grow md:grow-0"> Submit </SfButton>
+        <SfButton variant="secondary" class="grow md:grow-0"> Clear all </SfButton>
+        <SfButton type="submit" class="grow md:grow-0"> Submit </SfButton>
       </div>
     </form>
   </div>

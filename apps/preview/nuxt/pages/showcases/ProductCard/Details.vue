@@ -28,7 +28,7 @@
         1 in cart
       </div>
       <div class="flex flex-wrap items-start gap-4">
-        <div class="flex-grow flex flex-col items-stretch xs:items-center xs:inline-flex sm:flex-grow-0">
+        <div class="grow flex flex-col items-stretch xs:items-center xs:inline-flex sm:grow-0">
           <div class="flex border border-neutral-300 rounded-full w-full">
             <SfButton
               variant="tertiary"
@@ -66,7 +66,7 @@
             <strong class="text-neutral-900">{{ max }}</strong> in stock
           </p>
         </div>
-        <SfButton size="lg" class="flex-grow-[9999]">
+        <SfButton size="lg" class="grow-[9999]">
           <template #prefix>
             <SfIconShoppingCart size="sm" />
           </template>

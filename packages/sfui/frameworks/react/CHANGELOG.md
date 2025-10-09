@@ -169,7 +169,7 @@
 
 - SfInput: replace div element with dynamic WrapperTag, remove spans around slots, styling issues
 - Breadcrumbs: replace anchor from last item to span
-- SfButton: ring border fixe
+- SfButton: ring border fixed
 - Filters: checkbox and radio components selecting, styling issues
 - Card Feature: styling issues
 - Icons: visibility on the list

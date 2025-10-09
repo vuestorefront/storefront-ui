@@ -13,7 +13,7 @@ export default function SfTooltip(props: SfTooltipProps) {
         <div
           {...getTooltipProps({
             role: 'tooltip',
-            className: 'bg-black px-2 py-1.5 rounded-md text-white text-xs w-max max-w-[360px] drop-shadow-sm,
+            className: 'bg-black px-2 py-1.5 rounded-md text-white text-xs w-max max-w-[360px] drop-shadow-sm',
           })}
         >
           {label}
