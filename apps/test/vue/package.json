@@ -54,6 +54,6 @@
     "typescript": "^5.5.4",
     "vite": "^5.3.5",
     "vite-plugin-istanbul": "^4.0.0",
-    "vue-tsc": "^2.0.29"
+    "vue-tsc": "^2.2.12"
   }
 }
