@@ -18,7 +18,7 @@ You can see all of the default colors, classes, variants, and more in our [Tailw
 
 ### CSS Variables
 
-If your storefront has multiple themes (e.g. light/dark mode), we recommend using CSS variables to store your colors. This way you can easily switch between themes by changing the value of the CSS variables.
+If your storefront has multiple themes (e.g. regular/low-light mode), we recommend using CSS variables to store your colors. This way you can easily switch between themes by changing the value of the CSS variables.
 
 :::tip Why CSS Variables?
 
@@ -150,6 +150,34 @@ The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}
 ```
 
 </details>
+
+### Dark mode
+
+
+### Dark-mode specific colors
+
+
+
+
+
+Storefront UI comes with a pre-configured dark variant that applies styling based on the selector `&:where(.dark, .dark *)`. This means dark mode styles will be applied when either an element or any of its parents has the `.dark` class. This approach allows for nested dark mode contexts and follows a similar pattern to popular dark mode implementations like Tailwind's dark mode.
+
+Based on it, you can build a dark mode handling in your app using a code snippet from [official Tailwind documentation](https://v3.tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection).
+
+Storefront UI provides `--sfui-light` and `--sfui-dark` CSS variables that allow you to specify both light and dark mode color variants in a single CSS variable definition. When dark mode is active, `--sfui-dark` will be used, otherwise `--sfui-light` will be used. This allows for a more concise way to define theme colors that change between light and dark modes. For example:
+```css
+@theme inline {
+  --color-primary-50: var(--tw-light, #da373d) var(--tw-dark, #fd96b0);
+}
+```
+
+In the example below color `0.43 0.11 153.7` (oklch) will be used as `primary-400` color for light color scheme and `0.57 0.12 154.53` when in the dark mode.
+
+```css
+@theme inline {
+  --colors-primary-400: var(--sfui-light, 0.43 0.11 153.7) var(--sfui-dark, 0.57 0.12 154.53);
+}
+```
 
 
 ### Tailwind Configuration

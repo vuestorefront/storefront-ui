@@ -2,7 +2,6 @@
 @plugin "@tailwindcss/typography";
 @config "./index.js";
 
-/* needs to be implemented: https://tailwindcss.com/docs/dark-mode#with-system-theme-support */
 
 @custom-variant hover {
   @media (hover: hover) and (pointer: fine) {
@@ -136,6 +135,20 @@
       stroke-dasharray: 89, 200;
       stroke-dashoffset: -150;
     }
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+  color-scheme: light;
+  --sfui-light: initial;
+  --sfui-dark: ;
+  
+  @variant dark {
+    color-scheme: dark;
+    --sfui-light: ;
+    --sfui-dark: initial;
   }
 }
 
