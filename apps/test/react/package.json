@@ -36,7 +36,7 @@
     "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
     "@tailwindcss/postcss": "^4.1.14",
-    "@tailwindcss/typography": "^0.5.13",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@vitejs/plugin-react": "^4.3.1",
