@@ -1,0 +1,131 @@
+diff --git a/assets/css/tailwind.css b/assets/css/tailwind.css
+index 3cb249fb096e670af68af7304dc6fa3934dc9460..a4dfc0f2255ab45aa0eb47f541e51dab9378a2b5 100644
+--- a/assets/css/tailwind.css
++++ b/assets/css/tailwind.css
+@@ -1,4 +1,16 @@
+ @import url(https://fonts.bunny.net/css?family=red-hat-display:400,500,600,700,800,900|red-hat-text:400,500,600,700);
++@import "tailwindcss";
++@import "@storefront-ui/vue/tailwind-config";
++@plugin "@storefront-ui/typography";
++
++@config "../../tailwind.config.ts";
++
++/* migrate to mew storefront-ui v3 */
++@custom-variant dark (&:where(.dark, .dark *));
++
++@source inline('dark:fill-white');
++@source inline('dark:invert');
++@source inline('!text-xs');
+ 
+ :root {
+   /* Primary */
+@@ -95,7 +107,7 @@
+ }
+ 
+ .prose code:not(pre code) {
+-  @apply text-sm bg-neutral-50/20 px-2 py-1 rounded bg-opacity-30 text-neutral-800 dark:bg-neutral-800 dark:text-white font-bold;
++  @apply text-sm bg-neutral-50/20 px-2 py-1 rounded text-neutral-800 dark:bg-neutral-800/30 dark:text-white font-bold;
+ }
+ 
+ .prose h1 a,
+diff --git a/components/app/AppLayout.vue b/components/app/AppLayout.vue
+index d6e7977d68497431f89ab680134a4a58cb6e501f..1a122e164875597b34585eb9af439ef32a7a5d02 100644
+--- a/components/app/AppLayout.vue
++++ b/components/app/AppLayout.vue
+@@ -84,6 +84,8 @@ const { storefrontUi } = useRuntimeConfig().public
+ </template>
+ 
+ <style>
++@reference "../../assets/css/tailwind.css";
++
+ .dark {
+   @apply bg-neutral-900;
+ }
+diff --git a/components/content/ReferenceToggle.vue b/components/content/ReferenceToggle.vue
+index aea94bc0b7338822f34e2ec1d960d714f9d036aa..96ecc3b3dba5e484a1432d1ad308db409534f646 100644
+--- a/components/content/ReferenceToggle.vue
++++ b/components/content/ReferenceToggle.vue
+@@ -32,6 +32,8 @@ const open = ref(true)
+ </template>
+ 
+ <style scoped>
++@reference "../../assets/css/tailwind.css";
++
+ :slotted(hr) {
+   @apply my-4;
+ }
+diff --git a/components/content/prose/ProseCode.vue b/components/content/prose/ProseCode.vue
+index fe4772a0eacbe0d6a135c98a895f35d372083b22..c864836cfbbd8d8ac6dafcc1acd1313955c377d7 100644
+--- a/components/content/prose/ProseCode.vue
++++ b/components/content/prose/ProseCode.vue
+@@ -57,13 +57,15 @@ const copyCode = async () => {
+ </template>
+ 
+ <style scoped>
++@reference "../../../assets/css/tailwind.css";
++
+ .code-wrapper {
+   @apply rounded-lg bg-neutral-800;
+   counter-reset: lines;
+ }
+ 
+ :slotted(pre) {
+-  @apply bg-neutral-800 overflow-x-auto w-full  !important;
++  @apply bg-neutral-800 overflow-x-auto w-full;
+ }
+ 
+ :deep(pre code .line) {
+diff --git a/layouts/fullscreen.vue b/layouts/fullscreen.vue
+index 394e012a754e1cfce1a9a29f58b95bf7e08b4766..28be2b8fce92fe0d2b14f173e652a0f4aeb3690d 100644
+--- a/layouts/fullscreen.vue
++++ b/layouts/fullscreen.vue
+@@ -5,6 +5,8 @@
+ </template>
+ 
+ <style>
++@reference "../assets/css/tailwind.css";
++
+ .fullscreen article > div > p {
+   @apply max-w-3xl;
+ }
+diff --git a/package.json b/package.json
+index f95d0989b5bf8453075bd6b751a4435e3cd6dc00..c1f5b9bcfbfa9bc62104126f4e9be73f48ce48bb 100644
+--- a/package.json
++++ b/package.json
+@@ -14,7 +14,7 @@
+     "@nuxtjs/algolia": "^1.8.0",
+     "@nuxtjs/color-mode": "^3.2.0",
+     "@nuxtjs/seo": "^2.0.0-rc.10",
+-    "@nuxtjs/tailwindcss": "^6.11.4",
++    "@nuxtjs/tailwindcss": "^7.0.0-beta.1",
+     "@storefront-ui/typography": "^2.1.0",
+     "@storefront-ui/vue": "^2.1.0",
+     "@tailwindcss/typography": "^0.5.9",
+diff --git a/tailwind.config.ts b/tailwind.config.ts
+index 27f5ddd96f83fa77254d9845cacab9244e2b297a..90141390f624afa977dce61211901f42433e5f43 100644
+--- a/tailwind.config.ts
++++ b/tailwind.config.ts
+@@ -1,6 +1,4 @@
+ import type { Config } from 'tailwindcss'
+-import { tailwindConfig } from '@storefront-ui/vue/tailwind-config'
+-import tailwindTypography from '@tailwindcss/typography'
+ 
+ const disabledCss = {
+   'code::before': false,
+@@ -14,10 +12,6 @@ const disabledCss = {
+ }
+ 
+ export default <Config>{
+-  presets: [tailwindConfig],
+-  darkMode: 'class',
+-  content: [],
+-  safelist: ['dark:fill-white', 'dark:invert', '!text-xs}'],
+   theme: {
+     extend: {
+       typography: {
+@@ -29,5 +23,4 @@ export default <Config>{
+       },
+     },
+   },
+-  plugins: [tailwindTypography],
+ }
