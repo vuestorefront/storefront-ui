@@ -1,15 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Inter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
-@import "tailwindcss";
-@import "@storefront-ui/vue/tailwind-config";
-@plugin "@storefront-ui/typography";
 
-@source '../**/*.vue';
-@source '../../../../node_modules/@storefront-ui/vue/**/*.vue';
-
-@theme {
+:root {
   --font-sans: 'Inter', sans-serif;
   --font-body: 'Inter', sans-serif;
   --font-headings: 'Inter', sans-serif;
 }
-
-@custom-variant dark (&:where(.dark, .dark *));

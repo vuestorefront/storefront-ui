@@ -20140,7 +20140,7 @@ __metadata:
 
 "sf-docs-base@patch:sf-docs-base@npm%3A1.3.2#./.yarn/patches/sf-docs-base-npm-1.3.2-2dba5f0f27.patch::locator=%40storefront-ui%2Fmonorepo%40workspace%3A.":
   version: 1.3.2
-  resolution: "sf-docs-base@patch:sf-docs-base@npm%3A1.3.2#./.yarn/patches/sf-docs-base-npm-1.3.2-2dba5f0f27.patch::version=1.3.2&hash=62dc22&locator=%40storefront-ui%2Fmonorepo%40workspace%3A."
+  resolution: "sf-docs-base@patch:sf-docs-base@npm%3A1.3.2#./.yarn/patches/sf-docs-base-npm-1.3.2-2dba5f0f27.patch::version=1.3.2&hash=43c4e5&locator=%40storefront-ui%2Fmonorepo%40workspace%3A."
   dependencies:
     "@microsoft/api-extractor-model": ^7.26.5
     "@microsoft/tsdoc": ^0.14.2
@@ -20164,7 +20164,7 @@ __metadata:
     unstorage: ^1.10.2
     vite-svg-loader: ^4.0.0
     vue: ^3.4.8
-  checksum: 488a664c22cf513585e0e5eb938640b4aa731be7e0e0540432534dc6ce1d8348dd851876c3df8b314f0e5b521eb7cc26519227787d9310b7b8c999af90d5ea69
+  checksum: 5de638486351f4b77443b46ca5bec0fe451705318b997215155e453f6915aa27a6a871dc8fcf4bed0dc785d9a491e5ced90c1ccd879995382cf0b8f5dcfca957
   languageName: node
   linkType: hard
 

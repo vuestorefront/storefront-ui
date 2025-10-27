@@ -1,25 +1,119 @@
 diff --git a/assets/css/tailwind.css b/assets/css/tailwind.css
-index 3cb249fb096e670af68af7304dc6fa3934dc9460..a4dfc0f2255ab45aa0eb47f541e51dab9378a2b5 100644
+index 3cb249fb096e670af68af7304dc6fa3934dc9460..0c3a11921db4d5ba9f24aa87002a0bd693be9788 100644
 --- a/assets/css/tailwind.css
 +++ b/assets/css/tailwind.css
-@@ -1,4 +1,16 @@
+@@ -1,101 +1,30 @@
  @import url(https://fonts.bunny.net/css?family=red-hat-display:400,500,600,700,800,900|red-hat-text:400,500,600,700);
 +@import "tailwindcss";
++@import "#build/tailwindcss/sources.css";
 +@import "@storefront-ui/vue/tailwind-config";
 +@plugin "@storefront-ui/typography";
-+
-+@config "../../tailwind.config.ts";
-+
-+/* migrate to mew storefront-ui v3 */
-+@custom-variant dark (&:where(.dark, .dark *));
-+
-+@source inline('dark:fill-white');
-+@source inline('dark:invert');
-+@source inline('!text-xs');
  
- :root {
-   /* Primary */
-@@ -95,7 +107,7 @@
+-:root {
+-  /* Primary */
+-  --colors-primary-50: 229 255 238;
+-  --colors-primary-100: 213 255 234;
+-  --colors-primary-200: 192 242 208;
+-  --colors-primary-300: 112 255 183;
+-  --colors-primary-400: 43 253 144;
+-  --colors-primary-500: 0 225 109;
+-  --colors-primary-600: 0 192 88;
+-  --colors-primary-700: 0 128 62;
+-  --colors-primary-800: 6 117 61;
+-  --colors-primary-900: 0 51 25;
+-
+-  /* Secondary */
+-  --colors-secondary-50: 245 243 255;
+-  --colors-secondary-100: 237 233 254;
+-  --colors-secondary-200: 221 214 254;
+-  --colors-secondary-300: 196 181 253;
+-  --colors-secondary-400: 167 139 250;
+-  --colors-secondary-500: 135 92 246;
+-  --colors-secondary-600: 111 64 236;
+-  --colors-secondary-700: 97 49 221;
+-  --colors-secondary-800: 83 30 211;
+-  --colors-secondary-900: 68 21 178;
+-
+-  /* Positive */
+-  --colors-positive-50: 240 253 244;
+-  --colors-positive-100: 220 252 231;
+-  --colors-positive-200: 187 247 208;
+-  --colors-positive-300: 134 239 172;
+-  --colors-positive-400: 74 222 128;
+-  --colors-positive-500: 2 198 82;
+-  --colors-positive-600: 10 171 69;
+-  --colors-positive-700: 1 137 55;
+-  --colors-positive-800: 22 101 52;
+-  --colors-positive-900: 20 83 45;
+-
+-  /* Negative */
+-  --colors-negative-50: 255 241 242;
+-  --colors-negative-100: 255 228 230;
+-  --colors-negative-200: 254 205 211;
+-  --colors-negative-300: 253 164 175;
+-  --colors-negative-400: 251 113 133;
+-  --colors-negative-500: 244 63 94;
+-  --colors-negative-600: 225 29 72;
+-  --colors-negative-700: 190 18 60;
+-  --colors-negative-800: 159 18 57;
+-  --colors-negative-900: 136 19 55 1;
+-
+-  /* Warning */
+-  --colors-warning-50: 254 252 232;
+-  --colors-warning-100: 254 249 195;
+-  --colors-warning-200: 254 240 138;
+-  --colors-warning-300: 253 224 71;
+-  --colors-warning-400: 250 204 21;
+-  --colors-warning-500: 234 179 8;
+-  --colors-warning-600: 202 138 4;
+-  --colors-warning-700: 161 98 7;
+-  --colors-warning-800: 133 77 14;
+-  --colors-warning-900: 113 63 18;
+-
+-  /* Neutral */
+-  --colors-neutral-50: 249 251 250;
+-  --colors-neutral-100: 242 247 244;
+-  --colors-neutral-200: 215 224 219;
+-  --colors-neutral-300: 168 178 171;
+-  --colors-neutral-400: 129 140 133;
+-  --colors-neutral-500: 92 102 95;
+-  --colors-neutral-600: 67 77 70;
+-  --colors-neutral-700: 44 51 46;
+-  --colors-neutral-800: 32 38 34;
+-  --colors-neutral-900: 21 26 22;
+-
+-  /* Disabled */
+-  --colors-disabled-50: 250 250 250;
+-  --colors-disabled-100: 244 244 245;
+-  --colors-disabled-200: 228 228 231;
+-  --colors-disabled-300: 212 212 216;
+-  --colors-disabled-400: 161 161 170;
+-  --colors-disabled-500: 113 113 122;
+-  --colors-disabled-600: 82 82 91;
+-  --colors-disabled-700: 63 63 70;
+-  --colors-disabled-800: 39 39 42;
+-  --colors-disabled-900: 24 24 27;
+-}
+-
+-* {
+-  @apply dark:border-neutral-700;
++@source "./node_modules/sf-docs-base/**/*.vue";
++
++@layer base {
++  *,
++  ::before,
++  ::after {
++    border-color: var(--color-neutral-100);
++  }
++
++  * {
++    @apply dark:border-neutral-700;
++  }
+ }
+ 
++
+ .dark:root {
+   color-scheme: dark;
  }
  
  .prose code:not(pre code) {
@@ -28,11 +122,67 @@ index 3cb249fb096e670af68af7304dc6fa3934dc9460..a4dfc0f2255ab45aa0eb47f541e51dab
  }
  
  .prose h1 a,
+@@ -153,3 +82,5 @@
+ .has-diff .line.diff.add {
+ 	@apply bg-green-400/20;
+ }
++
++@config "../../tailwind.config.ts";
+diff --git a/components/app/AppFooter.vue b/components/app/AppFooter.vue
+index 2ed81567d25decc39d636a3e73a792d4c9c95fd5..701e1143c501af4795363d63e892dae50428ce11 100644
+--- a/components/app/AppFooter.vue
++++ b/components/app/AppFooter.vue
+@@ -22,11 +22,11 @@ const socialsLinks = [
+     class="mt-48 text-sm px-6 lg:px-12 2xl:max-w-7xl w-full flex items-center border-t py-4"
+   >
+     <div class="opacity-80 flex-1 text-xs">
+-      <p>© 2024 Alokai.</p>
++      <p>© {{ new Date().getFullYear() }} Alokai.</p>
+     </div>
+     <nav class="flex items-center mx-auto font-medium gap-x-8">
+       <NuxtLink
+-        to="/contributing"
++        to="https://docs.alokai.com/contributing"
+         class="opacity-80 hover:opacity-100 transition-opacity"
+       >
+         Contributing
 diff --git a/components/app/AppLayout.vue b/components/app/AppLayout.vue
-index d6e7977d68497431f89ab680134a4a58cb6e501f..1a122e164875597b34585eb9af439ef32a7a5d02 100644
+index d6e7977d68497431f89ab680134a4a58cb6e501f..91978a51681e29fcecefb6afbbbe6afaa7e5869d 100644
 --- a/components/app/AppLayout.vue
 +++ b/components/app/AppLayout.vue
-@@ -84,6 +84,8 @@ const { storefrontUi } = useRuntimeConfig().public
+@@ -16,16 +16,21 @@ const { storefrontUi } = useRuntimeConfig().public
+         height="2rem"
+         class="[&>*]:!fill-white"
+       />
+-      <NuxtLink
+-        to="https://docs.vuestorefront.io"
+-        class="font-medium flex items-center text-sm group text-white"
+-      >
+-        Build Better Storefronts
+-        <Icon
+-          name="ri:arrow-right-s-fill"
+-          class="text-xl group-hover:translate-x-px transition-transform"
+-        />
+-      </NuxtLink>
++      <div class="flex items-center gap-x-2 text-white">
++        Vue Storefront is now Alokai!
++        <NuxtLink
++          to="https://alokai.com/news/vue-storefront-is-now-alokai"
++          target="_blank"
++          external
++          class="font-medium flex items-center text-sm group underline hover:no-underline focus-visible:no-underline"
++        >
++          Learn More
++          <Icon
++            name="ri:arrow-right-s-fill"
++            class="text-xl group-hover:translate-x-px transition-transform"
++          />
++        </NuxtLink>
++      </div>
+     </div>
+     <div
+       v-else
+@@ -84,6 +89,8 @@ const { storefrontUi } = useRuntimeConfig().public
  </template>
  
  <style>
@@ -41,6 +191,30 @@ index d6e7977d68497431f89ab680134a4a58cb6e501f..1a122e164875597b34585eb9af439ef3
  .dark {
    @apply bg-neutral-900;
  }
+diff --git a/components/content/Info.vue b/components/content/Info.vue
+index 843dfad268b9601d5cc3df739da859e8e54322f0..c186336ab418d58d51ac944d63af2273dc229e21 100644
+--- a/components/content/Info.vue
++++ b/components/content/Info.vue
+@@ -1,6 +1,6 @@
+ <template>
+   <div
+-    class="mt-5 leading-relaxed not-prose [&>*>a]:underline px-6 py-4 [&>*>code]:!bg-secondary-800/20 [&>*>code]:!text-secondary-900 [&>*>code]:dark:!text-secondary-50 border-secondary-500 dark:border-secondary-500 border rounded-lg bg-secondary-500 bg-opacity-20 text-sm dark:text-secondary-100 text-secondary-800"
++    class="mt-5 leading-relaxed not-prose [&>*>a]:underline px-6 py-4 [&>*>code]:!bg-secondary-800/20 [&>*>code]:!text-secondary-900 [&>*>code]:dark:!text-secondary-50 border-secondary-500 dark:border-secondary-500 dark:bg-secondary-800 border rounded-lg bg-secondary-200 bg-opacity-20 text-sm dark:text-secondary-100 text-secondary-800"
+   >
+     <p v-if="$slots.title" class="text-base font-bold mb-2">
+       <ContentSlot :use="$slots.title" unwrap="p" />
+diff --git a/components/content/ReadMore.vue b/components/content/ReadMore.vue
+index 843dfad268b9601d5cc3df739da859e8e54322f0..c186336ab418d58d51ac944d63af2273dc229e21 100644
+--- a/components/content/ReadMore.vue
++++ b/components/content/ReadMore.vue
+@@ -1,6 +1,6 @@
+ <template>
+   <div
+-    class="mt-5 leading-relaxed not-prose [&>*>a]:underline px-6 py-4 [&>*>code]:!bg-secondary-800/20 [&>*>code]:!text-secondary-900 [&>*>code]:dark:!text-secondary-50 border-secondary-500 dark:border-secondary-500 border rounded-lg bg-secondary-500 bg-opacity-20 text-sm dark:text-secondary-100 text-secondary-800"
++    class="mt-5 leading-relaxed not-prose [&>*>a]:underline px-6 py-4 [&>*>code]:!bg-secondary-800/20 [&>*>code]:!text-secondary-900 [&>*>code]:dark:!text-secondary-50 border-secondary-500 dark:border-secondary-500 dark:bg-secondary-800 border rounded-lg bg-secondary-200 bg-opacity-20 text-sm dark:text-secondary-100 text-secondary-800"
+   >
+     <p v-if="$slots.title" class="text-base font-bold mb-2">
+       <ContentSlot :use="$slots.title" unwrap="p" />
 diff --git a/components/content/ReferenceToggle.vue b/components/content/ReferenceToggle.vue
 index aea94bc0b7338822f34e2ec1d960d714f9d036aa..96ecc3b3dba5e484a1432d1ad308db409534f646 100644
 --- a/components/content/ReferenceToggle.vue
@@ -54,6 +228,30 @@ index aea94bc0b7338822f34e2ec1d960d714f9d036aa..96ecc3b3dba5e484a1432d1ad308db40
  :slotted(hr) {
    @apply my-4;
  }
+diff --git a/components/content/Tip.vue b/components/content/Tip.vue
+index a7e89bf3e92e9cf338ea26e5aeacb78c03a333eb..040a51314836b9c2cb9643723fba385f2b948e0a 100644
+--- a/components/content/Tip.vue
++++ b/components/content/Tip.vue
+@@ -1,6 +1,6 @@
+ <template>
+   <div
+-    class="mt-5 leading-relaxed not-prose [&>*>a]:underline px-6 py-4 [&>*>code]:!bg-primary-800/20 [&>*>code]:!text-primary-900 [&>*>code]:dark:!text-primary-50 border-primary-500 dark:border-primary-500 border rounded-lg bg-primary-500 bg-opacity-20 text-sm dark:text-primary-100 text-primary-800"
++    class="mt-5 leading-relaxed not-prose [&>*>a]:underline px-6 py-4 [&>*>code]:!bg-primary-800/20 [&>*>code]:!text-primary-900 [&>*>code]:dark:!text-primary-50 border-primary-500 dark:border-primary-500 border rounded-lg dark:bg-primary-800 bg-primary-200 bg-opacity-20 text-sm dark:text-primary-100 text-primary-800"
+   >
+     <p v-if="$slots.title" class="text-base font-bold mb-2">
+       <ContentSlot :use="$slots.title" unwrap="p" />
+diff --git a/components/content/Warning.vue b/components/content/Warning.vue
+index 7006837f6030ad8cc3a836c7dfbeea1b958b1be7..253ed324aac9bad8a703444235dac85ac2e4f349 100644
+--- a/components/content/Warning.vue
++++ b/components/content/Warning.vue
+@@ -1,6 +1,6 @@
+ <template>
+   <div
+-    class="mt-5 leading-relaxed not-prose [&>*>a]:underline px-6 py-4 [&>*>code]:!bg-yellow-800/20 [&>*>code]:!text-yellow-900 [&>*>code]:dark:!text-yellow-50 border-yellow-500 dark:border-yellow-500 border rounded-lg bg-yellow-500 bg-opacity-20 text-sm dark:text-yellow-100 text-yellow-800"
++    class="mt-5 leading-relaxed not-prose [&>*>a]:underline px-6 py-4 [&>*>code]:!bg-yellow-800/20 [&>*>code]:!text-yellow-900 [&>*>code]:dark:!text-yellow-50 border-yellow-500 dark:border-yellow-500 border rounded-lg dark:bg-yellow-950 bg-yellow-50 bg-opacity-20 text-sm dark:text-yellow-100 text-yellow-800"
+   >
+     <p v-if="$slots.title" class="text-base font-bold mb-2">
+       <ContentSlot :use="$slots.title" unwrap="p" />
 diff --git a/components/content/prose/ProseCode.vue b/components/content/prose/ProseCode.vue
 index fe4772a0eacbe0d6a135c98a895f35d372083b22..c864836cfbbd8d8ac6dafcc1acd1313955c377d7 100644
 --- a/components/content/prose/ProseCode.vue
