@@ -17,6 +17,7 @@
 
   --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
 
+  /* converted from rgb to oklch using rgb-to-oklch.js script */
   --color-primary-50: oklch(0.980165 0.0205041 156.723);
   --color-primary-100: oklch(0.944598 0.0280714 162.014);
   --color-primary-200: oklch(0.886553 0.0466985 164.989);
