@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/typography";
 @config "./index.js";
 
+/* Mimics behaviour of removed `future.hoverOnlyWhenSupporte` flag to show hover only on devices with fine pointer (mouse, not finger) */
 @custom-variant hover {
   @media (hover: hover) and (pointer: fine) {
     &:hover {
