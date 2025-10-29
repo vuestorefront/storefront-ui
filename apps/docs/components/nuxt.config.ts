@@ -64,6 +64,10 @@ export default defineNuxtConfig({
   },
   
   hooks: {
+    // informs tailwind about location of SFUI components
+    // done this way, because sf-docs-base cannot have those paths hardcoded
+    // and with @nuxtjs/tailwindcss module we cannot use `content` property anymore (it got removed)
+    // for details, see the source code: https://github.com/nuxt-modules/tailwindcss/blob/main/src/import-css.ts#L26
     'tailwindcss:sources:extend': (sources) => {
       sources.push({ type: 'path', source: './**/*.vue' });
       sources.push({ type: 'path', source: '../../../node_modules/@storefront-ui/vue/**/*.vue' });
