@@ -29,7 +29,7 @@ function Example() {
             <SfIconChevronLeft className={`text-neutral-500 ${state.get.open ? 'rotate-90' : '-rotate-90'}`} />
           </div>
         }
-        className="border border-neutral-200 rounded-sm divide-y text-neutral-900"
+        className="border divide-y rounded-sm border-neutral-200 divide-neutral-200 text-neutral-900"
       >
         <p className="p-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

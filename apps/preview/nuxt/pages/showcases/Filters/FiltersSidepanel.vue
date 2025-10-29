@@ -7,7 +7,7 @@
       </button>
     </div>
     <h5
-      class="py-2 px-4 mb-6 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md"
+      class="px-4 py-2 mb-6 font-bold tracking-widest uppercase bg-neutral-100 typography-headline-6 text-neutral-900 md:rounded-md"
     >
       Sort by
     </h5>
@@ -17,7 +17,7 @@
       </SfSelect>
     </div>
     <h5
-      class="py-2 px-4 mt-6 mb-4 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md"
+      class="px-4 py-2 mt-6 mb-4 font-bold tracking-widest uppercase bg-neutral-100 typography-headline-6 text-neutral-900 md:rounded-md"
     >
       Filter
     </h5>
@@ -43,7 +43,7 @@
               <li>
                 <SfListItem size="sm" tag="button" type="button">
                   <div class="flex items-center">
-                    <SfIconArrowBack size="sm" class="text-neutral-500 mr-3" />
+                    <SfIconArrowBack size="sm" class="mr-3 text-neutral-500" />
                     Back to {{ details[0].label }}
                   </div>
                 </SfListItem>
@@ -103,7 +103,7 @@
               <template #prefix>
                 <SfCheckbox
                   v-model="selectedFilters"
-                  class="flex items-center"
+                  wrapper-class="flex items-center"
                   :disabled="counter === 0"
                   :value="value"
                 />
