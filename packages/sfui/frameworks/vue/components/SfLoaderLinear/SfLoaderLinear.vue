@@ -14,7 +14,7 @@ const sizeClasses = {
 
 <script lang="ts" setup>
 import { type PropType } from 'vue';
-import { SfLoaderLinearSize, SfLoaderSize } from '@storefront-ui/vue';
+import { SfLoaderLinearSize, SfLoaderSize, twMerge, useTwMergeRoot } from '@storefront-ui/vue';
 
 defineProps({
   size: {
@@ -26,14 +26,24 @@ defineProps({
     default: 'loading',
   },
 });
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 </script>
 
 <template>
   <span
-    class="relative inline-block overflow-hidden bg-neutral-300 text-primary-700 after:absolute after:w-2.5 after:h-full after:animate-line after:bg-current after:block"
-    :class="sizeClasses[size]"
+    :class="
+      twMerge(
+        'relative inline-block overflow-hidden bg-neutral-300 text-primary-700 after:absolute after:w-2.5 after:h-full after:animate-line after:bg-current after:block',
+        sizeClasses[size],
+        $attrs.class,
+      )
+    "
     aria-live="polite"
     :aria-label="ariaLabel"
     data-testid="loader-linear"
+    v-bind="attrsWithoutClass"
   />
 </template>

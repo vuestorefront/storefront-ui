@@ -50,7 +50,7 @@
         </SfButton>
       </template>
     </SfScrollable>
-    <div class="flex-shrink-0 basis-auto">
+    <div class="shrink-0 basis-auto">
       <div
         class="flex-row w-full flex gap-0.5 mt [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >

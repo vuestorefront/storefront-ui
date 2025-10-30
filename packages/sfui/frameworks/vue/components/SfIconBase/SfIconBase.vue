@@ -1,6 +1,6 @@
 <script lang="ts">
 import { type PropType, h, defineComponent, computed, toRefs } from 'vue';
-import { SfIconSize } from '@storefront-ui/vue';
+import { SfIconSize, twMerge } from '@storefront-ui/vue';
 
 export default defineComponent({
   name: 'SfIconBase',
@@ -14,6 +14,7 @@ export default defineComponent({
       default: SfIconSize.base,
     },
   },
+  inheritAttrs: false,
   setup(props, ctx) {
     const { size, content } = toRefs(props);
     const slotDefaultContent = computed(() => ctx.slots.default?.());
@@ -42,10 +43,12 @@ export default defineComponent({
     const svgAttrs = computed(() => {
       const attrs: Record<string, string> = {
         xmlns: 'http://www.w3.org/2000/svg',
-        class: `inline-block fill-current ${sizeClasses.value}`,
+        class: twMerge(`inline-block fill-current ${sizeClasses.value}`, ctx.attrs.class),
       };
       if (!slotDefaultContent.value && content.value) attrs.innerHTML = content.value;
-      return attrs;
+      const { class: _, ...restAttrs } = ctx.attrs;
+
+      return { ...attrs, ...restAttrs };
     });
 
     return () => h('svg', svgAttrs.value, slotDefaultContent.value);

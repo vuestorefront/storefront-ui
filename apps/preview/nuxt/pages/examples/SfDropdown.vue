@@ -4,7 +4,7 @@
       <template #trigger>
         <SfButton @click="state.modelValue = !state.modelValue">Toggle</SfButton>
       </template>
-      <ul class="p-2 rounded bg-gray-100">
+      <ul class="p-2 rounded-sm bg-gray-100">
         <li>More</li>
         <li>About</li>
         <li>Settings</li>

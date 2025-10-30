@@ -159,7 +159,7 @@ export default function BaseMegaMenu() {
 
   return (
     <div className="w-full h-full">
-      {isOpen && <div className="fixed inset-0 bg-neutral-500 bg-opacity-50 transition-opacity" />}
+      {isOpen && <div className="fixed inset-0 bg-neutral-500/50 transition-opacity" />}
       <header
         ref={menuRef}
         className="flex flex-wrap md:flex-nowrap justify-center w-full py-2 md:py-5 border-0 bg-primary-700 border-neutral-200 md:relative md:z-10"
@@ -178,7 +178,7 @@ export default function BaseMegaMenu() {
           <a
             href="#"
             aria-label="SF Homepage"
-            className="flex shrink-0 ml-4 md:ml-0 mr-2 md:mr-10 text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            className="flex shrink-0 ml-4 md:ml-0 mr-2 md:mr-10 text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs"
           >
             <picture>
               <source srcSet="http://localhost:3100/@assets/alokai-logo-white.svg" media="(min-width: 1024px)" />

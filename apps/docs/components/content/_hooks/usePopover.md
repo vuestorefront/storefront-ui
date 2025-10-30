@@ -38,7 +38,7 @@ function Tooltip({ children, text }: TooltipProps) {
     <span ref={refs.setReference} onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)}>
       {children}
       {isOpen && (
-        <div ref={refs.setFloating} style={style} className="p-2 rounded bg-black text-white">
+        <div ref={refs.setFloating} style={style} className="p-2 rounded-sm bg-black text-white">
           {text}
         </div>
       )}
@@ -81,7 +81,7 @@ const { referenceRef, floatingRef, style } = usePopover({ isOpen });
     <div
       v-if="isOpen"
       ref="floatingRef"
-      class="p-2 rounded bg-black text-white"
+      class="p-2 rounded-sm bg-black text-white"
       :style="style"
     >
       {{ text }}

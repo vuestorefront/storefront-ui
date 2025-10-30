@@ -35,11 +35,11 @@ const { isOpen, triggerProps, tooltipProps, arrowProps } = useTooltip({ placemen
     <div
       v-if="label && isOpen"
       role="tooltip"
-      class="bg-black px-2 py-1.5 rounded-md text-white text-xs w-max max-w-[360px] drop-shadow"
+      class="bg-black px-2 py-1.5 rounded-md text-white text-xs w-max max-w-[360px] drop-shadow-sm"
       v-bind="tooltipProps"
     >
       {{ label }}
-      <span v-if="showArrow" v-bind="arrowProps" class="bg-black rotate-45" />
+      <span v-if="showArrow" v-bind="arrowProps" class="rotate-45 bg-black" />
     </div>
   </span>
 </template>

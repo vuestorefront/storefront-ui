@@ -2,7 +2,9 @@
 
 export default defineNuxtConfig({
   extends: ['sf-docs-base'],
-  css: ['~/assets/tailwind.css'],
+
+  css: ['~/assets/css/fonts.css'],
+
   app: {
     head: {
       link: [
@@ -13,17 +15,21 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   robots: {
     enabled: false,
   },
+
   sitemap: {
     enabled: false,
   },
+
   // fix via https://github.com/nuxt/content/issues/2254
   alias: {
     'micromark/lib/preprocess.js': 'micromark',
     'micromark/lib/postprocess.js': 'micromark',
   },
+
   runtimeConfig: {
     public: {
       storefrontUi: true,
@@ -34,6 +40,7 @@ export default defineNuxtConfig({
       siteDescription: 'Fast, accessible, and fully customizable components built for e-commerce.',
     },
   },
+
   nitro: {
     routeRules: {
       '/figma': {
@@ -47,6 +54,7 @@ export default defineNuxtConfig({
       failOnError: false,
     },
   },
+
   vite: {
     server: {
       fs: {
@@ -54,4 +62,18 @@ export default defineNuxtConfig({
       },
     },
   },
+  
+  hooks: {
+    // informs tailwind about location of SFUI components
+    // done this way, because sf-docs-base cannot have those paths hardcoded
+    // and with @nuxtjs/tailwindcss module we cannot use `content` property anymore (it got removed)
+    // for details, see the source code: https://github.com/nuxt-modules/tailwindcss/blob/main/src/import-css.ts#L26
+    'tailwindcss:sources:extend': (sources) => {
+      sources.push({ type: 'path', source: './**/*.vue' });
+      sources.push({ type: 'path', source: '../../../node_modules/@storefront-ui/vue/**/*.vue' });
+      return sources;
+    },
+  },
+
+  compatibilityDate: '2025-10-24',
 });

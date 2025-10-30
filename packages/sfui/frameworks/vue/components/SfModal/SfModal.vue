@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, toRefs, type PropType, type ConcreteComponent } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import { useTrapFocus } from '@storefront-ui/vue';
+import { twMerge, useTrapFocus, useTwMergeRoot } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
@@ -25,6 +25,11 @@ const { disableClickAway, disableEsc, modelValue } = toRefs(props);
 const emit = defineEmits<{
   (event: 'update:modelValue', isOpen: boolean): void;
 }>();
+
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 
 const modalRef = ref<HTMLElement>();
 
@@ -54,7 +59,13 @@ useTrapFocus(modalRef, {
     aria-modal="true"
     data-testid="modal"
     tabindex="-1"
-    class="fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-3xl outline-none"
+    :class="
+      twMerge(
+        'fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-3xl outline-hidden',
+        $attrs.class,
+      )
+    "
+    v-bind="attrsWithoutClass"
     @keydown.esc="onEscKeyDown"
   >
     <slot />

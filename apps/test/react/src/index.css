@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Inter:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+@import "tailwindcss";
+@import "@storefront-ui/tailwind-config";
+@plugin "@storefront-ui/typography";
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@source '../index.html';
+@source '../src/**/*.{js,ts,jsx,tsx}';
+@source '../../../node_modules/@storefront-ui/react/shared/**/*.ts';
+@source '../../../../packages/sfui/frameworks/react/components/**/*.{js,ts,jsx,tsx}';
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+}

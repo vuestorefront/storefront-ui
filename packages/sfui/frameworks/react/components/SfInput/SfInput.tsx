@@ -1,6 +1,5 @@
 'use client';
-import classNames from 'classnames';
-import { SfInputSize, useFocusVisible, type SfInputProps, polymorphicForwardRef } from '@storefront-ui/react';
+import { SfInputSize, useFocusVisible, type SfInputProps, polymorphicForwardRef, twMerge } from '@storefront-ui/react';
 
 const defaultWrapperTag = 'span';
 
@@ -20,7 +19,7 @@ const SfInput = polymorphicForwardRef<typeof defaultWrapperTag, SfInputProps>(
 
     return (
       <WrapperTag
-        className={classNames([
+        className={twMerge(
           'flex items-center gap-2 px-4 bg-white rounded-xl text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
           {
             'ring-2 ring-negative-700': invalid,
@@ -29,15 +28,15 @@ const SfInput = polymorphicForwardRef<typeof defaultWrapperTag, SfInputProps>(
           },
           sizeClasses[size],
           wrapperClassName,
-        ])}
+        )}
         data-testid="input"
       >
         {slotPrefix}
         <input
-          className={classNames([
-            'min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent',
+          className={twMerge(
+            'min-w-[80px] w-full text-base outline-hidden appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent',
             className,
-          ])}
+          )}
           type="text"
           data-testid="input-field"
           size={1}

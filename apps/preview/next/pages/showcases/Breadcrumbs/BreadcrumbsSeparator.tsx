@@ -31,7 +31,7 @@ export function Showcase() {
           <SfDropdown
             trigger={
               <SfButton
-                className="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
+                className="relative w-5 h-5 !p-0 rounded-xs outline-secondary-600 hover:bg-transparent active:bg-transparent"
                 aria-label="More breadcrumbs"
                 variant="tertiary"
                 slotPrefix={

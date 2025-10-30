@@ -10,19 +10,8 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs.js"
     },
-    "./tailwind-config": {
-      "types": "./dist/tailwind-config.d.ts",
-      "import": "./dist/tailwind-config.mjs",
-      "require": "./dist/tailwind-config.cjs.js"
-    },
+    "./tailwind-config": "./tailwind-config.css",
     "./*": "./*"
-  },
-  "typesVersions": {
-    "*": {
-      "tailwind-config": [
-        "dist/tailwind-config"
-      ]
-    }
   },
   "source": "index.ts",
   "main": "dist/index.cjs.js",
@@ -38,7 +27,8 @@
     "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"{components,shared,hooks}/**/*.{ts,tsx}\""
   },
   "files": [
-    "dist"
+    "dist",
+    "tailwind-config.css"
   ],
   "dependencies": {
     "@floating-ui/react-dom": "^2.0.9",
@@ -49,7 +39,8 @@
     "react-polymorphed": "^2.1.0",
     "react-transition-group": "^4.4.5",
     "react-use": "^17.5.1",
-    "tabbable": "^6.1.1"
+    "tabbable": "^6.1.1",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",

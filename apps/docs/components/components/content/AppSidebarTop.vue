@@ -14,12 +14,12 @@ function selectFramework(frameworkName: string) {
   <div class="sticky top-10  bg-white dark:bg-neutral-900 z-50 pt-4 pb-4 -mt-8">
     <SfDropdown
       v-model="isOpen"
-      class="[&>div]:w-[calc(100%-32px)] [&>div]:!left-4 [&>div]:border [&>div]:rounded !w-full z-50"
+      class="[&>div]:w-[calc(100%-32px)] [&>div]:!left-4 [&>div]:border [&>div]:rounded-sm !w-full z-50"
     >
       <template #trigger>
         <button
           @click="toggle()"
-          class="bg-gray-100 w-full dark:bg-neutral-800 border rounded flex p-2 px-4 items-center capitalize"
+          class="bg-gray-100 w-full dark:bg-neutral-800 border rounded-sm flex p-2 px-4 items-center capitalize"
         >
           <Icon :name="selectedFramework.icon" class="w-4 h-4 mr-2" />
           {{ selectedFramework.name }}
@@ -32,7 +32,7 @@ function selectFramework(frameworkName: string) {
           />
         </button>
       </template>
-      <ul class="rounded bg-gray-100 w-full dark:bg-neutral-800 z-50">
+      <ul class="rounded-sm bg-gray-100 w-full dark:bg-neutral-800 z-50">
         <li
           v-for="(framework, index) in frameworks"
           :key="framework.name"

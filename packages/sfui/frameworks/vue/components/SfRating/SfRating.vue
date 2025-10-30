@@ -11,7 +11,14 @@ const sizeClasses = {
 <script lang="ts" setup>
 import { computed, toRefs, type PropType } from 'vue';
 import { clamp, roundToNearest } from '@storefront-ui/shared';
-import { SfRatingSize, SfIconStarFilled, SfIconStar, SfIconStarHalf } from '@storefront-ui/vue';
+import {
+  SfRatingSize,
+  SfIconStarFilled,
+  SfIconStar,
+  SfIconStarHalf,
+  useTwMergeRoot,
+  twMerge,
+} from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -37,6 +44,11 @@ const props = defineProps({
 });
 const { value, max, halfIncrement, ariaLabel } = toRefs(props);
 
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
+
 const precision = computed(() => (halfIncrement.value ? 0.5 : 1));
 const ratingValue = computed(() => clamp(roundToNearest(value.value, precision.value), 0, max.value));
 const partiallyFilled = computed(() => Number(!Number.isInteger(ratingValue.value)));
@@ -50,8 +62,9 @@ const label = computed(() => ariaLabel?.value ?? `${value.value} out of ${max.va
     role="img"
     :ariaLabel="label"
     :title="label"
-    :class="['inline-flex items-center text-warning-500', sizeClasses[size]]"
+    :class="twMerge('inline-flex items-center text-warning-500', sizeClasses[size], $attrs.class)"
     data-testid="rating"
+    v-bind="attrsWithoutClass"
   >
     <SfIconStarFilled v-for="index in filled" :key="index" aria-hidden="true" class="w-[1.5em] h-[1.5em]" />
     <SfIconStarHalf v-if="partiallyFilled" aria-hidden="true" class="w-[1.5em] h-[1.5em]" />

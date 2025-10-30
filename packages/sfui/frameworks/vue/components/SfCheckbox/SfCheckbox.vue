@@ -1,6 +1,13 @@
 <script setup lang="ts">
 import { ref, useTemplateRef, watch, type InputHTMLAttributes } from 'vue';
-import { ClassProp, SfIconCheckBox, SfIconCheckBoxOutlineBlank, SfIconIndeterminateCheckBox } from '@storefront-ui/vue';
+import {
+  ClassProp,
+  SfIconCheckBox,
+  SfIconCheckBoxOutlineBlank,
+  SfIconIndeterminateCheckBox,
+  twMerge,
+  useTwMergeRoot,
+} from '@storefront-ui/vue';
 
 const { indeterminate = false } = defineProps({
   invalid: {
@@ -21,6 +28,7 @@ const { indeterminate = false } = defineProps({
 defineOptions({
   inheritAttrs: false,
 });
+const { attrsWithoutClass } = useTwMergeRoot();
 const model = defineModel<InputHTMLAttributes['checked']>({ default: false });
 const checkboxRef = useTemplateRef<HTMLInputElement>('checkboxRef');
 
@@ -40,25 +48,27 @@ watch(
 <template>
   <component
     :is="wrapperTag"
-    :class="[
-      'flex cursor-pointer focus-visible:outline-primary-700 focus-visible:outline focus-visible:outline-offset-2 rounded-md',
-      {
-        'text-neutral-500 hover:text-primary-800 active:text-primary-900': !invalid && !$attrs.disabled,
-        'text-negative-700 hover:text-negative-800 active:text-negative-900': invalid && !$attrs.disabled,
-        'text-disabled-500 hover:text-disabled-600 active:text-disabled-700': $attrs.disabled,
-      },
-      wrapperClass,
-    ]"
+    :class="
+      twMerge(
+        'flex cursor-pointer focus-visible:outline-primary-700 focus-visible:outline focus-visible:outline-offset-2 rounded-md',
+        {
+          'text-neutral-500 hover:text-primary-800 active:text-primary-900': !invalid && !$attrs.disabled,
+          'text-negative-700 hover:text-negative-800 active:text-negative-900': invalid && !$attrs.disabled,
+          'text-disabled-500 hover:text-disabled-600 active:text-disabled-700': $attrs.disabled,
+        },
+        wrapperClass,
+      )
+    "
     tabindex="0"
     data-testid="checkbox"
   >
     <input
-      class="hidden"
+      :class="twMerge('hidden', $attrs.class)"
       type="checkbox"
       ref="checkboxRef"
       :indeterminate="indeterminate"
       :invalid="invalid"
-      v-bind="$attrs"
+      v-bind="attrsWithoutClass"
       v-model="model"
     />
     <SfIconIndeterminateCheckBox v-if="isIndeterminate" />

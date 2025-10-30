@@ -1,12 +1,17 @@
-import classNames from 'classnames';
-import { type SfButtonProps, SfButtonSize, SfButtonVariant, polymorphicForwardRef } from '@storefront-ui/react';
+import {
+  type SfButtonProps,
+  SfButtonSize,
+  SfButtonVariant,
+  polymorphicForwardRef,
+  twMerge,
+} from '@storefront-ui/react';
 
 const defaultButtonTag = 'button';
 
 export const variantClasses = {
-  [SfButtonVariant.primary]: 'shadow hover:shadow-md active:shadow disabled:bg-disabled-300',
+  [SfButtonVariant.primary]: 'shadow-sm hover:shadow-md active:shadow-sm disabled:bg-disabled-300',
   [SfButtonVariant.secondary]:
-    'ring-1 ring-inset shadow hover:shadow-md active:shadow disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50',
+    'ring-1 ring-inset shadow-sm hover:shadow-md active:shadow-sm disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50',
   [SfButtonVariant.tertiary]: 'disabled:bg-transparent',
 };
 export const variantColorClasses = {
@@ -47,9 +52,9 @@ const SfButton = polymorphicForwardRef<typeof defaultButtonTag, SfButtonProps>((
     <Tag
       ref={ref}
       type={typeof Tag === 'string' && Tag.toLowerCase() === 'button' ? 'button' : undefined}
-      className={classNames(
+      className={twMerge(
         'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-full disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
-        getSizeClasses(size, square),
+        ...getSizeClasses(size, square),
         variantClasses[variant],
         { [variantColorClasses[variant]]: !blank },
         className,

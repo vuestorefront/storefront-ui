@@ -39,7 +39,7 @@ export default function BasicAccordion() {
   };
 
   return (
-    <div className="border border-neutral-200 rounded-md divide-y text-neutral-900">
+    <div className="border divide-y rounded-md border-neutral-200 divide-neutral-200 text-neutral-900">
       {accordionItems.map(({ id, summary, details }) => (
         <SfAccordionItem
           key={id}

@@ -10,12 +10,12 @@ export default function InputWithFocusVisible() {
     <div>
       <label className="inline-block m-2">
         <span>Default focus visible</span>
-        <input className="block bg-gray-100 p-2 rounded-md focus:outline-none focus-visible:ring-2" />
+        <input className="block bg-gray-100 p-2 rounded-md focus:outline-hidden focus-visible:ring-2" />
       </label>
       <label className="inline-block m-2">
         <span>Custom focus visible</span>
         <input
-          className={classNames('block bg-gray-100 p-2 rounded-md focus:outline-none', {
+          className={classNames('block bg-gray-100 p-2 rounded-md focus:outline-hidden', {
             'focus-visible:ring-2': isFocusVisible,
           })}
         />

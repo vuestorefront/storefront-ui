@@ -50,7 +50,7 @@
                 v-if="product.image"
                 :src="product.image"
                 alt="product.name"
-                class="rounded-sm mr-2"
+                class="rounded-xs mr-2"
                 width="24"
                 height="24"
               />

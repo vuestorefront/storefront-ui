@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
-import { SfCounterSize } from '@storefront-ui/vue';
+import { SfCounterSize, twMerge, useTwMergeRoot } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -13,6 +13,10 @@ const props = defineProps({
     default: false,
   },
 });
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 const { size, pill } = toRefs(props);
 
 const sizeClasses = computed(() => {
@@ -35,15 +39,19 @@ const sizeClasses = computed(() => {
 
 <template>
   <span
-    class="inline-flex items-center before:content-['('] after:content-[')'] text-neutral-500"
-    :class="[
-      sizeClasses,
-      {
-        'rounded-full py-0.5 font-medium ring-1 ring-neutral-200 ring-inset before:content-none after:content-none':
-          pill,
-      },
-    ]"
+    :class="
+      twMerge(
+        'inline-flex items-center before:content-[\'(\'] after:content-[\')\'] text-neutral-500',
+        ...sizeClasses,
+        {
+          'rounded-full py-0.5 font-medium ring-1 ring-neutral-200 ring-inset before:content-none after:content-none':
+            pill,
+        },
+        $attrs.class,
+      )
+    "
     data-testid="counter"
+    v-bind="attrsWithoutClass"
   >
     <slot />
   </span>

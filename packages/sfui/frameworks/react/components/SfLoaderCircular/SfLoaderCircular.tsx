@@ -1,5 +1,4 @@
-import classNames from 'classnames';
-import { SfLoaderSize } from '@storefront-ui/react';
+import { SfLoaderSize, twMerge } from '@storefront-ui/react';
 import type { SfLoaderCircularProps } from '@storefront-ui/react';
 
 const sizeClasses = {
@@ -28,11 +27,12 @@ export default function SfLoaderCircular({
   size = SfLoaderSize.base,
   ariaLabel = 'loading',
   className,
+  circleClassName,
   ...attributes
 }: SfLoaderCircularProps): JSX.Element {
   return (
     <svg
-      className={classNames(
+      className={twMerge(
         'inline-block ring-inset ring-neutral-300 text-primary-700 rounded-full animate-spin-slow',
         sizeClasses[size],
         className,
@@ -44,9 +44,10 @@ export default function SfLoaderCircular({
       {...attributes}
     >
       <circle
-        className={classNames(
+        className={twMerge(
           'fill-none stroke-2 stroke-current animate-stroke-loader-circular',
           strokeSizeClass[size],
+          circleClassName,
         )}
         cx="50"
         cy="50"

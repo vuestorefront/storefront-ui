@@ -10,7 +10,7 @@
         :wrapper-class="[
           ' mt-0.5',
           {
-            'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
+            'peer bg-disabled-100 ring-disabled-300 ring-1 text-disabled-500': disabled || readonly,
           },
         ]"
       >

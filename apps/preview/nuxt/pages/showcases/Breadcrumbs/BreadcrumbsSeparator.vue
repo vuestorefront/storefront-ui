@@ -5,7 +5,7 @@
         <SfDropdown v-model="dropdownOpened" strategy="absolute" placement="bottom-start" @update:model-value="close">
           <template #trigger>
             <SfButton
-              class="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
+              class="relative w-5 h-5 !p-0 rounded-xs outline-secondary-600 hover:bg-transparent active:bg-transparent"
               aria-label="More breadcrumbs"
               variant="tertiary"
               square

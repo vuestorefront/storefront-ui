@@ -9,7 +9,7 @@
         <SfCounter
           v-if="state.counter"
           class="ml-2 font-normal"
-          :class="{ '!text-disabled-500': state.disabled }"
+          :class="{ 'text-disabled-500': state.disabled }"
           :size="state.size === 'sm' ? 'sm' : 'base'"
         >
           {{ state.counter }}
@@ -18,7 +18,7 @@
 
       <p
         class="text-xs font-normal break-words text-neutral-500"
-        :class="{ truncate: state.truncate, '!text-disabled-500': state.disabled }"
+        :class="{ truncate: state.truncate, 'text-disabled-500': state.disabled }"
       >
         {{ state.secondaryText }}
       </p>

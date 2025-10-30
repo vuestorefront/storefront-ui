@@ -53,7 +53,7 @@ export default function TopNavSimpleMobile() {
         <a
           href="#"
           aria-label="SF Homepage"
-          className="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
+          className="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs shrink-0"
         >
           <img
             src="http://localhost:3100/@assets/alokai-logo.svg"

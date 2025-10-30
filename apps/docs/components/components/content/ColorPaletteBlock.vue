@@ -10,13 +10,13 @@
         backgroundColor: `oklch(${oklchColor})`,
       }"
     >
-      <p class="hidden group-hover:inline-flex group-active:inline-flex group-focus:inline-flex absolute inset-0 m-0 px-2 items-center bg-black/20 backdrop-blur-md" :class="{ 'text-black': parseInt(shade) <= 400 }">
+      <p class="hidden tracking-tighter group-hover:inline-flex group-active:inline-flex group-focus:inline-flex absolute inset-0 m-0 px-2 items-center bg-black/20 backdrop-blur-md" :class="{ 'text-black': parseInt(shade) <= 400 }">
         <template v-if="copied">
           <span>Copied&nbsp;</span>
           <span><Icon name="ri:check-line" height="16" class="text-green" /></span>
         </template>
         <template v-else>
-          oklch({{oklchColor}})&nbsp;
+          Click to copy value&nbsp;
           <Icon name="ri:file-copy-fill" height="16" class="text-green" />
         </template>
       </p>

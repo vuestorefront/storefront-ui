@@ -49,7 +49,7 @@ export default function TopNav() {
         <a
           href="#"
           aria-label="SF Homepage"
-          className="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
+          className="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs shrink-0"
         >
           <picture>
             <source srcSet="http://localhost:3100/@assets/alokai-logo.svg" media="(min-width: 768px)" />

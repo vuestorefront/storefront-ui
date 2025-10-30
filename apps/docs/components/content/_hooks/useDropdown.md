@@ -32,7 +32,7 @@ function Dropdown() {
     <div ref={refs.setReference} className="w-max">
       <SfButton onClick={toggle}>Toggle</SfButton>
       {isOpen && (
-        <ul ref={refs.setFloating} style={style.floating} className="absolute p-2 w-max rounded bg-gray-100">
+        <ul ref={refs.setFloating} style={style.floating} className="absolute p-2 w-max rounded-sm bg-gray-100">
           <li>More</li>
           <li>About</li>
           <li>Settings</li>
@@ -66,7 +66,7 @@ const { referenceRef, floatingRef, style } = useDropdown({ isOpen, onClose: () =
 <template>
   <div ref="referenceRef" class="w-max">
     <SfButton @click="isOpen = !isOpen">Toggle</SfButton>
-    <ul v-if="isOpen" ref="floatingRef" :style="style" class="absolute p-2 w-max rounded bg-gray-100">
+    <ul v-if="isOpen" ref="floatingRef" :style="style" class="absolute p-2 w-max rounded-sm bg-gray-100">
       <li>More</li>
       <li>About</li>
       <li>Settings</li>

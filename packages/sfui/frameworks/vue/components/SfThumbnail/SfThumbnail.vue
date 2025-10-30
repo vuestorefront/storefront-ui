@@ -8,7 +8,7 @@ const sizeClasses = {
 </script>
 <script lang="ts" setup>
 import type { PropType } from 'vue';
-import { SfThumbnailSize } from '@storefront-ui/vue';
+import { SfThumbnailSize, twMerge, useTwMergeRoot } from '@storefront-ui/vue';
 
 defineProps({
   size: {
@@ -16,10 +16,18 @@ defineProps({
     default: SfThumbnailSize.base,
   },
 });
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 </script>
 
 <template>
-  <div :class="['rounded-full overflow-hidden bg-clip-content p-0.5', sizeClasses[size]]" data-testid="chip-thumbnail">
+  <div
+    :class="twMerge('rounded-full overflow-hidden bg-clip-content p-0.5', sizeClasses[size], $attrs.class)"
+    data-testid="chip-thumbnail"
+    v-bind="attrsWithoutClass"
+  >
     <slot />
   </div>
 </template>

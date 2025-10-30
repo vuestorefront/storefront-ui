@@ -25,10 +25,16 @@ export default defineNuxtModule<ModuleOptions>({
     const { contentPath } = options;
 
     const customTailwindConfigTemplate = addTemplate({
-      filename: 'storefront-ui.tailwind-config.mjs',
+      filename: 'storefront-ui.tailwind.css',
       write: true,
       getContents: () =>
-        `import { tailwindConfig } from '@storefront-ui/vue/tailwind-config'; export default { presets: [tailwindConfig] }`,
+        `@import "tailwindcss";
+@import "@storefront-ui/vue/tailwind-config";
+@plugin "@storefront-ui/typography";
+
+@source '../**/*.vue';
+@source '../node_modules/@storefront-ui/vue/**/*.vue';
+`,
     });
 
     await installModule(

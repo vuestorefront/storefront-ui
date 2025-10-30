@@ -1,6 +1,6 @@
 <template>
   <div class="flex flex-col gap-6 md:flex-row">
-    <div class="flex flex-col flex-grow gap-6 md:flex-row">
+    <div class="flex flex-col grow gap-6 md:flex-row">
       <div
         v-for="{ title, subtitle, description, callToAction, image, backgroundColor, reverse } in displayDetails"
         :key="title"
