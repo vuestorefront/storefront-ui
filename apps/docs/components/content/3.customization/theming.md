@@ -11,8 +11,23 @@ In addition to [Tailwind's default colors](https://tailwindcss.com/docs/customiz
 :color-palette
 
 :::tip Want to see our default Tailwind preset?
-You can see all of the default colors, classes, variants, and more in our [Tailwind preset](https://github.com/vuestorefront/storefront-ui/blob/v2/packages/config/tailwind/index.ts)
+You can see all of the default colors, classes, variants, and more in our [Tailwind preset](https://github.com/vuestorefront/storefront-ui/blob/v2/packages/config/tailwind/config.css)
 :::
+
+### Default outline styles (focus)
+
+You can easily adjust the focus outline styles across your entire storefront by customizing the `default-outline` variables in your global CSS. These variables ensure a consistent focus style throughout your application, and you can update them globally to match your brand or accessibility needs.
+
+For example, if you want a thicker, blue outline with increased spacing, you could do:
+
+```css
+:root {
+  --default-outline-color: oklch(0.427 0.186 264.834); /* a custom blue color */
+  --default-outline-width: 4px;
+  --default-outline-offset: 4px;
+}
+```
+
 
 ## Customizing colors
 
@@ -58,10 +73,12 @@ The CSS classes for Storefront UI colors follow the pattern of `--color-{color}-
 <summary>Full List of CSS Variables</summary>
 
 
-
 ```css
 :root {
-
+  /* Default values for outline properties (used for focus states) */
+  --default-outline-color: var(--color-secondary-600);
+  --default-outline-offset: 2px;
+  --default-outline-width: 2px;
 
   /* Primary */
   --color-primary-50: oklch(0.980165 0.0205041 156.723);
@@ -136,29 +153,22 @@ The CSS classes for Storefront UI colors follow the pattern of `--color-{color}-
   --color-neutral-900: oklch(0.210975 0.0108426 151.158);
 
   /* Disabled */
-  --color-disabled-50: oklch(0.986252 0.00245284 164.375);
-  --color-disabled-100: oklch(0.962452 0.00658519 159.784);
-  --color-disabled-200: oklch(0.90417 0.0125382 156.831);
-  --color-disabled-300: oklch(0.815695 0.0163149 154.295);
-  --color-disabled-400: oklch(0.62887 0.0164423 157.928);
-  --color-disabled-500: oklch(0.530109 0.017136 157.798);
-  --color-disabled-600: oklch(0.442872 0.016032 152.177);
-  --color-disabled-700: oklch(0.364935 0.0156449 156.31);
-  --color-disabled-800: oklch(0.281681 0.0111333 156.387);
-  --color-disabled-900: oklch(0.210975 0.0108426 151.158);
+  --color-disabled-50: oklch(0.986252 0.00245284 164.375 / 0.5);
+  --color-disabled-100: oklch(0.962452 0.00658519 159.784 / 0.5);
+  --color-disabled-200: oklch(0.90417 0.0125382 156.831 / 0.5);
+  --color-disabled-300: oklch(0.815695 0.0163149 154.295 / 0.5);
+  --color-disabled-400: oklch(0.62887 0.0164423 157.928 / 0.5);
+  --color-disabled-500: oklch(0.530109 0.017136 157.798 / 0.5);
+  --color-disabled-600: oklch(0.442872 0.016032 152.177 / 0.5);
+  --color-disabled-700: oklch(0.364935 0.0156449 156.31 / 0.5);
+  --color-disabled-800: oklch(0.281681 0.0111333 156.387 / 0.5);
+  --color-disabled-900: oklch(0.210975 0.0108426 151.158 / 0.5);
 }
 ```
 
 </details>
 
 ### Dark mode
-
-
-### Dark-mode specific colors
-
-
-
-
 
 Storefront UI comes with a pre-configured dark variant that applies styling based on the selector `&:where(.dark, .dark *)`. This means dark mode styles will be applied when either an element or any of its parents has the `.dark` class. This approach allows for nested dark mode contexts and follows a similar pattern to popular dark mode implementations like Tailwind's dark mode.
 
@@ -182,36 +192,35 @@ In the example below color `0.43 0.11 153.7` (oklch) will be used as `primary-40
 
 ### Tailwind Configuration
 
-If you don't need to support multiple themes, or if you'd prefer to use Tailwind variants to implement your themes, you can customize Storefront UI's colors inside of your Tailwind configuration.
+If you don't need to support multiple themes, or if you'd prefer to use Tailwind variants to implement your themes, you can customize Storefront UI's on the build time using [Tailwind `@theme` configuration directive](https://tailwindcss.com/docs/theme).
 
-
-
-```js
-export default {
-  //...
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          50: '#f5f9ff',
-          100: '#e9f3ff',
-          200: '#c8e0ff',
-          300: '#a6ccff',
-          400: '#6ea1ff',
-          500: '#3375ff',
-          600: '#2e6ae6',
-          700: '#264ebf',
-          800: '#1d3f99',
-          900: '#132f72',
-        }
-      },
-    },
-  },
-  //...
-};
+```css
+/* ... */
+@theme {
+  --color-primary-50: oklch(0.98 0.01 0);
+  --color-primary-100: oklch(0.96 0.02 252.98);
+  --color-primary-200: oklch(0.9 0.05 254.93);
+  --color-primary-300: oklch(0.84 0.08 255.92);
+  --color-primary-400: oklch(0.71 0.15 261.78);
+  --color-primary-500: oklch(0.6 0.22 262.58);
+  --color-primary-600: oklch(0.56 0.2 262.48);
+  --color-primary-700: oklch(0.47 0.18 265.04);
+  --color-primary-800: oklch(0.4 0.15 264.63);
+  --color-primary-900: oklch(0.33 0.12 263.84);
+}
+/* ... */
 ```
 
-
 :::read-more
-To learn more about the different ways to declare colors in Tailwind, check out the [Tailwind documentation](https://tailwindcss.com/docs/customizing-colors#using-custom-colors).
+To learn more about the different ways to declare colors in Tailwind, check out the [Tailwind documentation](https://tailwindcss.com/docs/theme).
 :::
+
+## Custom Tailwind Variants
+
+Our Tailwind configuration includes several custom variants designed to simplify your workflow.
+
+### `focus-visible-within` Custom Variant
+
+We've added a `focus-visible-within` custom variant to help you visually indicate when any nested child element is focus-visible. This is especially useful for styling components that require a clear focus state, even if the focus is within a child element.
+
+You can use this variant just like any other Tailwind variant. For example: `focus-visible-within:bg-primary-800`.
