@@ -34,7 +34,7 @@
     "prettier": "^3.0.0",
     "sass": "^1.77.8",
     "sass-loader": "^14.2.1",
-    "tailwindcss": "4.1.11"
+    "tailwindcss": "^4.1.11"
   },
   "dependencies": {
     "@storefront-ui/preview-shared": "workspace:^",
