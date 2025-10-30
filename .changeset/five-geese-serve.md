@@ -3,4 +3,4 @@
 '@storefront-ui/vue': major
 ---
 
-Breaking Change - Padding size for square variant of SfButton changed
+- **[BREAKING][CHANGED]** Padding size for square variant of SfButton changed
