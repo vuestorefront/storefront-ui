@@ -39,7 +39,7 @@ const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
     return (
       <WrapperTag
         className={twMerge(
-          'flex cursor-pointer focus-visible:outline-primary-700 focus-visible:outline focus-visible:outline-offset-2 rounded-md',
+          'flex cursor-pointer focus-visible-within:outline focus-visible-within:outline-offset-2 rounded-md',
           {
             'text-neutral-500 hover:text-primary-800 active:text-primary-900': !invalid && !attributes.disabled,
             'text-negative-700 hover:text-negative-800 active:text-negative-900': invalid && !attributes.disabled,
@@ -50,7 +50,7 @@ const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
         data-testid="checkbox"
       >
         <input
-          className={twMerge('hidden', className)}
+          className={twMerge('sr-only', className)}
           type="checkbox"
           ref={mergeRefs([inputRef, ref])}
           {...attributes}

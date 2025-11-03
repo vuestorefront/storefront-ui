@@ -62,13 +62,14 @@ export default plugin(function ({ matchVariant }) {
       let result = normalize(typeof value === 'function' ? (value as (opt: {}) => string)(extra) : value);
       if (!result.includes('&')) result = '&' + result;
 
-      const fn = (_: unknown, { modifier }: { modifier: any }) =>
-        modifier ? [`:merge(.peer\\/${escapeClassName(modifier)})`, ' + &'] : [`:merge(.peer)`, ' + &'];
+      const fn = (_: unknown, { modifier }: { modifier: any }) => {
+        return modifier ? [`.peer\\/${escapeClassName(modifier)}`, ' + &'] : ['.peer', ' + &'];
+      }
 
       let [a, b] = fn('', extra);
 
       let start: number | null = null;
-      let end: number | null = null;
+    let end: number | null = null;
       let quotes = 0;
 
       for (let i = 0; i < result.length; ++i) {

@@ -11,6 +11,12 @@
   }
 }
 
+@custom-variant focus-visible-within {
+  &:has(:focus-visible) {
+    @slot;
+  }
+}
+
 @theme {
   --default-outline-color: var(--color-secondary-600);
   --default-outline-offset: 2px;
@@ -85,16 +91,16 @@
   --color-neutral-800: oklch(0.281681 0.0111333 156.387);
   --color-neutral-900: oklch(0.210975 0.0108426 151.158);
 
-  --color-disabled-50: oklch(0.986252 0.00245284 164.375);
-  --color-disabled-100: oklch(0.962452 0.00658519 159.784);
-  --color-disabled-200: oklch(0.90417 0.0125382 156.831);
-  --color-disabled-300: oklch(0.815695 0.0163149 154.295);
-  --color-disabled-400: oklch(0.62887 0.0164423 157.928);
-  --color-disabled-500: oklch(0.530109 0.017136 157.798);
-  --color-disabled-600: oklch(0.442872 0.016032 152.177);
-  --color-disabled-700: oklch(0.364935 0.0156449 156.31);
-  --color-disabled-800: oklch(0.281681 0.0111333 156.387);
-  --color-disabled-900: oklch(0.210975 0.0108426 151.158);
+  --color-disabled-50: oklch(0.986252 0.00245284 164.375 / 0.5);
+  --color-disabled-100: oklch(0.962452 0.00658519 159.784 / 0.5);
+  --color-disabled-200: oklch(0.90417 0.0125382 156.831 / 0.5);
+  --color-disabled-300: oklch(0.815695 0.0163149 154.295 / 0.5);
+  --color-disabled-400: oklch(0.62887 0.0164423 157.928 / 0.5);
+  --color-disabled-500: oklch(0.530109 0.017136 157.798 / 0.5);
+  --color-disabled-600: oklch(0.442872 0.016032 152.177 / 0.5);
+  --color-disabled-700: oklch(0.364935 0.0156449 156.31 / 0.5);
+  --color-disabled-800: oklch(0.281681 0.0111333 156.387 / 0.5);
+  --color-disabled-900: oklch(0.210975 0.0108426 151.158 / 0.5);
 
   --font-headings: "Inter", "sans-serif";
   --font-body: "Inter", "sans-serif";

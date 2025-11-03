@@ -66,7 +66,7 @@
 
 ---
 
-# SF Typography
+# Plugin Peer Next
 
 Extend of `peer` tailwind class but with `+` (first next sibling). Original `peer` class is for `~` (every following sibling).
 <br /><br />

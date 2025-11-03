@@ -4,7 +4,9 @@
 
 #tab-1
 
-`useFocusVisible` helps you determine whether keyboard focus is visible globally. Sometimes standard `:focus-visible` pseudo-class is not enough. In some cases, you may want to style a wrapper element based on nested input. You can't fully rely on `:has()` pseudo-class yet, as it is still not fully [supported](https://developer.mozilla.org/en-US/docs/Web/CSS/:has#browser_compatibility).
+`useFocusVisible` helps you determine whether keyboard focus is visible globally. Sometimes standard `:focus-visible` pseudo-class is not enough. In those cases, you may want to style a wrapper element based on nested input.
+
+In many cases, our custom Tailwind CSS `focus-visible-within` variant will might be enough an shuold be preferred. However, if you require information about focus state in JavaScript, this hook provides a solution.
 
 ## Input default behaviour
 
