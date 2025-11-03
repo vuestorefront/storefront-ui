@@ -171,7 +171,12 @@
               actionItem.label
             }}</span>
             <template #suffix>
-              <SfBadge v-if="actionItem.badge" :content="actionItem.badge.content" :max="actionItem.badge.max" class="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900" />
+              <SfBadge
+                v-if="actionItem.badge"
+                :content="actionItem.badge.content"
+                :max="actionItem.badge.max"
+                class="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900"
+              />
             </template>
           </SfButton>
         </nav>

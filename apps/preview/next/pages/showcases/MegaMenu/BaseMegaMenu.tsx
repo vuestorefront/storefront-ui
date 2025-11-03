@@ -121,7 +121,7 @@ const categoriesContent = [
       },
       {
         title: 'Food & Drinks',
-        link: '#', 
+        link: '#',
         itemsCount: 123,
       },
     ],
@@ -135,7 +135,7 @@ const categoriesContent = [
         itemsCount: 123,
       },
       {
-        title: 'Clothing', 
+        title: 'Clothing',
         link: '#',
         itemsCount: 123,
       },
@@ -339,7 +339,15 @@ export default function BaseMegaMenu() {
                 aria-label={actionItem.ariaLabel}
                 variant="tertiary"
                 slotPrefix={actionItem.icon}
-                slotSuffix={actionItem.badge && <SfBadge content={actionItem.badge.content} max={actionItem.badge.max} className="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900" />}
+                slotSuffix={
+                  actionItem.badge && (
+                    <SfBadge
+                      content={actionItem.badge.content}
+                      max={actionItem.badge.max}
+                      className="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900"
+                    />
+                  )
+                }
                 square
               >
                 {actionItem.role === 'login' && (

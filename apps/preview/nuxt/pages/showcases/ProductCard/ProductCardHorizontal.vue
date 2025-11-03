@@ -10,7 +10,9 @@
           height="176"
         />
       </SfLink>
-      <div class="absolute top-0 left-0 text-white bg-negative-700 py-1 pl-1.5 pr-2 typography-text-xs font-medium rounded-xl">
+      <div
+        class="absolute top-0 left-0 text-white bg-negative-700 py-1 pl-1.5 pr-2 typography-text-xs font-medium rounded-xl"
+      >
         <SfIconSell size="xs" class="mr-1" />
         Sale
       </div>

@@ -1,9 +1,7 @@
 <script lang="ts">
 const variantClasses = {
-  [SfLinkVariant.primary]:
-    'text-secondary-700 hover:text-secondary-800 active:text-secondary-700',
-  [SfLinkVariant.secondary]:
-    'text-neutral-700 hover:text-neutral-800 active:text-neutral-700',
+  [SfLinkVariant.primary]: 'text-secondary-700 hover:text-secondary-800 active:text-secondary-700',
+  [SfLinkVariant.secondary]: 'text-neutral-700 hover:text-neutral-800 active:text-neutral-700',
 };
 </script>
 

@@ -172,7 +172,12 @@ export default function SearchWithIcon() {
             )
           }
         />
-        <SfButton type="submit" square aria-label="Search for a specific phrase on the page" className="absolute right-0">
+        <SfButton
+          type="submit"
+          square
+          aria-label="Search for a specific phrase on the page"
+          className="absolute right-0"
+        >
           <SfIconSearch />
         </SfButton>
       </div>

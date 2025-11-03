@@ -22,7 +22,11 @@
           >
             <picture>
               <source srcset="http://localhost:3100/@assets/alokai-logo-white.svg" media="(min-width: 1024px)" />
-              <img src="http://localhost:3100/@assets/alokai-sign-white.svg" alt="Sf Logo" class="w-8 h-8 lg:w-[10.5rem] lg:h-[1.75rem]" />
+              <img
+                src="http://localhost:3100/@assets/alokai-sign-white.svg"
+                alt="Sf Logo"
+                class="w-8 h-8 lg:w-[10.5rem] lg:h-[1.75rem]"
+              />
             </picture>
           </a>
         </div>
@@ -66,7 +70,12 @@
               {{ actionItem.label }}
             </p>
             <template #suffix>
-              <SfBadge v-if="actionItem.badge" :content="actionItem.badge.content" :max="actionItem.badge.max" class="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900" />
+              <SfBadge
+                v-if="actionItem.badge"
+                :content="actionItem.badge.content"
+                :max="actionItem.badge.max"
+                class="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900"
+              />
             </template>
           </SfButton>
         </nav>
@@ -146,7 +155,13 @@
                   </p>
                   <ul class="mt-2">
                     <li v-for="child in node.children" :key="child.key">
-                      <SfListItem tag="a" size="sm" :href="child.value.link" class="typography-text-sm py-1.5" default-class="w-auto">
+                      <SfListItem
+                        tag="a"
+                        size="sm"
+                        :href="child.value.link"
+                        class="typography-text-sm py-1.5"
+                        default-class="w-auto"
+                      >
                         {{ child.value.label }}
                         <template #suffix>
                           <SfCounter size="sm">{{ child.value.counter }}</SfCounter>

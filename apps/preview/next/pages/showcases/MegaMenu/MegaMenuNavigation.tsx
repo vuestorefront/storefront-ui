@@ -469,7 +469,11 @@ export default function MegaMenuNavigation() {
             >
               <picture>
                 <source srcSet="http://localhost:3100/@assets/alokai-logo-white.svg" media="(min-width: 1024px)" />
-                <img src="http://localhost:3100/@assets/alokai-sign-white.svg" alt="Sf Logo" className="w-8 h-8 lg:w-[10.5rem] lg:h-[1.75rem]" />
+                <img
+                  src="http://localhost:3100/@assets/alokai-sign-white.svg"
+                  alt="Sf Logo"
+                  className="w-8 h-8 lg:w-[10.5rem] lg:h-[1.75rem]"
+                />
               </picture>
             </a>
           </div>
@@ -505,7 +509,15 @@ export default function MegaMenuNavigation() {
                 aria-label={actionItem.ariaLabel}
                 variant="tertiary"
                 slotPrefix={actionItem.icon}
-                slotSuffix={actionItem.badge && <SfBadge content={actionItem.badge.content} max={actionItem.badge.max} className="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900" />}
+                slotSuffix={
+                  actionItem.badge && (
+                    <SfBadge
+                      content={actionItem.badge.content}
+                      max={actionItem.badge.max}
+                      className="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900"
+                    />
+                  )
+                }
                 square
               >
                 {actionItem.role === 'login' && (
