@@ -169,7 +169,7 @@
             </fieldset>
           </template>
         </SfAccordionItem>
-        <hr class="my-4" />
+        <hr class="my-4 border-neutral-200" />
       </li>
     </ul>
     <div class="flex justify-between">

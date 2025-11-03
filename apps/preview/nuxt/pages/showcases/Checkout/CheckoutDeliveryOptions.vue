@@ -3,7 +3,7 @@
     v-for="({ name, cost, date }, index) in deliveryOptions"
     :key="index"
     tag="label"
-    class="!items-start max-w-sm border rounded-md border-neutral-200 first-of-type:mr-4 first-of-type:mb-4"
+    class="!items-start max-w-sm border rounded-xl border-neutral-200 first-of-type:mr-4 first-of-type:mb-4"
   >
     {{ name }}
     <span class="block text-xs text-gray-500 break-words">{{ date }}</span>

@@ -1,11 +1,11 @@
 <template>
-  <div class="border border-neutral-200 rounded-md hover:shadow-lg max-w-[300px]">
+  <div class="border border-neutral-200 rounded-xl hover:shadow-lg max-w-[300px]">
     <div class="relative">
       <SfLink href="#" class="block">
         <img
           src="http://localhost:3100/@assets/sneakers.png"
           alt="Great product"
-          class="block object-cover h-auto rounded-md aspect-square"
+          class="block object-cover h-auto rounded-xl aspect-square"
           width="300"
           height="300"
         />

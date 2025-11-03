@@ -1,16 +1,16 @@
 <template>
   <div class="flex border-b-[1px] border-neutral-200 hover:shadow-lg min-w-[320px] max-w-[640px] p-4">
-    <div class="relative overflow-hidden rounded-md w-[100px] sm:w-[176px]">
+    <div class="relative overflow-hidden rounded-xl w-[100px] sm:w-[176px]">
       <SfLink href="#">
         <img
-          class="w-full h-auto border rounded-md border-neutral-200"
+          class="w-full h-auto border rounded-xl border-neutral-200"
           src="http://localhost:3100/@assets/smartwatch.png"
           alt="Smartwatch Fitness Tracker"
           width="176"
           height="176"
         />
       </SfLink>
-      <div class="absolute top-0 left-0 text-white bg-secondary-600 py-1 pl-1.5 pr-2 typography-text-xs font-medium">
+      <div class="absolute top-0 left-0 text-white bg-negative-700 py-1 pl-1.5 pr-2 typography-text-xs font-medium rounded-xl">
         <SfIconSell size="xs" class="mr-1" />
         Sale
       </div>

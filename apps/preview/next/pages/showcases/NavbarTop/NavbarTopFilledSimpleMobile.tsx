@@ -57,7 +57,7 @@ export default function TopNavFilled() {
           <img
             src="http://localhost:3100/@assets/alokai-logo-white.svg"
             alt="Sf Logo"
-            className="w-[175px] md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]"
+            className="w-[110px] md:h-6 md:w-[110px] lg:w-[10.5rem] lg:h-[1.75rem]"
           />
         </a>
         <SfButton variant="tertiary" square className="md:hidden text-white" aria-label="Search">
@@ -88,7 +88,7 @@ export default function TopNavFilled() {
             type="search"
             className="[&::-webkit-search-cancel-button]:appearance-none"
             placeholder="Search"
-            wrapperClassName="flex-1 h-10 pr-0"
+            wrapperClassName="flex-1 h-10 pr-0 rounded-full"
             size="base"
             slotSuffix={
               <span className="flex items-center">

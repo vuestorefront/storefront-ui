@@ -152,6 +152,7 @@ export default function SearchBasic() {
         aria-label="Search"
         placeholder="Search 'MacBook' or 'iPhone'..."
         onKeyDown={handleInputKeyDown}
+        wrapperClassName="rounded-full"
         slotPrefix={<SfIconSearch />}
         slotSuffix={
           isResetButton && (
@@ -159,7 +160,7 @@ export default function SearchBasic() {
               type="reset"
               onClick={handleReset}
               aria-label="Reset search"
-              className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+              className="flex rounded-full focus-visible:outline focus-visible:outline-offset"
             >
               <SfIconCancel />
             </button>
@@ -169,14 +170,14 @@ export default function SearchBasic() {
       {isOpen && (
         <div ref={refs.setFloating} style={style} className="left-0 right-0">
           {isLoadingSnippets ? (
-            <div className="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md">
+            <div className="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-xl border-neutral-100 drop-shadow-md">
               <SfLoaderCircular />
             </div>
           ) : (
             snippets.length > 0 && (
               <ul
                 ref={dropdownListRef}
-                className="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+                className="py-2 bg-white border border-solid rounded-xl border-neutral-100 drop-shadow-md"
               >
                 {snippets.map(({ highlight, rest, product }) => (
                   <li key={product.id}>

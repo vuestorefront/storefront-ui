@@ -26,7 +26,7 @@
             <img
               src="http://localhost:3100/@assets/alokai-sign-white.svg"
               alt="Sf Logo"
-              class="w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem]"
+              class="w-8 h-8 lg:w-[10.5rem] lg:h-[1.75rem]"
             />
           </picture>
         </a>
@@ -87,7 +87,7 @@
                     >
                       {{ heading }}
                     </h2>
-                    <hr class="mb-3.5" />
+                    <hr class="mb-3.5 border-neutral-200" />
                     <ul>
                       <li v-for="item in items" :key="item.title">
                         <SfListItem
@@ -96,8 +96,12 @@
                           size="sm"
                           role="none"
                           class="typography-text-base md:typography-text-sm py-4 md:py-1.5"
+                          default-class="w-auto"
                         >
                           {{ item.title }}
+                          <template #suffix>
+                            <SfCounter size="sm">{{ item.itemsCount }}</SfCounter>
+                          </template>
                         </SfListItem>
                       </li>
                     </ul>
@@ -133,7 +137,7 @@
             type="search"
             class="[&::-webkit-search-cancel-button]:appearance-none"
             placeholder="Search"
-            wrapper-class="flex-1 h-10 pr-0"
+            wrapper-class="flex-1 h-10 pr-0 rounded-full"
             size="base"
           >
             <template #suffix>
@@ -155,7 +159,7 @@
           <SfButton
             v-for="actionItem in actionItems"
             :key="actionItem.ariaLabel"
-            class="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            class="relative text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
             :aria-label="actionItem.ariaLabel"
             variant="tertiary"
             square
@@ -166,6 +170,9 @@
             <span v-if="actionItem.role === 'login'" class="hidden lg:inline-flex whitespace-nowrap pr-2">{{
               actionItem.label
             }}</span>
+            <template #suffix>
+              <SfBadge v-if="actionItem.badge" :content="actionItem.badge.content" :max="actionItem.badge.max" class="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900" />
+            </template>
           </SfButton>
         </nav>
       </div>
@@ -175,7 +182,7 @@
           type="search"
           class="[&::-webkit-search-cancel-button]:appearance-none"
           placeholder="Search"
-          wrapper-class="flex-1 h-10 pr-0"
+          wrapper-class="flex-1 h-10 pr-0 rounded-full"
           size="base"
         >
           <template #suffix>
@@ -199,6 +206,7 @@
 <script lang="ts" setup>
 import {
   SfButton,
+  SfCounter,
   SfDrawer,
   SfIconShoppingCart,
   SfIconFavorite,
@@ -211,6 +219,7 @@ import {
   SfIconMenu,
   SfInput,
   SfIconSearch,
+  SfBadge,
 } from '@storefront-ui/vue';
 import { ref } from 'vue';
 import { onClickOutside } from '@vueuse/core';
@@ -240,18 +249,24 @@ const actionItems = [
     label: '',
     ariaLabel: 'Cart',
     role: 'button',
+    badge: {
+      content: 120,
+      max: 99,
+    },
   },
   {
     icon: SfIconFavorite,
     label: '',
     ariaLabel: 'Wishlist',
     role: 'button',
+    badge: undefined,
   },
   {
     icon: SfIconPerson,
     label: 'Log in',
     ariaLabel: 'Log in',
     role: 'login',
+    badge: undefined,
   },
 ];
 const bannerDetails = {
@@ -266,26 +281,32 @@ const categoriesContent = [
       {
         title: "All Women's",
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Clothing',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Shoes',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Accessories',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Wearables',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Food & Drinks',
         link: '#',
+        itemsCount: 123,
       },
     ],
   },
@@ -295,26 +316,32 @@ const categoriesContent = [
       {
         title: 'All Men’s',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Clothing',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Shoes',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Accessories',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Wearables',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Food & Drinks',
         link: '#',
+        itemsCount: 123,
       },
     ],
   },
@@ -324,26 +351,32 @@ const categoriesContent = [
       {
         title: 'All Kids',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Clothing',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Shoes',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Accessories',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Wearables',
         link: '#',
+        itemsCount: 123,
       },
       {
         title: 'Food & Drinks',
         link: '#',
+        itemsCount: 123,
       },
     ],
   },

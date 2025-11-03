@@ -167,7 +167,7 @@ const bottomLinks = [
 ];
 export default function FooterBasic() {
   return (
-    <footer className="pt-10 bg-neutral-100">
+    <footer className="pt-10">
       <div className="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-[1536px] mx-auto">
         {categories.map(({ label, subcategories }) => (
           <ul className="grid grid-cols xs:pb-4" key={label}>
@@ -186,7 +186,7 @@ export default function FooterBasic() {
           </ul>
         ))}
       </div>
-      <hr />
+      <hr className="border-neutral-200" />
       <div className="py-10 md:flex md:mx-auto max-w-[1536px]">
         {contactOptions.map(({ label, icon: Icon, link, details }) => (
           <div className="mx-auto my-4 text-center" key={label}>

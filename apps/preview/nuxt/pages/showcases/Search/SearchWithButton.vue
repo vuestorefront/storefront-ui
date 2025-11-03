@@ -1,10 +1,10 @@
 <template>
   <form ref="referenceRef" role="search" class="relative" @submit.prevent="submit">
-    <div class="flex">
+    <div class="flex relative">
       <SfInput
         ref="inputRef"
         v-model="inputModel"
-        wrapper-class="w-full !ring-0 active:!ring-0 hover:!ring-0 focus-within:!ring-0 border-y border-l border-neutral-200 rounded-r-none hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
+        wrapper-class="w-full !ring-0 active:!ring-0 hover:!ring-0 focus-within:!ring-0 border-y border-l border-neutral-200 rounded-full hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
         aria-label="Search"
         placeholder="Search 'jackets' or 'dresses'..."
         @focus="open"
@@ -16,26 +16,26 @@
             v-if="inputModel"
             type="button"
             aria-label="Reset search"
-            class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+            class="flex rounded-full focus-visible:outline focus-visible:outline-offset"
             @click="reset"
           >
             <SfIconCancel />
           </button>
         </template>
       </SfInput>
-      <SfButton type="submit" class="rounded-l-none">Search</SfButton>
+      <SfButton type="submit" class="absolute right-0">Search</SfButton>
     </div>
     <div v-if="isOpen" ref="floatingRef" :style="style" class="left-0 right-0">
       <div
         v-if="isLoadingSnippets"
-        class="flex items-center justify-center w-full h-screen sm:h-20 py-2 bg-white sm:border sm:border-solid sm:rounded-md sm:border-neutral-100 sm:drop-shadow-md"
+        class="flex items-center justify-center w-full h-screen sm:h-20 py-2 bg-white sm:border sm:border-solid sm:rounded-xl sm:border-neutral-100 sm:drop-shadow-md"
       >
         <SfLoaderCircular />
       </div>
       <ul
         v-else-if="snippets.length > 0"
         ref="dropdownListRef"
-        class="py-2 bg-white h-screen sm:h-auto sm:border sm:border-solid sm:rounded-md sm:border-neutral-100 sm:drop-shadow-md"
+        class="py-2 bg-white h-screen sm:h-auto sm:border sm:border-solid sm:rounded-xl sm:border-neutral-100 sm:drop-shadow-md"
       >
         <li v-for="{ highlight, rest, product } in snippets" :key="product.id">
           <SfListItem

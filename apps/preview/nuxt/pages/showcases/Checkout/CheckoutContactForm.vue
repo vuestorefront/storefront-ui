@@ -7,7 +7,7 @@
         <SfInput
           v-model="value"
           name="email"
-          placeholder="email address"
+          placeholder="e.g. john.doe@example.com"
           :invalid="invalid"
           auto-complete="email"
           @input="handleValidation"
@@ -24,7 +24,6 @@
           <option v-for="option in options" :key="option" :value="option">
             {{ option }}
           </option>
-          ))}
         </SfSelect>
         <SfInput
           name="phone-national"
@@ -32,6 +31,7 @@
           type="tel"
           input-mode="tel"
           auto-complete="tel-national"
+          placeholder="e.g. 123 456 7890"
         />
       </div>
     </label>

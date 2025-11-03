@@ -47,8 +47,9 @@ const { attrsWithoutClass } = useTwMergeRoot();
     :class="
       twMerge(
         'inline-flex items-center gap-2 w-full hover:bg-neutral-100 active:bg-neutral-200 cursor-pointer focus-visible:outline focus-visible:outline-offset focus-visible:relative focus-visible:z-10',
-        sizeClasses[size],
         { 'cursor-not-allowed pointer-events-none text-disabled-900': disabled, 'font-medium': selected },
+        sizeClasses[size],
+        $attrs.class,
       )
     "
     :disabled="disabled"

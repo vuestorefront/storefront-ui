@@ -43,7 +43,7 @@ export default function NewsletterBox() {
             value={inputValue}
             type="email"
             size="lg"
-            wrapperClassName="grow"
+            wrapperClassName="grow rounded-full"
             placeholder="Type your email"
             onChange={(event) => setInputValue(event.target.value)}
           />

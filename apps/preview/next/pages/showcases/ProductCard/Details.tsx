@@ -32,7 +32,7 @@ export default function ProductDetails() {
   }
   return (
     <section className="md:max-w-[640px]">
-      <div className="inline-flex items-center justify-center text-sm font-medium text-white bg-secondary-600 py-1.5 px-3 mb-4">
+      <div className="inline-flex items-center justify-center text-sm font-medium text-white bg-negative-700 py-1.5 px-3 mb-4 rounded-xl">
         <SfIconSell size="sm" className="mr-1.5" />
         Sale
       </div>

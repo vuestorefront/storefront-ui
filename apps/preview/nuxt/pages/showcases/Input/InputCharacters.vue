@@ -5,6 +5,9 @@
     </span>
     <SfInput
       v-model="inputValue"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :readonly="readonly"
       :wrapper-class="[
         'mt-0.5',
         {
@@ -47,6 +50,7 @@ const required = ref(false);
 const requiredText = ref('');
 const helpText = ref('Help text');
 const label = ref('Label');
+const placeholder = ref('placeholder');
 const errorText = ref('Error');
 
 const isAboveLimit = computed(() => inputValue.value.length > characterLimit.value);

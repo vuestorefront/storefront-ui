@@ -9,7 +9,7 @@
       :aria-expanded="isOpen"
       aria-label="Select one option"
       :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
-      class="mt-0.5 flex items-center gap-8 relative ring-inset rounded-md py-2 px-4 font-normal typography-text-base focus-visible:outline focus-visible:outline-offset cursor-pointer"
+      class="mt-0.5 flex items-center gap-8 relative ring-inset rounded-xl py-2 px-4 font-normal typography-text-base focus-visible:outline focus-visible:outline-offset cursor-pointer"
       :class="
         isValid
           ? 'ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2'
@@ -32,7 +32,7 @@
       ref="floatingRef"
       role="listbox"
       aria-label="Select one option"
-      class="w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
+      class="w-full py-2 rounded-xl shadow-md border border-neutral-100 bg-white z-10"
       :style="dropdownStyle"
     >
       <SfListItem

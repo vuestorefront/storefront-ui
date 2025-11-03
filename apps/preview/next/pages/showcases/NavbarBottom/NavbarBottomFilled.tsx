@@ -48,7 +48,7 @@ export default function BottomNavFilled() {
           variant="tertiary"
           slotPrefix={item.icon}
           className={classNames(
-            'py-1 flex flex-col h-full w-full rounded-none bg-primary-700 text-white hover:text-white hover:bg-primary-800 active:text-white active:bg-primary-900',
+            'pt-3 pb-1 gap-0.5 flex flex-col h-full w-full rounded-none bg-primary-700 text-white hover:text-white hover:bg-primary-800 active:text-white active:bg-primary-900',
             { 'text-white bg-primary-900': selectedItem === item.label },
           )}
           onClick={() => onClickHandler(item.label)}

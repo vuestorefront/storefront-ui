@@ -46,7 +46,7 @@ const textareaValue = computed({
     v-model="textareaValue"
     :class="
       twMerge(
-        'px-4 bg-white rounded-md text-neutral-900 ring-inset hover:ring-primary-800 focus:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 outline-hidden',
+        'px-4 bg-white rounded-xl text-neutral-900 ring-inset hover:ring-primary-800 focus:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 outline-hidden',
         {
           'ring-2 ring-negative-700': invalid,
           'ring-1 ring-neutral-200': !invalid,

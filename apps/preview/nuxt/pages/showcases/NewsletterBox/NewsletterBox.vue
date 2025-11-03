@@ -11,7 +11,7 @@
         class="mb-4 flex flex-col sm:flex-row gap-4 max-w-[688px] mx-auto"
         @submit.prevent="subscribeNewsletter(inputValue)"
       >
-        <SfInput v-model="inputValue" size="lg" type="email" wrapper-class="grow" placeholder="Type your email" />
+        <SfInput v-model="inputValue" size="lg" type="email" wrapper-class="grow rounded-full" placeholder="Type your email" />
         <SfButton type="submit" size="lg"> Subscribe to Newsletter </SfButton>
       </form>
       <div class="typography-text-xs text-neutral-600">

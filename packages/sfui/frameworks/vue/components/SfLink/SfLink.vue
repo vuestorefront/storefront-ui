@@ -1,9 +1,9 @@
 <script lang="ts">
 const variantClasses = {
   [SfLinkVariant.primary]:
-    'text-primary-700 underline hover:text-primary-800 active:text-primary-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs',
+    'text-secondary-700 hover:text-secondary-800 active:text-secondary-700',
   [SfLinkVariant.secondary]:
-    'underline hover:text-primary-800 active:text-primary-900 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs',
+    'text-neutral-700 hover:text-neutral-800 active:text-neutral-700',
 };
 </script>
 
@@ -32,7 +32,7 @@ const { attrsWithoutClass } = useTwMergeRoot();
     :is="tag"
     :class="
       twMerge(
-        'focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs',
+        'focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs underline hover:no-underline',
         variantClasses[variant],
         $attrs.class,
       )

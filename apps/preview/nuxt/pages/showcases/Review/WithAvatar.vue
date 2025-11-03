@@ -1,5 +1,5 @@
 <template>
-  <article class="w-full p-4 border rounded-md">
+  <article class="w-full p-4 border border-neutral-200 rounded-xl">
     <header class="flex flex-col items-start pb-4 md:flex-row md:justify-between">
       <div class="flex items-start">
         <img src="http://localhost:3100/@assets/review_avatar.png" alt="Review avatar" class="p-0.5" />

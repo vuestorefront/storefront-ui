@@ -24,5 +24,5 @@
 import { ref } from 'vue';
 import { SfRatingButton, SfIconFavorite, SfIconFavoriteFilled, useId } from '@storefront-ui/vue';
 const labelId = useId();
-const modelValue = ref();
+const modelValue = ref(2);
 </script>

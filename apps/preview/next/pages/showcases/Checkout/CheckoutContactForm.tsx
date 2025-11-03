@@ -34,7 +34,7 @@ export default function ContactForm() {
           <SfInput
             name="email"
             onChange={handleValidation}
-            placeholder="email address"
+            placeholder="e.g. john.doe@example.com"
             invalid={invalid}
             autoComplete="email"
           />
@@ -61,6 +61,7 @@ export default function ContactForm() {
             type="tel"
             inputMode="tel"
             autoComplete="tel-national"
+            placeholder="e.g. 123 456 7890"
           />
         </div>
       </label>
