@@ -26,7 +26,7 @@ export function Showcase() {
   };
 
   return (
-    <nav className="inline-flex text-sm font-normal font-body">
+    <nav className="inline-flex font-body typography-text-sm">
       <ol className="flex items-center w-auto leading-none group md:flex-wrap">
         <li className="flex text-neutral-500 sm:hidden">
           <SfDropdown
@@ -82,7 +82,7 @@ export function Showcase() {
               <SfLink
                 href={item.link}
                 variant="secondary"
-                className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600"
+                className="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-neutral-500"
               >
                 {item.name}
               </SfLink>
