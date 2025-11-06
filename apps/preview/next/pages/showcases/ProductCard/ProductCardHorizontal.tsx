@@ -51,7 +51,7 @@ export default function ProductCardHorizontal() {
         <div className="items-center sm:mt-auto sm:flex">
           <span className="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99</span>
           <div className="flex items-center justify-between mt-4 sm:mt-0">
-            <div className="flex border border-neutral-300 rounded-md">
+            <div className="flex border border-neutral-300 rounded-full">
               <SfButton
                 variant="tertiary"
                 square
