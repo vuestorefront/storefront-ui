@@ -134,17 +134,6 @@ const findGroup = (groups, currentRouteHref) =>
   });
 
 watch(
-  [currentRoute, groups],
-  ([currentRoute, groups]) => {
-    if (!currentRoute || !groups) return;
-    const currentGroup = findGroup(groups, currentRoute.path);
-    if (!currentGroup) return;
-    groups[currentGroup[0]].open = true;
-  },
-  { immediate: true },
-);
-
-watch(
   searchModelValue,
   (searchModelValue) => {
     for (let group in groups) {
@@ -161,6 +150,17 @@ watch(
   { immediate: true },
 );
 useControlsSearchParams(reactive({ s: searchModelValue }));
+
+watch(
+  [currentRoute, groups],
+  ([currentRoute, groups]) => {
+    if (!currentRoute || !groups) return;
+    const currentGroup = findGroup(groups, currentRoute.path);
+    if (!currentGroup) return;
+    groups[currentGroup[0]].open = true;
+  },
+  { immediate: true },
+);
 
 onBeforeMount(() => {
   if (window.self === window.top) {

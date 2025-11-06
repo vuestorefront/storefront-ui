@@ -1,5 +1,5 @@
 <template>
-  <div class="relative h-dvh w-dvh shrink-0">
+  <div class="relative h-dvh w-dvw shrink-0">
     <picture>
       <source :srcset="backgroundImage" media="(min-width: 768px)" />
       <img :src="backgroundImageMobile" class="absolute w-full h-full z-[-1] object-cover" alt="hero" />

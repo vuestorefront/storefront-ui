@@ -428,7 +428,7 @@ export default function FiltersSidepanel() {
               </fieldset>
             )}
           </SfAccordionItem>
-          <hr className="my-4" />
+          <hr className="my-4 border-neutral-200" />
         </Fragment>
       ))}
       <div className="flex justify-between">

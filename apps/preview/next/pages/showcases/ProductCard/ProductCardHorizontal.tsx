@@ -17,17 +17,17 @@ export default function ProductCardHorizontal() {
   }
   return (
     <div className="relative flex border-b-[1px] border-neutral-200 hover:shadow-lg min-w-[320px] max-w-[640px] p-4">
-      <div className="relative overflow-hidden rounded-md w-[100px] sm:w-[176px]">
+      <div className="relative overflow-hidden rounded-xl w-[100px] sm:w-[176px]">
         <SfLink href="#">
           <img
-            className="w-full h-auto border rounded-md border-neutral-200"
+            className="w-full h-auto border rounded-xl border-neutral-200"
             src="http://localhost:3100/@assets/smartwatch.png"
             alt="alt"
             width="300"
             height="300"
           />
         </SfLink>
-        <div className="absolute top-0 left-0 text-white bg-secondary-600 py-1 pl-1.5 pr-2 text-xs font-medium">
+        <div className="absolute top-0 left-0 text-white bg-negative-700 py-1 pl-1.5 pr-2 text-xs font-medium rounded-xl">
           <SfIconSell size="xs" className="mr-1" />
           Sale
         </div>
@@ -51,7 +51,7 @@ export default function ProductCardHorizontal() {
         <div className="items-center sm:mt-auto sm:flex">
           <span className="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99</span>
           <div className="flex items-center justify-between mt-4 sm:mt-0">
-            <div className="flex border border-neutral-300 rounded-md">
+            <div className="flex border border-neutral-300 rounded-full">
               <SfButton
                 variant="tertiary"
                 square

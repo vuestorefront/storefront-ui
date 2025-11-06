@@ -31,7 +31,7 @@ export default function Hero() {
     variant,
   } = heroDetails;
   return (
-    <div className="relative h-dvh w-dvh shrink-0">
+    <div className="relative h-dvh w-dvw shrink-0">
       <picture>
         <source srcSet={backgroundImage} media="(min-width: 768px)" />
         <img src={backgroundImageMobile} className="absolute w-full h-full z-[-1] object-cover" alt="hero" />

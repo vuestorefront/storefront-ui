@@ -20,7 +20,7 @@ const SfInput = polymorphicForwardRef<typeof defaultWrapperTag, SfInputProps>(
     return (
       <WrapperTag
         className={twMerge(
-          'flex items-center gap-2 px-4 bg-white rounded-xl text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
+          'flex items-center gap-2 px-4 bg-white rounded-xl text-neutral-500 ring-inset hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
           {
             'ring-2 ring-negative-700': invalid,
             'ring-1 ring-neutral-300': !invalid,

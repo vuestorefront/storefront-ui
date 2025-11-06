@@ -108,8 +108,8 @@
   --text-2xs: 0.625rem; /* 10px */
   --text-3xs: 0.5rem; /* 8px */
 
-  --breakpoint-2xs: "22.5rem"; /* 360px */
-  --breakpoint-xs: "23.5rem"; /* 376px */
+  --breakpoint-2xs: 22.5rem; /* 360px */
+  --breakpoint-xs: 23.5rem; /* 376px */
 
   --bg-img-checked-checkbox-current: linear-gradient(-45deg,transparent 65%, currentcolor 65.99%),linear-gradient(45deg,transparent 75%, currentcolor 75.99%),linear-gradient(-45deg, currentcolor 40%,transparent 40.99%),linear-gradient(45deg, currentcolor 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, currentcolor 50.99%);
   --bg-img-indeterminate-checkbox-current: linear-gradient(90deg,transparent 80%, currentcolor 80%),linear-gradient(-90deg,transparent 80%, currentcolor 80%),linear-gradient(0deg, currentcolor 43%, white 43%, white 57%, currentcolor 57%);

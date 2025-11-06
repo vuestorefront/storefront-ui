@@ -1,5 +1,5 @@
 <template>
-  <nav class="inline-flex items-center text-sm font-normal font-body">
+  <nav class="inline-flex items-center typography-text-sm font-body">
     <ol class="flex w-auto leading-none md:flex-wrap">
       <li class="flex items-center sm:hidden text-neutral-500">
         <SfDropdown v-model="dropdownOpened" strategy="absolute" placement="bottom-start" @update:model-value="close">

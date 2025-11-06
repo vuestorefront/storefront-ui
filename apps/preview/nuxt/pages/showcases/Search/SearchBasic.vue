@@ -7,6 +7,7 @@
       placeholder="Search 'MacBook' or 'iPhone'..."
       @focus="open"
       @keydown="handleInputKeyDown"
+      wrapper-class="rounded-full"
     >
       <template #prefix><SfIconSearch /></template>
       <template #suffix>
@@ -14,7 +15,7 @@
           v-if="inputModel"
           type="button"
           aria-label="Reset search"
-          class="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+          class="flex rounded-full focus-visible:outline focus-visible:outline-offset"
           @click="reset"
         >
           <SfIconCancel /></button
@@ -23,14 +24,14 @@
     <div v-if="isOpen" ref="floatingRef" :style="style" class="left-0 right-0">
       <div
         v-if="isLoadingSnippets"
-        class="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+        class="flex items-center justify-center w-full h-20 py-2 bg-white border border-solid rounded-xl border-neutral-100 drop-shadow-md"
       >
         <SfLoaderCircular />
       </div>
       <ul
         v-else-if="snippets.length > 0"
         ref="dropdownListRef"
-        class="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+        class="py-2 bg-white border border-solid rounded-xl border-neutral-100 drop-shadow-md"
       >
         <li v-for="{ highlight, rest, product } in snippets" :key="product.id">
           <SfListItem

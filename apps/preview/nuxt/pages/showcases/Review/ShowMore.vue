@@ -1,5 +1,5 @@
 <template>
-  <article class="w-full p-4 border rounded-md">
+  <article class="w-full p-4 border border-neutral-200 rounded-xl">
     <p class="pb-2 font-medium">I love them</p>
     <header class="flex flex-col pb-2 md:flex-row md:justify-between">
       <div class="flex flex-col items-start">
