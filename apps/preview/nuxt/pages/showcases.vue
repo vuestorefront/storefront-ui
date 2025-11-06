@@ -159,7 +159,7 @@ watch(
     if (!currentGroup) return;
     groups[currentGroup[0]].open = true;
   },
-  { immediate: true, deep: false },
+  { immediate: true },
 );
 
 onBeforeMount(() => {
