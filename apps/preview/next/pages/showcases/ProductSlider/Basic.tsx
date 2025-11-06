@@ -23,7 +23,7 @@ const products = Array.from(Array(10), (_, i) => ({
   },
 }));
 
-function ButtonPrev({ disabled, ...attributes }: { disabled?: boolean }) {
+function ButtonPrev({ disabled = false, ...attributes }: { disabled?: boolean }) {
   return (
     <SfButton
       className={classNames('absolute !rounded-full z-10 left-4 bg-white hidden md:block', {
@@ -39,9 +39,7 @@ function ButtonPrev({ disabled, ...attributes }: { disabled?: boolean }) {
   );
 }
 
-ButtonPrev.defaultProps = { disabled: false };
-
-function ButtonNext({ disabled, ...attributes }: { disabled?: boolean }) {
+function ButtonNext({ disabled = false, ...attributes }: { disabled?: boolean }) {
   return (
     <SfButton
       className={classNames('absolute !rounded-full z-10 right-4 bg-white hidden md:block', {
@@ -56,8 +54,6 @@ function ButtonNext({ disabled, ...attributes }: { disabled?: boolean }) {
     </SfButton>
   );
 }
-
-ButtonNext.defaultProps = { disabled: false };
 
 export default function ProductSliderBasic() {
   return (

@@ -21,8 +21,8 @@
     "test:ci:react": "yarn test:ci && CYPRESS_COVERAGE=true yarn cypress run --component && yarn generate-coverage"
   },
   "dependencies": {
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.13.4",
@@ -37,8 +37,8 @@
     "@storefront-ui/typography": "workspace:*",
     "@tailwindcss/postcss": "^4.1.14",
     "@tailwindcss/typography": "^0.5.19",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.19",
     "chokidar-cli": "^3.0.0",

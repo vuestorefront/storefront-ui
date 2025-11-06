@@ -22,8 +22,8 @@ const options = [
 export default function DrawerWithTransition() {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<`${SfDrawerPlacement}`>('left');
-  const nodeRef = useRef(null);
-  const drawerRef = useRef(null);
+  const nodeRef = useRef<Transition<HTMLElement | undefined>>(null);
+  const drawerRef = useRef<HTMLElement>(null);
 
   useTrapFocus(drawerRef, { activeState: open });
 
