@@ -43,7 +43,7 @@ const SfChip = forwardRef<HTMLInputElement, SfChipProps>(
           ref={ref}
           type="checkbox"
           {...inputProps}
-          className={twMerge('absolute w-0 outline-none appearance-none peer', inputProps?.className)}
+          className={twMerge('absolute w-0 outline-hidden appearance-none peer', inputProps?.className)}
         />
         <label
           htmlFor={chipId}

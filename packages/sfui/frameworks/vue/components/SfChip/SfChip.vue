@@ -60,7 +60,7 @@ const paddingForSize = computed(() => {
   <input
     :id="inputId"
     v-model="onSelected"
-    :class="twMerge('absolute w-0 outline-none appearance-none peer', inputProps?.class)"
+    :class="twMerge('absolute w-0 outline-hidden appearance-none peer', inputProps?.class)"
     type="checkbox"
     v-bind="inputProps"
   />

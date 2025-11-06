@@ -21,6 +21,7 @@ import {
   useDisclosure,
   SfInput,
   SfIconSearch,
+  SfBadge,
 } from '@storefront-ui/react';
 import { type FocusEvent, Fragment, useRef, useState, useMemo, createRef, RefObject } from 'react';
 
@@ -30,18 +31,24 @@ const actionItems = [
     label: '',
     ariaLabel: 'Cart',
     role: 'button',
+    badge: {
+      content: 120,
+      max: 99,
+    },
   },
   {
     icon: <SfIconFavorite />,
     label: '',
     ariaLabel: 'Wishlist',
     role: 'button',
+    badge: undefined,
   },
   {
     icon: <SfIconPerson />,
     label: 'Log in',
     ariaLabel: 'Log in',
     role: 'login',
+    badge: undefined,
   },
 ];
 
@@ -445,7 +452,7 @@ export default function MegaMenuNavigation() {
     <div className="w-full h-full">
       <header className="relative" ref={refs.setReference}>
         <div className="flex flex-wrap md:flex-nowrap justify-between items-center px-4 md:px-10 py-2 md:py-5 w-full border-0 bg-primary-700 border-neutral-200 h-full md:z-10">
-          <div className="flex items-center">
+          <div className="flex items-center shrink-0">
             <SfButton
               onClick={handleOpenMenu([])}
               variant="tertiary"
@@ -458,11 +465,15 @@ export default function MegaMenuNavigation() {
             <a
               href="#"
               aria-label="SF Homepage"
-              className="flex shrink-0 w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem] items-center text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+              className="flex shrink-0 items-center text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs"
             >
               <picture>
                 <source srcSet="http://localhost:3100/@assets/alokai-logo-white.svg" media="(min-width: 1024px)" />
-                <img src="http://localhost:3100/@assets/alokai-sign-white.svg" alt="Sf Logo" />
+                <img
+                  src="http://localhost:3100/@assets/alokai-sign-white.svg"
+                  alt="Sf Logo"
+                  className="w-8 h-8 lg:w-[10.5rem] lg:h-[1.75rem]"
+                />
               </picture>
             </a>
           </div>
@@ -472,7 +483,7 @@ export default function MegaMenuNavigation() {
               type="search"
               className="[&::-webkit-search-cancel-button]:appearance-none"
               placeholder="Search"
-              wrapperClassName="flex-1 h-10 pr-0"
+              wrapperClassName="flex-1 h-10 pr-0 rounded-full"
               size="base"
               slotSuffix={
                 <span className="flex items-center">
@@ -493,11 +504,20 @@ export default function MegaMenuNavigation() {
           <nav className="flex flex-nowrap justify-end items-center md:ml-10 gap-x-1">
             {actionItems.map((actionItem) => (
               <SfButton
-                className="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+                className="relative text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
                 key={actionItem.ariaLabel}
                 aria-label={actionItem.ariaLabel}
                 variant="tertiary"
                 slotPrefix={actionItem.icon}
+                slotSuffix={
+                  actionItem.badge && (
+                    <SfBadge
+                      content={actionItem.badge.content}
+                      max={actionItem.badge.max}
+                      className="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900"
+                    />
+                  )
+                }
                 square
               >
                 {actionItem.role === 'login' && (
@@ -512,7 +532,7 @@ export default function MegaMenuNavigation() {
               type="search"
               className="[&::-webkit-search-cancel-button]:appearance-none"
               placeholder="Search"
-              wrapperClassName="flex-1 h-10 pr-0"
+              wrapperClassName="flex-1 h-10 pr-0 rounded-full"
               size="base"
               slotSuffix={
                 <span className="flex items-center">
@@ -555,7 +575,7 @@ export default function MegaMenuNavigation() {
                     key={activeMenu.key}
                     style={style}
                     ref={megaMenuRef}
-                    className="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-none"
+                    className="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-hidden"
                     tabIndex={0}
                     onMouseLeave={close}
                   >
@@ -582,6 +602,8 @@ export default function MegaMenuNavigation() {
                                       size="sm"
                                       href={child.value.link}
                                       className="typography-text-sm py-1.5"
+                                      defaultClass="w-auto"
+                                      slotSuffix={<SfCounter size="sm">{child.value.counter}</SfCounter>}
                                     >
                                       {child.value.label}
                                     </SfListItem>
@@ -611,7 +633,7 @@ export default function MegaMenuNavigation() {
         {/* Mobile drawer */}
         {isOpen && (
           <>
-            <div className="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50" />
+            <div className="md:hidden fixed inset-0 bg-neutral-500/50" />
             <SfDrawer
               ref={drawerRef}
               open={isOpen}

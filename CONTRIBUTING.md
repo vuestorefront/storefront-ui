@@ -18,7 +18,7 @@ We're very excited to see that **you are thinking about contribution to Storefro
 
 ## Pull Request Guidelines
 
-- Learn about our branch structure [here](https://docs.vuestorefront.io/v2/contributing/branching-model.html).
+- Learn about our branch structure [here](https://docs.alokai.com/v2/contributing/branching-model.html).
   <br>
   **Important:**
   <br>
@@ -32,7 +32,7 @@ We're very excited to see that **you are thinking about contribution to Storefro
 
 - Make sure test pass when running `yarn test`. See [development guide](https://github.com/vuestorefront/storefront-ui/blob/v2/apps/docs/development/hello.md) for details.
 
-- Detailed description available [here](https://docs.vuestorefront.io/v2/contributing/how-to-submit-pull-request.html).
+- Detailed description available [here](https://docs.alokai.com/v2/contributing/how-to-submit-pull-request.html).
 
 ### Committing Changes
 

@@ -31,7 +31,7 @@
             >{{ buttonText }}</SfButton
           >
         </div>
-        <div class="flex-shrink-0 w-1/2 self-start object-contain">
+        <div class="shrink-0 w-1/2 self-start object-contain">
           <img :src="image" :alt="title" class="w-full" />
         </div>
       </div>

@@ -17,7 +17,8 @@ export default class SfDropdownObject extends BasePage {
   }
 
   clickAway(spy: Cypress.Agent<sinon.SinonSpy>) {
-    cy.get('body').click();
+    // eslint-disable-next-line cypress/no-force
+    cy.get('body').click({ force: true });
     cy.then(() => {
       expect(spy).calledOnceWith();
     });

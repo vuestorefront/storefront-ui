@@ -4,14 +4,14 @@
       <a
         href="#"
         aria-label="SF Homepage"
-        class="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm shrink-0"
+        class="inline-block mr-4 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs shrink-0"
       >
         <picture>
           <source srcset="http://localhost:3100/@assets/alokai-logo-white.svg" media="(min-width: 768px)" />
           <img
             src="http://localhost:3100/@assets/alokai-sign-white.svg"
             alt="Sf Logo"
-            class="w-8 h-8 md:h-6 md:w-[176px] lg:w-[12.5rem] lg:h-[1.75rem]"
+            class="w-8 h-8 md:h-6 md:w-[110px] lg:w-[10.5rem] lg:h-[1.75rem]"
           />
         </picture>
       </a>
@@ -42,7 +42,7 @@
           type="search"
           class="[&::-webkit-search-cancel-button]:appearance-none"
           placeholder="Search"
-          wrapper-class="flex-1 h-10 pr-0"
+          wrapper-class="flex-1 h-10 pr-0 rounded-full"
           size="base"
         >
           <template #suffix>

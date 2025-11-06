@@ -25,13 +25,13 @@ export function Showcase() {
   };
 
   return (
-    <nav className="inline-flex font-normal font-body typography-text-sm">
+    <nav className="inline-flex font-body typography-text-sm">
       <ol className="flex items-center w-auto leading-none md:flex-wrap">
         <li className="flex items-center sm:hidden text-neutral-500">
           <SfDropdown
             trigger={
               <SfButton
-                className="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
+                className="relative w-5 h-5 !p-0 rounded-xs outline-secondary-600 hover:bg-transparent active:bg-transparent"
                 aria-label="More breadcrumbs"
                 variant="tertiary"
                 slotPrefix={

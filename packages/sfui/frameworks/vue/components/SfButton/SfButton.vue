@@ -1,8 +1,8 @@
 <script lang="ts">
 export const variantClasses = {
-  [SfButtonVariant.primary]: 'shadow hover:shadow-md active:shadow disabled:bg-disabled-300',
+  [SfButtonVariant.primary]: 'shadow-sm hover:shadow-md active:shadow-sm disabled:bg-disabled-300',
   [SfButtonVariant.secondary]:
-    'ring-1 ring-inset shadow hover:shadow-md active:shadow disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50',
+    'ring-1 ring-inset shadow-sm hover:shadow-md active:shadow-sm disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50',
   [SfButtonVariant.tertiary]: 'disabled:bg-transparent',
 };
 export const variantColorClasses = {

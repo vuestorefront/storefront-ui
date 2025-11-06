@@ -11,14 +11,29 @@ In addition to [Tailwind's default colors](https://tailwindcss.com/docs/customiz
 :color-palette
 
 :::tip Want to see our default Tailwind preset?
-You can see all of the default colors, classes, variants, and more in our [Tailwind preset](https://github.com/vuestorefront/storefront-ui/blob/v2/packages/config/tailwind/index.ts)
+You can see all of the default colors, classes, variants, and more in our [Tailwind preset](https://github.com/vuestorefront/storefront-ui/blob/v2/packages/config/tailwind/config.css)
 :::
+
+### Default outline styles (focus)
+
+You can easily adjust the focus outline styles across your entire storefront by customizing the `default-outline` variables in your global CSS. These variables ensure a consistent focus style throughout your application, and you can update them globally to match your brand or accessibility needs.
+
+For example, if you want a thicker, blue outline with increased spacing, you could do:
+
+```css
+:root {
+  --default-outline-color: oklch(0.427 0.186 264.834); /* a custom blue color */
+  --default-outline-width: 4px;
+  --default-outline-offset: 4px;
+}
+```
+
 
 ## Customizing colors
 
 ### CSS Variables
 
-If your storefront has multiple themes (e.g. light/dark mode), we recommend using CSS variables to store your colors. This way you can easily switch between themes by changing the value of the CSS variables.
+If your storefront has multiple themes (e.g. regular/low-light mode), we recommend using CSS variables to store your colors. This way you can easily switch between themes by changing the value of the CSS variables.
 
 :::tip Why CSS Variables?
 
@@ -39,17 +54,17 @@ Tailwind since version 4 uses OKLCH as a preferred color notation, pretty good e
 The color syntax for CSS variable looks like `{lightness} {chroma} {hue}` with a number for each color value. If you use a hex color or CSS's `rgb()` or `oklch()` function, Tailwind will not be able to modify the opacity of the color with Tailwind's `text-primary-400/50` syntax.
 :::
 
-The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}-{shade}`. For example, changing `primary-500` for light/dark themes might look like this.
+The CSS classes for Storefront UI colors follow the pattern of `--color-{color}-{shade}`. For example, changing `primary-500` for light/dark themes might look like this.
 
 ```css
 :root {
-  --colors-primary-500: 0.741 0.141 296.447;
+  --color-primary-500: 0.741 0.141 296.447;
 }
 
 /* this may change depending on how you implement dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --colors-primary-500: 0.95 0.02 295.319;
+    --color-primary-500: 0.95 0.02 295.319;
   }
 }
 ```
@@ -58,132 +73,154 @@ The CSS classes for Storefront UI colors follow the pattern of `--colors-{color}
 <summary>Full List of CSS Variables</summary>
 
 
-
 ```css
 :root {
-
+  /* Default values for outline properties (used for focus states) */
+  --default-outline-color: var(--color-secondary-600);
+  --default-outline-offset: 2px;
+  --default-outline-width: 2px;
 
   /* Primary */
-  --colors-primary-50: 0.98 0.02 156.735;
-  --colors-primary-100: 0.945 0.028 162.02;
-  --colors-primary-200: 0.887 0.047 164.988;
-  --colors-primary-300: 0.804 0.062 163.425;
-  --colors-primary-400: 0.727 0.054 162.969;
-  --colors-primary-500: 0.634 0.048 162.931;
-  --colors-primary-600: 0.525 0.041 162.018;
-  --colors-primary-700: 0.466 0.035 162.976;
-  --colors-primary-800: 0.365 0.026 164.592;
-  --colors-primary-900: 0.27 0.017 163.365;
+  --color-primary-50: oklch(0.980165 0.0205041 156.723);
+  --color-primary-100: oklch(0.944598 0.0280714 162.014);
+  --color-primary-200: oklch(0.886553 0.0466985 164.989);
+  --color-primary-300: oklch(0.803863 0.0615073 163.433);
+  --color-primary-400: oklch(0.726997 0.0544955 162.973);
+  --color-primary-500: oklch(0.63414 0.0482896 162.927);
+  --color-primary-600: oklch(0.524633 0.0411815 162.014);
+  --color-primary-700: oklch(0.465676 0.0347951 162.989);
+  --color-primary-800: oklch(0.365357 0.025772 164.59);
+  --color-primary-900: oklch(0.269551 0.0167404 163.37);
 
   /* Secondary */
-  --colors-secondary-50: 0.982 0.027 157.322;
-  --colors-secondary-100: 0.962 0.05 155.017;
-  --colors-secondary-200: 0.899 0.097 153.574;
-  --colors-secondary-300: 0.855 0.144 151.03;
-  --colors-secondary-400: 0.801 0.196 150.807;
-  --colors-secondary-500: 0.716 0.19 150.726;
-  --colors-secondary-600: 0.621 0.165 151.142;
-  --colors-secondary-700: 0.524 0.135 151.385;
-  --colors-secondary-800: 0.401 0.095 152.918;
-  --colors-secondary-900: 0.285 0.055 155.368;
+  --color-secondary-50: oklch(0.981772 0.0270107 157.305);
+  --color-secondary-100: oklch(0.961651 0.0499168 155.006);
+  --color-secondary-200: oklch(0.898695 0.0969988 153.575);
+  --color-secondary-300: oklch(0.854662 0.144278 151.034);
+  --color-secondary-400: oklch(0.800846 0.196195 150.809);
+  --color-secondary-500: oklch(0.716132 0.190176 150.725);
+  --color-secondary-600: oklch(0.620991 0.164907 151.143);
+  --color-secondary-700: oklch(0.523649 0.13546 151.384);
+  --color-secondary-800: oklch(0.40077 0.0945497 152.915);
+  --color-secondary-900: oklch(0.285096 0.0548596 155.371);
 
   /* Positive */
-  --colors-positive-50: 0.982 0.027 157.322;
-  --colors-positive-100: 0.962 0.05 155.017;
-  --colors-positive-200: 0.899 0.097 153.574;
-  --colors-positive-300: 0.855 0.144 151.03;
-  --colors-positive-400: 0.801 0.196 150.807;
-  --colors-positive-500: 0.716 0.19 150.726;
-  --colors-positive-600: 0.621 0.165 151.142;
-  --colors-positive-700: 0.524 0.135 151.385;
-  --colors-positive-800: 0.401 0.095 152.918;
-  --colors-positive-900: 0.285 0.055 155.368;
+  --color-positive-50: oklch(0.981772 0.0270107 157.305);
+  --color-positive-100: oklch(0.961651 0.0499168 155.006);
+  --color-positive-200: oklch(0.898695 0.0969988 153.575);
+  --color-positive-300: oklch(0.854662 0.144278 151.034);
+  --color-positive-400: oklch(0.800846 0.196195 150.809);
+  --color-positive-500: oklch(0.716132 0.190176 150.725);
+  --color-positive-600: oklch(0.620991 0.164907 151.143);
+  --color-positive-700: oklch(0.523649 0.13546 151.384);
+  --color-positive-800: oklch(0.40077 0.0945497 152.915);
+  --color-positive-900: oklch(0.285096 0.0548596 155.371);
 
   /* Negative */
-  --colors-negative-50: 0.978 0.011 3.577;
-  --colors-negative-100: 0.951 0.026 2.797;
-  --colors-negative-200: 0.906 0.049 5.563;
-  --colors-negative-300: 0.867 0.07 8.609;
-  --colors-negative-400: 0.81 0.11 11.318;
-  --colors-negative-500: 0.746 0.156 13.807;
-  --colors-negative-600: 0.634 0.215 16.447;
-  --colors-negative-700: 0.545 0.215 22.13;
-  --colors-negative-800: 0.41 0.16 20.89;
-  --colors-negative-900: 0.28 0.09 18.166;
+  --color-negative-50: oklch(0.97842 0.0110926 3.58502);
+  --color-negative-100: oklch(0.950811 0.0259569 2.81641);
+  --color-negative-200: oklch(0.905643 0.0492912 5.57236);
+  --color-negative-300: oklch(0.867244 0.0697169 8.61502);
+  --color-negative-400: oklch(0.810255 0.109846 11.3178);
+  --color-negative-500: oklch(0.746364 0.15595 13.8107);
+  --color-negative-600: oklch(0.634433 0.215119 16.4453);
+  --color-negative-700: oklch(0.544879 0.214877 22.1307);
+  --color-negative-800: oklch(0.410286 0.159974 20.8879);
+  --color-negative-900: oklch(0.279959 0.0904061 18.1682);
 
   /* Warning */
-  --colors-warning-50: 0.979 0.016 79.212;
-  --colors-warning-100: 0.96 0.037 80.566;
-  --colors-warning-200: 0.91 0.08 79.414;
-  --colors-warning-300: 0.87 0.106 73.914;
-  --colors-warning-400: 0.825 0.145 72.253;
-  --colors-warning-500: 0.75 0.16 70.078;
-  --colors-warning-600: 0.636 0.135 68.487;
-  --colors-warning-700: 0.539 0.12 64.869;
-  --colors-warning-800: 0.415 0.089 62.994;
-  --colors-warning-900: 0.286 0.055 60.071;
+  --color-warning-50: oklch(0.978524 0.0163972 79.1756);
+  --color-warning-100: oklch(0.960444 0.0366282 80.5214);
+  --color-warning-200: oklch(0.910044 0.079927 79.3929);
+  --color-warning-300: oklch(0.869878 0.105541 73.91);
+  --color-warning-400: oklch(0.824998 0.145165 72.2519);
+  --color-warning-500: oklch(0.750127 0.160009 70.0833);
+  --color-warning-600: oklch(0.63565 0.134731 68.4887);
+  --color-warning-700: oklch(0.538932 0.120035 64.8673);
+  --color-warning-800: oklch(0.414554 0.0894398 62.9947);
+  --color-warning-900: oklch(0.286053 0.0552756 60.0771);
 
   /* Neutral */
-  --colors-neutral-50: 0.986 0.002 0;
-  --colors-neutral-100: 0.963 0.007 0;
-  --colors-neutral-200: 0.904 0.013 156.832;
-  --colors-neutral-300: 0.816 0.016 154.297;
-  --colors-neutral-400: 0.629 0.016 157.933;
-  --colors-neutral-500: 0.53 0.017 157.808;
-  --colors-neutral-600: 0.443 0.016 152.174;
-  --colors-neutral-700: 0.365 0.016 156.314;
-  --colors-neutral-800: 0.282 0.011 156.383;
-  --colors-neutral-900: 0.211 0.011 151.165;
+  --color-neutral-50: oklch(0.986252 0.00245284 164.375);
+  --color-neutral-100: oklch(0.962452 0.00658519 159.784);
+  --color-neutral-200: oklch(0.90417 0.0125382 156.831);
+  --color-neutral-300: oklch(0.815695 0.0163149 154.295);
+  --color-neutral-400: oklch(0.62887 0.0164423 157.928);
+  --color-neutral-500: oklch(0.530109 0.017136 157.798);
+  --color-neutral-600: oklch(0.442872 0.016032 152.177);
+  --color-neutral-700: oklch(0.364935 0.0156449 156.31);
+  --color-neutral-800: oklch(0.281681 0.0111333 156.387);
+  --color-neutral-900: oklch(0.210975 0.0108426 151.158);
 
   /* Disabled */
-  --colors-disabled-50: 0.986 0.002 0;
-  --colors-disabled-100: 0.963 0.007 0;
-  --colors-disabled-200: 0.904 0.013 156.832;
-  --colors-disabled-300: 0.816 0.016 154.297;
-  --colors-disabled-400: 0.629 0.016 157.933;
-  --colors-disabled-500: 0.53 0.017 157.808;
-  --colors-disabled-600: 0.443 0.016 152.174;
-  --colors-disabled-700: 0.365 0.016 156.314;
-  --colors-disabled-800: 0.282 0.011 156.383;
-  --colors-disabled-900: 0.211 0.011 151.165;
+  --color-disabled-50: oklch(0.986252 0.00245284 164.375 / 0.5);
+  --color-disabled-100: oklch(0.962452 0.00658519 159.784 / 0.5);
+  --color-disabled-200: oklch(0.90417 0.0125382 156.831 / 0.5);
+  --color-disabled-300: oklch(0.815695 0.0163149 154.295 / 0.5);
+  --color-disabled-400: oklch(0.62887 0.0164423 157.928 / 0.5);
+  --color-disabled-500: oklch(0.530109 0.017136 157.798 / 0.5);
+  --color-disabled-600: oklch(0.442872 0.016032 152.177 / 0.5);
+  --color-disabled-700: oklch(0.364935 0.0156449 156.31 / 0.5);
+  --color-disabled-800: oklch(0.281681 0.0111333 156.387 / 0.5);
+  --color-disabled-900: oklch(0.210975 0.0108426 151.158 / 0.5);
 }
 ```
 
 </details>
 
+### Dark mode
 
-### Tailwind Configuration
+Storefront UI comes with a pre-configured dark variant that applies styling based on the selector `&:where(.dark, .dark *)`. This means dark mode styles will be applied when either an element or any of its parents has the `.dark` class. This approach allows for nested dark mode contexts and follows a similar pattern to popular dark mode implementations like Tailwind's dark mode.
 
-If you don't need to support multiple themes, or if you'd prefer to use Tailwind variants to implement your themes, you can customize Storefront UI's colors inside of your Tailwind configuration.
+Based on it, you can build a dark mode handling in your app using a code snippet from [official Tailwind documentation](https://v3.tailwindcss.com/docs/dark-mode#supporting-system-preference-and-manual-selection).
 
+Storefront UI provides `--sfui-light` and `--sfui-dark` CSS variables that allow you to specify both light and dark mode color variants in a single CSS variable definition. When dark mode is active, `--sfui-dark` will be used, otherwise `--sfui-light` will be used. This allows for a more concise way to define theme colors that change between light and dark modes. For example:
+```css
+@theme inline {
+  --color-primary-50: var(--tw-light, #da373d) var(--tw-dark, #fd96b0);
+}
+```
 
+In the example below color `0.43 0.11 153.7` (oklch) will be used as `primary-400` color for light color scheme and `0.57 0.12 154.53` when in the dark mode.
 
-```js
-export default {
-  //...
-  theme: {
-    extend: {
-      colors: {
-        primary: {
-          50: '#f5f9ff',
-          100: '#e9f3ff',
-          200: '#c8e0ff',
-          300: '#a6ccff',
-          400: '#6ea1ff',
-          500: '#3375ff',
-          600: '#2e6ae6',
-          700: '#264ebf',
-          800: '#1d3f99',
-          900: '#132f72',
-        }
-      },
-    },
-  },
-  //...
-};
+```css
+@theme inline {
+  --color-primary-400: var(--sfui-light, 0.43 0.11 153.7) var(--sfui-dark, 0.57 0.12 154.53);
+}
 ```
 
 
+### Tailwind Configuration
+
+If you don't need to support multiple themes, or if you'd prefer to use Tailwind variants to implement your themes, you can customize Storefront UI's on the build time using [Tailwind `@theme` configuration directive](https://tailwindcss.com/docs/theme).
+
+```css
+/* ... */
+@theme {
+  --color-primary-50: oklch(0.98 0.01 0);
+  --color-primary-100: oklch(0.96 0.02 252.98);
+  --color-primary-200: oklch(0.9 0.05 254.93);
+  --color-primary-300: oklch(0.84 0.08 255.92);
+  --color-primary-400: oklch(0.71 0.15 261.78);
+  --color-primary-500: oklch(0.6 0.22 262.58);
+  --color-primary-600: oklch(0.56 0.2 262.48);
+  --color-primary-700: oklch(0.47 0.18 265.04);
+  --color-primary-800: oklch(0.4 0.15 264.63);
+  --color-primary-900: oklch(0.33 0.12 263.84);
+}
+/* ... */
+```
+
 :::read-more
-To learn more about the different ways to declare colors in Tailwind, check out the [Tailwind documentation](https://tailwindcss.com/docs/customizing-colors#using-custom-colors).
+To learn more about the different ways to declare colors in Tailwind, check out the [Tailwind documentation](https://tailwindcss.com/docs/theme).
 :::
+
+## Custom Tailwind Variants
+
+Our Tailwind configuration includes several custom variants designed to simplify your workflow.
+
+### `focus-visible-within` Custom Variant
+
+We've added a `focus-visible-within` custom variant to help you visually indicate when any nested child element is focus-visible. This is especially useful for styling components that require a clear focus state, even if the focus is within a child element.
+
+You can use this variant just like any other Tailwind variant. For example: `focus-visible-within:bg-primary-800`.

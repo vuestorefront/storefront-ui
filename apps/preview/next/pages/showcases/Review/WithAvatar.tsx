@@ -4,7 +4,7 @@ import { SfRating, SfIconCheck } from '@storefront-ui/react';
 
 export default function Review() {
   return (
-    <article className="w-full p-4 border rounded-md">
+    <article className="w-full p-4 border border-neutral-200 rounded-xl">
       <header className="flex flex-col items-start pb-4 md:flex-row md:justify-between">
         <div className="flex items-start">
           <img src="http://localhost:3100/@assets/review_avatar.png" alt="Review avatar" className="p-0.5" />

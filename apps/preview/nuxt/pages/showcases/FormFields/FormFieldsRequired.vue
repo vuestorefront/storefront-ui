@@ -129,7 +129,7 @@
             ref="dropdownRef"
             role="listbox"
             aria-label="Country list"
-            class="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+            class="py-2 bg-white border border-solid rounded-xl border-neutral-100 drop-shadow-md"
           >
             <template v-if="snippets.length > 0">
               <li v-for="option in snippets" :key="option.value">
@@ -188,7 +188,7 @@
           :aria-expanded="dropdownOpen"
           aria-label="Select one option"
           :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
-          class="mt-0.5 flex items-center gap-8 font-normal typography-text-base ring-1 ring-neutral-300 ring-inset rounded-md py-2 px-4 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 focus-visible:outline focus-visible:outline-offset cursor-pointer"
+          class="mt-0.5 flex items-center gap-8 font-normal typography-text-base ring-1 ring-neutral-300 ring-inset rounded-xl py-2 px-4 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 focus-visible:outline focus-visible:outline-offset cursor-pointer"
           tabindex="0"
           @keydown.space="dropdownToggle()"
           @click="dropdownToggle()"
@@ -206,7 +206,7 @@
           ref="dropdownFloatingRef"
           role="listbox"
           aria-label="Select one option"
-          class="w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
+          class="w-full py-2 rounded-xl shadow-md border border-neutral-100 bg-white z-10"
           :style="dropdownStyle"
         >
           <SfListItem
@@ -231,11 +231,11 @@
       </div>
       <label>
         <span class="typography-label-sm font-medium">Description</span>
-        <textarea
-          :value="descriptionValue"
+        <SfTextarea
+          v-model="descriptionValue"
           placeholder="Write something about yourself..."
-          class="block w-full py-2 pl-4 pr-7 rounded-md border border-neutral-300 placeholder:text-neutral-500"
-        ></textarea>
+          class="block w-full py-2 pl-4 pr-7"
+        ></SfTextarea>
       </label>
       <h2 class="typography-headline-4 font-bold mt-14 mb-4">Notifications</h2>
       <fieldset>
@@ -244,7 +244,7 @@
           v-for="({ label, value, hint, disabled }, index) in emailNotificationOptions"
           :key="`${value}-${index}`"
           :class="[
-            'flex items-start mb-4 mr-6 rounded first-of-type:mt-2 last-of-type:mb-6',
+            'flex items-start mb-4 mr-6 rounded-sm first-of-type:mt-2 last-of-type:mb-6',
             disabled ? 'cursor-not-allowed' : 'cursor-pointer',
           ]"
         >
@@ -262,7 +262,7 @@
         <label
           v-for="{ label, name, value } in radioOptions"
           :key="`${value}-${name}`"
-          class="flex items-center mb-4 mr-6 rounded cursor-pointer first-of-type:mt-2 last-of-type:mb-2"
+          class="flex items-center mb-4 mr-6 rounded-sm cursor-pointer first-of-type:mt-2 last-of-type:mb-2"
         >
           <SfRadio
             v-model="pushNotificationsModelValue"
@@ -276,8 +276,8 @@
       </fieldset>
       <p class="text-neutral-500 typography-text-sm mt-8">* marked fields are required</p>
       <div class="flex gap-x-4 md:justify-end mt-6">
-        <SfButton variant="secondary" class="flex-grow md:flex-grow-0"> Clear all </SfButton>
-        <SfButton type="submit" class="flex-grow md:flex-grow-0"> Submit </SfButton>
+        <SfButton variant="secondary" class="grow md:grow-0"> Clear all </SfButton>
+        <SfButton type="submit" class="grow md:grow-0"> Submit </SfButton>
       </div>
     </form>
   </div>

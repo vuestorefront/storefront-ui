@@ -4,22 +4,12 @@
   "license": "MIT",
   "sideEffects": false,
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.umd.js"
-    },
+    ".": "./config.css",
     "./*": "./*"
   },
   "type": "module",
-  "source": "index.ts",
-  "main": "dist/index.mjs",
-  "unpkg": "dist/index.umd.js",
-  "types": "dist/index.d.ts",
-  "scripts": {
-    "dev-only": "vite build --watch",
-    "build:tailwind-config": "vite build"
-  },
+  "main": "config.css",
+  "unpkg": "config.css",
   "homepage": "https://docs.storefrontui.io/v2/",
   "repository": {
     "type": "git",
@@ -29,20 +19,19 @@
   "bugs": {
     "url": "https://github.com/vuestorefront/storefront-ui/issues"
   },
-  "devDependencies": {
-    "typescript": "^5.5.4",
-    "vite": "^5.3.5",
-    "vite-plugin-dts": "^3.9.1"
-  },
   "dependencies": {
-    "@mertasan/tailwindcss-variables": "^2.5.2",
     "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@tailwindcss/container-queries": "^0.1.1"
+  },
+  "peerDependencies": {
+    "@tailwindcss/typography": ">=0.5.19",
+    "tailwindcss": ">= 4.0.0-alpha.20 || >= 4.0.0-beta.1 || >= 4.0.0"
   },
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "dist"
+    "config.css",
+    "index.js"
   ]
 }

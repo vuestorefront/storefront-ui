@@ -26,7 +26,7 @@ export default function IconList() {
         <button
           type="button"
           key={componentName}
-          className="inline-block border cursor-pointer"
+          className="inline-block border border-neutral-100 cursor-pointer"
           data-tooltip={componentName}
           onClick={() => {
             copyToClipboard(componentName);

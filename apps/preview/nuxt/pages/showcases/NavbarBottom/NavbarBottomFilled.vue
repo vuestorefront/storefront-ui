@@ -5,7 +5,7 @@
       :key="item.label"
       variant="tertiary"
       :class="[
-        'py-1 flex flex-col h-full w-full rounded-none bg-primary-700 text-white hover:text-white hover:bg-primary-800 active:text-white active:bg-primary-900',
+        'pt-3 pb-1 gap-0.5 flex flex-col h-full w-full rounded-none bg-primary-700 text-white hover:text-white hover:bg-primary-800 active:text-white active:bg-primary-900',
         { 'text-white bg-primary-900': selectedItem === item.label },
       ]"
       @click="onClickHandler(item.label)"

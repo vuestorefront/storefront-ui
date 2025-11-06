@@ -5,7 +5,7 @@
       <label
         v-for="{ label, name, value } in radioOptions"
         :key="`${value}-${name}`"
-        class="flex items-center mb-4 mr-6 rounded cursor-pointer"
+        class="flex items-center mb-4 mr-6 rounded-sm cursor-pointer"
       >
         <SfRadio v-model="radioGroupModelValue" :value="value" :name="name" />
         <span class="ml-2 text-base font-normal leading-6 font-body">{{ label }}</span>

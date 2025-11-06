@@ -224,7 +224,7 @@ export default function FiltersSidepanel() {
           <SfIconClose />
         </button>
       </div>
-      <h5 className="py-2 px-4 mb-6 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md">
+      <h5 className="px-4 py-2 mb-6 font-bold tracking-widest uppercase bg-neutral-100 typography-headline-6 text-neutral-900 md:rounded-md">
         Sort by
       </h5>
       <div className="px-2">
@@ -236,7 +236,7 @@ export default function FiltersSidepanel() {
           ))}
         </SfSelect>
       </div>
-      <h5 className="py-2 px-4 mt-6 mb-4 bg-neutral-100 typography-headline-6 font-bold text-neutral-900 uppercase tracking-widest md:rounded-md">
+      <h5 className="px-4 py-2 mt-6 mb-4 font-bold tracking-widest uppercase bg-neutral-100 typography-headline-6 text-neutral-900 md:rounded-md">
         Filter
       </h5>
       {filtersData.map((section) => (
@@ -281,7 +281,7 @@ export default function FiltersSidepanel() {
                 <li>
                   <SfListItem size="sm" as="button" type="button">
                     <span className="flex items-center">
-                      <SfIconArrowBack size="sm" className="text-neutral-500 mr-3" />
+                      <SfIconArrowBack size="sm" className="mr-3 text-neutral-500" />
                       Back to {section.details[0].label}
                     </span>
                   </SfListItem>
@@ -299,7 +299,7 @@ export default function FiltersSidepanel() {
                     >
                       <span className="flex items-center">
                         {label}
-                        <SfCounter className="ml-2 typography-text-sm font-normal">{counter}</SfCounter>
+                        <SfCounter className="ml-2 font-normal typography-text-sm">{counter}</SfCounter>
                       </span>
                     </SfListItem>
                   </li>
@@ -351,7 +351,7 @@ export default function FiltersSidepanel() {
                   })}
                   slotPrefix={
                     <SfCheckbox
-                      className="flex items-center"
+                      wrapperClassName="flex items-center"
                       disabled={counter === 0}
                       value={value}
                       checked={isFilterSelected(value)}
@@ -404,7 +404,7 @@ export default function FiltersSidepanel() {
                     key={id}
                     as="label"
                     size="sm"
-                    className={classNames('!items-center py-4 md:py-1 bg-transparent hover:bg-transparent', {
+                    className={classNames('!items-center py-4 md:py-1 px-1.5 bg-transparent hover:bg-transparent', {
                       'font-medium': value === rating,
                     })}
                     slotPrefix={
@@ -428,7 +428,7 @@ export default function FiltersSidepanel() {
               </fieldset>
             )}
           </SfAccordionItem>
-          <hr className="my-4" />
+          <hr className="my-4 border-neutral-200" />
         </Fragment>
       ))}
       <div className="flex justify-between">

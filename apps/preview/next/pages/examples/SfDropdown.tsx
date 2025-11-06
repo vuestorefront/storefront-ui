@@ -50,7 +50,7 @@ function Example() {
         placement={state.get.placement}
         onClose={close}
       >
-        <ul className="p-2 rounded bg-gray-100">
+        <ul className="p-2 rounded-sm bg-gray-100">
           <li>More</li>
           <li>About</li>
           <li>Settings</li>

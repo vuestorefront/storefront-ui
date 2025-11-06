@@ -61,7 +61,7 @@ useTrapFocus(modalRef, {
     tabindex="-1"
     :class="
       twMerge(
-        'fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-3xl outline-none',
+        'fixed inset-0 w-fit h-fit m-auto p-6 pt-10 lg:p-10 border border-neutral-100 bg-white shadow-xl rounded-3xl outline-hidden',
         $attrs.class,
       )
     "

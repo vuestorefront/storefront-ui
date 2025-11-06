@@ -41,11 +41,12 @@ const sizeClasses = computed(() => {
   <span
     :class="
       twMerge(
-        'inline-flex items-center before:content-[\'(\'] after:content-[\')\'] text-neutral-500',
+        `inline-flex items-center before:content-['('] after:content-[')']`,
         ...sizeClasses,
         {
-          'rounded-full py-0.5 font-medium ring-1 ring-neutral-200 ring-inset before:content-none after:content-none':
+          'rounded-full py-0.5 font-medium ring-1 ring-neutral-200 ring-inset text-neutral-900 before:content-none after:content-none':
             pill,
+          'text-neutral-500': !pill,
         },
         $attrs.class,
       )

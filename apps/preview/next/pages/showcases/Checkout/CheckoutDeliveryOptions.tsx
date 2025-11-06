@@ -36,7 +36,7 @@ export default function DeliveryOptions() {
             />
           }
           slotSuffix={<span className="text-gray-900">{cost}</span>}
-          className="!items-start max-w-sm border rounded-md border-neutral-200 first-of-type:mr-4 first-of-type:mb-4"
+          className="!items-start max-w-sm border rounded-xl border-neutral-200 first-of-type:mr-4 first-of-type:mb-4"
         >
           {name}
           <span className="block text-xs text-gray-500 break-words">{date}</span>

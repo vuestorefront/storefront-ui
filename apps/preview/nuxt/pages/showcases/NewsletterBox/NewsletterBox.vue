@@ -1,17 +1,23 @@
 <template>
   <div class="relative">
-    <div class="bg-neutral-100 p-4 sm:p-10 text-center">
-      <p class="typography-headline-4 sm:typography-headline-3 font-bold">
+    <div class="p-4 text-center bg-neutral-100 sm:p-10">
+      <p class="font-bold typography-headline-4 sm:typography-headline-3">
         Subscribe and get discount on your first purchase!
       </p>
-      <p class="typography-text-sm sm:typography-text-base my-2 mb-4">
+      <p class="my-2 mb-4 typography-text-sm sm:typography-text-base">
         Be aware of upcoming sales and events. Receive gifts and special offers!
       </p>
       <form
         class="mb-4 flex flex-col sm:flex-row gap-4 max-w-[688px] mx-auto"
         @submit.prevent="subscribeNewsletter(inputValue)"
       >
-        <SfInput v-model="inputValue" type="email" wrapper-class="grow" placeholder="Type your email" />
+        <SfInput
+          v-model="inputValue"
+          size="lg"
+          type="email"
+          wrapper-class="grow rounded-full"
+          placeholder="Type your email"
+        />
         <SfButton type="submit" size="lg"> Subscribe to Newsletter </SfButton>
       </form>
       <div class="typography-text-xs text-neutral-600">
@@ -25,7 +31,7 @@
         role="alert"
         class="flex items-start md:items-center shadow-md max-w-[600px] bg-positive-100 pr-2 pl-4 mb-2 ring-1 ring-positive-200 typography-text-sm md:typography-text-base py-1 rounded-md"
       >
-        <SfIconCheckCircle class="mr-2 my-2 text-positive-700" />
+        <SfIconCheckCircle class="my-2 mr-2 text-positive-700" />
         <p class="py-2 mr-2">Your email has been added to the newsletter subscription.</p>
         <button
           type="button"
@@ -34,7 +40,7 @@
           @click="showPositiveAlert = false"
         >
           <SfIconClose class="hidden md:block" />
-          <SfIconClose size="sm" class="md:hidden block" />
+          <SfIconClose size="sm" class="block md:hidden" />
         </button>
       </div>
       <div
@@ -50,7 +56,7 @@
           @click="showErrorAlert = false"
         >
           <SfIconClose class="hidden md:block" />
-          <SfIconClose size="sm" class="md:hidden block" />
+          <SfIconClose size="sm" class="block md:hidden" />
         </button>
       </div>
     </div>

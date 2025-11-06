@@ -5,7 +5,7 @@
       <div
         class="flex justify-between items-center flex-wrap md:flex-nowrap px-4 md:px-10 py-2 md:py-5 w-full h-full border-0 bg-primary-700 border-neutral-200 md:h-20 md:z-10"
       >
-        <div class="flex items-center">
+        <div class="flex items-center shrink-0">
           <SfButton
             variant="tertiary"
             square
@@ -18,11 +18,15 @@
           <a
             href="#"
             aria-label="SF Homepage"
-            class="flex shrink-0 w-8 h-8 lg:w-[12.5rem] lg:h-[1.75rem] items-center mr-auto text-white md:mr-10 focus-visible:outline focus-visible:outline-offset focus-visible:rounded-sm"
+            class="flex shrink-0 items-center mr-auto text-white focus-visible:outline focus-visible:outline-offset focus-visible:rounded-xs"
           >
             <picture>
               <source srcset="http://localhost:3100/@assets/alokai-logo-white.svg" media="(min-width: 1024px)" />
-              <img src="http://localhost:3100/@assets/alokai-sign-white.svg" alt="Sf Logo" />
+              <img
+                src="http://localhost:3100/@assets/alokai-sign-white.svg"
+                alt="Sf Logo"
+                class="w-8 h-8 lg:w-[10.5rem] lg:h-[1.75rem]"
+              />
             </picture>
           </a>
         </div>
@@ -32,7 +36,7 @@
             type="search"
             class="[&::-webkit-search-cancel-button]:appearance-none"
             placeholder="Search"
-            wrapper-class="flex-1 h-10 pr-0"
+            wrapper-class="flex-1 h-10 pr-0 rounded-full"
             size="base"
           >
             <template #suffix>
@@ -55,7 +59,7 @@
             v-for="actionItem in actionItems"
             :key="actionItem.ariaLabel"
             :aria-label="actionItem.ariaLabel"
-            class="text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
+            class="relative text-white bg-transparent hover:bg-primary-800 hover:text-white active:bg-primary-900 active:text-white"
             variant="tertiary"
             square
           >
@@ -65,6 +69,14 @@
             <p v-if="actionItem.role === 'login'" class="hidden lg:inline-flex whitespace-nowrap mr-2">
               {{ actionItem.label }}
             </p>
+            <template #suffix>
+              <SfBadge
+                v-if="actionItem.badge"
+                :content="actionItem.badge.content"
+                :max="actionItem.badge.max"
+                class="outline outline-primary-700 bg-white text-neutral-900 group-hover:outline-primary-800 group-active:outline-primary-900"
+              />
+            </template>
           </SfButton>
         </nav>
         <form role="search" class="flex md:hidden flex-[100%] my-2" @submit.prevent="search">
@@ -73,7 +85,7 @@
             type="search"
             class="[&::-webkit-search-cancel-button]:appearance-none"
             placeholder="Search"
-            wrapper-class="flex-1 h-10 pr-0"
+            wrapper-class="flex-1 h-10 pr-0 rounded-full"
             size="base"
           >
             <template #suffix>
@@ -123,7 +135,7 @@
               :key="activeMenu.key"
               ref="megaMenuRef"
               :style="style"
-              class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-none"
+              class="hidden md:grid gap-x-6 grid-cols-4 bg-white shadow-lg p-6 left-0 right-0 outline-hidden"
               tabindex="0"
               @mouseleave="close()"
               @keydown.esc="focusTrigger(index)"
@@ -143,8 +155,17 @@
                   </p>
                   <ul class="mt-2">
                     <li v-for="child in node.children" :key="child.key">
-                      <SfListItem tag="a" size="sm" :href="child.value.link" class="typography-text-sm py-1.5">
+                      <SfListItem
+                        tag="a"
+                        size="sm"
+                        :href="child.value.link"
+                        class="typography-text-sm py-1.5"
+                        default-class="w-auto"
+                      >
                         {{ child.value.label }}
+                        <template #suffix>
+                          <SfCounter size="sm">{{ child.value.counter }}</SfCounter>
+                        </template>
                       </SfListItem>
                     </li>
                   </ul>
@@ -164,7 +185,7 @@
       </nav>
 
       <!-- Mobile drawer -->
-      <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500 bg-opacity-50" />
+      <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500/50" />
       <SfDrawer
         ref="drawerRef"
         v-model="isOpen"
@@ -319,18 +340,24 @@ const actionItems = [
     label: '',
     ariaLabel: 'Cart',
     role: 'button',
+    badge: {
+      content: 120,
+      max: 99,
+    },
   },
   {
     icon: SfIconFavorite,
     label: '',
     ariaLabel: 'Wishlist',
     role: 'button',
+    badge: undefined,
   },
   {
     icon: SfIconPerson,
     label: 'Log in',
     ariaLabel: 'Log in',
     role: 'login',
+    badge: undefined,
   },
 ];
 

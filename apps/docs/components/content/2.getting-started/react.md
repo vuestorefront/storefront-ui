@@ -20,7 +20,7 @@ You can try out Storefront UI in your browser with our online playground.
 
 If you prefer video guides, we have a quick video that can help you set up Storefront UI in your Next.js project.
 
-<iframe src="https://www.youtube-nocookie.com/embed/6xOnCOXU8H4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded aspect-video relative mt-8 custom-block"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/6xOnCOXU8H4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded-sm aspect-video relative mt-8 custom-block"></iframe>
 
 ### Create Your Next Project
 

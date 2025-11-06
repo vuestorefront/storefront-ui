@@ -43,57 +43,49 @@ Next, you'll need to install Tailwind CSS and PostCSS, as well as the Storefront
 
 ```bash
 # npm
-npm i -D tailwindcss postcss autoprefixer @storefront-ui/vue
+npm i -D tailwindcss @tailwindcss/vite @storefront-ui/vue
 
 # yarn
-yarn add -D tailwindcss postcss autoprefixer @storefront-ui/vue
+yarn add -D tailwindcss @tailwindcss/vite @storefront-ui/vue
 
 # pnpm
-pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/vue
+pnpm add -D tailwindcss @tailwindcss/vite @storefront-ui/vue
 ```
 
-### Initialize Tailwind
+### Configure the Tailwind Vite plugin
 
-Running Tailwind's `init` command will generate a `tailwind.config.js` and `postcss.config.js` file in your project's root directory.
+Add the `@tailwindcss/vite` to your Vite configuration file to enable Tailwind CSS processing.
 
-```bash
-npx tailwindcss init -p
+```ts
+// vite.config.ts
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import tailwindcss from '@tailwindcss/vite'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [vue(), tailwindcss()],
+})
 ```
 
-### Modify Your Tailwind Configuration File
+### Add Tailwind to Your CSS and Configure It
 
-Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. To do this, you need to import the Storefront UI Tailwind preset and add it to your `tailwind.config.js` file.
+To enable Tailwind, you need to import it within your `.css` file.
+Storefront UI plugs into your Tailwind configuration to add any base styles and CSS variables. So as a final step, you just need to import the Storefront UI Tailwind preset in your `.css` file.
 
 ::tip Add a path to your installed package
 
 In order for Tailwind to properly detect the utility classes used in Storefront UI components, you need to add a path to wherever your `node_modules` folder is located to the `content` property. In the example below, we're using the default location for `node_modules`, but this may change if you're working in a monorepo.
 ::
 
-```ts
-// tailwind.config.js
-import { tailwindConfig } from '@storefront-ui/vue/tailwind-config';
-
-/** @type {import('tailwindcss').Config} */
-export default {
-  presets: [tailwindConfig],
-  content: ['./index.html', './**/*.vue', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
-
-```
-
-### Add Tailwind to Your CSS
-
-Finally, you'll need to add CSS directives to add each Tailwind layer to `src/style.css`. Since Storefront UI fits into your Tailwind workflow, you'll need to add Tailwind's base, components, and utilities layers to your CSS.
-
 ```css
-/* src/style.css */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+// style.css
+@import "tailwindcss";
+@import "@storefront-ui/vue/tailwind-config";
+@plugin "@storefront-ui/typography";
+
+@source '../**/*.vue';
+@source '../node_modules/@storefront-ui/vue/**/*.vue';
 ```
 
 ### You're Ready to Go!

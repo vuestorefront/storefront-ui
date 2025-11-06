@@ -18,12 +18,12 @@ export default defineConfig({
     lib: {
       entry: {
         index: path.resolve(__dirname, 'index.ts'),
-        'tailwind-config': path.resolve(__dirname, 'tailwind-config.ts'),
       },
       name: 'storefront-ui-react',
       fileName: (format, entryName) => format === 'es'
         ? `${entryName}.mjs`
         : `${entryName}.${format}.js`,
+      formats: ['cjs', 'es'],
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
@@ -35,6 +35,7 @@ export default defineConfig({
       output: {
         preserveModules: true,
         preserveModulesRoot: './',
+        inlineDynamicImports: false
       },
       plugins: [preserveDirectives()],
       onwarn(warning, warn) {

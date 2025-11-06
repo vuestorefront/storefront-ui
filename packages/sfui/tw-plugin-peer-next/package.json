@@ -22,12 +22,13 @@
         "build:peer-next": "vite build"
     },
     "devDependencies": {
+        "tailwindcss": "^3.4.18",
         "typescript": "^5.5.4",
         "vite": "^5.3.5",
         "vite-plugin-dts": "^3.9.1"
     },
     "peerDependencies": {
-        "tailwindcss": ">=3.0.0 || >= 3.0.0-alpha.1"
+        "tailwindcss": ">= 4.0.0-alpha.20 || >= 4.0.0-beta.1 || >= 4.0.0"
     },
     "publishConfig": {
         "access": "public"

@@ -1,5 +1,5 @@
 <template>
-  <footer class="pt-10 bg-neutral-100">
+  <footer class="pt-10">
     <div
       class="grid justify-center grid-cols-[1fr_1fr] md:grid-cols-[repeat(4,1fr)] px-4 md:px-6 pb-10 max-w-[1536px] mx-auto"
     >
@@ -20,7 +20,7 @@
         </SfListItem>
       </ul>
     </div>
-    <hr />
+    <hr class="border-neutral-200" />
     <div class="py-10 md:flex md:mx-auto max-w-[1536px]">
       <div v-for="{ label, icon, link, details } in contactOptions" :key="label" class="mx-auto my-4 text-center">
         <component :is="icon" size="lg" />
@@ -67,7 +67,7 @@
       <p
         class="flex items-center justify-center py-2 leading-5 text-center typography-text-sm text-white/50 font-body md:ml-6"
       >
-        @2024 Alokai
+        @{{ new Date().getFullYear() }} Alokai
       </p>
     </div>
   </footer>

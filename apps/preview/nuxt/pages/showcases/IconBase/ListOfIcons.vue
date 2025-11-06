@@ -3,7 +3,7 @@
     v-for="componentName in componentsNames"
     :key="componentName"
     type="button"
-    class="inline-block border cursor-pointer"
+    class="inline-block border border-neutral-100 cursor-pointer"
     :data-tooltip="componentName"
     @click="copyToClipboard(componentName)"
   >

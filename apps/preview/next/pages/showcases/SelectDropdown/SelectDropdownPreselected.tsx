@@ -76,7 +76,7 @@ export default function SelectDropdownPreselected() {
           aria-expanded={isOpen}
           aria-label="Select one option"
           aria-activedescendant={selectedOption ? `${listboxId}-${selectedOption.value}` : undefined}
-          className="mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-neutral-300 ring-inset rounded-md py-2 px-4 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 focus-visible:outline focus-visible:outline-offset cursor-pointer"
+          className="mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-neutral-300 ring-inset rounded-xl py-2 px-4 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 focus-visible:outline focus-visible:outline-offset cursor-pointer"
           tabIndex={0}
           onKeyDown={handleTriggerKeyDown}
           onClick={toggle}
@@ -93,7 +93,7 @@ export default function SelectDropdownPreselected() {
           ref={refs.setFloating}
           role="listbox"
           aria-label="Select one option"
-          className={classNames('w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10', {
+          className={classNames('w-full py-2 rounded-xl shadow-md border border-neutral-100 bg-white z-10', {
             hidden: !isOpen,
           })}
           style={dropdownStyle}

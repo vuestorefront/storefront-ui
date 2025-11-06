@@ -147,13 +147,13 @@ export default function SearchWithIcon() {
 
   return (
     <form role="search" onSubmit={handleSubmit} ref={refs.setReference} className="relative">
-      <div className="flex">
+      <div className="flex relative">
         <SfInput
           ref={inputRef}
           value={searchValue}
           onChange={handleChange}
           onFocus={open}
-          wrapperClassName="w-full !ring-0 active:!ring-0 hover:!ring-0 focus-within:!ring-0 border-y border-l border-neutral-200 rounded-r-none hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
+          wrapperClassName="w-full !ring-0 active:!ring-0 hover:!ring-0 focus-within:!ring-0 border-y border-l border-neutral-200 rounded-full hover:border-primary-800 active:border-primary-700 active:border-y-2 active:border-l-2 focus-within:border-y-2 focus-within:border-l-2 focus-within:border-primary-700"
           aria-label="Search"
           placeholder="Search 'jackets' or 'dresses'..."
           onKeyDown={handleInputKeyDown}
@@ -164,28 +164,28 @@ export default function SearchWithIcon() {
                 type="reset"
                 onClick={handleReset}
                 aria-label="Reset search"
-                className="flex rounded-md focus-visible:outline focus-visible:outline-offset"
+                className="flex rounded-full focus-visible:outline focus-visible:outline-offset"
               >
                 <SfIconCancel />
               </button>
             )
           }
         />
-        <SfButton type="submit" className="rounded-l-none">
+        <SfButton type="submit" className="absolute right-0">
           Search
         </SfButton>
       </div>
       {isOpen && (
         <div ref={refs.setFloating} style={style} className="left-0 right-0">
           {isLoadingSnippets ? (
-            <div className="flex items-center justify-center bg-white w-full h-screen sm:h-20 py-2 sm:border sm:border-solid sm:rounded-md sm:border-neutral-100 sm:drop-shadow-md">
+            <div className="flex items-center justify-center bg-white w-full h-screen sm:h-20 py-2 sm:border sm:border-solid sm:rounded-xl sm:border-neutral-100 sm:drop-shadow-md">
               <SfLoaderCircular />
             </div>
           ) : (
             snippets.length > 0 && (
               <ul
                 ref={dropdownListRef}
-                className="py-2 bg-white sm:border border-solid sm:rounded-md sm:border-neutral-100 sm:drop-shadow-md"
+                className="py-2 bg-white sm:border border-solid sm:rounded-xl sm:border-neutral-100 sm:drop-shadow-md"
               >
                 {snippets.map(({ highlight, rest, product }) => (
                   <li key={product.id}>
@@ -197,7 +197,7 @@ export default function SearchWithIcon() {
                     >
                       <p className="flex items-center text-left text-neutral-500">
                         {product.image ? (
-                          <img src={product.image} alt={product.name} className="rounded-sm" width="24" height="24" />
+                          <img src={product.image} alt={product.name} className="rounded-xs" width="24" height="24" />
                         ) : (
                           product.thumbnail
                         )}

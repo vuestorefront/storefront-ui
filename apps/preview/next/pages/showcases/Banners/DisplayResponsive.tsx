@@ -63,7 +63,7 @@ export default function DisplayHorizontalBlock() {
                 {buttonText}
               </SfButton>
             </div>
-            <div className="flex flex-shrink-0 items-center w-full @md:w-1/2 @md:self-start @md:object-contain">
+            <div className="flex shrink-0 items-center w-full @md:w-1/2 @md:self-start @md:object-contain">
               <img src={image} alt={title} className="w-full" />
             </div>
           </div>

@@ -1,11 +1,11 @@
 <template>
-  <nav class="inline-flex items-center text-sm font-normal font-body">
+  <nav class="inline-flex items-center typography-text-sm font-body">
     <ol class="flex w-auto leading-none md:flex-wrap">
       <li class="flex items-center sm:hidden text-neutral-500">
         <SfDropdown v-model="dropdownOpened" strategy="absolute" placement="bottom-start" @update:model-value="close">
           <template #trigger>
             <SfButton
-              class="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
+              class="relative w-5 h-5 !p-0 rounded-xs outline-secondary-600 hover:bg-transparent active:bg-transparent"
               aria-label="More breadcrumbs"
               variant="tertiary"
               square
