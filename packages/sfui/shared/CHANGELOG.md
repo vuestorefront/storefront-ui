@@ -1,5 +1,11 @@
 # @storefront-ui/shared
 
+## 3.0.0
+
+### Major Changes
+
+- [#3313](https://github.com/vuestorefront/storefront-ui/pull/3313) [`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Migrate to Tailwind@4. SFUI tries to defer some of Tailwinds' breaking changes, e.g. the default outline width or border-radius size scale, but not everything was possible. Please refer to all breaking changes described in the [Tailwind upgrade guide](https://tailwindcss.com/docs/upgrade-guide) and [updated storefront-ui docs](https://docs.storefrontui.io/v2/).
+
 ## 2.5.1
 
 ### Patch Changes

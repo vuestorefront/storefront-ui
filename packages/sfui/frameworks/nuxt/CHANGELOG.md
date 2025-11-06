@@ -1,5 +1,16 @@
 # @storefront-ui/nuxt
 
+## 3.0.0
+
+### Major Changes
+
+- [#3313](https://github.com/vuestorefront/storefront-ui/pull/3313) [`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Migrate to Tailwind@4. SFUI tries to defer some of Tailwinds' breaking changes, e.g. the default outline width or border-radius size scale, but not everything was possible. Please refer to all breaking changes described in the [Tailwind upgrade guide](https://tailwindcss.com/docs/upgrade-guide) and [updated storefront-ui docs](https://docs.storefrontui.io/v2/).
+
+### Patch Changes
+
+- Updated dependencies [[`c850705`](https://github.com/vuestorefront/storefront-ui/commit/c850705aba20c0f4a7ac969b55a50d9d8866f64c), [`15e4549`](https://github.com/vuestorefront/storefront-ui/commit/15e4549e9d444218ed20ca80af1f6c822eb72781), [`15e4549`](https://github.com/vuestorefront/storefront-ui/commit/15e4549e9d444218ed20ca80af1f6c822eb72781), [`15e4549`](https://github.com/vuestorefront/storefront-ui/commit/15e4549e9d444218ed20ca80af1f6c822eb72781), [`6e609e7`](https://github.com/vuestorefront/storefront-ui/commit/6e609e7624e9c5c98cfb3db8adccbd6e75db5260), [`31aa18f`](https://github.com/vuestorefront/storefront-ui/commit/31aa18f3dd7d85a2d2298c8fd776a5feadfc0167), [`15e4549`](https://github.com/vuestorefront/storefront-ui/commit/15e4549e9d444218ed20ca80af1f6c822eb72781), [`6e609e7`](https://github.com/vuestorefront/storefront-ui/commit/6e609e7624e9c5c98cfb3db8adccbd6e75db5260), [`6e609e7`](https://github.com/vuestorefront/storefront-ui/commit/6e609e7624e9c5c98cfb3db8adccbd6e75db5260), [`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b), [`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b)]:
+  - @storefront-ui/vue@3.0.0
+
 ## 2.5.4
 
 ### Patch Changes
