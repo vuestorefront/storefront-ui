@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import {
   mergeRefs,
   SfIconCheckBox,
@@ -15,7 +15,7 @@ const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
   (
     { wrapperAs, invalid, className, indeterminate: indeterminateProp, wrapperClassName, ...attributes },
     ref,
-  ): JSX.Element => {
+  ): React.JSX.Element => {
     const inputRef = useRef<HTMLInputElement>(null);
     const WrapperTag = wrapperAs || defaultWrapperTag;
     const [isIndeterminate, setIsIndeterminate] = useState(indeterminateProp || false);

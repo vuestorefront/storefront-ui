@@ -1,3 +1,4 @@
+import React from 'react';
 import { SfProgressSize, twMerge } from '@storefront-ui/react';
 import type { SfProgressCircularProps } from '@storefront-ui/react';
 
@@ -31,7 +32,7 @@ export default function SfProgressCircular({
   className,
   circleClassName,
   ...attributes
-}: SfProgressCircularProps): JSX.Element {
+}: SfProgressCircularProps): React.JSX.Element {
   const strokeDasharray = `${(value / 100) * 151}, 150`;
   return (
     <svg

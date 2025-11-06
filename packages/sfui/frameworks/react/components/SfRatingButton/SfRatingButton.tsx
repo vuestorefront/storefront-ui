@@ -1,5 +1,5 @@
 'use client';
-import { useState, type ChangeEvent } from 'react';
+import React, { useState, type ChangeEvent } from 'react';
 import classnames from 'classnames';
 import {
   SfIconStar,
@@ -50,7 +50,7 @@ export default function SfRatingButton({
   getLabelText = defaultLabelText,
   children = renderDefaultIcon,
   ...attributes
-}: SfRatingButtonProps): JSX.Element {
+}: SfRatingButtonProps): React.JSX.Element {
   const [hoverValue, setHoverValue] = useState(0);
   const icons = Array.from({ length: Math.floor(Math.abs(max)) }, (_, index) => index + 1);
   const isIconFilled = (ratingValue: number) => ratingValue <= hoverValue || (hoverValue === 0 && ratingValue <= value);

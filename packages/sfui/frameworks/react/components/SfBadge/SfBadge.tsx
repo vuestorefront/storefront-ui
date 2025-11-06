@@ -1,3 +1,4 @@
+import React from 'react';
 import { SfBadgePlacement } from '@storefront-ui/shared';
 import { twMerge, type SfBadgeProps } from '@storefront-ui/react';
 
@@ -8,7 +9,7 @@ export default function SfBadge({
   placement = SfBadgePlacement['top-right'],
   className,
   ...attributes
-}: SfBadgeProps): JSX.Element {
+}: SfBadgeProps): React.JSX.Element {
   const isDot = variant === 'dot';
   let displayValue = content;
   if (isDot) {

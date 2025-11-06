@@ -1,3 +1,4 @@
+import React from 'react';
 import { SfLoaderSize, twMerge } from '@storefront-ui/react';
 import type { SfLoaderCircularProps } from '@storefront-ui/react';
 
@@ -29,7 +30,7 @@ export default function SfLoaderCircular({
   className,
   circleClassName,
   ...attributes
-}: SfLoaderCircularProps): JSX.Element {
+}: SfLoaderCircularProps): React.JSX.Element {
   return (
     <svg
       className={twMerge(

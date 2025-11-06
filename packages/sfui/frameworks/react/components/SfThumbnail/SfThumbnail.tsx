@@ -1,3 +1,4 @@
+import React from 'react';
 import { SfThumbnailProps, SfThumbnailSize, twMerge } from '@storefront-ui/react';
 
 const sizeClasses = {
@@ -12,7 +13,7 @@ export default function SfThumbnail({
   children,
   className,
   ...attributes
-}: SfThumbnailProps): JSX.Element {
+}: SfThumbnailProps): React.JSX.Element {
   return (
     <div
       className={twMerge('rounded-full overflow-hidden bg-clip-content p-0.5', sizeClasses[size], className)}

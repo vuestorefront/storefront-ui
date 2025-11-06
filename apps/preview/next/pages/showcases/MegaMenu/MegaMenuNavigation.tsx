@@ -392,7 +392,7 @@ export default function MegaMenuNavigation() {
   const [inputValue, setInputValue] = useState('');
 
   const refsByKey = useMemo(() => {
-    const buttonRefs: Record<string, RefObject<HTMLButtonElement>> = {};
+    const buttonRefs: Record<string, RefObject<HTMLButtonElement | null>> = {};
     content.children?.forEach((item) => {
       buttonRefs[item.key] = createRef();
     });
