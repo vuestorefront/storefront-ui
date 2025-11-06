@@ -1,5 +1,5 @@
 <template>
-  <nav class="inline-flex items-center text-sm font-normal font-body">
+  <nav class="inline-flex items-center typography-text-sm font-body">
     <ol class="flex w-auto leading-none group md:flex-wrap">
       <li class="flex items-center sm:hidden text-neutral-500">
         <SfDropdown v-model="dropdownOpened" strategy="absolute" placement="bottom-start" @update:model-value="close">
@@ -35,9 +35,10 @@
       <li
         v-for="(item, index) in breadcrumbs"
         :key="item.name"
-        icon=""
-        class="peer hidden sm:flex items-center peer-[:nth-of-type(even)]:before:content-[url('http://localhost:3100/@assets/chevron_right.svg')] peer-[:nth-of-type(even)]:before:inline-flex last-of-type:flex last-of-type:before:font-normal last-of-type:before:text-neutral-500 text-neutral-500 last-of-type:text-neutral-900 last-of-type:font-medium"
+        class="hidden peer sm:flex items-center text-neutral-500 last-of-type:flex last-of-type:text-neutral-900 last-of-type:font-medium"
       >
+        <SfIconChevronRight v-if="index !== 0" size="sm" class="mx-0.5 text-neutral-500" />
+
         <SfLink
           v-if="index < breadcrumbs.length - 1"
           :href="item.link"

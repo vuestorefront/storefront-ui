@@ -1,5 +1,5 @@
 <template>
-  <nav class="inline-flex items-center text-sm font-normal font-body">
+  <nav class="inline-flex items-center typography-text-sm font-body">
     <ol class="flex w-auto leading-none group md:flex-wrap">
       <li class="flex items-center sm:hidden text-neutral-500">
         <SfDropdown v-model="dropdownOpened" strategy="absolute" placement="bottom-start" @update:model-value="close">
@@ -49,7 +49,7 @@
           v-else-if="index < breadcrumbs.length - 1"
           :href="item.link"
           variant="secondary"
-          class="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-inherit"
+          class="leading-5 no-underline hover:underline active:underline whitespace-nowrap outline-secondary-600 text-neutral-500"
         >
           {{ item.name }}
         </SfLink>

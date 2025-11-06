@@ -36,7 +36,7 @@
       <div class="items-center sm:mt-auto sm:flex">
         <span class="font-bold sm:ml-auto sm:order-1 typography-text-sm sm:typography-text-lg">$2,345.99 </span>
         <div class="flex items-center justify-between mt-4 sm:mt-0">
-          <div class="flex border border-neutral-300 rounded-md">
+          <div class="flex border border-neutral-300 rounded-full">
             <SfButton
               variant="tertiary"
               :disabled="count <= min"
