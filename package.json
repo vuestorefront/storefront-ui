@@ -95,6 +95,8 @@
     "#sf-docs-base": "old vue with version 3.4. causing missing renderer",
     "vue": "3.5.13",
     "sf-docs-base@^1.3.2": "patch:sf-docs-base@npm%3A1.3.2#./.yarn/patches/sf-docs-base-npm-1.3.2-2dba5f0f27.patch",
-    "@nuxtjs/tailwindcss@^6.11.4": "7.0.0-beta.1"
+    "@nuxtjs/tailwindcss@^6.11.4": "7.0.0-beta.1",
+    "@storefront-ui/vue": "workspace:*",
+    "@storefront-ui/typography": "workspace:*"
   }
 }
