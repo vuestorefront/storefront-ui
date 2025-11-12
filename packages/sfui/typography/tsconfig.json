@@ -9,8 +9,13 @@
     "baseUrl": ".",
     "types": [
       "vite/client"
+    ],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2021"
     ]
   },
-  "include": ["**/*.ts"],
+  "include": ["*.ts"],
   "exclude": ["./dist/**/*"]
 }
