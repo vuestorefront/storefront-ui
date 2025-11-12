@@ -21,12 +21,12 @@
 /* Vuepress can't use the most recent Tailwind version, this cannot be pulled from the plugin,
   hardcoding the values for now. */
 const typographyClasses = [
-  ['display-1', 'fontSize.6xl', 'lineHeight.extra-tight', 'fontFamily.headings'],
+  ['display-1', 'fontSize.6xl', '1.1', 'fontFamily.headings'],
   ['display-2', 'fontSize.4xl', 'lineHeight.10', 'fontFamily.headings'],
   ['display-3', 'fontSize.2xl', 'lineHeight.8', 'fontFamily.headings'],
-  ['headline-1', 'fontSize.6xl', 'lineHeight.extra-tight', 'fontFamily.headings'],
-  ['headline-2', 'fontSize.4xl', 'lineHeight.10', 'fontFamily.headings'],
-  ['headline-3', 'fontSize.2xl', 'lineHeight.8', 'fontFamily.headings'],
+  ['headline-1', 'fontSize.4xl', 'lineHeight.8', 'fontFamily.headings'],
+  ['headline-2', 'fontSize.2xl', 'lineHeight.8', 'fontFamily.headings'],
+  ['headline-3', 'fontSize.xl', 'lineHeight.7', 'fontFamily.headings'],
   ['headline-4', 'fontSize.lg', 'lineHeight.7', 'fontFamily.headings'],
   ['headline-5', 'fontSize.base', 'lineHeight.6', 'fontFamily.headings'],
   ['headline-6', 'fontSize.sm', 'lineHeight.5', 'fontFamily.headings'],
