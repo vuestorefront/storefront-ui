@@ -3,7 +3,7 @@
 // 2. `nuxt.config.ts` file with `tailwindcss` property
 // 3. default configuration inside module
 export default {
-  content: ['../../../../node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
+  content: ['../../../../node_modules/@storefront-ui/vue'],
   theme: {
     extend: {
       colors: {

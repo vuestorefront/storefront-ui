@@ -85,7 +85,7 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 @plugin "@storefront-ui/typography";
 
 @source '../**/*.vue';
-@source '../node_modules/@storefront-ui/vue/**/*.vue';
+@source '../node_modules/@storefront-ui/vue';
 ```
 
 ### You're Ready to Go!
@@ -220,7 +220,7 @@ const { tailwindConfig } = require('@storefront-ui/vue/tailwind-config');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [tailwindConfig],
-  content: ['./index.html', './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
+  content: ['./index.html', './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/@storefront-ui/vue'],
   theme: {
     extend: {},
   },

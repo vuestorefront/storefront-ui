@@ -33,7 +33,7 @@ export default defineNuxtModule<ModuleOptions>({
 @plugin "@storefront-ui/typography";
 
 @source '../**/*.vue';
-@source '../node_modules/@storefront-ui/vue/**/*.vue';
+@source '../node_modules/@storefront-ui/vue';
 `,
     });
 
