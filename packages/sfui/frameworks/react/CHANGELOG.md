@@ -1,5 +1,11 @@
 # @storefront-ui/react
 
+## 3.0.1
+
+### Patch Changes
+
+- [#3320](https://github.com/vuestorefront/storefront-ui/pull/3320) [`f5fed3f`](https://github.com/vuestorefront/storefront-ui/commit/f5fed3fa60f9ecc836af886db6603a9afc2b7aa4) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[CHANGED]** Handle data-testid to smooth out testing experience.
+
 ## 3.0.0
 
 ### Major Changes
