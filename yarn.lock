@@ -2133,6 +2133,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@mertasan/tailwindcss-variables@npm:^2.5.2":
+  version: 2.7.0
+  resolution: "@mertasan/tailwindcss-variables@npm:2.7.0"
+  dependencies:
+    lodash: ^4.17.21
+  peerDependencies:
+    autoprefixer: ^10.0.2
+    postcss: ^8.0.9
+  checksum: 1e38761078a9d5466231069228e8e72d1fc4a721a80dd19d9259b39bdda7d0397e048ba82d46ecee2f031ecab78a6a2dff593d95ba7ae107e05d709584e43159
+  languageName: node
+  linkType: hard
+
 "@microsoft/api-documenter@npm:^7.25.9":
   version: 7.25.21
   resolution: "@microsoft/api-documenter@npm:7.25.21"
@@ -4038,8 +4050,8 @@ __metadata:
     "@nuxtjs/color-mode": ^3.4.2
     "@nuxtjs/seo": ^2.0.0-rc.10
     "@nuxtjs/tailwindcss": 7.0.0-beta.1
-    "@storefront-ui/typography": ^2.6.1
-    "@storefront-ui/vue": ^2.6.5
+    "@storefront-ui/typography": ^3.0.0
+    "@storefront-ui/vue": ^3.0.0
     "@tailwindcss/typography": ^0.5.19
     "@types/node": ^20.12.7
     "@vueuse/integrations": ^12.8.0
@@ -4272,6 +4284,13 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@storefront-ui/shared@npm:2.5.1":
+  version: 2.5.1
+  resolution: "@storefront-ui/shared@npm:2.5.1"
+  checksum: 8c5d5a4bbee2f19a2b76f5d248c1f008c1ce7854fc08abd3bd3fac250b2c905430b7450600a92e2e6664d1b9965335829ef217071fc61722caef959e38eaaa0e
+  languageName: node
+  linkType: hard
+
 "@storefront-ui/shared@workspace:*, @storefront-ui/shared@workspace:packages/sfui/shared":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/shared@workspace:packages/sfui/shared"
@@ -4283,6 +4302,16 @@ __metadata:
     vue-tsc: ^2.2.12
   languageName: unknown
   linkType: soft
+
+"@storefront-ui/tailwind-config@npm:2.5.1":
+  version: 2.5.1
+  resolution: "@storefront-ui/tailwind-config@npm:2.5.1"
+  dependencies:
+    "@mertasan/tailwindcss-variables": ^2.5.2
+    "@storefront-ui/tw-plugin-peer-next": 2.3.3
+  checksum: 82b6a1419de1728f21b3f2e5a15ea12b81745b80d6f9522a0438e8b09b37f5a4d4a4898d82c911296b6bcee3661faa8ff1a456d7862aa42a3dd195e89fd47d22
+  languageName: node
+  linkType: hard
 
 "@storefront-ui/tailwind-config@workspace:*, @storefront-ui/tailwind-config@workspace:packages/config/tailwind":
   version: 0.0.0-use.local
@@ -4316,6 +4345,15 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@storefront-ui/tw-plugin-peer-next@npm:2.3.3":
+  version: 2.3.3
+  resolution: "@storefront-ui/tw-plugin-peer-next@npm:2.3.3"
+  peerDependencies:
+    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
+  checksum: 4cebcf94387c951b8005ff1141a109cfecbefce6fe5c4c54da3c6c543d81724cdee3f053ebe3ebe21daef7574f289107979a97b08c1107d0fce5099b0798cc1b
+  languageName: node
+  linkType: hard
+
 "@storefront-ui/tw-plugin-peer-next@workspace:*, @storefront-ui/tw-plugin-peer-next@workspace:packages/sfui/tw-plugin-peer-next":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/tw-plugin-peer-next@workspace:packages/sfui/tw-plugin-peer-next"
@@ -4335,7 +4373,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/typography@^2.1.0, @storefront-ui/typography@^2.6.1, @storefront-ui/typography@workspace:*, @storefront-ui/typography@workspace:packages/sfui/typography":
+"@storefront-ui/typography@^3.0.0, @storefront-ui/typography@workspace:*, @storefront-ui/typography@workspace:packages/sfui/typography":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/typography@workspace:packages/sfui/typography"
   dependencies:
@@ -4347,6 +4385,15 @@ __metadata:
     tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1 || >= 4.0.0-alpha.20 || >= 4.0.0-beta.1 || >= 4.0.0"
   languageName: unknown
   linkType: soft
+
+"@storefront-ui/typography@npm:^2.1.0":
+  version: 2.6.1
+  resolution: "@storefront-ui/typography@npm:2.6.1"
+  peerDependencies:
+    tailwindcss: ">=3.0.0 || >= 3.0.0-alpha.1"
+  checksum: 560f1d080eaab69c14873f2e127f26162c6d4ee29872d3213ab97fee685f707520f3e953ec8ab73b1f482a716c78aa58347f45fa9046387e1de532edfed76832
+  languageName: node
+  linkType: hard
 
 "@storefront-ui/vue-test@workspace:apps/test/vue":
   version: 0.0.0-use.local
@@ -4388,7 +4435,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@storefront-ui/vue@^2.1.0, @storefront-ui/vue@^2.6.5, @storefront-ui/vue@workspace:*, @storefront-ui/vue@workspace:packages/sfui/frameworks/vue":
+"@storefront-ui/vue@^3.0.0, @storefront-ui/vue@workspace:*, @storefront-ui/vue@workspace:packages/sfui/frameworks/vue":
   version: 0.0.0-use.local
   resolution: "@storefront-ui/vue@workspace:packages/sfui/frameworks/vue"
   dependencies:
@@ -4413,6 +4460,22 @@ __metadata:
     vue: ^3.5.12
   languageName: unknown
   linkType: soft
+
+"@storefront-ui/vue@npm:^2.1.0":
+  version: 2.6.5
+  resolution: "@storefront-ui/vue@npm:2.6.5"
+  dependencies:
+    "@floating-ui/vue": ^1.0.6
+    "@storefront-ui/shared": 2.5.1
+    "@storefront-ui/tailwind-config": 2.5.1
+    "@vueuse/core": ^10.11.0
+    jw-paginate: ^1.0.4
+    tabbable: ^6.1.1
+  peerDependencies:
+    vue: ^3.5.12
+  checksum: 356cc630aa61e829c49bcce9ea92153ea1d4d1804a66fc30aa554dba5a89bc9add688b657ac8913236a101332491594d16703ee83637123f788110ea5dfc61f6
+  languageName: node
+  linkType: hard
 
 "@swc/counter@npm:^0.1.3":
   version: 0.1.3
@@ -6275,7 +6338,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:10.11.1, @vueuse/core@npm:^10.7.2":
+"@vueuse/core@npm:10.11.1, @vueuse/core@npm:^10.11.0, @vueuse/core@npm:^10.7.2":
   version: 10.11.1
   resolution: "@vueuse/core@npm:10.11.1"
   dependencies:
