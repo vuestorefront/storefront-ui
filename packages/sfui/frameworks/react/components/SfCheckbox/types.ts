@@ -5,5 +5,6 @@ export interface SfCheckboxProps extends PropsWithStyle, InputHTMLAttributes<HTM
   invalid?: boolean;
   wrapperAs?: ElementType<any> | undefined;
   wrapperClassName?: string;
+  'data-testid'?: string;
   indeterminate?: boolean;
 }
