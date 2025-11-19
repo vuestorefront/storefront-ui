@@ -23,6 +23,10 @@ const { indeterminate = false } = defineProps({
     default: 'label',
   },
   wrapperClass: ClassProp,
+  dataTestid: {
+    type: String,
+    default: 'checkbox',
+  },
 });
 
 defineOptions({
@@ -59,7 +63,7 @@ watch(
         wrapperClass,
       )
     "
-    data-testid="checkbox"
+    :data-testid="dataTestid ?? 'checkbox'"
   >
     <input
       :class="twMerge('sr-only', $attrs.class)"
