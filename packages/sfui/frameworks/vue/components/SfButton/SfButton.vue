@@ -75,6 +75,7 @@ const type = computed(
 <template>
   <component
     :is="tagWithDefaults"
+    data-testid="button"
     v-bind="attrsWithoutClass"
     :type="type"
     :disabled="disabled"
@@ -87,7 +88,6 @@ const type = computed(
         $attrs.class,
       )
     "
-    data-testid="button"
   >
     <slot v-if="$slots.prefix" name="prefix" />
     <slot />
