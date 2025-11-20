@@ -52,8 +52,8 @@ const displayValue = computed(() => {
         $attrs.class,
       )
     "
-    v-bind="attrsWithoutClass"
     data-testid="badge"
+    v-bind="attrsWithoutClass"
   >
     {{ displayValue }}
   </span>
