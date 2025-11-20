@@ -1,5 +1,11 @@
 # @storefront-ui/vue
 
+## 3.0.2
+
+### Patch Changes
+
+- [#3325](https://github.com/vuestorefront/storefront-ui/pull/3325) [`023abe7`](https://github.com/vuestorefront/storefront-ui/commit/023abe77d6994b7da937db5211a502d426d7f22c) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[FIXED]** allow to change default `data-testid` attribute on `SfButton` and `SfBadge` components.
+
 ## 3.0.1
 
 ### Patch Changes
