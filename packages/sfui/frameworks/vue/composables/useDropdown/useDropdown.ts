@@ -13,7 +13,11 @@ export function useDropdown(options: UseDropdownOptions) {
     ...popoverOptions,
   });
 
-  onClickOutside(referenceRef as MaybeElementRef, onClose);
+  onClickOutside(referenceRef as MaybeElementRef, () => {
+    if (toValue(isOpen)) {
+      onClose?.();
+    }
+  });
   onKeyStroke('Escape', onClose, { target: referenceRef as MaybeRefOrGetter<EventTarget | null | undefined> });
 
   return { floatingRef, referenceRef, style };
