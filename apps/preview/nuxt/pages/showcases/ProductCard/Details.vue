@@ -112,7 +112,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, useId } from 'vue';
 import {
   SfButton,
   SfCounter,
@@ -127,7 +127,6 @@ import {
   SfIconShoppingCart,
   SfIconAdd,
   SfIconRemove,
-  useId,
   SfIconShoppingCartCheckout,
 } from '@storefront-ui/vue';
 import { clamp } from '@storefront-ui/shared';

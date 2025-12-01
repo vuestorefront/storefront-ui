@@ -34,9 +34,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, useId } from 'vue';
 import { useCounter } from '@vueuse/core';
-import { SfButton, SfIconAdd, SfIconRemove, useId } from '@storefront-ui/vue';
+import { SfButton, SfIconAdd, SfIconRemove } from '@storefront-ui/vue';
 import { clamp } from '@storefront-ui/shared';
 
 const min = ref(1);

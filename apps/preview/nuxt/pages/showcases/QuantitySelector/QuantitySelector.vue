@@ -40,10 +40,10 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, useId } from 'vue';
 import { clamp } from '@storefront-ui/shared';
 import { useCounter } from '@vueuse/core';
-import { SfButton, SfIconAdd, SfIconRemove, useId } from '@storefront-ui/vue';
+import { SfButton, SfIconAdd, SfIconRemove } from '@storefront-ui/vue';
 
 const min = ref(1);
 const max = ref(10);

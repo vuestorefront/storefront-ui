@@ -284,7 +284,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, type Ref, watch } from 'vue';
+import { ref, type Ref, watch, useId } from 'vue';
 import {
   SfSwitch,
   SfInput,
@@ -298,7 +298,6 @@ import {
   SfIconExpandMore,
   SfListItem,
   SfIconCheck,
-  useId,
   useTrapFocus,
 } from '@storefront-ui/vue';
 import { unrefElement } from '@vueuse/core';
