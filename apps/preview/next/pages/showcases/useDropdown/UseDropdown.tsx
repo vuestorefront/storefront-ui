@@ -18,7 +18,9 @@ export default function Dropdown() {
 
   return (
     <div ref={refs.setReference} className="w-max">
-      <SfButton ref={triggerRef} onClick={toggle}>Toggle</SfButton>
+      <SfButton ref={triggerRef} onClick={toggle}>
+        Toggle
+      </SfButton>
       {isOpen && (
         <ul ref={refs.setFloating} style={style} className="absolute p-2 w-max rounded-sm bg-gray-100">
           <li tabIndex={0}>More</li>

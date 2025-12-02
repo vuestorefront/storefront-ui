@@ -14,9 +14,13 @@ export default function BasicDropdown() {
   };
   return (
     <SfDropdown
-      trigger={<SfButton ref={triggerRef}
-      onClick={toggle}>Toggle</SfButton>}
-      open={isOpen} onClose={handleClose}
+      trigger={
+        <SfButton ref={triggerRef} onClick={toggle}>
+          Toggle
+        </SfButton>
+      }
+      open={isOpen}
+      onClose={handleClose}
     >
       <ul className="p-2 rounded-sm bg-gray-100">
         <li tabIndex={0}>More</li>
