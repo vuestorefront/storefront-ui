@@ -1,5 +1,7 @@
 import React from 'react';
-import { mount, useComponent } from '../../utils/mount';
+import { ref } from 'vue';
+import type { Ref } from 'vue';
+import { Wrapper, mount, useComponent } from '../../utils/mount';
 import SfTooltipObject from './SfTooltip.PageObject';
 
 const { vue: SfTooltipVue, react: SfTooltipReact } = useComponent('SfTooltip');
@@ -13,9 +15,20 @@ describe('SfTooltip', () => {
       children?: string | React.ReactElement;
       className?: string;
       showArrow?: boolean;
+      id?: string;
+      'data-testid'?: string;
+      modelValue?: Ref<boolean>;
     } = {},
   ) => {
-    const { label = 'Tooltip text', children = 'Content', showArrow = false, className } = props;
+    const {
+      label = 'Tooltip text',
+      children = 'Content',
+      showArrow = false,
+      className,
+      id,
+      'data-testid': dataTestid,
+      modelValue,
+    } = props;
     return mount({
       vue: {
         component: SfTooltipVue,
@@ -23,15 +36,26 @@ describe('SfTooltip', () => {
           label,
           class: className,
           showArrow,
+          modelValue,
+          id,
+          dataTestid,
         },
         slots: {
           default: children,
         },
       },
       react: (
-        <SfTooltipReact label={label} className={className} showArrow={showArrow}>
+        <Wrapper
+          component={SfTooltipReact}
+          open={modelValue}
+          label={label}
+          className={className}
+          showArrow={showArrow}
+          id={id}
+          data-testid={dataTestid}
+        >
           {children}
-        </SfTooltipReact>
+        </Wrapper>
       ),
     });
   };
@@ -82,6 +106,32 @@ describe('SfTooltip', () => {
       initializeComponent(props);
 
       page().hasClass(props.className);
+    });
+  });
+
+  describe('When id prop is added', () => {
+    it('Should apply given id to tooltip element', () => {
+      const props = { id: 'custom-id', modelValue: ref(true), label: 'Tooltip text' };
+      initializeComponent(props);
+
+      page().hasTooltipId(props.id);
+    });
+  });
+
+  describe('When open modelValue changes', () => {
+    it('Should react to the changes', () => {
+      const modelValue = ref(false);
+      initializeComponent({ modelValue });
+
+      page().isTooltipHidden();
+
+      cy.then(() => {
+        modelValue.value = true;
+        page().isTooltipVisible();
+      }).then(() => {
+        modelValue.value = false;
+        page().isTooltipHidden();
+      });
     });
   });
 });
