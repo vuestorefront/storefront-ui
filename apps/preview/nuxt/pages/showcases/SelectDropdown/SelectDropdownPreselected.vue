@@ -53,7 +53,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, type Ref } from 'vue';
+import { ref, type Ref, useId } from 'vue';
 import { unrefElement } from '@vueuse/core';
 import {
   useDropdown,
@@ -61,7 +61,6 @@ import {
   SfIconExpandMore,
   SfListItem,
   SfIconCheck,
-  useId,
   useTrapFocus,
 } from '@storefront-ui/vue';
 
