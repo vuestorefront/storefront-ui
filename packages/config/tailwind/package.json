@@ -20,7 +20,7 @@
     "url": "https://github.com/vuestorefront/storefront-ui/issues"
   },
   "dependencies": {
-    "@storefront-ui/tw-plugin-peer-next": "workspace:*",
+    "@storefront-ui/tw-plugin-peer-next": "^2.3.3",
     "@tailwindcss/container-queries": "^0.1.1"
   },
   "peerDependencies": {

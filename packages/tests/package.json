@@ -10,7 +10,7 @@
     "prettier": "prettier --loglevel warn --no-error-on-unmatched-pattern \"**/*.{ts,tsx}\""
   },
   "devDependencies": {
-    "@storefront-ui/eslint-config": "workspace:*",
+    "@storefront-ui/eslint-config": "^0.0.0",
     "eslint": "^8.34.0",
     "prettier": "^2.8.8"
   }

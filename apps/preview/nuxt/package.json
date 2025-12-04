@@ -16,13 +16,13 @@
     "@frsource/autoresize-textarea": "^2.0.87",
     "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "7.0.0-beta.1",
-    "@storefront-ui/eslint-config": "workspace:*",
-    "@storefront-ui/example-style": "workspace:*",
-    "@storefront-ui/nuxt": "workspace:*",
-    "@storefront-ui/shared": "workspace:*",
-    "@storefront-ui/tw-plugin-peer-next": "workspace:*",
-    "@storefront-ui/typography": "workspace:*",
-    "@storefront-ui/vue": "workspace:*",
+    "@storefront-ui/eslint-config": "^0.0.0",
+    "@storefront-ui/example-style": "^0.0.0",
+    "@storefront-ui/nuxt": "^2.5.4",
+    "@storefront-ui/shared": "^2.5.1",
+    "@storefront-ui/tw-plugin-peer-next": "^2.3.3",
+    "@storefront-ui/typography": "^2.6.1",
+    "@storefront-ui/vue": "^2.6.5",
     "@tailwindcss/typography": "^0.5.19",
     "@types/lodash-es": "^4.17.12",
     "@vueuse/core": "^12.8.0",
@@ -37,7 +37,7 @@
     "tailwindcss": "^4.1.11"
   },
   "dependencies": {
-    "@storefront-ui/preview-shared": "workspace:^",
+    "@storefront-ui/preview-shared": "^0.0.0",
     "lodash-es": "^4.17.21"
   }
 }

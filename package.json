@@ -60,7 +60,7 @@
     "@commitlint/config-conventional": "^17.0.0",
     "@frsource/frs-replace": "^4.1.1",
     "@octokit/core": "^6.1.2",
-    "@storefront-ui/typescript-config": "workspace:*",
+    "@storefront-ui/typescript-config": "^0.0.0",
     "@vue-storefront/prettier-config": "^2.0.0-rc.1",
     "commitizen": "^4.2.5",
     "concurrently": "^8.2.2",

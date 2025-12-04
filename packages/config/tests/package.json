@@ -1,5 +1,6 @@
 {
   "name": "@storefront-ui/tests-shared",
+  "version": "0.0.0",
   "private": true,
   "license": "MIT",
   "exports": {

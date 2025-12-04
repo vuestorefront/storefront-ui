@@ -42,11 +42,11 @@
     "vite-svg-loader": "^5.1.0"
   },
   "resolutions": {
-    "@storefront-ui/eslint-config": "workspace:*",
-    "@storefront-ui/example-style": "workspace:*",
-    "@storefront-ui/shared": "workspace:*",
-    "@storefront-ui/tw-plugin-peer-next": "workspace:*",
-    "@storefront-ui/typography": "workspace:*",
-    "@storefront-ui/vue": "workspace:*"
+    "@storefront-ui/eslint-config": "^0.0.0",
+    "@storefront-ui/example-style": "^0.0.0",
+    "@storefront-ui/shared": "^2.5.1",
+    "@storefront-ui/tw-plugin-peer-next": "^2.3.3",
+    "@storefront-ui/typography": "^2.6.1",
+    "@storefront-ui/vue": "^2.6.5"
   }
 }

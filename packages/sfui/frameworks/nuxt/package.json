@@ -41,13 +41,13 @@
   "dependencies": {
     "@nuxt/kit": "^3.13.2",
     "@nuxtjs/tailwindcss": "^7.0.0-beta.1",
-    "@storefront-ui/vue": "workspace:*",
+    "@storefront-ui/vue": "^2.6.5",
     "defu": "^6.1.4"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^3.13.2",
-    "@storefront-ui/eslint-config": "workspace:*",
+    "@storefront-ui/eslint-config": "^0.0.0",
     "eslint": "^8.34.0",
     "nuxt": "^3.14.159"
   }
