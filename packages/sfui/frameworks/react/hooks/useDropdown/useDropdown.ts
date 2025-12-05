@@ -9,12 +9,17 @@ export function useDropdown(options: UseDropdownOptions) {
     onCloseDeps,
     placement = 'bottom',
     middleware = [offset(8), shift(), flip()],
+    isOpen,
     ...popoverOptions
   } = options;
 
-  const { refs, style } = usePopover({ placement, middleware, ...popoverOptions });
+  const { refs, style } = usePopover({ placement, middleware, isOpen, ...popoverOptions });
 
-  useClickAway(refs.reference, onClose);
+  useClickAway<PointerEvent | MouseEvent | TouchEvent>(refs.reference, (e) => {
+    if (isOpen) {
+      onClose?.(e);
+    }
+  });
   useKey('Escape', onClose, { target: refs.reference.current }, onCloseDeps);
 
   return { refs, style };
