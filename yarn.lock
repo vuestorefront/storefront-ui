@@ -592,7 +592,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@changesets/assemble-release-plan@npm:^6.0.4":
+"@changesets/assemble-release-plan@npm:6.0.4":
   version: 6.0.4
   resolution: "@changesets/assemble-release-plan@npm:6.0.4"
   dependencies:
@@ -603,6 +603,20 @@ __metadata:
     "@manypkg/get-packages": ^1.1.3
     semver: ^7.5.3
   checksum: 948066a8ca8e12390599f641a0439b6a4d6c1c2a9958f58596aa50cf68d7d594b28acc1eb6bd0ad17df2025f0614006e44728a2614fad2a3d54c669568bf6d65
+  languageName: node
+  linkType: hard
+
+"@changesets/assemble-release-plan@patch:@changesets/assemble-release-plan@npm%3A6.0.4#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.4-999d754646.patch::locator=%40storefront-ui%2Fmonorepo%40workspace%3A.":
+  version: 6.0.4
+  resolution: "@changesets/assemble-release-plan@patch:@changesets/assemble-release-plan@npm%3A6.0.4#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.4-999d754646.patch::version=6.0.4&hash=548bb7&locator=%40storefront-ui%2Fmonorepo%40workspace%3A."
+  dependencies:
+    "@changesets/errors": ^0.2.0
+    "@changesets/get-dependents-graph": ^2.1.2
+    "@changesets/should-skip-package": ^0.1.1
+    "@changesets/types": ^6.0.0
+    "@manypkg/get-packages": ^1.1.3
+    semver: ^7.5.3
+  checksum: ca7643efebe39d1b81afbbb00271f2997b890281ade13427ecd1a515ffd002fdf27bca951314219c9d0f642bb3ebb0cb209ef8730d7bd6f3ece8c915066cd2fe
   languageName: node
   linkType: hard
 
