@@ -1,11 +1,5 @@
 # @storefront-ui/typography
 
-## 3.0.1
-
-### Patch Changes
-
-- [#3317](https://github.com/vuestorefront/storefront-ui/pull/3317) [`a7a861b`](https://github.com/vuestorefront/storefront-ui/commit/a7a861ba11713b8b7e0067b9f436ba5dfbbba90a) Thanks [@FRSgit](https://github.com/FRSgit)! - **[FIXED]** typography plugin now generates utils that use CSS variables instead of specific values by default.
-
 ## 3.0.0
 
 ### Major Changes
