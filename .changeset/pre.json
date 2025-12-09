@@ -20,5 +20,28 @@
     "@storefront-ui/typography": "2.6.1",
     "@storefront-ui/tests": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "blue-hats-care",
+    "famous-bottles-tan",
+    "five-geese-serve",
+    "flat-radios-do",
+    "fresh-emus-care",
+    "giant-geckos-perform",
+    "great-geckos-dance",
+    "grumpy-geckos-burn",
+    "mighty-monkeys-occur",
+    "selfish-readers-tickle",
+    "sharp-pets-beam",
+    "sixty-mayflies-guess",
+    "slimy-zoos-carry",
+    "slow-insects-travel",
+    "small-carrots-rescue",
+    "strange-pants-smile",
+    "strong-badgers-run",
+    "tame-otters-scream",
+    "ten-buckets-help",
+    "tidy-otters-deliver",
+    "tricky-rats-buy",
+    "witty-singers-wait"
+  ]
 }
