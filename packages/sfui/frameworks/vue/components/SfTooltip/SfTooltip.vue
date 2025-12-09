@@ -44,7 +44,7 @@ const { isOpen, close, open, triggerProps, tooltipProps, arrowProps } = useToolt
 watch(modelValue, (newVal) => {
   if (newVal) open();
   else close();
-});
+}, { immediate: true });
 
 watch(isOpen, (newVal) => {
   emit('update:modelValue', newVal);
