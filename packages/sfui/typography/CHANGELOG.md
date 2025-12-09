@@ -1,11 +1,5 @@
 # @storefront-ui/typography
 
-## 3.0.0
-
-### Major Changes
-
-- [#3313](https://github.com/vuestorefront/storefront-ui/pull/3313) [`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Support for Tailwind@4, dropped support for Tailwind@3. If you'd like to use Tailwind@3, please us `@storefront-ui/typography` in version `2.x`.
-
 ## 2.6.1
 
 ### Patch Changes

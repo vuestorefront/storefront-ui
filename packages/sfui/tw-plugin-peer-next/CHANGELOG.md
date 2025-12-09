@@ -1,11 +1,5 @@
 # @storefront-ui/tw-plugin-peer-next
 
-## 3.0.0
-
-### Major Changes
-
-- [#3313](https://github.com/vuestorefront/storefront-ui/pull/3313) [`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** - Migrate to Tailwind@4. If you're using Tailwind@3 - please use tw-plugin-peer-next in version 2.x.
-
 ## 2.3.3
 
 ### Patch Changes

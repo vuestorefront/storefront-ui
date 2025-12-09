@@ -1,39 +1,5 @@
 # @storefront-ui/react
 
-## 3.0.0
-
-### Major Changes
-
-- [#3281](https://github.com/vuestorefront/storefront-ui/pull/3281) [`15e4549`](https://github.com/vuestorefront/storefront-ui/commit/15e4549e9d444218ed20ca80af1f6c822eb72781) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Padding size for square variant of SfButton changed
-
-- [#3281](https://github.com/vuestorefront/storefront-ui/pull/3281) [`15e4549`](https://github.com/vuestorefront/storefront-ui/commit/15e4549e9d444218ed20ca80af1f6c822eb72781) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** removed flex classes from wrapper for slot in SfListItem
-
-- [#3281](https://github.com/vuestorefront/storefront-ui/pull/3281) [`15e4549`](https://github.com/vuestorefront/storefront-ui/commit/15e4549e9d444218ed20ca80af1f6c822eb72781) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Padding left and right in SfSelect changed from 14px and 16px to 12px
-
-- [#3289](https://github.com/vuestorefront/storefront-ui/pull/3289) [`6e609e7`](https://github.com/vuestorefront/storefront-ui/commit/6e609e7624e9c5c98cfb3db8adccbd6e75db5260) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** default badge background color. Add className `!bg-secondary-700` explicitly in order to migrate.
-
-- [#3281](https://github.com/vuestorefront/storefront-ui/pull/3281) [`15e4549`](https://github.com/vuestorefront/storefront-ui/commit/15e4549e9d444218ed20ca80af1f6c822eb72781) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Deprecated option `arrowKeysOn` from `useTrapFocus` is removed.
-  This option was separated and replaced by two more specialised options `arrowKeysLeftRight` and `arrowKeysUpDown`.
-  In order to migrate please one of those options or both.
-
-- [#3289](https://github.com/vuestorefront/storefront-ui/pull/3289) [`6e609e7`](https://github.com/vuestorefront/storefront-ui/commit/6e609e7624e9c5c98cfb3db8adccbd6e75db5260) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Moved from `rounded-md` to `rounded-xl` as a default styling for `SfInput`.
-
-- [#3289](https://github.com/vuestorefront/storefront-ui/pull/3289) [`6e609e7`](https://github.com/vuestorefront/storefront-ui/commit/6e609e7624e9c5c98cfb3db8adccbd6e75db5260) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Changed `SfCheckbox` default text color. To brind the previous behaviour back, apply `!text-gray !disabled:text-gray-300 !hover:text-gray-300` to your `SfCheckbox` element.
-
-- [#3313](https://github.com/vuestorefront/storefront-ui/pull/3313) [`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Migrate to Tailwind@4. SFUI tries to defer some of Tailwinds' breaking changes, e.g. the default outline width or border-radius size scale, but not everything was possible. Please refer to all breaking changes described in the [Tailwind upgrade guide](https://tailwindcss.com/docs/upgrade-guide) and [updated storefront-ui docs](https://docs.storefrontui.io/v2/).
-
-- [#3313](https://github.com/vuestorefront/storefront-ui/pull/3313) [`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Added `tailwind-merge` to all base components & blocks. From now on it will be easier to override default SFUI styles. See [`tailwind-merge` docs for more details](https://www.npmjs.com/package/tailwind-merge).
-
-### Minor Changes
-
-- [#3283](https://github.com/vuestorefront/storefront-ui/pull/3283) [`c850705`](https://github.com/vuestorefront/storefront-ui/commit/c850705aba20c0f4a7ac969b55a50d9d8866f64c) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[ADDED]** `blank` prop for SfButton component that eases out creating custom buttons. See [documentation](https://docs.storefrontui.io/v2/vue/components/button#blank-button-variants) for more details.
-
-### Patch Changes
-
-- Updated dependencies [[`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b), [`1deaa0a`](https://github.com/vuestorefront/storefront-ui/commit/1deaa0a56c388b1e280aad3d8e30fa40aefde33b), [`31aa18f`](https://github.com/vuestorefront/storefront-ui/commit/31aa18f3dd7d85a2d2298c8fd776a5feadfc0167), [`31aa18f`](https://github.com/vuestorefront/storefront-ui/commit/31aa18f3dd7d85a2d2298c8fd776a5feadfc0167)]:
-  - @storefront-ui/tailwind-config@3.0.0
-  - @storefront-ui/shared@3.0.0
-
 ## 2.7.1
 
 ### Patch Changes
