@@ -1,5 +1,16 @@
 # @storefront-ui/nuxt
 
+## 3.0.0-rc.0
+
+### Major Changes
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Migrate to Tailwind@4. SFUI tries to defer some of Tailwinds' breaking changes, e.g. the default outline width or border-radius size scale, but not everything was possible. Please refer to all breaking changes described in the [Tailwind upgrade guide](https://tailwindcss.com/docs/upgrade-guide) and [updated storefront-ui docs](https://docs.storefrontui.io/v2/).
+
+### Patch Changes
+
+- Updated dependencies [[`a708eaf`](https://github.com/vuestorefront/storefront-ui/commit/a708eaf8c092a19f3d41adb433883ff2e6ccc02d), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`2b3ad4a`](https://github.com/vuestorefront/storefront-ui/commit/2b3ad4ae63271be3cb5bed84bd5bfe11ebf340f2), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`023abe7`](https://github.com/vuestorefront/storefront-ui/commit/023abe77d6994b7da937db5211a502d426d7f22c), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`55fa6a2`](https://github.com/vuestorefront/storefront-ui/commit/55fa6a287036332b66f309ab4f6af4470ebf088a), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655)]:
+  - @storefront-ui/vue@3.0.0-rc.0
+
 ## 2.5.4
 
 ### Patch Changes

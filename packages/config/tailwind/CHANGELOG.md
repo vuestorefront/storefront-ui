@@ -1,5 +1,26 @@
 # @storefront-ui/tailwind-config
 
+## 3.0.0-rc.0
+
+### Major Changes
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Migrate to Tailwind@4 new configuration syntax. If you're using Tailwind@3, please stick to `@storefront-ui/tailwind-config` in version 2.x.
+
+  - **[BREAKING][CHANGED]** Introduce OOTB dark mode handling instead of relying on `@mertasan/tailwindcss-variables` package.
+  - **[REMOVED]** The `@mertasan/tailwindcss-variables` dependency has been removed as Tailwind support CSS variables out of the box now.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** The default color palette for `primary`, `neutral` and `secondary` colors. Copy [old color palette](https://github.com/vuestorefront/storefront-ui/blob/8b35d6507ee3ae93538539400947e2f86d0c5529/packages/config/tailwind/index.ts#L360-L381) to your local `tailwind.config.js` if you need to keep some of them.
+  Also, now the palette is converted from rgb to oklch colors to [fit with tailwind 4](https://tailwindcss.com/blog/tailwindcss-v4#modernized-p3-color-palette).
+
+### Minor Changes
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[ADDED]** Add `@tailwindcss/container-queries`. Now container queries are available out-of-the-box when using `@storefront-ui/tailwind-config`.
+
+### Patch Changes
+
+- Updated dependencies [[`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655)]:
+  - @storefront-ui/tw-plugin-peer-next@3.0.0-rc.0
+
 ## 2.5.1
 
 ### Patch Changes
