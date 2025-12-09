@@ -56,8 +56,7 @@ export default defineNuxtModule<ModuleOptions>({
       if (key.startsWith('Sf') && (storefrontUi[key].__name || storefrontUi[key].name)) {
         components.push(key);
       } else if (key.startsWith('use')) {
-        // `useId` is already available in nuxtjs, we omit `useId` because of duplication warning
-        if (key !== 'useId') composables.push(key);
+        composables.push(key);
       }
     });
 

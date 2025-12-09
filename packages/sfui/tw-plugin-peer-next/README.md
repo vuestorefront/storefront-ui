@@ -74,7 +74,7 @@ Made with ❤️ by <a href="https://github.com/vuestorefront" target="_blank">A
 
 ## Why?
 
-Targeting next siblings with `~` is not suitable for HTML structure when pairing `input` and `label`, every `label` after changed `input` will also change. Of course we can wrap such groups but having in mind how browser works, nesting and making deeper HTML structure does affect performance of rendering HTML by browser.
+Targeting next siblings with `~` is not suitable for HTML structure when pairing `input` and `label`, every `label` after changed `input` will also change. Of course we can wrap such groups but having in mind how browsers work, nesting and making deeper HTML structure does affect performance of rendering HTML by browser.
 
 ## Installation
 

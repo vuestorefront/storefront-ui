@@ -9,6 +9,7 @@ import {
   useDisclosure,
 } from '@storefront-ui/react';
 import type { UseTooltipOptions } from '@storefront-ui/react';
+import { useKey } from 'react-use';
 
 export function useTooltip(options?: UseTooltipOptions) {
   const {
@@ -66,6 +67,8 @@ export function useTooltip(options?: UseTooltipOptions) {
     ref: arrowRef,
     style: { ...userProps.style, ...arrowStyle() },
   }));
+
+  useKey('Escape', close, { target: refs.reference.current }, [close, refs.reference]);
 
   return {
     refs: {

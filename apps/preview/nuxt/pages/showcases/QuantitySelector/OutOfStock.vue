@@ -23,8 +23,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { SfButton, SfIconAdd, SfIconRemove, useId } from '@storefront-ui/vue';
+import { ref, useId } from 'vue';
+import { SfButton, SfIconAdd, SfIconRemove } from '@storefront-ui/vue';
 
 const min = ref(1);
 const max = ref(10);

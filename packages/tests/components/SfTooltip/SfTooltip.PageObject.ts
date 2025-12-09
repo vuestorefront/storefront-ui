@@ -1,6 +1,11 @@
 import { BasePage } from '../../utils/BasePage';
 
 export default class SfTooltipObject extends BasePage {
+  hasTooltipId(id: string) {
+    this.tooltip.should('have.attr', 'id', id);
+    return this;
+  }
+
   isTooltipHidden() {
     this.tooltip.should('not.exist');
     return this;

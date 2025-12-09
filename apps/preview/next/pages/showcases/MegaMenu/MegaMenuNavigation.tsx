@@ -402,8 +402,8 @@ export default function MegaMenuNavigation() {
   const { close, open, isOpen } = useDisclosure();
   const { refs, style } = useDropdown({
     isOpen,
-    onClose: (event: KeyboardEvent) => {
-      if (event.key === 'Escape') {
+    onClose: (event) => {
+      if ('key' in event && event.key === 'Escape') {
         refsByKey[activeNode[0]]?.current?.focus();
       }
       close();
