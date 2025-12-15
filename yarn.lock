@@ -4052,8 +4052,8 @@ __metadata:
     "@nuxtjs/color-mode": ^3.4.2
     "@nuxtjs/seo": ^2.0.0-rc.10
     "@nuxtjs/tailwindcss": 7.0.0-beta.1
-    "@storefront-ui/typography": ^3.0.0-rc.0
-    "@storefront-ui/vue": ^3.0.0-rc.0
+    "@storefront-ui/typography": ^3.0.0
+    "@storefront-ui/vue": ^3.0.0
     "@tailwindcss/typography": ^0.5.19
     "@types/node": ^20.12.7
     "@vueuse/integrations": ^12.8.0
