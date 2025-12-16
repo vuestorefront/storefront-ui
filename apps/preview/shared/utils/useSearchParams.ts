@@ -1,38 +1,44 @@
 import { throttle } from 'lodash-es';
 
-export type UrlParams = Record<string, string[] | string>
+export type UrlParams = Record<string, string[] | string>;
 
 const constructQuery = (params: URLSearchParams) => {
-  const stringified = params.toString()
-  return `${stringified ? `?${stringified}` : ''}${window.location.hash || ''}`
+  const stringified = params.toString();
+  return `${stringified ? `?${stringified}` : ''}${window.location.hash || ''}`;
 };
 
-const replaceUrlParams = throttle((searchParams: URLSearchParams) =>
-  window.history.replaceState(
-    window.history.state,
-    window.document.title,
-    window.location.pathname + constructQuery(searchParams),
-  ), 300);
+const replaceUrlParams = throttle(
+  (searchParams: URLSearchParams) =>
+    window.history.replaceState(
+      window.history.state,
+      window.document.title,
+      window.location.pathname + constructQuery(searchParams),
+    ),
+  300,
+);
 
-export function useSearchParams<T extends Record<string, any> = UrlParams>(
-  { initialValue, onStateChange }: { initialValue: T; onStateChange?: () => void },
-) {
+export function useSearchParams<T extends Record<string, any> = UrlParams>({
+  initialValue,
+  onStateChange,
+}: {
+  initialValue: T;
+  onStateChange?: () => void;
+}) {
   const state = { ...initialValue } as T & Record<string, unknown>;
 
   const readSearchParams = () => {
     const readState = {} as typeof state;
-    new URLSearchParams(window.location.search || '')
-      .forEach((value, key) => {
-        let parsedValue = undefined;
-        if (value) {
-          try {    
-            parsedValue = JSON.parse(value);
-          } catch {
-            console.error(`Cannot parse param ${key}, found value: ${value}`);
-          }
+    new URLSearchParams(window.location.search || '').forEach((value, key) => {
+      let parsedValue = undefined;
+      if (value) {
+        try {
+          parsedValue = JSON.parse(value);
+        } catch {
+          console.error(`Cannot parse param ${key}, found value: ${value}`);
         }
-        readState[key as keyof typeof state] = parsedValue;
-      });
+      }
+      readState[key as keyof typeof state] = parsedValue as T[string];
+    });
 
     return readState;
   };
@@ -47,13 +53,17 @@ export function useSearchParams<T extends Record<string, any> = UrlParams>(
   };
 
   if (typeof window !== 'undefined') {
-    window.addEventListener('popstate', () => {
-      for (const key in state) {
-        delete state[key];
-      }
-      Object.assign(state, readSearchParams());
-      onStateChange?.();
-    }, { passive: false });
+    window.addEventListener(
+      'popstate',
+      () => {
+        for (const key in state) {
+          delete state[key];
+        }
+        Object.assign(state, readSearchParams());
+        onStateChange?.();
+      },
+      { passive: false },
+    );
 
     Object.assign(state, readSearchParams());
   }
