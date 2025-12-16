@@ -1,5 +1,17 @@
 # @storefront-ui/vue
 
+## 3.1.0
+
+### Minor Changes
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`e75c802`](https://github.com/vuestorefront/storefront-ui/commit/e75c802f4c3b6eaf5d4fdefdf8afd8048948be55) Thanks [@FRSgit](https://github.com/FRSgit)! - Bump version so it would match current state in npm
+
+### Patch Changes
+
+- Updated dependencies [[`e75c802`](https://github.com/vuestorefront/storefront-ui/commit/e75c802f4c3b6eaf5d4fdefdf8afd8048948be55)]:
+  - @storefront-ui/tailwind-config@3.1.0
+  - @storefront-ui/shared@3.1.0
+
 ## 3.0.0
 
 ### Major Changes
