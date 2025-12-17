@@ -14,8 +14,6 @@ Core package with components, styling and everything around them.
     - `components` (place where components and its friends(types) should be placed)
     - `composables` (util functions react specific that helps coding)
     - `shared` (same as `shared` but only for vue)
-  - `sass` (styles used in components)
-  - `css` (compiled `sass` package)
 - `shared` (Files shared across 2 frameworks - they are populated from package `@storefront-ui/shared` into `frameworks/vue` and `frameworks/react`, so we would have one place for common utils, types etc, during release package will be copied into package so it will be able work as standalone package in end-user `node_modules`)
 
 ## Generating icons

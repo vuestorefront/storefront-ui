@@ -41,10 +41,14 @@ const emit = defineEmits<{
 const { placement, middleware, strategy, modelValue } = toRefs(props);
 const { isOpen, close, open, triggerProps, tooltipProps, arrowProps } = useTooltip({ placement, middleware, strategy });
 
-watch(modelValue, (newVal) => {
-  if (newVal) open();
-  else close();
-}, { immediate: true });
+watch(
+  modelValue,
+  (newVal) => {
+    if (newVal) open();
+    else close();
+  },
+  { immediate: true },
+);
 
 watch(isOpen, (newVal) => {
   emit('update:modelValue', newVal);
