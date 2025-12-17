@@ -20,7 +20,7 @@ You can try out Storefront UI in your browser with our online playground.
 
 If you prefer video guides, we have a quick video that can help you set up Storefront UI in your Next.js project.
 
-<iframe src="https://www.youtube-nocookie.com/embed/6xOnCOXU8H4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded aspect-video relative mt-8 custom-block"></iframe>
+<iframe src="https://www.youtube-nocookie.com/embed/6xOnCOXU8H4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" class="w-full max-w-lg mx-auto rounded-sm aspect-video relative mt-8 custom-block"></iframe>
 
 ### Create Your Next Project
 
@@ -41,6 +41,12 @@ pnpm create next-app
 
 Next, you'll need to install Tailwind CSS and PostCSS, as well as the Storefront UI's React library and Tailwind preset.
 
+<!-- https://github.com/tailwindlabs/tailwindcss/issues/19442 postcss having problems with resolving @import and @plugin with pnpm and tailwindcss -->
+::warning Add all sub-dependencies manually for PNPM and PostCSS
+
+Due to issue connected to resolving `@import` and `@plugin` by `PostCSS` and `@tailwindcss/postcss` and how `pnpm` create packages in `node_modules`, you have to install all sub-dependency manually.
+::
+
 ```bash
 # npm
 npm i @storefront-ui/react
@@ -52,6 +58,10 @@ yarn add -D tailwindcss postcss autoprefixer
 
 # pnpm
 pnpm add @storefront-ui/react
+pnpm add -D tailwindcss postcss autoprefixer
+
+# pnpm
+pnpm add @storefront-ui/react @storefront-ui/shared @storefront-ui/tailwind-config @tailwindcss/typography
 pnpm add -D tailwindcss postcss autoprefixer
 ```
 
@@ -103,7 +113,7 @@ module.exports = {
     './pages/**/*.{js,ts,jsx,tsx}',
     './components/**/*.{js,ts,jsx,tsx}',
     './src/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@storefront-ui/react/**/*.{js,mjs}',
+    './node_modules/@storefront-ui/react',
   ],
   theme: {
     extend: {},
@@ -163,6 +173,12 @@ pnpm create vite my-sfui-app --template react-ts
 
 Next, you'll need to install Tailwind CSS and PostCSS, as well as the Storefront UI's React library and Tailwind preset.
 
+<!-- https://github.com/tailwindlabs/tailwindcss/issues/19442 postcss having problems with resolving @import and @plugin with pnpm and tailwindcss -->
+::warning Add all sub-dependencies manually for PNPM and PostCSS
+
+Due to issue connected to resolving `@import` and `@plugin` by `PostCSS` and `@tailwindcss/postcss` and how `pnpm` create packages in `node_modules`, you have to install all sub-dependency manually.
+::
+
 ```bash
 # npm
 npm i -D tailwindcss postcss autoprefixer @storefront-ui/react
@@ -172,6 +188,9 @@ yarn add -D tailwindcss postcss autoprefixer @storefront-ui/react
 
 # pnpm
 pnpm add -D tailwindcss postcss autoprefixer @storefront-ui/react
+
+# pnpm and postcss
+pnpm add -D postcss autoprefixer @storefront-ui/react @storefront-ui/shared @storefront-ui/tailwind-config @tailwindcss/typography
 ```
 
 ### Initialize Tailwind
@@ -200,7 +219,7 @@ import { tailwindConfig } from '@storefront-ui/react/tailwind-config';
 /** @type {import('tailwindcss').Config} */
 export default {
   presets: [tailwindConfig],
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './node_modules/@storefront-ui/react/**/*.{js,mjs}'],
+  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}', './node_modules/@storefront-ui/react'],
   theme: {
     extend: {},
   },

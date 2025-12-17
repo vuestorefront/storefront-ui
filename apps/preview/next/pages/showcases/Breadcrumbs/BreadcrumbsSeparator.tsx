@@ -25,13 +25,13 @@ export function Showcase() {
   };
 
   return (
-    <nav className="flex items-center text-sm font-normal font-body">
+    <nav className="inline-flex items-center font-body typography-text-sm">
       <ol className="flex w-auto leading-none group md:flex-wrap">
         <li className="flex items-center sm:hidden text-neutral-500">
           <SfDropdown
             trigger={
               <SfButton
-                className="relative w-5 h-5 !p-0 rounded-sm outline-secondary-600 hover:bg-transparent active:bg-transparent"
+                className="relative w-5 h-5 !p-0 rounded-xs outline-secondary-600 hover:bg-transparent active:bg-transparent"
                 aria-label="More breadcrumbs"
                 variant="tertiary"
                 slotPrefix={
@@ -66,11 +66,10 @@ export function Showcase() {
         </li>
         {breadcrumbs.map((item, index) => (
           <li
-            data-icon="url('@assets/chevron_right.svg')"
             className="hidden peer sm:flex items-center text-neutral-500 last-of-type:flex last-of-type:text-neutral-900 last-of-type:font-medium"
             key={item.name}
           >
-            {index !== 0 ? <SfIconChevronRight size="sm" className="mx-0.5 text-disabled-500" /> : null}
+            {index !== 0 ? <SfIconChevronRight size="sm" className="mx-0.5 text-neutral-500" /> : null}
             {index < breadcrumbs.length - 1 ? (
               <SfLink
                 href={item.link}

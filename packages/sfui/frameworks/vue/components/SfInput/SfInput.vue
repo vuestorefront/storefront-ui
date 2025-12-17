@@ -9,7 +9,7 @@ const getSizeClasses = {
 <script lang="ts" setup>
 import type { PropType, ConcreteComponent } from 'vue';
 import { computed, ref, toRefs } from 'vue';
-import { SfInputSize, useFocusVisible } from '@storefront-ui/vue';
+import { SfInputSize, twMerge, useFocusVisible, useTwMergeRoot } from '@storefront-ui/vue';
 
 defineOptions({
   inheritAttrs: false,
@@ -37,6 +37,7 @@ const props = defineProps({
     default: '',
   },
 });
+const { attrsWithoutClass } = useTwMergeRoot();
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string | number): void;
 }>();
@@ -61,25 +62,32 @@ const inputValue = computed({
 <template>
   <component
     :is="wrapperTag"
-    :class="[
-      'flex items-center gap-2 px-4 bg-white rounded-md ring-1 text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2',
-      {
-        'ring-2 ring-negative-700': invalid,
-        'ring-1 ring-neutral-300': !invalid,
-        'focus-within:outline focus-within:outline-offset': isFocusVisible,
-      },
-      getSizeClasses[size],
-      wrapperClass,
-    ]"
+    :class="
+      twMerge(
+        'flex items-center gap-2 px-4 bg-white rounded-xl text-neutral-500 hover:ring-primary-700 focus-within:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus-within:ring-primary-700 focus-within:ring-2 ring-inset',
+        {
+          'ring-2 ring-negative-700': invalid,
+          'ring-1 ring-neutral-300': !invalid,
+          'focus-within:outline focus-within:outline-offset': isFocusVisible,
+        },
+        getSizeClasses[size],
+        wrapperClass,
+      )
+    "
     data-testid="input"
   >
     <slot name="prefix" />
     <input
       v-model="inputValue"
-      class="min-w-[80px] w-full text-base outline-none appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent"
+      :class="
+        twMerge(
+          'min-w-[80px] w-full text-base outline-hidden appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent',
+          $attrs.class,
+        )
+      "
       :size="1"
       data-testid="input-field"
-      v-bind="$attrs"
+      v-bind="attrsWithoutClass"
     />
     <slot name="suffix" />
   </component>

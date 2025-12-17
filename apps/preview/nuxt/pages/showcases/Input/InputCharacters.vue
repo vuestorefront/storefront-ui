@@ -5,9 +5,15 @@
     </span>
     <SfInput
       v-model="inputValue"
-      :wrapper-class="{
-        'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
-      }"
+      :placeholder="placeholder"
+      :disabled="disabled"
+      :readonly="readonly"
+      :wrapper-class="[
+        'mt-0.5',
+        {
+          'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
+        },
+      ]"
     />
   </label>
   <div class="flex justify-between">
@@ -44,6 +50,7 @@ const required = ref(false);
 const requiredText = ref('');
 const helpText = ref('Help text');
 const label = ref('Label');
+const placeholder = ref('placeholder');
 const errorText = ref('Error');
 
 const isAboveLimit = computed(() => inputValue.value.length > characterLimit.value);

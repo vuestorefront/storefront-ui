@@ -1,5 +1,5 @@
 <template>
-  <div class="border border-neutral-200 rounded-md divide-y text-neutral-900">
+  <div class="border divide-y rounded-md border-neutral-200 divide-neutral-200 text-neutral-900">
     <SfAccordionItem v-for="({ id, summary, details }, index) in accordionItems" :key="id" v-model="opened[index]">
       <template #summary>
         <p class="p-4 font-medium hover:bg-neutral-100 active:neutral-100">{{ summary }}</p>

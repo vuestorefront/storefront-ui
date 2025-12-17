@@ -24,12 +24,12 @@ function Example() {
         open={state.get.open}
         onToggle={(open: boolean) => state.set({ open })}
         summary={
-          <div className="flex justify-between p-2 bg-gray-100">
+          <div className="flex justify-between p-4 font-medium hover:bg-neutral-100 active:neutral-100">
             <p>Click me to see the content</p>
-            <SfIconChevronLeft className={`${state.get.open ? 'rotate-90' : '-rotate-90'}`} />
+            <SfIconChevronLeft className={`text-neutral-500 ${state.get.open ? 'rotate-90' : '-rotate-90'}`} />
           </div>
         }
-        className="rounded border"
+        className="border divide-y rounded-sm border-neutral-200 divide-neutral-200 text-neutral-900"
       >
         <p className="p-2">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore

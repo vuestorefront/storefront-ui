@@ -16,7 +16,7 @@
     "@storefront-ui/preview-shared": "workspace:*",
     "classnames": "^2.5.1",
     "lodash-es": "^4.17.21",
-    "next": "^14.2.5",
+    "next": "^14.2.32",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-transition-group": "^4.4.5",
@@ -32,7 +32,8 @@
     "@storefront-ui/tailwind-config": "workspace:*",
     "@storefront-ui/tw-plugin-peer-next": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
-    "@tailwindcss/typography": "^0.5.13",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@tailwindcss/typography": "^0.5.19",
     "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.12.7",
     "@types/react": "^18.0.28",
@@ -42,7 +43,7 @@
     "prettier": "^3.0.0",
     "rimraf": "^6.0.1",
     "string-replace-loader": "^3.1.0",
-    "tailwindcss": "^3.4.7",
+    "tailwindcss": "^4.1.11",
     "ts-loader": "^9.4.2"
   }
 }

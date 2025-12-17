@@ -30,7 +30,7 @@
             <li v-if="groupValue.visible" class="flex flex-col select-none">
               <button
                 type="button"
-                class="text-left bg-gray-200 px-2 py-1 justify-between cursor-pointer"
+                class="justify-between px-2 py-1 text-left bg-gray-200 cursor-pointer"
                 @click="groupValue.open = !groupValue.open"
               >
                 {{ groupKey }}<SfIconExpandMore :class="{ 'rotate-180': groupValue.open }" />
@@ -134,17 +134,6 @@ const findGroup = (groups, currentRouteHref) =>
   });
 
 watch(
-  [currentRoute, groups],
-  ([currentRoute, groups]) => {
-    if (!currentRoute || !groups) return;
-    const currentGroup = findGroup(groups, currentRoute.path);
-    if (!currentGroup) return;
-    groups[currentGroup[0]].open = true;
-  },
-  { immediate: true },
-);
-
-watch(
   searchModelValue,
   (searchModelValue) => {
     for (let group in groups) {
@@ -161,6 +150,17 @@ watch(
   { immediate: true },
 );
 useControlsSearchParams(reactive({ s: searchModelValue }));
+
+watch(
+  [currentRoute, groups],
+  ([currentRoute, groups]) => {
+    if (!currentRoute || !groups) return;
+    const currentGroup = findGroup(groups, currentRoute.path);
+    if (!currentGroup) return;
+    groups[currentGroup[0]].open = true;
+  },
+  { immediate: true },
+);
 
 onBeforeMount(() => {
   if (window.self === window.top) {

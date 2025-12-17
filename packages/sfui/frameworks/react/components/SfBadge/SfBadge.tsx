@@ -1,6 +1,5 @@
 import { SfBadgePlacement } from '@storefront-ui/shared';
-import classNames from 'classnames';
-import type { SfBadgeProps } from '@storefront-ui/react';
+import { twMerge, type SfBadgeProps } from '@storefront-ui/react';
 
 export default function SfBadge({
   content,
@@ -19,8 +18,8 @@ export default function SfBadge({
   }
   return (
     <span
-      className={classNames(
-        'block absolute py-0.5 px-1 bg-secondary-700 font-medium text-white text-[8px] leading-[8px] rounded-xl',
+      className={twMerge(
+        'block absolute py-0.5 px-1 bg-negative-700 font-medium text-white text-[8px] leading-[8px] rounded-xl',
         {
           'min-w-[12px] min-h-[12px]': !isDot,
           'w-[10px] h-[10px]': isDot,

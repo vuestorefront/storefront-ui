@@ -1,5 +1,6 @@
 import plugin from 'tailwindcss/plugin';
 import type { KeyValuePair, ResolvableTo } from 'tailwindcss/types/config';
+import { keyPathToCssProperty, toKeyPath } from './tailwind-utils';
 
 export type ConfigValue = Record<string, string>;
 export type ConfigKeyValuePair = KeyValuePair<string, ConfigValue>;
@@ -12,6 +13,18 @@ declare module 'tailwindcss/types/config' {
 }
 
 const PLUGIN_CONFIG_KEY = 'sfTypography';
+
+const toCssVariableName = (keyPath: string, prefix: string) => {
+  if (keyPath.includes(prefix)) {
+    const cssVariableName = keyPathToCssProperty(toKeyPath(keyPath));
+    if (cssVariableName?.startsWith('leading-')) {
+      const [, multiplier] = cssVariableName.split('-');
+      return `calc(var(--spacing) * ${multiplier})`;
+    }
+    return `var(--${cssVariableName})`;
+  }
+  return keyPath;
+};
 
 export default plugin.withOptions(
   ({ utilityPrefix = 'typography' }: Options = {}) =>
@@ -44,10 +57,10 @@ export default plugin.withOptions(
     },
   () => ({
     theme: {
-      [PLUGIN_CONFIG_KEY]: ({ theme }) =>
+      [PLUGIN_CONFIG_KEY]: () =>
         [
           // [name, fontSize, lineHeight, fontFamily]
-          ['display-1', 'fontSize.6xl', 'lineHeight.extra-tight', 'fontFamily.headings'],
+          ['display-1', 'fontSize.6xl', '1.1', 'fontFamily.headings'],
           ['display-2', 'fontSize.4xl', 'lineHeight.10', 'fontFamily.headings'],
           ['display-3', 'fontSize.2xl', 'lineHeight.8', 'fontFamily.headings'],
           ['headline-1', 'fontSize.4xl', 'lineHeight.8', 'fontFamily.headings'],
@@ -78,9 +91,10 @@ export default plugin.withOptions(
         ].reduce(
           (p, [name, fontSize, lineHeight, fontFamily]) => {
             p[name] = {
-              fontSize: theme(fontSize),
-              lineHeight: theme(lineHeight),
-              fontFamily: fontFamily ? theme(fontFamily) : undefined,
+              fontSize: toCssVariableName(fontSize, 'fontSize.'),
+              '--tw-leading': toCssVariableName(lineHeight, 'lineHeight.'),
+              lineHeight: toCssVariableName(lineHeight, 'lineHeight.'),
+              fontFamily: fontFamily ? toCssVariableName(fontFamily, 'fontFamily.') : '',
             };
             return p;
           },

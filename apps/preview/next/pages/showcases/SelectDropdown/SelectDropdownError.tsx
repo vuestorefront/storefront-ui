@@ -78,7 +78,7 @@ export default function SelectDropdownError() {
           aria-label="Select one option"
           aria-activedescendant={selectedOption ? `${listboxId}-${selectedOption.value}` : undefined}
           className={classNames(
-            'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-inset rounded-md py-2 px-4 focus-visible:outline focus-visible:outline-offset cursor-pointer',
+            'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-inset rounded-xl py-2 px-4 focus-visible:outline focus-visible:outline-offset cursor-pointer',
             isValid
               ? 'ring-1 ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2'
               : 'ring-2 ring-negative-700',
@@ -99,7 +99,7 @@ export default function SelectDropdownError() {
           ref={refs.setFloating}
           role="listbox"
           aria-label="Select one option"
-          className={classNames('w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10', {
+          className={classNames('w-full py-2 rounded-xl shadow-md border border-neutral-100 bg-white z-10', {
             hidden: !isOpen,
           })}
           style={dropdownStyle}

@@ -6,8 +6,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { SfRatingButton, useId } from '@storefront-ui/vue';
+import { ref, useId } from 'vue';
+import { SfRatingButton } from '@storefront-ui/vue';
 const labelId = useId();
 const modelValue = ref();
 </script>

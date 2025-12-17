@@ -42,7 +42,8 @@ export default function SelectDropdownDisabled() {
   const { refs, style: dropdownStyle } = useDropdown({ isOpen, onClose: close });
 
   useTrapFocus(refs.floating, {
-    arrowKeysOn: true,
+    arrowKeysLeftRight: true,
+    arrowKeysUpDown: true,
     activeState: isOpen,
     initialFocusContainerFallback: true,
   });
@@ -80,7 +81,7 @@ export default function SelectDropdownDisabled() {
           aria-label="Select one option"
           aria-activedescendant={selectedOption ? `${listboxId}-${selectedOption.value}` : undefined}
           className={classNames(
-            'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-inset rounded-md py-2 px-4 focus-visible:outline focus-visible:outline-offset',
+            'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-inset rounded-xl py-2 px-4 focus-visible:outline focus-visible:outline-offset',
             isDisabled
               ? 'bg-disabled-100 ring-disabled-300 cursor-not-allowed'
               : 'ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 cursor-pointer',
@@ -107,7 +108,7 @@ export default function SelectDropdownDisabled() {
           ref={refs.setFloating}
           role="listbox"
           aria-label="Select one option"
-          className={classNames('w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10', {
+          className={classNames('w-full py-2 rounded-xl shadow-md border border-neutral-100 bg-white z-10', {
             hidden: !isOpen,
           })}
           style={dropdownStyle}

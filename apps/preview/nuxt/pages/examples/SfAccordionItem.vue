@@ -1,10 +1,13 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <SfAccordionItem v-model="state.modelValue" class="rounded border">
+    <SfAccordionItem
+      v-model="state.modelValue"
+      class="border divide-y rounded-sm border-neutral-200 divide-neutral-200 text-neutral-900"
+    >
       <template #summary>
-        <div class="flex justify-between p-2 bg-gray-100">
+        <div class="flex justify-between p-4 font-medium hover:bg-neutral-100 active:neutral-100">
           <p>Click me to see the content</p>
-          <SfIconChevronLeft :class="state.modelValue ? 'rotate-90' : '-rotate-90'" />
+          <SfIconChevronLeft :class="['text-neutral-500', state.modelValue ? 'rotate-90' : '-rotate-90']" />
         </div>
       </template>
       <p class="p-2">

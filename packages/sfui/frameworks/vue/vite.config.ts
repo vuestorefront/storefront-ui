@@ -19,12 +19,12 @@ export default defineConfig({
     lib: {
       entry: {
         index: path.resolve(__dirname, 'index.ts'),
-        'tailwind-config': path.resolve(__dirname, 'tailwind-config.ts'),
       },
       name: 'storefront-ui-vue',
       fileName: (format, entryName) => format === 'es'
         ? `${entryName}.mjs`
         : `${entryName}.${format}.js`,
+      formats: ['cjs', 'es'],
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled into your library
@@ -37,6 +37,7 @@ export default defineConfig({
       // see: https://github.com/vitejs/vite/issues/5174
       output: {
         preserveModules: true,
+        inlineDynamicImports: false
       },
     },
   },

@@ -10,7 +10,7 @@
       :aria-disabled="isDisabled"
       aria-label="Select one option"
       :aria-activedescendant="selectedOption ? `${listboxId}-${selectedOption.value}` : undefined"
-      class="mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-inset rounded-md py-2 px-4"
+      class="mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-inset rounded-xl py-2 px-4"
       :class="
         isDisabled
           ? 'bg-disabled-100 ring-disabled-300 cursor-not-allowed'
@@ -33,7 +33,7 @@
       ref="floatingRef"
       role="listbox"
       aria-label="Select one option"
-      class="w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10"
+      class="w-full py-2 rounded-xl shadow-md border border-neutral-100 bg-white z-10"
       :style="dropdownStyle"
     >
       <SfListItem
@@ -59,7 +59,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, type Ref } from 'vue';
+import { ref, type Ref, useId } from 'vue';
 import { unrefElement } from '@vueuse/core';
 import {
   useDropdown,
@@ -67,7 +67,6 @@ import {
   SfIconExpandMore,
   SfListItem,
   SfIconCheck,
-  useId,
   useTrapFocus,
 } from '@storefront-ui/vue';
 

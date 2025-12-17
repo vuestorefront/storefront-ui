@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { type PropType, type ConcreteComponent, ref, toRefs, computed } from 'vue';
 import { onClickOutside } from '@vueuse/core';
-import { SfDrawerPlacement } from '@storefront-ui/vue';
+import { SfDrawerPlacement, twMerge, useTwMergeRoot } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
@@ -25,6 +25,10 @@ const props = defineProps({
     default: false,
   },
 });
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 
 const { disableClickAway, disableEsc, placement } = toRefs(props);
 const emit = defineEmits<{
@@ -56,10 +60,10 @@ const placementClasses = computed(() => ({
     :is="tag"
     v-if="modelValue"
     ref="drawerRef"
-    class="fixed"
-    :class="placementClasses"
+    :class="twMerge('fixed', placementClasses, $attrs.class)"
     data-testid="drawer"
     tabindex="-1"
+    v-bind="attrsWithoutClass"
     @keydown.esc="onEscKeyDown"
   >
     <slot />

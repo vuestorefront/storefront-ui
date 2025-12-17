@@ -9,7 +9,7 @@ const getSizeClasses = {
 <script lang="ts" setup>
 import type { PropType } from 'vue';
 import { computed, toRefs } from 'vue';
-import { SfTextareaSize, useFocusVisible } from '@storefront-ui/vue';
+import { SfTextareaSize, twMerge, useFocusVisible, useTwMergeRoot } from '@storefront-ui/vue';
 
 const props = defineProps({
   modelValue: {
@@ -28,6 +28,10 @@ const props = defineProps({
 const emit = defineEmits<{
   (event: 'update:modelValue', value: string | number): void;
 }>();
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 const { modelValue } = toRefs(props);
 const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 
@@ -40,15 +44,19 @@ const textareaValue = computed({
 <template>
   <textarea
     v-model="textareaValue"
-    :class="[
-      'px-4 bg-white rounded-md text-neutral-900 ring-inset hover:ring-primary-800 focus:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 outline-none',
-      {
-        'ring-2 ring-negative-700': invalid,
-        'ring-1 ring-neutral-200': !invalid,
-        'focus:outline focus:outline-offset': isFocusVisible,
-      },
-      getSizeClasses[size],
-    ]"
+    :class="
+      twMerge(
+        'px-4 bg-white rounded-xl text-neutral-900 ring-inset hover:ring-primary-800 focus:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 outline-hidden',
+        {
+          'ring-2 ring-negative-700': invalid,
+          'ring-1 ring-neutral-300': !invalid,
+          'focus:outline focus:outline-offset': isFocusVisible,
+        },
+        getSizeClasses[size],
+        $attrs.class,
+      )
+    "
     data-testid="textarea"
+    v-bind="attrsWithoutClass"
   />
 </template>

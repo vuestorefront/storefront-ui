@@ -20,6 +20,7 @@ import {
   useDropdown,
   SfIconCheck,
   InitialFocusType,
+  SfTextarea,
 } from '@storefront-ui/react';
 import classNames from 'classnames';
 import { offset } from '@floating-ui/react-dom';
@@ -509,7 +510,7 @@ export default function FormFields() {
                 role="listbox"
                 ref={comboboxDropdownRef}
                 aria-label="Country list"
-                className="py-2 bg-white border border-solid rounded-md border-neutral-100 drop-shadow-md"
+                className="py-2 bg-white border border-solid rounded-xl border-neutral-100 drop-shadow-md"
               >
                 {(snippets.length > 0 &&
                   snippets.map((option) => (
@@ -572,7 +573,7 @@ export default function FormFields() {
             aria-label="Select one option"
             aria-activedescendant={selectedOption ? `${listboxId}-${selectedOption.value}` : undefined}
             className={classNames(
-              'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-inset rounded-md py-2 px-4 focus-visible:outline focus-visible:outline-offset',
+              'mt-0.5 flex items-center gap-8 relative font-normal typography-text-base ring-1 ring-inset rounded-xl py-2 px-4 focus-visible:outline focus-visible:outline-offset',
               isDisabled
                 ? 'bg-disabled-100 ring-disabled-300 cursor-not-allowed'
                 : 'ring-neutral-300 hover:ring-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 cursor-pointer',
@@ -599,7 +600,7 @@ export default function FormFields() {
             ref={refs.setFloating}
             role="listbox"
             aria-label="Select one option"
-            className={classNames('w-full py-2 rounded-md shadow-md border border-neutral-100 bg-white z-10', {
+            className={classNames('w-full py-2 rounded-xl shadow-md border border-neutral-100 bg-white z-10', {
               hidden: !isOpen,
             })}
             style={dropdownStyle}
@@ -623,11 +624,11 @@ export default function FormFields() {
         </div>
         <label>
           <span className="typography-label-sm font-medium block mt-4">Description</span>
-          <textarea
+          <SfTextarea
             value={description}
             onChange={(event) => setDescription(event.target.value)}
             placeholder="Write something about yourself..."
-            className="block w-full py-2 pl-4 pr-7 rounded-md border border-neutral-300 placeholder:text-neutral-500"
+            className="block w-full py-2 pl-4 pr-7"
           />
         </label>
         <h2 className="typography-headline-4 font-bold mt-14 mb-4">Notifications</h2>
@@ -637,7 +638,7 @@ export default function FormFields() {
             <label
               key={value}
               className={classNames(
-                'flex items-start mb-4 mr-6 rounded first-of-type:mt-2 last-of-type:mb-6',
+                'flex items-start mb-4 mr-6 rounded-sm first-of-type:mt-2 last-of-type:mb-6',
                 disabled ? 'cursor-not-allowed' : 'cursor-pointer',
               )}
             >
@@ -668,7 +669,7 @@ export default function FormFields() {
           {radioOptions.map(({ label, name, value }) => (
             <label
               key={value}
-              className="flex items-center mb-4 mr-6 rounded cursor-pointer first-of-type:mt-2 last-of-type:mb-2"
+              className="flex items-center mb-4 mr-6 rounded-sm cursor-pointer first-of-type:mt-2 last-of-type:mb-2"
             >
               <SfRadio value={value} name={name} required onChange={() => setPushNotifications(value)} />
               <span className="ml-2 text-base font-normal leading-6 font-body">{label}</span>
@@ -677,10 +678,10 @@ export default function FormFields() {
         </fieldset>
         <p className="text-neutral-500 typography-text-sm mt-8">* marked fields are required</p>
         <div className="flex gap-x-4 md:justify-end mt-6">
-          <SfButton variant="secondary" className="flex-grow md:flex-grow-0">
+          <SfButton variant="secondary" className="grow md:grow-0">
             Clear all
           </SfButton>
-          <SfButton type="submit" className="flex-grow md:flex-grow-0">
+          <SfButton type="submit" className="grow md:grow-0">
             Submit
           </SfButton>
         </div>

@@ -13,7 +13,7 @@ export default function Review() {
   const truncatedContent = isButtonVisible && isCollapsed ? `${content.substring(0, charLimit)}...` : content;
 
   return (
-    <article className="w-full p-4 border rounded-md">
+    <article className="w-full p-4 border border-neutral-200 rounded-xl">
       <p className="pb-2 font-medium">I love them</p>
       <header className="flex flex-col pb-2 md:flex-row md:justify-between">
         <div className="flex flex-col items-start">

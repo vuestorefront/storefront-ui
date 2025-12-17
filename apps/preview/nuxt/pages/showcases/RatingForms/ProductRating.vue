@@ -39,8 +39,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { SfModal, SfButton, SfIconClose, useDisclosure, SfRatingButton, useId } from '@storefront-ui/vue';
+import { ref, useId } from 'vue';
+import { SfModal, SfButton, SfIconClose, useDisclosure, SfRatingButton } from '@storefront-ui/vue';
 
 const { isOpen, open, close } = useDisclosure({ initialValue: true });
 const modelValue = ref();

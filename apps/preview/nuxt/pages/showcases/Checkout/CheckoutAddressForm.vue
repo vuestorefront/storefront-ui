@@ -1,11 +1,11 @@
 <template>
   <form class="p-4 flex gap-4 flex-wrap text-neutral-900" @submit.prevent="onSubmit">
     <h2 class="w-full typography-headline-4 md:typography-headline-3 font-bold">Billing address</h2>
-    <label class="w-full md:w-auto flex-grow flex flex-col gap-0.5 mt-4 md:mt-0">
+    <label class="w-full md:w-auto grow flex flex-col gap-0.5 mt-4 md:mt-0">
       <span class="typography-text-sm font-medium">First Name</span>
       <SfInput name="firstName" autocomplete="given-name" required />
     </label>
-    <label class="w-full md:w-auto flex-grow flex flex-col gap-0.5">
+    <label class="w-full md:w-auto grow flex flex-col gap-0.5">
       <span class="typography-text-sm font-medium">Last Name</span>
       <SfInput name="lastName" autocomplete="family-name" required />
     </label>
@@ -19,7 +19,7 @@
         <option v-for="countryName in countries" :key="countryName">{{ countryName }}</option>
       </SfSelect>
     </label>
-    <div class="w-full md:w-auto flex-grow flex flex-col gap-0.5">
+    <div class="w-full md:w-auto grow flex flex-col gap-0.5">
       <label>
         <span class="typography-text-sm font-medium">Street</span>
         <SfInput
@@ -50,7 +50,7 @@
       <span class="typography-text-sm font-medium">City</span>
       <SfInput name="city" autocomplete="address-level2" required />
     </label>
-    <label class="w-full md:w-auto flex flex-col gap-0.5 flex-grow">
+    <label class="w-full md:w-auto flex flex-col gap-0.5 grow">
       <span class="typography-text-sm font-medium">State</span>
       <SfSelect name="state" placeholder="-- Select --" autocomplete="address-level1" required>
         <option v-for="stateName in states" :key="stateName">{{ stateName }}</option>

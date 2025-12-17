@@ -7,6 +7,7 @@ export * from './composables/useTooltip';
 export * from './composables/useTrapFocus';
 export * from './composables/useFocusVisible';
 export * from './composables/usePagination';
+export * from './composables/useTwMergeRoot/useTwMergeRoot';
 
 // Shared
 export * from './shared';

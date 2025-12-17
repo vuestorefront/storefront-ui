@@ -3,7 +3,7 @@
     <label
       v-for="{ name, value, label } in radioOptions"
       :key="value"
-      class="flex items-center justify-between mt-4 mr-6 rounded cursor-pointer"
+      class="flex items-center justify-between mt-4 mr-6 rounded-sm cursor-pointer"
     >
       <span class="text-sm font-normal leading-5 font-body">{{ label }}</span>
       <SfRadio v-model="radioModel" :value="value" :name="name" />

@@ -31,11 +31,11 @@ export default function AddressForm() {
   return (
     <form className="p-4 flex gap-4 flex-wrap text-neutral-900" onSubmit={onSubmit}>
       <h2 className="w-full typography-headline-4 md:typography-headline-3 font-bold">Billing address</h2>
-      <label className="w-full md:w-auto flex-grow flex flex-col gap-0.5 mt-4 md:mt-0">
+      <label className="w-full md:w-auto grow flex flex-col gap-0.5 mt-4 md:mt-0">
         <span className="typography-text-sm font-medium">First Name</span>
         <SfInput name="firstName" autoComplete="given-name" required />
       </label>
-      <label className="w-full md:w-auto flex-grow flex flex-col gap-0.5">
+      <label className="w-full md:w-auto grow flex flex-col gap-0.5">
         <span className="typography-text-sm font-medium">Last Name</span>
         <SfInput name="lastName" autoComplete="family-name" required />
       </label>
@@ -51,7 +51,7 @@ export default function AddressForm() {
           ))}
         </SfSelect>
       </label>
-      <div className="w-full md:w-auto flex-grow flex flex-col gap-0.5">
+      <div className="w-full md:w-auto grow flex flex-col gap-0.5">
         <label>
           <span className="typography-text-sm font-medium">Street</span>
           <SfInput
@@ -82,7 +82,7 @@ export default function AddressForm() {
         <span className="typography-text-sm font-medium">City</span>
         <SfInput name="city" autoComplete="address-level2" required />
       </label>
-      <label className="w-full md:w-auto flex flex-col gap-0.5 flex-grow">
+      <label className="w-full md:w-auto flex flex-col gap-0.5 grow">
         <span className="typography-text-sm font-medium">State</span>
         <SfSelect name="state" placeholder="-- Select --" autoComplete="address-level1" required>
           {states.map((stateName) => (

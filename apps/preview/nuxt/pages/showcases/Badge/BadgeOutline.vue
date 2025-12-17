@@ -2,7 +2,7 @@
   <div class="flex gap-3">
     <div class="p-3 bg-white">
       <SfButton class="group relative" square variant="tertiary">
-        <SfIconShoppingCart />
+        <SfIconFavoriteFilled />
         <SfBadge
           :content="content"
           :max="99"
@@ -13,7 +13,7 @@
 
     <div class="p-3 bg-primary-700">
       <SfButton class="group relative hover:bg-primary-800 active:bg-primary-900" square variant="tertiary">
-        <SfIconShoppingCart class="text-white" />
+        <SfIconFavoriteFilled class="text-white" />
         <SfBadge
           :content="content"
           :max="99"
@@ -26,7 +26,7 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue';
-import { SfBadge, SfButton, SfIconShoppingCart } from '@storefront-ui/vue';
+import { SfBadge, SfButton, SfIconFavoriteFilled } from '@storefront-ui/vue';
 
 const content = ref(100);
 </script>

@@ -20,6 +20,8 @@ Learn more about `useTooltip` composable in the [Composables > useTooltip docs](
 
 ### Basic Usage
 
+The tooltip appears on hover and is useful for displaying extra information to desktop users. For accessibility, always set the `id` prop on `SfTooltip` and use the same value for the `aria-describedby` attribute on the child element.
+
 <Showcase showcase-name="Tooltip/BasicTooltip">
 
 ::vue-only
@@ -27,6 +29,21 @@ Learn more about `useTooltip` composable in the [Composables > useTooltip docs](
 ::
 ::react-only
 <<<../../../../preview/next/pages/showcases/Tooltip/BasicTooltip.tsx
+::
+
+</Showcase>
+
+### Focusable Tooltip content
+
+For improved accessibility and better support for mobile users, ensure the tooltip’s trigger element is focusable. You can do this by applying a `tabindex` attribute or by using a natively focusable element such as a `button` or `input`. Also, handle the `focus` and `blur` events on the trigger to control the tooltip’s visibility. See the showcase below for a implementation example.
+
+<Showcase showcase-name="Tooltip/FocusableTooltip">
+
+::vue-only
+<<<../../../../preview/nuxt/pages/showcases/Tooltip/FocusableTooltip.vue
+::
+::react-only
+<<<../../../../preview/next/pages/showcases/Tooltip/FocusableTooltip.tsx
 ::
 
 </Showcase>
@@ -48,6 +65,7 @@ By default, this component sets `role="tooltip"`.
 | Prop name | Type                                                     | Default value | Possible values |
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
 | `label`\*   | `string`                                                 |               |                 |
+| `modelValue` | `boolean`                                                | `false`       |                 |
 | `showArrow` | `boolean`                                                | `false`       |                 |
 | `placement` | `SfPopoverPlacement`                                    |               |                 |
 | `arrowSize` | `${number}px` &#124; `${number}em` &#124; `${number}rem` |               |                 |
@@ -56,6 +74,7 @@ By default, this component sets `role="tooltip"`.
 | Prop name | Type                                                     | Default value | Possible values |
 | --------- | -------------------------------------------------------- | ------------- | --------------- |
 | `label`\*   | `string`                                                 |               |                 |
+| `open` | `boolean`                                                | `false`       |                 |
 | `showArrow` | `boolean`                                                | `false`       |                 |
 | `placement` | `SfPopoverPlacement`                                    |               |                 |
 | `arrowSize` | `${number}px` &#124; `${number}em` &#124; `${number}rem` |               |                 |

@@ -28,11 +28,11 @@ export default function NewsletterBox() {
 
   return (
     <div className="relative">
-      <div className="bg-neutral-100 p-4 sm:p-10 text-center">
-        <p className="typography-headline-4 sm:typography-headline-3 font-bold">
+      <div className="p-4 text-center bg-neutral-100 sm:p-10">
+        <p className="font-bold typography-headline-4 sm:typography-headline-3">
           Subscribe and get discount on your first purchase!
         </p>
-        <p className="typography-text-sm sm:typography-text-base my-2 mb-4">
+        <p className="my-2 mb-4 typography-text-sm sm:typography-text-base">
           Be aware of upcoming sales and events. Receive gifts and special offers!
         </p>
         <form
@@ -42,7 +42,8 @@ export default function NewsletterBox() {
           <SfInput
             value={inputValue}
             type="email"
-            wrapperClassName="grow"
+            size="lg"
+            wrapperClassName="grow rounded-full"
             placeholder="Type your email"
             onChange={(event) => setInputValue(event.target.value)}
           />
@@ -68,7 +69,7 @@ export default function NewsletterBox() {
             role="alert"
             className="flex items-start md:items-center shadow-md max-w-[600px] bg-positive-100 pr-2 pl-4 mb-2 ring-1 ring-positive-200 typography-text-sm md:typography-text-base py-1 rounded-md"
           >
-            <SfIconCheckCircle className="mr-2 my-2 text-positive-700" />
+            <SfIconCheckCircle className="my-2 mr-2 text-positive-700" />
             <p className="py-2 mr-2">Your email has been added to the newsletter subscription.</p>
             <button
               type="button"
@@ -77,7 +78,7 @@ export default function NewsletterBox() {
               onClick={() => setPositiveAlert(false)}
             >
               <SfIconClose className="hidden md:block" />
-              <SfIconClose size="sm" className="md:hidden block" />
+              <SfIconClose size="sm" className="block md:hidden" />
             </button>
           </div>
         )}
@@ -94,7 +95,7 @@ export default function NewsletterBox() {
               onClick={() => setErrorAlert(false)}
             >
               <SfIconClose className="hidden md:block" />
-              <SfIconClose size="sm" className="md:hidden block" />
+              <SfIconClose size="sm" className="block md:hidden" />
             </button>
           </div>
         )}

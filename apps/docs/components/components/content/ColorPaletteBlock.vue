@@ -1,30 +1,44 @@
 <template>
-  <div role="button" tabindex="0" @click="copyColorToClipboard" @keydown.enter="copyColorToClipboard">
+  <div class="text-xs">
     <div
-      class="h-10 rounded border dark:border-zinc-700 mb-1"
+      role="button"
+      tabindex="0"
+      @click="copyColorToClipboard"
+      @keydown.enter="copyColorToClipboard"
+      class="relative h-12 rounded border dark:border-zinc-700 group"
       :style="{
-        backgroundColor: `rgb(${rgbColor})`,
+        backgroundColor: `oklch(${oklchColor})`,
       }"
-    />
-    <p v-if="copied" class="flex items-center text-xs">
-      <Icon name="ri:check-line" height="16" class="text-green" />
-      Copied
-    </p>
-    <p v-else class="text-xs flex items-center justify-between">
-      <span>{{ name }}</span>
-      <span class="font-mono">{{ hex }}</span>
-    </p>
+    >
+      <p class="hidden tracking-tighter group-hover:inline-flex group-active:inline-flex group-focus:inline-flex absolute inset-0 m-0 px-2 items-center bg-black/20 backdrop-blur-md" :class="{ 'text-black': parseInt(shade) <= 400 }">
+        <template v-if="copied">
+          <span>Copied&nbsp;</span>
+          <span><Icon name="ri:check-line" height="16" class="text-green" /></span>
+        </template>
+        <template v-else>
+          Click to copy value&nbsp;
+          <Icon name="ri:file-copy-fill" height="16" class="text-green" />
+        </template>
+      </p>
+    </div>
+
+    <div role="button" tabindex="0" @click="copyColorNameToClipboard" @keydown.enter="copyColorNameToClipboard" class="pt-2 pb-1">
+      <template v-if="copiedName">
+        Copied&nbsp;
+        <Icon name="ri:check-line" height="16" class="text-green" />
+      </template>
+      <template v-else>
+        {{ name }}&nbsp;
+        <Icon name="ri:file-copy-fill" height="16" class="text-green" />
+      </template>
+    </div>
   </div>
 </template>
 
 <script>
-function componentToHex(c) {
-  var hex = parseInt(c).toString(16);
-  return hex.length == 1 ? '0' + hex : hex;
-}
 export default {
   props: {
-    rgbColor: {
+    oklchColor: {
       type: String,
       required: true,
     },
@@ -32,25 +46,31 @@ export default {
       type: String,
       required: true,
     },
+    shade: {
+      type: String,
+      required: true,
+    }
   },
   data() {
     return {
       copied: false,
+      copiedName: false,
     };
   },
   methods: {
     async copyColorToClipboard() {
-      await navigator.clipboard.writeText(this.name);
+      await navigator.clipboard.writeText(`oklch(${this.oklchColor})`);
       this.copied = true;
       setTimeout(() => {
         this.copied = false;
       }, 1000);
     },
-  },
-  computed: {
-    hex() {
-      const [r, g, b] = this.rgbColor.split(' ');
-      return '#' + componentToHex(r) + componentToHex(g) + componentToHex(b);
+    async copyColorNameToClipboard() {
+      await navigator.clipboard.writeText(this.name);
+      this.copiedName = true;
+      setTimeout(() => {
+        this.copiedName = false;
+      }, 1000);
     },
   },
 };

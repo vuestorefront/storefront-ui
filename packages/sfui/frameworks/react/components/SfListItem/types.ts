@@ -11,4 +11,7 @@ export interface SfListItemProps extends PropsWithChildren, PropsWithStyle {
   slotPrefix?: ReactNode;
   role?: string;
   childrenTag?: ElementType;
+  prefixClassName?: string;
+  suffixClassName?: string;
+  defaultClass?: string;
 }

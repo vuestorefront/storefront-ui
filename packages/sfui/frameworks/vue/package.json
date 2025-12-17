@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "2.6.5",
+  "version": "3.1.0",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -9,19 +9,8 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs.js"
     },
-    "./tailwind-config": {
-      "types": "./dist/tailwind-config.d.ts",
-      "import": "./dist/tailwind-config.mjs",
-      "require": "./dist/tailwind-config.cjs.js"
-    },
+    "./tailwind-config": "./tailwind-config.css",
     "./*": "./*"
-  },
-  "typesVersions": {
-    "*": {
-      "tailwind-config": [
-        "dist/tailwind-config"
-      ]
-    }
   },
   "type": "module",
   "source": "index.ts",
@@ -38,15 +27,17 @@
     "prettier": "prettier --log-level warn --no-error-on-unmatched-pattern \"{components,shared,composables}/**/*.{ts,vue}\""
   },
   "files": [
-    "dist"
+    "dist",
+    "tailwind-config.css"
   ],
   "dependencies": {
     "@floating-ui/vue": "^1.0.6",
     "@storefront-ui/shared": "workspace:*",
     "@storefront-ui/tailwind-config": "workspace:*",
-    "@vueuse/core": "^10.11.0",
+    "@vueuse/core": "^12.8.0",
     "jw-paginate": "^1.0.4",
-    "tabbable": "^6.1.1"
+    "tabbable": "^6.1.1",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",
@@ -58,7 +49,7 @@
     "vite": "^5.3.5",
     "vite-plugin-dts": "^3.9.1",
     "vite-tsconfig-paths": "^4.3.2",
-    "vue-tsc": "^2.0.29"
+    "vue-tsc": "^2.2.12"
   },
   "peerDependencies": {
     "vue": "^3.5.12"

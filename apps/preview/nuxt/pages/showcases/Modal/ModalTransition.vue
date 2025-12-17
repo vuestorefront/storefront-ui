@@ -10,7 +10,7 @@
     leave-from-class="opacity-100"
     leave-to-class="opacity-0"
   >
-    <div v-if="isOpen" class="fixed inset-0 bg-neutral-700 bg-opacity-50" />
+    <div v-if="isOpen" class="fixed inset-0 bg-neutral-700/50" />
   </transition>
 
   <!-- Modal -->

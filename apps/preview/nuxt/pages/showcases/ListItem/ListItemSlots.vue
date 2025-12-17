@@ -5,7 +5,7 @@
       Label
       <SfCounter class="ml-2">123</SfCounter>
     </span>
-    <span class="text-xs break-words text-neutral-500">Secondary text</span>
+    <span class="block text-xs break-words text-neutral-500">Secondary text</span>
     <template #suffix><SfIconChevronRight /></template>
   </SfListItem>
 </template>

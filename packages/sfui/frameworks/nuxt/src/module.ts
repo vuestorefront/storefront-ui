@@ -25,10 +25,16 @@ export default defineNuxtModule<ModuleOptions>({
     const { contentPath } = options;
 
     const customTailwindConfigTemplate = addTemplate({
-      filename: 'storefront-ui.tailwind-config.mjs',
+      filename: 'storefront-ui.tailwind.css',
       write: true,
       getContents: () =>
-        `import { tailwindConfig } from '@storefront-ui/vue/tailwind-config'; export default { presets: [tailwindConfig] }`,
+        `@import "tailwindcss";
+@import "@storefront-ui/vue/tailwind-config";
+@plugin "@storefront-ui/typography";
+
+@source '../**/*.vue';
+@source '../node_modules/@storefront-ui/vue';
+`,
     });
 
     await installModule(
@@ -50,8 +56,7 @@ export default defineNuxtModule<ModuleOptions>({
       if (key.startsWith('Sf') && (storefrontUi[key].__name || storefrontUi[key].name)) {
         components.push(key);
       } else if (key.startsWith('use')) {
-        // `useId` is already available in nuxtjs, we omit `useId` because of duplication warning
-        if (key !== 'useId') composables.push(key);
+        composables.push(key);
       }
     });
 

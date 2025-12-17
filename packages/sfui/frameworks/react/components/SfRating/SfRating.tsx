@@ -1,6 +1,5 @@
-import classNames from 'classnames';
 import { clamp, roundToNearest } from '@storefront-ui/shared';
-import { SfIconStarFilled, SfIconStar, SfIconStarHalf, SfRatingSize } from '@storefront-ui/react';
+import { SfIconStarFilled, SfIconStar, SfIconStarHalf, SfRatingSize, twMerge } from '@storefront-ui/react';
 import type { SfRatingProps } from '@storefront-ui/react';
 
 const sizeClasses = {
@@ -32,7 +31,7 @@ export default function SfRating({
       role="img"
       aria-label={label}
       title={label}
-      className={classNames('inline-flex items-center text-warning-500', sizeClasses[size], className)}
+      className={twMerge('inline-flex items-center text-warning-500', sizeClasses[size], className)}
       data-testid="rating"
       {...attributes}
     >

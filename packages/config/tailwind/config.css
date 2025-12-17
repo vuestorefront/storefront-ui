@@ -1,0 +1,178 @@
+@plugin "@storefront-ui/tw-plugin-peer-next";
+@plugin "@tailwindcss/typography";
+@config "./index.js";
+
+/* Mimics behaviour of removed `future.hoverOnlyWhenSupporte` flag to show hover only on devices with fine pointer (mouse, not finger) */
+@custom-variant hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @slot;
+    }
+  }
+}
+
+@custom-variant focus-visible-within {
+  &:has(:focus-visible) {
+    @slot;
+  }
+}
+
+@theme {
+  --default-outline-color: var(--color-secondary-600);
+  --default-outline-offset: 2px;
+  --default-outline-width: 2px;
+
+  --shadow-md: 0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  /* converted from rgb to oklch using rgb-to-oklch.js script */
+  --color-primary-50: oklch(0.980165 0.0205041 156.723);
+  --color-primary-100: oklch(0.944598 0.0280714 162.014);
+  --color-primary-200: oklch(0.886553 0.0466985 164.989);
+  --color-primary-300: oklch(0.803863 0.0615073 163.433);
+  --color-primary-400: oklch(0.726997 0.0544955 162.973);
+  --color-primary-500: oklch(0.63414 0.0482896 162.927);
+  --color-primary-600: oklch(0.524633 0.0411815 162.014);
+  --color-primary-700: oklch(0.465676 0.0347951 162.989);
+  --color-primary-800: oklch(0.365357 0.025772 164.59);
+  --color-primary-900: oklch(0.269551 0.0167404 163.37);
+
+  --color-secondary-50: oklch(0.981772 0.0270107 157.305);
+  --color-secondary-100: oklch(0.961651 0.0499168 155.006);
+  --color-secondary-200: oklch(0.898695 0.0969988 153.575);
+  --color-secondary-300: oklch(0.854662 0.144278 151.034);
+  --color-secondary-400: oklch(0.800846 0.196195 150.809);
+  --color-secondary-500: oklch(0.716132 0.190176 150.725);
+  --color-secondary-600: oklch(0.620991 0.164907 151.143);
+  --color-secondary-700: oklch(0.523649 0.13546 151.384);
+  --color-secondary-800: oklch(0.40077 0.0945497 152.915);
+  --color-secondary-900: oklch(0.285096 0.0548596 155.371);
+
+  --color-positive-50: oklch(0.981772 0.0270107 157.305);
+  --color-positive-100: oklch(0.961651 0.0499168 155.006);
+  --color-positive-200: oklch(0.898695 0.0969988 153.575);
+  --color-positive-300: oklch(0.854662 0.144278 151.034);
+  --color-positive-400: oklch(0.800846 0.196195 150.809);
+  --color-positive-500: oklch(0.716132 0.190176 150.725);
+  --color-positive-600: oklch(0.620991 0.164907 151.143);
+  --color-positive-700: oklch(0.523649 0.13546 151.384);
+  --color-positive-800: oklch(0.40077 0.0945497 152.915);
+  --color-positive-900: oklch(0.285096 0.0548596 155.371);
+
+  --color-negative-50: oklch(0.97842 0.0110926 3.58502);
+  --color-negative-100: oklch(0.950811 0.0259569 2.81641);
+  --color-negative-200: oklch(0.905643 0.0492912 5.57236);
+  --color-negative-300: oklch(0.867244 0.0697169 8.61502);
+  --color-negative-400: oklch(0.810255 0.109846 11.3178);
+  --color-negative-500: oklch(0.746364 0.15595 13.8107);
+  --color-negative-600: oklch(0.634433 0.215119 16.4453);
+  --color-negative-700: oklch(0.544879 0.214877 22.1307);
+  --color-negative-800: oklch(0.410286 0.159974 20.8879);
+  --color-negative-900: oklch(0.279959 0.0904061 18.1682);
+
+  --color-warning-50: oklch(0.978524 0.0163972 79.1756);
+  --color-warning-100: oklch(0.960444 0.0366282 80.5214);
+  --color-warning-200: oklch(0.910044 0.079927 79.3929);
+  --color-warning-300: oklch(0.869878 0.105541 73.91);
+  --color-warning-400: oklch(0.824998 0.145165 72.2519);
+  --color-warning-500: oklch(0.750127 0.160009 70.0833);
+  --color-warning-600: oklch(0.63565 0.134731 68.4887);
+  --color-warning-700: oklch(0.538932 0.120035 64.8673);
+  --color-warning-800: oklch(0.414554 0.0894398 62.9947);
+  --color-warning-900: oklch(0.286053 0.0552756 60.0771);
+  
+  --color-neutral-50: oklch(0.986252 0.00245284 164.375);
+  --color-neutral-100: oklch(0.962452 0.00658519 159.784);
+  --color-neutral-200: oklch(0.90417 0.0125382 156.831);
+  --color-neutral-300: oklch(0.815695 0.0163149 154.295);
+  --color-neutral-400: oklch(0.62887 0.0164423 157.928);
+  --color-neutral-500: oklch(0.530109 0.017136 157.798);
+  --color-neutral-600: oklch(0.442872 0.016032 152.177);
+  --color-neutral-700: oklch(0.364935 0.0156449 156.31);
+  --color-neutral-800: oklch(0.281681 0.0111333 156.387);
+  --color-neutral-900: oklch(0.210975 0.0108426 151.158);
+
+  --color-disabled-50: oklch(0.986252 0.00245284 164.375 / 0.5);
+  --color-disabled-100: oklch(0.962452 0.00658519 159.784 / 0.5);
+  --color-disabled-200: oklch(0.90417 0.0125382 156.831 / 0.5);
+  --color-disabled-300: oklch(0.815695 0.0163149 154.295 / 0.5);
+  --color-disabled-400: oklch(0.62887 0.0164423 157.928 / 0.5);
+  --color-disabled-500: oklch(0.530109 0.017136 157.798 / 0.5);
+  --color-disabled-600: oklch(0.442872 0.016032 152.177 / 0.5);
+  --color-disabled-700: oklch(0.364935 0.0156449 156.31 / 0.5);
+  --color-disabled-800: oklch(0.281681 0.0111333 156.387 / 0.5);
+  --color-disabled-900: oklch(0.210975 0.0108426 151.158 / 0.5);
+
+  --font-headings: "Inter", "sans-serif";
+  --font-body: "Inter", "sans-serif";
+
+  --text-2xs: 0.625rem; /* 10px */
+  --text-3xs: 0.5rem; /* 8px */
+
+  --breakpoint-2xs: 22.5rem; /* 360px */
+  --breakpoint-xs: 23.5rem; /* 376px */
+
+  --bg-img-checked-checkbox-current: linear-gradient(-45deg,transparent 65%, currentcolor 65.99%),linear-gradient(45deg,transparent 75%, currentcolor 75.99%),linear-gradient(-45deg, currentcolor 40%,transparent 40.99%),linear-gradient(45deg, currentcolor 30%, white 30.99%, white 40%,transparent 40.99%),linear-gradient(-45deg, white 50%, currentcolor 50.99%);
+  --bg-img-indeterminate-checkbox-current: linear-gradient(90deg,transparent 80%, currentcolor 80%),linear-gradient(-90deg,transparent 80%, currentcolor 80%),linear-gradient(0deg, currentcolor 43%, white 43%, white 57%, currentcolor 57%);
+
+  --animate-spin-slow: spin-slow 1.5s linear infinite;
+  --animate-line: line 1.5s ease-in infinite;
+  --animate-stroke-loader-circular: stroke-loader-circular 2s ease-in-out infinite;
+
+  @keyframes line {
+    from {
+      left: -100%;
+      width: 100%;
+    }
+    to {
+      left: 100%;
+      width: 10%;
+    }
+  }
+
+  @keyframes stroke-loader-circular {
+    0% {
+      stroke-dasharray: 1, 200;
+      stroke-dashoffset: 0;
+    }
+    50% {
+      stroke-dasharray: 140, 200;
+      stroke-dashoffset: -35;
+    }
+    100% {
+      stroke-dasharray: 89, 200;
+      stroke-dashoffset: -150;
+    }
+  }
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  * {
+    color-scheme: light;
+    --sfui-light: initial;
+    --sfui-dark: ;
+    
+    @variant dark {
+      color-scheme: dark;
+      --sfui-light: ;
+      --sfui-dark: initial;
+    }
+  }
+}
+
+@utility outline {
+  outline-color: var(--default-outline-color);
+  outline-width: var(--default-outline-width);
+}
+
+@utility outline-offset {
+  outline-offset: var(--default-outline-offset);
+}
+
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}

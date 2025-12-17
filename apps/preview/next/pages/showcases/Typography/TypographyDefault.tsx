@@ -3,7 +3,7 @@ import { ShowcasePageLayout } from '../../showcases';
 export default function TypographyDefault() {
   return (
     <div className="prose">
-      <figcaption>The New Winner</figcaption>
+      <em>The New Winner</em>
       <h1>Nike Air Max 270</h1>
       <span className="lead">Experience ultimate comfort and style with the Nike Air Max 270 sneakers.</span>
       <p>Paragraph text</p>

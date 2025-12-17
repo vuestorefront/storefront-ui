@@ -5,7 +5,7 @@ import { SfIconFavorite, SfIconFavoriteFilled, SfRatingButton } from '@storefron
 
 export default function RatingButtonCustomIcon() {
   const labelId = useId();
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState(2);
 
   return (
     <div>

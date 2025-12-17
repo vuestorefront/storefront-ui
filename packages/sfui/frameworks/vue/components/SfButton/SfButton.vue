@@ -1,17 +1,22 @@
 <script lang="ts">
 export const variantClasses = {
-  [SfButtonVariant.primary]:
-    'text-white shadow hover:shadow-md active:shadow bg-primary-700 hover:bg-primary-800 active:bg-primary-900 disabled:bg-disabled-300',
+  [SfButtonVariant.primary]: 'shadow-sm hover:shadow-md active:shadow-sm disabled:bg-disabled-300',
   [SfButtonVariant.secondary]:
-    'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ring-1 ring-inset ring-primary-700 shadow hover:shadow-md active:shadow hover:ring-primary-800 active:ring-primary-900 disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50',
+    'ring-1 ring-inset shadow-sm hover:shadow-md active:shadow-sm disabled:ring-1 disabled:ring-disabled-300 disabled:bg-white/50',
+  [SfButtonVariant.tertiary]: 'disabled:bg-transparent',
+};
+export const variantColorClasses = {
+  [SfButtonVariant.primary]: 'text-white bg-primary-700 hover:bg-primary-800 active:bg-primary-900',
+  [SfButtonVariant.secondary]:
+    'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 ring-primary-700 hover:ring-primary-800 active:ring-primary-900',
   [SfButtonVariant.tertiary]:
-    'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900 disabled:bg-transparent',
+    'text-primary-700 hover:bg-primary-100 hover:text-primary-800 active:bg-primary-200 active:text-primary-900',
 };
 </script>
 
 <script lang="ts" setup>
 import { type PropType, type ConcreteComponent, computed, toRefs } from 'vue';
-import { useAttrsRef, SfButtonSize, SfButtonVariant } from '@storefront-ui/vue';
+import { useAttrsRef, SfButtonSize, SfButtonVariant, twMerge, useTwMergeRoot } from '@storefront-ui/vue';
 
 const props = defineProps({
   size: {
@@ -21,6 +26,10 @@ const props = defineProps({
   variant: {
     type: String as PropType<`${SfButtonVariant}`>,
     default: SfButtonVariant.primary,
+  },
+  blank: {
+    type: Boolean,
+    default: false,
   },
   disabled: {
     type: Boolean,
@@ -35,6 +44,10 @@ const props = defineProps({
     default: undefined,
   },
 });
+defineOptions({
+  inheritAttrs: false,
+});
+const { attrsWithoutClass } = useTwMergeRoot();
 
 const { size, tag, square } = toRefs(props);
 
@@ -43,7 +56,7 @@ const sizeClasses = computed(() => {
     case SfButtonSize.sm:
       return [square.value ? 'p-1.5' : 'leading-5 text-sm py-1.5 px-3', 'gap-1.5'];
     case SfButtonSize.lg:
-      return [square.value ? 'p-4' : 'py-3 leading-6 px-6', 'gap-3'];
+      return [square.value ? 'p-3' : 'py-3 leading-6 px-6', 'gap-3'];
     default:
       return [square.value ? 'p-2' : 'py-2 leading-6 px-4', 'gap-2'];
   }
@@ -62,14 +75,19 @@ const type = computed(
 <template>
   <component
     :is="tagWithDefaults"
+    data-testid="button"
+    v-bind="attrsWithoutClass"
     :type="type"
     :disabled="disabled"
-    :class="[
-      'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-md disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
-      sizeClasses,
-      variantClasses[variant],
-    ]"
-    data-testid="button"
+    :class="
+      twMerge(
+        'inline-flex items-center justify-center font-medium text-base focus-visible:outline focus-visible:outline-offset rounded-full disabled:text-disabled-500 disabled:bg-disabled-300 disabled:shadow-none disabled:ring-0 disabled:cursor-not-allowed',
+        ...sizeClasses,
+        variantClasses[variant],
+        { [variantColorClasses[variant]]: !blank },
+        $attrs.class,
+      )
+    "
   >
     <slot v-if="$slots.prefix" name="prefix" />
     <slot />

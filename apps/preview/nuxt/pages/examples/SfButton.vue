@@ -57,7 +57,13 @@ const { state, controlsAttrs } = prepareControls(
     {
       type: 'select',
       modelName: 'variant',
+      description: 'Button style variant',
       options: Object.keys(SfButtonVariant),
+    },
+    {
+      type: 'boolean',
+      modelName: 'blank',
+      description: 'Remove variant color classes from the button',
     },
     {
       type: 'select',
@@ -80,6 +86,7 @@ const { state, controlsAttrs } = prepareControls(
     suffix: ref(suffixSlotOptions.defaultOption),
     disabled: ref(),
     variant: ref<SfButtonVariant>(SfButtonVariant.primary),
+    blank: ref(),
     size: ref<SfButtonSize>(SfButtonSize.base),
     tag: ref(),
     square: ref(),
