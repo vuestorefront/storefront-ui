@@ -70,7 +70,7 @@ export default defineNuxtConfig({
     // for details, see the source code: https://github.com/nuxt-modules/tailwindcss/blob/main/src/import-css.ts#L26
     'tailwindcss:sources:extend': (sources) => {
       sources.push({ type: 'path', source: './**/*.vue' });
-      sources.push({ type: 'path', source: '../../../node_modules/@storefront-ui/vue/**/*.vue' });
+      sources.push({ type: 'path', source: '../../../node_modules/@storefront-ui/vue' });
       return sources;
     },
   },

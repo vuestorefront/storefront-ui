@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { type PropType, toRefs } from 'vue';
+import { type PropType, toRefs, watch } from 'vue';
 import type { Middleware } from '@floating-ui/vue';
 import { useTooltip, type SfPopoverPlacement, type SfPopoverStrategy } from '@storefront-ui/vue';
 
@@ -24,16 +24,42 @@ const props = defineProps({
     type: String,
     required: true,
   },
+  id: {
+    type: String,
+    default: undefined,
+  },
+  modelValue: {
+    type: Boolean,
+    default: false,
+  },
 });
 
-const { placement, middleware, strategy } = toRefs(props);
-const { isOpen, triggerProps, tooltipProps, arrowProps } = useTooltip({ placement, middleware, strategy });
+const emit = defineEmits<{
+  (event: 'update:modelValue', open: boolean): void;
+}>();
+
+const { placement, middleware, strategy, modelValue } = toRefs(props);
+const { isOpen, close, open, triggerProps, tooltipProps, arrowProps } = useTooltip({ placement, middleware, strategy });
+
+watch(
+  modelValue,
+  (newVal) => {
+    if (newVal) open();
+    else close();
+  },
+  { immediate: true },
+);
+
+watch(isOpen, (newVal) => {
+  emit('update:modelValue', newVal);
+});
 </script>
 <template>
   <span data-testid="tooltip" v-bind="triggerProps">
     <slot />
     <div
       v-if="label && isOpen"
+      :id="id"
       role="tooltip"
       class="bg-black px-2 py-1.5 rounded-md text-white text-xs w-max max-w-[360px] drop-shadow-sm"
       v-bind="tooltipProps"

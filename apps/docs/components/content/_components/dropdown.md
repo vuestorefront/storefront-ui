@@ -40,6 +40,10 @@ By default, the floating content of `SfDropdown` will be placed below your trigg
 
 The floating content area has an `aria-hidden` attribute that reflects the visibility of the dropdown (`modelValue`). When the dropdown is not open (`modelValue` is `false`), the `aria-hidden` attribute is set to `true`, ensuring that the content is hidden from assistive technologies.
 
+::tip
+This component lets you create many types of custom dropdowns, such as navigation menus, comboboxes, or select lists. However, accessibility depends on how you implement it in your use case. Always ensure users can move through items in the dropdown using arrow keys and/or the Tab key. Additionally, after the dropdown is closed, make sure focus returns to the trigger element.
+::
+
 ## Playground
 
 <Generate style="height: 450px" />

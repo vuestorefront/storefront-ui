@@ -21,8 +21,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { SfRatingButton, SfIconFavorite, SfIconFavoriteFilled, useId } from '@storefront-ui/vue';
+import { ref, useId } from 'vue';
+import { SfRatingButton, SfIconFavorite, SfIconFavoriteFilled } from '@storefront-ui/vue';
 const labelId = useId();
 const modelValue = ref(2);
 </script>

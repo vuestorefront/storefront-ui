@@ -1,6 +1,7 @@
-import { ref, unref, computed, toValue } from 'vue';
+import { ref, unref, computed, toValue, type MaybeRefOrGetter } from 'vue';
 import { arrow, flip, offset, shift, type ReferenceElement, type Side } from '@floating-ui/vue';
 import { type UseTooltipOptions, usePopover, useDisclosure } from '@storefront-ui/vue';
+import { onKeyStroke } from '@vueuse/core';
 
 export function useTooltip<ReferenceEl extends ReferenceElement = ReferenceElement>(
   options?: UseTooltipOptions<ReferenceEl>,
@@ -68,6 +69,8 @@ export function useTooltip<ReferenceEl extends ReferenceElement = ReferenceEleme
     ref: arrowRef,
     style: arrowStyle(),
   }));
+
+  onKeyStroke('Escape', close, { target: referenceRef as MaybeRefOrGetter<EventTarget | null | undefined> });
 
   return {
     referenceRef,

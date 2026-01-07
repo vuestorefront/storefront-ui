@@ -91,7 +91,7 @@ describe('SfDropdown', () => {
 
   describe('When click away', () => {
     it('Should call onClose', () => {
-      const props = { modelValue: ref(true), onClose: cy.spy() };
+      const props = { onClose: cy.spy(), modelValue: ref(true) };
       initializeComponent(props);
 
       page().isDropdownVisible().clickAway(props.onClose);

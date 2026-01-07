@@ -1,5 +1,127 @@
 # @storefront-ui/vue
 
+## 3.1.0
+
+### Minor Changes
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`e75c802`](https://github.com/vuestorefront/storefront-ui/commit/e75c802f4c3b6eaf5d4fdefdf8afd8048948be55) Thanks [@FRSgit](https://github.com/FRSgit)! - Bump version so it would match current state in npm
+
+### Patch Changes
+
+- Updated dependencies [[`e75c802`](https://github.com/vuestorefront/storefront-ui/commit/e75c802f4c3b6eaf5d4fdefdf8afd8048948be55)]:
+  - @storefront-ui/tailwind-config@3.1.0
+  - @storefront-ui/shared@3.1.0
+
+## 3.0.0
+
+### Major Changes
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Padding size for square variant of SfButton changed
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** removed flex classes from wrapper for slot in SfListItem
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Padding left and right in SfSelect changed from 14px and 16px to 12px
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** default badge background color. Add className `!bg-secondary-700` explicitly in order to migrate.
+
+- [#3333](https://github.com/vuestorefront/storefront-ui/pull/3333) [`2b3ad4a`](https://github.com/vuestorefront/storefront-ui/commit/2b3ad4ae63271be3cb5bed84bd5bfe11ebf340f2) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[CHANGED][BREAKING]** Use `useId` method coming from `vue` package instead of custom implementation. To migrate:
+
+  1. Update your `vue` dependency version to at least 3.5.0.
+  2. Update every `useId` usage as follows:
+
+  ```diff
+  -import { useId } from '@storefront-ui/vue';
+  +import { useId } from 'vue';
+  ```
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][UPDATED]** `@vueuse/core` package to major version 12 with the biggest change being **dropped support for Vue 2**. Please consult `@vuseuse/core` [release notes to see the details](https://github.com/vueuse/vueuse/releases?page=3#:~:text=Compare-,v12.0.0,-%F0%9F%9A%A8%20Breaking%20Changes).
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Deprecated option `arrowKeysOn` from `useTrapFocus` is removed.
+  This option was separated and replaced by two more specialised options `arrowKeysLeftRight` and `arrowKeysUpDown`.
+  In order to migrate please one of those options or both.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Moved from `rounded-md` to `rounded-xl` as a default styling for `SfInput`.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Changed `SfCheckbox` default text color. To brind the previous behaviour back, apply `!text-gray !disabled:text-gray-300 !hover:text-gray-300` to your `SfCheckbox` element.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Migrate to Tailwind@4. SFUI tries to defer some of Tailwinds' breaking changes, e.g. the default outline width or border-radius size scale, but not everything was possible. Please refer to all breaking changes described in the [Tailwind upgrade guide](https://tailwindcss.com/docs/upgrade-guide) and [updated storefront-ui docs](https://docs.storefrontui.io/v2/).
+
+- [#3332](https://github.com/vuestorefront/storefront-ui/pull/3332) [`55fa6a2`](https://github.com/vuestorefront/storefront-ui/commit/55fa6a287036332b66f309ab4f6af4470ebf088a) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[FIXED][BREAKING]** From now on, `onClose` callback in `useDropdown` will be triggered only if outside click triggers closing of the dropdown. Previously onClose was also triggered when the dropdown was already closed.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Added `tailwind-merge` to all base components & blocks. From now on it will be easier to override default SFUI styles. See [`tailwind-merge` docs for more details](https://www.npmjs.com/package/tailwind-merge).
+
+### Minor Changes
+
+- [#3334](https://github.com/vuestorefront/storefront-ui/pull/3334) [`a708eaf`](https://github.com/vuestorefront/storefront-ui/commit/a708eaf8c092a19f3d41adb433883ff2e6ccc02d) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[ADDED]** Support for setting `id` attribute on the content in `SfTooltip` component.
+
+  - **[ADDED]** Possibility to open tooltip programatically via `modelValue` prop.
+  - **[ADDED]** `useTooltip` now closes tooltip on `Escape` keypress.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[ADDED]** `blank` prop for SfButton component that eases out creating custom buttons. See [documentation](https://docs.storefrontui.io/v2/vue/components/button#blank-button-variants) for more details.
+
+### Patch Changes
+
+- [#3325](https://github.com/vuestorefront/storefront-ui/pull/3325) [`023abe7`](https://github.com/vuestorefront/storefront-ui/commit/023abe77d6994b7da937db5211a502d426d7f22c) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[FIXED]** allow to change default `data-testid` attribute on `SfButton` and `SfBadge` components.
+
+- Updated dependencies [[`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655)]:
+  - @storefront-ui/tailwind-config@3.0.0
+  - @storefront-ui/shared@3.0.0
+
+## 3.0.0-rc.0
+
+### Major Changes
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Padding size for square variant of SfButton changed
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** removed flex classes from wrapper for slot in SfListItem
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Padding left and right in SfSelect changed from 14px and 16px to 12px
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** default badge background color. Add className `!bg-secondary-700` explicitly in order to migrate.
+
+- [#3333](https://github.com/vuestorefront/storefront-ui/pull/3333) [`2b3ad4a`](https://github.com/vuestorefront/storefront-ui/commit/2b3ad4ae63271be3cb5bed84bd5bfe11ebf340f2) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[CHANGED][BREAKING]** Use `useId` method coming from `vue` package instead of custom implementation. To migrate:
+
+  1. Update your `vue` dependency version to at least 3.5.0.
+  2. Update every `useId` usage as follows:
+
+  ```diff
+  -import { useId } from '@storefront-ui/vue';
+  +import { useId } from 'vue';
+  ```
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][UPDATED]** `@vueuse/core` package to major version 12 with the biggest change being **dropped support for Vue 2**. Please consult `@vuseuse/core` [release notes to see the details](https://github.com/vueuse/vueuse/releases?page=3#:~:text=Compare-,v12.0.0,-%F0%9F%9A%A8%20Breaking%20Changes).
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Deprecated option `arrowKeysOn` from `useTrapFocus` is removed.
+  This option was separated and replaced by two more specialised options `arrowKeysLeftRight` and `arrowKeysUpDown`.
+  In order to migrate please one of those options or both.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Moved from `rounded-md` to `rounded-xl` as a default styling for `SfInput`.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Changed `SfCheckbox` default text color. To brind the previous behaviour back, apply `!text-gray !disabled:text-gray-300 !hover:text-gray-300` to your `SfCheckbox` element.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Migrate to Tailwind@4. SFUI tries to defer some of Tailwinds' breaking changes, e.g. the default outline width or border-radius size scale, but not everything was possible. Please refer to all breaking changes described in the [Tailwind upgrade guide](https://tailwindcss.com/docs/upgrade-guide) and [updated storefront-ui docs](https://docs.storefrontui.io/v2/).
+
+- [#3332](https://github.com/vuestorefront/storefront-ui/pull/3332) [`55fa6a2`](https://github.com/vuestorefront/storefront-ui/commit/55fa6a287036332b66f309ab4f6af4470ebf088a) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[FIXED][BREAKING]** From now on, `onClose` callback in `useDropdown` will be triggered only if outside click triggers closing of the dropdown. Previously onClose was also triggered when the dropdown was already closed.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** Added `tailwind-merge` to all base components & blocks. From now on it will be easier to override default SFUI styles. See [`tailwind-merge` docs for more details](https://www.npmjs.com/package/tailwind-merge).
+
+### Minor Changes
+
+- [#3334](https://github.com/vuestorefront/storefront-ui/pull/3334) [`a708eaf`](https://github.com/vuestorefront/storefront-ui/commit/a708eaf8c092a19f3d41adb433883ff2e6ccc02d) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[ADDED]** Support for setting `id` attribute on the content in `SfTooltip` component.
+
+  - **[ADDED]** Possibility to open tooltip programatically via `modelValue` prop.
+  - **[ADDED]** `useTooltip` now closes tooltip on `Escape` keypress.
+
+- [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[ADDED]** `blank` prop for SfButton component that eases out creating custom buttons. See [documentation](https://docs.storefrontui.io/v2/vue/components/button#blank-button-variants) for more details.
+
+### Patch Changes
+
+- [#3325](https://github.com/vuestorefront/storefront-ui/pull/3325) [`023abe7`](https://github.com/vuestorefront/storefront-ui/commit/023abe77d6994b7da937db5211a502d426d7f22c) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[FIXED]** allow to change default `data-testid` attribute on `SfButton` and `SfBadge` components.
+
+- Updated dependencies [[`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655), [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655)]:
+  - @storefront-ui/tailwind-config@3.0.0-rc.0
+  - @storefront-ui/shared@3.0.0-rc.0
+
 ## 2.6.5
 
 ### Patch Changes

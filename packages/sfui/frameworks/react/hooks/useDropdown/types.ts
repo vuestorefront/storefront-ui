@@ -3,7 +3,7 @@ import type { UsePopoverOptions } from '../usePopover';
 
 export type UseDropdownOptions = Prettify<
   UsePopoverOptions & {
-    onClose: (event: KeyboardEvent) => void;
+    onClose: (event: KeyboardEvent | PointerEvent | MouseEvent | TouchEvent) => void;
     onCloseDeps?: unknown[];
   }
 >;

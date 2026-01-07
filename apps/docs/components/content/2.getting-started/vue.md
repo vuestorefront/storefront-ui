@@ -41,6 +41,12 @@ pnpm create vite my-vue-app --template vue-ts
 
 Next, you'll need to install Tailwind CSS and PostCSS, as well as the Storefront UI's Vue library and Tailwind preset.
 
+<!-- https://github.com/tailwindlabs/tailwindcss/issues/19442 postcss having problems with resolving @import and @plugin with pnpm and tailwindcss -->
+::warning Add all sub-dependencies manually for PNPM and PostCSS
+
+Due to issue connected to resolving `@import` and `@plugin` by `PostCSS` and `@tailwindcss/postcss` and how `pnpm` create packages in `node_modules`, you have to install all sub-dependency manually.
+::
+
 ```bash
 # npm
 npm i -D tailwindcss @tailwindcss/vite @storefront-ui/vue
@@ -50,6 +56,9 @@ yarn add -D tailwindcss @tailwindcss/vite @storefront-ui/vue
 
 # pnpm
 pnpm add -D tailwindcss @tailwindcss/vite @storefront-ui/vue
+
+# pnpm and postcss
+pnpm add -D tailwindcss @tailwindcss/vite @storefront-ui/vue @storefront-ui/shared @storefront-ui/tailwind-config @tailwindcss/typography
 ```
 
 ### Configure the Tailwind Vite plugin
@@ -85,7 +94,7 @@ In order for Tailwind to properly detect the utility classes used in Storefront 
 @plugin "@storefront-ui/typography";
 
 @source '../**/*.vue';
-@source '../node_modules/@storefront-ui/vue/**/*.vue';
+@source '../node_modules/@storefront-ui/vue';
 ```
 
 ### You're Ready to Go!
@@ -104,6 +113,12 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 
 With Nuxt 3, the fastest way to get started is to use the `@storefront-ui/nuxt` module. The [Storefront-io Nuxt module](https://www.npmjs.com/package/@storefront-ui/nuxt) will automatically install `@nuxtjs/tailwindcss` inside `nuxt` and storefront-ui tailwindcss presets.
 
+<!-- https://github.com/tailwindlabs/tailwindcss/issues/19442 postcss having problems with resolving @import and @plugin with pnpm and tailwindcss -->
+::warning Add all sub-dependencies manually for PNPM and PostCSS
+
+Due to issue connected to resolving `@import` and `@plugin` by `PostCSS` and `@tailwindcss/postcss` and how `pnpm` create packages in `node_modules`, you have to install all sub-dependency manually.
+::
+
 ```bash
 # npm
 npm i -D @storefront-ui/nuxt
@@ -113,6 +128,9 @@ yarn add -D @storefront-ui/nuxt
 
 # pnpm
 pnpm add -D @storefront-ui/nuxt
+
+# pnpm and postcss
+pnpm add -D @storefront-ui/nuxt @storefront-ui/shared @storefront-ui/tailwind-config @tailwindcss/typography
 ```
 
 ### Add the Nuxt Storefront module to your `nuxt.config.ts`
@@ -193,6 +211,12 @@ The `astro add` command will automatically install the necessary dependencies an
 
 Now that your Astro project is configured to use Vue and Tailwind, you'll need to install the Storefront UI Vue library and Tailwind preset.
 
+<!-- https://github.com/tailwindlabs/tailwindcss/issues/19442 postcss having problems with resolving @import and @plugin with pnpm and tailwindcss -->
+::warning Add all sub-dependencies manually for PNPM and PostCSS
+
+Due to issue connected to resolving `@import` and `@plugin` by `PostCSS` and `@tailwindcss/postcss` and how `pnpm` create packages in `node_modules`, you have to install all sub-dependency manually.
+::
+
 ```bash
 # npm
 npm i -D @storefront-ui/vue
@@ -202,6 +226,9 @@ yarn add -D @storefront-ui/vue
 
 # pnpm
 pnpm add -D @storefront-ui/vue
+
+# pnpm and postcss
+pnpm add -D @storefront-ui/vue @storefront-ui/shared @storefront-ui/tailwind-config @tailwindcss/typography
 ```
 
 ### Modify Your Tailwind Configuration File
@@ -220,7 +247,7 @@ const { tailwindConfig } = require('@storefront-ui/vue/tailwind-config');
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   presets: [tailwindConfig],
-  content: ['./index.html', './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/@storefront-ui/vue/**/*.{js,mjs}'],
+  content: ['./index.html', './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}', './node_modules/@storefront-ui/vue'],
   theme: {
     extend: {},
   },

@@ -48,8 +48,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue';
-import { SfButton, SfRatingButton, SfInput, useId } from '@storefront-ui/vue';
+import { ref, computed, useId } from 'vue';
+import { SfButton, SfRatingButton, SfInput } from '@storefront-ui/vue';
 
 const ratingLabelId = useId();
 const ratingModelValue = ref();

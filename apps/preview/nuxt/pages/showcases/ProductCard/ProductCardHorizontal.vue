@@ -84,8 +84,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import { SfLink, SfButton, SfIconSell, SfIconAdd, SfIconRemove, SfIconDelete, useId } from '@storefront-ui/vue';
+import { ref, useId } from 'vue';
+import { SfLink, SfButton, SfIconSell, SfIconAdd, SfIconRemove, SfIconDelete } from '@storefront-ui/vue';
 import { clamp } from '@storefront-ui/shared';
 import { useCounter } from '@vueuse/core';
 

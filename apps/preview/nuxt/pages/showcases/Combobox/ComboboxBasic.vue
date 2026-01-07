@@ -107,7 +107,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
+import { ref, watch, useId } from 'vue';
 import { offset } from '@floating-ui/vue';
 import { unrefElement } from '@vueuse/core';
 import {
@@ -118,7 +118,6 @@ import {
   useDisclosure,
   useDropdown,
   useTrapFocus,
-  useId,
 } from '@storefront-ui/vue';
 
 const inputModel = ref('');
