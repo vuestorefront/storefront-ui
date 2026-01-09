@@ -20,5 +20,7 @@
     "@storefront-ui/typography": "3.1.0",
     "@storefront-ui/tests": "0.0.0"
   },
-  "changesets": []
+  "changesets": [
+    "loud-shoes-promise"
+  ]
 }
