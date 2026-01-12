@@ -1,5 +1,11 @@
 # @storefront-ui/react
 
+## 4.0.0-rc.1
+
+### Patch Changes
+
+- [#3350](https://github.com/vuestorefront/storefront-ui/pull/3350) [`aa2054d`](https://github.com/vuestorefront/storefront-ui/commit/aa2054da417f3d82601d35846511a3b36997c5f6) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [UPDATED] add better data-testid handling to sfCheckbox
+
 ## 4.0.0-rc.0
 
 ### Major Changes
