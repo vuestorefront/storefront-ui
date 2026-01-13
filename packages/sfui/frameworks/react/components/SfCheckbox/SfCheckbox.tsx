@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import {
   mergeRefs,
   SfIconCheckBox,
@@ -13,9 +13,9 @@ const defaultWrapperTag = 'label';
 
 const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
   (
-    { wrapperAs, invalid, className, indeterminate: indeterminateProp, wrapperClassName, ...attributes },
+    { wrapperAs, invalid, className, indeterminate: indeterminateProp, wrapperClassName, 'data-testid': dataTestId, ...attributes },
     ref,
-  ): JSX.Element => {
+  ): React.JSX.Element => {
     const inputRef = useRef<HTMLInputElement>(null);
     const WrapperTag = wrapperAs || defaultWrapperTag;
     const [isIndeterminate, setIsIndeterminate] = useState(indeterminateProp || false);
@@ -47,7 +47,7 @@ const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
           },
           wrapperClassName,
         )}
-        data-testid="checkbox"
+        data-testid={dataTestId ?? "checkbox"}
       >
         <input
           className={twMerge('sr-only', className)}

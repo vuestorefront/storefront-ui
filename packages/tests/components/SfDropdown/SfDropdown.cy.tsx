@@ -94,7 +94,7 @@ describe('SfDropdown', () => {
       const props = { onClose: cy.spy(), modelValue: ref(true) };
       initializeComponent(props);
 
-      page().clickAway(props.onClose);
+      page().isDropdownVisible().clickAway(props.onClose);
     });
   });
 

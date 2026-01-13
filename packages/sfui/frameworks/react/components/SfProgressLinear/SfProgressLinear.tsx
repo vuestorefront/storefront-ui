@@ -1,3 +1,4 @@
+import React from 'react';
 import { SfProgressSize, SfProgressLinearSize, twMerge } from '@storefront-ui/react';
 import type { SfProgressLinearProps } from '@storefront-ui/react';
 
@@ -19,7 +20,7 @@ export default function SfProgressLinear({
   ariaLabel = 'Progress element',
   className,
   ...attributes
-}: SfProgressLinearProps): JSX.Element {
+}: SfProgressLinearProps): React.JSX.Element {
   return (
     <progress
       data-testid="progress-linear"

@@ -4,6 +4,7 @@ import { type SfRatingButtonProps } from '@storefront-ui/react';
 import { mount, useComponent } from '../../utils/mount';
 
 const { vue: SfRatingButtonVue, react: SfRatingButtonReact } = useComponent('SfRatingButton');
+const { react: SfIconMoreHorizReact } = useComponent('SfIconMoreHoriz');
 import SfRatingButtonBaseObject from './SfRatingButton.PageObject';
 import { isReact } from '../../utils/utils';
 
@@ -133,8 +134,9 @@ describe('SfRatingButton', () => {
   describe('when custom icon', () => {
     if (isReact) {
       it('should pass props to render function', () => {
-        const props = { children: cy.spy(), max: 5, size: SfRatingButtonSize.base };
+        const props = { children: cy.spy(() => <SfIconMoreHorizReact />), max: 5, size: SfRatingButtonSize.base };
         initializeComponent(props);
+        page().isVisible();
 
         cy.then(() => {
           expect(props.children).to.be.callCount(props.max);

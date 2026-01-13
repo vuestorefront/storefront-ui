@@ -1,3 +1,4 @@
+import React from 'react';
 import type { SfCounterProps } from '@storefront-ui/react';
 import { SfCounterSize, twMerge } from '@storefront-ui/react';
 
@@ -7,7 +8,7 @@ export default function SfCounter({
   children,
   className,
   ...attributes
-}: SfCounterProps): JSX.Element {
+}: SfCounterProps): React.JSX.Element {
   const sizeClasses: Record<SfCounterSize, string> = {
     [SfCounterSize['3xs']]: twMerge('text-3xs', { 'px-1': pill }),
     [SfCounterSize['2xs']]: twMerge('text-2xs', { 'px-1.5': pill }),

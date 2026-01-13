@@ -1,5 +1,27 @@
 # @storefront-ui/react
 
+## 4.0.0
+
+### Major Changes
+
+- [#3316](https://github.com/vuestorefront/storefront-ui/pull/3316) [`939a982`](https://github.com/vuestorefront/storefront-ui/commit/939a9821c0cfd69d876994182b2442aa2cf7f4d6) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** upgrade to React 19. There are no breaking changes specific to SFUI library itself. To upgrade, please [follow official React guide](https://react.dev/blog/2024/04/25/react-19-upgrade-guide).
+
+### Patch Changes
+
+- [#3350](https://github.com/vuestorefront/storefront-ui/pull/3350) [`aa2054d`](https://github.com/vuestorefront/storefront-ui/commit/aa2054da417f3d82601d35846511a3b36997c5f6) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [UPDATED] add better data-testid handling to sfCheckbox
+
+## 4.0.0-rc.1
+
+### Patch Changes
+
+- [#3350](https://github.com/vuestorefront/storefront-ui/pull/3350) [`aa2054d`](https://github.com/vuestorefront/storefront-ui/commit/aa2054da417f3d82601d35846511a3b36997c5f6) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [UPDATED] add better data-testid handling to sfCheckbox
+
+## 4.0.0-rc.0
+
+### Major Changes
+
+- [#3316](https://github.com/vuestorefront/storefront-ui/pull/3316) [`939a982`](https://github.com/vuestorefront/storefront-ui/commit/939a9821c0cfd69d876994182b2442aa2cf7f4d6) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** upgrade to React 19. There are no breaking changes specific to SFUI library itself. To upgrade, please [follow official React guide](https://react.dev/blog/2024/04/25/react-19-upgrade-guide).
+
 ## 3.1.0
 
 ### Minor Changes

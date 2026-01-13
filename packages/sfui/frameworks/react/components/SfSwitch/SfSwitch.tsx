@@ -1,8 +1,8 @@
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { twMerge, type SfSwitchProps } from '@storefront-ui/react';
 
 const SfSwitch = forwardRef<HTMLInputElement, SfSwitchProps>(
-  ({ invalid, className, ...attributes }, ref): JSX.Element => (
+  ({ invalid, className, ...attributes }, ref): React.JSX.Element => (
     <input
       ref={ref}
       className={twMerge(
