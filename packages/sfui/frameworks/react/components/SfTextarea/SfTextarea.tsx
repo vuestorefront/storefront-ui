@@ -1,6 +1,6 @@
 'use client';
 import { SfTextareaSize, twMerge, useFocusVisible } from '@storefront-ui/react';
-import { forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import type { SfTextareaProps } from './types';
 
 const sizeClasses = {
@@ -10,7 +10,7 @@ const sizeClasses = {
 };
 
 export default forwardRef<HTMLTextAreaElement, SfTextareaProps>(
-  ({ size = SfTextareaSize.base, invalid = false, className, ...attributes }, ref): JSX.Element => {
+  ({ size = SfTextareaSize.base, invalid = false, className, ...attributes }, ref): React.JSX.Element => {
     const { isFocusVisible } = useFocusVisible({ isTextInput: true });
 
     return (

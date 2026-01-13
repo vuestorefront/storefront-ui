@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import { ChangeEvent, useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { SfButton, SfButtonVariant, SfButtonSize, SfIconExpandLess, SfIconExpandMore } from '@storefront-ui/react';
 import { useControlsSearchParams } from '../../composables/utils/useControlsSearchParams';
 import { ControlOptionBind, ControlsProps, ControlsType } from './types';
@@ -100,7 +100,7 @@ export default function Controls<T extends { [k: string]: any }>({ controls, sta
                   <span id={control.modelName}>{control.modelName}</span>
                 </td>
                 <td className="value">
-                  {((): JSX.Element | JSX.Element[] => {
+                  {((): React.JSX.Element | React.JSX.Element[] => {
                     switch (control.type) {
                       case 'select':
                         return (

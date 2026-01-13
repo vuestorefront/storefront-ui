@@ -1,3 +1,4 @@
+import React from 'react';
 import { SfLoaderLinearSize, SfLoaderSize, twMerge } from '@storefront-ui/react';
 import type { SfLoaderLinearProps } from '@storefront-ui/react';
 
@@ -18,7 +19,7 @@ export default function SfLoaderLinear({
   ariaLabel = 'loading',
   className,
   ...attributes
-}: SfLoaderLinearProps): JSX.Element {
+}: SfLoaderLinearProps): React.JSX.Element {
   return (
     <span
       className={twMerge(

@@ -1,7 +1,7 @@
 import type { CyMountOptions } from 'cypress/vue';
 import { mount as vueMount } from 'cypress/vue';
 import { mount as reactMount } from 'cypress/react18';
-import { useState, createElement } from 'react';
+import React, { useState, createElement } from 'react';
 import type { ReactNode, FunctionComponent } from 'react';
 import { isRef, unref, watch, reactive } from 'vue';
 import type { Ref } from 'vue';
@@ -20,7 +20,7 @@ export const mount = (mountOptions: {
     component: vueMountOptions[0];
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } & CyMountOptions<any, any>;
-  react?: reactMountOptions[0] | JSX.Element;
+  react?: reactMountOptions[0] | React.JSX.Element;
 }) => {
   // https://docs.cypress.io/guides/component-testing/quickstart-vue
   if (isVue && mountOptions.vue) {
@@ -72,9 +72,9 @@ export function Wrapper<Props extends Record<string, any>>({
   propCallbackPair,
   ...attributes
 }: {
-  component: (props: Props) => JSX.Element;
+  component: (props: Props) => React.JSX.Element;
   propCallbackPair?: Partial<Record<keyof Props, keyof Props>>;
-} & { [key in keyof Props]: Props[key] | Ref<Props[key]> }): JSX.Element {
+} & { [key in keyof Props]: Props[key] | Ref<Props[key]> }): React.JSX.Element {
   const reactiveValuesInternal: Partial<Record<keyof Props, unknown>> = {};
   const propCallbackPairInternal = { ...propCallbackPair };
 

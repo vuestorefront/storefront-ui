@@ -3,7 +3,7 @@
 import { ShowcasePageLayout } from '../../showcases';
 
 // #region source
-import { useRef, useState } from 'react';
+import { type RefObject, useRef, useState } from 'react';
 import { useIntersection } from 'react-use';
 import {
   SfScrollable,
@@ -36,13 +36,13 @@ export default function GalleryVertical() {
   const firstThumbRef = useRef<HTMLButtonElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const firstThumbVisible = useIntersection(firstThumbRef, {
+  const firstThumbVisible = useIntersection(firstThumbRef as RefObject<HTMLElement>, {
     root: thumbsRef.current,
     rootMargin: '0px',
     threshold: 1,
   });
 
-  const lastThumbVisible = useIntersection(lastThumbRef, {
+  const lastThumbVisible = useIntersection(lastThumbRef as RefObject<HTMLElement>, {
     root: thumbsRef.current,
     rootMargin: '0px',
     threshold: 1,
