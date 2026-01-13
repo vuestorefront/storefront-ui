@@ -21,6 +21,7 @@
     "@storefront-ui/tests": "0.0.0"
   },
   "changesets": [
-    "loud-shoes-promise"
+    "loud-shoes-promise",
+    "nice-frogs-reflect"
   ]
 }
