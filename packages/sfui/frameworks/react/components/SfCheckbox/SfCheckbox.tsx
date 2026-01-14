@@ -13,7 +13,15 @@ const defaultWrapperTag = 'label';
 
 const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
   (
-    { wrapperAs, invalid, className, indeterminate: indeterminateProp, wrapperClassName, 'data-testid': dataTestId, ...attributes },
+    {
+      wrapperAs,
+      invalid,
+      className,
+      indeterminate: indeterminateProp,
+      wrapperClassName,
+      'data-testid': dataTestId,
+      ...attributes
+    },
     ref,
   ): React.JSX.Element => {
     const inputRef = useRef<HTMLInputElement>(null);
@@ -47,7 +55,7 @@ const SfCheckbox = polymorphicForwardRef<'input', SfCheckboxProps>(
           },
           wrapperClassName,
         )}
-        data-testid={dataTestId ?? "checkbox"}
+        data-testid={dataTestId ?? 'checkbox'}
       >
         <input
           className={twMerge('sr-only', className)}
