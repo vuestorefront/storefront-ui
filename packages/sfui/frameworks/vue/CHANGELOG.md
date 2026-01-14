@@ -1,5 +1,11 @@
 # @storefront-ui/vue
 
+## 3.1.1
+
+### Patch Changes
+
+- [#3354](https://github.com/vuestorefront/storefront-ui/pull/3354) [`6cf0998`](https://github.com/vuestorefront/storefront-ui/commit/6cf09981bca7d51b4e1db8be2f2a8f127bd28229) Thanks [@Szymon-dziewonski](https://github.com/Szymon-dziewonski)! - [CHANGED] bump vue version and release vue dataTestId checkbox inheritance change
+
 ## 3.1.0
 
 ### Minor Changes
