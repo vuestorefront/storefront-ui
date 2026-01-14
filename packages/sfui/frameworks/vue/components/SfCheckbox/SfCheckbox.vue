@@ -32,6 +32,7 @@ const { indeterminate = false } = defineProps({
 defineOptions({
   inheritAttrs: false,
 });
+
 const { attrsWithoutClass } = useTwMergeRoot();
 const model = defineModel<InputHTMLAttributes['checked']>({ default: false });
 const checkboxRef = useTemplateRef<HTMLInputElement>('checkboxRef');
