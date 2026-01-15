@@ -8923,6 +8923,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"crossws@npm:^0.3.5":
+  version: 0.3.5
+  resolution: "crossws@npm:0.3.5"
+  dependencies:
+    uncrypto: ^0.1.3
+  checksum: ca597f9b07d82c71fdeed033d6691c4ba2523c596089218ba2782fce26365c86d555e4ea9d6726d277a34087eac861b11bd4df30646dcfc1a1c867a174f2bf98
+  languageName: node
+  linkType: hard
+
 "css-background-parser@npm:^0.1.0":
   version: 0.1.0
   resolution: "css-background-parser@npm:0.1.0"
@@ -12636,20 +12645,19 @@ __metadata:
   linkType: hard
 
 "h3@npm:^1.12.0, h3@npm:^1.13.0":
-  version: 1.13.0
-  resolution: "h3@npm:1.13.0"
+  version: 1.15.5
+  resolution: "h3@npm:1.15.5"
   dependencies:
     cookie-es: ^1.2.2
-    crossws: ">=0.2.0 <0.4.0"
+    crossws: ^0.3.5
     defu: ^6.1.4
-    destr: ^2.0.3
+    destr: ^2.0.5
     iron-webcrypto: ^1.2.1
-    ohash: ^1.1.4
+    node-mock-http: ^1.0.4
     radix3: ^1.1.2
-    ufo: ^1.5.4
+    ufo: ^1.6.3
     uncrypto: ^0.1.3
-    unenv: ^1.10.0
-  checksum: c71bd0aae3f855684e5f4edfb6bb91353fcd3b5a7636116eb9c61bb3a22eed6636bb024895183ee31f12a8c8370e9ad83a8f17cc8538193bb39e2a33303f61e1
+  checksum: 455f58681de2b789b39af45067db8dde35234c18d86ec5068687300aae3c0225f85edcd110906493e087407e2caaa1f292352769c484284e72558d7677c29899
   languageName: node
   linkType: hard
 
@@ -16672,6 +16680,13 @@ __metadata:
   bin:
     node-gyp: bin/node-gyp.js
   checksum: 0233759d8c19765f7fdc259a35eb046ad86c3d09e22f7384613ae2b89647dd27fcf833fdf5293d9335041e91f9b1c539494225959cdb312a5c8080b7534b926f
+  languageName: node
+  linkType: hard
+
+"node-mock-http@npm:^1.0.4":
+  version: 1.0.4
+  resolution: "node-mock-http@npm:1.0.4"
+  checksum: 965f7915d3bbe9cbf5555dca12800cb0ca78a0b8db9c8f33a0ea6d9447fd200a925232b5ddf0d60c7112785ea282eb9baa079bb53d485b2b554355e8559f98ed
   languageName: node
   linkType: hard
 
@@ -22017,6 +22032,13 @@ __metadata:
   version: 1.6.1
   resolution: "ufo@npm:1.6.1"
   checksum: 2c401dd45bd98ad00806e044aa8571aa2aa1762fffeae5e78c353192b257ef2c638159789f119e5d8d5e5200e34228cd1bbde871a8f7805de25daa8576fb1633
+  languageName: node
+  linkType: hard
+
+"ufo@npm:^1.6.3":
+  version: 1.6.3
+  resolution: "ufo@npm:1.6.3"
+  checksum: a23eff86bbbef0b9cc69c19c653c703b656c2328938576d3a60e05e246ef5a78d88b17c710afa146311c5b855950ccfee60ba8f6c8845e8d1ed6b5a9086ddad1
   languageName: node
   linkType: hard
 
