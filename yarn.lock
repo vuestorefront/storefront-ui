@@ -5143,7 +5143,7 @@ __metadata:
     "@types/react-transition-group": ^4.4.5
     classnames: ^2.5.1
     glob-promise: ^6.0.7
-    lodash-es: ^4.17.21
+    lodash-es: ^4.17.23
     next: ^14.2.32
     prettier: ^3.0.0
     react: ^19.0.0
@@ -5179,7 +5179,7 @@ __metadata:
     autoprefixer: ^10.4.19
     eslint: ^8.34.0
     eslint-plugin-nuxt: ^4.0.0
-    lodash-es: ^4.17.21
+    lodash-es: ^4.17.23
     nuxt: ^4.3.0
     postcss: ^8.4.21
     prettier: ^3.0.0
@@ -5194,7 +5194,7 @@ __metadata:
   resolution: "@storefront-ui/preview-shared@workspace:apps/preview/shared"
   dependencies:
     "@types/lodash-es": ^4.17.12
-    lodash-es: ^4.17.21
+    lodash-es: ^4.17.23
     serve: ^14.2.0
   languageName: unknown
   linkType: soft
@@ -16196,10 +16196,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lodash-es@npm:^4.17.21":
-  version: 4.17.21
-  resolution: "lodash-es@npm:4.17.21"
-  checksum: 05cbffad6e2adbb331a4e16fbd826e7faee403a1a04873b82b42c0f22090f280839f85b95393f487c1303c8a3d2a010048bf06151a6cbe03eee4d388fb0a12d2
+"lodash-es@npm:^4.17.23":
+  version: 4.17.23
+  resolution: "lodash-es@npm:4.17.23"
+  checksum: b1bd1d141bbde8ffc72978e34b364065675806b0ca42ab99477d247fb2ae795faeed81db9283bf18ae1f096c2b6611ec0589e0503fa9724bf82e3dce947bad69
   languageName: node
   linkType: hard
 
