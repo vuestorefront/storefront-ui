@@ -2,6 +2,9 @@
   "name": "@storefront-ui/preview-nuxt",
   "version": "0.0.0",
   "private": true,
+  "installConfig": {
+    "hoistingLimits": "workspaces"
+  },
   "scripts": {
     "dev": "nuxt dev --port=3001",
     "build": "PROD=true nuxt build",
