@@ -5116,6 +5116,7 @@ __metadata:
     "@storefront-ui/vue": "workspace:*"
     defu: ^6.1.4
     eslint: ^8.34.0
+    eslint-plugin-nuxt: ^4.0.0
     nuxt: ^4.3.0
   languageName: unknown
   linkType: soft
