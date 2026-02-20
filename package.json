@@ -5,7 +5,6 @@
   "workspaces": {
     "packages": [
       "apps/*",
-      "apps/docs/*",
       "apps/preview/*",
       "apps/test/*",
       "apps/shared",
@@ -20,14 +19,14 @@
     "generate-icons": "yarn createVueIcons && yarn createReactIcons && yarn lint:fix:sfui",
     "prepare": "husky",
     "build": "yarn update-browserlist-db && yarn generate-icons && yarn build:peer-next && turbo run build",
-    "dev:docs": "yarn update-browserlist-db && turbo run dev:docs",
+    "dev:docs": "yarn update-browserlist-db && turbo run dev:docs && cd apps/docs/components && yarn dev:docs",
     "dev": "yarn update-browserlist-db && yarn build:peer-next && yarn build:nuxt-module && yarn build:react && turbo run dev --parallel",
     "dev:shared": "turbo run dev:shared",
     "update-browserlist-db": "yarn dlx browserslist@latest",
     "lint": "yarn build:typography && yarn build:peer-next && yarn build:vue && turbo run lint",
     "lint:fix": "turbo run lint:fix",
     "lint:fix:sfui": "turbo run lint:fix:sfui",
-    "build:docs": "yarn build:peer-next && yarn build:typography && turbo run build:docs",
+    "build:docs": "yarn build:peer-next && yarn build:typography && turbo run build:docs && cd apps/docs/components && yarn build:docs",
     "build:next": "turbo run build:next",
     "build:nuxt": "turbo run build:nuxt-module && turbo run build:nuxt",
     "build:replace-assets-url-with": "frs-replace \"http:\\/\\/localhost:3100\\/@assets\\/\" \"https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/$ENV_NAME/\" -i \"apps/preview/*/pages/**/*\" -s \"preserve-structure\" -o .",
@@ -92,10 +91,6 @@
     }
   },
   "resolutions": {
-    "#sf-docs-base": "old vue with version 3.4. causing missing renderer",
-    "vue": "3.5.28",
-    "sf-docs-base@^1.3.2": "patch:sf-docs-base@npm%3A1.3.2#./.yarn/patches/sf-docs-base-npm-1.3.2-2dba5f0f27.patch",
-    "@nuxtjs/tailwindcss@^6.11.4": "7.0.0-beta.1",
     "@storefront-ui/vue": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
     "@changesets/assemble-release-plan@^6.0.4": "patch:@changesets/assemble-release-plan@npm%3A6.0.4#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.4-999d754646.patch",
