@@ -45,7 +45,7 @@ export default defineNuxtConfig({
     routeRules: {
       '/figma': {
         redirect:
-          'https://www.figma.com/file/Yn9LcLy10C5Hi17JHJkxk3/Storefront-UI-%7C-Design-Kit-v2.6-(public)?type=design&node-id=22913-91045&mode=design',
+          'https://www.figma.com/design/ZxaUFeSq1XYvR8v8eqTrJU/SFUI-2-%7C-Design-Kit-v2.7--public-?node-id=22913-91045&p=f&t=Y3eoI5dyw6cRAzVk-0',
       },
     },
     prerender: {
