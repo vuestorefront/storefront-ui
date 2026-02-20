@@ -62,7 +62,7 @@ In addition, Storefront UI fits perfectly complex UI setups where one library is
 - **Typography** package simplifying usage of 3rd party fonts
 - **Figma** file with pixel-perfect representation of SFUI components based on tailwind properties
 
-<a href="https://www.figma.com/design/ZxaUFeSq1XYvR8v8eqTrJU/SFUI-2-%7C-Design-Kit-v2.7--public-?node-id=22913-91045&p=f&t=Y3eoI5dyw6cRAzVk-0"><img src="./_readme/figma_included.png"></a>
+<a href="https://www.figma.com/file/Q7Nr1NvjPdcGVhykkfDg2k/Storefront-UI-%7C-Design-Kit-v2.5-(public)?type=design&node-id=22913-91045&mode=design"><img src="./_readme/figma_included.png"></a>
 
 ## Contributing
 
