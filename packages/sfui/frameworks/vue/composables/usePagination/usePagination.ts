@@ -1,4 +1,4 @@
-import { ref, computed, watch, toValue, type MaybeRefOrGetter, isRef } from 'vue';
+import { ref, computed, toValue, type MaybeRefOrGetter, isRef } from 'vue';
 import paginate from 'jw-paginate';
 import { syncRefs } from '@vueuse/core';
 
