@@ -15,7 +15,7 @@
   "dependencies": {
     "@storefront-ui/preview-shared": "workspace:*",
     "classnames": "^2.5.1",
-    "lodash-es": "^4.17.21",
+    "lodash-es": "^4.17.23",
     "next": "^14.2.32",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
