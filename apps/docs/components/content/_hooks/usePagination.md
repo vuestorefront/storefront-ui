@@ -165,8 +165,12 @@ function CustomPagination() {
 <script lang="ts" setup>
 import { usePagination, SfIconChevronRight, SfIconChevronLeft, SfButton } from '@storefront-ui/vue';
 
+const totalItems = ref(150);
+
 const { totalPages, pages, selectedPage, startPage, endPage, next, prev, setPage, maxVisiblePages } = usePagination({
-  totalItems: 150
+  totalItems,
+  // initially shown page
+  currentPage: 2,
 });
 </script>
 
@@ -299,10 +303,18 @@ Listed parameters should be passed as object.
 
 | Name        | Type                  | Default value | Description                                  |
 | ---------   | --------------------- | ------------- | -------------------------------------------  |
+::react-only
 | totalItems\*  | `number`            |               | total number of items to be be displayed    |
 | currentPage   | `number`            |  `1`          | current active page                       |
 | pageSize      | `number`            |  `10`         | number of items per page                  |
-| maxPages      | `number`            |  `1`          | maximum number of pages to display**       |
+| maxPages      | `number`            |  `1`          | maximum number of page links to display**       |
+::
+::vue-only
+| totalItems\*  | `MaybeRefOrGetter<number>`            |               | total number of items to be be displayed    |
+| currentPage   | `MaybeRefOrGetter<number>`            |  `1`          | current active page                       |
+| pageSize      | `MaybeRefOrGetter<number>`            |  `10`         | number of items per page                  |
+| maxPages      | `MaybeRefOrGetter<number>`            |  `1`          | maximum number of page links to display**       |
+::
 
 There is an additional page displayed when the default number (`1`) is passed. When the current number is `1` then page `2` and the last pages are visible. When the penultimate page is the current one then pages `1` and the last one are visible.
  
@@ -312,8 +324,8 @@ There is an additional page displayed when the default number (`1`) is passed. W
 | Name            | Type              | Default value | Description                                        |
 | ---------        | --------------   | ------------- | -------------------------------------------        |
 | totalPages       | `number`           |               | total number of pages                              |
-| maxVisiblePages  | `number`           |               | total number of pages                              |
-| itemsPerPage     | `number`           |               | total number of pages                              |
+| maxVisiblePages  | `number`           |               | maximum number of visible pages                              |
+| itemsPerPage     | `number`           |               | total number of items per page                              |
 | pages            | `number[]`         |               | array of displayed pages                           |
 | selectedPage     | `number`           |               | current page                                       |
 | endPage          | `number`           |               | number of the last page from displayed pages       |
