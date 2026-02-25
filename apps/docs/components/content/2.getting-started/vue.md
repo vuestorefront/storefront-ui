@@ -107,11 +107,11 @@ Now, you can import Storefront UI components in your app and all the Tailwind ut
 
 #tab-2
 
-## Nuxt 3
+## Nuxt 3 or Nuxt 4
 
 ### Install all dependencies
 
-With Nuxt 3, the fastest way to get started is to use the `@storefront-ui/nuxt` module. The [Storefront-io Nuxt module](https://www.npmjs.com/package/@storefront-ui/nuxt) will automatically install `@nuxtjs/tailwindcss` inside `nuxt` and storefront-ui tailwindcss presets.
+With Nuxt 3 or Nuxt 4, the fastest way to get started is to use the `@storefront-ui/nuxt` module. The [Storefront-io Nuxt module](https://www.npmjs.com/package/@storefront-ui/nuxt) will automatically install `@nuxtjs/tailwindcss` inside `nuxt` and storefront-ui tailwindcss presets.
 
 <!-- https://github.com/tailwindlabs/tailwindcss/issues/19442 postcss having problems with resolving @import and @plugin with pnpm and tailwindcss -->
 ::warning Add all sub-dependencies manually for PNPM and PostCSS
