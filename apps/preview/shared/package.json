@@ -10,7 +10,7 @@
     "dev": "serve -p 3100 --no-request-logging --no-clipboard --no-port-switching public/"
   },
   "dependencies": {
-    "lodash-es": "^4.17.21"
+    "lodash-es": "^4.17.23"
   },
   "devDependencies": {
     "@types/lodash-es": "^4.17.12",
