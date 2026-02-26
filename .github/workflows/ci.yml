@@ -228,7 +228,7 @@ jobs:
           yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
           yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Publish canary version
-        run: yarn workspaces foreach -R --no-private --from '@storefront-ui/*' npm publish --tag canary || true
+        run: yarn workspaces foreach --worktree --no-private --from '@storefront-ui/*' npm publish --tag canary || true
 
   release-rc:
     name: Release RC packages
@@ -258,7 +258,7 @@ jobs:
       - name: Publish release-candidate version
         # If this is any `v2-release/**` branch AND last commit is made by changeset action and its commit message is with "ci: release (rc)", this happens only after merging changesets changelog PR
         if: "${{ startsWith( github.event.pull_request.head.ref, 'v2-release' ) && contains( steps.commit_message.outputs.result, 'ci: version packages (rc)' ) }}"
-        run: yarn workspaces foreach -R --no-private --from '@storefront-ui/*' npm publish --tag rc || true
+        run: yarn workspaces foreach --worktree --no-private --from '@storefront-ui/*' npm publish --tag rc || true
 
   release-production:
     name: Release Production packages
@@ -285,7 +285,7 @@ jobs:
           yarn config set npmScopes.storefront-ui.npmPublishRegistry 'https://registry.npmjs.org'
           yarn config set npmScopes.storefront-ui.npmRegistryServer 'https://registry.npmjs.org'
       - name: Publish Production version package
-        run: yarn workspaces foreach -R --no-private --from '@storefront-ui/*' npm publish || true
+        run: yarn workspaces foreach --worktree --no-private --from '@storefront-ui/*' npm publish || true
       - name: Create Release Notes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
