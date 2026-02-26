@@ -93,6 +93,7 @@
   "resolutions": {
     "@storefront-ui/vue": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
-    "@changesets/assemble-release-plan@^6.0.4": "patch:@changesets/assemble-release-plan@npm%3A6.0.4#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.4-999d754646.patch"
+    "@changesets/assemble-release-plan@^6.0.4": "patch:@changesets/assemble-release-plan@npm%3A6.0.4#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.4-999d754646.patch",
+    "sharp": "0.32.6"
   }
 }
