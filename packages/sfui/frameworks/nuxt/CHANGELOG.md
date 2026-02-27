@@ -1,5 +1,15 @@
 # @storefront-ui/nuxt
 
+## 3.3.0
+
+### Minor Changes
+
+- [#3366](https://github.com/vuestorefront/storefront-ui/pull/3366) [`c8d40cc`](https://github.com/vuestorefront/storefront-ui/commit/c8d40cc4226f5b9d4b5006531a28449f6dac24a7) Thanks [@jagoral](https://github.com/jagoral)! - Add Nuxt 4 support while maintaining backward compatibility with Nuxt 3
+
+### Patch Changes
+
+- [#3382](https://github.com/vuestorefront/storefront-ui/pull/3382) [`679ae63`](https://github.com/vuestorefront/storefront-ui/commit/679ae6389a1db21d82a09fd1cd78749a95c7656b) Thanks [@FRSgit](https://github.com/FRSgit)! - [CHANGED] Updated docs for nuxt package
+
 ## 3.2.0
 
 ### Minor Changes
