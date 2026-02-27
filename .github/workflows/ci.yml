@@ -266,6 +266,10 @@ jobs:
     runs-on: ubuntu-latest
     needs: [build, build-release, cypress-react, cypress-vue]
     if: ${{ github.ref == 'refs/heads/v2' }}
+    # Needed for creating sync to vs-develop PR
+    permissions:
+      contents: write
+      pull-requests: write
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
