@@ -51,7 +51,7 @@
     "rimraf": "^6.0.1",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.5.4",
-    "vite": "^5.3.5",
+    "vite": "^6.4.2",
     "vite-plugin-istanbul": "^4.0.1"
   }
 }

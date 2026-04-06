@@ -53,7 +53,7 @@
     "sass": "^1.77.8",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.5.4",
-    "vite": "^5.3.5",
+    "vite": "^6.4.2",
     "vite-plugin-istanbul": "^4.0.0",
     "vue-tsc": "^2.2.12"
   }
