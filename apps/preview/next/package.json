@@ -16,7 +16,7 @@
     "@storefront-ui/preview-shared": "workspace:*",
     "classnames": "^2.5.1",
     "lodash-es": "^4.17.23",
-    "next": "^14.2.32",
+    "next": "^15.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-transition-group": "^4.4.5",
