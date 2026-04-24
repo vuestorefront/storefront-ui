@@ -4355,7 +4355,7 @@ __metadata:
     eslint-plugin-nuxt: "npm:^4.0.0"
     lodash-es: "npm:^4.17.23"
     nuxt: "npm:^4.3.0"
-    postcss: "npm:^8.4.21"
+    postcss: "npm:^8.5.10"
     prettier: "npm:^3.0.0"
     sass: "npm:^1.77.8"
     sass-loader: "npm:^14.2.1"
@@ -4398,7 +4398,7 @@ __metadata:
     cpy-cli: "npm:^4.2.0"
     cypress: "npm:^13.8.1"
     nyc: "npm:^15.1.0"
-    postcss: "npm:^8.4.21"
+    postcss: "npm:^8.5.10"
     postcss-import: "npm:^15.1.0"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
@@ -4540,7 +4540,7 @@ __metadata:
     cpy-cli: "npm:^4.2.0"
     cypress: "npm:^13.8.1"
     nyc: "npm:^15.1.0"
-    postcss: "npm:^8.4.21"
+    postcss: "npm:^8.5.10"
     postcss-import: "npm:^15.1.0"
     rimraf: "npm:^6.0.1"
     sass: "npm:^1.77.8"
@@ -16781,7 +16781,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:^8.4.21, postcss@npm:^8.4.41, postcss@npm:^8.4.43, postcss@npm:^8.4.45, postcss@npm:^8.4.47, postcss@npm:^8.5.6":
+"postcss@npm:^8.4.41, postcss@npm:^8.4.43, postcss@npm:^8.4.45, postcss@npm:^8.4.47, postcss@npm:^8.5.6":
   version: 8.5.6
   resolution: "postcss@npm:8.5.6"
   dependencies:
@@ -16789,6 +16789,17 @@ __metadata:
     picocolors: "npm:^1.1.1"
     source-map-js: "npm:^1.2.1"
   checksum: 10c0/5127cc7c91ed7a133a1b7318012d8bfa112da9ef092dddf369ae699a1f10ebbd89b1b9f25f3228795b84585c72aabd5ced5fc11f2ba467eedf7b081a66fad024
+  languageName: node
+  linkType: hard
+
+"postcss@npm:^8.5.10":
+  version: 8.5.10
+  resolution: "postcss@npm:8.5.10"
+  dependencies:
+    nanoid: "npm:^3.3.11"
+    picocolors: "npm:^1.1.1"
+    source-map-js: "npm:^1.2.1"
+  checksum: 10c0/c592dffa0c4873b401f01955b265538d9942f425040df5e2b8f0ad34c83773a792ea0fa5859ccc99cfb5b955b4ebff118ab7056315388dc83b107b0fa8313576
   languageName: node
   linkType: hard
 
