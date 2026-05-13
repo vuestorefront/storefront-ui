@@ -18,7 +18,7 @@
     "@types/node": "^20.12.7",
     "nuxt": "3.14.1592",
     "nuxt-gtag": "^3.0.1",
-    "vite": "^5.4.10"
+    "vite": "^6.4.2"
   },
   "dependencies": {
     "@microsoft/api-extractor-model": "^7.29.4",
