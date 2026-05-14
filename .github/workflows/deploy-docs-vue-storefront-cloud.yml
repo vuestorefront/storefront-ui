@@ -33,7 +33,7 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
-        run: NOT_GENERATE_ICON=true && yarn --immutable
+        run: NOT_GENERATE_ICON=true yarn --immutable
       - name: 'Authenticate to Google Cloud'
         uses: 'google-github-actions/auth@v2'
         with:
