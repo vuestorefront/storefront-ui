@@ -35,8 +35,8 @@
     "dev:playground": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "lint": "eslint --ext .vue,js,.ts .",
-    "lint:fix": "eslint --fix --ext .vue,.js,.ts ."
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@nuxt/kit": ">=3.13.2",
@@ -48,8 +48,7 @@
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^4.3.0",
     "@storefront-ui/eslint-config": "workspace:*",
-    "eslint": "^8.34.0",
-    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint": "^9.0.0",
     "nuxt": "^4.3.0"
   }
 }

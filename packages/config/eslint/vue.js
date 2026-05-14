@@ -1,23 +1,51 @@
-module.exports = {
-  extends: ["@vue-storefront/eslint-config/vue3", "prettier", "plugin:vuejs-accessibility/recommended"],
-  plugins: ["vuejs-accessibility"],
-  rules: {
-    "vuejs-accessibility/form-control-has-label": [
-      "off",
-      {
-        labelComponents: [],
-        labelAttributes: [],
-        controlComponents: [],
-        assert: 'both',
-        depth: 25,
+import prettierConfig from 'eslint-config-prettier';
+import vue from 'eslint-plugin-vue';
+import vuejsAccessibility from 'eslint-plugin-vuejs-accessibility';
+import tseslint from 'typescript-eslint';
+import { concat } from 'eslint-flat-config-utils';
+
+export default concat(
+  vue.configs['flat/recommended'],
+  vuejsAccessibility.configs['flat/recommended'],
+  prettierConfig,
+  {
+    files: ['*.vue', '**/*.vue'],
+    languageOptions: {
+      parserOptions: {
+        parser: tseslint.parser,
+        sourceType: 'module',
       },
-    ],
-    // Bug https://github.com/vue-a11y/eslint-plugin-vuejs-accessibility/issues/54
-    "vuejs-accessibility/label-has-for": ["error", {
-      required: {
-        some: ["nesting", "id"],
-      }
-    }],
-    "vuejs-accessibility/mouse-events-have-key-events": "off"
-  }
-};
+    },
+  },
+  {
+    rules: {
+      'vuejs-accessibility/form-control-has-label': 'off',
+      'vuejs-accessibility/label-has-for': [
+        'error',
+        { required: { some: ['nesting', 'id'] } },
+      ],
+      'vuejs-accessibility/mouse-events-have-key-events': 'off',
+      'vue/attributes-order': [
+        'error',
+        {
+          order: [
+            'LIST_RENDERING',
+            'CONDITIONALS',
+            'DEFINITION',
+            [
+              'RENDER_MODIFIERS',
+              'CONTENT',
+              'OTHER_DIRECTIVES',
+            ],
+            ['UNIQUE', 'SLOT'],
+            'GLOBAL',
+            'OTHER_ATTR',
+            'EVENTS',
+            'TWO_WAY_BINDING',
+          ],
+          ignoreVBindObject: true,
+        },
+      ],
+    },
+  },
+);
