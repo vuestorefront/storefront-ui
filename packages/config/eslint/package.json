@@ -19,11 +19,12 @@
     "./cypress.js": "./cypress.js"
   },
   "dependencies": {
+    "@eslint/js": "^10.0.0",
     "@vue-storefront/eslint-config": "^5.1.2",
-    "eslint": "^9.0.0",
-    "eslint-config-prettier": "^9.0.0",
+    "eslint": "^10.0.0",
+    "eslint-config-prettier": "^10.0.0",
     "eslint-plugin-cypress": "^6.0.0",
-    "eslint-plugin-vue": "^9.9.0",
+    "eslint-plugin-vue": "^10.0.0",
     "eslint-plugin-vuejs-accessibility": "^2.5.0",
     "typescript-eslint": "^8.0.0"
   }

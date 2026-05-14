@@ -144,7 +144,7 @@ export type Controls = {
   isRequired?: boolean;
   options?: (ControlOptionBind | string)[] | readonly (ControlOptionBind | string)[];
 }[];
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+
 export function prepareControls<T extends { [k: string]: any }>(controlsObject: Controls, models: T) {
   const on: Record<string, (e: string | number | boolean | []) => void> = {};
   const controls = controlsObject.map((control) => {

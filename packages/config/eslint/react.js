@@ -48,6 +48,8 @@ export default concat(
       'react/button-has-type': ['error', { reset: true }],
       'react/display-name': 'off',
       'no-restricted-imports': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/set-state-in-effect': 'off',
     },
   },
 );

@@ -32,12 +32,12 @@ export default concat(
             'LIST_RENDERING',
             'CONDITIONALS',
             'DEFINITION',
+            ['UNIQUE', 'SLOT'],
             [
               'RENDER_MODIFIERS',
               'CONTENT',
               'OTHER_DIRECTIVES',
             ],
-            ['UNIQUE', 'SLOT'],
             'GLOBAL',
             'OTHER_ATTR',
             'EVENTS',

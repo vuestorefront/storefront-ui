@@ -4,6 +4,7 @@ import { NextPage } from 'next';
 import '~/styles/global.css';
 import '@storefront-ui/example-style';
 
+// eslint-disable-next-line @typescript-eslint/no-empty-object-type
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;
 };
