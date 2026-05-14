@@ -1,4 +1,3 @@
-import classNames from 'classnames';
 import { forwardRef, useId, type ReactNode } from 'react';
 import { SfChipProps, SfChipSize, twMerge } from '@storefront-ui/react';
 

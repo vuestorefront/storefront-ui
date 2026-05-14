@@ -19,8 +19,11 @@ export default defineConfig({
       bundler: 'webpack',
     },
     experimentalSingleTabRunMode: true,
-    setupNodeEvents(on, config) {
-      isCoverageEnabled && require('@cypress/code-coverage/task')(on, config);
+    async setupNodeEvents(on, config) {
+      if (isCoverageEnabled) {
+        const { default: registerCodeCoverageTasks } = await import('@cypress/code-coverage/task');
+        registerCodeCoverageTasks(on, config);
+      }
       return config;
     },
   },

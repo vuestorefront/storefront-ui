@@ -1,6 +1,7 @@
 import type { AllHTMLAttributes, RefAttributes } from 'react';
 
 export const composeHandlers =
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   (...callbacks: (Function | null | undefined)[]) =>
   (...args: unknown[]) => {
     callbacks.forEach((cb) => cb?.(...args));

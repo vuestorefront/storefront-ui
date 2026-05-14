@@ -4,6 +4,7 @@ import { SfIconSize, twMerge } from '@storefront-ui/vue';
 
 export default defineComponent({
   name: 'SfIconBase',
+  inheritAttrs: false,
   props: {
     content: {
       type: String,
@@ -14,7 +15,6 @@ export default defineComponent({
       default: SfIconSize.base,
     },
   },
-  inheritAttrs: false,
   setup(props, ctx) {
     const { size, content } = toRefs(props);
     const slotDefaultContent = computed(() => ctx.slots.default?.());
