@@ -50,6 +50,7 @@ export default concat(
       'no-restricted-imports': 'off',
       'react-hooks/refs': 'off',
       'react-hooks/set-state-in-effect': 'off',
+      'import/no-unresolved': 'off',
     },
   },
 );
