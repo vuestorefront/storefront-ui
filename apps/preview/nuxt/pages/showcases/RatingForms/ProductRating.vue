@@ -1,12 +1,12 @@
 <template>
   <SfButton class="absolute right-1/2 top-1/2 translate-x-[50%]" @click="open"> Open rating modal again </SfButton>
   <SfModal
-    v-model="isOpen"
     class="min-w-[376px] md:w-[480px]"
     tag="section"
     role="alertdialog"
     :aria-labelledby="modalTitleId"
     :aria-describedby="modalDescId"
+    v-model="isOpen"
   >
     <header>
       <SfButton
@@ -32,7 +32,7 @@
     />
     <p :id="modalDescId" class="mt-2 text-center">Smartwatch Fitness Tracker</p>
     <form class="mt-6">
-      <SfRatingButton v-model="modelValue" aria-label="Select rating" size="lg" class="justify-center mb-8" />
+      <SfRatingButton aria-label="Select rating" size="lg" class="justify-center mb-8" v-model="modelValue" />
       <SfButton type="submit" class="w-full">Rate Product</SfButton>
     </form>
   </SfModal>

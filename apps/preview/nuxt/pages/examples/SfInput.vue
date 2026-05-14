@@ -6,13 +6,13 @@
       </span>
       <SfInput
         v-bind="state"
-        v-model="value"
         :wrapper-class="[
           'mt-0.5',
           {
             'peer bg-disabled-100 ring-disabled-300 ring-1 text-disabled-500': disabled || readonly,
           },
         ]"
+        v-model="value"
       >
         <template v-if="prefixSlotOptions.getValue(slotPrefix)" #prefix>
           <component :is="prefixSlotOptions.getValue(slotPrefix)" />

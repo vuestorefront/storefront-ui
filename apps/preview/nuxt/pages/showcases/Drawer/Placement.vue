@@ -11,7 +11,6 @@
   <SfButton @click="open = true"> Open Drawer </SfButton>
 
   <SfDrawer
-    v-model="open"
     :placement="placement"
     :class="[
       'bg-neutral-50',
@@ -20,6 +19,7 @@
       'border-gray-300',
       { 'max-w-[370px]': placement === 'left' || placement === 'right' },
     ]"
+    v-model="open"
   >
     <div>
       <p class="mb-2">

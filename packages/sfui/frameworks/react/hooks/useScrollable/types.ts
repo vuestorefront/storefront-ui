@@ -18,14 +18,14 @@ export type UseScrollableOptions = Prettify<
 >;
 
 export {
-  Scrollable,
-  SfScrollableDirection,
-  SfScrollableButtonsPlacement,
-  type ScrollableOptions,
   type Prettify,
-  type SfScrollableOnDragStartData,
+  Scrollable,
+  type ScrollableOptions,
+  SfScrollableButtonsPlacement,
+  SfScrollableDirection,
   type SfScrollableOnDragEndData,
-  type SfScrollableOnScrollData,
-  type SfScrollableOnPrevData,
+  type SfScrollableOnDragStartData,
   type SfScrollableOnNextData,
+  type SfScrollableOnPrevData,
+  type SfScrollableOnScrollData,
 };

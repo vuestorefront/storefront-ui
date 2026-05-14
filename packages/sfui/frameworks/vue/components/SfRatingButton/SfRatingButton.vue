@@ -82,13 +82,13 @@ const handleHoverOut = () => {
       @mouseleave="handleHoverOut"
     >
       <input
-        v-model="radioModel"
         type="radio"
         class="sr-only peer"
         :name="name"
         :value="ratingValue"
         :disabled="disabled"
         :aria-label="getLabelText(ratingValue)"
+        v-model="radioModel"
       />
       <slot :is-filled="isIconFilled(ratingValue)" :icon-size="iconSize[size]" :max="max">
         <SfIconStarFilled

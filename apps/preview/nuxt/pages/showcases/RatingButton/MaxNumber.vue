@@ -1,7 +1,7 @@
 <template>
   <div>
     <p :id="labelId">Select rating</p>
-    <SfRatingButton v-model="modelValue" :max="10" :aria-labelledby="labelId" />
+    <SfRatingButton :max="10" :aria-labelledby="labelId" v-model="modelValue" />
   </div>
 </template>
 

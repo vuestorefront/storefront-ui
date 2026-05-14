@@ -5,12 +5,12 @@
       <label class="gap-y-0.5">
         <span class="text-sm font-medium">Email</span>
         <SfInput
-          v-model="value"
           name="email"
           placeholder="e.g. john.doe@example.com"
           :invalid="invalid"
           auto-complete="email"
           @input="handleValidation"
+          v-model="value"
         />
       </label>
       <p v-if="invalid" class="typography-error-sm text-negative-700 font-medium mt-0.5">

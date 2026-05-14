@@ -20,7 +20,7 @@
           </template>
         </SfButton>
         <label class="sidebar-search">
-          <SfInput v-model="searchModelValue" placeholder="Search" />
+          <SfInput placeholder="Search" v-model="searchModelValue" />
           <button type="button" class="sidebar-search__button" @click="searchModelValue = ''">
             <SfIconCloseSm v-if="searchModelValue" class="sidebar-search__button-icon" />
           </button>

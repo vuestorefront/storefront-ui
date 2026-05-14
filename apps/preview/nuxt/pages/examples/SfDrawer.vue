@@ -4,12 +4,12 @@
 
     <SfDrawer
       v-bind="state"
-      v-model="modelValue"
       :class="[
         'bg-neutral-50',
         'p-3',
         { 'max-w-[370px]': placement === SfDrawerPlacement.left || placement === SfDrawerPlacement.right },
       ]"
+      v-model="modelValue"
     >
       <template v-if="SlotDefault">{{ SlotDefault }}</template>
       <div v-else>

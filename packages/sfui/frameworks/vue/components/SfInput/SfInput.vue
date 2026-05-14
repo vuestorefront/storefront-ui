@@ -78,7 +78,6 @@ const inputValue = computed({
   >
     <slot name="prefix" />
     <input
-      v-model="inputValue"
       :class="
         twMerge(
           'min-w-[80px] w-full text-base outline-hidden appearance-none text-neutral-900 disabled:cursor-not-allowed disabled:bg-transparent read-only:bg-transparent',
@@ -87,6 +86,7 @@ const inputValue = computed({
       "
       :size="1"
       data-testid="input-field"
+      v-model="inputValue"
       v-bind="attrsWithoutClass"
     />
     <slot name="suffix" />

@@ -5,10 +5,10 @@
         id="checkbox"
         ref="checkboxRef"
         v-bind="state"
-        v-model="modelValue"
         :invalid="!disabled && invalid"
         class="peer"
         :wrapper-class="wrapperClass"
+        v-model="modelValue"
       />
       <label
         for="checkbox"

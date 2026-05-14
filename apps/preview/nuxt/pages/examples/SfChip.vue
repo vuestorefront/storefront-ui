@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <SfChip v-model="modelValue" :size="size" :square="square" :input-props="{ disabled, value }">
+    <SfChip :size="size" :square="square" :input-props="{ disabled, value }" v-model="modelValue">
       <template #prefix>
         <SfThumbnail :size="size === SfChipSize.sm ? SfThumbnailSize.sm : SfThumbnailSize.base" class="bg-gray-500" />
       </template>

@@ -2,7 +2,7 @@
   <ComponentExample :controls-attrs="controlsAttrs">
     <SfButton @click="state.modelValue = !state.modelValue"> Open Modal </SfButton>
 
-    <SfModal v-bind="state" v-model="state.modelValue" class="max-w-sm">
+    <SfModal v-bind="state" class="max-w-sm" v-model="state.modelValue">
       <template v-if="state.SlotDefault">{{ state.SlotDefault }}</template>
       <template v-else>
         <p class="mb-2">

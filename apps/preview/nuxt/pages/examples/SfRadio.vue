@@ -10,7 +10,7 @@
         },
       ]"
     >
-      <SfRadio v-model="modelValue" :disabled="disabled" :invalid="invalid" :value="value" :name="name" />
+      <SfRadio :disabled="disabled" :invalid="invalid" :value="value" :name="name" v-model="modelValue" />
       <span class="ml-2 text-base font-normal leading-6 font-body">{{ label }}</span>
     </label>
   </ComponentExample>
