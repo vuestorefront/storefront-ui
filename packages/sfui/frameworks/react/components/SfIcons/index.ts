@@ -1,3 +1,4 @@
+export * from './types';
 export { default as SfIconAdd } from './SfIconAdd';
 export { default as SfIconAddShoppingCart } from './SfIconAddShoppingCart';
 export { default as SfIconAlokai } from './SfIconAlokai';
@@ -38,8 +39,8 @@ export { default as SfIconIndeterminateCheckBox } from './SfIconIndeterminateChe
 export { default as SfIconInfo } from './SfIconInfo';
 export { default as SfIconInstagram } from './SfIconInstagram';
 export { default as SfIconLanguage } from './SfIconLanguage';
-export { default as SfIconLocal_fire_department } from './SfIconLocal_fire_department';
 export { default as SfIconLocalShipping } from './SfIconLocalShipping';
+export { default as SfIconLocal_fire_department } from './SfIconLocal_fire_department';
 export { default as SfIconLocationOn } from './SfIconLocationOn';
 export { default as SfIconLocationOnFilled } from './SfIconLocationOnFilled';
 export { default as SfIconLock } from './SfIconLock';
@@ -88,4 +89,3 @@ export { default as SfIconVuestorefront } from './SfIconVuestorefront';
 export { default as SfIconWarehouse } from './SfIconWarehouse';
 export { default as SfIconWarning } from './SfIconWarning';
 export { default as SfIconYoutube } from './SfIconYoutube';
-export * from './types';

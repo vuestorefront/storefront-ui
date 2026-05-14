@@ -35,6 +35,7 @@ export default concat(
           required: { some: ['nesting', 'id'] },
         },
       ],
+      'perfectionist/sort-exports': 'off',
       'perfectionist/sort-imports': 'off',
       'perfectionist/sort-interfaces': 'off',
       'perfectionist/sort-intersection-types': 'off',

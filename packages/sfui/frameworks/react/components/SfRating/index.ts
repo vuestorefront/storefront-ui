@@ -1,3 +1,3 @@
-export { default as SfRating } from './SfRating';
-
 export * from './types';
+
+export { default as SfRating } from './SfRating';

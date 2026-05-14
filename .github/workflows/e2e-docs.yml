@@ -36,7 +36,7 @@ jobs:
 
       # Build shared packages that the preview apps and docs depend on
       - name: Build core packages
-        run: yarn build:peer-next && yarn build:typography && yarn build:vue
+        run: yarn build:peer-next && yarn build:typography && yarn build:react && yarn build:vue && yarn build:nuxt-module
 
       # Build Vue (Nuxt) preview app — serves example components embedded as iframes
       - name: Build Vue preview app

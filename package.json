@@ -15,7 +15,7 @@
     ]
   },
   "scripts": {
-    "postinstall": "node hasEnv NOT_GENERATE_ICON && yarn generate-icons",
+    "postinstall": "node hasEnv NOT_GENERATE_ICON || yarn generate-icons",
     "generate-icons": "yarn createVueIcons && yarn createReactIcons && yarn lint:fix:sfui",
     "prepare": "husky",
     "build": "yarn update-browserlist-db && yarn generate-icons && yarn build:peer-next && turbo run build",

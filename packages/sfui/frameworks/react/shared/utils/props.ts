@@ -16,6 +16,7 @@ while user can pass anything. Sometimes your props getter might have to make ext
 interface UserProps<T> extends AllHTMLAttributes<T>, RefAttributes<T> {}
 
 export function createPropsGetter<TProps>(resolver: (userProps: UserProps<HTMLElement>) => TProps) {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   return function resolve<TUserProps = {}>(userProps: TUserProps = {} as TUserProps): TProps & TUserProps {
     return {
       ...userProps,

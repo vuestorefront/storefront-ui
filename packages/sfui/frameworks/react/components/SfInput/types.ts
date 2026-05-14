@@ -9,5 +9,6 @@ export interface SfInputProps extends PropsWithStyle, Omit<InputHTMLAttributes<H
   slotPrefix?: ReactNode;
   slotSuffix?: ReactNode;
   wrapperClassName?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   wrapperAs?: ElementType<any> | undefined;
 }
