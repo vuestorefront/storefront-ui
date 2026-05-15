@@ -37,7 +37,7 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
-        run: NOT_GENERATE_ICON=true && yarn --immutable
+        run: NOT_GENERATE_ICON=true yarn --immutable
 
   commit-lint:
     name: Validate PR Title (conventional-commit)
@@ -52,7 +52,7 @@ jobs:
           node-version-file: '.nvmrc'
           cache: 'yarn'
       - name: Install dependencies
-        run: NOT_GENERATE_ICON=true && yarn --immutable
+        run: NOT_GENERATE_ICON=true yarn --immutable
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - uses: JulienKode/pull-request-name-linter-action@v0.5.0

@@ -1,5 +1,5 @@
 <template>
-  <SfDropdown v-model="isOpen" @update:model-value="onToggle">
+  <SfDropdown @update:model-value="onToggle" v-model="isOpen">
     <template #trigger>
       <SfButton ref="triggerRef" @click="toggle()">Toggle</SfButton>
     </template>

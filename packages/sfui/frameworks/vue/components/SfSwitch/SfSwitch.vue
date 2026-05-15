@@ -38,7 +38,6 @@ const proxyChecked = computed({
 <template>
   <input
     ref="switchRef"
-    v-model="proxyChecked"
     :class="
       twMerge(
         `appearance-none h-5 min-w-[36px] bg-transparent border-2 border-gray-500 rounded-full relative ease-in-out duration-300 hover:border-primary-800 hover:checked:before:bg-white checked:before:left-1/2 checked:before:ml-0 checked:before:mr-0.5 disabled:before:bg-gray-500/50 hover:before:bg-primary-800 active:border-primary-800 active:before:bg-primary-800 checked:bg-none checked:bg-primary-700 checked:border-primary-700 checked:before:bg-white hover:checked:bg-primary-800 hover:checked:border-primary-800 disabled:border-gray-500/50 checked:disabled:before:bg-white checked:disabled:bg-gray-500/50 checked:disabled:border-0 before:transition-all  before:w-3.5 before:h-3.5 before:bg-gray-500 before:absolute before:top-0 before:bottom-0 before:my-auto before:rounded-full before:left-0 before:ml-0.5 before:ease-in-out before:duration-300 cursor-pointer disabled:cursor-not-allowed focus-visible:outline focus-visible:outline-offset`,
@@ -53,6 +52,7 @@ const proxyChecked = computed({
     role="switch"
     data-testid="switch"
     :aria-checked="switchRef?.checked"
+    v-model="proxyChecked"
     v-bind="attrsWithoutClass"
   />
 </template>

@@ -1,3 +1,3 @@
-export * from './types';
-
 export { default as SfDrawer } from './SfDrawer';
+
+export * from './types';

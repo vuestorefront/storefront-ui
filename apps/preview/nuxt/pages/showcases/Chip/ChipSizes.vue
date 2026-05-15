@@ -1,7 +1,7 @@
 <template>
-  <SfChip v-model="chipSmallActive" size="sm" class="mr-2"> Small </SfChip>
-  <SfChip v-model="chipBaseActive" size="base" class="mr-2"> Base </SfChip>
-  <SfChip v-model="chipDefaultActive" size="base"> Default </SfChip>
+  <SfChip size="sm" class="mr-2" v-model="chipSmallActive"> Small </SfChip>
+  <SfChip size="base" class="mr-2" v-model="chipBaseActive"> Base </SfChip>
+  <SfChip size="base" v-model="chipDefaultActive"> Default </SfChip>
 </template>
 
 <script lang="ts" setup>

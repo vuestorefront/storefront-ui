@@ -1,0 +1,13 @@
+{
+  "name": "@storefront-ui/e2e-docs",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "docs-test": "cypress run --e2e --browser chrome",
+    "docs-test:open": "cypress open --e2e"
+  },
+  "devDependencies": {
+    "cypress": "^13.8.1",
+    "typescript": "^5.0.0"
+  }
+}

@@ -12,7 +12,7 @@
       Sort by
     </h5>
     <div class="px-2">
-      <SfSelect v-model="sortModel" aria-label="Sort by">
+      <SfSelect aria-label="Sort by" v-model="sortModel">
         <option v-for="{ id, label, value } in sortOptions" :key="id" :value="value">{{ label }}</option>
       </SfSelect>
     </div>
@@ -33,7 +33,7 @@
           </template>
           <ul v-if="type === 'size'" class="grid grid-cols-5 gap-2">
             <li v-for="{ id, value, counter, label } in details" :key="id">
-              <SfChip v-model="selectedFilters" class="w-full" size="sm" :input-props="{ value, disabled: !counter }">
+              <SfChip class="w-full" size="sm" :input-props="{ value, disabled: !counter }" v-model="selectedFilters">
                 {{ label }}
               </SfChip>
             </li>
@@ -79,7 +79,7 @@
               :selected="isItemActive(value)"
             >
               <template #prefix>
-                <input v-model="selectedFilters" :value="value" class="appearance-none peer" type="checkbox" />
+                <input :value="value" class="appearance-none peer" type="checkbox" v-model="selectedFilters" />
                 <span
                   class="inline-flex items-center justify-center p-1 transition duration-300 rounded-full cursor-pointer ring-1 ring-neutral-200 ring-inset outline-offset-2 outline-secondary-600 peer-checked:ring-2 peer-checked:ring-primary-700 peer-hover:bg-primary-100 peer-[&:not(:checked):hover]:ring-primary-200 peer-active:bg-primary-200 peer-active:ring-primary-300 peer-disabled:cursor-not-allowed peer-disabled:bg-disabled-100 peer-disabled:opacity-50 peer-disabled:ring-1 peer-disabled:ring-disabled-200 peer-disabled:hover:ring-disabled-200 peer-checked:hover:ring-primary-700 peer-checked:active:ring-primary-700 peer-focus-visible:outline"
                   ><SfThumbnail size="sm" :class="value"
@@ -102,10 +102,10 @@
             >
               <template #prefix>
                 <SfCheckbox
-                  v-model="selectedFilters"
                   wrapper-class="flex items-center"
                   :disabled="counter === 0"
                   :value="value"
+                  v-model="selectedFilters"
                 />
               </template>
               <p>
@@ -125,11 +125,11 @@
               >
                 <template #prefix>
                   <SfRadio
-                    v-model="priceModel"
                     class="flex items-center"
                     name="radio-price"
                     :value="value"
                     @click="priceModel = priceModel === value ? '' : value"
+                    v-model="priceModel"
                   />
                 </template>
                 <p>
@@ -150,11 +150,11 @@
               >
                 <template #prefix>
                   <SfRadio
-                    v-model="ratingsModel"
                     name="radio-ratings"
                     class="flex items-end"
                     :value="value"
                     @click="ratingsModel = ratingsModel === value ? '' : value"
+                    v-model="ratingsModel"
                   />
                 </template>
                 <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->

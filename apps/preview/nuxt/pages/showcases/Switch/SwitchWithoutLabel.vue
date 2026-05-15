@@ -1,5 +1,5 @@
 <template>
-  <SfSwitch v-model="modelCheck" value="value" />
+  <SfSwitch value="value" v-model="modelCheck" />
 </template>
 
 <script lang="ts" setup>

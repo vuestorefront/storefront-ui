@@ -17,6 +17,26 @@ export default defineConfig({
       ],
     },
   },
+  // In Vite 6, dep optimization runs lazily, which can trigger a re-optimization mid-test
+  // when transitive deps from @storefront-ui/vue are first imported. This creates two separate
+  // Vue module instances with split `currentRenderingInstance` state, breaking slot rendering.
+  // Pre-bundling all transitive deps ensures a stable single optimization pass before tests run.
+  optimizeDeps: {
+    include: [
+      'vue',
+      'cypress/vue',
+      '@floating-ui/vue',
+      '@vueuse/core',
+      'tabbable',
+      'tailwind-merge',
+      'jw-paginate',
+      // Test files import React (shared test utilities), which would otherwise trigger
+      // a re-optimization for react/jsx-dev-runtime and cypress/react18 mid-test.
+      'react',
+      'react/jsx-dev-runtime',
+      'cypress/react18',
+    ],
+  },
   plugins: [
     vue(),
     replaceImport('react'),

@@ -16,14 +16,14 @@
       <div class="col-span-2 md:col-start-2">
         <div class="flex items-center justify-between">
           <p :id="ratingLabelId" class="typography-label-sm font-medium text-neutral-900">Your rating:</p>
-          <SfRatingButton v-model="ratingModelValue" :aria-labelledby="ratingLabelId" class="p-1 gap-x-2" />
+          <SfRatingButton :aria-labelledby="ratingLabelId" class="p-1 gap-x-2" v-model="ratingModelValue" />
         </div>
         <label class="my-4 block">
           <span class="block typography-label-sm font-medium mb-0.5 text-neutral-900">Product review (optional)</span>
           <textarea
-            v-model="reviewModelValue"
             placeholder="Describe your experience eg. Great product! The quality exceeded my expectations, and it's incredibly versatile. I highly recommend it to anyone looking for a reliable and durable solution."
             class="block w-full py-2 pl-4 pr-3 min-h-[138px] rounded-md ring-1 ring-neutral-300 placeholder:text-neutral-500"
+            v-model="reviewModelValue"
           />
           <span
             :class="[

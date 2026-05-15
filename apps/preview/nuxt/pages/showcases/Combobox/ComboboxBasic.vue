@@ -4,7 +4,6 @@
     <SfInput
       :id="id"
       ref="inputRef"
-      v-model="inputModel"
       role="combobox"
       aria-label="Choose country"
       placeholder="Choose country"
@@ -28,6 +27,7 @@
       @focus="isValid = undefined"
       @click="toggle()"
       @keydown="handleInputKeyDown"
+      v-model="inputModel"
       ><template #suffix>
         <SfIconExpandMore
           :class="[

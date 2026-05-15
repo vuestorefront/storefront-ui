@@ -57,8 +57,8 @@ const placementClasses = computed(() => ({
 
 <template>
   <component
-    :is="tag"
     v-if="modelValue"
+    :is="tag"
     ref="drawerRef"
     :class="twMerge('fixed', placementClasses, $attrs.class)"
     data-testid="drawer"

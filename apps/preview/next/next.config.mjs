@@ -5,6 +5,16 @@ const isProd = process.env.PROD === 'true';
 
 /** @type {import('next').NextConfig} */
 export default {
+  eslint: {
+    /**
+     * Disabled, because we're running lint in separate CI step and
+     * during docker build we run build:replace-assets-url-with which swaps in source files
+     * http://localhost:3100/@assets/ → https://storage.googleapis.com/sfui_docs_artifacts_bucket_public/develop/
+     * This makes many JSX/JS lines exceed the 120-char print width
+     * next build then runs ESLint (including prettier/prettier) on those modified files, which fails
+     */
+    ignoreDuringBuilds: true,
+  },
   env: {
     DOCS_EXAMPLES_REACT_PATH: process.env.NEXT_DOCS_EXAMPLES_REACT_PATH || '',
   },

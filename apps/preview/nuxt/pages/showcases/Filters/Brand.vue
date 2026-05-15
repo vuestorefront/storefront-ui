@@ -1,5 +1,5 @@
 <template>
-  <SfAccordionItem v-model="open" class="w-full md:max-w-[376px]">
+  <SfAccordionItem class="w-full md:max-w-[376px]" v-model="open">
     <template #summary>
       <div class="flex justify-between p-2 mb-2">
         <p class="font-medium">Brand</p>
@@ -16,10 +16,10 @@
     >
       <template #prefix>
         <SfCheckbox
-          v-model="selectedFilters"
           wrapper-class="flex items-center"
           :disabled="counter === 0"
           :value="value"
+          v-model="selectedFilters"
         />
       </template>
       <p>

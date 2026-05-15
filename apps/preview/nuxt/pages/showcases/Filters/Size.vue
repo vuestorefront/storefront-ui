@@ -1,5 +1,5 @@
 <template>
-  <SfAccordionItem v-model="open" class="w-full md:max-w-[376px]">
+  <SfAccordionItem class="w-full md:max-w-[376px]" v-model="open">
     <template #summary>
       <div class="flex justify-between p-2 mb-2">
         <p class="font-medium">Size</p>
@@ -8,7 +8,7 @@
     </template>
     <ul class="grid grid-cols-5 gap-2">
       <li v-for="({ label, value, isAvailable }, index) in chipSizes" :key="index">
-        <SfChip v-model="selectedSizes" class="w-full" size="sm" :input-props="{ value, disabled: !isAvailable }">
+        <SfChip class="w-full" size="sm" :input-props="{ value, disabled: !isAvailable }" v-model="selectedSizes">
           {{ label }}
         </SfChip>
       </li>

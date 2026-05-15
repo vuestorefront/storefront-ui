@@ -1,6 +1,6 @@
 <template>
-  <SfTooltip label="This is a tooltip!" :id="tooltipId" v-model="isOpen" show-arrow placement="right">
-    <span :aria-describedby="tooltipId" @focus="open" @blur="close" tabindex="0"> Hover or focus me! </span>
+  <SfTooltip :id="tooltipId" label="This is a tooltip!" show-arrow placement="right" v-model="isOpen">
+    <span :aria-describedby="tooltipId" tabindex="0" @focus="open" @blur="close"> Hover or focus me! </span>
   </SfTooltip>
 </template>
 

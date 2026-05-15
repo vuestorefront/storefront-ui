@@ -1,7 +1,6 @@
 'use client';
 /* eslint-disable react/require-default-props */
 import { cloneElement, useMemo } from 'react';
-import classNames from 'classnames';
 import {
   polymorphicForwardRef,
   useScrollable,
@@ -12,6 +11,7 @@ import {
   SfScrollableDirection,
   SfScrollableButtonsPlacement,
   type SfScrollableProps,
+  twMerge,
 } from '@storefront-ui/react';
 
 const defaultScrollableTag = 'div';
@@ -37,7 +37,6 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       nextDisabled,
       buttonPrevAriaLabel = 'Previous',
       buttonNextAriaLabel = 'Next',
-      style,
       children,
       slotPreviousButton,
       slotNextButton,
@@ -92,7 +91,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             disabled: prevDisabled,
             slotPrefix: <SfIconChevronLeft />,
             'aria-label': buttonPrevAriaLabel,
-            className: classNames(
+            className: twMerge(
               classNameButton,
               isFloating ? 'disabled:hidden' : 'disabled:!ring-disabled-300 disabled:!text-disabled-500',
             ),
@@ -114,7 +113,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
             disabled: nextDisabled,
             slotPrefix: <SfIconChevronRight />,
             'aria-label': buttonNextAriaLabel,
-            className: classNames(
+            className: twMerge(
               classNameButton,
               isFloating ? 'disabled:hidden' : 'disabled:!ring-disabled-300 disabled:!text-disabled-500',
             ),
@@ -124,7 +123,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
     }
     return (
       <div
-        className={classNames(
+        className={twMerge(
           'items-center relative',
           isHorizontal ? 'flex' : 'flex-col h-full inline-flex',
           wrapperClassName,
@@ -132,7 +131,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
       >
         {buttonsPlacement !== SfScrollableButtonsPlacement.none && (
           <PreviousButton
-            classNameButton={classNames('!rounded-full bg-white hidden md:block !ring-neutral-500 !text-neutral-500', {
+            classNameButton={twMerge('!rounded-full bg-white hidden md:block !ring-neutral-500 !text-neutral-500', {
               'mr-4': isBlock && isHorizontal,
               'mb-4 rotate-90': isBlock && !isHorizontal,
               'absolute left-4 z-10': isFloating && isHorizontal,
@@ -141,7 +140,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
           />
         )}
         <Tag
-          className={classNames(className, 'motion-safe:scroll-smooth', {
+          className={twMerge(className, 'motion-safe:scroll-smooth', {
             'overflow-x-auto flex gap-4': isHorizontal,
             'overflow-y-auto flex flex-col gap-4': !isHorizontal,
             'cursor-grab': state.isDragged,
@@ -153,7 +152,7 @@ const SfScrollable = polymorphicForwardRef<typeof defaultScrollableTag, SfScroll
         </Tag>
         {buttonsPlacement !== SfScrollableButtonsPlacement.none && (
           <NextButton
-            classNameButton={classNames('!rounded-full bg-white hidden md:block !ring-neutral-500 !text-neutral-500', {
+            classNameButton={twMerge('!rounded-full bg-white hidden md:block !ring-neutral-500 !text-neutral-500', {
               'ml-4': isBlock && isHorizontal,
               'mt-4 rotate-90': isBlock && !isHorizontal,
               'absolute right-4 z-10': isFloating && isHorizontal,

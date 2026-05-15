@@ -1,5 +1,5 @@
 <template>
-  <SfChip v-model="chipRedActive" size="sm" class="mr-2">
+  <SfChip size="sm" class="mr-2" v-model="chipRedActive">
     <template #prefix><SfThumbnail class="bg-red-500" size="sm" /></template>
     Red
   </SfChip>

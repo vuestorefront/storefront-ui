@@ -2,9 +2,9 @@
   <ul class="flex flex-wrap gap-4 sm:flex-row">
     <li v-for="(item, index) in chipValues" :key="item.value">
       <SfChip
-        v-model="selectedValues"
         :input-props="{ value: item.value }"
         @update:model-value="handleChipRemove(index)"
+        v-model="selectedValues"
       >
         <template #prefix><SfThumbnail :class="`bg-${item.value}-500`" /></template>
         {{ item.label }}

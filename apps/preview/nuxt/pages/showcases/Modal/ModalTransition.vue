@@ -23,12 +23,12 @@
     leave-to-class="opacity-0 translate-y-10"
   >
     <SfModal
-      v-model="isOpen"
       class="max-w-[90%] md:max-w-lg"
       tag="section"
       role="alertdialog"
       aria-labelledby="promoModalTitle"
       aria-describedby="promoModalDesc"
+      v-model="isOpen"
     >
       <header>
         <SfButton square variant="tertiary" class="absolute right-2 top-2" @click="close">

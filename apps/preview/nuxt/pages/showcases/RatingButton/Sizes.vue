@@ -1,8 +1,8 @@
 <template>
   <div>
-    <SfRatingButton v-model="modelValue1" size="sm" />
-    <SfRatingButton v-model="modelValue2" size="base" />
-    <SfRatingButton v-model="modelValue3" size="lg" />
+    <SfRatingButton size="sm" v-model="modelValue1" />
+    <SfRatingButton size="base" v-model="modelValue2" />
+    <SfRatingButton size="lg" v-model="modelValue3" />
   </div>
 </template>
 

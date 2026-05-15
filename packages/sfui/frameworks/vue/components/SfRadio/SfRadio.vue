@@ -43,7 +43,6 @@ const proxyChecked = computed({
 </script>
 <template>
   <input
-    v-model="proxyChecked"
     :name="name"
     type="radio"
     :value="value"
@@ -57,6 +56,7 @@ const proxyChecked = computed({
       )
     "
     :disabled="disabled"
+    v-model="proxyChecked"
     v-bind="attrsWithoutClass"
   />
 </template>

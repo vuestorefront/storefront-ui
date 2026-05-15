@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "@frsource/autoresize-textarea": "^2.0.87",
-    "@nuxtjs/eslint-config-typescript": "^12.1.0",
     "@nuxtjs/tailwindcss": "7.0.0-beta.1",
     "@storefront-ui/eslint-config": "workspace:*",
     "@storefront-ui/example-style": "workspace:*",
@@ -30,10 +29,9 @@
     "@types/lodash-es": "^4.17.12",
     "@vueuse/core": "^12.8.0",
     "autoprefixer": "^10.4.19",
-    "eslint": "^8.34.0",
-    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint": "^10.0.0",
     "nuxt": "^4.3.0",
-    "postcss": "^8.4.21",
+    "postcss": "^8.5.14",
     "prettier": "^3.0.0",
     "sass": "^1.77.8",
     "sass-loader": "^14.2.1",
@@ -41,6 +39,6 @@
   },
   "dependencies": {
     "@storefront-ui/preview-shared": "workspace:^",
-    "lodash-es": "^4.17.23"
+    "lodash-es": "^4.18.0"
   }
 }

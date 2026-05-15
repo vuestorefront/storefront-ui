@@ -36,6 +36,7 @@ export const useControlsSearchParams = <T extends Models<T>>(controlsState: Cont
     previewBottomOpen: [
       isMounted() ? searchParams['config:bottom-open'] : true,
       (newPreviewBottomOpenValue: boolean) => {
+        // eslint-disable-next-line react-hooks/immutability
         searchParams['config:bottom-open'] = newPreviewBottomOpenValue;
       },
     ] as const,

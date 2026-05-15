@@ -81,7 +81,6 @@ const selectModel = computed({
     data-testid="select"
   >
     <select
-      v-model="selectModel"
       :required="required"
       :disabled="disabled"
       :class="
@@ -101,6 +100,7 @@ const selectModel = computed({
       @change="close"
       @click="open"
       @keydown.space="open"
+      v-model="selectModel"
       v-bind="attrsWithoutClass"
     >
       <option

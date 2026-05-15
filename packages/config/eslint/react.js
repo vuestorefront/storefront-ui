@@ -1,51 +1,57 @@
-module.exports = {
-  parser: '@typescript-eslint/parser',
-  extends: ["@vue-storefront/eslint-config/react", "prettier"],
-  plugins: ["jsx-a11y"],
-  settings: {
-    'import/parsers': {
-      '@typescript-eslint/parser': ['.ts', '.tsx'],
-    },
-    'import/resolver': {
-      node: {
-        extensions: ['.js', '.jsx', '.ts', '.tsx'],
-      },
+import { ecma, nextjs, style, typescript } from '@vue-storefront/eslint-config';
+import { concat } from 'eslint-flat-config-utils';
+
+export default concat(
+  ecma({ isStrict: false }),
+  typescript({ isStrict: false }),
+  nextjs({ isStrict: false },),
+  style(),
+  {
+    linterOptions: {
+      reportUnusedDisableDirectives: 'off',
     },
   },
-  ignorePatterns: ['/*.*'],
-  rules: {
-    'import/no-extraneous-dependencies': 0,
-    'jsx-a11y/anchor-is-valid': [
-      'error',
-      {
-        components: ['Link'],
-        specialLink: ['hrefLeft', 'hrefRight'],
-        aspects: ['invalidHref', 'preferButton'],
-      },
-    ],
-    // https://lightrun.com/answers/jsx-eslint-eslint-plugin-jsx-a11y-control-has-associated-label-error-with-labelinput
-    'jsx-a11y/control-has-associated-label': [
-      'off',
-      {
-        labelComponents: [],
-        labelAttributes: [],
-        controlComponents: [],
-        assert: 'both',
-        depth: 25,
-      },
-    ],
-    'jsx-a11y/label-has-associated-control': [
-      'error',
-      {
-        components: [],
-        required: {
-          some: ['nesting', 'id'],
+  {
+    files: ['**/*.{mjs,cjs,js,jsx,ts,tsx,mts,cts}'],
+    rules: {
+      '@typescript-eslint/explicit-module-boundary-types': 'off',
+      '@typescript-eslint/no-magic-numbers': 'off',
+      'import/no-extraneous-dependencies': 'off',
+      'import/prefer-default-export': 'off',
+      'jsx-a11y/anchor-is-valid': [
+        'error',
+        {
+          aspects: ['invalidHref', 'preferButton'],
+          components: ['Link'],
+          specialLink: ['hrefLeft', 'hrefRight'],
         },
-        allowChildren: false,
-      },
-    ],
-    'react/button-has-type': ['error', { reset: true }],
-    'import/prefer-default-export': 0,
-    'react/display-name': "off"
+      ],
+      'jsx-a11y/control-has-associated-label': 'off',
+      'jsx-a11y/label-has-associated-control': [
+        'error',
+        {
+          allowChildren: false,
+          components: [],
+          required: { some: ['nesting', 'id'] },
+        },
+      ],
+      'perfectionist/sort-exports': 'off',
+      'perfectionist/sort-imports': 'off',
+      'perfectionist/sort-interfaces': 'off',
+      'perfectionist/sort-intersection-types': 'off',
+      'perfectionist/sort-jsx-props': 'off',
+      'perfectionist/sort-maps': 'off',
+      'perfectionist/sort-named-imports': 'off',
+      'perfectionist/sort-object-types': 'off',
+      'perfectionist/sort-objects': 'off',
+      'perfectionist/sort-switch-case': 'off',
+      'perfectionist/sort-union-types': 'off',
+      'react/button-has-type': ['error', { reset: true }],
+      'react/display-name': 'off',
+      'no-restricted-imports': 'off',
+      'react-hooks/refs': 'off',
+      'react-hooks/set-state-in-effect': 'off',
+      'import/no-unresolved': 'off',
+    },
   },
-};
+);

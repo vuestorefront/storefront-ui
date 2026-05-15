@@ -14,6 +14,8 @@ import {
   type SfScrollableOnNextData,
   type SfScrollableOnDragEndData,
   type ScrollableOptions,
+  twMerge,
+  useTwMergeRoot,
 } from '@storefront-ui/vue';
 
 defineOptions({
@@ -96,10 +98,13 @@ const { containerRef, state, getNextButtonProps, getPrevButtonProps } = useScrol
 const isHorizontal = computed(() => props.direction === SfScrollableDirection.horizontal);
 const isFloating = computed(() => props.buttonsPlacement === SfScrollableButtonsPlacement.floating);
 const isBlock = computed(() => props.buttonsPlacement === SfScrollableButtonsPlacement.block);
+const { attrsWithoutClass } = useTwMergeRoot();
 </script>
 
 <template>
-  <div :class="['items-center', 'relative', isHorizontal ? 'flex' : 'flex-col h-full inline-flex', wrapperClass]">
+  <div
+    :class="twMerge('items-center', 'relative', isHorizontal ? 'flex' : 'flex-col h-full inline-flex', wrapperClass)"
+  >
     <slot
       v-if="$slots.previousButton && buttonsPlacement !== SfScrollableButtonsPlacement.none"
       v-bind="getPrevButtonProps"
@@ -129,15 +134,18 @@ const isBlock = computed(() => props.buttonsPlacement === SfScrollableButtonsPla
     <component
       :is="tag"
       ref="containerRef"
-      :class="[
-        'motion-safe:scroll-smooth',
-        {
-          'overflow-x-auto flex gap-4': isHorizontal,
-          'overflow-y-auto flex flex-col gap-4': !isHorizontal,
-          'cursor-grab': state.isDragged,
-        },
-      ]"
-      v-bind="{ ...$attrs, ...props }"
+      :class="
+        twMerge(
+          'motion-safe:scroll-smooth',
+          {
+            'overflow-x-auto flex gap-4': isHorizontal,
+            'overflow-y-auto flex flex-col gap-4': !isHorizontal,
+            'cursor-grab': state.isDragged,
+          },
+          $attrs.class,
+        )
+      "
+      v-bind="{ ...attrsWithoutClass, ...props }"
       :disabled="prevDisabled"
     >
       <slot />

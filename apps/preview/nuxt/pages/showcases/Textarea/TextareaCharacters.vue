@@ -2,12 +2,12 @@
   <label>
     <span class="typography-text-sm font-medium">Description</span>
     <SfTextarea
-      v-model="textareaValue"
       :invalid="invalid"
       :disabled="disabled"
       :readonly="readonly"
       placeholder="Write something about yourself..."
       class="w-full block"
+      v-model="textareaValue"
     />
   </label>
   <div class="flex justify-between mt-0.5">
