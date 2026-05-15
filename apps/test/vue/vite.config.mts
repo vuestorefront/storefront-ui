@@ -30,6 +30,11 @@ export default defineConfig({
       'tabbable',
       'tailwind-merge',
       'jw-paginate',
+      // Test files import React (shared test utilities), which would otherwise trigger
+      // a re-optimization for react/jsx-dev-runtime and cypress/react18 mid-test.
+      'react',
+      'react/jsx-dev-runtime',
+      'cypress/react18',
     ],
   },
   plugins: [
