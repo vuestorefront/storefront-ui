@@ -1,5 +1,11 @@
 # @storefront-ui/react
 
+## 4.0.1
+
+### Patch Changes
+
+- [`590fe8d`](https://github.com/vuestorefront/storefront-ui/commit/590fe8dc7a40c8145dae7f1175c0ff08c3217e06) Thanks [@FRSgit](https://github.com/FRSgit)! - [CHANGED] `SfScrollable` now uses `twMerge` instead of `classNames` to compose CSS classes, so Tailwind classes passed via `className`/`class`, `wrapperClassName`/`wrapperClass`, and `classNameButton` props now correctly override the component's built-in classes without needing the `!` (important) modifier.
+
 ## 4.0.0
 
 ### Major Changes
