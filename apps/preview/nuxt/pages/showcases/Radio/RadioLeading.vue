@@ -6,7 +6,7 @@
       class="flex flex-row-reverse items-center justify-between mt-4 mr-6 rounded-sm cursor-pointer"
     >
       <span class="ml-2 text-sm font-normal leading-5 font-body">{{ label }}</span>
-      <SfRadio v-model="radioModel" :value="value" :name="name" />
+      <SfRadio :value="value" :name="name" v-model="radioModel" />
     </label>
   </div>
   <div class="flex justify-between">

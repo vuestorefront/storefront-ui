@@ -28,7 +28,7 @@
           <p>{{ formatPrice(promoCode) }}</p>
         </div>
         <form v-else class="flex gap-x-2 py-4 border-y border-neutral-200 mb-4" @submit.prevent="checkPromoCode">
-          <SfInput v-model="inputValue" placeholder="Enter Promo Code" wrapper-class="grow" />
+          <SfInput placeholder="Enter Promo Code" wrapper-class="grow" v-model="inputValue" />
           <SfButton type="submit" variant="secondary">Apply</SfButton>
         </form>
         <p class="px-3 py-1.5 bg-secondary-100 text-secondary-700 typography-text-sm rounded-md text-center mb-4">

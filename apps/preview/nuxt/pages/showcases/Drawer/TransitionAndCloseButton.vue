@@ -1,7 +1,7 @@
 <template>
   <fieldset>
     <label v-for="{ label, value } in options" :key="value" class="flex items-center my-4 cursor-pointer">
-      <SfRadio v-model="placement" class="flex items-center" name="placement" :value="value" />
+      <SfRadio class="flex items-center" name="placement" :value="value" v-model="placement" />
       <span class="ml-2">{{ label }}</span>
     </label>
   </fieldset>
@@ -17,7 +17,6 @@
   >
     <SfDrawer
       ref="drawerRef"
-      v-model="open"
       :placement="placement"
       :class="[
         'bg-neutral-50',
@@ -25,6 +24,7 @@
         'border-gray-300',
         { 'max-w-[370px]': placement === 'left' || placement === 'right' },
       ]"
+      v-model="open"
     >
       <header class="flex items-center justify-between px-10 py-6 bg-primary-700">
         <div class="flex items-center text-white"><SfIconFavorite class="mr-2" /> Your favorite items</div>

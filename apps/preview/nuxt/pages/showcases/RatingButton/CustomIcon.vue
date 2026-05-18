@@ -1,7 +1,7 @@
 <template>
   <div>
     <p :id="labelId">Select rating</p>
-    <SfRatingButton v-model="modelValue" :aria-labelledby="labelId">
+    <SfRatingButton :aria-labelledby="labelId" v-model="modelValue">
       <template #default="{ isFilled, iconSize }">
         <SfIconFavoriteFilled
           v-if="isFilled"

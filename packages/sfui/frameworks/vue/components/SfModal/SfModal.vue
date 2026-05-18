@@ -53,8 +53,8 @@ useTrapFocus(modalRef, {
 
 <template>
   <component
-    :is="tag || 'div'"
     v-if="modelValue"
+    :is="tag || 'div'"
     ref="modalRef"
     aria-modal="true"
     data-testid="modal"

@@ -26,8 +26,6 @@ export default function Hero() {
     callToActionSecondary,
     backgroundImage,
     backgroundImageMobile,
-    image,
-    imageAlt,
     variant,
   } = heroDetails;
   return (

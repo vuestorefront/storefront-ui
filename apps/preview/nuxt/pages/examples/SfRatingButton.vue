@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <SfRatingButton v-bind="state" v-model="state.modelValue" :max="Number(state.max)" />
+    <SfRatingButton v-bind="state" :max="Number(state.max)" v-model="state.modelValue" />
   </ComponentExample>
 </template>
 

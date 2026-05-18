@@ -29,8 +29,11 @@ export function usePagination({ totalItems, currentPage = 1, pageSize = 10, maxP
     selectedPage,
     endPage: pagination.endPage,
     startPage: pagination.startPage,
+    // eslint-disable-next-line react-hooks/immutability
     next: () => setSelectedPage((pagination.currentPage += 1)),
+    // eslint-disable-next-line react-hooks/immutability
     prev: () => setSelectedPage((pagination.currentPage -= 1)),
+    // eslint-disable-next-line react-hooks/immutability
     setPage: (newPage: number) => setSelectedPage((pagination.currentPage = newPage)),
   };
 }

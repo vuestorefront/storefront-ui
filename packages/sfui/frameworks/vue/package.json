@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
@@ -42,11 +42,11 @@
   "devDependencies": {
     "@storefront-ui/eslint-config": "workspace:*",
     "@storefront-ui/tests-shared": "workspace:*",
-    "@vitejs/plugin-vue": "^5.1.1",
+    "@vitejs/plugin-vue": "^6.0.6",
     "concurrently": "^8.2.2",
-    "eslint": "^8.34.0",
+    "eslint": "^10.0.0",
     "prettier": "^3.0.0",
-    "vite": "^5.3.5",
+    "vite": "^6.4.2",
     "vite-plugin-dts": "^3.9.1",
     "vite-tsconfig-paths": "^4.3.2",
     "vue-tsc": "^2.2.12"

@@ -32,12 +32,12 @@
         </div>
         <form role="search" class="hidden md:flex flex-[100%] ml-10" @submit.prevent="search">
           <SfInput
-            v-model="inputValue"
             type="search"
             class="[&::-webkit-search-cancel-button]:appearance-none"
             placeholder="Search"
             wrapper-class="flex-1 h-10 pr-0 rounded-full"
             size="base"
+            v-model="inputValue"
           >
             <template #suffix>
               <span class="flex items-center">
@@ -81,12 +81,12 @@
         </nav>
         <form role="search" class="flex md:hidden flex-[100%] my-2" @submit.prevent="search">
           <SfInput
-            v-model="inputValue"
             type="search"
             class="[&::-webkit-search-cancel-button]:appearance-none"
             placeholder="Search"
             wrapper-class="flex-1 h-10 pr-0 rounded-full"
             size="base"
+            v-model="inputValue"
           >
             <template #suffix>
               <span class="flex items-center">
@@ -188,9 +188,9 @@
       <div v-if="isOpen" class="md:hidden fixed inset-0 bg-neutral-500/50" />
       <SfDrawer
         ref="drawerRef"
-        v-model="isOpen"
         placement="left"
         class="md:hidden right-[50px] max-w-[376px] bg-white overflow-y-auto"
+        v-model="isOpen"
       >
         <nav>
           <div class="flex items-center justify-between p-4 border-b border-b-neutral-200 border-b-solid">

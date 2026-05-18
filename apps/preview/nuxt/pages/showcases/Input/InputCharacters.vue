@@ -4,7 +4,6 @@
       {{ label }}
     </span>
     <SfInput
-      v-model="inputValue"
       :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
@@ -14,6 +13,7 @@
           'peer !bg-disabled-100 !ring-disabled-300 !ring-1 !text-disabled-500': disabled || readonly,
         },
       ]"
+      v-model="inputValue"
     />
   </label>
   <div class="flex justify-between">

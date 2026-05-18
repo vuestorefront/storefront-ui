@@ -12,11 +12,11 @@
         @submit.prevent="subscribeNewsletter(inputValue)"
       >
         <SfInput
-          v-model="inputValue"
           size="lg"
           type="email"
           wrapper-class="grow rounded-full"
           placeholder="Type your email"
+          v-model="inputValue"
         />
         <SfButton type="submit" size="lg"> Subscribe to Newsletter </SfButton>
       </form>

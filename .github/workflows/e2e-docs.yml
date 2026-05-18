@@ -1,0 +1,82 @@
+name: E2E Documentation Tests
+
+on:
+  push:
+    branches:
+      - v2
+      - v2-develop
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  e2e-docs:
+    name: Cypress E2E — Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: '.nvmrc'
+          cache: 'yarn'
+
+      - name: Install dependencies
+        run: NOT_GENERATE_ICON=true yarn --immutable
+
+      # Build shared packages that the preview apps and docs depend on
+      - name: Build core packages
+        run: yarn build:peer-next && yarn build:typography && yarn build:react && yarn build:vue && yarn build:nuxt-module
+
+      # Build Vue (Nuxt) preview app — serves example components embedded as iframes
+      - name: Build Vue preview app
+        run: yarn workspace @storefront-ui/preview-nuxt build:nuxt
+
+      # Build React (Next.js) preview app — serves example components embedded as iframes
+      - name: Build React preview app
+        run: yarn workspace @storefront-ui/preview-next build:next
+
+      # Build docs pointing example iframes at the local preview servers
+      - name: Build documentation
+        working-directory: apps/docs/components
+        run: yarn build:docs
+        env:
+          NUXT_DOCS_EXAMPLES_VUE_PATH: 'http://localhost:3001'
+          NUXT_DOCS_EXAMPLES_REACT_PATH: 'http://localhost:3002'
+
+      # Start all three servers in the background before running Cypress
+      - name: Start Vue preview server (port 3001)
+        run: PORT=3001 node apps/preview/nuxt/.output/server/index.mjs &
+
+      - name: Start React preview server (port 3002)
+        working-directory: apps/preview/next
+        run: npx next start -p 3002 &
+
+      - name: Start documentation server (port 3000)
+        run: PORT=3000 node apps/docs/components/.output/server/index.mjs &
+
+      - name: Run Cypress E2E tests
+        uses: cypress-io/github-action@v6.10.2
+        with:
+          browser: chrome
+          working-directory: apps/test/e2e-docs
+          wait-on: 'http://localhost:3000, http://localhost:3001, http://localhost:3002'
+          wait-on-timeout: 120
+
+      - name: Upload Cypress screenshots on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-screenshots
+          path: apps/test/e2e-docs/cypress/screenshots
+          retention-days: 7

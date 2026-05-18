@@ -1,7 +1,7 @@
 <template>
   <label class="flex items-center justify-between">
     <span class="text-base text-gray-900 cursor-pointer font-body">Label</span>
-    <SfSwitch v-model="modelCheck" value="value" />
+    <SfSwitch value="value" v-model="modelCheck" />
   </label>
   <span class="typography-hint-xs mt-0.5 block text-gray-500">Help text</span>
 </template>

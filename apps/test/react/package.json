@@ -39,19 +39,19 @@
     "@tailwindcss/typography": "^0.5.19",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@vitejs/plugin-react": "^4.3.1",
+    "@vitejs/plugin-react": "^4.6.0",
     "autoprefixer": "^10.4.19",
     "chokidar-cli": "^3.0.0",
     "concurrently": "^8.2.2",
     "cpy-cli": "^4.2.0",
     "cypress": "^13.8.1",
     "nyc": "^15.1.0",
-    "postcss": "^8.4.21",
+    "postcss": "^8.5.14",
     "postcss-import": "^15.1.0",
     "rimraf": "^6.0.1",
     "tailwindcss": "^4.1.11",
     "typescript": "^5.5.4",
-    "vite": "^5.3.5",
-    "vite-plugin-istanbul": "^4.0.1"
+    "vite": "^6.4.2",
+    "vite-plugin-istanbul": "^8.0.0"
   }
 }

@@ -67,9 +67,9 @@ watch(
     :data-testid="dataTestid ?? 'checkbox'"
   >
     <input
+      ref="checkboxRef"
       :class="twMerge('sr-only', $attrs.class)"
       type="checkbox"
-      ref="checkboxRef"
       :indeterminate="indeterminate"
       :invalid="invalid"
       v-bind="attrsWithoutClass"

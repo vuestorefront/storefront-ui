@@ -13,7 +13,6 @@
       </span>
       <SfTextarea
         v-bind="state"
-        v-model="value"
         :class="[
           'w-full block',
           {
@@ -21,6 +20,7 @@
             'bg-disabled-100 ring-disabled-300 ring-1 text-neutral-500': readonly,
           },
         ]"
+        v-model="value"
       />
     </label>
     <div class="flex justify-between">

@@ -8,7 +8,7 @@
     {{ name }}
     <span class="block text-xs text-gray-500 break-words">{{ date }}</span>
     <template #prefix>
-      <SfRadio v-model="radioModel" :value="name" name="delivery-options" />
+      <SfRadio :value="name" name="delivery-options" v-model="radioModel" />
     </template>
     <template #suffix>
       <span class="text-gray-900">{{ cost }}</span>

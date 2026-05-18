@@ -32,7 +32,7 @@ export default function IconList() {
             copyToClipboard(componentName);
           }}
         >
-          {createElement((AllSfComponents as Record<string, any>)[componentName])}
+          {createElement((AllSfComponents as unknown as Record<string, string>)[componentName])}
         </button>
       ))}
 

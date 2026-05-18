@@ -86,7 +86,9 @@ export default function ShowcaseLayout({ children }: { children: ReactElement })
   }, [search]);
 
   useControlsSearchParams({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     get: { s: search as any },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     set: (state) => setSearch((state as any).s),
   });
 

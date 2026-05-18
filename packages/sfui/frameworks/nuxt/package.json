@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/nuxt",
-  "version": "3.3.0",
+  "version": "3.3.1",
   "homepage": "https://docs.storefrontui.io/v2/",
   "installConfig": {
     "hoistingLimits": "workspaces"
@@ -35,21 +35,20 @@
     "dev:playground": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build --stub && nuxi prepare playground",
-    "lint": "eslint --ext .vue,js,.ts .",
-    "lint:fix": "eslint --fix --ext .vue,.js,.ts ."
+    "lint": "eslint .",
+    "lint:fix": "eslint --fix ."
   },
   "dependencies": {
     "@nuxt/kit": ">=3.13.2",
     "@nuxtjs/tailwindcss": ">=7.0.0-beta.1",
     "@storefront-ui/vue": "workspace:*",
-    "defu": "^6.1.4"
+    "defu": "^6.1.7"
   },
   "devDependencies": {
     "@nuxt/module-builder": "^0.8.4",
     "@nuxt/schema": "^4.3.0",
     "@storefront-ui/eslint-config": "workspace:*",
-    "eslint": "^8.34.0",
-    "eslint-plugin-nuxt": "^4.0.0",
+    "eslint": "^10.0.0",
     "nuxt": "^4.3.0"
   }
 }

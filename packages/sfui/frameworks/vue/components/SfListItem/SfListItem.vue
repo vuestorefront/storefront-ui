@@ -57,8 +57,8 @@ const { attrsWithoutClass } = useTwMergeRoot();
     v-bind="attrsWithoutClass"
   >
     <component
-      :is="childrenTag"
       v-if="$slots.prefix"
+      :is="childrenTag"
       :class="twMerge(disabled ? 'text-disabled-500' : 'text-neutral-500', prefixClass)"
     >
       <slot name="prefix" />
@@ -67,8 +67,8 @@ const { attrsWithoutClass } = useTwMergeRoot();
       <slot />
     </component>
     <component
-      :is="childrenTag"
       v-if="$slots.suffix"
+      :is="childrenTag"
       :class="twMerge(disabled ? 'text-disabled-500' : 'text-neutral-500', suffixClass)"
     >
       <slot name="suffix" />

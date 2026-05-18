@@ -1,8 +1,8 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
     <SfAccordionItem
-      v-model="state.modelValue"
       class="border divide-y rounded-sm border-neutral-200 divide-neutral-200 text-neutral-900"
+      v-model="state.modelValue"
     >
       <template #summary>
         <div class="flex justify-between p-4 font-medium hover:bg-neutral-100 active:neutral-100">

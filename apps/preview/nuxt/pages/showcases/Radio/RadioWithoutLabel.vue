@@ -2,10 +2,10 @@
   <SfRadio
     v-for="{ name, value } in radioOptions"
     :key="value"
-    v-model="radioModel"
     class="block mt-4"
     :value="value"
     :name="name"
+    v-model="radioModel"
   />
 </template>
 

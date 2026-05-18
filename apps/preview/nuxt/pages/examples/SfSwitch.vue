@@ -1,6 +1,6 @@
 <template>
   <ComponentExample :controls-attrs="controlsAttrs">
-    <SfSwitch v-model="modelValue" :value="value" :disabled="disabled" />
+    <SfSwitch :value="value" :disabled="disabled" v-model="modelValue" />
   </ComponentExample>
 </template>
 

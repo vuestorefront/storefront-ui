@@ -9,10 +9,10 @@
       <label>
         <span class="typography-label-sm font-medium">Username *</span>
         <SfInput
-          v-model="usernameModelValue"
           required
           :invalid="usernameIsInvalid"
           @update:model-value="usernameIsInvalid = !usernameModelValue"
+          v-model="usernameModelValue"
         />
         <p v-if="usernameIsInvalid" class="mt-0.5 text-negative-700 typography-text-sm font-medium">
           The field cannot be empty
@@ -21,11 +21,11 @@
       <label class="block my-4">
         <span class="typography-label-sm font-medium">Email *</span>
         <SfInput
-          v-model="emailModelValue"
           type="email"
           :invalid="emailIsInvalid"
           required
           @update:model-value="emailIsInvalid = !emailModelValue"
+          v-model="emailModelValue"
         >
           <template #prefix>
             <SfIconEmail />
@@ -48,11 +48,11 @@
         <label class="w-full md:w-[122px] md:mr-4">
           <span class="typography-label-sm font-medium"> Code * </span>
           <SfSelect
-            v-model="areaCode"
             required
             placeholder="--"
             :invalid="areaCodeIsInvalid"
             @update:model-value="areaCodeIsInvalid = !areaCode"
+            v-model="areaCode"
           >
             <option v-for="({ value, label }, index) in areaCodes" :key="`${value}-${index}`" :value="value">
               {{ label }}
@@ -66,13 +66,13 @@
           <label>
             <span class="typography-label-sm font-medium"> Phone * </span>
             <SfInput
-              v-model="phoneNumberModelValue"
               type="tel"
               required
               :invalid="phoneNumberIsInvalid"
               placeholder="eg. 123 456 7890"
               class="placeholder:text-neutral-500"
               @update:model-value="phoneNumberIsInvalid = !phoneNumberModelValue"
+              v-model="phoneNumberModelValue"
             />
             <p v-if="phoneNumberIsInvalid" class="mt-0.5 text-negative-700 typography-text-sm font-medium">
               The field cannot be empty
@@ -87,7 +87,6 @@
         <SfInput
           :id="id"
           ref="inputRef"
-          v-model="countryModelValue"
           role="combobox"
           aria-label="Select from the list"
           placeholder="Select from the list"
@@ -120,6 +119,7 @@
                 },
               ]"
               @click="!isDisabled && toggle()"
+              v-model="countryModelValue"
             />
           </template>
         </SfInput>
@@ -232,9 +232,9 @@
       <label>
         <span class="typography-label-sm font-medium">Description</span>
         <SfTextarea
-          v-model="descriptionValue"
           placeholder="Write something about yourself..."
           class="block w-full py-2 pl-4 pr-7"
+          v-model="descriptionValue"
         ></SfTextarea>
       </label>
       <h2 class="typography-headline-4 font-bold mt-14 mb-4">Notifications</h2>
@@ -248,7 +248,7 @@
             disabled ? 'cursor-not-allowed' : 'cursor-pointer',
           ]"
         >
-          <SfCheckbox v-model="emailNotificationsModelValue" :disabled="disabled" :value="value" class="m-0.5" />
+          <SfCheckbox :disabled="disabled" :value="value" class="m-0.5" v-model="emailNotificationsModelValue" />
           <span class="ml-2">
             <span :class="['typography-text-base font-normal leading-6 font-body', { 'text-disabled-900': disabled }]">
               {{ label }}
@@ -265,11 +265,11 @@
           class="flex items-center mb-4 mr-6 rounded-sm cursor-pointer first-of-type:mt-2 last-of-type:mb-2"
         >
           <SfRadio
-            v-model="pushNotificationsModelValue"
             :invalid="pushNotificationIsInvalid"
             required
             :value="value"
             :name="name"
+            v-model="pushNotificationsModelValue"
           />
           <span class="ml-2 text-base font-normal leading-6 font-body">{{ label }}</span>
         </label>

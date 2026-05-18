@@ -1,6 +1,0 @@
-node_modules
-.output
-playground
-playground/**
-dist
-.eslintrc.cjs

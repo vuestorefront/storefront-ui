@@ -56,10 +56,10 @@
               >
                 <SfDrawer
                   ref="drawerRef"
-                  v-model="isOpen"
                   disable-click-away
                   placement="top"
                   class="grid grid-cols-1 md:gap-x-6 md:grid-cols-4 bg-white shadow-lg p-0 max-h-screen overflow-y-auto md:!absolute md:!top-[5rem] max-w-[376px] md:max-w-full md:p-6 mr-[50px] md:mr-0"
+                  v-model="isOpen"
                 >
                   <div
                     class="sticky top-0 flex items-center justify-between py-2 px-4 bg-primary-700 md:hidden w-full max-w-[376px]"
@@ -133,12 +133,12 @@
           @submit.prevent="search"
         >
           <SfInput
-            v-model="inputValue"
             type="search"
             class="[&::-webkit-search-cancel-button]:appearance-none"
             placeholder="Search"
             wrapper-class="flex-1 h-10 pr-0 rounded-full"
             size="base"
+            v-model="inputValue"
           >
             <template #suffix>
               <span class="flex items-center">
@@ -183,12 +183,12 @@
       </div>
       <form role="search" class="flex md:hidden flex-[100%] my-2 mx-4" @submit.prevent="search">
         <SfInput
-          v-model="inputValue"
           type="search"
           class="[&::-webkit-search-cancel-button]:appearance-none"
           placeholder="Search"
           wrapper-class="flex-1 h-10 pr-0 rounded-full"
           size="base"
+          v-model="inputValue"
         >
           <template #suffix>
             <span class="flex items-center">

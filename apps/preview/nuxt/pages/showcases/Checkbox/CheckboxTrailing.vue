@@ -3,7 +3,7 @@
     <label class="ml-3 text-base text-gray-900 cursor-pointer font-body peer-disabled:text-disabled-900" for="checkbox">
       Label
     </label>
-    <SfCheckbox id="checkbox" v-model="modelValue" value="value" class="peer" />
+    <SfCheckbox id="checkbox" value="value" class="peer" v-model="modelValue" />
   </div>
   <div class="flex justify-between ml-3">
     <p class="typography-hint-xs mt-0.5 text-neutral-500">Help text</p>

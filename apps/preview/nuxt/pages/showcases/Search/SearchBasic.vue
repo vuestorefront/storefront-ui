@@ -2,12 +2,12 @@
   <form ref="referenceRef" role="search" class="relative" @submit.prevent="submit">
     <SfInput
       ref="inputRef"
-      v-model="inputModel"
       aria-label="Search"
       placeholder="Search 'MacBook' or 'iPhone'..."
+      wrapper-class="rounded-full"
       @focus="open"
       @keydown="handleInputKeyDown"
-      wrapper-class="rounded-full"
+      v-model="inputModel"
     >
       <template #prefix><SfIconSearch /></template>
       <template #suffix>

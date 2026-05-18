@@ -1,5 +1,5 @@
 <template>
-  <SfAccordionItem v-model="open" class="w-full md:max-w-[376px]">
+  <SfAccordionItem class="w-full md:max-w-[376px]" v-model="open">
     <template #summary>
       <div class="flex justify-between p-2 mb-2">
         <p class="font-medium">Price</p>
@@ -16,11 +16,11 @@
       >
         <template #prefix>
           <SfRadio
-            v-model="priceModel"
             class="flex items-center"
             name="radio-price"
             :value="value"
             @click="priceModel = priceModel === value ? '' : value"
+            v-model="priceModel"
           />
         </template>
         <p>

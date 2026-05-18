@@ -1,10 +1,11 @@
 import type { AllHTMLAttributes, RefAttributes } from 'react';
 
 export const composeHandlers =
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
   (...callbacks: (Function | null | undefined)[]) =>
-  (...args: unknown[]) => {
-    callbacks.forEach((cb) => cb?.(...args));
-  };
+    (...args: unknown[]) => {
+      callbacks.forEach((cb) => cb?.(...args));
+    };
 
 /*
 USE WITH CAUTION!
@@ -15,6 +16,7 @@ while user can pass anything. Sometimes your props getter might have to make ext
 interface UserProps<T> extends AllHTMLAttributes<T>, RefAttributes<T> {}
 
 export function createPropsGetter<TProps>(resolver: (userProps: UserProps<HTMLElement>) => TProps) {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
   return function resolve<TUserProps = {}>(userProps: TUserProps = {} as TUserProps): TProps & TUserProps {
     return {
       ...userProps,

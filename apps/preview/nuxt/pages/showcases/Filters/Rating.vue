@@ -1,5 +1,5 @@
 <template>
-  <SfAccordionItem v-model="isOpen" class="w-full md:max-w-[376px]">
+  <SfAccordionItem class="w-full md:max-w-[376px]" v-model="isOpen">
     <template #summary>
       <div class="flex justify-between p-2 mb-2">
         <p class="font-medium">Rating</p>
@@ -16,12 +16,12 @@
       >
         <template #prefix>
           <SfRadio
-            v-model="ratingsModel"
             class="flex items-center"
             :checked="ratingsModel === value"
             :name="ratingsModel"
             :value="value"
             @click="ratingsModel = ratingsModel === value ? '' : value"
+            v-model="ratingsModel"
           />
         </template>
         <!-- TODO: Adjust the styling and remove block elements when/if span wrapper removed from ListItem -->

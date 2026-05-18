@@ -43,12 +43,12 @@
         @submit.prevent="search"
       >
         <SfInput
-          v-model="inputValue"
           type="search"
           class="[&::-webkit-search-cancel-button]:appearance-none"
           placeholder="Search"
           wrapper-class="flex-1 h-10 pr-0 rounded-full"
           size="base"
+          v-model="inputValue"
         >
           <template #suffix>
             <span class="flex items-center">

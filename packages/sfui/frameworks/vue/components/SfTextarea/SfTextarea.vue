@@ -43,7 +43,6 @@ const textareaValue = computed({
 
 <template>
   <textarea
-    v-model="textareaValue"
     :class="
       twMerge(
         'px-4 bg-white rounded-xl text-neutral-900 ring-inset hover:ring-primary-800 focus:caret-primary-700 active:caret-primary-700 active:ring-primary-700 active:ring-2 focus:ring-primary-700 focus:ring-2 outline-hidden',
@@ -57,6 +56,7 @@ const textareaValue = computed({
       )
     "
     data-testid="textarea"
+    v-model="textareaValue"
     v-bind="attrsWithoutClass"
   />
 </template>

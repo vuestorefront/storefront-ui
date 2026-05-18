@@ -1,5 +1,16 @@
 # @storefront-ui/nuxt
 
+## 3.3.1
+
+### Patch Changes
+
+- [#3382](https://github.com/vuestorefront/storefront-ui/pull/3382) [`679ae63`](https://github.com/vuestorefront/storefront-ui/commit/679ae6389a1db21d82a09fd1cd78749a95c7656b) Thanks [@FRSgit](https://github.com/FRSgit)! - [CHANGED] Updated docs for nuxt package
+
+- [`590fe8d`](https://github.com/vuestorefront/storefront-ui/commit/590fe8dc7a40c8145dae7f1175c0ff08c3217e06) Thanks [@FRSgit](https://github.com/FRSgit)! - [FIXED] Upgrade defu dependency to patch prototype pollution vulnerability (GHSA-737v-mqg7-c878).
+
+- Updated dependencies [[`590fe8d`](https://github.com/vuestorefront/storefront-ui/commit/590fe8dc7a40c8145dae7f1175c0ff08c3217e06)]:
+  - @storefront-ui/vue@3.1.2
+
 ## 3.3.0
 
 ### Minor Changes
