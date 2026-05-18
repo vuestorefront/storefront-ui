@@ -12887,13 +12887,13 @@ __metadata:
   linkType: hard
 
 "simple-git@npm:^3.27.0":
-  version: 3.32.2
-  resolution: "simple-git@npm:3.32.2"
+  version: 3.33.0
+  resolution: "simple-git@npm:3.33.0"
   dependencies:
     "@kwsites/file-exists": "npm:^1.1.1"
     "@kwsites/promise-deferred": "npm:^1.1.1"
     debug: "npm:^4.4.0"
-  checksum: 10c0/de6fc0ed552c8bc9c5f58b0381b70a0aa5c05e190ff7b0ed4761e9e999bf484014f7048ff7a299256fe05df9ecd8e3fc04d2b0367b2ac52e6615860c9d781ead
+  checksum: 10c0/463e91f3ee04b7fc445284c64502a4ee3d607f626f18c8bcc036815a30fe178d2216976e683c6368edd7b3093801d6e534deeb8e700a4863a76ef23f881a0712
   languageName: node
   linkType: hard
 
