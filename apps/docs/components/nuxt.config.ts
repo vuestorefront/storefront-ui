@@ -42,6 +42,12 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    // nuxt-og-image@4.x uses old unenv v1 paths; remap to unenv v2 paths
+    alias: {
+      'unenv/runtime/mock/empty': 'unenv/mock/empty',
+      'unenv/runtime/mock/noop': 'unenv/mock/noop',
+      'unenv/runtime/mock/proxy': 'unenv/mock/proxy',
+    },
     routeRules: {
       '/figma': {
         redirect:
