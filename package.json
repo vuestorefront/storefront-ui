@@ -73,7 +73,7 @@
     "rollup-plugin-preserve-directives": "^0.4.0",
     "svgo": "^4.0.1",
     "tailwindcss": "^4.1.11",
-    "turbo": "^2.0.9",
+    "turbo": "^2.9.14",
     "typescript": "^5.5.4",
     "unified": "^11.0.5",
     "wait-on": "^7.0.1"
