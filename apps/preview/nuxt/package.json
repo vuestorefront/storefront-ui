@@ -30,7 +30,7 @@
     "@vueuse/core": "^12.8.0",
     "autoprefixer": "^10.4.19",
     "eslint": "^10.0.0",
-    "nuxt": "^4.3.0",
+    "nuxt": "^4.4.6",
     "postcss": "^8.5.14",
     "prettier": "^3.0.0",
     "sass": "^1.77.8",
