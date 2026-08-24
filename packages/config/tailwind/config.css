@@ -118,6 +118,12 @@
   --animate-line: line 1.5s ease-in infinite;
   --animate-stroke-loader-circular: stroke-loader-circular 2s ease-in-out infinite;
 
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   @keyframes line {
     from {
       left: -100%;
