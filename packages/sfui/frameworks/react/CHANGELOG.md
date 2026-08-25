@@ -1,5 +1,12 @@
 # @storefront-ui/react
 
+## 4.0.2
+
+### Patch Changes
+
+- Updated dependencies [[`120981b`](https://github.com/vuestorefront/storefront-ui/commit/120981bcc676264aa3847fb007f2c2329303239b)]:
+  - @storefront-ui/tailwind-config@3.1.1
+
 ## 4.0.1
 
 ### Patch Changes
@@ -248,7 +255,6 @@
 - [#2746](https://github.com/vuestorefront/storefront-ui/pull/2746) [`74dfce2c8`](https://github.com/vuestorefront/storefront-ui/commit/74dfce2c8aab7e959de40672c787d489bfe31537) Thanks [@aniamusial](https://github.com/aniamusial)! - Added new search blocks with customized buttons
 
 - [#2725](https://github.com/vuestorefront/storefront-ui/pull/2725) [`05560b55d`](https://github.com/vuestorefront/storefront-ui/commit/05560b55ddd0fe8c6e1225b083530841f93ec8ba) Thanks [@AdamPawlinski](https://github.com/AdamPawlinski)! - useTrapFocus:
-
   - added `updateFocusableElement` method that allow to refresh the list of focusable children within container element,
   - use `useState` instead of `useRefs` for `current` and `focusable` return values.
 
