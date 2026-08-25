@@ -1,5 +1,14 @@
 # @storefront-ui/vue
 
+## 3.1.3
+
+### Patch Changes
+
+- [#3465](https://github.com/vuestorefront/storefront-ui/pull/3465) [`5df73f9`](https://github.com/vuestorefront/storefront-ui/commit/5df73f9eabd6b34260cc1260288af9d44598f5c5) Thanks [@FRSgit](https://github.com/FRSgit)! - **[FIXED]** `useFocusVisible` no longer leaks event listeners in SSR environments by moving `setupGlobalFocusEvents` and the `watch` handler inside `onMounted`.
+
+- Updated dependencies [[`120981b`](https://github.com/vuestorefront/storefront-ui/commit/120981bcc676264aa3847fb007f2c2329303239b)]:
+  - @storefront-ui/tailwind-config@3.1.1
+
 ## 3.1.2
 
 ### Patch Changes
@@ -37,7 +46,6 @@
 - [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** default badge background color. Add className `!bg-secondary-700` explicitly in order to migrate.
 
 - [#3333](https://github.com/vuestorefront/storefront-ui/pull/3333) [`2b3ad4a`](https://github.com/vuestorefront/storefront-ui/commit/2b3ad4ae63271be3cb5bed84bd5bfe11ebf340f2) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[CHANGED][BREAKING]** Use `useId` method coming from `vue` package instead of custom implementation. To migrate:
-
   1. Update your `vue` dependency version to at least 3.5.0.
   2. Update every `useId` usage as follows:
 
@@ -65,7 +73,6 @@
 ### Minor Changes
 
 - [#3334](https://github.com/vuestorefront/storefront-ui/pull/3334) [`a708eaf`](https://github.com/vuestorefront/storefront-ui/commit/a708eaf8c092a19f3d41adb433883ff2e6ccc02d) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[ADDED]** Support for setting `id` attribute on the content in `SfTooltip` component.
-
   - **[ADDED]** Possibility to open tooltip programatically via `modelValue` prop.
   - **[ADDED]** `useTooltip` now closes tooltip on `Escape` keypress.
 
@@ -92,7 +99,6 @@
 - [#2885](https://github.com/vuestorefront/storefront-ui/pull/2885) [`a7e88e6`](https://github.com/vuestorefront/storefront-ui/commit/a7e88e62b5ae13728432e7a3ca2d69090bc1d655) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[BREAKING][CHANGED]** default badge background color. Add className `!bg-secondary-700` explicitly in order to migrate.
 
 - [#3333](https://github.com/vuestorefront/storefront-ui/pull/3333) [`2b3ad4a`](https://github.com/vuestorefront/storefront-ui/commit/2b3ad4ae63271be3cb5bed84bd5bfe11ebf340f2) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[CHANGED][BREAKING]** Use `useId` method coming from `vue` package instead of custom implementation. To migrate:
-
   1. Update your `vue` dependency version to at least 3.5.0.
   2. Update every `useId` usage as follows:
 
@@ -120,7 +126,6 @@
 ### Minor Changes
 
 - [#3334](https://github.com/vuestorefront/storefront-ui/pull/3334) [`a708eaf`](https://github.com/vuestorefront/storefront-ui/commit/a708eaf8c092a19f3d41adb433883ff2e6ccc02d) Thanks [@FRSgit](https://github.com/FRSgit)! - - **[ADDED]** Support for setting `id` attribute on the content in `SfTooltip` component.
-
   - **[ADDED]** Possibility to open tooltip programatically via `modelValue` prop.
   - **[ADDED]** `useTooltip` now closes tooltip on `Escape` keypress.
 
@@ -218,7 +223,6 @@
 - [#2746](https://github.com/vuestorefront/storefront-ui/pull/2746) [`74dfce2c8`](https://github.com/vuestorefront/storefront-ui/commit/74dfce2c8aab7e959de40672c787d489bfe31537) Thanks [@aniamusial](https://github.com/aniamusial)! - Added new search blocks with customized buttons
 
 - [#2725](https://github.com/vuestorefront/storefront-ui/pull/2725) [`05560b55d`](https://github.com/vuestorefront/storefront-ui/commit/05560b55ddd0fe8c6e1225b083530841f93ec8ba) Thanks [@AdamPawlinski](https://github.com/AdamPawlinski)! - useTrapFocus:
-
   - added `updateFocusableElement` method that allow to refresh the list of focusable children within container element,
   - use `useState` instead of `useRefs` for `current` and `focusable` return values.
 
