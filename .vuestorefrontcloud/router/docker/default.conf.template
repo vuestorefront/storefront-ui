@@ -6,6 +6,14 @@ server {
     return 200 "User-agent: *\nDisallow: /v2-rc-3/\nDisallow: /v2-rc-3-vue/\nDisallow: /v2-rc-3-react/";
   }
 
+  location /healthz {
+    return 200 "OK";
+  }
+
+  location /readyz {
+    return 200 "OK";
+  }
+
   # https://www.oliverdavies.uk/blog/nginx-redirects-query-string-arguments
   location / {
     return 301 ${TARGET_DOMAIN}/v2$uri$is_args$args;
