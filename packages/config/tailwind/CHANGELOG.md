@@ -1,5 +1,11 @@
 # @storefront-ui/tailwind-config
 
+## 3.1.2
+
+### Patch Changes
+
+- [#3467](https://github.com/vuestorefront/storefront-ui/pull/3467) [`120981b`](https://github.com/vuestorefront/storefront-ui/commit/120981bcc676264aa3847fb007f2c2329303239b) Thanks [@bartoszherba](https://github.com/bartoszherba)! - **[FIXED]** `animate-spin-slow` (used by `SfLoaderCircular`) rotates again. The Tailwind 4 theme references a `spin-slow` keyframe that was never migrated from the Tailwind 3 JS theme (where it aliased the built-in `spin`), so the loader stopped rotating. The missing `@keyframes spin-slow` is now defined.
+
 ## 3.1.1
 
 ### Patch Changes
