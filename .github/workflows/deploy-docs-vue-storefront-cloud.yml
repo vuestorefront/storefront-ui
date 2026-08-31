@@ -55,7 +55,7 @@ jobs:
       ENVIRONMENT: ${{ needs.configure-enviroment.outputs.environment }}
       TARGET_URL: ${{ needs.configure-enviroment.outputs.target-domain }}/v2
       FARMER_NAMESPACE_NAME: ${{ needs.configure-enviroment.outputs.farmer-instance-name }}
-      DOCS_NAME: 'sfui2-docs'
+      DOCS_NAME: 'zsfui2-docs'
       DOCS_IMAGE: registry.storefrontcloud.io/${{ needs.configure-enviroment.outputs.docker-namespace }}/sfui2-docs
       DOCS_SUBPATH: '/v2'
       DOCS_PORT: '80'
