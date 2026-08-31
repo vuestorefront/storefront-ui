@@ -56,7 +56,7 @@ jobs:
         with:
           user-id: ${{ secrets.CLOUD_USERNAME }}
           api-key: ${{ secrets.CLOUD_PASSWORD }}
-          name: "sfui1-docs"
+          name: "zsfui1-docs"
           tag: "${{ steps.get_version.outputs.VERSION }}"
           image: "registry.storefrontcloud.io/sfui-storefrontcloud-io/sfui1-docs"
           path: "/v1"
