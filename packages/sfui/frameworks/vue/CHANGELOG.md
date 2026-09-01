@@ -1,5 +1,14 @@
 # @storefront-ui/vue
 
+## 3.1.4
+
+### Patch Changes
+
+- [#3465](https://github.com/vuestorefront/storefront-ui/pull/3465) [`5df73f9`](https://github.com/vuestorefront/storefront-ui/commit/5df73f9eabd6b34260cc1260288af9d44598f5c5) Thanks [@FRSgit](https://github.com/FRSgit)! - **[FIXED]** `useFocusVisible` no longer leaks event listeners in SSR environments by moving `setupGlobalFocusEvents` and the `watch` handler inside `onMounted`.
+
+- Updated dependencies [[`120981b`](https://github.com/vuestorefront/storefront-ui/commit/120981bcc676264aa3847fb007f2c2329303239b)]:
+  - @storefront-ui/tailwind-config@3.1.2
+
 ## 3.1.3
 
 ### Patch Changes

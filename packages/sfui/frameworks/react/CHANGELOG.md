@@ -1,5 +1,12 @@
 # @storefront-ui/react
 
+## 4.0.3
+
+### Patch Changes
+
+- Updated dependencies [[`120981b`](https://github.com/vuestorefront/storefront-ui/commit/120981bcc676264aa3847fb007f2c2329303239b)]:
+  - @storefront-ui/tailwind-config@3.1.2
+
 ## 4.0.2
 
 ### Patch Changes
