@@ -1,6 +1,6 @@
 {
   "name": "@storefront-ui/vue",
-  "version": "3.1.3",
+  "version": "3.1.4",
   "license": "MIT",
   "sideEffects": false,
   "exports": {
