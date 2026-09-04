@@ -20,10 +20,6 @@ concurrency:
 permissions:
   id-token: write
 
-env:
-  SONAR_TOKEN_REACT: ${{ secrets.SONAR_TOKEN_REACT }}
-  SONAR_TOKEN_VUE: ${{ secrets.SONAR_TOKEN_VUE }}
-
 jobs:
   cache:
     name: Create cache for all steps
@@ -156,14 +152,6 @@ jobs:
           CYPRESS_COVERAGE: true
       - name: Post-Cypress (generate coverage)
         run: cd apps/test/vue; yarn generate-coverage
-      - name: SonarCloud Scan
-        if: ${{ env.SONAR_TOKEN_VUE }}
-        uses: SonarSource/sonarqube-scan-action@v6
-        with:
-          projectBaseDir: packages/sfui/frameworks/vue
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_VUE }}
 
   cypress-react:
     name: Run cypress tests(React)
@@ -191,14 +179,6 @@ jobs:
           CYPRESS_COVERAGE: true
       - name: Post-Cypress (generate coverage)
         run: cd apps/test/react; yarn generate-coverage
-      - name: SonarCloud Scan
-        if: ${{ env.SONAR_TOKEN_REACT }}
-        uses: SonarSource/sonarqube-scan-action@v6
-        with:
-          projectBaseDir: packages/sfui/frameworks/react
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN_REACT }}
 
   release-canary:
     name: Release Canary packages
