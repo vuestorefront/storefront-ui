@@ -45,7 +45,7 @@
     "defu": "^6.1.7"
   },
   "devDependencies": {
-    "@nuxt/module-builder": "^0.8.4",
+    "@nuxt/module-builder": "^1.0.0",
     "@nuxt/schema": "^4.3.0",
     "@storefront-ui/eslint-config": "workspace:*",
     "eslint": "^10.0.0",
