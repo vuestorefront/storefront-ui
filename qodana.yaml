@@ -15,6 +15,9 @@ profile:
       enabled: true
     - inspection: NpmVulnerableApiCode
       enabled: true
+    # HardcodedPasswords and HttpUrlsUsage are the two that produce false positives -
+    # add an `ignore:` list per finding, as enterprise did for a mock .env fixture
+    # and for JSON files referencing their schemas over http://.
     - inspection: HardcodedPasswords
       enabled: true
     - inspection: HttpUrlsUsage
