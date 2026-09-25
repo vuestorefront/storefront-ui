@@ -9,7 +9,14 @@ export function usePopover(options: UsePopoverOptions) {
     strategy: initialStrategy = SfPopoverStrategy.absolute,
   } = options;
 
-  const { refs, strategy, x, y, middlewareData } = useFloating<HTMLElement>({
+  const {
+    refs,
+    strategy,
+    x,
+    y,
+    middlewareData,
+    placement: floatingPlacement,
+  } = useFloating<HTMLElement>({
     strategy: initialStrategy,
     placement,
     open: isOpen,
@@ -23,5 +30,5 @@ export function usePopover(options: UsePopoverOptions) {
     left: x,
   };
 
-  return { refs, style, middlewareData };
+  return { refs, style, middlewareData, placement: floatingPlacement };
 }
