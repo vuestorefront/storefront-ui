@@ -22,10 +22,10 @@
         "build:peer-next": "vite build"
     },
     "devDependencies": {
-        "tailwindcss": "^3.4.18",
-        "typescript": "^5.5.4",
-        "vite": "^6.4.2",
-        "vite-plugin-dts": "^3.9.1"
+        "tailwindcss": "^4.0.0",
+        "typescript": "^6.0.0",
+        "vite": "^8.0.0",
+        "vite-plugin-dts": "^5.0.0"
     },
     "peerDependencies": {
         "tailwindcss": ">= 4.0.0-alpha.20 || >= 4.0.0-beta.1 || >= 4.0.0"

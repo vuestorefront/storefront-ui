@@ -23,10 +23,10 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version-file: '.nvmrc'
           cache: 'yarn'
@@ -66,7 +66,7 @@ jobs:
         run: PORT=3000 node apps/docs/components/.output/server/index.mjs &
 
       - name: Run Cypress E2E tests
-        uses: cypress-io/github-action@v6.10.2
+        uses: cypress-io/github-action@v7.4.0
         with:
           browser: chrome
           working-directory: apps/test/e2e-docs
@@ -75,7 +75,7 @@ jobs:
 
       - name: Upload Cypress screenshots on failure
         if: failure()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: cypress-screenshots
           path: apps/test/e2e-docs/cypress/screenshots
