@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@cypress/code-coverage": "3.13.4",
-    "@frsource/cypress-plugin-visual-regression-diff": "^3.3.10",
+    "@frsource/cypress-plugin-visual-regression-diff": "^4.2.0",
     "@frsource/frs-replace": "^4.1.1",
     "@storefront-ui/eslint-config": "workspace:*",
     "@storefront-ui/react": "workspace:*",

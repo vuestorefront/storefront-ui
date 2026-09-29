@@ -2288,27 +2288,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@frsource/base64@npm:1.0.17":
-  version: 1.0.17
-  resolution: "@frsource/base64@npm:1.0.17"
-  checksum: 10c0/6d08445896d8a2a3593e73df25de876ed4b85aa40911f8e174d5c9bd89c905ef182c1b4d0d3b950b4e683a219e52ceba62e7221fc651555a207a7d49e4e05096
+"@frsource/base64@npm:1.0.237":
+  version: 1.0.237
+  resolution: "@frsource/base64@npm:1.0.237"
+  checksum: 10c0/8f9798cef79687e742e038ddaeb90820eca8dd7f1932310f5fce7eeffdda8f1a7031adba622167c40c02331fe547a9ec0fa4d895b7fa6766fc932858355b6e18
   languageName: node
   linkType: hard
 
-"@frsource/cypress-plugin-visual-regression-diff@npm:^3.3.10":
-  version: 3.3.10
-  resolution: "@frsource/cypress-plugin-visual-regression-diff@npm:3.3.10"
+"@frsource/cypress-plugin-visual-regression-diff@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "@frsource/cypress-plugin-visual-regression-diff@npm:4.2.0"
   dependencies:
-    "@frsource/base64": "npm:1.0.17"
-    glob: "npm:8.1.0"
+    "@frsource/base64": "npm:1.0.237"
+    glob: "npm:13.0.6"
     meta-png: "npm:1.0.6"
-    move-file: "npm:2.1.0"
-    pixelmatch: "npm:5.3.0"
+    move-file: "npm:4.1.0"
+    pixelmatch: "npm:7.2.0"
     pngjs: "npm:7.0.0"
-    sharp: "npm:0.32.1"
+    sharp: "npm:0.35.4"
   peerDependencies:
-    cypress: ">=4.5.0"
-  checksum: 10c0/7c2671a7dc27abb578df2fbba2b8d78b9a5dac3695a285be39997ffa9316cc5b5696dbd0249af771593230665083c1f2f6511d871b30e7f35a486e5400997302
+    cypress: ">=13.0.0"
+  checksum: 10c0/f510998f2d1e60076758c3ab061e821dc3bdb05e64e42b5491fcd5d8a96b54d0499154c27d5fb34489f4c9a1025d3652543816b08ac09153dcd4f5eb7c941255
   languageName: node
   linkType: hard
 
@@ -4861,7 +4861,7 @@ __metadata:
   resolution: "@storefront-ui/react-test@workspace:apps/test/react"
   dependencies:
     "@cypress/code-coverage": "npm:3.13.4"
-    "@frsource/cypress-plugin-visual-regression-diff": "npm:^3.3.10"
+    "@frsource/cypress-plugin-visual-regression-diff": "npm:^4.2.0"
     "@frsource/frs-replace": "npm:^4.1.1"
     "@storefront-ui/eslint-config": "workspace:*"
     "@storefront-ui/react": "workspace:*"
@@ -5002,7 +5002,7 @@ __metadata:
   resolution: "@storefront-ui/vue-test@workspace:apps/test/vue"
   dependencies:
     "@cypress/code-coverage": "npm:3.13.4"
-    "@frsource/cypress-plugin-visual-regression-diff": "npm:^3.3.10"
+    "@frsource/cypress-plugin-visual-regression-diff": "npm:^4.2.0"
     "@frsource/frs-replace": "npm:^4.1.1"
     "@rushstack/eslint-patch": "npm:^1.2.0"
     "@storefront-ui/eslint-config": "workspace:*"
@@ -11926,6 +11926,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"glob@npm:13.0.6, glob@npm:^13.0.0, glob@npm:^13.0.6":
+  version: 13.0.6
+  resolution: "glob@npm:13.0.6"
+  dependencies:
+    minimatch: "npm:^10.2.2"
+    minipass: "npm:^7.1.3"
+    path-scurry: "npm:^2.0.2"
+  checksum: 10c0/269c236f11a9b50357fe7a8c6aadac667e01deb5242b19c84975628f05f4438d8ee1354bb62c5d6c10f37fd59911b54d7799730633a2786660d8c69f1d18120a
+  languageName: node
+  linkType: hard
+
 "glob@npm:7.2.3, glob@npm:^7.1.3, glob@npm:^7.1.4, glob@npm:^7.1.6":
   version: 7.2.3
   resolution: "glob@npm:7.2.3"
@@ -11937,19 +11948,6 @@ __metadata:
     once: "npm:^1.3.0"
     path-is-absolute: "npm:^1.0.0"
   checksum: 10c0/65676153e2b0c9095100fe7f25a778bf45608eeb32c6048cf307f579649bcc30353277b3b898a3792602c65764e5baa4f643714dfbdfd64ea271d210c7a425fe
-  languageName: node
-  linkType: hard
-
-"glob@npm:8.1.0, glob@npm:^8.0.3":
-  version: 8.1.0
-  resolution: "glob@npm:8.1.0"
-  dependencies:
-    fs.realpath: "npm:^1.0.0"
-    inflight: "npm:^1.0.4"
-    inherits: "npm:2"
-    minimatch: "npm:^5.0.1"
-    once: "npm:^1.3.0"
-  checksum: 10c0/cb0b5cab17a59c57299376abe5646c7070f8acb89df5595b492dba3bfb43d301a46c01e5695f01154e6553168207cb60d4eaf07d3be4bc3eb9b0457c5c561d0f
   languageName: node
   linkType: hard
 
@@ -11985,14 +11983,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^13.0.0, glob@npm:^13.0.6":
-  version: 13.0.6
-  resolution: "glob@npm:13.0.6"
+"glob@npm:^8.0.3":
+  version: 8.1.0
+  resolution: "glob@npm:8.1.0"
   dependencies:
-    minimatch: "npm:^10.2.2"
-    minipass: "npm:^7.1.3"
-    path-scurry: "npm:^2.0.2"
-  checksum: 10c0/269c236f11a9b50357fe7a8c6aadac667e01deb5242b19c84975628f05f4438d8ee1354bb62c5d6c10f37fd59911b54d7799730633a2786660d8c69f1d18120a
+    fs.realpath: "npm:^1.0.0"
+    inflight: "npm:^1.0.4"
+    inherits: "npm:2"
+    minimatch: "npm:^5.0.1"
+    once: "npm:^1.3.0"
+  checksum: 10c0/cb0b5cab17a59c57299376abe5646c7070f8acb89df5595b492dba3bfb43d301a46c01e5695f01154e6553168207cb60d4eaf07d3be4bc3eb9b0457c5c561d0f
   languageName: node
   linkType: hard
 
@@ -15245,12 +15245,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"move-file@npm:2.1.0":
-  version: 2.1.0
-  resolution: "move-file@npm:2.1.0"
-  dependencies:
-    path-exists: "npm:^4.0.0"
-  checksum: 10c0/730ecc6188677ad4955944b088d8ebfcfda04af766bf0407aa9f5cb0a4db9e54d064a5c052ee11d764a26e5486211a2a3ac542a417a2effdb0bae2e9fd4bb7ee
+"move-file@npm:4.1.0":
+  version: 4.1.0
+  resolution: "move-file@npm:4.1.0"
+  checksum: 10c0/ab96580507ef8c3afec7700829c511e2942eadc86ade6f0aba6ad39856ad6856c5d11b9c6734f6240ea48dedf36a530122ba393b23f8437d45bb425f95fab0ba
   languageName: node
   linkType: hard
 
@@ -16790,14 +16788,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pixelmatch@npm:5.3.0":
-  version: 5.3.0
-  resolution: "pixelmatch@npm:5.3.0"
+"pixelmatch@npm:7.2.0":
+  version: 7.2.0
+  resolution: "pixelmatch@npm:7.2.0"
   dependencies:
-    pngjs: "npm:^6.0.0"
+    pngjs: "npm:^7.0.0"
   bin:
     pixelmatch: bin/pixelmatch
-  checksum: 10c0/30850661db29b57cefbe6cf36e930b7517aea4e0ed129e85fcc8ec04a7e6e7648a822a972f8e01d2d3db268ca3c735555caf6b8099a164d8b64d105986d682d2
+  checksum: 10c0/d8a2454ecf3a977738d6050ed087effa0a9f1b53a0da92d37381a74bb04db5c21e14cfcd41965fbdac4a5967aa5ff2525e2afe9826a77eae043b8339dafc53b6
   languageName: node
   linkType: hard
 
@@ -16850,17 +16848,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"pngjs@npm:7.0.0":
+"pngjs@npm:7.0.0, pngjs@npm:^7.0.0":
   version: 7.0.0
   resolution: "pngjs@npm:7.0.0"
   checksum: 10c0/0d4c7a0fd476a9c33df7d0a2a73e1d56537628a668841f6995c2bca070cf30819f9254a64363266bc14ef2fee47659dd3b4f2b18eec7ab65143015139f497b38
-  languageName: node
-  linkType: hard
-
-"pngjs@npm:^6.0.0":
-  version: 6.0.0
-  resolution: "pngjs@npm:6.0.0"
-  checksum: 10c0/ac23ea329b1881d1a10575aff58116dc27b894ec3f5b84ba15c7f527d21e609fbce7ba16d48f8ccb86c7ce45ceed622472765476ab2875949d4bec55e153f87a
   languageName: node
   linkType: hard
 

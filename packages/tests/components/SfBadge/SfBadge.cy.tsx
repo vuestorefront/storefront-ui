@@ -65,20 +65,18 @@ describe('SfBadge', () => {
   });
 
   describe('when prop max is set to', () => {
-    const maxValue = Math.floor(Math.random() * (99 - 20) + 22);
-    it(`should render content within ${maxValue}`, () => {
-      initializeComponent({ max: maxValue, content: 10 });
+    it('should render content when it is within max', () => {
+      initializeComponent({ max: 50, content: 10 });
 
       page().hasContent(10).makeSnapshot();
     });
   });
 
   describe('when prop content is bigger than max value', () => {
-    const maxValue = Math.floor(Math.random() * 20);
-    it(`should render max value: ${maxValue}`, () => {
-      initializeComponent({ max: maxValue, content: 40 });
+    it('should render max value', () => {
+      initializeComponent({ max: 20, content: 40 });
 
-      page().hasContent(maxValue).makeSnapshot();
+      page().hasContent(20).makeSnapshot();
     });
   });
 
