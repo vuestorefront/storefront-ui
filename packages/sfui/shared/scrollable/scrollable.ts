@@ -159,8 +159,8 @@ export default class Scrollable {
       if (scrollByOneWidth) {
         // if user just touched not dragged at least 10px - do nothing
         if (Math.abs(this.dragDistance) < 10) return;
-        container.scrollLeft =
-          this.dragScrollLeft -
+        container.scrollTop =
+          this.dragScrollTop -
           (this.dragDistance < 0 ? container.clientHeight - buffor : -container.clientHeight + buffor);
       } else {
         container.scrollTop = this.dragScrollTop - scrolling;
