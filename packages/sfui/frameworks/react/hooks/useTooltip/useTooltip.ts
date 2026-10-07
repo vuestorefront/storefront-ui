@@ -24,6 +24,7 @@ export function useTooltip(options?: UseTooltipOptions) {
     refs,
     style: floatingStyle,
     middlewareData,
+    placement: floatingPlacement,
   } = usePopover({
     isOpen,
     placement,
@@ -34,7 +35,7 @@ export function useTooltip(options?: UseTooltipOptions) {
   function arrowStyle() {
     if (middlewareData.arrow) {
       const { x: arrowX, y: arrowY } = middlewareData.arrow;
-      const basePlacement = placement.split('-')[0] as SfPopoverBasePlacement<typeof placement>;
+      const basePlacement = floatingPlacement.split('-')[0] as SfPopoverBasePlacement<typeof floatingPlacement>;
       return {
         position: 'absolute',
         width: arrowSize,

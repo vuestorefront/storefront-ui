@@ -91,6 +91,15 @@ describe('SfTooltip', () => {
     });
   });
 
+  describe('When showArrow=true and there is no room above the trigger', () => {
+    it('Should flip the tooltip below and keep the arrow pointing at the trigger', () => {
+      const props = { showArrow: true };
+      initializeComponent(props);
+
+      page().mouseOver().isTooltipVisible().isTooltipBelowTrigger().hasArrowOnTopEdge();
+    });
+  });
+
   describe('When no label', () => {
     it('Should not show the tooltip', () => {
       const props = { label: '' };
