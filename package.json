@@ -94,7 +94,7 @@
     "@storefront-ui/vue": "workspace:*",
     "@storefront-ui/typography": "workspace:*",
     "@changesets/assemble-release-plan@^6.0.4": "patch:@changesets/assemble-release-plan@npm%3A6.0.4#./.yarn/patches/@changesets-assemble-release-plan-npm-6.0.4-999d754646.patch",
-    "sharp": "0.33.0",
+    "sharp": "0.35.4",
     "simple-git": "^3.36.0",
     "@typescript-eslint/eslint-plugin": "^8.59.3",
     "@typescript-eslint/parser": "^8.59.3",
