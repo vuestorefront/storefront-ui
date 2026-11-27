@@ -3,10 +3,8 @@
   "extends": ["github>vuestorefront/.github:renovate-config"],
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "eslint-config-next"
-      ],
-      "enabled": false
+      "enabled": false,
+      "matchPackageNames": ["/eslint-config-next/"]
     },
     {
       "matchPackageNames": ["yarn"],
