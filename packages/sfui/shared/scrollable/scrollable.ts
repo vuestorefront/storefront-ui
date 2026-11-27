@@ -197,6 +197,7 @@ export default class Scrollable {
     event.preventDefault();
     const { container, options } = this;
     this.isDragged = true;
+    this.dragDistance = 0;
     this.pointerDownOffsetLeft = event.offsetX;
     this.pointerDownOffsetTop = event.offsetY;
 
